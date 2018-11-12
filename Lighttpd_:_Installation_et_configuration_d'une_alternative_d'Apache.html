@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Lighttpd : Installation et configuration d'une alternative d'Apache - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache","wgTitle":"Lighttpd : Installation et configuration d'une alternative d'Apache","wgCurRevisionId":9663,"wgRevisionId":9663,"wgArticleId":2274,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache","wgRelevantArticleId":2274,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-perl {line-height: normal;}
+.source-perl li, .source-perl pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for perl
+ * CSS class: source-perl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.perl.source-perl .de1, .perl.source-perl .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.perl.source-perl  {font-family:monospace;}
+.perl.source-perl .imp {font-weight: bold; color: red;}
+.perl.source-perl li, .perl.source-perl .li1 {font-weight: normal; vertical-align:top;}
+.perl.source-perl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.perl.source-perl .li2 {font-weight: bold; vertical-align:top;}
+.perl.source-perl .kw1 {color: #b1b100;}
+.perl.source-perl .kw2 {color: #000000; font-weight: bold;}
+.perl.source-perl .kw3 {color: #000066;}
+.perl.source-perl .co1 {color: #666666; font-style: italic;}
+.perl.source-perl .co2 {color: #009966; font-style: italic;}
+.perl.source-perl .co3 {color: #0000ff;}
+.perl.source-perl .co4 {color: #cc0000; font-style: italic;}
+.perl.source-perl .co5 {color: #0000ff;}
+.perl.source-perl .coMULTI {color: #666666; font-style: italic;}
+.perl.source-perl .es0 {color: #000099; font-weight: bold;}
+.perl.source-perl .es_h {color: #000099; font-weight: bold;}
+.perl.source-perl .br0 {color: #009900;}
+.perl.source-perl .sy0 {color: #339933;}
+.perl.source-perl .st0 {color: #ff0000;}
+.perl.source-perl .st_h {color: #ff0000;}
+.perl.source-perl .nu0 {color: #cc66cc;}
+.perl.source-perl .me1 {color: #006600;}
+.perl.source-perl .me2 {color: #006600;}
+.perl.source-perl .re0 {color: #0000ff;}
+.perl.source-perl .re4 {color: #009999;}
+.perl.source-perl .ln-xtra, .perl.source-perl li.ln-xtra, .perl.source-perl div.ln-xtra {background-color: #ffc;}
+.perl.source-perl span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-html4strict {line-height: normal;}
+.source-html4strict li, .source-html4strict pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for html4strict
+ * CSS class: source-html4strict, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.html4strict.source-html4strict .de1, .html4strict.source-html4strict .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.html4strict.source-html4strict  {font-family:monospace;}
+.html4strict.source-html4strict .imp {font-weight: bold; color: red;}
+.html4strict.source-html4strict li, .html4strict.source-html4strict .li1 {font-weight: normal; vertical-align:top;}
+.html4strict.source-html4strict .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.html4strict.source-html4strict .li2 {font-weight: bold; vertical-align:top;}
+.html4strict.source-html4strict .kw2 {color: #000000; font-weight: bold;}
+.html4strict.source-html4strict .kw3 {color: #000066;}
+.html4strict.source-html4strict .es0 {color: #000099; font-weight: bold;}
+.html4strict.source-html4strict .br0 {color: #66cc66;}
+.html4strict.source-html4strict .sy0 {color: #66cc66;}
+.html4strict.source-html4strict .st0 {color: #ff0000;}
+.html4strict.source-html4strict .nu0 {color: #cc66cc;}
+.html4strict.source-html4strict .sc-2 {color: #404040;}
+.html4strict.source-html4strict .sc-1 {color: #808080; font-style: italic;}
+.html4strict.source-html4strict .sc0 {color: #00bbdd;}
+.html4strict.source-html4strict .sc1 {color: #ddbb00;}
+.html4strict.source-html4strict .sc2 {color: #009900;}
+.html4strict.source-html4strict .ln-xtra, .html4strict.source-html4strict li.ln-xtra, .html4strict.source-html4strict div.ln-xtra {background-color: #ffc;}
+.html4strict.source-html4strict span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Lighttpd_Installation_et_configuration_d_une_alternative_d_Apache skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Lighttpd : Installation et configuration d'une alternative d'Apache</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#mw-navigation">navigation</a>, 					<a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Installation_du_module_PHP"><span class="tocnumber">2.1</span> <span class="toctext">Installation du module PHP</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Forcer_des_redirections_SSL"><span class="tocnumber">3.1</span> <span class="toctext">Forcer des redirections SSL</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Diff.C3.A9rentier_des_logs"><span class="tocnumber">3.2</span> <span class="toctext">Différentier des logs</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Interdire_l.27acc.C3.A8s_.C3.A0_son_site_via_Internet_Explorer"><span class="tocnumber">3.3</span> <span class="toctext">Interdire l'accès à son site via Internet Explorer</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Restriction_d.27acc.C3.A8s_par_login_et_mot_de_passe"><span class="tocnumber">3.4</span> <span class="toctext">Restriction d'accès par login et mot de passe</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Ajouter_de_la_compression"><span class="tocnumber">3.5</span> <span class="toctext">Ajouter de la compression</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#FAQ"><span class="tocnumber">4</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Symbol_.60FamErrlist.27_has_different_size_in_shared_object.2C_consider_re-linking"><span class="tocnumber">4.1</span> <span class="toctext">Symbol `FamErrlist' has different size in shared object, consider re-linking</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#sockets_disabled.2C_connection_limit_reached"><span class="tocnumber">4.2</span> <span class="toctext">sockets disabled, connection limit reached</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#backend_is_overloaded.3B_we.27ll_disable_it_for_1_seconds_and_send_the_request_to_another_backend_instead:_reconnects"><span class="tocnumber">4.3</span> <span class="toctext">backend is overloaded; we'll disable it for 1 seconds and send the request to another backend instead: reconnects</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#Ressources"><span class="tocnumber">5</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>LigHTTPd (ou "lighty") est un serveur HTTP sécurisé, rapide et flexible.
+</p><p>Sa rapidité vient du fait qu'il a une plus petite empreinte mémoire que d'autres serveurs HTTP ainsi qu'une gestion intelligente de la charge CPU.
+</p><p>Beaucoup de langages, comme PHP, Perl, Ruby, Python sont supportés via FastCGI.
+</p><p>Le principal désavantage de LigHTTPd est qu'il n'a qu'un seul fichier de configuration et qu'il ne supporte pas les fichiers .htaccess (mais une alternative)&#160;: les directives doivent être dans le fichier de configuration. Ceci est aussi un avantage, car le serveur et l'administrateur n'a qu'un seul fichier à gérer.
+</p><p>En avril 2007, LigHTTPd est entré dans le Top 5 des serveurs Web les plus utilisés.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Pour l'installer, c'est simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install lighttpd
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Installation_du_module_PHP"><span class="mw-headline-number">2.1</span> Installation du module PHP</span></h2>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install php5-cgi php5
+</pre>
+</td></tr></table><br />
+<p>Pour l'activer faites&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lighty-enable-mod</font>
+</td></tr>
+<tr>
+<td>
+<pre>lighty-enable-mod fastcgi
+</pre>
+</td></tr></table><br />
+<p>A la fin du fichier de conf, on va ajouter ces quelques lignes également&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="sy0">...</span>
+fastcgi<span class="sy0">.</span>server <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;.php&quot;</span> <span class="sy0">=&gt;</span> <span class="br0">&#40;</span><span class="br0">&#40;</span>
+                     <span class="st0">&quot;bin-path&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/bin/php5-cgi&quot;</span><span class="sy0">,</span>
+                     <span class="st0">&quot;socket&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/tmp/php.socket&quot;</span>
+                 <span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis reloader Lighttpd&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/lighttpd force-reload
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Forcer_des_redirections_SSL"><span class="mw-headline-number">3.1</span> Forcer des redirections SSL</span></h2>
+<p>Il peut s'avérer pratique de vouloir rediriger une partie de son traffic en SSL. C'est mon cas pour mediawiki qui ne prends pas en compte le SSL lors de l'authentification (ou je ne sais pas comment faire, mais c'est pas grave, l'idée ici est d'avoir un petit exercice)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/conf-available/50-mediawiki.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="co1"># Mediawiki secure auth</span>
+<span class="re0">$SERVER</span><span class="br0">&#91;</span><span class="st0">&quot;socket&quot;</span><span class="br0">&#93;</span> <span class="sy0">==</span> <span class="st0">&quot;:80&quot;</span> <span class="br0">&#123;</span>
+    <span class="re0">$HTTP</span><span class="br0">&#91;</span><span class="st0">&quot;host&quot;</span><span class="br0">&#93;</span> <span class="sy0">=~</span> <span class="st0">&quot;(.*)&quot;</span> <span class="br0">&#123;</span>
+        url<span class="sy0">.</span>redirect <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;^/(.*Connexion<span class="es0">\&amp;</span>returnto.*)&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;https://%1/$1&quot;</span> <span class="br0">&#41;</span>
+    <span class="br0">&#125;</span>   
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>Ici, je viens donc lui dire&#160;:
+</p>
+<ul><li> Tout ce qui rentre sur le port 80</li>
+<li> De n'importe quel hôte</li>
+<li> Si il arrive sur une page contenant 'Connexion&amp;returnto'</li>
+<li> Alors il est redirigé en https sur le même endroit que le précédent</li></ul>
+<h2><span class="mw-headline" id="Diff.C3.A9rentier_des_logs"><span class="mw-headline-number">3.2</span> Différentier des logs</span></h2>
+<p>Je souhaites par exemple différencier les logs de mon blog ainsi que le reste de mon domaine et de mon wiki pour pouvoir les traiter correctement avec awstats par exemple. Voici la marche à suivre&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="sy0">...</span>
+<span class="co1"># Deimos Domain</span>
+<span class="re0">$HTTP</span><span class="br0">&#91;</span><span class="st0">&quot;host&quot;</span><span class="br0">&#93;</span> <span class="sy0">=~</span> <span class="st0">&quot;deimos<span class="es0">\.</span>fr&quot;</span> <span class="br0">&#123;</span>
+    server<span class="sy0">.</span>document<span class="sy0">-</span>root <span class="sy0">=</span> <span class="st0">&quot;/var/www/deimos.fr&quot;</span>
+    <span class="co1"># Default logs</span>
+    accesslog<span class="sy0">.</span>filename <span class="sy0">=</span> <span class="st0">&quot;/var/log/lighttpd/access-blog_and_co.log&quot;</span>
+    <span class="co1"># Wiki logs</span>
+    <span class="re0">$HTTP</span><span class="br0">&#91;</span><span class="st0">&quot;url&quot;</span><span class="br0">&#93;</span> <span class="sy0">=~</span> <span class="st0">&quot;^/blocnotesinfo/&quot;</span> <span class="br0">&#123;</span>
+        accesslog<span class="sy0">.</span>filename <span class="sy0">=</span> <span class="st0">&quot;/var/log/lighttpd/access-deimos-wiki.log&quot;</span>
+    <span class="br0">&#125;</span>   
+<span class="br0">&#125;</span>
+<span class="sy0">...</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Interdire_l.27acc.C3.A8s_.C3.A0_son_site_via_Internet_Explorer"><span class="mw-headline-number">3.3</span> Interdire l'accès à son site via Internet Explorer</span></h2>
+<p>Il est possible d'interdire l'accès à tout un tas de navigateur. Si comme moi, vous n'êtes pas copain copain avec IE qui vous flingue vos PNG en version 6, qui ne respecte pas les normes, qui flingue les CSS, etc... il peut être pratique de le bloquer et d'indiquer gentillement à l'internaute en question d'aller télécharger au plus vite Firefox.
+</p><p>Je l'avais fait sous <a href="Installation_et_configuration_d'Apache_2.html#Interdire_l.27acc.C3.A8s_.C3.A0_son_site_via_Internet_Explorer" title="Installation et configuration d'Apache 2">Apache</a> et là je ne pouvais pas passer à côté de ça pour Lighttpd alors voilà la solution&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="re0">$HTTP</span><span class="br0">&#91;</span><span class="st0">&quot;useragent&quot;</span><span class="br0">&#93;</span> <span class="sy0">=~</span> <span class="st0">&quot;.*(MSIE|Opera).*&quot;</span> <span class="br0">&#123;</span>
+    <span class="re0">$HTTP</span><span class="br0">&#91;</span><span class="st0">&quot;url&quot;</span><span class="br0">&#93;</span> <span class="sy0">!~</span> <span class="st0">&quot;^/ie.html&quot;</span> <span class="br0">&#123;</span>
+        url<span class="sy0">.</span>redirect <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/ie.html&quot;</span> <span class="br0">&#41;</span>
+    <span class="br0">&#125;</span>   
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>Il ne reste plus qu'a créer le fichier ie.html et mettre son jolie texte dedans (vous pouvez également faire un simple fichier texte). Voici ce que j'utilise (/var/www/ie.html)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ie.html</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="html4strict source-html4strict"><pre class="de1"><span class="sc0">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</span>
+<span class="sc2">&lt;<span class="kw2">html</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">head</span>&gt;</span>
+        <span class="sc2">&lt;<span class="kw2">meta</span> <span class="kw3">http-equiv</span><span class="sy0">=</span><span class="st0">&quot;Content-Type&quot;</span> <span class="kw3">content</span><span class="sy0">=</span><span class="st0">&quot;text/html; charset=utf-8&quot;</span>&gt;</span>
+        <span class="sc2">&lt;<span class="kw2">title</span>&gt;</span>Accès Interdit avec Internet Explorer<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">title</span>&gt;</span>
+<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">head</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">body</span>&gt;</span>
+&#160;
+Cher Internaute,<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Ce site n'est pas autorisé en accès par Internet Explorer que tu utilises.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Tu dois maintenant être en mesure de comprendre que les temps changent.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Tu es actuellement en train d'utiliser un navigateur (Internet Explorer) qui ne respecte<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+pas les <span class="sc2">&lt;<span class="kw2">a</span> <span class="kw3">href</span><span class="sy0">=</span><span class="st0">&quot;http://www.w3.org&quot;</span>&gt;</span>normes<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">a</span>&gt;</span> et qui détient le monopole, de part son omni présence obligatoire dans ton<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+cher OS (Windows). Cela dit, tu es peut être au travail et n'a pas le choix de ton OS.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Cependant, Internet Explorer ne doit plus être utilisé alors qu'il existe tout un tas<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+d'autres navigateurs Internet libres, gratuit et respectant les normes&#160;!<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Mais puisque tu n'as pas l'air d'être au courant, ce n'est pas grave, laisse moi t'aider.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Pour commencer, tu peux télécharger un navigateur propre tel que <span class="sc2">&lt;<span class="kw2">a</span> <span class="kw3">href</span><span class="sy0">=</span><span class="st0">&quot;http://www.mozilla.org&quot;</span>&gt;</span>Firefox<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">a</span>&gt;</span>.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Ceci t'aiderais déjà à rentrer dans le droit chemin et te permettra en plus d'accéder à<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+mon site.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Toujours dans ta nouvelle quête du côté clair de la force, il faudrait que tu passes sur<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+un OS libre et gratuit (<span class="sc2">&lt;<span class="kw2">a</span> <span class="kw3">href</span><span class="sy0">=</span><span class="st0">&quot;http://www.ubuntu.com&quot;</span>&gt;</span>Ubuntu<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">a</span>&gt;</span> par exemple) qui t'épanouira j'en suis sûr.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Je t'invites donc à te prendre en main le plus rapidement possible.<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Cordialement,<span class="sc2">&lt;<span class="kw2">br</span>&gt;</span>
+Pierre (alias Deimos)
+<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">body</span>&gt;</span>
+<span class="sc2">&lt;<span class="sy0">/</span><span class="kw2">html</span>&gt;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Restriction_d.27acc.C3.A8s_par_login_et_mot_de_passe"><span class="mw-headline-number">3.4</span> Restriction d'accès par login et mot de passe</span></h2>
+<p>Les htaccess n'existent pas sous Lighttpd, mais il y a un équivalent de taille. Vérifiez avant de commencer que le module mod_auth est bien chargé.<br />
+Nous allons dans un premier temps générer (avec -c pour la première fois, comme un htaccess) un fichier contenant les identifiants pour être autoriser à consulter tel ou tel site&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htdigest</font>
+</td></tr>
+<tr>
+<td>
+<pre>htdigest -c /etc/lighttpd/.passwd 'Authorized users only' deimos
+</pre>
+</td></tr></table><br />
+<p>Je créer ici l'utilisateur deimos. Le realm (ici 'Authorized users only') va nous permettre de différencier les différents fichiers de login/mot de passe que nous allons pouvoir avoir car nous ne pouvons en spécifier qu'un seul pour tout le serveur.
+</p><p>Ensuite on rajoute ces lignes dans la configuration global de lighttpd&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1">auth<span class="sy0">.</span>backend <span class="sy0">=</span> <span class="st0">&quot;htdigest&quot;</span>
+auth<span class="sy0">.</span>backend<span class="sy0">.</span>htdigest<span class="sy0">.</span>userfile <span class="sy0">=</span> <span class="st0">&quot;/etc/lighttpd/.passwd&quot;</span>
+auth<span class="sy0">.</span>debug <span class="sy0">=</span> <span class="nu0">2</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis je rajoute à l'endroit qui m'intéresse la protection&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1">auth<span class="sy0">.</span><span class="kw3">require</span> <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;/docs/&quot;</span> <span class="sy0">=&gt;</span>
+   <span class="br0">&#40;</span>
+      <span class="st0">&quot;method&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;digest&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;realm&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;Authorized users only&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;require&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;valid-user&quot;</span>
+   <span class="br0">&#41;</span>
+<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>On redémarre lighty et c'est bon.
+</p>
+<h2><span class="mw-headline" id="Ajouter_de_la_compression"><span class="mw-headline-number">3.5</span> Ajouter de la compression</span></h2>
+<p>Pour accélérer l'affichage de votre site web, il est recommandé d'activer la compression. Par défaut, il n'y a pas suffisamment d'éléments qui sont compressés, il va donc falloir en définir plus dans la configuration standard.
+<i>Note&#160;: L'activation de la compression va charger un peu plus en CPU/RAM votre serveur.</i>
+</p><p>Éditez la configuration de votre lighty pour y configurer le module compress&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1">server<span class="sy0">.</span>modules <span class="sy0">=</span> <span class="br0">&#40;</span> 
+            <span class="st0">&quot;mod_alias&quot;</span><span class="sy0">,</span>
+            <span class="st0">&quot;mod_compress&quot;</span><span class="sy0">,</span>
+            <span class="st0">&quot;mod_rewrite&quot;</span><span class="sy0">,</span>
+            <span class="st0">&quot;mod_redirect&quot;</span><span class="sy0">,</span>
+            <span class="st0">&quot;mod_cgi&quot;</span><span class="sy0">,</span>
+<span class="co1">#           &quot;mod_usertrack&quot;,</span>
+<span class="co1">#           &quot;mod_expire&quot;,</span>
+<span class="co1">#           &quot;mod_flv_streaming&quot;,</span>
+<span class="co1">#           &quot;mod_evasive&quot;</span>
+<span class="br0">&#41;</span>
+<span class="sy0">...</span>
+<span class="co1">#### compress module</span>
+compress<span class="sy0">.</span>cache<span class="sy0">-</span>dir          <span class="sy0">=</span> <span class="st0">&quot;/var/cache/lighttpd/compress/&quot;</span>
+<span class="co1">#compress.filetype           = (&quot;text/plain&quot;, &quot;text/html&quot;, &quot;application/x-javascript&quot;, &quot;text/css&quot;)</span>
+compress<span class="sy0">.</span>filetype           <span class="sy0">=</span> <span class="br0">&#40;</span><span class="st0">&quot;application/x-javascript&quot;</span><span class="sy0">,</span> <span class="st0">&quot;application/javascript&quot;</span><span class="sy0">,</span> <span class="st0">&quot;text/javascript&quot;</span><span class="sy0">,</span> <span class="st0">&quot;text/x-js&quot;</span><span class="sy0">,</span> <span class="st0">&quot;text/css&quot;</span><span class="sy0">,</span> <span class="st0">&quot;text/html&quot;</span><span class="sy0">,</span> <span class="st0">&quot;text/plain&quot;</span><span class="br0">&#41;</span>
+<span class="sy0">...</span></pre></div></div>
+</td></tr></table><br />
+<p>La compression PHP5 va nous faire gagner de précieuses secondes sur l'affichage d'une page. Pour l'activer, éditez le fichier suivant et passez le paramètre en "on"&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/php5/cli/php.ini</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">; Transparent output compression using the zlib library
+; Valid values for this option are <span class="st0">'off'</span>, <span class="st0">'on'</span>, or a specific buffer size
+; to be used for compression (default is 4KB)
+; Note: Resulting chunk size may vary due to nature of compression. PHP
+;   outputs chunks that are few hundreds bytes each as a result of
+;   compression. If you prefer a larger chunk size for better
+;   performance, enable output_buffering in addition.
+; Note: You need to use zlib.output_handler instead of the standard
+;   output_handler, or otherwise the output will be corrupted.
+; http://php.net/zlib.output-compression
+zlib.output_compression = <span class="kw2">on</span></pre></div></div>
+</td></tr></table><br />
+<p>Redémarrez ensuite votre serveur web pour que la configuration soit appliquée.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">4</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Symbol_.60FamErrlist.27_has_different_size_in_shared_object.2C_consider_re-linking"><span class="mw-headline-number">4.1</span> Symbol `FamErrlist' has different size in shared object, consider re-linking</span></h2>
+<p>Si vous avez ce genre d'erreur au reboot de Lighttpd&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Stopping web server: lighttpd.
+Starting web server: lighttpd/usr/sbin/lighttpd: Symbol `FamErrlist' has different size in shared object, consider re-linking
+2010-08-20 21:58:02: (network.c.345) can't bind to port:&#160;:: 80 Address already in use 
+ failed!</pre></div></div>
+<p>C'est du à un bug qui traine avec l'IPv6 sur Debian. Pour résoudrel e problème, il faut installer libfam0 qui entraine aussi ce genre de bugs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install libfam0
+</pre>
+</td></tr></table><br />
+<p>et dans la configuration de Lighttpd, configurer ces lignes comme ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#include_shell &quot;/usr/share/lighttpd/use-ipv6.pl&quot;
+server.socket = &quot;[::]:80&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Il ne vous reste plus qu'a redémarrer Lighttpd&#160;:-)
+</p>
+<h2><span class="mw-headline" id="sockets_disabled.2C_connection_limit_reached"><span class="mw-headline-number">4.2</span> sockets disabled, connection limit reached</span></h2>
+<p>Si votre serveur s’arrête brutalement et que vous obtenez ce type de message&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">2011-05-06 14:18:24: (server.c.1398) [note] sockets disabled, connection limit reached 
+2011-05-06 14:19:27: (server.c.1512) server stopped by UID = 0 PID = 19214</pre></div></div>
+<p>C'est tout simplement que vous avez dépasser le nombre maximum de file descriptor. Il suffit donc d'augmenter la valeur actuelle. Pour savoir laquelle est appliquée en ce moment (par défaut 1024), il suffit de lancer cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat </font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; cat /proc/`ps ax | grep lighttpd | grep -v grep | awk -F &quot; &quot; '{print $1}'`/limits |grep &quot;Max open files&quot;
+Max open files            1024                 1024                 files
+</pre>
+</td></tr></table><br />
+<p>Ici c'est donc limité à 1024. Pour augmenter cette valeur, éditez le fichier de conf lighty et augmentez la valeur&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>server.max-fds = 2048
+</pre>
+</td></tr></table><br />
+<p>Il ne reste plus qu'a relancer lighty.
+</p>
+<h2><span class="mw-headline" id="backend_is_overloaded.3B_we.27ll_disable_it_for_1_seconds_and_send_the_request_to_another_backend_instead:_reconnects"><span class="mw-headline-number">4.3</span> backend is overloaded; we'll disable it for 1 seconds and send the request to another backend instead: reconnects</span></h2>
+<p>Si vous avez ce genre de message avec une belle erreur 500&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">2011-05-09 09:06:07: (mod_fastcgi.c.2764) fcgi-server re-enabled:  0 /tmp/php.socket
+2011-05-09 09:06:07: (mod_fastcgi.c.2764) fcgi-server re-enabled:  0 /tmp/php.socket
+2011-05-09 09:06:07: (mod_fastcgi.c.2764) fcgi-server re-enabled:  0 /tmp/php.socket
+2011-05-09 09:06:07: (mod_fastcgi.c.2764) fcgi-server re-enabled:  0 /tmp/php.socket
+2011-05-09 09:06:10: (mod_fastcgi.c.3001) backend is overloaded; we'll disable it for 1 seconds and send the request to another backend instead: reconnects: 0 load: 521
+2011-05-09 09:06:10: (mod_fastcgi.c.3001) backend is overloaded; we'll disable it for 1 seconds and send the request to another backend instead: reconnects: 1 load: 521
+2011-05-09 09:06:10: (mod_fastcgi.c.3001) backend is overloaded; we'll disable it for 1 seconds and send the request to another backend instead: reconnects: 2 load: 521
+2011-05-09 09:06:10: (mod_fastcgi.c.3001) backend is overloaded; we'll disable it for 1 seconds and send the request to another backend instead: reconnects: 3 load: 521</pre></div></div>
+<p>C'est que les limites de votre fastcgi ont été dépassées. Pour régler le problème, voici la configuration à modifier&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">fastcgi.server = ( 
+    &quot;.php&quot; =&gt; ((
+        &quot;bin-path&quot; =&gt; &quot;/usr/bin/php5-cgi&quot;,
+        &quot;socket&quot; =&gt; &quot;/tmp/php.socket&quot;,
+        &quot;max-procs&quot; =&gt; 10,
+        &quot;bin-environment&quot; =&gt; (
+            &quot;PHP_FCGI_CHILDREN&quot; =&gt; &quot;10&quot;,
+             &quot;PHP_FCGI_MAX_REQUESTS&quot; =&gt; &quot;500&quot;
+        )   
+    )   
+))</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite adaptez les lignes ci dessus pour que celà prenne en compte le nombre maximum de client que vous souhaitez, ainsi que le nombre d'instances. Vous pouvez tester avec la commande "ab" votre nouvelle configuration.
+</p><p>Plus d'infos sur cette page&#160;: <a rel="nofollow" class="external free" href="http://redmine.lighttpd.net/wiki/1/Docs:PerformanceFastCGI">http://redmine.lighttpd.net/wiki/1/Docs:PerformanceFastCGI</a>
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">5</span> Ressources</span></h1>
+<p><a href="./File:Installing_Lighttpd_With_PHP5_And_MySQL_Support.pdf.html" title="File:Installing Lighttpd With PHP5 And MySQL Support.pdf">Documentation on installing Lighttpd With PHP5 And MySQL Support</a><br />
+<a href="./File:Reduce_Apache's_Load_With_lighttpd.pdf.html" title="File:Reduce Apache's Load With lighttpd.pdf">Documentation on reducing Apache's load with lighttpd</a><br />
+<a href="./File:Lighttpd-web-server.pdf.html" title="File:Lighttpd-web-server.pdf">Optimiser la charge de son serveur Lighttpd</a><br />
+<a rel="nofollow" class="external free" href="http://redmine.lighttpd.net/wiki/lighttpd/Docs">http://redmine.lighttpd.net/wiki/lighttpd/Docs</a><br />
+<a rel="nofollow" class="external free" href="http://redmine.lighttpd.net/wiki/lighttpd/Docs:ConfigurationOptions">http://redmine.lighttpd.net/wiki/lighttpd/Docs:ConfigurationOptions</a><br />
+<a href="images/5/5d/Installing_Lighttpd_With_PHP5_And_MySQL_Support_On_Debian_Lenny.pdf" class="internal" title="Installing Lighttpd With PHP5 And MySQL Support On Debian Lenny.pdf">Installing Lighttpd With PHP5 And MySQL Support On Debian Lenny</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.072 seconds
+Real time usage: 0.072 seconds
+Preprocessor visited node count: 358/1000000
+Preprocessor generated node count: 950/1000000
+Post‐expand include size: 6861/2097152 bytes
+Template argument size: 1347/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   33.910      1 - -total
+ 73.88%   25.053     12 - Template:Config
+ 16.22%    5.499      1 - Template:Lighttpd_htdigest
+ 13.23%    4.488      1 - Template:Php5_compression
+ 12.71%    4.309      1 - Template:Ie.html
+  5.75%    1.950      7 - Template:Command
+  1.91%    0.646      1 - Template:Deny_ie_srvweb
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2274-0!*!0!1!en!5!* and timestamp 20181111230821 and revision id 9663
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache&amp;oldid=9663">https://wiki.deimos.fr/index.php?title=Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache&amp;oldid=9663</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Lighttpd+%3A+Installation+et+configuration+d%27une+alternative+d%27Apache" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache&amp;oldid=9663" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Lighttpd_:_Installation_et_configuration_d%27une_alternative_d%27Apache&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 10 May 2011, at 11:05.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":109});
+}</script>
+	</body>
+</html>
+	

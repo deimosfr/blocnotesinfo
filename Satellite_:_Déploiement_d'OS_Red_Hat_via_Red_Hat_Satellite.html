@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Satellite : Déploiement d'OS Red Hat via Red Hat Satellite - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite","wgTitle":"Satellite : Déploiement d'OS Red Hat via Red Hat Satellite","wgCurRevisionId":11065,"wgRevisionId":11065,"wgArticleId":3277,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite","wgRelevantArticleId":3277,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-python {line-height: normal;}
+.source-python li, .source-python pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for python
+ * CSS class: source-python, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.python.source-python .de1, .python.source-python .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.python.source-python  {font-family:monospace;}
+.python.source-python .imp {font-weight: bold; color: red;}
+.python.source-python li, .python.source-python .li1 {font-weight: normal; vertical-align:top;}
+.python.source-python .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.python.source-python .li2 {font-weight: bold; vertical-align:top;}
+.python.source-python .kw1 {color: #ff7700;font-weight:bold;}
+.python.source-python .kw2 {color: #008000;}
+.python.source-python .kw3 {color: #dc143c;}
+.python.source-python .kw4 {color: #0000cd;}
+.python.source-python .co1 {color: #808080; font-style: italic;}
+.python.source-python .coMULTI {color: #808080; font-style: italic;}
+.python.source-python .es0 {color: #000099; font-weight: bold;}
+.python.source-python .br0 {color: black;}
+.python.source-python .sy0 {color: #66cc66;}
+.python.source-python .st0 {color: #483d8b;}
+.python.source-python .nu0 {color: #ff4500;}
+.python.source-python .me1 {color: black;}
+.python.source-python .ln-xtra, .python.source-python li.ln-xtra, .python.source-python div.ln-xtra {background-color: #ffc;}
+.python.source-python span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Satellite_Déploiement_d_OS_Red_Hat_via_Red_Hat_Satellite skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Satellite : Déploiement d'OS Red Hat via Red Hat Satellite</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#mw-navigation">navigation</a>, 					<a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Pr.C3.A9requis"><span class="tocnumber">2</span> <span class="toctext">Prérequis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Packages"><span class="tocnumber">2.1</span> <span class="toctext">Packages</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Hostname"><span class="tocnumber">2.2</span> <span class="toctext">Hostname</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#D.C3.A9sactiver_SELinux"><span class="tocnumber">2.3</span> <span class="toctext">Désactiver SELinux</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Sysctl"><span class="tocnumber">2.4</span> <span class="toctext">Sysctl</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#DNS"><span class="tocnumber">2.5</span> <span class="toctext">DNS</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Satellite_Master"><span class="tocnumber">3.1</span> <span class="toctext">Satellite Master</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#DHCP"><span class="tocnumber">3.2</span> <span class="toctext">DHCP</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Installation_DHCP"><span class="tocnumber">3.2.1</span> <span class="toctext">Installation DHCP</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Configuration_DHCP"><span class="tocnumber">3.2.2</span> <span class="toctext">Configuration DHCP</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Configuration_du_proxy_sur_Satellite_.28Uniquement_pour_installation_en_mode_d.C3.A9connect.C3.A9.29"><span class="tocnumber">4.1</span> <span class="toctext">Configuration du proxy sur Satellite (Uniquement pour installation en mode déconnecté)</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Syncrhonisation.2FAjout_d.27un_repository_en_local"><span class="tocnumber">4.2</span> <span class="toctext">Syncrhonisation/Ajout d'un repository en local</span></a>
+<ul>
+<li class="toclevel-3 tocsection-16"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#M.C3.A9thode_1"><span class="tocnumber">4.2.1</span> <span class="toctext">Méthode 1</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#M.C3.A9thode_2"><span class="tocnumber">4.2.2</span> <span class="toctext">Méthode 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-18"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Supression_d.27un_repository"><span class="tocnumber">4.3</span> <span class="toctext">Supression d'un repository</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Int.C3.A9gration_du_Satellite_dans_un_environnement_LDAP"><span class="tocnumber">4.4</span> <span class="toctext">Intégration du Satellite dans un environnement LDAP</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Installation_des_packages"><span class="tocnumber">4.4.1</span> <span class="toctext">Installation des packages</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Configuration_du_LDAP_avec_PAM"><span class="tocnumber">4.4.2</span> <span class="toctext">Configuration du LDAP avec PAM</span></a></li>
+<li class="toclevel-3 tocsection-22"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Configuration_du_LDAP_sur_le_Satellite"><span class="tocnumber">4.4.3</span> <span class="toctext">Configuration du LDAP sur le Satellite</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Utilisation"><span class="tocnumber">5</span> <span class="toctext">Utilisation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-24"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Cr.C3.A9ation_du_compte_admin"><span class="tocnumber">5.1</span> <span class="toctext">Création du compte admin</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Configurer_la_timezone"><span class="tocnumber">5.2</span> <span class="toctext">Configurer la timezone</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Ajouter_un_repository_personnalis.C3.A9"><span class="tocnumber">5.3</span> <span class="toctext">Ajouter un repository personnalisé</span></a>
+<ul>
+<li class="toclevel-3 tocsection-27"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Pr.C3.A9requis_.28GPG.29"><span class="tocnumber">5.3.1</span> <span class="toctext">Prérequis (GPG)</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Ajouter_des_packages"><span class="tocnumber">5.3.2</span> <span class="toctext">Ajouter des packages</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Automatiser_et_simplifier_la_signature_et_l.27ajout_de_packages"><span class="tocnumber">5.3.3</span> <span class="toctext">Automatiser et simplifier la signature et l'ajout de packages</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-30"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Client"><span class="tocnumber">5.4</span> <span class="toctext">Client</span></a>
+<ul>
+<li class="toclevel-3 tocsection-31"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Enregistrement"><span class="tocnumber">5.4.1</span> <span class="toctext">Enregistrement</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Mise_.C3.A0_jour_du_profil"><span class="tocnumber">5.4.2</span> <span class="toctext">Mise à jour du profil</span></a></li>
+<li class="toclevel-3 tocsection-33"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#R.C3.A9enregistrer_une_machine"><span class="tocnumber">5.4.3</span> <span class="toctext">Réenregistrer une machine</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-34"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Crontab_pour_les_mises_.C3.A0_jour"><span class="tocnumber">5.5</span> <span class="toctext">Crontab pour les mises à jour</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-35"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-36"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Relancer_l.27installation"><span class="tocnumber">6.1</span> <span class="toctext">Relancer l'installation</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Les_logs"><span class="tocnumber">6.2</span> <span class="toctext">Les logs</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#.22Error_validating_satellite_certificate.22_error_during_RHN_Satellite_install"><span class="tocnumber">6.3</span> <span class="toctext">"Error validating satellite certificate" error during RHN Satellite install</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Tomcat_failed_to_start_properly_or_the_installer_ran_out_of_tries._Please_check_.2Fvar.2Flog.2Ftomcat.2A.2Fcatalina.out_for_errors"><span class="tocnumber">6.4</span> <span class="toctext">Tomcat failed to start properly or the installer ran out of tries.  Please check /var/log/tomcat*/catalina.out for errors</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#ERROR:_Server_not_registered.3F_No_systemid:_.2Fetc.2Fsysconfig.2Frhn.2Fsystemid"><span class="tocnumber">6.5</span> <span class="toctext">ERROR: Server not registered? No systemid: /etc/sysconfig/rhn/systemid</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#unable_to_extend_index_RHNSAT.RHN_ERRATAFILE_EID_FILE_IDX_by_128_in_tablespace_DATA_TBS"><span class="tocnumber">6.6</span> <span class="toctext">unable to extend index RHNSAT.RHN_ERRATAFILE_EID_FILE_IDX by 128 in tablespace DATA_TBS</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#could_not_find_kernel_image:_menu"><span class="tocnumber">6.7</span> <span class="toctext">could not find kernel image: menu</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#warning:_rpmts_HdrFromFdno:_Header_V4_RSA.2FSHA1_Signature.2C_key_ID"><span class="tocnumber">6.8</span> <span class="toctext">warning: rpmts_HdrFromFdno: Header V4 RSA/SHA1 Signature, key ID</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#error_was_.5BErrno_-1.5D_Package_does_not_match_intended_download"><span class="tocnumber">6.9</span> <span class="toctext">error was [Errno -1] Package does not match intended download</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-45"><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Spacewalk-logo.png.html" class="image" title="Red Hat Satellite"><img alt="Red Hat Satellite" src="images/1/11/Spacewalk-logo.png" width="293" height="104" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>5.4.1</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>RHEL 6.2</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://www.redhat.com/products/enterprise-linux/rhn-satellite/">Red Hat Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>22/06/2012</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Un serveur <a rel="nofollow" class="external text" href="http://www.fr.redhat.com/red_hat_network/">Red Hat Satellite</a> est une solution qui va permettre de déployer automatiquement des OS Red Hat via PXE/DHCP. Ensuite vous allez pouvoir gérer différents profils d'installation, gérer les mises à jours et faire tout un tas d'administration de façon simplifiée.
+</p><p>Si vous n'avez pas les sous ou tout simplement souhaitez faire un lab, vous pouvez utiliser son équivalent gratuit&#160;: <a rel="nofollow" class="external text" href="http://spacewalk.redhat.com/">Spacewalk</a> (d'ou le logo).
+</p><p><a href="./File:Satellite_schema.gif.html" class="image"><img alt="Satellite schema.gif" src="images/8/87/Satellite_schema.gif" width="300" height="192" /></a>
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2</span> Prérequis</span></h1>
+<p>Ayez un <a href="Ajouter_le_DVD_Red_Hat_comme_repository.html" title="Ajouter le DVD Red Hat comme repository">repository locale</a> ou un accès direct au RHN (c'est l'idéale, car de toutes façons, il vous en faudra un).
+</p>
+<h2><span class="mw-headline" id="Packages"><span class="mw-headline-number">2.1</span> Packages</span></h2>
+<p>Avant de commencer, il va falloir vérifier que nous avons installer le nécessaire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td>
+<pre>yum groupinstall base
+yum install syslinux
+</pre>
+</td></tr></table><br />
+<ul><li> Base&#160;: c'est le minimum pour que Satellite s'installe</li>
+<li> syslinux&#160;: nécessaire pour le PXE</li></ul>
+<h2><span class="mw-headline" id="Hostname"><span class="mw-headline-number">2.2</span> Hostname</span></h2>
+<p>Faites attention à bien mettre le hostname et l'IP associée (adaptez à votre configuration)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>echo "x.x.x.x     satellite-master.deimos.fr satellite-master" &gt;&gt; /etc/hosts
+echo "satellite-master.deimos.fr" &gt; /proc/sys/kernel/hostname
+service network restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="D.C3.A9sactiver_SELinux"><span class="mw-headline-number">2.3</span> Désactiver SELinux</span></h2>
+<p>Pour l'installation, le plus simple est de désactiver temporairement le service SELinux&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> setenforce</font>
+</td></tr>
+<tr>
+<td>
+<pre>setenforce 0
+</pre>
+</td></tr></table><br />
+<p>Ensuite il est conseillé de le laisser désactiver (<a href="Sécuriser_son_architecture_avec_SELinux.html" title="Sécuriser son architecture avec SELinux">voir la doc pour la persistance</a>)
+</p>
+<h2><span class="mw-headline" id="Sysctl"><span class="mw-headline-number">2.4</span> Sysctl</span></h2>
+<p>Nous allons activer l'IP forwarding&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sysctl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &quot;net.ipv4.ip_forward=1&quot; &gt;&gt; /etc/sysctl.conf
+sysctl -p</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="DNS"><span class="mw-headline-number">2.5</span> DNS</span></h2>
+<p>Vérifiez à ce que tous les futurs clients aient (tout comme le serveur) accès au serveur DNS&#160;!!! Car dans notre cas le serveur va s'appeler 'satellite-master', et il est très important qu'il reste joignable par n'importe quel serveur à ce nom, sinon le PXE ne pourra pas fonctionner.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Satellite_Master"><span class="mw-headline-number">3.1</span> Satellite Master</span></h2>
+<p>Pour l'installer, c'est assez simple, il y a un installer qui fait tout. Cependant, il va vous falloir le DVD de Red Hat pour les dépendances (je vous conseil <a href="Ajouter_le_DVD_Red_Hat_comme_repository.html" title="Ajouter le DVD Red Hat comme repository">un dépot local</a>), et de copier l'installer Satellite en local (/home/sat dans mon cas).
+</p><p><i>Note&#160;: utilisez l'option '--disconnected' si vous êtes derrière un proxy lors de l'installation.</i>
+</p><p>Puis nous allons lancer simplement l'installation&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> install.pl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; /home/sat/install.pl
+* Starting the Red Hat Network Satellite installer.
+* Performing pre-install checks.
+* Pre-install checks complete.  Beginning installation.
+* RHN Registration.
+** Registration: Disconnected mode.  Not registering with RHN.
+* Checking for uninstalled prerequisites.
+** Checking if yum is available ...
+There are some packages from Red Hat Enterprise Linux that are not part
+of the @base group that Satellite will require to be installed on this
+system. The installer will try resolve the dependencies automatically.
+However, you may want to install these prerequisites manually.
+Do you want the installer to resolve dependencies [y/N]? y</pre></div></div>
+</td></tr></table><br />
+<p>On réponds 'y' à cette question pour qu'il installe de lui même les packages nécessaire.
+</p><p>On va attendre un peu puis donner le mail et certificat&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">* Applying updates.
+* Installing RHN packages.
+Warning: more packages were installed by yum than expected:
+        cdparanoia-libs
+        cups
+        cvs
+        foomatic
+        foomatic-db
+        foomatic-db-filesystem
+        foomatic-db-ppds
+        gdb
+        gettext
+        ghostscript
+        ghostscript-fonts
+        gstreamer
+        gstreamer-plugins-base
+        gstreamer-tools
+        iso-codes
+        java-1.5.0-gcj
+        java_cup
+        lcms-libs
+        libICE
+        libSM
+        libXfont
+        libXt
+        libXv
+        libXxf86vm
+        libfontenc
+        libgomp
+        libmng           
+        libogg
+        liboil
+        libtheora
+        libvisual
+        libvorbis
+        mailcap
+        make
+        mesa-dri-drivers
+        mesa-libGL
+        mesa-libGLU
+        openjpeg-libs
+        patch
+        pax
+        perl-CGI
+        perl-Compress-Raw-Zlib
+        perl-Error
+        perl-ExtUtils-MakeMaker
+        perl-ExtUtils-ParseXS
+        perl-IO-Compress-Base
+        perl-IO-Compress-Zlib
+        perl-Test-Harness
+        perl-Test-Simple
+        perl-YAML-Syck
+        perl-devel
+        phonon-backend-gstreamer
+        poppler
+        poppler-data
+        poppler-utils
+        portreserve
+        python-setuptools
+        qt
+        qt-sqlite
+        qt-x11
+        qt3
+        redhat-lsb
+        redhat-lsb-graphics
+        redhat-lsb-printing
+        sinjdoc
+        urw-fonts
+        xml-common
+        xorg-x11-font-utils
+Warning: yum did not install the following packages:
+        libXpm
+* Now running spacewalk-setup.
+* Setting up Oracle environment.
+* Setting up database.
+** Database: Installing the database:
+** Database: This is a long process that is logged in:
+** Database:   /var/log/rhn/install_db.log
+*** Progress: ############################
+** Database: Installation complete.
+** Database: Setting up database connection for Oracle backend.
+** Database: Testing database connection.
+** Database: Populating database.
+*** Progress: #########################################################
+* Setting up users and groups.
+** GPG: Initializing GPG and importing key.
+** GPG: Creating /root/.gnupg directory
+You must enter an email address.
+Admin Email Address? deimos@deimos.fr
+* Performing initial configuration.
+* Activating RHN Satellite.
+Where is your satellite certificate file? /root/deimos.cert</pre></div></div>
+</td></tr></table><br />
+<p>On va répondre 'y' à cette question&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">** Loading RHN Satellite Certificate.
+** Verifying certificate locally.
+** Activating RHN Satellite.
+* Enabling Monitoring.
+* Configuring apache SSL virtual host.
+Should setup configure apache's default ssl server for you (saves original ssl.conf) [Y]? y</pre></div></div>
+</td></tr></table><br />
+<p>Entrez un mot de passe pour le certificat&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">** /etc/httpd/conf.d/ssl.conf has been backed up to ssl.conf-swsave
+* Configuring tomcat.
+** /etc/tomcat6/tomcat6.conf has been backed up to tomcat6.conf-swsave
+** /etc/tomcat6/server.xml has been backed up to server.xml-swsave
+** /etc/tomcat6/web.xml has been backed up to web.xml-swsave
+* Configuring jabberd.
+* Creating SSL certificates.
+CA certificate password? 
+Re-enter CA certificate password?</pre></div></div>
+</td></tr></table><br />
+<p>Les informations du certificat&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">** /etc/httpd/conf.d/ssl.conf has been backed up to ssl.conf-swsave
+* Configuring tomcat.
+** /etc/tomcat6/tomcat6.conf has been backed up to tomcat6.conf-swsave
+** /etc/tomcat6/server.xml has been backed up to server.xml-swsave
+** /etc/tomcat6/web.xml has been backed up to web.xml-swsave
+* Configuring jabberd.
+* Creating SSL certificates.
+CA certificate password? 
+Re-enter CA certificate password? 
+Organization? deimos
+Organization Unit [satellite-master.deimos.fr]? 
+Email Address [deimos@deimos.fr]? 
+City? Paris
+State? IDF
+Country code (Examples: &quot;US&quot;, &quot;JP&quot;, &quot;IN&quot;, or type &quot;?&quot; to see a list)? FR
+** SSL: Generating CA certificate.
+** SSL: Deploying CA certificate.
+** SSL: Generating server certific
+** SSL: Storing SSL certificates.
+* Deploying configuration files.
+* Update configuration in database.
+* Setting up Cobbler..
+Cobbler requires tftp and xinetd services be turned on for PXE provisioning functionality. Enable these services [Y/n]?y
+cobblerd does not appear to be running/accessible
+* Restarting services.
+Installation complete.
+Visit https://satellite-master.deimos.fr to create the RHN Satellite administrator account.</pre></div></div>
+</td></tr></table><br />
+<p>Et voilà l'installation est terminée. Nous allons maintenant actualiser yum pour installer 2 packages manquants&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; yum update
+Loaded plugins: product-id, security, subscription-manager
+Updating certificate-based repositories.
+Setting up Update Process
+Resolving Dependencies
+--&gt; Running transaction check
+---&gt; Package python-netaddr.noarch 0:0.7.5-3.el6 will be updated
+---&gt; Package python-netaddr.noarch 0:0.7.5-4.el6 will be an update
+--&gt; Finished Dependency Resolution
+&#160;
+Dependencies Resolved
+&#160;
+==============================================================================================================================================================================================================================================================================
+ Package                                                               Arch                                                          Version                                                            Repository                                                       Size
+==============================================================================================================================================================================================================================================================================
+Updating:
+ python-netaddr                                                        noarch                                                        0.7.5-4.el6                                                        dvd_repo                                                        1.0 M
+&#160;
+Transaction Summary
+==============================================================================================================================================================================================================================================================================
+Upgrade       1 Package(s)   
+&#160;
+Total download size: 1.0 M   
+Is this ok [y/N]: y
+Downloading Packages:
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded   
+Running Transaction
+Warning: RPMDB altered outside of yum.
+  Updating  &#160;: python-netaddr-0.7.5-4.el6.noarch                                                                                                                                                                                                                          1/2
+  Cleanup   &#160;: python-netaddr-0.7.5-3.el6.noarch                                                                                                                                                                                                                          2/2
+Installed products updated.  
+&#160;
+Updated:
+  python-netaddr.noarch 0:0.7.5-4.el6
+&#160;
+Complete!</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="DHCP"><span class="mw-headline-number">3.2</span> DHCP</span></h2>
+<p>Nous allons installer un serveur DHCP pour pouvoir pusher via <a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html" title="TFTP : PXE Serveur, déploiement d'OS sous Linux">PXE/TFTP</a> (déjà fait par l'installeur du Satellite) les OS. Si vous avez déjà un serveur DHCP, passez directement à la <a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Configuration_DHCP">configuration</a>.
+</p>
+<h3><span class="mw-headline" id="Installation_DHCP"><span class="mw-headline-number">3.2.1</span> Installation DHCP</span></h3>
+<p>Pour installer un serveur DHCP sur Red Hat&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td>
+<pre>yum install dhcp
+</pre>
+</td></tr></table><br />
+<p>Avant de modifier la configuration, nous allons copier une configuration classique&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td>
+<pre>cp -f /usr/share/doc/dhcp-*/dhcpd.conf.sample /etc/dhcp/dhcpd.conf
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Configuration_DHCP"><span class="mw-headline-number">3.2.2</span> Configuration DHCP</span></h3>
+<p>Editez le fichier /etc/dhcp/dhcpd.conf pour y ajouter la configuration souhaitée. Ici j'ai 2 ranges déclarés. Chaque range a sa propre interface&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/dhcp/dhcpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># dhcpd.conf
+#
+# Sample configuration file for ISC dhcpd
+#
+&#160;
+# option definitions common to all supported networks...
+option domain-name &quot;deimos.fr&quot;;
+option domain-name-servers ns1.deimos.fr, ns2.deimos.fr;
+&#160;
+<span class="xtra ln-xtra">default-lease-time 600;</span><span class="xtra ln-xtra">max-lease-time 7200;</span>&#160;
+# Use this to enble / disable dynamic dns updates globally.
+<span class="xtra ln-xtra">ddns-update-style none;</span><span class="xtra ln-xtra">allow booting;</span><span class="xtra ln-xtra">allow bootp;</span>&#160;
+# If this DHCP server is the official DHCP server for the local
+# network, the authoritative directive should be uncommented.
+authoritative;
+&#160;
+# Use this to send dhcp log messages to a different log file (you also
+# have to hack syslog.conf to complete the redirection).
+log-facility local7;
+&#160;
+# No service will be given on this subnet, but declaring it helps the
+# DHCP server to understand the network topology.
+&#160;
+<span class="xtra ln-xtra">subnet 10.102.2.32 netmask 255.255.255.224 {</span><span class="xtra ln-xtra">	option routers 10.102.2.63;</span><span class="xtra ln-xtra">	option subnet-mask 255.255.255.224;</span><span class="xtra ln-xtra">	option domain-name-servers 192.168.0.69;</span><span class="xtra ln-xtra">	range 10.102.2.33 10.102.2.62;</span><span class="xtra ln-xtra">	next-server 10.102.2.1;</span><span class="xtra ln-xtra">	filename &quot;pxelinux.0&quot;;</span><span class="xtra ln-xtra">}</span><span class="xtra ln-xtra">&#160;</span><span class="xtra ln-xtra">subnet 10.102.2.64 netmask 255.255.255.224 {</span><span class="xtra ln-xtra">	option routers 10.102.2.65;</span><span class="xtra ln-xtra">        option subnet-mask 255.255.255.224;</span><span class="xtra ln-xtra">        option domain-name-servers 192.168.0.69;</span><span class="xtra ln-xtra">        range 10.102.2.66 10.102.2.94;</span><span class="xtra ln-xtra">        next-server 10.102.2.1;</span><span class="xtra ln-xtra">        filename &quot;pxelinux.0&quot;;</span><span class="xtra ln-xtra">}</span>&#160;
+# This is a very basic subnet declaration.
+&#160;
+#subnet 10.254.239.0 netmask 255.255.255.224 {
+#  range 10.254.239.10 10.254.239.20;
+#  option routers rtr-239-0-1.deimos.fr, rtr-239-0-2.deimos.fr;
+#}
+&#160;
+# This declaration allows BOOTP clients to get dynamic addresses,
+# which we don't really recommend.
+&#160;
+#subnet 10.254.239.32 netmask 255.255.255.224 {
+#  range dynamic-bootp 10.254.239.40 10.254.239.60;
+#  option broadcast-address 10.254.239.31;
+#  option routers rtr-239-32-1.deimos.fr;
+#}
+&#160;
+# A slightly different configuration for an internal subnet.
+#subnet 10.5.5.0 netmask 255.255.255.224 {
+#  range 10.5.5.26 10.5.5.30;
+#  option domain-name-servers ns1.internal.deimos.fr;
+#  option domain-name &quot;internal.deimos.fr&quot;;
+#  option routers 10.5.5.1;
+#  option broadcast-address 10.5.5.31;   
+#  default-lease-time 600;
+#  max-lease-time 7200;
+#}
+&#160;
+# Hosts which require special configuration options can be listed in
+# host statements.   If no address is specified, the address will be
+# allocated dynamically (if possible), but the host-specific information
+# will still come from the host declaration.
+&#160;
+#host passacaglia {
+#  hardware ethernet 0:0:c0:5d:bd:95;
+#  filename &quot;vmunix.passacaglia&quot;;
+#  server-name &quot;toccata.fugue.com&quot;;
+#}
+&#160;
+# Fixed IP addresses can also be specified for hosts.   These addresses
+# should not also be listed as being available for dynamic assignment.
+# Hosts for which fixed IP addresses have been specified can boot using
+# BOOTP or DHCP.   Hosts for which no fixed address is specified can only
+# be booted with DHCP, unless there is an address range on the subnet
+# to which a BOOTP client is connected which has the dynamic-bootp flag
+# set.
+&#160;
+# You can declare a class of clients and then do address allocation
+# based on that.   The example below shows a case where all clients
+# in a certain class get addresses on the 10.17.224/24 subnet, and all
+# other clients get addresses on the 10.0.29/24 subnet.
+&#160;
+#class &quot;foo&quot; {
+#  match if substring (option vendor-class-identifier, 0, 4) = &quot;SUNW&quot;;
+#}
+&#160;
+#shared-network 224-29 {
+#  subnet 10.17.224.0 netmask 255.255.255.0 {
+#    option routers rtr-224.deimos.fr; 
+#  }
+#  subnet 10.0.29.0 netmask 255.255.255.0 {
+#    option routers rtr-29.deimos.fr;  
+#  }
+#  pool {
+#    allow members of &quot;foo&quot;;
+#    range 10.17.224.10 10.17.224.250;   
+#  }
+#  pool {
+#    deny members of &quot;foo&quot;;
+#    range 10.0.29.10 10.0.29.230;
+#  }
+#}</pre></div></div>
+</td></tr></table><br />
+<p>Puis je vais déclarer les interfaces sur lesquelles le service dhcpd doit écouter&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/sysconfig/dhcpd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># Command line options here
+<span class="xtra ln-xtra">DHCPDARGS=&quot;eth1 eth2&quot;;</span></pre></div></div>
+</td></tr></table><br />
+<p>Comme je le disais plus haut, j'ai une interface par range, donc nous allons rajouter les routes qui vont bien&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/sysconfig/network-scripts/route-eth1</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ADDRESS1=10.102.2.32
+NETMASK1=255.255.255.224
+GATEWAY1=10.102.2.63</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/sysconfig/network-scripts/route-eth2</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ADDRESS2=10.102.2.64
+NETMASK2=255.255.255.224
+GATEWAY2=10.102.2.94</pre></div></div>
+</td></tr></table><br />
+<p>Puis je redémarre le service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> service</font>
+</td></tr>
+<tr>
+<td>
+<pre>service restart dhcpd
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Configuration_du_proxy_sur_Satellite_.28Uniquement_pour_installation_en_mode_d.C3.A9connect.C3.A9.29"><span class="mw-headline-number">4.1</span> Configuration du proxy sur Satellite (Uniquement pour installation en mode déconnecté)</span></h2>
+<p>Si vous avez fait l'installation avec l'option '--disconnected', il va falloir éditer le fichier /etc/rhn/rhn.conf pour ajouter ou éditez les lignes suivantes&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/rhn/rhn.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">server.satellite.rhn_parent = satellite.rhn.redhat.com
+server.satellite.http_proxy = &lt;hostname&gt;:&lt;port&gt;
+server.satellite.http_proxy_username = &lt;username&gt;
+server.satellite.http_proxy_password = &lt;password&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Il est évident que vous utilisez les 3 dernières lignes uniquement si vous êtes derrière un proxy.
+</p><p>Ensuite nous allons devoir réactiver le satellite en mode connecté&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rhn-satellite-activate --rhn-cert=/root/deimos.cert
+RHN_PARENT: satellite.rhn.redhat.com</pre></div></div>
+</td></tr></table><br />
+<p>Avant d'aller plus loin, assurez vous que votre systèmes est bien à jour à l'aide d'un 'yum update'.
+</p>
+<h2><span class="mw-headline" id="Syncrhonisation.2FAjout_d.27un_repository_en_local"><span class="mw-headline-number">4.2</span> Syncrhonisation/Ajout d'un repository en local</span></h2>
+<p>Nous allons lancer une des opérations les plus longues lors de l'installation d'un Satellite, à savoir le rapatriement en local des repository. Pour celà vous avez 2 méthodes&#160;:
+</p>
+<h3><span class="mw-headline" id="M.C3.A9thode_1"><span class="mw-headline-number">4.2.1</span> Méthode 1</span></h3>
+<p>On rapatrie tout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> satellite-sync</font>
+</td></tr>
+<tr>
+<td>
+<pre>satellite-sync
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="M.C3.A9thode_2"><span class="mw-headline-number">4.2.2</span> Méthode 2</span></h3>
+<p>On rapatrie que certaines versions de Satellite&#160;:
+Nous allons déjà afficher les repository disponibles&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> satellite-sync</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"><span class="xtra ln-xtra">&gt; satellite-sync -l</span>16:28:41 Red Hat Network Satellite - live synchronization
+16:28:41    url: https://satellite.rhn.redhat.com
+16:28:41    debug/output level: 1
+16:28:42    db:  rhnsat/&lt;password&gt;@rhnsat
+16:28:42 
+16:28:42 Retrieving / parsing channel-families data
+16:28:46 channel-families data complete
+16:28:48 
+16:28:48 Retrieving / parsing channel data
+16:29:51    p = previously imported/synced channel
+16:29:51    . = channel not yet imported/synced
+16:29:51    base-channels:
+16:29:51       . jb-middleware                               0 
+16:29:51       . jbdevstudio-1-linux                         0 
+...
+16:29:59       . solaris-sparc-9-rhdirserv-7.1               0 
+16:29:59       . solaris-sparc-9-rhdirserv-7.1-beta          0 
+16:29:59       . solaris-sparc-9-rhdirserv-8                 0 
+16:29:59       . solaris-sparc-9-rhdirserv-8-beta            0 
+16:29:59 
+    Import complete:
+        Begin time: Sat Feb 25 16:28:41 2012
+        End time:   Sat Feb 25 16:29:59 2012
+        Elapsed:    0 hours, 1 minutes, 17 seconds</pre></div></div>
+</td></tr></table><br />
+<p>Et nous allons sélectionner ceux qui nous intéressent&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> satellite-sync</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"><span class="xtra ln-xtra">&gt; satellite-sync -c rhel-x86_64-server-6 -c rhn-tools-rhel-x86_64-server-6 -c rhel-x86_64-server-5 -c rhn-tools-rhel-x86_64-server-5</span>11:47:15 Red Hat Network Satellite - live synchronization
+11:47:15    url: https://satellite.rhn.redhat.com
+11:47:15    debug/output level: 1
+11:47:16    db:  rhnsat/&lt;password&gt;@rhnsat
+11:47:16
+11:47:16 Retrieving / parsing channel-families data
+11:47:20 channel-families data complete
+11:47:22
+11:47:22 Retrieving / parsing arches data
+11:47:23 arches data complete
+11:47:23
+11:47:23 Retrieving / parsing additional arches data
+11:47:24 additional arches data complete
+11:47:24
+11:47:24 Retrieving / parsing channel data
+11:48:31    p = previously imported/synced channel
+11:48:31    . = channel not yet imported/synced
+11:48:31    base-channels:
+11:48:31       p rhel-x86_64-server-5                     12409
+11:48:31       p rhel-x86_64-server-6                     6740
+11:48:31
+11:48:31 Channel data complete
+11:48:31
+11:48:31 Retrieving / parsing blacklists data
+11:48:32 blacklists data complete
+11:48:32
+11:48:32 Retrieving / parsing product names data
+11:48:33 product names data complete
+11:48:33
+11:48:33 Retrieving short package metadata (used for indexing)
+11:48:33    Retrieving / parsing short package metadata: rhel-x86_64-server-5 (12409)
+11:48:42    Retrieving / parsing short package metadata: rhel-x86_64-server-6 (6740)
+11:48:47 Diffing package metadata (what's missing locally?): rhel-x86_64-server-5
+            ________________________________________
+Diffing:    ######################################## - complete
+11:48:56 Diffing package metadata (what's missing locally?): rhel-x86_64-server-6
+            ________________________________________
+Diffing:    ######################################## - complete
+11:49:01
+11:49:01 Downloading package metadata
+11:49:02    Retrieving / parsing *relevant* package metadata: rhel-x86_64-server-5 (NONE RELEVANT)
+11:49:02    Retrieving / parsing *relevant* package metadata: rhel-x86_64-server-6 (3390)
+11:49:02    * WARNING: this may be a slow process.
+            ________________________________________
+Downloading:###################
+...</pre></div></div>
+</td></tr></table><br />
+<p>Les rhn-tools vont être utilisés pour les <a href="Créer_un_Kickstart_Red_Hat_pour_automatiser_les_installation.html" title="Créer un Kickstart Red Hat pour automatiser les installation">kickstarts</a>.
+</p>
+<h2><span class="mw-headline" id="Supression_d.27un_repository"><span class="mw-headline-number">4.3</span> Supression d'un repository</span></h2>
+<p>Pour supprimer un repository&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> spacewalk-remove-channel</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">spacewalk-remove-channel -c &lt;repository-name&gt; --unsubscribe</pre></div></div>
+</td></tr></table><br />
+<ul><li> spacewalk-remove-channel&#160;: insérez ici le nom du channel sur lequel vous souhaitez vous désinscrire</li>
+<li> unsubscribe&#160;: permet de retirer l'enregistrement de toutes les machines qui sont rattachées à ce repository</li></ul>
+<h2><span class="mw-headline" id="Int.C3.A9gration_du_Satellite_dans_un_environnement_LDAP"><span class="mw-headline-number">4.4</span> Intégration du Satellite dans un environnement LDAP</span></h2>
+<h3><span class="mw-headline" id="Installation_des_packages"><span class="mw-headline-number">4.4.1</span> Installation des packages</span></h3>
+<p>Nous allons devoir installer les modules PAM.
+Sur Red Hat, il n'y a pas grand chose à installer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td>
+<pre>yum install nss-pam-ldapd
+</pre>
+</td></tr></table><br />
+<p>Puis installer ce package pour pouvoir faire l'intégration avec le Satellite&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td>
+<pre>yum install pam-devel
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Configuration_du_LDAP_avec_PAM"><span class="mw-headline-number">4.4.2</span> Configuration du LDAP avec PAM</span></h3>
+<p>Pour configurer PAM avec LDAP, utilisez cette commande et adaptez la à vos besoins&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> authconfig</font>
+</td></tr>
+<tr>
+<td>
+<pre>authconfig --enableldap --enableldapauth --ldapserver=ldap://<b>openldap-server.deimos.fr:389</b> --ldapbasedn="<b>dc=openldap,dc=deimos,dc=fr</b>" --enableldaptls --ldaploadcacer=<b><a rel="nofollow" class="external free" href="http://serveur-web/deimosfr.crt">http://serveur-web/deimosfr.crt</a></b> --enablemkhomedir --update
+</pre>
+</td></tr></table><br />
+<ul><li> --ldapserver&#160;: rentrez l'adresse de votre serveur web</li>
+<li> --ldapbasedn&#160;: le DN de votre serveur</li>
+<li> --enableldaptls&#160;: si vous utilisez des connections LDAP sécurisées</li>
+<li> --ldaploadcacer&#160;: le certificat à utiliser (si vous n'avez pas moyen de le récupérer de cette façon, regardez la procédure un peu plus bas)</li></ul>
+<p>ou une version sans ssl/tls&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> authconfig</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">authconfig --enableldap --enableldapauth --disablenis --disableshadow --enablecache  --passalgo=sha512 --disableldaptls --disableldapstarttls --disablesssdauth --enablemkhomedir --enablepamaccess --enablecachecreds --enableforcelegacy --disablefingerprint  --ldapserver=192.168.0.1 --ldapbasedn=dc=openldap,dc=deimos,dc=fr --updateall</pre></div></div>
+</td></tr></table><br />
+<p>Pour récupérer le certificat ssl demandé plus haut, voici une solution&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> openssl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"><span class="xtra ln-xtra">&gt; openssl s_client -connect openldap-server.deimos.fr:636</span>CONNECTED(00000003)
+depth=0 C = FR, ST = IDF, L = Paris, O = DEIMOS, CN = openldap-server.deimos.fr, emailAddress = deimos@deimos.fr
+verify error:num=18:self signed certificate
+verify return:1
+depth=0 C = FR, ST = IDF, L = Paris, O = DEIMOS, CN = openldap-server.deimos.fr, emailAddress = deimos@deimos.fr
+verify return:1
+---
+Certificate chain
+ 0 s:/C=FR/ST=IDF/L=Paris/O=DEIMOS/CN=openldap-server.deimos.fr/emailAddress=deimos@deimos.fr
+   i:/C=FR/ST=IDF/L=Paris/O=DEIMOS/CN=openldap-server.deimos.fr/emailAddress=deimos@deimos.fr
+---
+Server certificate
+<span class="xtra ln-xtra">-----BEGIN CERTIFICATE-----</span><span class="xtra ln-xtra">MIIDpTCCAw6gAwIBAgIJAJJUJLhNM1/XMA0GCSqGSIb3DQEBBQUAMIGUMQswCQYD</span><span class="xtra ln-xtra">VQQGEwJGUjEMMAoGA1UECBMDSURGMQ4wDAYDVQQHEwVQYXJpczEPMA0GA1UEChMG</span><span class="xtra ln-xtra">VUxMSU5LMREwDwYDVQQLEwh1bHN5c25ldDEcMBoGA1UEAxMTdGFzbWFuaWEMdWxs</span><span class="xtra ln-xtra">aW5rLmxhbjElMCMGCSqGSIb3DQEJARYWaW503XJuYWwtaXRAdWxsaW5rLmNvbTAe</span><span class="xtra ln-xtra">Fw0xMTEyMDUxMjQzMzVaFw0yMTEyMDIxMjQzMzVaMIGUMQswCQYDVQQGEwJGUjEM</span><span class="xtra ln-xtra">MAoGA1UECBMDSURGMR4wDAYDVQQHEwVQYXJpczEPMA0GA1UEChMGVUxMSU5LMREw</span><span class="xtra ln-xtra">DwYDVQQLEwh1bHN5c25ldDEcMBoGA1UEAxMTdGFzbWFuaWEudWxsaW5rLmxhbjEl</span><span class="xtra ln-xtra">MCMGCSqGSIb3DQEJARYWaW50ZXJuYWwtaXRAdWxsaW5rLmNvbTCBnzANBgkqhkiG</span><span class="xtra ln-xtra">9w0BAQEFAAOBjQAwgYkCgYEA4QoXFn39LhMW7mlA9r3NOX6iTHCCSlZjVQi0mQ5k</span><span class="xtra ln-xtra">BVysN8KMFfC0E4vOeG1Z11AYwW7xCOb4Pl+LgfgfdgfgfdJIn92LX0meJcsgWKOh</span><span class="xtra ln-xtra">qVAsZNkWn2ss8oDw3t5NEOjKFZ5BKVR2fL4Yj23DmFOAwew5PR5xhxGV5LJ9VErS</span><span class="xtra ln-xtra">Ks0CAwEAAaOB/DCB+TAdBgNVHQ4EFgQUn5Ig2hFtROXcG3vxux7izNqcUd4wgckG</span><span class="xtra ln-xtra">A1UdIwSBwTCBvoAUn5Ig2hFtROXcG3vxux7izNqcUd6hgZqkgZcwgZQxCzAJBgNV</span><span class="xtra ln-xtra">BAYTAkZSMQwwCgYDVQQIEwNJREYxDjAMBgNVBAcTBVBhcmlzMQ8wDQYDVQQKEwZV</span><span class="xtra ln-xtra">TExJTksxETAPBgNVBAsTCHVsc3lzbmV0MRwwGgYDVQQDExN0YXNtYW5pYS51bGxp</span><span class="xtra ln-xtra">bmsubGFuMSUwIwYJKoZIhvcNAQkBFhZpbnRlcm5hbC1pdEB1bGxpbmsuY29tggkA</span><span class="xtra ln-xtra">klQkuE0zX9cwDAYCVR0TBAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQAbjjAbcBez</span><span class="xtra ln-xtra">dKyq+Tlf3/DURW0BJhHKyY7UW7L39m/KZRIB2lbgFjslrAL4yNnFgipJ6aKlJFfV</span><span class="xtra ln-xtra">BYEu7MhKH2pJZBYFpzuHOdKvDq+Kmn/wGvxeOvzh1GzQPGhQv4cClm2PJNMh/jrK</span><span class="xtra ln-xtra">ZWNzqyLWYtWAoLu6N6gMER1Bd1Z5uzHl3A==</span><span class="xtra ln-xtra">-----END CERTIFICATE-----  </span>subject=/C=FR/ST=IDF/L=Paris/O=DEIMOS/CN=openldap-server.deimos.fr/emailAddress=deimos@deimos.fr
+issuer=/C=FR/ST=IDF/L=Paris/O=DEIMOS/CN=openldap-server.deimos.fr/emailAddress=deimos@deimos.fr
+---
+No client certificate CA names sent
+---
+SSL handshake has read 1291 bytes and written 311 bytes
+---
+New, TLSv1/SSLv3, Cipher is AES256-SHA
+Server public key is 1024 bit
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+SSL-Session:
+    Protocol &#160;: TLSv1
+    Cipher   &#160;: AES256-SHA 
+    Session-ID: 91E6398F6DE9FBDC1B7EBDF890FE818B09EB79555C9FC1CF64EDC284F7A23B2A
+    Session-ID-ctx:
+    Master-Key: 51408932336792F4E8F5339BD12F312005022A4B20E6A5FBC56239BC0DD514344449531973B9A8395B1E799196D8F411
+    Key-Arg  &#160;: None
+    Krb5 Principal: None   
+    PSK identity: None
+    PSK identity hint: None
+    Start Time: 1327491823 
+    Timeout  &#160;: 300 (sec)  
+    Verify return code: 18 (self signed certificate)
+---</pre></div></div>
+</td></tr></table><br />
+<p>Dans le cas ou le certificat est récupérer de la manière manuelle, copiez le dans /etc/openldap/cacerts/ldap.crt, puis exécutez la commande suivante&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cacertdir_rehash</font>
+</td></tr>
+<tr>
+<td>
+<pre>cacertdir_rehash /etc/openldap/cacerts
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Configuration_du_LDAP_sur_le_Satellite"><span class="mw-headline-number">4.4.3</span> Configuration du LDAP sur le Satellite</span></h3>
+<p>Nous allons insérer dans le fichier /etc/rhn/rhn.conf ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/rhn/rhn.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pam_auth_service = rhn-satellite</pre></div></div>
+</td></tr></table><br />
+<p>Et enfin renseignez ces informations&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /etc/pam.d/rhn-satellite</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#%PAM-1.0
+auth      required      /lib64/security/pam_env.so
+auth      sufficient    /lib64/security/pam_ldap.so no_user_check
+auth      required      /lib64/security/pam_deny.so
+account   required      /lib64/security/pam_ldap.so no_user_check
+#account   required      /lib64/security/pam_access.so</pre></div></div>
+</td></tr></table><br />
+<p>J'ai commenté la partie pam_access qui permet d'augmenter la sécurité des comptes. Pour plus d'informations sur <a href="./LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP.html#Autoriser_un_groupe_LDAP_en_particulier" title="LDAP : Installation et configuration d'un Annuaire LDAP">ce modules (pam_access) lisez cette documentation</a>.
+</p><p>Redémarrez ensuite les services Satellite pour voir dans les options de création des utilisateurs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rhn-satellite</font>
+</td></tr>
+<tr>
+<td>
+<pre>rhn-satellite restart
+</pre>
+</td></tr></table><br />
+<p>Une nouvelle case à cocher apparaitra dans la section de création des utilisateurs&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Utilisez PAM pour authentifier par LDAP, Kerberos et d'autres systèmes d'authentification basés sur le réseau.
+Remarque&#160;: Les champs de mot de passe ci-dessus ne sont pas requis lorsque cette case est cochée&#160;; cependant, vous pouvez saisir un mot de passe qui fonctionnera uniquement lorsque l'authentification PAM pour le compte de cet utilisateur est désactivée.</pre></div></div>
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">5</span> Utilisation</span></h1>
+<h2><span class="mw-headline" id="Cr.C3.A9ation_du_compte_admin"><span class="mw-headline-number">5.1</span> Création du compte admin</span></h2>
+<p>Pour vous connecter à l'interface web, c'est très simple, allez en HTTPS sur votre serveur (<a rel="nofollow" class="external free" href="https://satellite-master">https://satellite-master</a>)&#160;:
+</p><p><a href="./File:Satellite_admin_create.png.html" class="image"><img alt="Satellite admin create.png" src="images/c/cb/Satellite_admin_create.png" width="731" height="532" /></a>
+</p><p>Puis renseignez les informations et cliquez sur "Créer le compte".
+</p>
+<h2><span class="mw-headline" id="Configurer_la_timezone"><span class="mw-headline-number">5.2</span> Configurer la timezone</span></h2>
+<p>Pour configurer la timezone, ça se fait dans l'interface graphique&#160;:
+</p><p><a href="./File:Satellite_timezone.png.html" class="image"><img alt="Satellite timezone.png" src="images/5/5a/Satellite_timezone.png" width="688" height="301" /></a>
+</p>
+<h2><span class="mw-headline" id="Ajouter_un_repository_personnalis.C3.A9"><span class="mw-headline-number">5.3</span> Ajouter un repository personnalisé</span></h2>
+<p>Créez votre repository dans les "Canaux personnalisés" et mettez la version de Red Hat comme parente si vous souhaitez ajouter des packages supplémentaires et garder les packages disponible en standard sur Red Hat.
+</p>
+<h3><span class="mw-headline" id="Pr.C3.A9requis_.28GPG.29"><span class="mw-headline-number">5.3.1</span> Prérequis (GPG)</span></h3>
+<p>Nous allons devoir générer une clef gpg pour signer nos packages&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gpg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"><span class="xtra ln-xtra">&gt; gpg --gen-key</span>gpg (GnuPG) 2.0.14; Copyright (C) 2009 Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+&#160;
+Sélectionnez le type de clé désiré:
+   (1) RSA and RSA (default)
+   (2) DSA and Elgamal
+   (3) DSA (signature seule)
+   (4) RSA (signature seule)
+<span class="xtra ln-xtra">Votre choix&#160;? 1</span></pre></div></div>
+</td></tr></table><br />
+<p>On va donc choisir le premier choix.
+</p><p>Puis générer la taille de clef par défaut sans expiration&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gpg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">les clés RSA peuvent faire entre 1024 et 4096 bits de longueur.
+<span class="xtra ln-xtra">Quelle taille de clé désirez-vous&#160;? (2048) </span>La taille demandée est 2048 bits
+Spécifiez combien de temps cette clé devrait être valide.
+         0 = la clé n'expire pas
+      &lt;n&gt;  = la clé expire dans n jours
+      &lt;n&gt;w = la clé expire dans n semaines
+      &lt;n&gt;m = la clé expire dans n mois
+      &lt;n&gt;y = la clé expire dans n années
+<span class="xtra ln-xtra">La clé est valide pour&#160;? (0) </span>La clé n'expire pas du tout
+<span class="xtra ln-xtra">Est-ce correct&#160;? (o/N) o</span></pre></div></div>
+</td></tr></table><br />
+<p>Entrez vos informations pour la signature des packages&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">You need a user ID to identify your key; the software constructs the user ID
+from the Real Name, Comment and Email Address in this form:
+    &quot;Heinrich Heine (Der Dichter) &lt;heinrichh@duesseldorf.de&gt;&quot;
+&#160;
+<span class="xtra ln-xtra">Nom réel: Deimos FR</span><span class="xtra ln-xtra">Adresse e-mail: deimos@deimos.fr</span>Commentaire: 
+Vous avez sélectionné ce nom d'utilisateur:
+<span class="xtra ln-xtra">    &quot;Deimos &lt;deimos@deimos.fr&gt;&quot;</span>&#160;
+Changer le (N)om, le (C)ommentaire, l'(E)-mail ou (O)K/(Q)uitter&#160;? o
+Vous avez besoin d'une phrase de passe pour protéger votre clé
+secrète.
+&#160;
+can't connect to `/root/.gnupg/S.gpg-agent': Aucun fichier ou dossier de ce type
+gpg-agent[25522]: répertoire `/root/.gnupg/private-keys-v1.d' créé</pre></div></div>
+</td></tr></table><br />
+<p>Puis entrez une passphrase, puis la validité de la clef&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gpg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">                                                     /-----------------------------------------------------\
+                                                     | Please re-enter this passphrase                     |
+                                                     |                                                     |
+<span class="xtra ln-xtra">                                                     | Passphrase ________________________________________ |</span>                                                     |                                                     |
+                                                     |       &lt;OK&gt;                             &lt;Cancel&gt;     |
+                                                     \-----------------------------------------------------/
+Spécifiez combien de temps cette clé devrait être valide.
+         0 = la clé n'expire pas
+      &lt;n&gt;  = la clé expire dans n jours
+      &lt;n&gt;w = la clé expire dans n semaines
+      &lt;n&gt;m = la clé expire dans n mois
+      &lt;n&gt;y = la clé expire dans n années
+<span class="xtra ln-xtra">La clé est valide pour&#160;? (0) </span>La clé n'expire pas du tout
+<span class="xtra ln-xtra">Est-ce correct&#160;? (o/N) o</span></pre></div></div>
+</td></tr></table><br />
+<p>La clef se créer est vous avez la key ID qui est donnée&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gpg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Can't connect to `/root/.gnupg/S.gpg-agent': Aucun fichier ou dossier de ce type
+Un grand nombre d'octets aléatoires doit être généré. Vous devriez faire
+autre-chose (taper au clavier, déplacer la souris, utiliser les disques)
+pendant la génération de nombres premiers; cela donne au générateur de
+nombres aléatoires une meilleure chance d'avoir assez d'entropie.
+gpg: clé DFC7E56C marquée comme ayant une confiance ultime.
+les clés publique et secrète ont été créées et signées.
+&#160;
+gpg: vérifier la base de confiance
+gpg: 3 marginale(s) nécessaires, 1 complète(s) nécessaires, modèle
+de confiance PGP
+gpg: profondeur: 0  valide:   1  signé:   0
+confiance: 0-. 0g. 0n. 0m. 0f. 1u
+<span class="xtra ln-xtra">pub   2048R/DFC7E56A 2012-03-12</span><span class="xtra ln-xtra">    Empreinte de la clé = 4EC2 939F 3986 96CE 826C  665A 83D7 D404 DFC7 E56D</span>uid                  Deimos FR &lt;deimos@deimos.fr&gt;
+sub   2048R/4425ACDD 2012-03-12</pre></div></div>
+</td></tr></table><br />
+<p>La clef est maintenant créer, nous allons pouvoir signer nos packages avec.
+</p><p>Nous pouvons lister à tous moment nos clefs comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gpg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">gpg --list-keys</pre></div></div>
+</td></tr></table><br />
+<p>Pour exporter notre clef publique fraichement créer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gpg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">gpg --export -a 'Deimos fr' &gt; /etc/pki/rpm-gpg/RPM-GPG-KEY-deimos</pre></div></div>
+</td></tr></table><br />
+<p>Cette clef servira au déploiement des packages pour tous nos futurs clients.
+</p><p>Afin de nous aider à la signature en masse de packages, nous allons créer un petit fichier de préférences&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ~/.rpmmacros</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">%_signature gpg
+<span class="xtra ln-xtra">%_gpg_name DFC7E56A</span></pre></div></div>
+</td></tr></table><br />
+<p>Remplacez la valeur de '%_gpg_name' par votre key ID.
+</p><p>Nous allons maintenant déclarer dans Satellite notre nouvelle clef au niveau du <a href="Créer_un_Kickstart_Red_Hat_pour_automatiser_les_installation.html" title="Créer un Kickstart Red Hat pour automatiser les installation">kickstart</a> pour que nos installations automatisées aient cette clef présente&#160;:
+</p><p><a href="./File:Satellite_gpg.png.html" class="image"><img alt="Satellite gpg.png" src="images/c/cc/Satellite_gpg.png" width="1011" height="423" /></a>
+</p><p>Et enfin le repository personnalisé doit contenir les informations GPG&#160;:
+</p><p><a href="./File:Satellite_gpg_repo.png.html" class="image"><img alt="Satellite gpg repo.png" src="images/c/c6/Satellite_gpg_repo.png" width="1010" height="515" /></a>
+</p>
+<h3><span class="mw-headline" id="Ajouter_des_packages"><span class="mw-headline-number">5.3.2</span> Ajouter des packages</span></h3>
+<p>Si vous souhaitez ajouter des packages à un repository (ex: repo-test), télécharger le ou les rpm qui vous intéressent temporairement sur le serveur satellite&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> wget</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">wget http://dl.fedoraproject.org/pub/epel/6/x86_64/tmux-1.5-1.el6.x86_64.rpm</pre></div></div>
+</td></tr></table><br />
+<p>Nous allons signer ce package&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rpm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rpm --resign tmux-1.5-1.el6.x86_64.rpm
+Entrez la phrase de passe: 
+Phrase de passe bonne.</pre></div></div>
+</td></tr></table><br />
+<p>Puis ajoutez ce ou ces rpm à votre repository custom&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rhnpush</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rhnpush -c repo-test tmux-1.5-1.el6.x86_64.rpm
+Red Hat Network username: deimos
+Red Hat Network password:</pre></div></div>
+</td></tr></table><br />
+<ul><li> -c repo-test&#160;: -c permet de spécifier le repository sur lequel vous voulez mettre ce package.</li></ul>
+<p>Il faut maintenant actualiser dans l'interface web la liste des packages pour que les clients puissent les voir&#160;:
+</p><p><a href="./File:Satellite_custom_repo.png.html" class="image"><img alt="Satellite custom repo.png" src="images/f/f4/Satellite_custom_repo.png" width="782" height="547" /></a>
+</p><p>Maintenant, sur le client, il ne vous reste plus qu'à faire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">yum clean all
+yum install tmux</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Automatiser_et_simplifier_la_signature_et_l.27ajout_de_packages"><span class="mw-headline-number">5.3.3</span> Automatiser et simplifier la signature et l'ajout de packages</span></h3>
+<p>Si vous n'avez pas envie de devoir taper tous le temps vos identifiants, la passphrase etc... à chaque mise en place de nouveaux packages, j'ai créer un petit outil en python pour faire gagner du temps&#160;:
+</p><p><br />
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> satellite_add_packages.py</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="python source-python"><pre class="de1"><span class="co1">#!/usr/bin/env python</span>
+<span class="co1"># Made by Pierre Mavro 14/03/2012</span>
+<span class="co1"># Version&#160;: 0.1</span>
+<span class="co1"># This script permit to automate in a non secure way, new packages for a custom repository on Red Hat Satellite</span>
+<span class="co1"># Require&#160;: pexpect</span>
+&#160;
+<span class="kw1">import</span> <span class="kw3">getopt</span><span class="sy0">,</span> <span class="kw3">os</span><span class="sy0">,</span> <span class="kw3">sys</span><span class="sy0">,</span> <span class="kw3">glob</span><span class="sy0">,</span> pexpect
+<span class="kw1">from</span> <span class="kw3">string</span> <span class="kw1">import</span> Template
+&#160;
+<span class="co1"># Help</span>
+cmd_name <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>
+<span class="kw1">def</span> <span class="kw2">help</span><span class="br0">&#40;</span><span class="kw3">code</span><span class="br0">&#41;</span>:
+    <span class="kw1">print</span> cmd_name<span class="sy0">,</span> <span class="st0">&quot;[-h] [-r] [-s] [-l] [-p] [-d]&quot;</span>
+    <span class="kw2">str</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;&quot;
+   -h, --help
+      Show this help
+   -s, --passphrase
+      Passphrase to sign packages
+   -r, --repository
+      Select wished repository to push the packages
+   -l, --login
+      Red Hat Network username
+   -p, --password
+      Red Hat Network password
+   -f, --folder
+      folder were new packages should be added (default: /tmp/packages)
+   -d, --debug
+      Debug mode
+&quot;&quot;&quot;</span>
+    <span class="kw1">print</span> <span class="kw2">str</span>
+    <span class="kw3">sys</span>.<span class="me1">exit</span><span class="br0">&#40;</span><span class="kw3">code</span><span class="br0">&#41;</span>
+&#160;
+<span class="kw1">class</span> bcolors:
+    OK <span class="sy0">=</span> <span class="st0">'<span class="es0">\0</span>33[92m'</span>
+    FAIL <span class="sy0">=</span> <span class="st0">'<span class="es0">\0</span>33[91m'</span>
+    END <span class="sy0">=</span> <span class="st0">'<span class="es0">\0</span>33[0m'</span>
+&#160;
+    <span class="kw1">def</span> disable<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
+        <span class="kw2">self</span>.<span class="me1">OK</span> <span class="sy0">=</span> <span class="st0">''</span>
+        <span class="kw2">self</span>.<span class="me1">FAIL</span> <span class="sy0">=</span> <span class="st0">''</span>
+        <span class="kw2">self</span>.<span class="me1">END</span> <span class="sy0">=</span> <span class="st0">''</span>
+&#160;
+<span class="co1"># Sign and push function</span>
+<span class="kw1">def</span> sign_push<span class="br0">&#40;</span>passphrase<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="br0">&#41;</span>:
+&#160;
+    <span class="co1"># Package signing</span>
+    <span class="kw1">def</span> sign<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>passphrase<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>:
+        <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> <span class="nu0">80</span>*<span class="st0">'='</span> + <span class="st0">&quot;<span class="es0">\n</span>&quot;</span>
+        <span class="kw1">print</span> <span class="st0">'[+] Signing packages&#160;:'</span>
+        <span class="co1"># Sign all packages</span>
+        <span class="kw1">for</span> package <span class="kw1">in</span> rpm_files:
+            <span class="co1"># Formating</span>
+            charspace <span class="sy0">=</span> Template<span class="br0">&#40;</span><span class="st0">&quot;{0:&lt;$space}&quot;</span><span class="br0">&#41;</span>
+            <span class="kw1">print</span> charspace.<span class="me1">substitute</span><span class="br0">&#40;</span>space <span class="sy0">=</span> charspacing<span class="br0">&#41;</span>.<span class="me1">format</span><span class="br0">&#40;</span><span class="st0">' - '</span> + package + <span class="st0">'...'</span><span class="br0">&#41;</span><span class="sy0">,</span>
+            <span class="co1"># Launch resign</span>
+            child <span class="sy0">=</span> pexpect.<span class="me1">spawn</span><span class="br0">&#40;</span><span class="st0">'rpm --resign '</span> + package<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span> <span class="br0">&#40;</span><span class="st0">'Enter pass phrase|Entrez la phrase de passe'</span><span class="br0">&#41;</span>
+            child.<span class="me1">sendline</span> <span class="br0">&#40;</span>passphrase<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span><span class="br0">&#40;</span>pexpect.<span class="me1">EOF</span><span class="br0">&#41;</span>
+            child.<span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+            <span class="co1"># Check return status</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>child.<span class="me1">exitstatus</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">OK</span> + <span class="st0">'OK'</span> + bcolors.<span class="me1">END</span> + <span class="st0">' ] '</span>
+            <span class="kw1">else</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">FAIL</span> + <span class="st0">'FAIL'</span> + bcolors.<span class="me1">END</span> + <span class="st0">']'</span>
+&#160;
+    <span class="co1"># Package push</span>
+    <span class="kw1">def</span> push<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>:
+        <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> <span class="nu0">80</span>*<span class="st0">'='</span> + <span class="st0">&quot;<span class="es0">\n</span>&quot;</span>
+        <span class="kw1">print</span> <span class="st0">'[+] Adding packages to satellite server&#160;:'</span>
+        <span class="kw1">for</span> package <span class="kw1">in</span> rpm_files:
+            <span class="co1"># Formating</span>
+            charspace <span class="sy0">=</span> Template<span class="br0">&#40;</span><span class="st0">&quot;{0:&lt;$space}&quot;</span><span class="br0">&#41;</span>
+            <span class="kw1">print</span> charspace.<span class="me1">substitute</span><span class="br0">&#40;</span>space <span class="sy0">=</span> charspacing<span class="br0">&#41;</span>.<span class="me1">format</span><span class="br0">&#40;</span><span class="st0">' - '</span> + package + <span class="st0">'...'</span><span class="br0">&#41;</span><span class="sy0">,</span>
+            <span class="co1"># RPM push command</span>
+            child <span class="sy0">=</span> pexpect.<span class="me1">spawn</span><span class="br0">&#40;</span><span class="st0">'rhnpush --force --no-cache -c '</span> + repository + <span class="st0">' '</span> + package<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span> <span class="br0">&#40;</span><span class="st0">'Red Hat Network username'</span><span class="br0">&#41;</span>
+            child.<span class="me1">sendline</span> <span class="br0">&#40;</span>login<span class="br0">&#41;</span>
+            child.<span class="me1">expect</span> <span class="br0">&#40;</span><span class="st0">'Red Hat Network password'</span><span class="br0">&#41;</span>
+            child.<span class="me1">sendline</span> <span class="br0">&#40;</span>password<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span><span class="br0">&#40;</span>pexpect.<span class="me1">EOF</span><span class="br0">&#41;</span>
+            child.<span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+            <span class="co1"># Check return status</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>child.<span class="me1">exitstatus</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">OK</span> + <span class="st0">'OK'</span> + bcolors.<span class="me1">END</span> + <span class="st0">' ] '</span>
+            <span class="kw1">else</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">FAIL</span> + <span class="st0">'FAIL'</span> + bcolors.<span class="me1">END</span> + <span class="st0">' ]'</span>
+&#160;
+    <span class="co1"># Get rpm files list</span>
+    rpm_files<span class="sy0">=</span><span class="kw3">glob</span>.<span class="kw3">glob</span><span class="br0">&#40;</span>folder + <span class="st0">'/*.rpm'</span><span class="br0">&#41;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> <span class="nu0">80</span>*<span class="st0">'='</span> + <span class="st0">&quot;<span class="es0">\n</span>&quot;</span> + <span class="st0">'RPM found&#160;:'</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> rpm_files
+&#160;
+    <span class="co1"># Check if RPM were found</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw2">len</span><span class="br0">&#40;</span>rpm_files<span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span>:
+       <span class="kw1">print</span> <span class="st0">&quot;No RPM were found in &quot;</span> + folder
+       <span class="kw3">sys</span>.<span class="me1">exit</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    <span class="co1"># Get maximum rpm size for visual answers (OK/FAIL)</span>
+    charspacing<span class="sy0">=</span><span class="nu0">0</span>
+    <span class="kw1">for</span> package <span class="kw1">in</span> rpm_files:
+        count <span class="sy0">=</span> <span class="kw2">len</span><span class="br0">&#40;</span>package<span class="br0">&#41;</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span>count <span class="sy0">&gt;</span> charspacing<span class="br0">&#41;</span>:
+            charspacing<span class="sy0">=</span>count
+    charspacing +<span class="sy0">=</span> <span class="nu0">10</span>
+&#160;
+    <span class="co1"># Sign packages</span>
+    sign<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>passphrase<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>
+    <span class="co1"># Push packages</span>
+    push<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>
+&#160;
+<span class="co1"># Main</span>
+<span class="kw1">def</span> main<span class="br0">&#40;</span>argv<span class="br0">&#41;</span>:
+    <span class="kw1">try</span>:
+        opts<span class="sy0">,</span> args <span class="sy0">=</span> <span class="kw3">getopt</span>.<span class="kw3">getopt</span><span class="br0">&#40;</span>argv<span class="sy0">,</span> <span class="st0">'hs:r:l:p:f:d'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">&quot;passphrase=&quot;</span><span class="sy0">,</span><span class="st0">&quot;repository=&quot;</span><span class="sy0">,</span><span class="st0">&quot;login=&quot;</span><span class="sy0">,</span><span class="st0">&quot;password=&quot;</span><span class="sy0">,</span><span class="st0">&quot;folder=&quot;</span><span class="sy0">,</span><span class="st0">&quot;help&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+    <span class="kw1">except</span> <span class="kw3">getopt</span>.<span class="me1">GetoptError</span>:
+        <span class="co1"># Print help and exit</span>
+        <span class="kw1">print</span> <span class="st0">&quot;Unknow option, bad or missing argument<span class="es0">\n</span>&quot;</span>
+        <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    <span class="co1"># Initialize vars</span>
+    <span class="co1"># GPG passphrase for package sign in</span>
+    passphrase<span class="sy0">=</span><span class="kw2">None</span>
+    repository<span class="sy0">=</span><span class="kw2">None</span>
+    login<span class="sy0">=</span><span class="kw2">None</span>
+    password<span class="sy0">=</span><span class="kw2">None</span>
+    folder<span class="sy0">=</span><span class="st0">'/tmp/'</span>
+    debug<span class="sy0">=</span><span class="nu0">0</span>
+&#160;
+    <span class="co1"># Check opts</span>
+    <span class="kw1">for</span> opt<span class="sy0">,</span> arg <span class="kw1">in</span> opts:
+        <span class="kw1">if</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-h&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--help&quot;</span><span class="br0">&#41;</span>:
+            <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span>
+            <span class="kw3">sys</span>.<span class="me1">exit</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-s&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--passphrase&quot;</span><span class="br0">&#41;</span>:
+            passphrase <span class="sy0">=</span> <span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-r&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--repository&quot;</span><span class="br0">&#41;</span>:
+            repository<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-l&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--login&quot;</span><span class="br0">&#41;</span>:
+            login<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-p&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--password&quot;</span><span class="br0">&#41;</span>:
+            password<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-f&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--folder&quot;</span><span class="br0">&#41;</span>:
+            folder<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-d&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--debug&quot;</span><span class="br0">&#41;</span>:
+            debug<span class="sy0">=</span><span class="nu0">1</span>
+        <span class="kw1">else</span>:
+            <span class="kw1">print</span> <span class="st0">&quot;Unknow option, please see usage<span class="es0">\n</span>&quot;</span>
+            <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    <span class="co1"># Checks</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>passphrase <span class="kw1">or</span> repository <span class="kw1">or</span> login <span class="kw1">or</span> password<span class="br0">&#41;</span> <span class="kw1">is</span> <span class="kw2">None</span>:
+        <span class="kw1">print</span> <span class="st0">&quot;Unknow option, please see usage<span class="es0">\n</span>&quot;</span>
+        <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    sign_push<span class="br0">&#40;</span>passphrase<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="br0">&#41;</span>
+&#160;
+<span class="kw1">if</span> __name__ <span class="sy0">==</span> <span class="st0">&quot;__main__&quot;</span>:
+   main<span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#91;</span><span class="nu0">1</span>:<span class="br0">&#93;</span><span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez le lancer soit en renseignant en dur dans le code les informations nécessaires dans la partie 'Initialize vars', ou bien en arguments&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> satellite_add_packages.py</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; satellite_add_packages.py -s &lt;passphrase&gt; -r &lt;repository&gt;  -f &lt;folder&gt; -l &lt;login&gt; -p &lt;password&gt;
+[+] Signing packages&#160;:
+ - /root/done/tmux-1.5-1.el6.x86_64.rpm...                       [ OK ] 
+[+] Adding packages to satellite server&#160;:
+ - /root/done/tmux-1.5-1.el6.x86_64.rpm...                       [ OK ]</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Client"><span class="mw-headline-number">5.4</span> Client</span></h2>
+<p>Nous allons voir dans cette section comment les clients peuvent communiquer avec notre serveur satellite.
+</p>
+<h3><span class="mw-headline" id="Enregistrement"><span class="mw-headline-number">5.4.1</span> Enregistrement</span></h3>
+<p>Pour enregistrer une machine dans votre serveur satellite, qui n'a pas été déployée via <a href="Créer_un_Kickstart_Red_Hat_pour_automatiser_les_installation.html" title="Créer un Kickstart Red Hat pour automatiser les installation">kickstart</a>, exécutez cette commande pour l'enregistrer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rhn-register</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rhn-register</pre></div></div>
+</td></tr></table><br />
+<p>Puis, les informations du serveur Satellite vous seront demandées.
+</p>
+<h3><span class="mw-headline" id="Mise_.C3.A0_jour_du_profil"><span class="mw-headline-number">5.4.2</span> Mise à jour du profil</span></h3>
+<p>Si vous faites des changements sur le profil de la machine (hardware, hostname...), vous pouvez le mettre à jour depuis la machine guest via cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rhn-profile-sync</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rhn-profile-sync</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="R.C3.A9enregistrer_une_machine"><span class="mw-headline-number">5.4.3</span> Réenregistrer une machine</span></h3>
+<p>Pour x ou y raisons, vous souhaitez réenregistrer une machine, c'est très simple, il va falloir retirer les actuels références pour le satellite actuel, puis relancer l'enregistrement&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rm -f /etc/sysconfig/rhn/systemid
+rhn-register</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Crontab_pour_les_mises_.C3.A0_jour"><span class="mw-headline-number">5.5</span> Crontab pour les mises à jour</span></h2>
+<p>Les synchronisations du Satellite peuvent prendre beaucoup de temps. C'est pourquoi il est conseillé de mettre à jour autant que possible, ajoutez donc ceci dans votre crontab&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> crontab -e</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">0 1 * * * perl -le 'sleep rand 9000' &amp;&amp; satellite-sync --email &gt;/dev/null 2&gt;1</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Relancer_l.27installation"><span class="mw-headline-number">6.1</span> Relancer l'installation</span></h2>
+<p>Si vous souhaitez à tout moment relancer l'installation, vous pouvez le faire avec l'option --skip-db-install, car généralement, l'opération d'installation de la base de donnée s'est correctement déroulée, mais pas forcément le reste&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> install.pl</font>
+</td></tr>
+<tr>
+<td>
+<pre>install.pl --skip-db-install
+</pre>
+</td></tr></table><br />
+<p>Il existe bien d'autres options avec '--help'.
+</p>
+<h2><span class="mw-headline" id="Les_logs"><span class="mw-headline-number">6.2</span> Les logs</span></h2>
+<p>Lorsqu'il y a une erreur, pour l'upload d'un package ou autre, il y a beaucoup de logs à regarder. Je vais donc essayer de décrire la méthode à suivre&#160;:
+</p>
+<ol><li> Première chose à faire c'est de regarder les logs d'apache&#160;: /var/log/httpd/error_log</li>
+<li> Si il n'y a toujours pas assez d'infos, regardez dans le dossier /var/log/rhn/. C'est bien découpé et on retrouve rapidement les informations souhaitées.</li></ol>
+<h2><span class="mw-headline" id=".22Error_validating_satellite_certificate.22_error_during_RHN_Satellite_install"><span class="mw-headline-number">6.3</span> "Error validating satellite certificate" error during RHN Satellite install</span></h2>
+<p>Si vous avez ce problème, c'est que vous êtes certainement derrière un proxy ou que vous n'avez pas encore de connexion internet. Il va donc falloir relancer l'installation&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /home/sat/install.pl</font>
+</td></tr>
+<tr>
+<td>
+<pre>/home/sat/install.pl --disconnected --skip-db-install
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Tomcat_failed_to_start_properly_or_the_installer_ran_out_of_tries._Please_check_.2Fvar.2Flog.2Ftomcat.2A.2Fcatalina.out_for_errors"><span class="mw-headline-number">6.4</span> Tomcat failed to start properly or the installer ran out of tries.  Please check /var/log/tomcat*/catalina.out for errors</span></h2>
+<p>Si vous avez ce type de message c'est que le hostname est mal renseigné. Pour remédier à ce problème, vérifier que cette <a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#Hostname">section là</a> est correctement renseignée, puis relancez l'installer de cette façon&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> spacewalk-hostname-rename</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">spacewalk-hostname-rename x.x.x.x
+Validating IP ... OK
+=============================================
+hostname: satellite-master.deimos.fr
+ip: x.x.x.x
+=============================================
+Stopping rhn-satellite services ... OK
+Testing DB connection ... OK 
+Updating /etc/rhn/rhn.conf ... OK
+Actual SSL key pair package: rhn-org-httpd-ssl-key-pair-satellite-master-1.0-1.noarch
+ No need to re-generate SSL certificate.
+Regenerating new bootstrap client-config-overrides.txt ... OK
+Updating NOCpulse.ini ... OK 
+Updating monitoring data ... OK
+Updating other DB entries ... OK
+Changing cobbler settings ... OK
+Changing jabberd settings ... OK
+Starting rhn-satellite services ... OK</pre></div></div>
+</td></tr></table><br />
+<p>Si tout est bon, vous aurez des OK partout&#160;:-)
+</p>
+<h2><span class="mw-headline" id="ERROR:_Server_not_registered.3F_No_systemid:_.2Fetc.2Fsysconfig.2Frhn.2Fsystemid"><span class="mw-headline-number">6.5</span> ERROR: Server not registered? No systemid: /etc/sysconfig/rhn/systemid</span></h2>
+<p>Si vous avez ce genre de message lors de l'activation d'un satellite&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rhn-satellite-activate</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rhn-satellite-activate --rhn-cert=/root/deimos.cert
+RHN_PARENT: satellite.rhn.redhat.com
+ERROR: Server not registered? No systemid: /etc/sysconfig/rhn/systemid</pre></div></div>
+</td></tr></table><br />
+<p>c'est que vous avez certainement un problème d'accès à internet. Ou bien, que votre machines est à enregistrer de nouveau&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rhn-register</font>
+</td></tr>
+<tr>
+<td>
+<pre>rhn-register
+</pre>
+</td></tr></table><br />
+<p>Ajoutez l'option '--proxy=&lt;proxy:port&gt;' avec les bonnes valeurs si vous êtes derrière un proxy.
+</p>
+<h2><span class="mw-headline" id="unable_to_extend_index_RHNSAT.RHN_ERRATAFILE_EID_FILE_IDX_by_128_in_tablespace_DATA_TBS"><span class="mw-headline-number">6.6</span> unable to extend index RHNSAT.RHN_ERRATAFILE_EID_FILE_IDX by 128 in tablespace DATA_TBS</span></h2>
+<p>Si vous obtenez ce type de message d'erreur lors d'un satellite sync&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+SYNC ERROR: unhandled exception occurred:
+&#160;
+(Check logs/email for potentially more detail)
+&#160;
+&lt;rhnFault class (code = 54, text = 'ORA-01654: unable to extend index RHNSAT.RHN_ERRATAFILE_EID_FILE_IDX by 128 in tablespace DATA_TBS
+')&gt;
+(54, 'ORA-01654: unable to extend index RHNSAT.RHN_ERRATAFILE_EID_FILE_IDX by 128 in tablespace DATA_TBS\n', '\n     Package Upload Failed due to uniqueness constraint violation.\n     Make sure the package does not have any duplicate dependencies or\n     does not alre</pre></div></div>
+<p>C'est que vous êtes à 100% d'utilisation de votre base de donnée Oracle. Vérifiez déjà la taille de votre espace disque. Si tout est ok, on va vérifier que nous n'avons plus de place&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> db-control</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; su - oracle -c &quot;db-control report&quot;
+Tablespace                  Size    Used   Avail   Use%
+<span class="xtra ln-xtra">DATA_TBS                    3.9G    3.9G      0M   100%</span>SYSAUX                      500M   84.3M  415.6M    17%
+SYSTEM                      400M  245.3M  154.6M    61%
+TEMP_TBS                   1000M      0B   1000M     0%
+UNDO_TBS                   1000M   96.3M  903.6M    10%
+USERS                       128M     64K  127.9M     0%</pre></div></div>
+</td></tr></table><br />
+<p>Effectivement, nous n'avons plus de place et il va falloir augmenter la taille de la table DATA_TBS de 500Mib&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> db-control</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; su - oracle -c &quot;db-control extend DATA_TBS&quot;
+Extending DATA_TBS... done.</pre></div></div>
+</td></tr></table><br />
+<p>Puis nous allons recontrôler les données pour vérifier que c'est bon&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> db-control</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; su - oracle -c &quot;db-control report&quot;
+Tablespace                  Size    Used   Avail   Use%
+<span class="xtra ln-xtra">DATA_TBS                    4.3G    3.9G  502.8M    89%</span>SYSAUX                      500M   84.3M  415.6M    17%
+SYSTEM                      400M  245.3M  154.6M    61%
+TEMP_TBS                   1000M      0B   1000M     0%
+UNDO_TBS                   1000M   96.3M  903.6M    10%
+USERS                       128M     64K  127.9M     0%</pre></div></div>
+</td></tr></table><br />
+<p>Tout est ok, on peut relancer la commande satellite-sync.
+</p>
+<h2><span class="mw-headline" id="could_not_find_kernel_image:_menu"><span class="mw-headline-number">6.7</span> could not find kernel image: menu</span></h2>
+<p>Je ne sais pas si c'est un bug du serveur Satellite, ou si c'est moi qui ai oublié quelque chose, toujours est il que le fichier menu.c32 n'est pas présent au bon endroit et que les clients PXE refusent de démarrer. Donc pour corriger le problème&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cp /usr/share/syslinux/menu.c32 /var/lib/tftpboot/</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="warning:_rpmts_HdrFromFdno:_Header_V4_RSA.2FSHA1_Signature.2C_key_ID"><span class="mw-headline-number">6.8</span> warning: rpmts_HdrFromFdno: Header V4 RSA/SHA1 Signature, key ID</span></h2>
+<p>Vous avez peut être ce genre de messages&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">warning: rpmts_HdrFromFdno: Header V4 RSA/SHA1 Signature, key ID dfc7eded: NOKEY
+&#160;
+Public key for tmux-1.5-1.el6.x86_64.rpm is not installed</pre></div></div>
+</td></tr></table><br />
+<p>Pour résoudre ce problème, il vous faut créer des clefs GPG et signer vos packages.
+</p>
+<h2><span class="mw-headline" id="error_was_.5BErrno_-1.5D_Package_does_not_match_intended_download"><span class="mw-headline-number">6.9</span> error was [Errno -1] Package does not match intended download</span></h2>
+<p>Si vous avez ce genre de message côté client lors d'un yum&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Error Downloading Packages:
+  puppet-2.7.9-2.el6.noarch: failed to retrieve getPackage/puppet-2.7.9-2.el6.noarch.rpm from custom-repo
+error was [Errno -1] Package does not match intended download. Suggestion: run yum --enablerepo=deimos-repo clean metadata</pre></div></div>
+<p>Vous devez dégager votre cache et recommencer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rm -rf /var/cache/yum/*
+yum clean all</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="https://access.redhat.com/kb/docs/DOC-34410">https://access.redhat.com/kb/docs/DOC-34410</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.168 seconds
+Real time usage: 0.171 seconds
+Preprocessor visited node count: 1148/1000000
+Preprocessor generated node count: 3104/1000000
+Post‐expand include size: 17691/2097152 bytes
+Template argument size: 4215/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   59.883      1 - -total
+ 40.22%   24.082     54 - Template:Command
+ 30.51%   18.273      7 - Template:Config
+ 25.70%   15.391      1 - Template:Satellite_satellite_add_packages.py
+  9.29%    5.561      1 - Template:DHCPd_RedHat_Config
+  6.33%    3.792      1 - Template:LDAP_Clients_configuration_RedHat
+  3.34%    2.000      1 - Template:Infobox
+  3.18%    1.906      1 - Template:DHCPd_RedHat_Install
+  1.93%    1.155      1 - Template:LDAP_Clients_installation_RedHat
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3277-0!*!0!1!en!5!* and timestamp 20181111230700 and revision id 11065
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Satellite_:_Déploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite&amp;oldid=11065">https://wiki.deimos.fr/index.php?title=Satellite_:_Déploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite&amp;oldid=11065</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Satellite+%3A+D%C3%A9ploiement+d%27OS+Red+Hat+via+Red+Hat+Satellite" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite&amp;oldid=11065" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 22 June 2012, at 06:41.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

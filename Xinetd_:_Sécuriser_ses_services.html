@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Xinetd : Sécuriser ses services - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Xinetd_:_Sécuriser_ses_services.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Xinetd_:_Sécuriser_ses_services","wgTitle":"Xinetd : Sécuriser ses services","wgCurRevisionId":3337,"wgRevisionId":3337,"wgArticleId":1793,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Xinetd_:_Sécuriser_ses_services","wgRelevantArticleId":1793,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Xinetd_Sécuriser_ses_services skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Xinetd : Sécuriser ses services</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Xinetd_:_Sécuriser_ses_services.html#mw-navigation">navigation</a>, 					<a href="./Xinetd_:_Sécuriser_ses_services.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Xinetd_:_Sécuriser_ses_services.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Xinetd_:_Sécuriser_ses_services.html#Compilation_.26_Installation"><span class="tocnumber">2</span> <span class="toctext">Compilation &amp; Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Xinetd_:_Sécuriser_ses_services.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Xinetd_:_Sécuriser_ses_services.html#Access_Control"><span class="tocnumber">3.1</span> <span class="toctext">Access Control</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Xinetd_:_Sécuriser_ses_services.html#Service_defaults"><span class="tocnumber">3.2</span> <span class="toctext">Service defaults</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./Xinetd_:_Sécuriser_ses_services.html#Configuring_a_service"><span class="tocnumber">4</span> <span class="toctext">Configuring a service</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./Xinetd_:_Sécuriser_ses_services.html#Port_binding:_the_bind_attribute"><span class="tocnumber">4.1</span> <span class="toctext">Port binding: the bind attribute</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Xinetd_:_Sécuriser_ses_services.html#Service_redirection_towards_an_other_machine:_the_redirect_attribute"><span class="tocnumber">4.2</span> <span class="toctext">Service redirection towards an other machine: the redirect attribute</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./Xinetd_:_Sécuriser_ses_services.html#Special_services"><span class="tocnumber">4.3</span> <span class="toctext">Special services</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="./Xinetd_:_Sécuriser_ses_services.html#Let.27s_play_a_bit..."><span class="tocnumber">5</span> <span class="toctext">Let's play a bit...</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="./Xinetd_:_Sécuriser_ses_services.html#Starting_with_a_riddle"><span class="tocnumber">5.1</span> <span class="toctext">Starting with a riddle</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./Xinetd_:_Sécuriser_ses_services.html#chroot_a_service"><span class="tocnumber">5.2</span> <span class="toctext">chroot a service</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./Xinetd_:_Sécuriser_ses_services.html#pop3_server"><span class="tocnumber">5.3</span> <span class="toctext">pop3 server</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="./Xinetd_:_Sécuriser_ses_services.html#Conclusion"><span class="tocnumber">6</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="./Xinetd_:_Sécuriser_ses_services.html#Problems"><span class="tocnumber">7</span> <span class="toctext">Problems</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>xinetd - eXtended InterNET services daemon - provides a good security against intrusion and reduces the risks of Denial of Services (DoS) attacks. Like the well known couple (inetd+tcpd), it enables the configuration of the access rights for a given machine, but it can do much more. In this article we will discover its many features.
+</p><p>The classical inetd helps controlling network connections to a computer. When a request comes to a port managed by inetd, then inetd forwards it to a program called tcpd. Tcpd decides, in accordance with the rules contained in the hosts.{allow, deny} files whether or not to grant the request. If the request is allowed, then the the corresponding server process (e.g ftp) can be started. This mechanism is also referred to as tcp_wrapper.
+</p><p>xinetd provides access control capabilities similar to the ones provided by tcp_wrapper. However, its capabilities extend much further&#160;:
+</p>
+<ul><li> access control for TCP, UDP and RPC services (the latter ones aren't well supported yet).</li>
+<li> access control based on time segments</li>
+<li> full logging, either for connection success or failure</li>
+<li> efficient containment against Denial of Services (DoS) attacks (attacks which attempt to freeze a machine by saturating its resources)&#160;:
+<ul><li> limitation on the number of servers of the same type to run at a time</li>
+<li> limitation on the total number of servers</li>
+<li> limitation on the size of the log files.</li></ul></li>
+<li> binding of a service to a specific interface: this allows you, for instance, to make services available to your private network but not to the outside world.</li>
+<li> can be used as a proxy to other systems. Quite useful in combination with ip_masquerading (or Network Address Translation - NAT) in order to reach the internal network.</li></ul>
+<p>The main drawback, as already mentioned, concerns poorly supported RPC calls. However, portmap can coexist with xinetd to solve this.
+</p><p>The first part of this article explains how xinetd works. We'll spend some time on a service configuration, on some specific options (binding to an interface, redirection) and demonstrate this with a few examples. The second part shows xinetd at work, the logs it generates and finishes with a useful tip.
+</p>
+<h1><span class="mw-headline" id="Compilation_.26_Installation"><span class="mw-headline-number">2</span> Compilation &amp; Installation</span></h1>
+<p>You can get xinetd from www.xinetd.org. For this article we will use version 2.1.8.9pre10.
+Compilation and installation are done in the classical way: the usual commands ./configure; make; make install do it all&#160;:) configure supports the usual options. Three specific options are available at compile time:
+</p>
+<ul><li> --with-libwrap&#160;: with this option, xinetd checks the tcpd configuration files (/etc/hosts.{allow, deny}) and if access is accepted, it then uses its own control routines. For this option to work, tcp_wrapper and its libraries have to be installed on the machine (Author's note: what can be done with the wrapper can also be done with xinetd. Allowing this compatibility leads to multiplying the config files, and makes the administration heavier... in short, I don't recommend it);</li>
+<li> --with-loadavg&#160;: this option allows xinetd to handle the max_load configuration option. This allows the deactivation of some services when the machine is overloaded. An options essential to prevent some DoS attacks (check the attribute max_load in table 1);</li>
+<li> --with-inet6&#160;: if you feel like using IPv6, this option allows to support it. The IPv4 and IPv6 connections are managed, but IPv4 addresses are changed into IPv6 format.</li></ul>
+<p>Before starting xinetd, you don't have to stop inetd. Nevertheless, not doing so may lead to an unpredictable behavior of both daemons!
+</p><p>Some signals can be used to modify xinetd behavior:
+</p>
+<ul><li> SIGHUP (previously SIGUSR2): hard re-configuration: the configuration file is re-read, the services parameters are changed accordingly and the outdated daemons are killed.</li>
+<li> SIGUSR1&#160;: write a dump to var/run/xinetd.dump of the internal state.</li>
+<li> SIGQUIT&#160;: causes program termination.</li>
+<li> SIGTERM&#160;: ends xinetd and the daemons it generated.</li>
+<li> SIGIOT (aka SIGABRT, value 6)&#160;: check the internal state of xinetd. Take care that on my RH 7.3, the signal SIGIOT is defined as a synonym for SIGABRT&#160;:</li></ul>
+<pre>kill -s SIGIOT 574
+bash: kill: bad signal spec `SIGIOT'
+</pre>
+<pre>kill -s SIGABRT 574
+tail -1 /var/log/messages
+</pre>
+<pre>May  3 12:18:25 batman xinetd[574]: Consistency check passed
+</pre>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>The /etc/xinetd.conf file is the default configuration file for the xinetd daemon (a command line option allows to provide another one). The xinetd configuration is not very complex, but it may be a long work and the syntax is unfortunately quite different from that of its predecessor inetd.
+</p><p>Two utilities (itox and xconv.pl) are provided with xinetd and allow to convert the /etc/inetd.conf file into a configuration file for xinetd. Obviously, that's not enough since the rules specified in the wrapper configuration are ignored. The itox program, still maintained, is no longer developed. The xconv.pl program is a better solution, even if the result has to be modified because of features that xinetd has in addition to inetd:
+</p>
+<pre>/usr/local/sbin/xconv.pl &lt; /etc/inetd.conf &gt; /etc/xinetd.conf
+</pre>
+<p>The configuration file begins with a default section. The attributes in this section will be used by every service xinetd manages. After that, you will find as many sections as there are services, each of them being able to re-define specific options in relation to the default ones.
+</p><p>The default values section looks like:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">defaults
+{
+        attribut op?rateur valeur(s)
+        ...
+}</pre></div></div>
+<p>Each attribute defined in this section keeps the provided value(s) for all services described thereafter. Thus, the only_from attribute, allows to give a list of authorized addresses that should be able to connect to servers:
+</p>
+<pre>only_from = 192.168.1.0/24 192.168.5.0/24 192.168.10.17
+</pre>
+<p>Every service declared thereafter will allow access from machines having an address contained in the list. However, these default values can be modified for each service (check the operators, explained a bit further down). Nevertheless, this process is a bit risky. As a matter of fact, to keep things simple and secure, it's much better not to define default values and change them later on within a service. For instance, talking about access rights, the simplest policy consists in denying access to everyone and next allowing access to each service to those who really need it (with tcp_wrapper, this is done from an hosts.deny file containing ALL:ALL(at)ALL, and an hosts.allow file only providing authorized services and addresses).
+</p><p>Each section describing a service in the config file looks like:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service name_of_service
+{
+        attribut operator value(s)
+        ...
+}</pre></div></div>
+<p>Three operators are available: '=', '+=' and '-='. Most of the attributes only support the '=' operator, used to assign a fix value to an attribute. The '+=' operator adds an item to a list of values, while the '-=' operator removes this item.
+</p><p>The table 1 briefly describes some of these attributes. We'll see how to use them with a few examples. Reading the xinetd.conf man page provides more information.
+</p>
+<table border="1" width="100%">
+
+<tr>
+<th>Attribute
+</th>
+<th>Values and description
+</th></tr>
+<tr>
+<td>flags
+</td>
+<td>Only the most current values are mentioned here, check the documentation to find new ones:
+<ul><li> IDONLY&#160;: only accepts connexions from clients having an identification server;</li>
+<li> NORETRY&#160;: avoids a new process to be forked again in case of failure;</li>
+<li> NAMEINARGS&#160;: the first argument of the server_args attribute is used as argv[0] for the server. This allows to use tcpd by putting it in the server attribute, next writing the server name and its arguments such as server_args, as you would do with inetd.</li>
+<li> SENSOR&#160;: when a server is flagged as a sensor, it is considered as a honeypot. When a client attempts to connect to it, it is added to the no_access list, forbidding any further access to any other servers started by xinetd.</li></ul>
+</td></tr>
+<tr>
+<td>log_type
+</td>
+<td>xinetd uses syslogd and the daemon.info selector by default.
+<ul><li> SYSLOG selector [level]&#160;: allows to choose among daemon, auth, user or local0-7 from syslogd&#160;;</li>
+<li> FILE [max_size [absolute_max_size]]&#160;: the specified file receives information. The two options set the file size limit. When the size is reached, the first one sends a message to syslogd, the second one stops the logging for this service (if it's a common file - or fixed by default - then various services can be concerned).</li></ul>
+</td></tr>
+<tr>
+<td>log_on_success
+</td>
+<td>Different information can be logged when a server starts:
+<ul><li> PID&#160;: the server's PID (if it's an internal xinetd service, the PID has then a value of 0)&#160;;</li>
+<li> HOST&#160;: the client address&#160;;</li>
+<li> USERID&#160;: the identity of the remote user, according to RFC1413 defining identification protocol;</li>
+<li> EXIT&#160;: the process exit status;</li>
+<li> DURATION&#160;: the session duration.</li></ul>
+</td></tr>
+<tr>
+<td>log_on_failure
+</td>
+<td>Here again, xinetd can log a lot of information when a server can't start, either by lack of resources or because of access rules:
+<ul><li> HOST, USERID&#160;: like above mentioned&#160;;</li>
+<li> ATTEMPT&#160;: logs an access attempt. This an automatic option as soon as another value is provided;</li>
+<li> RECORD&#160;: logs every information available on the client. <b>Warning</b>: this is deprecated in recent versions.</li></ul>
+</td></tr>
+<tr>
+<td>nice
+</td>
+<td>Changes the server priority like the <i>nice</i> command does.
+</td></tr>
+<tr>
+<td>no_access
+</td>
+<td>List of clients not having access to this service.
+</td></tr>
+<tr>
+<td>only_from
+</td>
+<td>List of authorized clients. If this attribute has no value, the access to the service is denied.
+</td></tr>
+<tr>
+<td>port
+</td>
+<td>The port associated to the service. If it's also defined in the <i>/etc/services</i> file, the 2 port numbers must match.
+</td></tr>
+<tr>
+<td>protocol
+</td>
+<td>The specified protocol must exist in the <i>/etc/protocols</i> file. If no protocol is given, the service's default one is used instead.
+</td></tr>
+<tr>
+<td>server
+</td>
+<td>The path to the server.
+</td></tr>
+<tr>
+<td>server_args
+</td>
+<td>Arguments to be given to the server.
+</td></tr>
+<tr>
+<td>socket_type
+</td>
+<td>stream (TCP), dgram (UDP), raw (IP direct access) or seqpacket ().
+</td></tr>
+<tr>
+<td>type
+</td>
+<td>xinetd can manage 3 types of services&#160;:
+<ul><li> RPC&#160;: for those defined in the <i>/etc/rpc</i> file... but doesn't work very well;</li>
+<li> INTERNAL&#160;: for services directly managed by xinetd (<i>echo</i>, <i>time</i>, <i>daytime</i>, <i>chargen</i> and <i>discard</i>)&#160;;</li>
+<li> UNLISTED&#160;: for services not defined either in the <i>/etc/rpc</i> file, or in the <i>/etc/services</i> file&#160;;</li></ul>
+<p>Let's note it's possible to combine various values, as we'll see with servers, services and xadmin internal services.
+</p>
+</td></tr>
+<tr>
+<td>wait
+</td>
+<td>Defines the service behavior towards threads. Two values are acceptable:
+<ul><li> yes&#160;: the service is mono-thread, only one connexion of this type can be managed by the service;</li>
+<li> no&#160;: a new server is started by xinetd for each new service request according to the defined maximum limit (<b>Warning</b>, by default this limit is infinite).</li></ul>
+</td></tr>
+<tr>
+<td>cps
+</td>
+<td>Limits the number of incoming connexions. The first argument is this number itself. When the threshold is exceeded, the service is deactivated for a given time, expressed in seconds, provided with the second argument.
+</td></tr>
+<tr>
+<td>instances
+</td>
+<td>Defines the maximum number of servers of a same type able to work at the same time.
+</td></tr>
+<tr>
+<td>max_load
+</td>
+<td>This gives really the maximum load for a server (for example, 2 or 2.5). Beyond this limit, requests on this server are rejected.
+</td></tr>
+<tr>
+<td>per_source
+</td>
+<td>Either an integer, or UNLIMITED, to restrict the number of connexion from a same origin  to a server
+</td></tr></table>
+<p>a few attributes for xinetd
+</p><p>The four last attributes shown in table1 allow to control the resources depending on a server. This is efficient to protect from Denial of Service (DoS) attacks (freezing a machine by using all of its resources).
+</p><p>This section presented a few xinetd features. The next sections show how to use it and give some rules to make it work properly. 
+</p>
+<h2><span class="mw-headline" id="Access_Control"><span class="mw-headline-number">3.1</span> Access Control</span></h2>
+<p>As we have seen previously, you can grant (or forbid) access to your box by using IP addresses. However, xinetd allows more features:
+</p>
+<ul><li> you can do access control by hostname resolution. When doing this, xinetd does a lookup on the hostname(s) specified _for every connection_, and compares the connecting address to the addresses returned for the hostname(s).</li>
+<li> you can do access control by .domain.com. When a client connects, xinetd will reverse lookup the connecting address, and see if it is in the specified domain.</li></ul>
+<p>To optimize things, obviously IP addresses are obviously better, that way you avoid name lookup(s) on incoming connections to that service. If you must do access control by the hostname, you can significantly speed things up if you run a local (at least a caching) name server. It's even better if you are using domain sockets to perform your address lookup (don't put a nameserver entry in /etc/resolv.conf).
+</p>
+<h2><span class="mw-headline" id="Service_defaults"><span class="mw-headline-number">3.2</span> Service defaults</span></h2>
+<p>The defaults section allows setting values for an number of attributes (check the documentation for the whole list). Some of these attributes (only_from, no_access, log_on_success, log_on_failure, ...) hold simultaneously the values allocated in this section and the ones provided in the services.
+</p><p>By default, denying access to a machine, is the first step of a reliable security policy. Next, allowing access will be configured on a per-service basis. We've seen two attributes allowing to control access to a machine, based on IP addresses: only_from and no_access. Selecting the second one we write:
+</p>
+<pre>no_access = 0.0.0.0/0
+</pre>
+<p>which fully blocks services access. However, if you wish to allow everyone to access echo (ping) for instance, you then should write in the echo service:
+</p>
+<pre>only_from = 0.0.0.0/0
+</pre>
+<p>Here is the logging message you get with this configuration:
+</p>
+<pre>Sep 17 15:11:12 deimos xinetd[26686]: Service=echo-stream:
+only_from list and no_access list match equally the address
+192.168.1.1
+</pre>
+<p>Specifically, the access control is done comparing the lists of addresses contained in both attributes. When the client address matches the both lists, the least general one is preferred. In case of equality, like in our example, xinetd is unable to choose and refuses the connexion.  To get rid of this ambiguity, you should have written:
+</p>
+<pre>only_from = 192.0.0.0/8
+</pre>
+<p>An easier solution is to only control the access with the attribute: only_from = Not giving a value makes every connexion fail&#160;:) Then, every service allows access by means of this same attribute.
+</p><p><b>Important, not to say essential: in case of no access rule at all (i.e. neither only_from, nor no_access) for a given service (allocated either directly or with the default) section, the access to the service is allowed!</b>
+</p><p>Here is an example of defaults:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">defaults
+{
+        instances = 15
+        log_type&amp; = FILE /var/log/servicelog
+        log_on_success = HOST PID USERID DURATION EXIT
+        log_on_failure = HOST USERID RECORD
+        only_from =
+        per_source = 5
+        disabled = shell login exec comsat
+        disabled = telnet ftp
+        disabled = name uucp tftp
+        disabled = finger systat netstat
+        #INTERNAL
+        disabled = time daytime chargen servers services xadmin
+        #RPC
+        disabled = rstatd rquotad rusersd sprayd walld
+}</pre></div></div>
+<p>Among internal services, servers, services, and  xadmin allow to manage xinetd. More on this later.
+</p>
+<h1><span class="mw-headline" id="Configuring_a_service"><span class="mw-headline-number">4</span> Configuring a service</span></h1>
+<p>To configure a service, we need ...nothing&#160;:) In fact, everything works like it does with defaults values: you just have to precise the attributes and their value(s) to manage the service. This implies either a change in the defaults values or another attribute for this service.
+</p><p>Some attributes must be present according to the type of service (INTERNAL, UNLISTED ou RPC)&#160;:
+</p>
+<table border="1" width="100%">
+
+<tr>
+<th>Attribute
+</th>
+<th>Comment
+</th></tr>
+<tr>
+<td>socket-type
+</td>
+<td>Every service.
+</td></tr>
+<tr>
+<td>user
+</td>
+<td>Only for non INTERNAL services
+</td></tr>
+<tr>
+<td>server
+</td>
+<td>Only for non INTERNAL services
+</td></tr>
+<tr>
+<td>wait
+</td>
+<td>Every service.
+</td></tr>
+<tr>
+<td>protocol
+</td>
+<td>Every RPC service and the ones not contained in /etc/services.
+</td></tr>
+<tr>
+<td>rpc_version
+</td>
+<td>Every RPC service.
+</td></tr>
+<tr>
+<td>rpc_number
+</td>
+<td>Every RPC service, not contained in /etc/rpc.
+</td></tr>
+<tr>
+<td>port
+</td>
+<td>Every non RPC service, not contained in /etc/services.
+</td></tr></table>
+<p>required attributes
+</p><p>This example shows how to define services:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service ntalk
+{
+        socket_type = dgram
+        wait = yes
+        user = nobody
+        server = /usr/sbin/in.ntalkd
+        only_from = 192.168.1.0/24
+}
+&#160;
+service ftp
+{
+        socket_type = stream
+        wait = no
+        user = root
+        server = /usr/sbin/in.ftpd
+        server_args = -l
+        instances = 4
+        access_times = 7:00-12:30 13:30-21:00
+        nice = 10
+        only_from = 192.168.1.0/24
+}</pre></div></div>
+<p>Let's note that these services are only allowed on the local network (192.168.1.0/24). Concerning FTP, some more restrictions are expected: only four instances are allowed and the service will be available only during certain segments of time.
+</p>
+<h2><span class="mw-headline" id="Port_binding:_the_bind_attribute"><span class="mw-headline-number">4.1</span> Port binding: the bind attribute</span></h2>
+<p>This attribute allows the binding of a service to a specific IP address. This is only useful when a machine has at least two network interfaces, for example a computer beeing part of a local network and connected to Internet through a separate interface.
+</p><p>For instance, a company wishes to install an FTP server for its employees (to access and read internal documentation). This company wants to provide its clients with an FTP access towards its products: bind has been made for this company&#160;:) The solution is to define two separate FTP services, one for public access, and a second one for internal company access only. However, xinetd must be able to differentiate them: the solution is to use the id attribute. It defines a service in a unique way (when not defined within a service, its value defaults to the name of the service).
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service ftp
+{
+        id = ftp-public
+        wait = no
+        user = root
+        server = /usr/sbin/in.ftpd
+        server_args = -l
+        instances = 4
+        nice = 10
+        only_from = 0.0.0.0/0 #autorisation pour tous les clients
+        bind = 212.198.253.142 #adresse IP publique de ce serveur
+}
+&#160;
+service ftp
+{
+        id = ftp-interne
+        socket_type = stream
+        wait = no
+        user = root
+        server = /usr/sbin/in.ftpd
+        server_args = -l
+        only_from = 192.168.1.0/24 #usage interne seulement
+        bind = 192.168.1.1  #adresse IP locale de ce serveur (charly)
+}</pre></div></div>
+<p>The use of bind will allow to call the corresponding daemon, according to the destination of the packets. Thus, with this configuration, a client on the local network must give the local address (or the associated name) to access internal data. In the log file, you can read:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">00/9/17(at)16:47:46: START:
+ftp-public pid=26861 from=212.198.253.142
+00/9/17(at)16:47:46: EXIT: ftp-public status=0 pid=26861 duration=30(sec)
+00/9/17(at)16:48:19: START: ftp-interne pid=26864 from=192.168.1.1
+00/9/17(at)16:48:19: EXIT: ftp-interne status=0 pid=26864 duration=15(sec)</pre></div></div>
+<p>The first part comes from the command ftp 212.198.253.142, while the second part is about the command from charly to itself:
+</p>
+<pre>ftp 192.168.1.1
+.
+</pre>
+<p>Obviously, there's a problem: what happens if a machine doesn't have two static IP addresses? This can happen with ppp connections or when using the dhcp protocol. It seems it would be much better to bind services to interfaces than to addresses. However, this is not yet supported in xinetd and is a real problem (for instance, writing a C module to access an interface or address depends on the OS, and since xinetd is supported on many OSes...). Using a script solves the problem:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+PUBLIC_ADDRESS=`/sbin/ifconfig $1 | grep &quot;inet addr&quot; | awk '{print $2}'| awk -F: '{print $2}'`
+sed s/PUBLIC_ADDRESS/&quot;$PUBLIC_ADDRESS&quot;/g /etc/xinetd.base &gt; /etc/xinetd.conf</pre></div></div>
+<p>This script takes the /etc/xinetd.base file, containing the desired configuration with  PUBLIC_ADDRESS as a replacement for the dynamic address, and changes it in /etc/xinetd.conf, modifying the PUBLIC_ADDRESS string with the address associated to the interface passed as an argument to the script. Next, the call to this script depends on the type of connection: the simplest is to add the call into the right ifup-* file and to restart xinetd.
+</p>
+<h2><span class="mw-headline" id="Service_redirection_towards_an_other_machine:_the_redirect_attribute"><span class="mw-headline-number">4.2</span> Service redirection towards an other machine: the redirect attribute</span></h2>
+<p>xinetd can be used as a transparent proxy, sort of (well, almost ... as we'll see it later) with the redirect attribute. It allows to send a service request towards an other machine to the desired port.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service telnet
+{
+        socket_type = stream
+        wait = no
+        user = root
+        server = /usr/sbin/in.telnetd
+        only_from = 192.168.1.0/24
+        redirect = 192.168.1.15 23
+}</pre></div></div>
+<p>Let's watch what's going on now:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ telnet deimos
+Trying 192.168.1.1...
+Connected to charly.
+Escape character is '^]'.
+&#160;
+Digital UNIX (deimos) (ttyp1)
+login:</pre></div></div>
+<p>At first, the connection seems to be established on charly, but the following shows that sabrina (an alpha machine, hence "Digital UNIX") took over. This mecanism can be both useful and dangerous. When setting it up, logging must be done on both ends of the connection. Furthermore, for this type of service, the use of DMZ and firewall is strongly recommended;-)
+</p>
+<h2><span class="mw-headline" id="Special_services"><span class="mw-headline-number">4.3</span> Special services</span></h2>
+<p>Three services only belong to xinetd. Since these services can't be found in /etc/rpc or /etc/services, they must have the UNLISTED flag ( besides the INTERNAL flag informing they are xinetd services)
+</p>
+<ul><li> servers: informs about servers in use</li>
+<li> services: informs about available services, their protocol and their port</li>
+<li> xadmin: mixes the functions of the two previous ones.</li></ul>
+<p>Obviously, these services make your computer more vulnerable. since they provide important information. Presently, their access is not protected (password protected, for instance). You should use them only at configuration time. Next, in the defaults section, you must deny their use:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">defaults {
+        ...
+        disabled = servers services xadmin
+        ...
+}</pre></div></div>
+<p>Before activating them, you should take some precautions:
+</p>
+<ul><li> the machine running xinetd must be the only one able to connect to these services</li>
+<li> limit the number of instances to one</li>
+<li> Allow access only from the machine running the server.</li></ul>
+<p>Let's take the example of the xadmin service (the two others can be configured in the same way, apart from the port number&#160;;-)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service xadmin
+{
+        type = INTERNAL UNLISTED
+        port = 9100
+        protocol = tcp
+        socket_type = stream
+        wait = no
+        instances = 1
+        only_from = 192.168.1.1 #charly
+}</pre></div></div>
+<p>The xadmin service has 5 commands&#160;:
+</p>
+<ul><li> help ...</li>
+<li> show run&#160;: like the servers service, informs about the presently running servers</li>
+<li> show avail&#160;: like the services service, informs about the available services (and a bit more)</li>
+<li> bye or exit...</li></ul>
+<p>Now, you know they exist: forget them&#160;;-) You can test without these services. Commands such as (netstat, fuser, lsof, ... allow you to know what's going on on your machine, without making it vulnerable as you would when using these services!
+</p>
+<h1><span class="mw-headline" id="Let.27s_play_a_bit..."><span class="mw-headline-number">5</span> Let's play a bit...</span></h1>
+<h2><span class="mw-headline" id="Starting_with_a_riddle"><span class="mw-headline-number">5.1</span> Starting with a riddle</span></h2>
+<p>Here is a small exercise for the ones who survived&#160;;-) First I will explain configuration used in this exercise and then we will try to find out what happens and why it does not work.
+</p><p>We only need the finger service&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service finger
+{
+        flags = NAMEINARGS
+        server = /usr/sbin/tcpd
+        server_args = in.fingerd
+        socket_type = stream
+        wait = no
+        user = nobody
+        only_from = 192.168.1.1 #charly
+}</pre></div></div>
+<p>xinetd wasn't compiled with the --with-libwrap option (check the attribute server). The defaults section is of the same kind of the one previously provided: every access to charly is denied wherever the connexion comes from. The finger service is not deactivated, nevertheless:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pappy(at)charly$ finger pappy@charly
+[charly]
+pappy(at)charly$
+&#160;
+pappy(at)bosley$ finger pappy@charly
+[charly]
+pappy(at)bosley$</pre></div></div>
+<p>It seems the request didn't work properly, neither from charly (192.168.1.1), an authorized machine, nor from bosley (192.168.1.10). Let's have a look at the log files:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/var/log/servicelog&#160;:
+00/9/18(at)17:15:42: START: finger pid=28857 from=192.168.1.1
+00/9/18(at)17:15:47: EXIT: finger status=0 pid=28857 duration=5(sec)
+00/9/18(at)17:15:55: FAIL: finger address from=192.168.1.10</pre></div></div>
+<p>The request from charly (the two first lines) works properly according to xinetd: the access is allowed and the request takes 5 seconds. On the other hand, the request from bosley is rejected (FAIL).
+If we look at the configuration of the finger service, the server used is not really in.fingerd, but the tcp_wrapper tcpd service. The wrapper log says:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/var/log/services&#160;:
+Sep 18 17:15:42 charly in.fingerd[28857]: refused connect from 192.168.1.1</pre></div></div>
+<p>We see that there's only one line matching our two queries! The one from bosley (the second one) was intercepted by xinetd, so it's quite normal not to find it in that log. The selected line really corresponds to the request xinetd allowed, sent from charly to charly (the first one): time and PID are identical.
+</p><p>Let's summarize what we have:
+</p>
+<ul><li> xinetd allowed the request</li>
+<li> the finger request goes through tcpd</li>
+<li> in.fingerd rejected this request.</li></ul>
+<p>What's going on, then? Since the request is accepted by xinetd, it's sent to the specified server (here tcpd). Nevertheless, tcpd rejects this connection. Then, we must have a look at hosts.{allow,deny}. The /etc/hosts.deny file only contains ALL:ALL(at)ALL, what explains why the request has been rejected by the wrapper!
+</p><p>According to the way the server and server_args service lines have been defined, the wrapper features are still accessible (banner - there's a banner attribute in xinetd-, spawn, twist, ...). Remember that the --with-libwrap compilation option only adds access rights control (with the help of hosts.{allow,deny} files), before xinetd process starts. In this example we saw that this configuration allows us to continue using the tcp wrapper features.
+</p><p>This overlapping of features, if it can work, may as well lead to stange behaviors. To use xinetd together with inetd and portmap, it's much better to manage a service with only one of these "super-daemons".
+</p>
+<h2><span class="mw-headline" id="chroot_a_service"><span class="mw-headline-number">5.2</span> chroot a service</span></h2>
+<p>It's often suggested to restrict the fields of some services, or to create a new environment. The chroot command allows to change the root directory for a command (or a script):
+</p>
+<pre> chroot [options] new_root
+</pre>
+<p>This is often used to protect services such as bind/DNS or ftp. To duplicate this behavior while benefiting from xinetd features, you have to declare chroot as a server. Then, you just have to pass other arguments via the server_args attribute&#160;:) pre&gt; service ftp { id = ftp socket_type = stream wait = no user = root server = /usr/sbin/chroot server_args = /var/servers/ftp /usr/sbin/in.ftpd -l }
+</p><p>Thus, when a request is sent to this service, the first instruction used is chroot. Next, the first argument passed to it is the first one on the server_args line, that is the new root. Last, the server is started.
+</p>
+<h2><span class="mw-headline" id="pop3_server"><span class="mw-headline-number">5.3</span> pop3 server</span></h2>
+<p>pop3 seems to be very popular&#160;: I recieved mails asking me how to handle it throught xinetd. Here is a sample configuration &#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">     service pop3
+     {
+             disable = no
+             socket_type             = stream
+             wait                    = no
+             user                    = root
+             server                  = /usr/sbin/ipop3d
+     #       log_on_success          += USERID
+     #       log_on_failure          += USERID
+     }</pre></div></div>
+<p>Of course, you have to put your own path for the server attribute.
+</p><p>The use of pop3 throught xinetd could be painful, depending on the values you use for logging. For instance the use of USERID send a request from your xinetd to an identd server hosted at the pop's client. If no such server is available, a timeout is waited for 30 seconds.
+</p><p>So, when somebody tries to get his mail, he have to wait at least for those 30 seconds if no identd server responds. You have to choose between&#160;:
+</p>
+<ul><li> install an identd server on all the clients so your logs are very sharp (take care, one can change the informations provided by identd)</li>
+<li> decrease the quality of your logging for that service so that your users could get their mails quickly.</li></ul>
+<h1><span class="mw-headline" id="Conclusion"><span class="mw-headline-number">6</span> Conclusion</span></h1>
+<p>You could now ask yourself which daemon to choose from xinetd or inetd. xinetd offers more features , but it requires a bit more administration, especially until it is included by default in the into distributions (it is now true for most of them). The most secure solution is to use xinetd on machines with public access (like Internet) since it offers a better defense. For machines within a local network inetd should be enough.
+</p>
+<h1><span class="mw-headline" id="Problems"><span class="mw-headline-number">7</span> Problems</span></h1>
+<p>If you have errors like this in your logs&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">xinetd[4361]: FAIL: nrpe service_limit from=192.168.0.19
+xinetd[4361]: FAIL: nrpe service_limit from=192.168.0.16
+xinetd[4361]: FAIL: nrpe service_limit from=192.168.0.16
+xinetd[4361]: FAIL: nrpe service_limit from=192.168.0.19
+xinetd[4361]: FAIL: nrpe service_limit from=192.168.0.19
+xinetd[4361]: FAIL: nrpe service_limit from=192.168.0.16
+xinetd[4361]: FAIL: nrpe service_limit from=192.168.0.16</pre></div></div>
+<p>Check by default the number of max instances&#160;:
+</p>
+<pre>$ grep instances &lt; /etc/xinetd.conf
+instances               = 60
+</pre>
+<p>Then you have to add to your service (here nrpe is&#160;: /etc/xinet.d/nrpe) this line&#160;:
+</p>
+<pre>instances       = 120
+</pre>
+<p>The number is the number of instances. Grow it up if you encounter this problem. Ex&#160;:
+</p>
+<pre># default: off
+# description: NRPE (Nagios Remote Plugin Executor)
+service nrpe
+{
+        disable = no
+        flags           = REUSE
+        type            = UNLISTED
+        port            = 5666
+        socket_type     = stream
+        wait            = no
+        user            = nagios
+        group           = nagios
+        server          = /usr/sbin/nrpe
+        server_args     = -c /etc/nagios/nrpe.cfg --inetd
+        log_on_failure  += USERID
+        <b>instances       = 120</b>
+#       disable         = yes
+#       only_from       = 127.0.0.1
+}
+</pre>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 205/1000000
+Preprocessor generated node count: 404/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1793-0!*!*!1!en!*!* and timestamp 20181111230644 and revision id 3337
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Xinetd_:_Sécuriser_ses_services&amp;oldid=3337">https://wiki.deimos.fr/index.php?title=Xinetd_:_Sécuriser_ses_services&amp;oldid=3337</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Xinetd+%3A+S%C3%A9curiser+ses+services" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Xinetd_:_Sécuriser_ses_services.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Xinetd_:_Sécuriser_ses_services.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Xinetd_:_Sécuriser_ses_services.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Xinetd_:_S%C3%A9curiser_ses_services&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Xinetd_:_S%C3%A9curiser_ses_services&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Xinetd_:_Sécuriser_ses_services.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Xinetd_:_Sécuriser_ses_services.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Xinetd_:_S%C3%A9curiser_ses_services" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Xinetd_:_S%C3%A9curiser_ses_services&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Xinetd_:_S%C3%A9curiser_ses_services&amp;oldid=3337" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Xinetd_:_S%C3%A9curiser_ses_services&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 6 March 2007, at 09:30.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

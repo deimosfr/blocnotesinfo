@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Créer un package Solaris - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Créer_un_package_Solaris.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Créer_un_package_Solaris","wgTitle":"Créer un package Solaris","wgCurRevisionId":8225,"wgRevisionId":8225,"wgArticleId":2826,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Créer_un_package_Solaris","wgRelevantArticleId":2826,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Créer_un_package_Solaris skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Créer un package Solaris</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Créer_un_package_Solaris.html#mw-navigation">navigation</a>, 					<a href="Créer_un_package_Solaris.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Créer_un_package_Solaris.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Créer_un_package_Solaris.html#Cr.C3.A9ation_de_fichiers_n.C3.A9cessaires"><span class="tocnumber">2</span> <span class="toctext">Création de fichiers nécessaires</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Créer_un_package_Solaris.html#copyright"><span class="tocnumber">2.1</span> <span class="toctext">copyright</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Créer_un_package_Solaris.html#depend"><span class="tocnumber">2.2</span> <span class="toctext">depend</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Créer_un_package_Solaris.html#pkginfo"><span class="tocnumber">2.3</span> <span class="toctext">pkginfo</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Créer_un_package_Solaris.html#prototype"><span class="tocnumber">2.4</span> <span class="toctext">prototype</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Créer_un_package_Solaris.html#Cr.C3.A9ation_du_package"><span class="tocnumber">3</span> <span class="toctext">Création du package</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Créer_un_package_Solaris.html#Ressources"><span class="tocnumber">4</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Il peut être très pratique de créer son propre package Solaris. Pourquoi&#160;? Un gain de temps et c'est propre&#160;:-)
+</p><p>Nous allons avoir besoin de plusieurs fichiers, mais tous ne sont pas obligatoire. Je vais essayer de détailler au maximum pour que ce soit bien clair.
+</p><p>Il est aussi possible pour sécuriser son package de le certifier via SSL, GPG...
+</p>
+<h1><span class="mw-headline" id="Cr.C3.A9ation_de_fichiers_n.C3.A9cessaires"><span class="mw-headline-number">2</span> Création de fichiers nécessaires</span></h1>
+<p>Nous allons créer un dossier package et allons travailler dedans. Voici la composition d'un package&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">package
+|-- NOMdupackage
+|   |-- etc
+|   |   `-- deimos
+|   `-- usr
+|       |-- bin
+|       |   `-- deimos_cluster
+|       `-- perl5
+|           |-- 5.8.4
+|           |   |-- lib
+|           |   |   `-- i86pc-solaris-64int
+|           |   |       `-- perllocal.pod
+|           |   `-- man
+|           |       `-- man3
+|           |           `-- Unix::Syslog.3
+|           `-- site_perl
+|               `-- 5.8.4
+|                   `-- i86pc-solaris-64int
+|                       |-- Unix
+|                       |   `-- Syslog.pm
+|                       `-- auto
+|                           `-- Unix
+|                               `-- Syslog
+|                                   |-- Syslog.bs
+|                                   `-- Syslog.so
+|-- copyright
+|-- depend
+|-- pkginfo
+`-- prototype</pre></div></div>
+<p>Il y a donc&#160;:
+</p>
+<ul><li> NOMdupackage&#160;: un nom de package avec 3 à 4 lettres en majuscules uniques, qui va contenir tous les fichiers nécessaires à l'installation</li>
+<li> copyright et autres fichiers&#160;: fichiers qui vont servir à intéréagir pendant la phase d'utilisation du package ou tout simplement qui va contenir des informations</li></ul>
+<p>Je vais détailler un peu le dernier point. Voici les fichiers dont vous pouvez vous servir&#160;:
+</p>
+<ul><li> pkginfo&#160;: contient des infos sur le package <b>(obligatoire)</b></li>
+<li> prototype&#160;: contient la liste des fichiers et répertoire à copier. Contient également les fichiers de conf du package <b>(obligatoire)</b></li>
+<li> compver&#160;: définit les anciennes versions de package compatible avec celui ci</li>
+<li> depend&#160;: définit les autres packets dépendant pour installer ce packet</li>
+<li> space&#160;: définit l'espace disque requis pour ce paquage</li>
+<li> copyright&#160;: le copyright</li>
+<li> request&#160;: les prérequis pour l'installation</li>
+<li> checkinstall&#160;: script effectuant des tests pour vérifier que tout va bien avant d'effectuer l'installation</li>
+<li> preinstall&#160;: script pour préparer l'installation</li>
+<li> postinstall&#160;: script pour finir l'installation</li>
+<li> preremove&#160;: script pour préparer la suppression du package</li>
+<li> postinstall&#160;: script pour finir l'installation</li></ul>
+<p><b>Créez donc un dossier contenant le nom de souhaité de votre package ainsi que l'arborescence souhaitée montré comme plus haut dans l'exemple.</b>
+</p>
+<h2><span class="mw-headline" id="copyright"><span class="mw-headline-number">2.1</span> copyright</span></h2>
+<p>Pour le copyright, mettez le votre. Un truc bateau&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> copyright</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Copyright (c) 2009 Deimos
+All Rights Reserved
+&#160;
+This product is protected by copyright and distributed under
+licenses restricting copying, distribution, and decompilation.</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="depend"><span class="mw-headline-number">2.2</span> depend</span></h2>
+<p>Si vous avez des dépendances pour votre package, vous devez les inscrire ici. Par exemple, pour cet exemple, j'ai besoin d'avoir Perl et des librairies associées. Je vais donc récupérer la liste des noms de packets dont j'ai besoin et les mettre dans mon fichier depend&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkginfo</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ pkginfo | grep perl584 | grep -v man &gt; depend
+<b>system</b>      SUNWperl584core                  Perl 5.8.4 (core)
+<b>system</b>      SUNWperl584usr                   Perl 5.8.4 (non-core)
+</pre>
+</td></tr></table><br />
+<p>Ensuite, nous allons devoir remplacer ici 'system' par 'P' pour que ça donne ceci dans notre fichier&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> depend</font>
+</td></tr>
+<tr>
+<td>
+<pre><b>P</b>      SUNWperl584core                  Perl 5.8.4 (core)
+<b>P</b>      SUNWperl584usr                   Perl 5.8.4 (non-core)
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="pkginfo"><span class="mw-headline-number">2.3</span> pkginfo</span></h2>
+<p>Maintenant, le fameux fichier contenant la description du package&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> pkginfo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ARCH=i386
+CATEGORY=application
+NAME=Deimos Clustering Solution
+PKG=NOMdupackage
+VERSION=1.0
+DESC=Clustering Solution for Sun Cluster (SunPlex)
+VENDOR=Deimos - http://www.deimos.fr
+EMAIL=mon@email.com
+BASEDIR=/</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="prototype"><span class="mw-headline-number">2.4</span> prototype</span></h2>
+<p>Finissons par ce fichier qui est le plus complexe. Il doit contenir tous les noms de fichiers (f), dossiers (d) existant. Il comprend également des informations (i).
+</p><p>Utilisez seulement ce dont vous avez besoin (pkginfo est obligatoire)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>echo "i pkginfo=~/package/pkginfo" &gt; prototype
+echo "i copyright=~/package/copyright" &gt;&gt; prototype
+echo "i depend=~/package/depend" &gt;&gt; prototype
+</pre>
+</td></tr></table><br />
+<p>Ensuite je vais me mettre dans mon dossier NOMdupackage et ajouter ce qu'il me reste&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkgproto</font>
+</td></tr>
+<tr>
+<td>
+<pre>cd NOMdupackage
+pkgproto . &gt;&gt; ../prototype
+</pre>
+</td></tr></table><br />
+<p>Le contenu de mon fichier doit au final ressemble à quelquechose comme cela&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> prototype</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">i pkginfo=~/package/pkginfo
+i copyright=~/package/copyright
+i depend=~/package/depend
+d none etc 0755 root sys
+d none etc/deimos 0755 root root
+d none usr 0755 root root
+d none usr/perl5 0755 root root
+d none usr/perl5/site_perl 0755 root root
+d none usr/perl5/site_perl/5.8.4 0755 root root
+d none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int 0755 root root
+d none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/auto 0755 root root
+d none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/auto/Unix 0755 root root
+d none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/auto/Unix/Syslog 0755 root root
+f none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/auto/Unix/Syslog/Syslog.bs 0644 root root
+f none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/auto/Unix/Syslog/Syslog.so 0755 root root
+f none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/auto/Unix/Syslog/.packlist 0644 root root
+d none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/Unix 0755 root root
+f none usr/perl5/site_perl/5.8.4/i86pc-solaris-64int/Unix/Syslog.pm 0644 root root
+d none usr/perl5/5.8.4 0755 root root
+d none usr/perl5/5.8.4/man 0755 root root
+d none usr/perl5/5.8.4/man/man3 0755 root root
+f none usr/perl5/5.8.4/man/man3/Unix::Syslog.3 0644 root root
+d none usr/perl5/5.8.4/lib 0755 root root
+d none usr/perl5/5.8.4/lib/i86pc-solaris-64int 0755 root root
+f none usr/perl5/5.8.4/lib/i86pc-solaris-64int/perllocal.pod 0644 root root
+d none usr/bin 0755 root root
+f none usr/bin/deimos_cluster 0740 root root</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Cr.C3.A9ation_du_package"><span class="mw-headline-number">3</span> Création du package</span></h1>
+<p>Maintenant nous allons créer le package. Nous faisons un dossier package_done pour créer le package dedans&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkgmk</font>
+</td></tr>
+<tr>
+<td>
+<pre>cd ~/package
+mkdir package_done
+pkgmk -o -b . -d package_done -f prototype
+</pre>
+</td></tr></table><br />
+<p>Là nous obtenons notre package Solaris sous forme de dossier et non avec une extension pkg (qui est plus class, plus beau et brille dans le noir). C'est pourquoi voici le bouquet final&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkgtrans</font>
+</td></tr>
+<tr>
+<td>
+<pre>cd package_done
+pkgtrans -s . NOMdupackage.pkg NOMdupackage
+</pre>
+</td></tr></table><br />
+<p>Et là ça y est j'ai mon beau package en .pkg&#160;:-)
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">4</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://docs.sun.com/app/docs/doc/817-0406/ch1designpkg-51728?a=view">http://docs.sun.com/app/docs/doc/817-0406/ch1designpkg-51728?a=view</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.024 seconds
+Real time usage: 0.027 seconds
+Preprocessor visited node count: 179/1000000
+Preprocessor generated node count: 504/1000000
+Post‐expand include size: 2312/2097152 bytes
+Template argument size: 1003/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    5.048      1 - -total
+ 49.28%    2.488      4 - Template:Config
+ 31.86%    1.608      5 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2826-0!*!*!1!en!5!* and timestamp 20181111230618 and revision id 8225
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Créer_un_package_Solaris&amp;oldid=8225">https://wiki.deimos.fr/index.php?title=Créer_un_package_Solaris&amp;oldid=8225</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Cr%C3%A9er+un+package+Solaris" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Créer_un_package_Solaris.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Créer_un_package_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Créer_un_package_Solaris.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Cr%C3%A9er_un_package_Solaris&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Cr%C3%A9er_un_package_Solaris&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Créer_un_package_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Créer_un_package_Solaris.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Cr%C3%A9er_un_package_Solaris" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Cr%C3%A9er_un_package_Solaris&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Cr%C3%A9er_un_package_Solaris&amp;oldid=8225" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Cr%C3%A9er_un_package_Solaris&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 14 November 2009, at 16:04.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

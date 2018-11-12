@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Ceph : performance, reliability and scalability storage solution - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Ceph_:_performance,_reliability_and_scalability_storage_solution","wgTitle":"Ceph : performance, reliability and scalability storage solution","wgCurRevisionId":13350,"wgRevisionId":13350,"wgArticleId":3659,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Ceph_:_performance,_reliability_and_scalability_storage_solution","wgRelevantArticleId":3659,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-ruby {line-height: normal;}
+.source-ruby li, .source-ruby pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for ruby
+ * CSS class: source-ruby, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.ruby.source-ruby .de1, .ruby.source-ruby .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.ruby.source-ruby  {font-family:monospace;}
+.ruby.source-ruby .imp {font-weight: bold; color: red;}
+.ruby.source-ruby li, .ruby.source-ruby .li1 {font-weight: normal; vertical-align:top;}
+.ruby.source-ruby .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.ruby.source-ruby .li2 {font-weight: bold; vertical-align:top;}
+.ruby.source-ruby .kw1 {color:#9966CC; font-weight:bold;}
+.ruby.source-ruby .kw2 {color:#0000FF; font-weight:bold;}
+.ruby.source-ruby .kw3 {color:#CC0066; font-weight:bold;}
+.ruby.source-ruby .kw4 {color:#CC00FF; font-weight:bold;}
+.ruby.source-ruby .co1 {color:#008000; font-style:italic;}
+.ruby.source-ruby .co4 {color: #cc0000; font-style: italic;}
+.ruby.source-ruby .coMULTI {color:#000080; font-style:italic;}
+.ruby.source-ruby .es0 {color:#000099;}
+.ruby.source-ruby .br0 {color:#006600; font-weight:bold;}
+.ruby.source-ruby .sy0 {color:#006600; font-weight:bold;}
+.ruby.source-ruby .st0 {color:#996600;}
+.ruby.source-ruby .nu0 {color:#006666;}
+.ruby.source-ruby .me1 {color:#9900CC;}
+.ruby.source-ruby .re0 {color:#ff6633; font-weight:bold;}
+.ruby.source-ruby .re1 {color:#0066ff; font-weight:bold;}
+.ruby.source-ruby .re2 {color:#6666ff; font-weight:bold;}
+.ruby.source-ruby .re3 {color:#ff3333; font-weight:bold;}
+.ruby.source-ruby .ln-xtra, .ruby.source-ruby li.ln-xtra, .ruby.source-ruby div.ln-xtra {background-color: #ffc;}
+.ruby.source-ruby span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Ceph_performance_reliability_and_scalability_storage_solution skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Ceph : performance, reliability and scalability storage solution</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#mw-navigation">navigation</a>, 					<a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Testing_case"><span class="tocnumber">1.1</span> <span class="toctext">Testing case</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#First_node"><span class="tocnumber">2.1</span> <span class="toctext">First node</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Other_nodes"><span class="tocnumber">2.2</span> <span class="toctext">Other nodes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Deploy"><span class="tocnumber">3</span> <span class="toctext">Deploy</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Cluster"><span class="tocnumber">3.1</span> <span class="toctext">Cluster</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Monitor"><span class="tocnumber">3.2</span> <span class="toctext">Monitor</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Add_the_first_monitor"><span class="tocnumber">3.2.1</span> <span class="toctext">Add the first monitor</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Add_a_monitor"><span class="tocnumber">3.2.2</span> <span class="toctext">Add a monitor</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Remove_a_monitor"><span class="tocnumber">3.2.3</span> <span class="toctext">Remove a monitor</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Admin_node"><span class="tocnumber">3.3</span> <span class="toctext">Admin node</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#OSD"><span class="tocnumber">3.4</span> <span class="toctext">OSD</span></a>
+<ul>
+<li class="toclevel-3 tocsection-14"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Add_an_OSD"><span class="tocnumber">3.4.1</span> <span class="toctext">Add an OSD</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Get_OSD_status"><span class="tocnumber">3.4.2</span> <span class="toctext">Get OSD status</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Remove_an_OSD"><span class="tocnumber">3.4.3</span> <span class="toctext">Remove an OSD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#RBD"><span class="tocnumber">3.5</span> <span class="toctext">RBD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#OSD_2"><span class="tocnumber">4.1</span> <span class="toctext">OSD</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#OSD_Configuration"><span class="tocnumber">4.1.1</span> <span class="toctext">OSD Configuration</span></a>
+<ul>
+<li class="toclevel-4 tocsection-21"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Global_OSD_configuration"><span class="tocnumber">4.1.1.1</span> <span class="toctext">Global OSD configuration</span></a></li>
+<li class="toclevel-4 tocsection-22"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Network_configuration"><span class="tocnumber">4.1.1.2</span> <span class="toctext">Network configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-23"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Create_an_OSD_pool"><span class="tocnumber">4.1.2</span> <span class="toctext">Create an OSD pool</span></a></li>
+<li class="toclevel-3 tocsection-24"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#List_OSD_pools"><span class="tocnumber">4.1.3</span> <span class="toctext">List OSD pools</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-25"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Crush_map"><span class="tocnumber">4.2</span> <span class="toctext">Crush map</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-26"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Usage"><span class="tocnumber">5</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-27"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Check_health"><span class="tocnumber">5.1</span> <span class="toctext">Check health</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Change_configuration_on_the_fly"><span class="tocnumber">5.2</span> <span class="toctext">Change configuration on the fly</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Use_object_storage"><span class="tocnumber">5.3</span> <span class="toctext">Use object storage</span></a>
+<ul>
+<li class="toclevel-3 tocsection-30"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Add_object"><span class="tocnumber">5.3.1</span> <span class="toctext">Add object</span></a></li>
+<li class="toclevel-3 tocsection-31"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#List_objects_in_a_pool"><span class="tocnumber">5.3.2</span> <span class="toctext">List objects in a pool</span></a></li>
+<li class="toclevel-3 tocsection-32"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Remove_objects"><span class="tocnumber">5.3.3</span> <span class="toctext">Remove objects</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-33"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Use_blocks_device_storage"><span class="tocnumber">5.4</span> <span class="toctext">Use blocks device storage</span></a>
+<ul>
+<li class="toclevel-3 tocsection-34"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Create_a_block_device"><span class="tocnumber">5.4.1</span> <span class="toctext">Create a block device</span></a></li>
+<li class="toclevel-3 tocsection-35"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#List_available_block_devices"><span class="tocnumber">5.4.2</span> <span class="toctext">List available block devices</span></a></li>
+<li class="toclevel-3 tocsection-36"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Get_block_device_informations"><span class="tocnumber">5.4.3</span> <span class="toctext">Get block device informations</span></a></li>
+<li class="toclevel-3 tocsection-37"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Map_and_mount_a_block_device"><span class="tocnumber">5.4.4</span> <span class="toctext">Map and mount a block device</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Remove_a_block_device"><span class="tocnumber">5.4.5</span> <span class="toctext">Remove a block device</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Umount_and_unmap_a_block_device"><span class="tocnumber">5.4.6</span> <span class="toctext">Umount and unmap a block device</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Advanced_usage"><span class="tocnumber">5.4.7</span> <span class="toctext">Advanced usage</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-41"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-42"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Reset_a_node"><span class="tocnumber">6.1</span> <span class="toctext">Reset a node</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Can.27t_add_a_new_monitor_node"><span class="tocnumber">6.2</span> <span class="toctext">Can't add a new monitor node</span></a></li>
+<li class="toclevel-2 tocsection-44"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#health_HEALTH_WARN_clock_skew_detected"><span class="tocnumber">6.3</span> <span class="toctext">health HEALTH_WARN clock skew detected</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-45"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Ceph_logo.png.html" class="image" title="Ceph"><img alt="Ceph" src="images/a/aa/Ceph_logo.png" width="220" height="60" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>0.72.2</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://ceph.com/">Ceph Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>02/06/2014</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Ceph is an open-source, massively scalable, software-defined storage system which provides object, block and file system storage in a single platform. It runs on commodity hardware-saving you costs, giving you flexibility and because it’s in the Linux kernel, it’s easy to consume.<sup id="cite_ref-1" class="reference"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_note-1">[1]</a></sup>
+</p><p>Ceph is able to manage&#160;:
+</p>
+<ul><li> <b>Object Storage</b>&#160;: Ceph provides seamless access to objects using native language bindings or radosgw, a REST interface that’s compatible with applications written for S3 and Swift.</li>
+<li> <b>Block Storage</b>&#160;: Ceph’s RADOS Block Device (RBD) provides access to block device images that are striped and replicated across the entire storage cluster.</li>
+<li> <b>File System</b>&#160;: Ceph provides a POSIX-compliant network file system that aims for high performance, large data storage, and maximum compatibility with legacy applications (not yet stable)</li></ul>
+<p>Whether you want to provide Ceph Object Storage and/or Ceph Block Device services to Cloud Platforms, deploy a Ceph Filesystem or use Ceph for another purpose, all Ceph Storage Cluster deployments begin with setting up each Ceph Node, your network and the Ceph Storage Cluster. <b>A Ceph Storage Cluster requires at least one Ceph Monitor and at least two Ceph OSD Daemons. The Ceph Metadata Server is essential when running Ceph Filesystem clients.</b>
+</p>
+<ul><li> <b>OSDs</b>: A Ceph OSD Daemon (OSD) stores data, handles data replication, recovery, backfilling, rebalancing, and provides some monitoring information to Ceph Monitors by checking other Ceph OSD Daemons for a heartbeat. A Ceph Storage Cluster requires at least two Ceph OSD Daemons to achieve an <i>active + clean</i> state when the cluster makes two copies of your data (Ceph makes 2 copies by default, but you can adjust it).</li>
+<li> <b>Monitors</b>: A Ceph Monitor maintains maps of the cluster state, including the monitor map, the OSD map, the Placement Group (PG) map, and the CRUSH map. Ceph maintains a history (called an “epoch”) of each state change in the Ceph Monitors, Ceph OSD Daemons, and PGs.</li>
+<li> <b>MDSs</b>: A Ceph Metadata Server (MDS) stores metadata on behalf of the Ceph Filesystem (i.e., Ceph Block Devices and Ceph Object Storage do not use MDS). Ceph Metadata Servers make it feasible for POSIX file system users to execute basic commands like <i>ls, find, etc</i>. without placing an enormous burden on the Ceph Storage Cluster.</li></ul>
+<p>Ceph stores a client’s data as objects within storage pools. Using the CRUSH algorithm, Ceph calculates which placement group should contain the object, and further calculates which Ceph OSD Daemon should store the placement group. The CRUSH algorithm enables the Ceph Storage Cluster to scale, rebalance, and recover dynamically.
+</p>
+<h2><span class="mw-headline" id="Testing_case"><span class="mw-headline-number">1.1</span> Testing case</span></h2>
+<p>If you want to test with <a href="./Vagrant_:_quickly_deploy_virtual_machines.html" title="Vagrant : quickly deploy virtual machines">Vagrant</a> and VirtualBox, I've made a Vagrantfile for it running on Debian Wheezy&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> Vagrantfile</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="ruby source-ruby"><pre class="de1"><span class="co1"># -*- mode: ruby -*-</span>
+<span class="co1"># vi: set ft=ruby&#160;:</span>
+ENV<span class="br0">&#91;</span><span class="st0">'LANG'</span><span class="br0">&#93;</span> = <span class="st0">'C'</span>
+&#160;
+<span class="co1"># Vagrantfile API/syntax version. Don't touch unless you know what you're doing!</span>
+VAGRANTFILE_API_VERSION = <span class="st0">&quot;2&quot;</span>
+&#160;
+<span class="co1"># Insert all your Vms with configs</span>
+boxes = <span class="br0">&#91;</span>
+    <span class="br0">&#123;</span> <span class="re3">:name</span> <span class="sy0">=&gt;</span> <span class="re3">:mon1</span>, <span class="re3">:role</span> <span class="sy0">=&gt;</span> <span class="st0">'mon'</span><span class="br0">&#125;</span>,
+    <span class="br0">&#123;</span> <span class="re3">:name</span> <span class="sy0">=&gt;</span> <span class="re3">:mon2</span>, <span class="re3">:role</span> <span class="sy0">=&gt;</span> <span class="st0">'mon'</span><span class="br0">&#125;</span>,
+    <span class="br0">&#123;</span> <span class="re3">:name</span> <span class="sy0">=&gt;</span> <span class="re3">:mon3</span>, <span class="re3">:role</span> <span class="sy0">=&gt;</span> <span class="st0">'mon'</span><span class="br0">&#125;</span>,
+    <span class="br0">&#123;</span> <span class="re3">:name</span> <span class="sy0">=&gt;</span> <span class="re3">:osd1</span>, <span class="re3">:role</span> <span class="sy0">=&gt;</span> <span class="st0">'osd'</span>, <span class="re3">:ip</span> <span class="sy0">=&gt;</span> <span class="st0">'192.168.33.31'</span><span class="br0">&#125;</span>,
+    <span class="br0">&#123;</span> <span class="re3">:name</span> <span class="sy0">=&gt;</span> <span class="re3">:osd2</span>, <span class="re3">:role</span> <span class="sy0">=&gt;</span> <span class="st0">'osd'</span>, <span class="re3">:ip</span> <span class="sy0">=&gt;</span> <span class="st0">'192.168.33.32'</span><span class="br0">&#125;</span>,
+    <span class="br0">&#123;</span> <span class="re3">:name</span> <span class="sy0">=&gt;</span> <span class="re3">:osd3</span>, <span class="re3">:role</span> <span class="sy0">=&gt;</span> <span class="st0">'osd'</span>, <span class="re3">:ip</span> <span class="sy0">=&gt;</span> <span class="st0">'192.168.33.33'</span><span class="br0">&#125;</span>,
+<span class="br0">&#93;</span>
+&#160;
+<span class="re0">$install</span> = <span class="co4">&lt;&lt;INSTALL
+wget -q -O- 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | sudo apt-key add -
+echo deb http://ceph.com/debian/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list
+aptitude update
+aptitude -y install ceph ceph-deploy openntpd
+INSTALL</span>
+&#160;
+<span class="re2">Vagrant::Config</span>.<span class="me1">run</span> <span class="kw1">do</span> <span class="sy0">|</span>config<span class="sy0">|</span>
+  <span class="co1"># Default box OS</span>
+  vm_default = <span class="kw3">proc</span> <span class="kw1">do</span> <span class="sy0">|</span>boxcnf<span class="sy0">|</span>
+    boxcnf.<span class="me1">vm</span>.<span class="me1">box</span>       = <span class="st0">&quot;deimosfr/debian-wheezy&quot;</span>
+  <span class="kw1">end</span>
+&#160;
+  <span class="co1"># For each VM, add a public and private card. Then install Ceph</span>
+  boxes.<span class="me1">each</span> <span class="kw1">do</span> <span class="sy0">|</span>opts<span class="sy0">|</span>
+    vm_default.<span class="me1">call</span><span class="br0">&#40;</span>config<span class="br0">&#41;</span>
+    config.<span class="me1">vm</span>.<span class="me1">define</span> opts<span class="br0">&#91;</span><span class="re3">:name</span><span class="br0">&#93;</span> <span class="kw1">do</span> <span class="sy0">|</span>config<span class="sy0">|</span>
+        config.<span class="me1">vm</span>.<span class="me1">network</span>   <span class="re3">:bridged</span>, <span class="re3">:bridge</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;eth0&quot;</span>
+        config.<span class="me1">vm</span>.<span class="me1">host_name</span> = <span class="st0">&quot;%s.vm&quot;</span> <span class="sy0">%</span> opts<span class="br0">&#91;</span><span class="re3">:name</span><span class="br0">&#93;</span>.<span class="me1">to_s</span>
+        config.<span class="me1">vm</span>.<span class="me1">provision</span> <span class="st0">&quot;shell&quot;</span>, inline: <span class="re0">$install</span>
+        <span class="co1"># Create 8G disk file and add private interface for OSD VMs</span>
+        <span class="kw1">if</span> opts<span class="br0">&#91;</span><span class="re3">:role</span><span class="br0">&#93;</span> == <span class="st0">'osd'</span>
+            config.<span class="me1">vm</span>.<span class="me1">network</span>   <span class="re3">:hostonly</span>, opts<span class="br0">&#91;</span><span class="re3">:ip</span><span class="br0">&#93;</span>
+            file_to_disk = <span class="st0">'osd-disk_'</span> <span class="sy0">+</span> opts<span class="br0">&#91;</span><span class="re3">:name</span><span class="br0">&#93;</span>.<span class="me1">to_s</span> <span class="sy0">+</span> <span class="st0">'.vdi'</span>
+            config.<span class="me1">vm</span>.<span class="me1">customize</span> <span class="br0">&#91;</span><span class="st0">'createhd'</span>, <span class="st0">'--filename'</span>, file_to_disk, <span class="st0">'--size'</span>, <span class="nu0">8</span> <span class="sy0">*</span> <span class="nu0">1024</span><span class="br0">&#93;</span>
+            config.<span class="me1">vm</span>.<span class="me1">customize</span> <span class="br0">&#91;</span><span class="st0">'storageattach'</span>, <span class="re3">:id</span>, <span class="st0">'--storagectl'</span>, <span class="st0">'SATA'</span>, <span class="st0">'--port'</span>, <span class="nu0">1</span>, <span class="st0">'--device'</span>, <span class="nu0">0</span>, <span class="st0">'--type'</span>, <span class="st0">'hdd'</span>, <span class="st0">'--medium'</span>, file_to_disk<span class="br0">&#93;</span>
+        <span class="kw1">end</span>
+    <span class="kw1">end</span>
+  <span class="kw1">end</span>
+<span class="kw1">end</span></pre></div></div>
+</td></tr></table><br />
+<p>This will spawn VMs with correct hardware to run. It will also install Ceph as well. After booting those instances, you will have all the Ceph servers like that&#160;:
+</p><p><a href="./File:Ceph_diagram.png.html" class="image"><img alt="Ceph diagram.png" src="images/c/c4/Ceph_diagram.png" width="615" height="502" /></a>
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="First_node"><span class="mw-headline-number">2.1</span> First node</span></h2>
+<p>To get the latest version, we're going to use the official repositories&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">wget -q -O- 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | sudo apt-key add -
+echo deb http://ceph.com/debian/ $(lsb_release -sc) main | sudo tee /etc/apt/sources.list.d/ceph.list</pre></div></div>
+</td></tr></table><br />
+<p>Then we're going to install Ceph and ceph-deploy which help us to install in a faster way all the components&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude update
+aptitude install ceph ceph-deploy openntpd</pre></div></div>
+</td></tr></table><br />
+<p>Openntpd is not mandatory, but you need all your machine to be clock synchronized&#160;!
+</p>
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>
+<p>You absolutely need well named servers (hostname) and dns names available. A dns server is mandatory.
+</p>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Other_nodes"><span class="mw-headline-number">2.2</span> Other nodes</span></h2>
+<p>To install ceph from the first (admin) node for any kind of nodes, here is a simple solution that avoid to enter the apt key etc...&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy install &lt;node_name&gt;</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>For production usage, you should choose an LTS version like emperor
+</td></tr></table><br />
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy install --release emperor &lt;node_name&gt;</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>
+<p>You need to <a href="./OpenSSH_:_Export_/_Echange_de_clefs_SSH.html" title="OpenSSH : Export / Echange de clefs SSH">exchange SSH keys</a> to remotely be able to connect to the target machines.
+</p>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Deploy"><span class="mw-headline-number">3</span> Deploy</span></h1>
+<p>First of all, your Ceph configuration will be generated in the current directory, so it's suggested to create a dedicated folder for it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir ceph-config
+cd ceph-config</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>
+<p>Be sure of your network configuration for Monitor nodes as it's a nightmare to change later&#160;!!!
+</p>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Cluster"><span class="mw-headline-number">3.1</span> Cluster</span></h2>
+<p>The first machine on which you'll want to start, you'll need to create the Ceph cluster. I'll do it here on the monitor server named mon1&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph-deploy new mon1
+[ceph_deploy.cli][INFO  ] Invoked (1.2.7): /usr/bin/ceph-deploy new mon1
+[ceph_deploy.new][DEBUG ] Creating new cluster named ceph
+[ceph_deploy.new][DEBUG ] Resolving host mon1
+[ceph_deploy.new][DEBUG ] Monitor mon1 at 192.168.33.30
+[ceph_deploy.new][DEBUG ] Monitor initial members are ['mon1']
+[ceph_deploy.new][DEBUG ] Monitor addrs are ['192.168.33.30']
+[ceph_deploy.new][DEBUG ] Creating a random mon key...
+[ceph_deploy.new][DEBUG ] Writing initial config to ceph.conf...
+[ceph_deploy.new][DEBUG ] Writing monitor keyring to ceph.mon.keyring...</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Monitor"><span class="mw-headline-number">3.2</span> Monitor</span></h2>
+<p>A Ceph Monitor maintains maps of the cluster state, including the monitor map, the OSD map, the Placement Group (PG) map, and the CRUSH map. Ceph maintains a history (called an “epoch”) of each state change in the Ceph Monitors, Ceph OSD Daemons, and PGs.
+</p>
+<h3><span class="mw-headline" id="Add_the_first_monitor"><span class="mw-headline-number">3.2.1</span> Add the first monitor</span></h3>
+<p>To create <b>the first</b> (only the first today because ceph-deploy got problems) monitor node (mon1 here)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph-deploy --overwrite-conf mon create mon1
+[ceph_deploy.cli][INFO  ] Invoked (1.2.7): /usr/bin/ceph-deploy --overwrite-conf mon create mon1
+[ceph_deploy.mon][DEBUG ] Deploying mon, cluster ceph hosts mon1
+[ceph_deploy.mon][DEBUG ] detecting platform for host mon1 ...
+[ceph_deploy.sudo_pushy][DEBUG ] will use a local connection without sudo
+[ceph_deploy.mon][INFO  ] distro info: Debian 7.2 wheezy
+[mon1][DEBUG ] determining if provided host has same hostname in remote
+[mon1][DEBUG ] deploying mon to mon1
+[mon1][DEBUG ] remote hostname: mon1
+[mon1][INFO  ] write cluster configuration to /etc/ceph/{cluster}.conf
+[mon1][INFO  ] creating path: /var/lib/ceph/mon/ceph-mon1
+[mon1][DEBUG ] checking for done path: /var/lib/ceph/mon/ceph-mon1/done
+[mon1][DEBUG ] done path does not exist: /var/lib/ceph/mon/ceph-mon1/done
+[mon1][INFO  ] creating keyring file: /var/lib/ceph/tmp/ceph-mon1.mon.keyring
+[mon1][INFO  ] create the monitor keyring file
+[mon1][INFO  ] Running command: ceph-mon --cluster ceph --mkfs -i mon1 --keyring /var/lib/ceph/tmp/ceph-mon1.mon.keyring
+[mon1][INFO  ] ceph-mon: mon.noname-a 192.168.33.30:6789/0 is local, renaming to mon.mon1
+[mon1][INFO  ] ceph-mon: set fsid to df462719-9477-4f22-afdf-8f237a576cad
+[mon1][INFO  ] ceph-mon: created monfs at /var/lib/ceph/mon/ceph-mon1 for mon.mon1
+[mon1][INFO  ] unlinking keyring file /var/lib/ceph/tmp/ceph-mon1.mon.keyring
+[mon1][INFO  ] create a done file to avoid re-doing the mon deployment
+[mon1][INFO  ] create the init path if it does not exist
+[mon1][INFO  ] locating `service` executable...
+[mon1][INFO  ] found `service` executable: /usr/sbin/service
+[mon1][INFO  ] Running command: /usr/sbin/service ceph -c /etc/ceph/ceph.conf start mon.mon1
+[mon1][DEBUG ] === mon.mon1 === 
+[mon1][DEBUG ] Starting Ceph mon.mon1 on mon1...
+[mon1][DEBUG ] Starting ceph-create-keys on mon1...
+[mon1][INFO  ] Running command: ceph --admin-daemon /var/run/ceph/ceph-mon.mon1.asok mon_status
+[mon1][DEBUG ] ********************************************************************************
+[mon1][DEBUG ] status for monitor: mon.mon1
+[mon1][DEBUG ] {
+[mon1][DEBUG ]   &quot;election_epoch&quot;: 2, 
+[mon1][DEBUG ]   &quot;extra_probe_peers&quot;: [], 
+[mon1][DEBUG ]   &quot;monmap&quot;: {
+[mon1][DEBUG ]     &quot;created&quot;: &quot;0.000000&quot;, 
+[mon1][DEBUG ]     &quot;epoch&quot;: 1, 
+[mon1][DEBUG ]     &quot;fsid&quot;: &quot;df462719-9477-4f22-afdf-8f237a576cad&quot;, 
+[mon1][DEBUG ]     &quot;modified&quot;: &quot;0.000000&quot;, 
+[mon1][DEBUG ]     &quot;mons&quot;: [
+[mon1][DEBUG ]       {
+[mon1][DEBUG ]         &quot;addr&quot;: &quot;192.168.33.30:6789/0&quot;, 
+[mon1][DEBUG ]         &quot;name&quot;: &quot;mon1&quot;, 
+[mon1][DEBUG ]         &quot;rank&quot;: 0
+[mon1][DEBUG ]       }
+[mon1][DEBUG ]     ]
+[mon1][DEBUG ]   }, 
+[mon1][DEBUG ]   &quot;name&quot;: &quot;mon1&quot;, 
+[mon1][DEBUG ]   &quot;outside_quorum&quot;: [], 
+[mon1][DEBUG ]   &quot;quorum&quot;: [
+[mon1][DEBUG ]     0
+[mon1][DEBUG ]   ], 
+[mon1][DEBUG ]   &quot;rank&quot;: 0, 
+[mon1][DEBUG ]   &quot;state&quot;: &quot;leader&quot;, 
+[mon1][DEBUG ]   &quot;sync_provider&quot;: []
+[mon1][DEBUG ] }
+[mon1][DEBUG ] ********************************************************************************
+[mon1][INFO  ] monitor: mon.mon1 is running
+[mon1][INFO  ] Running command: ceph --admin-daemon /var/run/ceph/ceph-mon.mon1.asok mon_status</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Add_a_monitor"><span class="mw-headline-number">3.2.2</span> Add a monitor</span></h3>
+<p>To add 2 others monitors nodes (mon2 and mon3) in the cluster, you'll need to edit the configuration on a monitor and admin node. You'll have to set the mon_host, mon_initial_members and public_network configuration in&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/ceph/ceph.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[global]
+fsid = 0a91b62e-cd43-4558-9ebd-4719f830cf8b
+<span class="xtra ln-xtra">mon_initial_members = mon1,mon2,mon3</span><span class="xtra ln-xtra">mon_host = 192.168.33.30,192.168.33.31,192.168.33.32</span>auth_supported = cephx
+osd_journal_size = 1024
+filestore_xattr_use_omap = true
+<span class="xtra ln-xtra">public_network = 192.168.0.0/24</span></pre></div></div>
+</td></tr></table><br />
+<p>Then update the current cluster configuration&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>ceph-deploy --overwrite-conf config push mon2
+ceph-deploy --overwrite-conf config push mon3
+</pre>
+<p>or
+</p>
+<pre>ceph-deploy --overwrite-conf config push mon2 mon3
+</pre>
+</td></tr></table><br />
+<p>You now need to update the new configuration on all your monitor nodes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy --overwrite-conf config push mon1 mon2 mon3</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>For production usage, you need at least 3 nodes
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Remove_a_monitor"><span class="mw-headline-number">3.2.3</span> Remove a monitor</span></h3>
+<p>If you need to remove a monitor for maintenance&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy mon destroy mon1</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Admin_node"><span class="mw-headline-number">3.3</span> Admin node</span></h2>
+<p>To get the first admin node, you'll need to gather keys on a monitor node. To make it simple, all ceph-deploy should be done from that machine&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph-deploy gatherkeys mon1
+[ceph_deploy.cli][INFO  ] Invoked (1.2.7): /usr/bin/ceph-deploy gatherkeys osd1
+[ceph_deploy.gatherkeys][DEBUG ] Checking osd1 for /etc/ceph/ceph.client.admin.keyring
+[ceph_deploy.sudo_pushy][DEBUG ] will use a local connection without sudo
+[ceph_deploy.gatherkeys][DEBUG ] Got ceph.client.admin.keyring key from osd1.
+[ceph_deploy.gatherkeys][DEBUG ] Have ceph.mon.keyring
+[ceph_deploy.gatherkeys][DEBUG ] Checking osd1 for /var/lib/ceph/bootstrap-osd/ceph.keyring
+[ceph_deploy.sudo_pushy][DEBUG ] will use a local connection without sudo
+[ceph_deploy.gatherkeys][DEBUG ] Got ceph.bootstrap-osd.keyring key from osd1.
+[ceph_deploy.gatherkeys][DEBUG ] Checking osd1 for /var/lib/ceph/bootstrap-mds/ceph.keyring
+[ceph_deploy.sudo_pushy][DEBUG ] will use a local connection without sudo
+[ceph_deploy.gatherkeys][DEBUG ] Got ceph.bootstrap-mds.keyring key from osd1.</pre></div></div>
+</td></tr></table><br />
+<p>Then you need to <a href="./OpenSSH_:_Export_/_Echange_de_clefs_SSH.html" title="OpenSSH : Export / Echange de clefs SSH">exchange SSH keys</a> to remotely be able to connect to the target machines.
+</p>
+<h2><span class="mw-headline" id="OSD"><span class="mw-headline-number">3.4</span> OSD</span></h2>
+<p>Ceph OSD Daemon (OSD) stores data, handles data replication, recovery, backfilling, rebalancing, and provides some monitoring information to Ceph Monitors by checking other Ceph OSD Daemons for a heartbeat. A Ceph Storage Cluster requires at least two Ceph OSD Daemons to achieve an active + clean state when the cluster makes two copies of your data (Ceph makes 2 copies by default, but you can adjust it).
+</p>
+<h3><span class="mw-headline" id="Add_an_OSD"><span class="mw-headline-number">3.4.1</span> Add an OSD</span></h3>
+<p>To deploy Ceph OSD, we'll first start to erase the remote disk and create a gpt table on the dedicated disk 'sdb'&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph-deploy disk zap osd1:sdb
+[ceph_deploy.cli][INFO  ] Invoked (1.3.2): /usr/bin/ceph-deploy disk zap osd1:sdb
+[ceph_deploy.osd][DEBUG ] zapping /dev/sdb on osd1
+[osd1][DEBUG ] connected to host: osd1 
+[osd1][DEBUG ] detect platform information from remote host
+[osd1][DEBUG ] detect machine type
+[ceph_deploy.osd][INFO  ] Distro info: debian 7.2 wheezy
+[osd1][DEBUG ] zeroing last few blocks of device
+[osd1][INFO  ] Running command: sgdisk --zap-all --clear --mbrtogpt -- /dev/sdb
+[osd1][DEBUG ] Warning: The kernel is still using the old partition table.
+[osd1][DEBUG ] The new table will be used at the next reboot.
+[osd1][DEBUG ] GPT data structures destroyed! You may now partition the disk using fdisk or
+[osd1][DEBUG ] other utilities.
+[osd1][DEBUG ] Warning: The kernel is still using the old partition table.
+[osd1][DEBUG ] The new table will be used at the next reboot.
+[osd1][DEBUG ] The operation has completed successfully.</pre></div></div>
+</td></tr></table><br />
+<p>It will create a journalized partition and a data one. Then we could create partitions on the on 'osd1' server and prepare + activate this OSD&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph-deploy --overwrite-conf osd create osd1:sdb
+[ceph_deploy.cli][INFO  ] Invoked (1.3.2): /usr/bin/ceph-deploy --overwrite-conf mon create osd1:sdb
+[ceph_deploy.mon][DEBUG ] Deploying mon, cluster ceph hosts osd1:sdb
+[ceph_deploy.mon][DEBUG ] detecting platform for host osd1 ...
+ssh: Could not resolve hostname sdb: Name or service not known
+[ceph_deploy.mon][ERROR ] connecting to host: sdb resulted in errors: HostNotFound sdb
+[ceph_deploy][ERROR ] GenericError: Failed to create 1 monitors</pre></div></div>
+</td></tr></table><br />
+<p>You can see there's an error but it works&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph -s
+    cluster 0a91b62e-cd43-4558-9ebd-4719f830cf8b
+     health HEALTH_WARN 192 pgs degraded; 192 pgs stuck unclean
+     monmap e1: 1 mons at {mon1=192.168.33.30:6789/0}, election epoch 2, quorum 0 mon1
+<span class="xtra ln-xtra">     osdmap e5: 1 osds: 1 up, 1 in</span>      pgmap v8: 192 pgs, 3 pools, 0 bytes data, 0 objects
+            34912 kB used, 7122 MB / 7156 MB avail
+                 192 active+degraded</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Get_OSD_status"><span class="mw-headline-number">3.4.2</span> Get OSD status</span></h3>
+<p>To know the OSD status&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd tree
+# id	weight	type name	up/down	reweight
+-1	0.02998	root default
+-2	0.009995		host osd1
+3	0.009995			osd.3	up	1	
+-3	0.009995		host osd3
+1	0.009995			osd.1	up	1	
+-4	0.009995		host osd2
+2	0.009995			osd.2	up	1</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Remove_an_OSD"><span class="mw-headline-number">3.4.3</span> Remove an OSD</span></h3>
+<p>To remove an OSD, it's unfortunately not yet integrated in ceph-deploy. So first, look at the current status&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd tree
+# id	weight	type name	up/down	reweight
+-1	0.03998	root default
+-2	0.01999		host osd1
+<span class="xtra ln-xtra">0	0.009995			osd.0	down	0	</span>3	0.009995			osd.3	up	1	
+-3	0.009995		host osd3
+1	0.009995			osd.1	up	1	
+-4	0.009995		host osd2
+2	0.009995			osd.2	up	1</pre></div></div>
+</td></tr></table><br />
+<p>Here I want to remove the osd.0&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">osd='osd.0'</pre></div></div>
+</td></tr></table><br />
+<p>If the OSD wasn't down, I should put it down with this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd out $osd
+osd.0 is already out.</pre></div></div>
+</td></tr></table><br />
+<p>Then I remove it from the crushmap&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd crush remove $osd
+removed item id 0 name 'osd.0' from crush map</pre></div></div>
+</td></tr></table><br />
+<p>Delete the authentication part (Paxos)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph auth del $osd</pre></div></div>
+</td></tr></table><br />
+<p>Then remove the OSD&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph osd rm $osd</pre></div></div>
+</td></tr></table><br />
+<p>And now, it's definitively out&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd tree
+# id	weight	type name	up/down	reweight
+-1	0.02998	root default
+-2	0.009995		host osd1
+3	0.009995			osd.3	up	1	
+-3	0.009995		host osd3
+1	0.009995			osd.1	up	1	
+-4	0.009995		host osd2
+2	0.009995			osd.2	up	1</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="RBD"><span class="mw-headline-number">3.5</span> RBD</span></h2>
+<p>To make Block devices, you need to have a correct OSD configuration done with a created pool. You don't have anything else to have&#160;:-)
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="OSD_2"><span class="mw-headline-number">4.1</span> OSD</span></h2>
+<h3><span class="mw-headline" id="OSD_Configuration"><span class="mw-headline-number">4.1.1</span> OSD Configuration</span></h3>
+<h4><span class="mw-headline" id="Global_OSD_configuration"><span class="mw-headline-number">4.1.1.1</span> Global OSD configuration</span></h4>
+<p>The Ceph Client retrieves the latest cluster map and the CRUSH algorithm calculates how to map the object to a placement group, and then calculates how to assign the placement group to a Ceph OSD Daemon dynamically. By default Ceph have 2 replicas and you can change it by 3 in adding those line to the Ceph configuration<sup id="cite_ref-2" class="reference"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_note-2">[2]</a></sup>&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[global]
+    osd pool default size = 3
+    osd pool default min size = 1</pre></div></div>
+</td></tr></table><br />
+<ul><li> osd pool default size&#160;: the number of replicas</li>
+<li> osd pool default min size&#160;: set the minimum available replicas before putting OSD down</li></ul>
+<p>Configure the placement group (Total PGs = (number of OSD * 100) / replicas numbers)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[global]
+    osd pool default pg num = 100
+    osd pool default pgp num = 100</pre></div></div>
+</td></tr></table><br />
+<p>Then you can push your new configuration&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy --overwrite-conf config push mon1 mon2 mon3</pre></div></div>
+</td></tr></table><br />
+<h4><span class="mw-headline" id="Network_configuration"><span class="mw-headline-number">4.1.1.2</span> Network configuration</span></h4>
+<p>For the OSD, you've got 2 network interfaces (private and public). So to configure it properly on your admin machine by updating your configuration file as follow&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ceph.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[osd]
+cluster network = 192.168.33.0/24
+public network = 192.168.0.0/24</pre></div></div>
+</td></tr></table><br />
+<p>But if you want to add specific configuration&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ceph.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[osd.0]
+public addr = 192.168.0.1:6801
+cluster addr = 192.168.33.31
+&#160;
+[osd.1]
+public addr = 192.168.0.2:6802
+cluster addr = 192.168.33.32
+&#160;
+[osd.2]
+public addr = 192.168.0.3:6803
+cluster addr = 192.168.33.33</pre></div></div>
+</td></tr></table><br />
+<p><br />
+Then you can push your new configuration&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy --overwrite-conf config push mon1 mon2 mon3</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Create_an_OSD_pool"><span class="mw-headline-number">4.1.2</span> Create an OSD pool</span></h3>
+<p>To create an OSD pool&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph osd pool create &lt;pool_name&gt; &lt;pg_num&gt; &lt;pgp_num&gt;</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="List_OSD_pools"><span class="mw-headline-number">4.1.3</span> List OSD pools</span></h3>
+<p>You can list OSD&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd lspools
+0 data,1 metadata,2 rbd,3 mypool,</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd dump
+epoch 62
+fsid 0314c737-68d2-4d14-a247-53dfe7ec2a01
+created 2014-01-02 16:33:14.572233
+modified 2014-01-03 15:40:14.370846
+flags 
+&#160;
+pool 0 'data' rep size 2 min_size 1 crush_ruleset 0 object_hash rjenkins pg_num 64 pgp_num 64 last_change 1 owner 0 crash_replay_interval 45
+pool 1 'metadata' rep size 2 min_size 1 crush_ruleset 1 object_hash rjenkins pg_num 64 pgp_num 64 last_change 1 owner 0
+pool 2 'rbd' rep size 2 min_size 1 crush_ruleset 2 object_hash rjenkins pg_num 64 pgp_num 64 last_change 1 owner 0
+pool 3 'mypool' rep size 2 min_size 1 crush_ruleset 0 object_hash rjenkins pg_num 100 pgp_num 100 last_change 14 owner 0
+&#160;
+max_osd 3
+osd.0 up   in  weight 1 up_from 61 up_thru 61 down_at 59 last_clean_interval [49,60) 192.168.32.15:6800/5577 192.168.33.31:6801/5577 192.168.33.31:6802/5577 192.168.32.15:6801/5577 exists,up d1b21569-bcf2-45a6-87c3-597cd267bdba
+osd.1 up   in  weight 1 up_from 53 up_thru 61 down_at 51 last_clean_interval [33,50) 192.168.32.72:6800/4439 192.168.33.32:6800/4439 192.168.33.32:6801/4439 192.168.32.72:6802/4439 exists,up 935e8e8f-3a0b-445b-b730-5de61ea34556
+osd.2 up   in  weight 1 up_from 57 up_thru 61 down_at 55 last_clean_interval [40,54) 192.168.32.90:6800/4444 192.168.33.33:6800/4444 192.168.33.33:6801/4444 192.168.32.90:6802/4444 exists,up 4e661a3c-2f15-4037-9fcb-d48a49d0b228</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Crush_map"><span class="mw-headline-number">4.2</span> Crush map</span></h2>
+<p>The Crushmap<sup id="cite_ref-3" class="reference"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_note-3">[3]</a></sup> contain a list of OSDs, a list of 'buckets' for aggregating the devices into physical locations. You can edit<sup id="cite_ref-4" class="reference"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_note-4">[4]</a></sup> it to manage it manually.
+</p><p>To show the complete map of your Ceph&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph osd tree</pre></div></div>
+</td></tr></table><br />
+<p>To get crushmap and to edit it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph osd getcrushmap -o mymap
+crushtool -d mymap -o mymap.txt</pre></div></div>
+</td></tr></table><br />
+<p>To set a new crushmap after editing&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">crushtool -c mymap.txt -o mynewmap
+ceph osd setcrushmap -i mynewmap</pre></div></div>
+</td></tr></table><br />
+<p>To get quorum status for the monitors&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph quorum_status --format json-pretty</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Usage"><span class="mw-headline-number">5</span> Usage</span></h1>
+<h2><span class="mw-headline" id="Check_health"><span class="mw-headline-number">5.1</span> Check health</span></h2>
+<p>You can check cluster health&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph -s
+  cluster 0314c737-68d2-4d14-a247-53dfe7ec2a01
+   health HEALTH_OK
+   monmap e3: 3 mons at {mon1=192.168.33.31:6789/0,mon2=192.168.33.32:6789/0,mon3=192.168.33.33:6789/0}, election epoch 8, quorum 0,1,2 mon1,mon2,mon3
+   osdmap e13: 3 osds: 3 up, 3 in
+    pgmap v21: 192 pgs: 192 active+clean; 0 bytes data, 71248 KB used, 14244 MB / 14313 MB avail
+   mdsmap e1: 0/0/1 up</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Change_configuration_on_the_fly"><span class="mw-headline-number">5.2</span> Change configuration on the fly</span></h2>
+<p>To avoid service restart on a simple modification, you can interact directly with Ceph to change some values. First of all, you can get all current values of your Ceph cluster&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph --admin-daemon /var/run/ceph/ceph-mon.mon1-pub.asok config show
+{ &quot;name&quot;: &quot;mon.mon1-pub&quot;,
+  &quot;cluster&quot;: &quot;ceph&quot;,
+  &quot;none&quot;: &quot;0\/5&quot;,
+  &quot;lockdep&quot;: &quot;0\/1&quot;,
+  &quot;context&quot;: &quot;0\/1&quot;,
+[...]
+  &quot;mon_clock_drift_allowed&quot;: &quot;0.05&quot;,
+  &quot;mon_clock_drift_warn_backoff&quot;: &quot;5&quot;,
+[...]</pre></div></div>
+</td></tr></table><br />
+<p>Now if I want to change one of those values&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph tell osd.* injectargs '--mon_clock_drift_allowed 1'
+osd.0: mon_clock_drift_allowed = '1' 
+osd.1: mon_clock_drift_allowed = '1' 
+osd.2: mon_clock_drift_allowed = '1'</pre></div></div>
+</td></tr></table><br />
+<p>You can change '*' by the name of an OSD if you want to apply this configuration to a specific node.
+</p><p>Then do not forget to add it to your Ceph configuration and push it&#160;!
+</p>
+<h2><span class="mw-headline" id="Use_object_storage"><span class="mw-headline-number">5.3</span> Use object storage</span></h2>
+<h3><span class="mw-headline" id="Add_object"><span class="mw-headline-number">5.3.1</span> Add object</span></h3>
+<p>When you have an Ceph OSD pool ready, you can add a file&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rados</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rados put &lt;object_name&gt; &lt;file_to_upload&gt; --pool=&lt;pool_name&gt;</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="List_objects_in_a_pool"><span class="mw-headline-number">5.3.2</span> List objects in a pool</span></h3>
+<p>You can list your pool content&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rados</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rados -p &lt;pool_name&gt; ls
+filename</pre></div></div>
+</td></tr></table><br />
+<p>You can see where it has been stored&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph osd map &lt;pool_name&gt; &lt;filename&gt;
+osdmap e62 pool '&lt;pool_name&gt;' (3) object 'filename' -&gt; pg 3.af0f2847 (3.47) -&gt; up [1,0] acting [1,0]</pre></div></div>
+</td></tr></table><br />
+<p>To locate the file on the hard drive, look at this folder (/var/lib/ceph/osd/ceph-1/current). Then look at the previous result (3.47) and the filename af0f2847. So the file will be placed here&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ls /var/lib/ceph/osd/ceph-1/current/3.47_head
+ceph\ulog__head_AF0F2847__3</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Remove_objects"><span class="mw-headline-number">5.3.3</span> Remove objects</span></h3>
+<p>To finish, remove it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rados rm &lt;filename&gt; --pool=&lt;pool_name&gt;</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Use_blocks_device_storage"><span class="mw-headline-number">5.4</span> Use blocks device storage</span></h2>
+<p>This part becomes very interesting if you start using block devices storage. From an admin node, launch client install&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy install &lt;client&gt;
+ceph-deploy admin &lt;client&gt;</pre></div></div>
+</td></tr></table><br />
+<p>On the client, load the module and add it to launch at boot&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">modprobe rbd
+echo &quot;rbd&quot; &gt;&gt; /etc/modules</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Create_a_block_device"><span class="mw-headline-number">5.4.1</span> Create a block device</span></h3>
+<p>Now to create a block device (you can do it on the client node if you want has it gets the admin key last pushed by ceph-deploy)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rbd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rbd create &lt;name&gt; --size &lt;size_in_megabytes&gt; [--pool &lt;pool_name&gt;]</pre></div></div>
+</td></tr></table><br />
+<p>If you don't specify the pool name option, it will automatically be created in the 'rbd' pool.
+</p>
+<h3><span class="mw-headline" id="List_available_block_devices"><span class="mw-headline-number">5.4.2</span> List available block devices</span></h3>
+<p>This is so simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rbd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rbd ls
+bd_name</pre></div></div>
+</td></tr></table><br />
+<p>And you can show mapped&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rbd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rbd showmapped
+id pool image snap device
+0  rbd  bd_name   -    /dev/rbd0</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Get_block_device_informations"><span class="mw-headline-number">5.4.3</span> Get block device informations</span></h3>
+<p>You may need to grab informations on the device block to know where it is physically or simply the size&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rbd info &lt;name&gt;
+rbd image 'bd_name':
+	size 4096 MB in 1024 objects
+	order 22 (4096 kB objects)
+	block_name_prefix: rb.0.139d.74b0dc51
+	format: 1</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Map_and_mount_a_block_device"><span class="mw-headline-number">5.4.4</span> Map and mount a block device</span></h3>
+<p>First your need to map it to make it appears in your device list&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rbd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rbd map &lt;name&gt; [--pool &lt;pool_name&gt;]</pre></div></div>
+</td></tr></table><br />
+<p>You can now format it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mkfs.ext4</font>
+</td></tr>
+<tr>
+<td>
+<pre>mkfs.ext4 /dev/rbd/<b>pool_name/name</b>
+</pre>
+</td></tr></table><br />
+<p>And now mount it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mount /dev/rbd/pool_name/name /mnt</pre></div></div>
+</td></tr></table><br />
+<p>That's it&#160;:-)
+</p>
+<h3><span class="mw-headline" id="Remove_a_block_device"><span class="mw-headline-number">5.4.5</span> Remove a block device</span></h3>
+<p>To remove, once again it's simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rbd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rbd rm &lt;name&gt; [--pool &lt;pool_name&gt;]</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Umount_and_unmap_a_block_device"><span class="mw-headline-number">5.4.6</span> Umount and unmap a block device</span></h3>
+<p>Umount and umap is as easy as you think&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">umount /mnt
+rbd unmap /dev/rbd/pool_name/name</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Advanced_usage"><span class="mw-headline-number">5.4.7</span> Advanced usage</span></h3>
+<p>I won't list all features, but you can look at the man to&#160;:
+</p>
+<ul><li> clone</li>
+<li> export/import</li>
+<li> snapshot</li>
+<li> bench write</li></ul>
+<p>...
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Reset_a_node"><span class="mw-headline-number">6.1</span> Reset a node</span></h2>
+<p>You sometime needs to reset a node. It's generally needed when you're doing tests. From the admin node run this&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy purge &lt;node_name&gt;
+ceph-deploy purgedata &lt;node_name&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Then reinstall it with&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ceph-deploy install &lt;node_name&gt;</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Can.27t_add_a_new_monitor_node"><span class="mw-headline-number">6.2</span> Can't add a new monitor node</span></h2>
+<p>If you can't add a new monitor mon (here mon2)<sup id="cite_ref-5" class="reference"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_note-5">[5]</a></sup>&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph-deploy</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph-deploy --overwrite-conf mon create mon2
+[...]
+[mon2][DEBUG ] === mon.mon2 === 
+[mon2][DEBUG ] Starting Ceph mon.mon2 on mon2...
+[mon2][DEBUG ] failed: 'ulimit -n 32768;  /usr/bin/ceph-mon -i mon2 --pid-file /var/run/ceph/mon.mon2.pid -c /etc/ceph/ceph.conf '
+[mon2][DEBUG ] Starting ceph-create-keys on mon2...
+[mon2][WARNIN] No data was received after 7 seconds, disconnecting...
+[mon2][INFO  ] Running command: ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.mon2.asok mon_status
+[mon2][ERROR ] admin_socket: exception getting command descriptions: [Errno 2] No such file or directory
+[mon2][WARNIN] monitor: mon.mon2, might not be running yet
+[mon2][INFO  ] Running command: ceph --cluster=ceph --admin-daemon /var/run/ceph/ceph-mon.mon2.asok mon_status
+[mon2][ERROR ] admin_socket: exception getting command descriptions: [Errno 2] No such file or directory
+[mon2][WARNIN] mon2 is not defined in `mon initial members`
+[mon2][WARNIN] monitor mon2 does not exist in monmap
+[mon2][WARNIN] neither `public_addr` nor `public_network` keys are defined for monitors
+[mon2][WARNIN] monitors may not be able to form quorum</pre></div></div>
+</td></tr></table><br />
+<p>You have to add public network and monitor to the list in configuration file. <a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#Add_a_monitor">Look here to see how to add correctly a new mon</a>.
+</p>
+<h2><span class="mw-headline" id="health_HEALTH_WARN_clock_skew_detected"><span class="mw-headline-number">6.3</span> health HEALTH_WARN clock skew detected</span></h2>
+<p>If you get this kind of problem&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ceph</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ceph -s
+  cluster 0314c737-68d2-4d14-a247-53dfe7ec2a01
+   health HEALTH_WARN clock skew detected on mon.mon1
+   monmap e3: 3 mons at {mon1=192.168.33.31:6789/0,mon2=192.168.33.32:6789/0,mon3=192.168.33.33:6789/0}, election epoch 8, quorum 0,1,2 mon1,mon2,mon3
+   osdmap e13: 3 osds: 3 up, 3 in
+    pgmap v21: 192 pgs: 192 active+clean; 0 bytes data, 71248 KB used, 14244 MB / 14313 MB avail
+   mdsmap e1: 0/0/1 up</pre></div></div>
+</td></tr></table><br />
+<p>You need to install an NTP server. The millisecond is important. Here is a workaround&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ceph.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[global]
+    mon_clock_drift_allowed = 1</pre></div></div>
+</td></tr></table><br />
+<p>This set the possible delta to avoid the warning message.
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">7</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.inktank.com/what-is-ceph/">http://www.inktank.com/what-is-ceph/</a></span>
+</li>
+<li id="cite_note-2"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://ceph.com/docs/master/rados/configuration/pool-pg-config-ref/">http://ceph.com/docs/master/rados/configuration/pool-pg-config-ref/</a></span>
+</li>
+<li id="cite_note-3"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_ref-3">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://ceph.com/docs/master/rados/operations/crush-map/">http://ceph.com/docs/master/rados/operations/crush-map/</a></span>
+</li>
+<li id="cite_note-4"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_ref-4">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://ceph.com/docs/master/man/8/crushtool/">http://ceph.com/docs/master/man/8/crushtool/</a></span>
+</li>
+<li id="cite_note-5"><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#cite_ref-5">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://tracker.ceph.com/issues/5195">http://tracker.ceph.com/issues/5195</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.160 seconds
+Real time usage: 0.163 seconds
+Preprocessor visited node count: 1339/1000000
+Preprocessor generated node count: 3828/1000000
+Post‐expand include size: 14372/2097152 bytes
+Template argument size: 3954/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   53.268      1 - -total
+ 42.07%   22.410     52 - Template:Command
+ 17.19%    9.154      7 - Template:Config
+ 14.78%    7.873      1 - Template:Vagrant_Ceph_6boxes
+  4.04%    2.152      1 - Template:Infobox
+  2.93%    1.559      3 - Template:Ceph_push_overwrite
+  1.99%    1.059      4 - Template:Warning
+  1.41%    0.752      1 - Template:Notes
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3659-0!*!0!1!en!5!* and timestamp 20181111230708 and revision id 13350
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Ceph_:_performance,_reliability_and_scalability_storage_solution&amp;oldid=13350">https://wiki.deimos.fr/index.php?title=Ceph_:_performance,_reliability_and_scalability_storage_solution&amp;oldid=13350</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Ceph+%3A+performance%2C+reliability+and+scalability+storage+solution" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Ceph_:_performance,_reliability_and_scalability_storage_solution&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Ceph_:_performance,_reliability_and_scalability_storage_solution&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Ceph_:_performance,_reliability_and_scalability_storage_solution.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Ceph_:_performance,_reliability_and_scalability_storage_solution.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Ceph_:_performance,_reliability_and_scalability_storage_solution" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Ceph_:_performance,_reliability_and_scalability_storage_solution&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Ceph_:_performance,_reliability_and_scalability_storage_solution&amp;oldid=13350" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Ceph_:_performance,_reliability_and_scalability_storage_solution&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 2 June 2014, at 15:06.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

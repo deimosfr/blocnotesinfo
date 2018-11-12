@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>ACL : Implémentation des droits de type NT sur Solaris - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris","wgTitle":"ACL : Implémentation des droits de type NT sur Solaris","wgCurRevisionId":8724,"wgRevisionId":8724,"wgArticleId":2993,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris","wgRelevantArticleId":2993,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-ACL_Implémentation_des_droits_de_type_NT_sur_Solaris skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">ACL : Implémentation des droits de type NT sur Solaris</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#mw-navigation">navigation</a>, 					<a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Enabling_ACL"><span class="tocnumber">2</span> <span class="toctext">Enabling ACL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Inheritance_mode"><span class="tocnumber">2.1</span> <span class="toctext">Inheritance mode</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Rights_on_creation_mode"><span class="tocnumber">2.2</span> <span class="toctext">Rights on creation mode</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Changing_mode"><span class="tocnumber">2.3</span> <span class="toctext">Changing mode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#ACL_Properties"><span class="tocnumber">3</span> <span class="toctext">ACL Properties</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Example"><span class="tocnumber">3.1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Complete_properties_list"><span class="tocnumber">3.2</span> <span class="toctext">Complete properties list</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#ACL_Entry_Types"><span class="tocnumber">3.2.1</span> <span class="toctext">ACL Entry Types</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#ACL_Access_Privileges"><span class="tocnumber">3.2.2</span> <span class="toctext">ACL Access Privileges</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#ACL_Inheritance_Flags"><span class="tocnumber">3.2.3</span> <span class="toctext">ACL Inheritance Flags</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Rights_Managements"><span class="tocnumber">4</span> <span class="toctext">Rights Managements</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Adding_rights"><span class="tocnumber">4.1</span> <span class="toctext">Adding rights</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Deleting_rights"><span class="tocnumber">4.2</span> <span class="toctext">Deleting rights</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Replacement"><span class="tocnumber">4.3</span> <span class="toctext">Replacement</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#Inheritance"><span class="tocnumber">4.4</span> <span class="toctext">Inheritance</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>With respect to a computer filesystem, an access control list (<a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Access_control_list">ACL</a>) is a list of permissions attached to an object. An ACL specifies which users or system processes are granted access to objects, as well as what operations are allowed to be performed on given objects. In a typical ACL, each entry in the list specifies a subject and an operation (e.g. the entry (Alice, delete) on the ACL for file WXY gives Alice permission to delete file WXY).
+</p><p>This documentation is a quick documentation, if you need more explainations, please refer to the SUN ACL documentation on website.
+</p>
+<h1><span class="mw-headline" id="Enabling_ACL"><span class="mw-headline-number">2</span> Enabling ACL</span></h1>
+<p>By default, on ZFS, it's automatically enabled. Anyway, you have some diffrents mode and you need to choose one of them for your usage.
+</p><p>You can see the current default configuration with "zfs get all" command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> zfs</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ zfs get all zfs_volume
+NAME                     PROPERTY         VALUE                         SOURCE
+zfs_volume  type             filesystem                    -   
+...
+zfs_volume  aclmode          groupmask                     default
+zfs_volume  aclinherit       restricted                    default
+...</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Inheritance_mode"><span class="mw-headline-number">2.1</span> Inheritance mode</span></h2>
+<p>aclinherit - This property determines the behavior of ACL inheritance. Values include the following&#160;:
+</p>
+<ul><li> discard - For new objects, no ACL entries are inherited when a file or directory is</li>
+<li> created. The ACL on the file or directory is equal to the permission mode of the file or directory.</li>
+<li> noallow - For new objects, only inheritable ACL entries that have an access type of deny are inherited.</li>
+<li> restricted - For new objects, the write_owner and write_acl permissions are removed when an ACL entry is inherited.</li>
+<li> passthrough - When property value is set to passthrough, files are created with a mode determined by the inheritable ACEs. If no inheritable ACEs exist that affect the mode, then the mode is set in accordance to the requested mode from the application.</li>
+<li> passthrough-x - Has the same semantics as passthrough, except that when passthrough-x is enabled, files are created with the execute (x) permission, but only if execute permission is set in the file creation mode and in an inheritable ACE that affects the mode.</li></ul>
+<p>The default mode for the aclinherit is restricted.
+</p>
+<h2><span class="mw-headline" id="Rights_on_creation_mode"><span class="mw-headline-number">2.2</span> Rights on creation mode</span></h2>
+<p>aclmode - This property modifies ACL behavior when a file is initially created or whenever a file or directory's mode is modified by the chmod command. Values include the following:
+</p>
+<ul><li> discard - All ACL entries are removed except for the entries needed to define the mode of the file or directory.</li>
+<li> groupmask - User or group ACL permissions are reduced so that they are no greater than the group permission bits, unless it is a user entry that has the same UID as the owner of the file or directory. Then, the ACL permissions are reduced so that they are no greater than owner permission bits.</li>
+<li> passthrough - During a chmod operation, ACEs other than owner@, group@, or everyone@ are not modified in any way. ACEs with owner@, group@, or everyone@ are disabled to set the file mode as requested by the chmod operation.</li></ul>
+<p>The default mode for the aclmode property is groupmask.
+</p>
+<h2><span class="mw-headline" id="Changing_mode"><span class="mw-headline-number">2.3</span> Changing mode</span></h2>
+<p>You can change mode with this kind of commands&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> zfs</font>
+</td></tr>
+<tr>
+<td>
+<pre>zfs set <b>aclmode=passthrough</b> zfs_volume
+zfs set <b>aclinherit=passthrough</b> zfs_volume
+</pre>
+</td></tr></table><br />
+<p>Simply choose the one you would like.
+</p>
+<h1><span class="mw-headline" id="ACL_Properties"><span class="mw-headline-number">3</span> ACL Properties</span></h1>
+<h2><span class="mw-headline" id="Example"><span class="mw-headline-number">3.1</span> Example</span></h2>
+<p>You should normally have a pretty known in ls command. When you would like to see current ACL rights, use those arguments (choose the simpler for you).
+</p>
+<ul><li> ls -dv&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ ls -dv zfs_volume
+drwxrwxr-x  11 myuser   mygroup        11 oct  14 12:06 zfs_volume
+     0:owner@::deny
+     1:owner@:list_directory/read_data/add_file/write_data/add_subdirectory
+         /append_data/write_xattr/execute/write_attributes/write_acl
+         /write_owner:allow
+     2:group@::deny
+     3:group@:list_directory/read_data/add_file/write_data/add_subdirectory
+         /append_data/execute:allow
+     4:everyone@:add_file/write_data/add_subdirectory/append_data/write_xattr
+         /write_attributes/write_acl/write_owner:deny
+     5:everyone@:list_directory/read_data/read_xattr/execute/read_attributes
+         /read_acl/synchronize:allow</pre></div></div>
+</td></tr></table><br />
+<ul><li> ls -dV</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ ls -dV zfs_volume
+drwxrwxr-x  11 myuser   mygroup        11 oct  14 12:06 zfs_volume
+            owner@:--------------:------:deny
+            owner@:rwxp---A-W-Co-:------:allow
+            group@:--------------:------:deny
+            group@:rwxp----------:------:allow
+         everyone@:-w-p---A-W-Co-:------:deny
+         everyone@:r-x---a-R-c--s:------:allow</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Complete_properties_list"><span class="mw-headline-number">3.2</span> Complete properties list</span></h2>
+<h3><span class="mw-headline" id="ACL_Entry_Types"><span class="mw-headline-number">3.2.1</span> ACL Entry Types</span></h3>
+<table class="wikitable sortable" width="100%" border="1">
+<tr>
+<th>ACL Entry Type
+</th>
+<th>Global
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td align="left">owner@
+</td>
+<td align="center">yes
+</td>
+<td align="left">Specifies the access granted to the owner of the object.
+</td></tr>
+<tr>
+<td align="left">group@
+</td>
+<td align="center">yes
+</td>
+<td align="left">Specifies the access granted to the owning group of the object.
+</td></tr>
+<tr>
+<td align="left">everyone@
+</td>
+<td align="center">yes
+</td>
+<td align="left">Specifies the access granted to any user or group that does not match any other ACL entry. With a user name, specifies the access granted to an additional user of the object.
+</td></tr>
+<tr>
+<td align="left">user
+</td>
+<td align="center">no
+</td>
+<td align="left">Must include the ACL-entry-ID, which contains a username or userID. If the value is not a valid numeric UID or username, the ACL entry type is invalid. With a group name, specifies the access granted to an additional group of the object.
+</td></tr>
+<tr>
+<td align="left">group
+</td>
+<td align="center">no
+</td>
+<td align="left">Must include the ACL-entry-ID, which contains a groupname or groupID. If the value is not a valid numeric GID or groupname, the ACL entry type is invalid.
+</td></tr></table>
+<h3><span class="mw-headline" id="ACL_Access_Privileges"><span class="mw-headline-number">3.2.2</span> ACL Access Privileges</span></h3>
+<table class="wikitable sortable" width="100%" border="1">
+<tr>
+<th>Access Privilege
+</th>
+<th>Compact Access Privilege
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td align="left">add_file
+</td>
+<td align="center">w
+</td>
+<td align="left">Permission to add a new file to a directory.
+</td></tr>
+<tr>
+<td align="left">add_subdirectory
+</td>
+<td align="center">p
+</td>
+<td align="left">On a directory, permission to create a subdirectory.
+</td></tr>
+<tr>
+<td align="left">append_data
+</td>
+<td align="center">p
+</td>
+<td align="left">Placeholder. Not currently implemented.
+</td></tr>
+<tr>
+<td align="left">delete
+</td>
+<td align="center">d
+</td>
+<td align="left">Permission to delete a file.
+</td></tr>
+<tr>
+<td align="left">delete_child
+</td>
+<td align="center">D
+</td>
+<td align="left">Permission to delete a file or directory within a directory.
+</td></tr>
+<tr>
+<td align="left">execute
+</td>
+<td align="center">x
+</td>
+<td align="left">Permission to execute a file or search the contents of a directory.
+</td></tr>
+<tr>
+<td align="left">list_directory
+</td>
+<td align="center">r
+</td>
+<td align="left">Permission to list the contents of a directory.
+</td></tr>
+<tr>
+<td align="left">read_acl
+</td>
+<td align="center">c
+</td>
+<td align="left">Permission to read the ACL (ls).
+</td></tr>
+<tr>
+<td align="left">read_attributes
+</td>
+<td align="center">a
+</td>
+<td align="left">Permission to read basic attributes (non-ACLs) of a file. Think of basic attributes as the stat level attributes. Allowing this access mask bit means the entity can execute ls(1) and stat(2).
+</td></tr>
+<tr>
+<td align="left">read_data
+</td>
+<td align="center">r
+</td>
+<td align="left">Permission to read the contents of the file.
+</td></tr>
+<tr>
+<td align="left">read_xattr
+</td>
+<td align="center">R
+</td>
+<td align="left">Permission to read the extended attributes of a file or perform a lookup in the file's extended attributes directory.
+</td></tr>
+<tr>
+<td align="left">synchronize
+</td>
+<td align="center">s
+</td>
+<td align="left">Placeholder. Not currently implemented.
+</td></tr>
+<tr>
+<td align="left">write_xattr
+</td>
+<td align="center">W
+</td>
+<td align="left">Permission to create extended attributes or write to the extended attributes directory.  Granting this permission to a user means that the user can create an extended attribute directory for a file. The attribute file's permissions control the user's access to the attribute.
+</td></tr>
+<tr>
+<td align="left">write_data
+</td>
+<td align="center">w
+</td>
+<td align="left">Permission to modify or replace the contents of a file.
+</td></tr>
+<tr>
+<td align="left">write_attributes
+</td>
+<td align="center">A
+</td>
+<td align="left">Permission to change the times associated with a file or directory to an arbitrary value.
+</td></tr>
+<tr>
+<td align="left">write_acl
+</td>
+<td align="center">C
+</td>
+<td align="left">Permission to write the ACL or the ability to modify the ACL by using the chmod command.
+</td></tr>
+<tr>
+<td align="left">write_owner
+</td>
+<td align="center">o
+</td>
+<td align="left">Permission to change the file's owner or group. Or, the ability to execute the chown or chgrp commands on the file.  Permission to take ownership of a file or permission to change the group ownership of the file to a group of which the user is a member. If you want to change the file or group ownership to an arbitrary user or group, then the PRIV_FILE_CHOWN privilege is required.
+</td></tr></table>
+<h3><span class="mw-headline" id="ACL_Inheritance_Flags"><span class="mw-headline-number">3.2.3</span> ACL Inheritance Flags</span></h3>
+<table class="wikitable sortable" width="100%" border="1">
+<tr>
+<th>Inheritance Flag
+</th>
+<th>Compact Inheritance Flag
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td align="left">file_inherit
+</td>
+<td align="center">f
+</td>
+<td align="left">Only inherit the ACL from the parent directory to the directory's files.
+</td></tr>
+<tr>
+<td align="left">dir_inherit
+</td>
+<td align="center">d
+</td>
+<td align="left">Only inherit the ACL from the parent directory to the directory's subdirectories.
+</td></tr>
+<tr>
+<td align="left">inherit_only
+</td>
+<td align="center">i
+</td>
+<td align="left">Inherit the ACL from the parent directory but applies only to newly created files or subdirectories and not the directory itself.  This flag requires the file_inherit flag, the dir_inherit flag, or both, to indicate what to inherit.
+</td></tr>
+<tr>
+<td align="left">no_propagate
+</td>
+<td align="center">n
+</td>
+<td align="left">Only inherit the ACL from the parent directory to the first-level contents of the directory, not the second-level or subsequent contents. This flag requires the file_inherit flag, the dir_inherit flag, or both, to indicate what to inherit.
+</td></tr>
+<tr>
+<td align="left">-
+</td>
+<td align="center">N/A
+</td>
+<td align="left">No permission granted.
+</td></tr></table>
+<h1><span class="mw-headline" id="Rights_Managements"><span class="mw-headline-number">4</span> Rights Managements</span></h1>
+<h2><span class="mw-headline" id="Adding_rights"><span class="mw-headline-number">4.1</span> Adding rights</span></h2>
+<p>If I want to add rights on a folder or file, I need to chmod it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ chmod A+user:myuser:read_data/execute:allow directory
+</pre>
+</td></tr></table><br />
+<ul><li> A+&#160;: A means use ACL and + means add</li>
+<li> user:myuser&#160;: add username (here myuser)</li>
+<li> read_data/execute:allow&#160;: allowing thos rights read_data/execute</li>
+<li> directory&#160;: the directory I want to change</li></ul>
+<p>As we can see, the user is now here and we can see his rights&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ ls -dv test.dir
+drwxr-xr-x+ 2 root      root           2 Aug 31 12:02 directory
+    <b>0:user:myuser:list_directory/read_data/execute:allow</b>
+    1:owner@::deny
+    2:owner@:list_directory/read_data/add_file/write_data/add_subdirectory
+        /append_data/write_xattr/execute/write_attributes/write_acl
+        /write_owner:allow
+    3:group@:add_file/write_data/add_subdirectory/append_data:deny
+    4:group@:list_directory/read_data/execute:allow
+    5:everyone@:add_file/write_data/add_subdirectory/append_data/write_xattr
+        /write_attributes/write_acl/write_owner:deny
+    6:everyone@:list_directory/read_data/read_xattr/execute/read_attributes
+        /read_acl/synchronize:allow
+</pre>
+</td></tr></table><br />
+<p>For a faster way, you can do&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ chmod A+user:myuser:rx:allow directory
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Deleting_rights"><span class="mw-headline-number">4.2</span> Deleting rights</span></h2>
+<p>Now if I wan to delete my previous add, I need to delete the last number (id 0)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ chmod A0- directory
+</pre>
+</td></tr></table><br />
+<ul><li> A0-&#160;: A for ACL, 0 for ID 0 and - for deleting</li></ul>
+<p>As we can see, the user is now off&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ ls -dv test.dir
+drwxr-xr-x+ 2 root      root           2 Aug 31 12:02 directory
+    0:owner@::deny
+    1:owner@:list_directory/read_data/add_file/write_data/add_subdirectory
+        /append_data/write_xattr/execute/write_attributes/write_acl
+        /write_owner:allow
+    2:group@:add_file/write_data/add_subdirectory/append_data:deny
+    3:group@:list_directory/read_data/execute:allow
+    4:everyone@:add_file/write_data/add_subdirectory/append_data/write_xattr
+        /write_attributes/write_acl/write_owner:deny
+    5:everyone@:list_directory/read_data/read_xattr/execute/read_attributes
+        /read_acl/synchronize:allow
+</pre>
+</td></tr></table><br />
+<p>We can choose to delete another rights by simply changing the number (ex. A4-).
+</p><p>If we want to remove completly the ACL&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ chmod A- directory
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Replacement"><span class="mw-headline-number">4.3</span> Replacement</span></h2>
+<p>Now imagine, I have my user back on this directory and I you want to replace an existing right by another&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ chmod A0=user:myuser:execute:deny directory
+</pre>
+</td></tr></table><br />
+<p>I indique the id of the line and ask to deny execute.
+</p><p>For a faster way, you can do&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ chmod A0=user:myuser:x:deny directory
+</pre>
+</td></tr></table><br />
+<p><b>WARNING&#160;: DO NOT FORGET TO SPECIFY ID OR IT WILL REPLACE ALL YOUR CURRENT RIGHTS BY THIS ONLY ONE</b>
+</p><p>Now if I want to replace everythings by my user only&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>chmod A=user:myuser:read_data:allow directory
+</pre>
+</td></tr></table><br />
+<p>My user is the only one and the owner doesn't have now any rights&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td>
+<pre># ls -v directory
+----------+ 1 root      root        2455 Dec 25 12:08 directory
+    0:user:myuser:read_data:allow
+</pre>
+</td></tr></table><br />
+<p>You can also reset rights by chmoding by the normal way&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>chmod 755 directory
+</pre>
+</td></tr></table><br />
+<p>Now we could see the rights coming again&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ ls -dv test.dir
+drwxr-xr-x+ 2 root      root           2 Aug 31 12:02 directory
+    0:user:myuser:list_directory/read_data/execute:allow
+    1:owner@::deny
+    2:owner@:list_directory/read_data/add_file/write_data/add_subdirectory
+        /append_data/write_xattr/execute/write_attributes/write_acl
+        /write_owner:allow
+    3:group@:add_file/write_data/add_subdirectory/append_data:deny
+    4:group@:list_directory/read_data/execute:allow
+    5:everyone@:add_file/write_data/add_subdirectory/append_data/write_xattr
+        /write_attributes/write_acl/write_owner:deny
+    6:everyone@:list_directory/read_data/read_xattr/execute/read_attributes
+        /read_acl/synchronize:allow
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Inheritance"><span class="mw-headline-number">4.4</span> Inheritance</span></h2>
+<p>Remember the inheritance of the files and directory depends of the mode you've chosen for your ACL. To add inherit, use this&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ chmod A+user:myuser:read_data/execute:file_inherit:allow directory
+</pre>
+</td></tr></table><br />
+<p>This is only working for files, you can use dir_inherit as well for directories.
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">5</span> References</span></h1>
+<p><a rel="nofollow" class="external free" href="http://docs.sun.com/app/docs/doc/819-5461?l=en">http://docs.sun.com/app/docs/doc/819-5461?l=en</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.056 seconds
+Real time usage: 0.058 seconds
+Preprocessor visited node count: 563/1000000
+Preprocessor generated node count: 1826/1000000
+Post‐expand include size: 10008/2097152 bytes
+Template argument size: 6356/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   15.364      1 - -total
+ 35.00%    5.378     27 - Template:Solaris_acl
+ 34.08%    5.235     17 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2993-0!*!*!1!en!5!* and timestamp 20181111230616 and revision id 8724
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris&amp;oldid=8724">https://wiki.deimos.fr/index.php?title=ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris&amp;oldid=8724</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=ACL+%3A+Impl%C3%A9mentation+des+droits+de+type+NT+sur+Solaris" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=ACL_:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Solaris&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=ACL_:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Solaris&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/ACL_:_Implémentation_des_droits_de_type_NT_sur_Solaris.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/ACL_:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Solaris" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=ACL_:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Solaris&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=ACL_:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Solaris&amp;oldid=8724" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=ACL_:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Solaris&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 10 February 2010, at 13:13.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

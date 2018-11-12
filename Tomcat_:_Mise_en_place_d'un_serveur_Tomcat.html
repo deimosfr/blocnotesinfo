@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Tomcat : Mise en place d'un serveur Tomcat - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Tomcat_:_Mise_en_place_d'un_serveur_Tomcat","wgTitle":"Tomcat : Mise en place d'un serveur Tomcat","wgCurRevisionId":12583,"wgRevisionId":12583,"wgArticleId":2150,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Tomcat_:_Mise_en_place_d'un_serveur_Tomcat","wgRelevantArticleId":2150,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-html4strict {line-height: normal;}
+.source-html4strict li, .source-html4strict pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for html4strict
+ * CSS class: source-html4strict, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.html4strict.source-html4strict .de1, .html4strict.source-html4strict .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.html4strict.source-html4strict  {font-family:monospace;}
+.html4strict.source-html4strict .imp {font-weight: bold; color: red;}
+.html4strict.source-html4strict li, .html4strict.source-html4strict .li1 {font-weight: normal; vertical-align:top;}
+.html4strict.source-html4strict .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.html4strict.source-html4strict .li2 {font-weight: bold; vertical-align:top;}
+.html4strict.source-html4strict .kw2 {color: #000000; font-weight: bold;}
+.html4strict.source-html4strict .kw3 {color: #000066;}
+.html4strict.source-html4strict .es0 {color: #000099; font-weight: bold;}
+.html4strict.source-html4strict .br0 {color: #66cc66;}
+.html4strict.source-html4strict .sy0 {color: #66cc66;}
+.html4strict.source-html4strict .st0 {color: #ff0000;}
+.html4strict.source-html4strict .nu0 {color: #cc66cc;}
+.html4strict.source-html4strict .sc-2 {color: #404040;}
+.html4strict.source-html4strict .sc-1 {color: #808080; font-style: italic;}
+.html4strict.source-html4strict .sc0 {color: #00bbdd;}
+.html4strict.source-html4strict .sc1 {color: #ddbb00;}
+.html4strict.source-html4strict .sc2 {color: #009900;}
+.html4strict.source-html4strict .ln-xtra, .html4strict.source-html4strict li.ln-xtra, .html4strict.source-html4strict div.ln-xtra {background-color: #ffc;}
+.html4strict.source-html4strict span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-xml {line-height: normal;}
+.source-xml li, .source-xml pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for xml
+ * CSS class: source-xml, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.xml.source-xml .de1, .xml.source-xml .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.xml.source-xml  {font-family:monospace;}
+.xml.source-xml .imp {font-weight: bold; color: red;}
+.xml.source-xml li, .xml.source-xml .li1 {font-weight: normal; vertical-align:top;}
+.xml.source-xml .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.xml.source-xml .li2 {font-weight: bold; vertical-align:top;}
+.xml.source-xml .es0 {color: #000099; font-weight: bold;}
+.xml.source-xml .br0 {color: #66cc66;}
+.xml.source-xml .sy0 {color: #66cc66;}
+.xml.source-xml .st0 {color: #ff0000;}
+.xml.source-xml .nu0 {color: #cc66cc;}
+.xml.source-xml .sc-1 {color: #808080; font-style: italic;}
+.xml.source-xml .sc0 {color: #00bbdd;}
+.xml.source-xml .sc1 {color: #ddbb00;}
+.xml.source-xml .sc2 {color: #339933;}
+.xml.source-xml .sc3 {color: #009900;}
+.xml.source-xml .re0 {color: #000066;}
+.xml.source-xml .re1 {color: #000000; font-weight: bold;}
+.xml.source-xml .re2 {color: #000000; font-weight: bold;}
+.xml.source-xml .ln-xtra, .xml.source-xml li.ln-xtra, .xml.source-xml div.ln-xtra {background-color: #ffc;}
+.xml.source-xml span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Tomcat_Mise_en_place_d_un_serveur_Tomcat skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Tomcat : Mise en place d'un serveur Tomcat</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#mw-navigation">navigation</a>, 					<a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Modifier_les_variables_d.27environnement_de_Tomcat"><span class="tocnumber">3.1</span> <span class="toctext">Modifier les variables d'environnement de Tomcat</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Rediriger_les_logs"><span class="tocnumber">3.2</span> <span class="toctext">Rediriger les logs</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Donner_acc.C3.A8s_aux_interfaces_d.27administration"><span class="tocnumber">3.3</span> <span class="toctext">Donner accès aux interfaces d'administration</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Changer_la_version_de_java"><span class="tocnumber">3.4</span> <span class="toctext">Changer la version de java</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#mod_jk"><span class="tocnumber">3.5</span> <span class="toctext">mod_jk</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Configuration_avanc.C3.A9e"><span class="tocnumber">4</span> <span class="toctext">Configuration avancée</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Load_Balancing"><span class="tocnumber">4.1</span> <span class="toctext">Load Balancing</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Clustering"><span class="tocnumber">4.2</span> <span class="toctext">Clustering</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Cr.C3.A9er_un_context"><span class="tocnumber">4.3</span> <span class="toctext">Créer un context</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Monitoring"><span class="tocnumber">5</span> <span class="toctext">Monitoring</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#JMXproxy"><span class="tocnumber">5.1</span> <span class="toctext">JMXproxy</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#JMX"><span class="tocnumber">5.2</span> <span class="toctext">JMX</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Probl.C3.A8me_de_stop_sur_un_vserver"><span class="tocnumber">6.1</span> <span class="toctext">Problème de stop sur un vserver</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Tomcat_logo.png.html" class="image" title="Tomcat"><img alt="Tomcat" src="images/4/43/Tomcat_logo.png" width="220" height="147" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>5.5/6/7</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 6</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://tomcat.apache.org/">Tomcat Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>17/06/2013</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://tomcat.apache.org/">Apache Tomcat</a> est un conteneur de servlet J2EE. Issu du projet Jakarta, Tomcat est désormais un projet principal de la fondation Apache. Tomcat implémente les spécifications des servlets et des JSP de Sun Microsystems. Il inclut des outils pour la configuration et la gestion, mais peut également être configuré en éditant des fichiers de configuration XML. Comme Tomcat inclut un serveur HTTP interne, il est aussi considéré comme un serveur HTTP. Tomcat est également considéré comme un <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Serveur_d%27applications">serveur d'applications</a>.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Comme d'h'abitude, sous Debian, c'est over simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install tomcat5.5
+</pre>
+</td></tr></table><br />
+<p>Si vous avez un message du genre&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Des erreurs ont été rencontrées pendant l'exécution&#160;:
+ tomcat5.5
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+Échec de l'installation d'un paquet. Tentative de réparation&#160;: 
+Paramétrage de tomcat5.5 (5.5.20-2) ...
+Starting Tomcat servlet engine: tomcat5.5invoke-rc.d: initscript tomcat5.5, action &quot;start&quot; failed.
+dpkg&#160;: erreur de traitement de tomcat5.5 (--configure)&#160;:
+ le sous-processus post-installation script a retourné une erreur de sortie d'état 1
+Des erreurs ont été rencontrées pendant l'exécution&#160;:
+ tomcat5.5
+Appuyez sur Entrée pour continuer.</pre></div></div>
+<p>Alors il va falloir analyser les logs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> tail</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; tail /var/lib/tomcat5.5/logs/catalina_`date +%Y-%m-%d`.log 
+The java-gcj-compat-dev environment currently doesn't support a security manager. Please check the TOMCAT5_SECURITY variable in /etc/default/tomcat5.5.
+Using CATALINA_BASE:   /var/lib/tomcat5.5
+Using CATALINA_HOME:   /usr/share/tomcat5.5
+Using CATALINA_TMPDIR: /var/lib/tomcat5.5/temp
+Using JRE_HOME:       /usr/lib/jvm/java-gcj
+The java-gcj-compat-dev environment currently doesn't support a security manager. Please check the TOMCAT5_SECURITY variable in /etc/default/tomcat5.5.</pre></div></div>
+</td></tr></table><br />
+<p>Là, je pense que c'est suffisament clair. Nous allons éditer le fichier <b>/etc/default/tomcat5.5</b> pour remplacer&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/tomcat5.5</font>
+</td></tr>
+<tr>
+<td>
+<pre>TOMCAT5_SECURITY=<b>yes</b>
+</pre>
+</td></tr></table><br />
+<p>par
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/tomcat5.5</font>
+</td></tr>
+<tr>
+<td>
+<pre>TOMCAT5_SECURITY=<b>no</b>
+</pre>
+</td></tr></table><br />
+<p>Mais ceci comporte évidemment quelques risques (ne me demandez pas lesquels, j'avoue que je n'en sais rien et n'ai pas eu le temps de me pencher sur le problème). Il ne reste plus qu'à relancer l'install&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install tomcat5.5
+</pre>
+</td></tr></table><br />
+<p>Et pour ceux qui souhaitent installer les outils d'admin&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install tomcat5.5-admin
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Tomcat est assez complexe dans sa configuration. C'est pourquoi de bonnes explications ne sont pas toujours de trop<sup id="cite_ref-1" class="reference"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#cite_note-1">[1]</a></sup>.
+</p>
+<h2><span class="mw-headline" id="Modifier_les_variables_d.27environnement_de_Tomcat"><span class="mw-headline-number">3.1</span> Modifier les variables d'environnement de Tomcat</span></h2>
+<p>Vous avez peut être besoin de toucher au Xmx ou Xms de Tomcat, éditez le fichier /etc/default/tomcat5.5&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/tomcat5.5</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># Run Tomcat as this user ID. Not setting this or leaving it blank will use the
+# default of tomcat55.
+TOMCAT5_USER=tomcat55
+&#160;
+# The home directory of the Java development kit (JDK). You need at least
+# JDK version 1.4. If JAVA_HOME is not set, some common directories for 
+# the Sun JDK, various J2SE 1.4 versions, and the free runtimes
+# java-gcj-compat-dev and kaffe are tried.
+JAVA_HOME=/usr/lib/jvm/java-6-sun
+&#160;
+# Directory for per-instance configuration files and webapps. It contain the
+# directories conf, logs, webapps, work and temp. See RUNNING.txt for details.
+# Default: /var/lib/tomcat5.5
+#CATALINA_BASE=/var/lib/tomcat5.5
+&#160;
+# Arguments to pass to the Java virtual machine (JVM).
+JAVA_OPTS=&quot;-Djava.awt.headless=true -Xms512m -Xmx512m&quot;
+&#160;
+# Java compiler to use for translating JavaServer Pages (JSPs). You can use all
+# compilers that are accepted by Ant's build.compiler property.
+#JSP_COMPILER=jikes
+&#160;
+# Use the Java security manager? (yes/no, default: yes)
+# WARNING: Do not disable the security manager unless you understand
+# the consequences!
+# NOTE: java-gcj-compat-dev currently doesn't support a security
+# manager. 
+TOMCAT5_SECURITY=no</pre></div></div>
+</td></tr></table><br />
+<p>Par soucis de sécurité, décommentez comme plus haut la ligne TOMCAT5_USER.
+</p>
+<h2><span class="mw-headline" id="Rediriger_les_logs"><span class="mw-headline-number">3.2</span> Rediriger les logs</span></h2>
+<p>Pour rediriger les logs de Tomcat, je vous invite à suivre <a href="./Rsyslog_:_Installation_et_configuration_d'Rsyslog.html" title="Rsyslog : Installation et configuration d'Rsyslog">cette documentation</a>.
+</p>
+<h2><span class="mw-headline" id="Donner_acc.C3.A8s_aux_interfaces_d.27administration"><span class="mw-headline-number">3.3</span> Donner accès aux interfaces d'administration</span></h2>
+<p>Pour avoir accès à l'interface de manager et d'admin, il va falloir éditer le fichier de configuration des utilisateurs&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat5.5/tomcat-users.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;?xml version='1.0' encoding='utf-8'?&gt;
+&lt;tomcat-users&gt;
+&lt;role rolename=&quot;manager&quot;/&gt;
+&lt;role rolename=&quot;tomcat&quot;/&gt;
+&lt;role rolename=&quot;admin&quot;/&gt;
+&lt;role rolename=&quot;role1&quot;/&gt;
+&lt;user username=&quot;tomcat&quot; password=&quot;tomcat&quot; roles=&quot;tomcat,manager,admin&quot;/&gt;
+&lt;user username=&quot;both&quot; password=&quot;tomcat&quot; roles=&quot;tomcat,role1&quot;/&gt;
+&lt;user username=&quot;role1&quot; password=&quot;tomcat&quot; roles=&quot;role1&quot;/&gt;
+&lt;/tomcat-users&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Adaptez en fonction des logins et mot de passe que vous souhaitez.
+</p><p>Vous pouvez ensuite accéder via les liens suivants (en adaptant selon vos besoins)&#160;:
+</p>
+<ul><li> manager&#160;: <a rel="nofollow" class="external free" href="http://localhost:8180/manager/html">http://localhost:8180/manager/html</a></li>
+<li> admin&#160;: <a rel="nofollow" class="external free" href="http://localhost:8180/admin">http://localhost:8180/admin</a></li></ul>
+<h2><span class="mw-headline" id="Changer_la_version_de_java"><span class="mw-headline-number">3.4</span> Changer la version de java</span></h2>
+<p>Pour changer la version de java par défaut (la 6 ici)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> update-java-alternatives</font>
+</td></tr>
+<tr>
+<td>
+<pre>update-java-alternatives -s java-6-sun
+</pre>
+</td></tr></table><br />
+<p>Vérifiez à bien avoir cette ligne dans le fichier de default tomcat&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/tomcat5.5</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+JAVA_HOME=/usr/lib/jvm/java-6-sun
+...</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="mod_jk"><span class="mw-headline-number">3.5</span> mod_jk</span></h2>
+<p>Il est parfois intéressant de pouvoir rediriger un Apache vers un Tomcat afin de simplifier l'URL pour l'utilisateur finale et permettre au Tomcat de ne pas gérer les connexions. Il est également possible d'utiliser <a href="./Proxy_:_Créer_un_proxy_avec_Apache.html" title="Proxy : Créer un proxy avec Apache">mod_proxy</a> (qui est d'ailleurs de plus en plus utilisé au détriment de mod_jk).
+</p><p>Installez Apache et mod_jk&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install apache2 libapache2-mod-jk</pre></div></div>
+</td></tr></table><br />
+<p>Editez ensuite le fichier workers.properties&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/libapache2-mod-jk/workers.properties</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">workers.tomcat_home=/usr/share/tomcat6
+workers.java_home=/usr/lib/jvm/default-java
+ps=/
+worker.list=ajp13_worker,jk-status,jk-manager,examples
+worker.ajp13_worker.port=8009
+worker.ajp13_worker.host=localhost
+worker.ajp13_worker.type=ajp13
+worker.examples.port=8009
+worker.examples.host=localhost
+worker.examples.type=ajp13
+worker.jk-status.read_only=True
+worker.jk-status.type=status
+worker.jk-manager.type=status
+#worker.ajp13_worker.lbfactor=1
+#worker.loadbalancer.type=lb
+#worker.loadbalancer.balance_workers=ajp13_worker</pre></div></div>
+</td></tr></table><br />
+<p>Ici j'ai donc ajouter ajp13 avec les informations du connecteur. Nous allons maintenant dé-commenter celui ci dans la configuration de Tomcat&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat6/server.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="html4strict source-html4strict"><pre class="de1">[...]
+    <span class="sc-1">&lt;!-- Define an AJP 1.3 Connector on port 8009 --&gt;</span>
+    <span class="sc2">&lt;Connector port<span class="sy0">=</span><span class="st0">&quot;8009&quot;</span> protocol<span class="sy0">=</span><span class="st0">&quot;AJP/1.3&quot;</span> redirectPort<span class="sy0">=</span><span class="st0">&quot;8443&quot;</span> <span class="sy0">/</span>&gt;</span>
+[...]</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez redémarrer Tomcat pour que cette configuration soit prise en compte. Maintenant, nous allons nous attaquer à Apache&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">a2enmod mod_jk
+touch /etc/apache2/mods-available/jk.conf
+cd /etc/apache2/mods-enabled/
+ln -s /etc/apache2/mods-available/jk.conf .</pre></div></div>
+</td></tr></table><br />
+<p>Puis nous allons éditez ce fichier de configuration pour lui indiquer le fichier workers.properties&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;<span class="kw3">ifmodule</span> mod_jk.c&gt;
+    JkWorkersFile   /etc/libapache2-mod-jk/workers.properties
+    JkShmFile       /var/log/apache2/mod_jk.shm
+    JkLogFile       /var/log/apache2/mod_jk.log
+    JkLogLevel      info
+&lt;/<span class="kw3">ifmodule</span>&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Et pour finir nous allons modifier le VirtualHost pour lui indiquer que nous voulons utiliser mod_jk&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/apache2/sites-enabled/000-default</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;<span class="kw3">VirtualHost</span> *:<span class="nu0">80</span>&gt;
+	<span class="kw1">ServerAdmin</span> webmaster@localhost
+&#160;
+	<span class="kw1">DocumentRoot</span> /var/www
+&#160;
+<span class="xtra ln-xtra">	JkMountCopy	<span class="kw2">On</span></span><span class="xtra ln-xtra">	JkMount		/docs/* ajp13_worker</span><span class="xtra ln-xtra">	JkUnMount	/docs/*.gif ajp13_worker</span><span class="xtra ln-xtra">&#160;</span><span class="xtra ln-xtra">        JkMount         /examples/* examples</span><span class="xtra ln-xtra">&#160;</span><span class="xtra ln-xtra">        <span class="co1">#JkMount         /jk-status/* jk-status</span></span><span class="xtra ln-xtra">        &lt;<span class="kw3">Location</span> /jk-status/&gt;</span><span class="xtra ln-xtra">            JkMount jk-status</span><span class="xtra ln-xtra">            <span class="kw1">Order</span> <span class="kw1">deny</span>,<span class="kw1">allow</span></span><span class="xtra ln-xtra">            <span class="kw1">Deny</span> from <span class="kw2">all</span></span><span class="xtra ln-xtra">            <span class="kw1">Allow</span> from 127.0.0.1</span><span class="xtra ln-xtra">        &lt;/<span class="kw3">Location</span>&gt;</span><span class="xtra ln-xtra">&#160;</span><span class="xtra ln-xtra">        <span class="co1">#JkMount           /jk-manager/* jk-manager</span></span><span class="xtra ln-xtra">        &lt;<span class="kw3">Location</span> /jk-manager/&gt;</span><span class="xtra ln-xtra">            JkMount jk-manager</span><span class="xtra ln-xtra">            <span class="kw1">Order</span> <span class="kw1">deny</span>,<span class="kw1">allow</span></span><span class="xtra ln-xtra">            <span class="kw1">Deny</span> from <span class="kw2">all</span></span><span class="xtra ln-xtra">            <span class="kw1">Allow</span> from 127.0.0.1</span><span class="xtra ln-xtra">        &lt;/<span class="kw3">Location</span>&gt;</span>&#160;
+	&lt;<span class="kw3">Directory</span> /&gt;
+		<span class="kw1">Options</span> <span class="kw2">FollowSymLinks</span>
+		<span class="kw1">AllowOverride</span> <span class="kw2">None</span>
+	&lt;/<span class="kw3">Directory</span>&gt;
+	&lt;<span class="kw3">Directory</span> /var/www/&gt;
+		<span class="kw1">Options</span> <span class="kw2">Indexes</span> <span class="kw2">FollowSymLinks</span> MultiViews
+		<span class="kw1">AllowOverride</span> <span class="kw2">None</span>
+		<span class="kw1">Order</span> <span class="kw1">allow</span>,<span class="kw1">deny</span>
+		<span class="kw1">allow</span> from <span class="kw2">all</span>
+	&lt;/<span class="kw3">Directory</span>&gt;
+&#160;
+	<span class="kw1">ScriptAlias</span> /cgi-bin/ /usr/lib/cgi-bin/
+	&lt;<span class="kw3">Directory</span> <span class="st0">&quot;/usr/lib/cgi-bin&quot;</span>&gt;
+		<span class="kw1">AllowOverride</span> <span class="kw2">None</span>
+		<span class="kw1">Options</span> +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+		<span class="kw1">Order</span> <span class="kw1">allow</span>,<span class="kw1">deny</span>
+		<span class="kw1">Allow</span> from <span class="kw2">all</span>
+	&lt;/<span class="kw3">Directory</span>&gt;
+&#160;
+	<span class="kw1">ErrorLog</span> ${APACHE_LOG_DIR}/error.log
+&#160;
+	<span class="co1"># Possible values include: debug, info, notice, warn, error, crit,</span>
+	<span class="co1"># alert, emerg.</span>
+	<span class="kw1">LogLevel</span> warn
+&#160;
+	<span class="kw1">CustomLog</span> ${APACHE_LOG_DIR}/access.log combined
+&lt;/<span class="kw3">VirtualHost</span>&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Maintenant vous pouvez accéder à&#160;:
+</p>
+<ul><li> Votre documentation Tomcat via Apache <a rel="nofollow" class="external free" href="http://server/docs/">http://server/docs/</a></li>
+<li> Au status&#160;: <a rel="nofollow" class="external free" href="http://server/jk-status/">http://server/jk-status/</a></li>
+<li> Au manager&#160;: <a rel="nofollow" class="external free" href="http://server/jk-manager/">http://server/jk-manager/</a></li></ul>
+<p>Vous avez également accès au status en lecture seule et au manager. J'ai laissé des lignes commentées au cas ou vous ne souhaiteriez pas utiliser les Locations d'Apache.
+</p>
+<h1><span class="mw-headline" id="Configuration_avanc.C3.A9e"><span class="mw-headline-number">4</span> Configuration avancée</span></h1>
+<h2><span class="mw-headline" id="Load_Balancing"><span class="mw-headline-number">4.1</span> Load Balancing</span></h2>
+<p>Il est indispensable de bien maitriser le <a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#mod_jk">mod_jk</a> avant de continuer. Le load balancing permet de faire de la distribution de charge en Round Robin sur plusieurs serveurs Tomcat.
+</p><p><a href="./File:Tomcat_loadbalancing.png.html" class="image"><img alt="Tomcat loadbalancing.png" src="images/a/a8/Tomcat_loadbalancing.png" width="320" height="170" /></a>
+</p><p>Pour faire ceci, il vous faut donc 2 serveurs Tomcat. Sur chacun d'entre eux, éditez le fichier server.xml et ajoutez la directive jvmRoute&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat6/server.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="html4strict source-html4strict"><pre class="de1"><span class="sc2">&lt;Engine <span class="kw3">name</span><span class="sy0">=</span><span class="st0">&quot;Catalina&quot;</span> defaultHost<span class="sy0">=</span><span class="st0">&quot;localhost&quot;</span> jvmRoute<span class="sy0">=</span><span class="st0">&quot;worker1&quot;</span>&gt;</span></pre></div></div>
+</td></tr></table><br />
+<p>J'ai donc mis worker1 sur mon serveur 1 et worker2 sur mon serveur 2. Ensuite éditez ce fichier pour configurer les workers et le load balancer&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/libapache2-mod-jk/workers.properties</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">workers.tomcat_home=/usr/share/tomcat6
+workers.java_home=/usr/lib/jvm/default-java
+ps=/
+&#160;
+# Worker list
+worker.list=loadbalancer,jk-status,jk-manager
+&#160;
+# Tomcat Status &amp; Manager
+worker.jk-status.read_only=True
+worker.jk-status.type=status
+worker.jk-manager.type=status
+&#160;
+# Worker 1
+worker.worker1.port=8009
+worker.worker1.host=server1
+worker.worker1.type=ajp13
+worker.worker1.lbfactor=1
+&#160;
+# Worker 2
+worker.worker2.port=18009
+worker.worker2.host=server2
+worker.worker2.type=ajp13
+worker.worker2.lbfactor=1
+&#160;
+# Load Balancer
+worker.loadbalancer.type=lb
+worker.loadbalancer.balance_workers=worker1, worker2
+worker.loadbalancer.sticky_session=True</pre></div></div>
+</td></tr></table><br />
+<p>Il ne nous reste plus qu'à configurer Apache pour lui dire d'aller taper sur le bon Worker qui est en fait le load balancer&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/apache2/sites-enabled/000-default</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;VirtualHost *:80&gt;
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www
+        JkMountCopy    On
+        JkMount         /demo/* loadbalancer</pre></div></div>
+</td></tr></table><br />
+<p>Redémarrez Apache et Tomcat.
+</p><p><a href="./File:Demo.tgz.html" title="File:Demo.tgz">Téléchargez ce fichier</a>, décompressez le et ajoutez le à vos 2 instances Tomcat. Maintenant la page de démo est accessible en mode load balancé sur <a rel="nofollow" class="external free" href="http://server-apache/demo/jsp/test.jsp">http://server-apache/demo/jsp/test.jsp</a>. Vous obtiendrez quelque chose comme ceci&#160;:
+</p>
+<pre>
+date du jour: Tue Nov 06 13:46:19 CET 2012
+param message: null
+session ID: C706F51B9ACAB96A10CCDACCADEA9026
+node: /var/lib/tomcat6
+objet List en session: 
+</pre>
+<p>Essayez de couper un Tomcat, vous verrez qu'il basculera sur l'autre&#160;:-).
+</p><p>Nous allons utiliser l'interface du manager pour voir l'état de vos serveurs&#160;: <a rel="nofollow" class="external free" href="http://server-apache/jk-manager/">http://server-apache/jk-manager/</a>&#160;:
+</p><p><a href="./File:Tomcat_jk-manager.png.html" class="image"><img alt="Tomcat jk-manager.png" src="images/b/bf/Tomcat_jk-manager.png" width="1212" height="88" /></a>
+</p><p>Vous voyez ici que les tomcat sont activés et fonctionnels. Dans le cas ou l'un d'eux viendrait à tomber, il sera en erreur 'ERR'. Il faudra alors cliquer sur l'hyperlink 'R' pour reseter son état. Le load balancer acceptera de nouveau d'envoyer des requêtes dessus. Vous avez également un autre menu qui vous permet de sortir proprement un noeud Tomcat en cliquant sur 'Edit this attribute for all members: Activation'&#160;:
+</p><p><a href="./File:Tomcat_member_activation.png.html" class="image"><img alt="Tomcat member activation.png" src="images/2/24/Tomcat_member_activation.png" width="539" height="136" /></a>
+</p><p>Mettez à jour ensuite les états en cliquant sur le bouton 'Update balancer'.
+</p>
+<h2><span class="mw-headline" id="Clustering"><span class="mw-headline-number">4.2</span> Clustering</span></h2>
+<p>Pour faire du clustering<sup id="cite_ref-2" class="reference"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#cite_note-2">[2]</a></sup>, vous allez normalement avoir besoin du <a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#Load_Balancing">Load Balancing</a>. Avec le clustering, vous allez pouvoir partager les sessions de vos applicatifs à travers Tomcat. L'avantage est que si vous perdez une machines, les sessions seront présentes sur les autres machines et l'utilisateur n'aura rien vu. Il faut bien entendu que les applications en questions soient développées pour gérer ce genre de mécanismes.
+</p><p>Pour pouvoir tester la réplications de sessions, ajoutez cette petite application qui vous permettra de tester les sessions, <a href="./File:Clustertest.war.tgz.html" title="File:Clustertest.war.tgz">téléchargez ce fichier</a>.
+</p><p>Pour mettre en place du cluster, éditez le fichier suivant et rajoutez cette ligne juste avant la fin&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat6/web.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1">[...]
+<span class="xtra ln-xtra">   <span class="sc3"><span class="re1">&lt;distributable</span> <span class="re2">/&gt;</span></span></span><span class="sc3"><span class="re1">&lt;/web-app<span class="re2">&gt;</span></span></span></pre></div></div>
+</td></tr></table><br />
+<p>Ensuite nous allons éditer la partie serveur et rajouter un bloc cluster dans la partie Engine&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat6/server.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1">[...]
+    <span class="sc-1">&lt;!-- You should set jvmRoute to support load-balancing via AJP ie&#160;:</span>
+<span class="sc-1">    &lt;Engine name=&quot;Catalina&quot; defaultHost=&quot;localhost&quot; jvmRoute=&quot;jvm1&quot;&gt;</span>
+<span class="sc-1">    --&gt;</span>
+<span class="xtra ln-xtra">    <span class="sc3"><span class="re1">&lt;Engine</span> <span class="re0">name</span>=<span class="st0">&quot;Catalina1&quot;</span> <span class="re0">defaultHost</span>=<span class="st0">&quot;localhost&quot;</span> <span class="re0">jvmRoute</span>=<span class="st0">&quot;worker2&quot;</span><span class="re2">&gt;</span></span></span>&#160;
+      <span class="sc-1">&lt;!--For clustering, please take a look at documentation at:</span>
+<span class="sc-1">          /docs/cluster-howto.html  (simple how to)</span>
+<span class="sc-1">          /docs/config/cluster.html (reference documentation) --&gt;</span>
+      <span class="sc-1">&lt;!--</span>
+<span class="sc-1">      &lt;Cluster className=&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot;/&gt;</span>
+<span class="sc-1">      --&gt;</span>
+        <span class="sc3"><span class="re1">&lt;Cluster</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.ha.tcp.SimpleTcpCluster&quot;</span> <span class="re0">channelSendOptions</span>=<span class="st0">&quot;8&quot;</span><span class="re2">&gt;</span></span>
+&#160;
+<span class="xtra ln-xtra">            <span class="sc3"><span class="re1">&lt;Manager</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.ha.session.DeltaManager&quot;</span></span></span><span class="sc3">                  <span class="re0">expireSessionsOnShutdown</span>=<span class="st0">&quot;false&quot;</span></span>
+<span class="sc3">                  <span class="re0">notifyListenersOnReplication</span>=<span class="st0">&quot;true&quot;</span><span class="re2">/&gt;</span></span>
+&#160;
+            <span class="sc3"><span class="re1">&lt;Channel</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.tribes.group.GroupChannel&quot;</span><span class="re2">&gt;</span></span>
+&#160;
+                <span class="sc3"><span class="re1">&lt;Membership</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.tribes.membership.McastService&quot;</span></span>
+<span class="sc3">                        <span class="re0">address</span>=<span class="st0">&quot;228.0.0.4&quot;</span></span>
+<span class="sc3">                        <span class="re0">port</span>=<span class="st0">&quot;45564&quot;</span></span>
+<span class="sc3">                        <span class="re0">frequency</span>=<span class="st0">&quot;1000&quot;</span></span>
+<span class="sc3">                        <span class="re0">dropTime</span>=<span class="st0">&quot;30000&quot;</span> <span class="re2">/&gt;</span></span>
+&#160;
+                <span class="sc3"><span class="re1">&lt;Receiver</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.tribes.transport.nio.NioReceiver&quot;</span></span>
+<span class="sc3">                      <span class="re0">address</span>=<span class="st0">&quot;auto&quot;</span></span>
+<span class="sc3">                      <span class="re0">port</span>=<span class="st0">&quot;4000&quot;</span></span>
+<span class="sc3">                      <span class="re0">autoBind</span>=<span class="st0">&quot;100&quot;</span></span>
+<span class="sc3">                      <span class="re0">selectorTimeout</span>=<span class="st0">&quot;5000&quot;</span></span>
+<span class="sc3">                      <span class="re0">maxThreads</span>=<span class="st0">&quot;6&quot;</span> <span class="re2">/&gt;</span></span>
+&#160;
+                <span class="sc3"><span class="re1">&lt;Sender</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.tribes.transport.ReplicationTransmitter&quot;</span><span class="re2">&gt;</span></span>
+                    <span class="sc3"><span class="re1">&lt;Transport</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.tribes.transport.nio.PooledParallelSender&quot;</span> <span class="re0">timeout</span>=<span class="st0">&quot;60000&quot;</span><span class="re2">/&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;/Sender<span class="re2">&gt;</span></span></span>
+&#160;
+                <span class="sc3"><span class="re1">&lt;Interceptor</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.tribes.group.interceptors.TcpFailureDetector&quot;</span><span class="re2">/&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;Interceptor</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.tribes.group.interceptors.MessageDispatch15Interceptor&quot;</span><span class="re2">/&gt;</span></span>
+            <span class="sc3"><span class="re1">&lt;/Channel<span class="re2">&gt;</span></span></span>
+&#160;
+         <span class="sc3"><span class="re1">&lt;Valve</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.ha.tcp.ReplicationValve&quot;</span></span>
+<span class="sc3">                <span class="re0">filter</span>=<span class="st0">&quot;.*\.gif;.*\.js;.*\.jpg;.*\.htm;.*\.html;.*\.txt;&quot;</span> <span class="re2">/&gt;</span></span>
+&#160;
+         <span class="sc3"><span class="re1">&lt;Deployer</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.ha.deploy.FarmWarDeployer&quot;</span></span>
+<span class="sc3">                   <span class="re0">tempDir</span>=<span class="st0">&quot;D:/cluster/temp/war-temp/&quot;</span></span>
+<span class="sc3">                   <span class="re0">deployDir</span>=<span class="st0">&quot;D:/cluster/temp/war-deploy/&quot;</span></span>
+<span class="sc3">                   <span class="re0">watchDir</span>=<span class="st0">&quot;D:/cluster/temp/war-listen/&quot;</span></span>
+<span class="sc3">                   <span class="re0">watchEnabled</span>=<span class="st0">&quot;false&quot;</span> <span class="re2">/&gt;</span></span>
+&#160;
+         <span class="sc3"><span class="re1">&lt;ClusterListener</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.ha.session.ClusterSessionListener&quot;</span><span class="re2">/&gt;</span></span>
+   <span class="sc3"><span class="re1">&lt;/Cluster<span class="re2">&gt;</span></span></span>
+[...]</pre></div></div>
+</td></tr></table><br />
+<p>Au niveau du nom de l'engine, mettez des noms différents suivant les nœuds du cluster. Je ne détaillerais pas ici toutes les options mais vous laisse regarder les ressources de cette page ou bien le site officiel. Sachez juste que cette configuration permet de mettre plusieurs nœuds et réplique les sessions sur tous les noeuds (DeltaManager). Il est possible de faire simple un simple backup en changeant la className du manager.
+</p><p>Redémarrez ensuite vos serveurs Tomcat, ils se synchroniseront entre eux via multicast. Pour tester, utilisez votre load balancer pour ouvrir cette URL&#160;: <a rel="nofollow" class="external free" href="http://tomcat-lb/clustertest/jsp/myjsp.jsp">http://tomcat-lb/clustertest/jsp/myjsp.jsp</a>. Et ensuite&#160;? Et bien c'est simple, vous allez voir quelque chose comme ceci&#160;:
+</p>
+<pre>
+date du jour: Sat Nov 17 21:33:58 CET 2012
+param message: null
+session ID: E7FFB32D3EDEF512C118ACDCC7FB4255.worker2
+node: /var/www/tomcat7
+objet List en session: 
+</pre>
+<p>Faites un SIGKILL (kill -9) sur l'instance worker2. Le load balancer fera son taf de basculer toutes les connexions sur un autre worker et le numéro de session (session ID) sera identique. Il n'aura pas changé même en ayant basculé de serveur&#160;:-).
+</p>
+<h2><span class="mw-headline" id="Cr.C3.A9er_un_context"><span class="mw-headline-number">4.3</span> Créer un context</span></h2>
+<p>Quel est l'utilité de créer un contexte&#160;? Et bien par exemple, pour se connecter à une base MySQL via le connecteur JDBC. Pour faire un contexte sur une base de donnée&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat6/Catalina/localhost/mon_appli.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1"><span class="sc3"><span class="re1">&lt;Context</span> <span class="re0">path</span>=<span class="st0">&quot;/mon_appli&quot;</span> <span class="re0">docBase</span>=<span class="st0">&quot;mon_appli&quot;</span><span class="re2">&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;Resource</span> <span class="re0">name</span>=<span class="st0">&quot;jdbc/test&quot;</span> <span class="re0">auth</span>=<span class="st0">&quot;Container&quot;</span> <span class="re0">type</span>=<span class="st0">&quot;javax.sql.DataSource&quot;</span> <span class="re0">username</span>=<span class="st0">&quot;user&quot;</span> <span class="re0">password</span>=<span class="st0">&quot;password&quot;</span> <span class="re0">driverClassName</span>=<span class="st0">&quot;com.mysql.jdbc.Driver&quot;</span> <span class="re0">url</span>=<span class="st0">&quot;jdbc:mysql://localhost:3306/database&quot;</span> <span class="re0">maxActive</span>=<span class="st0">&quot;8&quot;</span> <span class="re0">maxIdle</span>=<span class="st0">&quot;4&quot;</span><span class="re2">/&gt;</span></span>
+<span class="sc3"><span class="re1">&lt;/Context<span class="re2">&gt;</span></span></span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Monitoring"><span class="mw-headline-number">5</span> Monitoring</span></h1>
+<p>Nous allons voir 2 solution pour monitorer votre Tomcat. Une via l'URL et une autre par ouverture d'un port.
+</p>
+<h2><span class="mw-headline" id="JMXproxy"><span class="mw-headline-number">5.1</span> JMXproxy</span></h2>
+<p>Pour cette solution, il suffit de donner le droit à un utilisateur de requêter via les URL en JMX&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1">[...]
+  <span class="sc3"><span class="re1">&lt;role</span> <span class="re0">rolename</span>=<span class="st0">&quot;manager-jmx&quot;</span><span class="re2">/&gt;</span></span>
+  <span class="sc3"><span class="re1">&lt;user</span> <span class="re0">username</span>=<span class="st0">&quot;tomcat&quot;</span> <span class="re0">password</span>=<span class="st0">&quot;tomcat&quot;</span> <span class="re0">roles</span>=<span class="st0">&quot;tomcat,admin,manager,manager-jmx&quot;</span><span class="re2">/&gt;</span></span>
+[...]</pre></div></div>
+</td></tr></table><br />
+<p>Maintenant, l'utilisateur tomcat peut requêter comme ceci&#160;:
+<a rel="nofollow" class="external free" href="http://tomcat:18080/manager/jmxproxy/?qry=*:*">http://tomcat:18080/manager/jmxproxy/?qry=*:*</a>
+</p><p>Ce qui va me donner une tonne de lignes&#160;:
+</p>
+<pre>
+OK - Number of results: 170
+
+Name: Catalina:j2eeType=Servlet,name=HelloWorldExample,WebModule=//localhost/demo,J2EEApplication=none,J2EEServer=none
+modelerType: org.apache.catalina.mbeans.ContainerMBean
+minTime: 9223372036854775807
+countAllocated: 0
+eventProvider: false
+statisticsProvider: false
+objectName: Catalina:j2eeType=Servlet,name=HelloWorldExample,WebModule=//localhost/demo,J2EEApplication=none,J2EEServer=none
+processingTime: 0
+errorCount: 0
+maxTime: 0
+available: 0
+asyncSupported: false
+backgroundProcessorDelay: -1
+loadOnStartup: -1
+maxInstances: 20
+stateName: STARTED
+[...]
+</pre>
+<p>Vous pouvez affiner la requête au niveau de l'URL pour éviter d'avoir des pages et des pages d'informations.
+</p>
+<h2><span class="mw-headline" id="JMX"><span class="mw-headline-number">5.2</span> JMX</span></h2>
+<p>Pour cette solution, nous allons dire à Tomcat d'écouter sur un port en particulier pour pouvoir le requêter par JMX&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/tomcat6</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+JAVA_OPTS=&quot;-Djava.awt.headless=true -Xmx128m -XX:+UseConcMarkSweepGC&quot;
+JAVA_OPTS=&quot;$JAVA_OPTS -Dcom.sun.management.jmxremote.port=9003&quot;
+JAVA_OPTS=&quot;$JAVA_OPTS -Dcom.sun.management.jmxremote.password.file=/etc/tomcat6/jmxremote.password&quot;
+JAVA_OPTS=&quot;$JAVA_OPTS -Dcom.sun.management.jmxremote.access.file=/etc/tomcat6/jmxremote.access&quot;
+JAVA_OPTS=&quot;$JAVA_OPTS -Dcom.sun.management.jmxremote.ssl=false
+JAVA_OPTS=&quot;$JAVA_OPTS -Dcom.sun.management.jmxremote.authenticate=false
+JAVA_OPTS=&quot;$JAVA_OPTS -Djava.rmi.server.hostname=&quot;x.x.x.x&quot;
+[...]</pre></div></div>
+</td></tr></table><br />
+<p>Si vous avez un firewall entre vos équipements, il faudra peut être que vous avez a ajouter cette configuration&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a>  /etc/tomcat6/server.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1"><span class="sc3"><span class="re1">&lt;Listener</span> <span class="re0">className</span>=<span class="st0">&quot;org.apache.catalina.mbeans.JmxRemoteLifecycleListener&quot;</span> <span class="re0">rmiRegistryPortPlatform</span>=<span class="st0">&quot;10001&quot;</span> <span class="re0">rmiServerPortPlatform</span>=<span class="st0">&quot;10002&quot;</span> <span class="re2">/&gt;</span></span></pre></div></div>
+</td></tr></table><br />
+<p>Nous mettons un fichier avec la liste des utilisateurs et leurs mots de passe&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat6/jmxremote.password</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[user] [password]</pre></div></div>
+</td></tr></table><br />
+<p>Et un autre pour les autorisation&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tomcat6/jmxremote.access</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[user] readwrite
+[user] readonly</pre></div></div>
+</td></tr></table><br />
+<p>Et enfin nous mettons les bons droits&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">chmod 600 /etc/tomcat6/jmxremote.access
+chmod 600 /etc/tomcat6/jmxremote.password
+chown tomcat6:tomcat6 /etc/tomcat6/jmxremote.access
+chown tomcat6:tomcat6 /etc/tomcat6/jmxremote.password</pre></div></div>
+</td></tr></table><br />
+<p>Redémarrez ensuite Tomcat pour que les changements prennent effets. Vous pouvez maintenant vous connecter via <a rel="nofollow" class="external text" href="http://visualvm.java.net/">VisualVM</a> par exemple pour monitorer ou profiler votre Tomcat.
+</p><p><a href="./File:Visual_vm.png.html" class="image"><img alt="Visual vm.png" src="images/7/7d/Visual_vm.png" width="1077" height="575" /></a>
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Probl.C3.A8me_de_stop_sur_un_vserver"><span class="mw-headline-number">6.1</span> Problème de stop sur un vserver</span></h2>
+<p>Tomcat peut poser des problèmes sur un stop dans un vserver. Etant donné que je n'ai pas trouvé la solution, je met le service en dernier au boot et à l'arrêt pour éviter qu'il bloque la fermeture des autres services&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> update-rc.d</font>
+</td></tr>
+<tr>
+<td>
+<pre>update-rc.d -f tomcat5.5 remove
+update-rc.d tomcat5.5 defaults 99
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a href="./File:How_To_Set_Up_Apache_Tomcat_(mod_jk)_SSO_(CAS_mod_auth_cas).pdf.html" title="File:How To Set Up Apache Tomcat (mod jk) SSO (CAS mod auth cas).pdf">How To Set Up Apache Tomcat (mod jk) SSO (CAS mod auth cas)</a>
+</p>
+<ol class="references">
+<li id="cite_note-1"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6_web_config.htm">http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6_web_config.htm</a></span>
+</li>
+<li id="cite_note-2"><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6_clustering.htm">http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6_clustering.htm</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.096 seconds
+Real time usage: 0.097 seconds
+Preprocessor visited node count: 634/1000000
+Preprocessor generated node count: 1856/1000000
+Post‐expand include size: 7137/2097152 bytes
+Template argument size: 2161/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   34.668      1 - -total
+ 61.25%   21.234     20 - Template:Config
+  8.68%    3.009      9 - Template:Command
+  6.29%    2.182      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2150-0!*!0!1!en!5!* and timestamp 20181111230820 and revision id 12583
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat&amp;oldid=12583">https://wiki.deimos.fr/index.php?title=Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat&amp;oldid=12583</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Tomcat+%3A+Mise+en+place+d%27un+serveur+Tomcat" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Tomcat_:_Mise_en_place_d'un_serveur_Tomcat.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat&amp;oldid=12583" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Tomcat_:_Mise_en_place_d%27un_serveur_Tomcat&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 17 June 2013, at 12:29.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":133});
+}</script>
+	</body>
+</html>
+	

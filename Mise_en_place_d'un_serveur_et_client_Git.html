@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Mise en place d'un serveur et client Git - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Mise_en_place_d'un_serveur_et_client_Git.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Mise_en_place_d'un_serveur_et_client_Git","wgTitle":"Mise en place d'un serveur et client Git","wgCurRevisionId":13444,"wgRevisionId":13444,"wgArticleId":2916,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Mise_en_place_d'un_serveur_et_client_Git","wgRelevantArticleId":2916,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Mise_en_place_d_un_serveur_et_client_Git skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Mise en place d'un serveur et client Git</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Mise_en_place_d'un_serveur_et_client_Git.html#mw-navigation">navigation</a>, 					<a href="Mise_en_place_d'un_serveur_et_client_Git.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Serveur"><span class="tocnumber">3.1</span> <span class="toctext">Serveur</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Le_protocole_git"><span class="tocnumber">3.1.1</span> <span class="toctext">Le protocole git</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Client"><span class="tocnumber">3.2</span> <span class="toctext">Client</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Avec_SSH"><span class="tocnumber">3.2.1</span> <span class="toctext">Avec SSH</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Avec_Git-daemon"><span class="tocnumber">3.2.2</span> <span class="toctext">Avec Git-daemon</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Sur_HTTP_.28avec_Nginx.29"><span class="tocnumber">3.2.3</span> <span class="toctext">Sur HTTP (avec Nginx)</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Configurer_un_proxy"><span class="tocnumber">3.2.4</span> <span class="toctext">Configurer un proxy</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Utilisation"><span class="tocnumber">4</span> <span class="toctext">Utilisation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Mettre_.C3.A0_jour_son_d.C3.A9p.C3.B4t_local"><span class="tocnumber">4.1</span> <span class="toctext">Mettre à jour son dépôt local</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Ajouter_des_fichiers"><span class="tocnumber">4.2</span> <span class="toctext">Ajouter des fichiers</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Commiter_les_changements"><span class="tocnumber">4.3</span> <span class="toctext">Commiter les changements</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Changer_l.27.C3.A9diteur_et_le_visualiseur_par_d.C3.A9faut"><span class="tocnumber">4.4</span> <span class="toctext">Changer l'éditeur et le visualiseur par défaut</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Obtenir_les_logs"><span class="tocnumber">4.5</span> <span class="toctext">Obtenir les logs</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Faire_une_recherche"><span class="tocnumber">4.6</span> <span class="toctext">Faire une recherche</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Ignorer_des_fichiers"><span class="tocnumber">4.7</span> <span class="toctext">Ignorer des fichiers</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#S.27assurer_qu.27il_n.27y_a_rien_.C3.A0_commiter"><span class="tocnumber">4.8</span> <span class="toctext">S'assurer qu'il n'y a rien à commiter</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Configurer_des_alias"><span class="tocnumber">4.9</span> <span class="toctext">Configurer des alias</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Revert_:_annuler_un_commit"><span class="tocnumber">4.10</span> <span class="toctext">Revert&#160;: annuler un commit</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Reset_:_effacer_tous_les_commits_.C3.A0_partir_d.27un_ancien"><span class="tocnumber">4.11</span> <span class="toctext">Reset&#160;: effacer tous les commits à partir d'un ancien</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Restaurer_un_fichier_d.27un_ancien_commit"><span class="tocnumber">4.12</span> <span class="toctext">Restaurer un fichier d'un ancien commit</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Supprimer_un_fichier"><span class="tocnumber">4.13</span> <span class="toctext">Supprimer un fichier</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#D.C3.A9placement_d.27un_fichier"><span class="tocnumber">4.14</span> <span class="toctext">Déplacement d'un fichier</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Lister_le_contenu_du_d.C3.A9p.C3.B4t"><span class="tocnumber">4.15</span> <span class="toctext">Lister le contenu du dépôt</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Cr.C3.A9er_une_archive_du_d.C3.A9p.C3.B4t"><span class="tocnumber">4.16</span> <span class="toctext">Créer une archive du dépôt</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Voir_un_fichier_en_particulier_d.27un_commit"><span class="tocnumber">4.17</span> <span class="toctext">Voir un fichier en particulier d'un commit</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#R.C3.A9.C3.A9crire_l.27histoire"><span class="tocnumber">4.18</span> <span class="toctext">Réécrire l'histoire</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Faire_des_diff_entre_diff.C3.A9rentes_versions"><span class="tocnumber">4.19</span> <span class="toctext">Faire des diff entre différentes versions</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Modifier_le_texte_du_dernier_commit"><span class="tocnumber">4.20</span> <span class="toctext">Modifier le texte du dernier commit</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Modifier_la_date_du_dernier_commit"><span class="tocnumber">4.21</span> <span class="toctext">Modifier la date du dernier commit</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Modifier_l.27autheur_de_commits"><span class="tocnumber">4.22</span> <span class="toctext">Modifier l'autheur de commits</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Synchroniser_qu.27une_partie_d.27un_d.C3.A9p.C3.B4t"><span class="tocnumber">4.23</span> <span class="toctext">Synchroniser qu'une partie d'un dépôt</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Utiliser_un_repository_git_externe_dans_un_git"><span class="tocnumber">4.24</span> <span class="toctext">Utiliser un repository git externe dans un git</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Les_branches"><span class="tocnumber">4.25</span> <span class="toctext">Les branches</span></a>
+<ul>
+<li class="toclevel-3 tocsection-37"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Cr.C3.A9ation_d.27une_branche"><span class="tocnumber">4.25.1</span> <span class="toctext">Création d'une branche</span></a></li>
+<li class="toclevel-3 tocsection-38"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Envoyer_une_branche_au_serveur"><span class="tocnumber">4.25.2</span> <span class="toctext">Envoyer une branche au serveur</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Lister_des_branches"><span class="tocnumber">4.25.3</span> <span class="toctext">Lister des branches</span></a></li>
+<li class="toclevel-3 tocsection-40"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Changement_de_branche"><span class="tocnumber">4.25.4</span> <span class="toctext">Changement de branche</span></a></li>
+<li class="toclevel-3 tocsection-41"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#R.C3.A9cup.C3.A9rer_une_branche_depuis_un_serveur_distant"><span class="tocnumber">4.25.5</span> <span class="toctext">Récupérer une branche depuis un serveur distant</span></a></li>
+<li class="toclevel-3 tocsection-42"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Supprimer_une_branche"><span class="tocnumber">4.25.6</span> <span class="toctext">Supprimer une branche</span></a></li>
+<li class="toclevel-3 tocsection-43"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Merger_des_branches"><span class="tocnumber">4.25.7</span> <span class="toctext">Merger des branches</span></a></li>
+<li class="toclevel-3 tocsection-44"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Rebase_:_Appliquer_un_patch_sur_plusieurs_branches"><span class="tocnumber">4.25.8</span> <span class="toctext">Rebase&#160;: Appliquer un patch sur plusieurs branches</span></a></li>
+<li class="toclevel-3 tocsection-45"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Cr.C3.A9er_une_branche_lors_d.27une_restauration"><span class="tocnumber">4.25.9</span> <span class="toctext">Créer une branche lors d'une restauration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-46"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Les_Tags"><span class="tocnumber">4.26</span> <span class="toctext">Les Tags</span></a>
+<ul>
+<li class="toclevel-3 tocsection-47"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Cr.C3.A9er_un_Tag"><span class="tocnumber">4.26.1</span> <span class="toctext">Créer un Tag</span></a></li>
+<li class="toclevel-3 tocsection-48"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Lister_les_tags"><span class="tocnumber">4.26.2</span> <span class="toctext">Lister les tags</span></a></li>
+<li class="toclevel-3 tocsection-49"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Supprimer_un_tag"><span class="tocnumber">4.26.3</span> <span class="toctext">Supprimer un tag</span></a></li>
+<li class="toclevel-3 tocsection-50"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Envoyer_les_tags_sur_le_serveur"><span class="tocnumber">4.26.4</span> <span class="toctext">Envoyer les tags sur le serveur</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-51"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#G.C3.A9rer_les_conflits"><span class="tocnumber">4.27</span> <span class="toctext">Gérer les conflits</span></a></li>
+<li class="toclevel-2 tocsection-52"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#R.C3.A9solution_automatique_de_conflits_d.C3.A9j.C3.A0_vu"><span class="tocnumber">4.28</span> <span class="toctext">Résolution automatique de conflits déjà vu</span></a></li>
+<li class="toclevel-2 tocsection-53"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Utiliser_git_pour_trouver_un_bug"><span class="tocnumber">4.29</span> <span class="toctext">Utiliser git pour trouver un bug</span></a></li>
+<li class="toclevel-2 tocsection-54"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Conna.C3.AEtre_ligne_par_ligne_les_commits"><span class="tocnumber">4.30</span> <span class="toctext">Connaître ligne par ligne les commits</span></a></li>
+<li class="toclevel-2 tocsection-55"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#D.C3.A9placer_un_dossier_et_son_historique_vers_un_autre_repository"><span class="tocnumber">4.31</span> <span class="toctext">Déplacer un dossier et son historique vers un autre repository</span></a></li>
+<li class="toclevel-2 tocsection-56"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Hooks"><span class="tocnumber">4.32</span> <span class="toctext">Hooks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-57"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Utilitaires"><span class="tocnumber">5</span> <span class="toctext">Utilitaires</span></a>
+<ul>
+<li class="toclevel-2 tocsection-58"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#Gitk"><span class="tocnumber">5.1</span> <span class="toctext">Gitk</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-59"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-60"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#warning:_You_did_not_specify_any_refspecs_to_push.2C_and_the_current_remote"><span class="tocnumber">6.1</span> <span class="toctext">warning: You did not specify any refspecs to push, and the current remote</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-61"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#R.C3.A9f.C3.A9rences"><span class="tocnumber">7</span> <span class="toctext">Références</span></a></li>
+</ul>
+</div>
+
+<div class="thumb tright"><div class="thumbinner" style="width:202px;"><a href="./File:Git-logo.png.html" class="image"><img alt="" src="images/4/49/Git-logo.png" width="200" height="84" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="./File:Git-logo.png.html" class="internal" title="Enlarge"></a></div>Git Logo</div></div></div>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Git">Git</a> est un logiciel de gestion de versions décentralisé. C'est un logiciel libre créé par Linus Torvalds, le créateur du noyau Linux, et distribué sous la GNU GPL version 2.
+</p><p>Comme BitKeeper, Git ne repose pas sur un serveur centralisé. C'est un outil bas niveau, qui se veut simple et très performant, dont la principale tâche est de gérer l'évolution du contenu d'une arborescence.
+</p><p>Git indexe les fichiers d'après leur somme de contrôle calculée avec la fonction SHA-1. Quand un fichier n'est pas modifié, la somme de contrôle ne change pas et le fichier n'est stocké qu'une seule fois. En revanche, si le fichier est modifié, les deux versions sont stockées sur le disque.
+</p><p>Git n'était pas, au départ, à proprement parler un logiciel de gestion de versions. Linus Torvalds expliquait que, «&#160;par bien des aspects, vous pouvez considérer git comme un système de fichiers&#160;: il permet un adressage associatif, et possède la notion de versionnage, mais surtout, je l'ai conçu en résolvant le problème du point de vue d'un spécialiste des systèmes de fichiers (mon métier, ce sont les noyaux&#160;!), et je n'avais absolument aucun intérêt à créer un système de gestion de version traditionnel.&#160;». Il a aujourd'hui évolué pour intégrer toutes les fonctionalités d'un gestionnaire de versions.
+</p><p>Git est considéré comme performant, au point que certains autres logiciels de gestion de version (Darcs, Arch), qui n'utilisent pas de base de données, se sont montrés intéressés par le système de stockage des fichiers de Git pour leur propre fonctionnement. Ils continueraient toutefois à proposer des fonctionnalités plus évoluées.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Tout d'abord sur le serveur, nous allons installer Git&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install git git-core
+</pre>
+</td></tr></table><br />
+<p>Si vous voulez rendre le serveur accessible via une adresse en <a rel="nofollow" class="external free" href="git://">git://</a>, il faut également installer ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install git-daemon-run
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Serveur"><span class="mw-headline-number">3.1</span> Serveur</span></h2>
+<p>Tout d'abord, nous allons créer le repository&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>$ mkdir myproject
+$ cd myproject
+$ git init
+Initialized empty Git repository in .git/
+</pre>
+</td></tr></table><br />
+<p>Maintenant que notre projet est créer, nous allons lui ajouter un petit fichier histoire d'être sûr que tout fonctionne correctement&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> touch</font>
+</td></tr>
+<tr>
+<td>
+<pre>touch test
+</pre>
+</td></tr></table><br />
+<p>Puis nous allons l'ajouter, puis le commiter&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> $ git add .
+ $ git commit -m &quot;test&quot;
+ Created initial commit c491bd6: test
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 afile</pre></div></div>
+</td></tr></table><br />
+<p>Pour vérifier l'état à n'importe quel moment, vous allez effectuer un status&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git status
+</pre>
+</td></tr></table><br />
+<p>Ensuite, nous clonons ce repository&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>$ cd ..
+$ git clone --bare myproject myproject.git
+Initialized empty Git repository in /var/cache/git/myproject.git/
+0 blocks
+$ ls myproject.git
+branches  config  description  HEAD  hooks  info  objects  refs
+</pre>
+</td></tr></table><br />
+<ul><li> clone&#160;: permet de créer une copie du dépôt en local</li>
+<li> --bare&#160;: copie ne contenant que les infos du dossier myproject</li>
+<li> myproject.git&#160;: dossier que git nous a créer</li></ul>
+<h3><span class="mw-headline" id="Le_protocole_git"><span class="mw-headline-number">3.1.1</span> Le protocole git</span></h3>
+<p>Si vous souhaitez rendre accessible git via son protocole (<a rel="nofollow" class="external free" href="git://">git://</a>) vous devez configurer le fichier suivant comme ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/sv/git-daemon/run</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/sh</span>
+<span class="kw3">exec</span> <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span>
+<span class="kw3">echo</span> <span class="st_h">'git-daemon starting.'</span>
+<span class="kw3">exec</span> chpst <span class="re5">-ugitdaemon</span> \
+  <span class="st0">&quot;<span class="es4">$(git --exec-path)</span>&quot;</span><span class="sy0">/</span><span class="kw2">git-daemon</span> <span class="re5">--verbose</span> <span class="re5">--base-path</span>=<span class="sy0">/</span>var<span class="sy0">/</span>cache <span class="sy0">/</span>var<span class="sy0">/</span>cache<span class="sy0">/</span>gi</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite pour chacun de vos projets que vous voulez rendre accessible depuis l'extérieur, il faudra placer un fichier 'git-daemon-export-ok'&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> touch</font>
+</td></tr>
+<tr>
+<td>
+<pre>touch /var/cache/git/myproject.git/git-daemon-export-ok
+</pre>
+</td></tr></table><br />
+<p>Relancer le deamon et c'est maintenant accessible sur le port 9418.
+</p>
+<h2><span class="mw-headline" id="Client"><span class="mw-headline-number">3.2</span> Client</span></h2>
+<p>Vous devez avant de commencer <a href="Mise_en_place_d'un_serveur_et_client_Git.html#Installation" title="Mise en place d'un serveur et client Git">installer également Git, comme effectué sur le serveur</a>.
+</p><p>Ensuite avec votre utilisateur courant, informez lui que vous voulez commiter (assurez vous que votre utilisateur existe bien sur le serveur)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git config --global user.email "<b>deimos@deimos.fr"</b>
+git config --global user.name "<b>deimosfr</b>"
+</pre>
+</td></tr></table><br />
+<p>Ce qui devrait donner ceci dans votre ~/.gitconfig&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.gitconfig</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[user]
+       email = deimos@deimos.fr
+       name = Deimos</pre></div></div>
+</td></tr></table><br />
+<p>Si vous souhaitez avoir des identifiants différents pour un repository différent, il faudra simplement retirer global (en vous plaçant dans le repository en question)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git config user.email "<b>deimos@deimos.fr"</b>
+git config user.name "<b>Deimos</b>"
+</pre>
+</td></tr></table><br />
+<p>Maintenant nous allons récupérer notre projet sur notre git. Nous utilisons ici la méthode avec ssh, mais git sait également fonctionner sur rsync, http, https et git-daemon.
+</p>
+<h3><span class="mw-headline" id="Avec_SSH"><span class="mw-headline-number">3.2.1</span> Avec SSH</span></h3>
+<p>Voici la méthode avec SSH&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> $ git clone ssh://username@host/var/cache/git/myproject
+ Initialized empty Git repository in /var/cache/git/myproject/.git/
+ Password:
+ remote: Counting objects: 1, done.
+ remote: Total 1 (delta 0), reused 0 (delta 0)
+ Receiving objects: 100% (1/1), done.
+ $ ls
+ myproject
+ $ ls myproject
+ test</pre></div></div>
+</td></tr></table><br />
+<ul><li> Pour les mises à jour du dépôt, il va falloir utiliser l'option push. Sachez qu'avant, les modifications devront être effectuées en locale (c'est l'avantage de git), je parle donc d'un add et d'un commit par exemple (nous le verrons juste après)&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git push <a rel="nofollow" class="external free" href="ssh://username@host/var/cache/git/myproject.git">ssh://username@host/var/cache/git/myproject.git</a>
+</pre>
+<p>ou
+</p>
+<pre>git push <a rel="nofollow" class="external free" href="ssh://username@host/var/cache/git/myproject.git">ssh://username@host/var/cache/git/myproject.git</a> master
+</pre>
+</td></tr></table><br />
+<p>'master' ici correspond au nom de la branche qui nous intéresse (voir plus bas pour l'utilisation des branches).
+</p>
+<ul><li> Pour ajouter un fichier à un dépôt SSH&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git remote add <b>test</b> <a rel="nofollow" class="external free" href="ssh://username@host/var/cache/git/myproject.git">ssh://username@host/var/cache/git/myproject.git</a>
+git commit -a
+git push <b>test</b>
+</pre>
+</td></tr></table><br />
+<p>A l'avenir, afin d'éviter de se prendre la tête avec la partie SSH et ses commandes spéciales, ajoutez ceci dans votre fichier ~/.gitconfig&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>[remote "myproject"]
+      url = ssh://<b>username@host/var/cache/git/myproject/</b>
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Avec_Git-daemon"><span class="mw-headline-number">3.2.2</span> Avec Git-daemon</span></h3>
+<p>Git refusera de se synchroniser si le dossier en question ne contient pas un fichier appeller '<b>git-daemon-export-ok'</b>. Une fois ce fichier créer, le dossier en question sera accessible par tout le monde&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git clone <a rel="nofollow" class="external free" href="git://serveur.git/git/myproject">git://serveur.git/git/myproject</a>
+</pre>
+<p>ou
+</p>
+<pre>git clone <a rel="nofollow" class="external free" href="git://serveur.git/git/myproject.git">git://serveur.git/git/myproject.git</a>
+</pre>
+</td></tr></table><br />
+<p>Nous pouvons utiliser les options suivantes&#160;:
+</p>
+<ul><li> '<b>--export-all'</b>&#160;: cette option n'oblige plus à créer le fichier 'git-daemon-export-ok'</li>
+<li> '<b>--user-path=gitexport'</b>&#160;: cette option va permettre d'utiliser des URL sur les dossiers d'accueil des utilisateurs. Ainsi <a rel="nofollow" class="external free" href="git://deimos-laptop/~deimos/myproject.git">git://deimos-laptop/~deimos/myproject.git</a> va pointer sur /home/deimos/gitexport/myproject.git</li></ul>
+<h3><span class="mw-headline" id="Sur_HTTP_.28avec_Nginx.29"><span class="mw-headline-number">3.2.3</span> Sur HTTP (avec Nginx)</span></h3>
+<p>J'ai passé pas mal de temps à faire cohabiter Git over http(s) et Gitweb, mais ça y est ça fonctionne.
+</p>
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>Préférez la méthode <a href="./Gitweb_:_Installation_et_configuration_d'une_interface_web_pour_git.html#Nginx" title="Gitweb : Installation et configuration d'une interface web pour git">Gitweb</a> uniquement si vous n'avez pas besoin de de git over http(s)
+</td></tr></table><br />
+<p>Voici la méthode que j'ai utilisé&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nginx/sites-available/git.deimos.fr</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">server {
+    listen 80;
+    listen 443 ssl;
+&#160;
+    ssl_certificate /etc/nginx/ssl/deimos.fr/server-unified.crt;
+    ssl_certificate_key /etc/nginx/ssl/deimos.fr/server.key;
+    ssl_session_timeout 5m;
+&#160;
+    server_name git.deimos.fr;
+    root /usr/share/gitweb/;
+&#160;
+    access_log /var/log/nginx/git.deimos.fr_access.log;
+    error_log /var/log/nginx/git.deimos.fr_error.log;
+&#160;
+    index gitweb.cgi;
+&#160;
+    # Drop config
+    include drop.conf;
+&#160;
+    # Git over https
+    location /git/ {
+        alias /var/cache/git/;
+        if ($scheme = http) {
+            rewrite ^ https://$host$request_uri permanent;
+        }
+    } 
+&#160;
+    # Gitweb
+    location ~ gitweb\.cgi {
+        fastcgi_cache mycache;
+        fastcgi_cache_key $request_method$host$request_uri;
+        fastcgi_cache_valid any 1h;
+        include fastcgi_params;
+        fastcgi_pass  unix:/run/fcgiwrap.socket;
+    } 
+}</pre></div></div>
+</td></tr></table><br />
+<p>Ici j'ai mon git over https qui fonctionne (le http est redirigé vers https) et mon gitweb également puisque tout ce qui est gitweb.cgi est matché. Maintenant, pour la partie git, nous allons devoir autoriser les repository que nous voulons. Pour celà, il va falloir renommer un fichier dans notre repository et lancer une commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd /var/cache/git/myrepo.git
+hooks/post-update{.sample,}
+su - www-data -c 'cd /var/cache/git/myrepo.git &amp;&amp; /usr/lib/git-core/git-update-server-info'</pre></div></div>
+</td></tr></table><br />
+<p>Remplacez www-data par l'utilisateur qui a les droits sur le repository. Utilisez www-data pour que ce soit nginx qui ait les droits. Ensuite, vous avez les droits pour cloner&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git clone <a rel="nofollow" class="external free" href="http://www.deimos.fr/git/deimosfr.git">http://www.deimos.fr/git/deimosfr.git</a> deimosfr
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Configurer_un_proxy"><span class="mw-headline-number">3.2.4</span> Configurer un proxy</span></h3>
+<p>Si vous devez passer à travers un proxy sur Git, vous pouvez le faire comme ceci (pour sa partie globale)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git config --global http.proxy <a rel="nofollow" class="external free" href="http://proxy:8080">http://proxy:8080</a>
+</pre>
+</td></tr></table><br />
+<p>Pour vérifier les paramètres actuels&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git config --get http.proxy
+</pre>
+</td></tr></table><br />
+<p>Si vous avez besoin de retirer cette configuration&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git config --global --unset http.proxy
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">4</span> Utilisation</span></h1>
+<h2><span class="mw-headline" id="Mettre_.C3.A0_jour_son_d.C3.A9p.C3.B4t_local"><span class="mw-headline-number">4.1</span> Mettre à jour son dépôt local</span></h2>
+<p>Si vous souhaitez mettre à jour votre dépôt local par rapport au serveur, c'est simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git pull
+</pre>
+<p>ou
+</p>
+<pre>git pull <a rel="nofollow" class="external free" href="ssh://username@host/var/cache/git/myproject/">ssh://username@host/var/cache/git/myproject/</a>
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Ajouter_des_fichiers"><span class="mw-headline-number">4.2</span> Ajouter des fichiers</span></h2>
+<p>Pour ajouter des fichiers en masse, utilisez cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git add *
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Commiter_les_changements"><span class="mw-headline-number">4.3</span> Commiter les changements</span></h2>
+<p>Si vous souhaitez mettre en même temps un log et commiter, le tout en une seule ligne (sinon enlevez -m...)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git commit -a -m "Mon premier ajout"
+</pre>
+</td></tr></table><br />
+<p>Ceci va donc mettre à jour en local le repository (n'oubliez pas le push ensuite si vous travaillez avec un serveur distant).
+</p>
+<h2><span class="mw-headline" id="Changer_l.27.C3.A9diteur_et_le_visualiseur_par_d.C3.A9faut"><span class="mw-headline-number">4.4</span> Changer l'éditeur et le visualiseur par défaut</span></h2>
+<p>Vous pouvez forcer par exemple vim et less and entrant ces lignes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git config --global core.editor vim
+git config --global core.pager "less -FSRX"
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Obtenir_les_logs"><span class="mw-headline-number">4.5</span> Obtenir les logs</span></h2>
+<p>Vous pouvez consulter à n'importe quel moment les logs des anciens commits via cete commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git log
+</pre>
+</td></tr></table><br />
+<p>Si vous souhaitez obtenir les logs d'un fichier bien précis&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git log test
+</pre>
+</td></tr></table><br />
+<p>Si votre fichier a été renommé, utilisez l'option <b>--follow</b> pour vois également son nouveau nom.<br />
+Pour voir les logs des 2 derniers jours&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git log --since="2 days ago"
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Faire_une_recherche"><span class="mw-headline-number">4.6</span> Faire une recherche</span></h2>
+<p>Il est possible de faire une recherche de contenu dans les fichiers comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git grep deimos *</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Ignorer_des_fichiers"><span class="mw-headline-number">4.7</span> Ignorer des fichiers</span></h2>
+<p>Vous avez peut être envie de ne pas autoriser certains fichiers tel que les fichiers temporaire de vim par exemple. Il va vous falloir placer un fichier .gitignore qui sera à la racine de la copie de travail qui sera en général ajouté lui même au dépôt, soit dans le fichier .git/info/exclude. Voici un exemple&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> .gitignore</font>
+</td></tr>
+<tr>
+<td>
+<pre>*~
+*.o
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="S.27assurer_qu.27il_n.27y_a_rien_.C3.A0_commiter"><span class="mw-headline-number">4.8</span> S'assurer qu'il n'y a rien à commiter</span></h2>
+<p>Il est possible de s'assurer qu'il n'y a rien a commiter de cette façon là&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; git stash
+No local changes to save</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Configurer_des_alias"><span class="mw-headline-number">4.9</span> Configurer des alias</span></h2>
+<p>Il est possible de configurer des alias pour les commandes un peu longues. Par exemple si vous êtes habitué à <a href="Installation_et_configuration_d'un_repository_SVN.html" title="Installation et configuration d'un repository SVN">SVN</a>&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git config --global alias.co 'checkout'
+git config --global alias.ci 'commit -a -m'</pre></div></div>
+</td></tr></table><br />
+<p>Ici 'git co' correpond à la commande 'git checkout'. Cette configuration (si elle est globale ou non) peut être située à 2 endroits&#160;:
+</p>
+<ul><li> ~/.gitconfig pour en bénéficier dans tous vos dépôts.</li>
+<li> .git/config d’un projet pour restreindre son accès à cet unique projet.</li></ul>
+<h2><span class="mw-headline" id="Revert_:_annuler_un_commit"><span class="mw-headline-number">4.10</span> Revert&#160;: annuler un commit</span></h2>
+<p>Git revert permet d'annuler le précédent commit en en introduisant un nouveau. Tout d'abord nous allons faire un git log pour récupérer le numéro du commit&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git log
+commit&#160;: bfbfefa4d9116beff394ad29e2721b1ab6118df0
+</pre>
+</td></tr></table><br />
+<p>Puis nous allons faire un revert pour annuler l'ancien&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git revert bfbfefa4d9116beff394ad29e2721b1ab6118df0
+</pre>
+</td></tr></table><br />
+<p>En cas de conflit, il suffit de faire les modifications à la main, de refaire un add puis un commit.
+</p><p>Note&#160;: vous pouvez aussi utiliser les quelques premiers caractère de l'identifiant (SHA-1) du commit tel que bfbfe. Git fera automatiquement la completion (a la condition qu'un autre commit ne commence pas avec les mêmes caractères).
+</p>
+<h2><span class="mw-headline" id="Reset_:_effacer_tous_les_commits_.C3.A0_partir_d.27un_ancien"><span class="mw-headline-number">4.11</span> Reset&#160;: effacer tous les commits à partir d'un ancien</span></h2>
+<p>Git reset va supprimer complètement tous les commits effectués après une certaine version&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git reset bfbfefa4d9116beff394ad29e2721b1ab6118df0
+</pre>
+</td></tr></table><br />
+<p>Git reset permet de réécrire l'histoire. Vous pourrez vous en convaincre avec un 'git log'. Celà peut avoir de grave conséquences si vous travaillez à plusieurs sur un projet. Non seulement parce que les repository en locale des autres personnes vont devoir être resynchroniser, mais en plus parce qu'il peut y avoir beaucoup de conflits. Il est donc conseiller d'utiliser cette commande avec précaution.<br />
+Ensuite vous devez refaire un '<b>git add'</b> de vos fichiers, puis un '<b>git commit'</b>.
+</p><p>Si vous voulez que la copie de travail en local reflète le dépôt, ajoutez l'option --hard lors du reset&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git reset <b>--hard</b> bfbfefa4d9116beff394ad29e2721b1ab6118df0
+</pre>
+</td></tr></table><br />
+<p>Dans le cas ou vous êtes dans une salle journée et donc en mode "boulet", si vous avez supprimé des mois de taf et que vous voulez revenir sur vos pas, git a conservé l'état précédent, faites donc&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git reset --hard ORIG_HEAD
+</pre>
+</td></tr></table><br />
+<p>HEAD signifie le dernier commit par défaut.
+</p><p>Si vous avez un message du type&#160;:
+</p>
+<pre>! [rejected]        master -&gt; master (non-fast forward)
+</pre>
+<p>Et que vou voulez vraiment forcer le commit pour qu'il ressemble exactement à ce que vous avez sur votre machine&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git push origin +master
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Restaurer_un_fichier_d.27un_ancien_commit"><span class="mw-headline-number">4.12</span> Restaurer un fichier d'un ancien commit</span></h2>
+<p>Vous pouvez choisir de restaurer uniquement un fichier bien particulier d'un ancien commit via la commande checkout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git checkout bfbfe test
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Supprimer_un_fichier"><span class="mw-headline-number">4.13</span> Supprimer un fichier</span></h2>
+<p>Il existe 2 méthodes, ma préférée, car je la trouve simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git rm mon_fichier
+</pre>
+</td></tr></table><br />
+<p>La 2ème méthode consite à faire un rm standart, puis ua prochaine git commit -a, il détectera que ce fichier n'existe plus et le supprimera du dépôt.
+</p>
+<h2><span class="mw-headline" id="D.C3.A9placement_d.27un_fichier"><span class="mw-headline-number">4.14</span> Déplacement d'un fichier</span></h2>
+<p>Pour déplacer un fichier au sain de son dépôt git, il faut utiliser cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git mv test1 test2
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Lister_le_contenu_du_d.C3.A9p.C3.B4t"><span class="mw-headline-number">4.15</span> Lister le contenu du dépôt</span></h2>
+<p>On peut utiliser cette commande pour lister le contenu d'un dépôt&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git ls-files
+</pre>
+</td></tr></table><br />
+<p>Note&#160;: les dossiers vide ne seront pas afficher
+</p>
+<h2><span class="mw-headline" id="Cr.C3.A9er_une_archive_du_d.C3.A9p.C3.B4t"><span class="mw-headline-number">4.16</span> Créer une archive du dépôt</span></h2>
+<p>Pour faire une archive au format tar gzip, nous allons utiliser l'option archive&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git archive --format=tar --prefix=version_1/ HEAD | gzip &gt; ../version_1.tgz
+</pre>
+</td></tr></table><br />
+<ul><li> --prefix&#160;: permet de donner un dossier qui sera créer lors de la décompression.</li>
+<li> HEAD&#160;: permet de spécifier le commit (ici le 1er)</li></ul>
+<h2><span class="mw-headline" id="Voir_un_fichier_en_particulier_d.27un_commit"><span class="mw-headline-number">4.17</span> Voir un fichier en particulier d'un commit</span></h2>
+<p>Il est possible de voir un fichier (README) d'un commit&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git show 291d2ee31feb4a318f77201dea941374aae279a5:README</pre></div></div>
+</td></tr></table><br />
+<p>ou voir tous les diffs d'un coup si on ne spécifie pas le fichier&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git show 291d2ee31feb4a318f77201dea941374aae279a5</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="R.C3.A9.C3.A9crire_l.27histoire"><span class="mw-headline-number">4.18</span> Réécrire l'histoire</span></h2>
+<p>Si vous avez oublié de faire quelque chose à un précédent commit et que vous souhaitez revenir en arrière, il faut faire un rebase interactif en indiquant le commit le plus loin que l'on souhaite modifier:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git rebase -i cbde26ad^</pre></div></div>
+</td></tr></table><br />
+<p>In the default editor, modify 'pick' to 'edit' in the line whose commit you want to modify. Make your changes and then commit them with the same message you had before:
+Dans l'éditeur, modifiez 'pick' en 'edit' sur la ou les lignes que vous souhaitez modifier. Enregistrez et quittez. Faites tous vos changements et ensuite validez le commit:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git commit -a --amend
+ou
+git commit -a --amend --no-edit</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite, pour passer au commit suivant:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git rebase --continue</pre></div></div>
+</td></tr></table><br />
+<p>Jusqu'à ce que ce soit terminé.
+</p>
+<h2><span class="mw-headline" id="Faire_des_diff_entre_diff.C3.A9rentes_versions"><span class="mw-headline-number">4.19</span> Faire des diff entre différentes versions</span></h2>
+<p>Il est très facile avec git de faire des diff entre différentes versions. Par exemple, de la version HEAD à 2 versions précédentes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git diff HEAD~2 HEAD</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Modifier_le_texte_du_dernier_commit"><span class="mw-headline-number">4.20</span> Modifier le texte du dernier commit</span></h2>
+<p>Pour voir l'état du dernier log, nous pouvons faire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git log -n 1
+</pre>
+</td></tr></table><br />
+<p>Pour modifier le texte de ce dernier log, nous allons utiliser l'option amend&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git commit -a --amend
+</pre>
+</td></tr></table><br />
+<p>Cela permet donc de changer juste le texte, il n'y aura pas de nouveau numéro commit. Seul le numéro d'identification changera.
+</p>
+<h2><span class="mw-headline" id="Modifier_la_date_du_dernier_commit"><span class="mw-headline-number">4.21</span> Modifier la date du dernier commit</span></h2>
+<p>Il est possible de modifier la date du dernier commit:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">GIT_COMMITTER_DATE=&quot;`date`&quot; git commit --amend --date &quot;`date`&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Ou sinon on peut spécifier la date en dur:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">GIT_COMMITTER_DATE=&quot;Fri Nov 17 12:00:00 CET 2014&quot; git commit --amend --date &quot;Fri Nov 17 12:00:00 CET 2014&quot;</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Modifier_l.27autheur_de_commits"><span class="mw-headline-number">4.22</span> Modifier l'autheur de commits</span></h2>
+<p>Lorsque l'on utilise plusieurs comptes Git sur une même machine, il arrive facilement de se tromper lorsque l'on clone un repository et que l'on ne met pas le bon username et adresse mail. Du coup lorsque l'on s'en rend compte, il est trop tard et il faut réécrire une partie d l'histoire pour remettre les bonnes informations:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="sy0">&gt;</span> <span class="kw2">git filter-branch</span> <span class="re5">--env-filter</span> <span class="st_h">'
+oldname=&quot;old username&quot;
+oldemail=&quot;old email address&quot;
+newname=&quot;new username&quot;
+newemail=&quot;old username address&quot;
+[ &quot;$GIT_AUTHOR_EMAIL&quot;=&quot;$oldemail&quot; ] &amp;&amp; GIT_AUTHOR_EMAIL=&quot;$newemail&quot;
+[ &quot;$GIT_COMMITTER_EMAIL&quot;=&quot;$oldemail&quot; ] &amp;&amp; GIT_COMMITTER_EMAIL=&quot;$newemail&quot;
+[ &quot;$GIT_AUTHOR_NAME&quot;=&quot;$oldname&quot; ] &amp;&amp; GIT_AUTHOR_NAME=&quot;$newname&quot;
+[ &quot;$GIT_COMMITTER_NAME&quot;=&quot;$oldname&quot; ] &amp;&amp; GIT_COMMITTER_NAME=&quot;$newname&quot;
+'</span> HEAD</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Synchroniser_qu.27une_partie_d.27un_d.C3.A9p.C3.B4t"><span class="mw-headline-number">4.23</span> Synchroniser qu'une partie d'un dépôt</span></h2>
+<p>Si vous souhaitez n'avoir qu'une partie d'un dépôt (également appelé sparse), vous allez devoir en premier lieu récupérer le dépôt dans son intégralité, puis lui spécifier que ce qui vous intéresse. Il ne restera alors que ce qui vous intéresse&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>git clone <a rel="nofollow" class="external free" href="ssh://deimos@git/var/cache/git/git_deimosfr">ssh://deimos@git/var/cache/git/git_deimosfr</a> .
+git config core.sparsecheckout true
+echo configs/puppet/ &gt; .git/info/sparse-checkout
+git read-tree -m -u HEAD
+</pre>
+</td></tr></table><br />
+<p>Ici dans le dépôt git_deimosfr, seul le dossier "configs/puppet/" ne m'intéresse. Vous pouvez ajoutez plusieurs dossiers dans le fichier ".git/info/sparse-checkout" ligne par ligne si vous souhaitez conserver plusieurs fichiers.
+</p>
+<h2><span class="mw-headline" id="Utiliser_un_repository_git_externe_dans_un_git"><span class="mw-headline-number">4.24</span> Utiliser un repository git externe dans un git</span></h2>
+<p>Si par exemple vous avez déjà un Git dans lequel vous voulez intégrer un autre Git, mais externe, il vous faudra utiliser les submodules. Pour ma part, j'ai un dossier <a href="./Puppet_:_Solution_de_gestion_de_fichier_de_configuration.html" title="Puppet : Solution de gestion de fichier de configuration">puppet</a> avec tous pleins de modules dedans. Une partie de ces modules n'a pas été créer par moi même et est maintenu par d'autres personnes ayant un Git. Je souhaite faire pointer certains modules vers les git externe. Voici comment précéder&#160;:
+</p>
+<ul><li> J'ajoute la source externe à ce git&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; <b>git submodule add <a rel="nofollow" class="external free" href="git://git.black.co.at/module-common">git://git.black.co.at/module-common</a> configs/puppet/modules/common</b>
+Cloning into configs/puppet/modules/common...
+remote: Counting objects: 423, done.
+remote: Compressing objects: 100% (298/298), done.
+remote: Total 423 (delta 155), reused 203 (delta 70)
+Receiving objects: 100% (423/423), 53.96 KiB, done.
+Resolving deltas: 100% (155/155), done.
+</pre>
+</td></tr></table><br />
+<p>Il ne vous reste plus qu'a commiter et push si vous voulez rendre cette configuration valable sur le serveur.
+</p>
+<ul><li> Maintenant prenons le cas d'un client qui fait un pull. Il va récupérer toute votre arborescence, mais pas les liens externes, pour cela, il devra exécuter les commandes suivantes&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; <b>git submodule init</b>
+Submodule 'configs/puppet/modules/common' (<a rel="nofollow" class="external free" href="git://git.black.co.at/module-common">git://git.black.co.at/module-common</a>) registered for path 'configs/puppet/modules/common'
+&gt; <b>git submodule update</b>
+Cloning into configs/puppet/modules/common...
+remote: Counting objects: 423, done.
+remote: Compressing objects: 100% (298/298), done.
+remote: Total 423 (delta 155), reused 203 (delta 70)
+Receiving objects: 100% (423/423), 53.96 KiB, done.
+Resolving deltas: 100% (155/155), done.
+Submodule path 'configs/puppet/modules/common': checked out 'ba28f3004d402c250ef3099f95a1ae13740b009f'
+</pre>
+</td></tr></table><br />
+<p>Si lors d'un clone, vous souhaitez que les submodules soient également prit avec, vous devez rajouter l'option "--recursive". Exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git clone --recursive <a rel="nofollow" class="external free" href="git://git.deimos.fr/git/git_deimosfr">git://git.deimos.fr/git/git_deimosfr</a>
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Les_branches"><span class="mw-headline-number">4.25</span> Les branches</span></h2>
+<h3><span class="mw-headline" id="Cr.C3.A9ation_d.27une_branche"><span class="mw-headline-number">4.25.1</span> Création d'une branche</span></h3>
+<p>Si par exemple, la version actuelle que vous avez sur git vous convient et que vous souhaitez la passer en stable, il vous faut utiliser les branches et alors créer une nouvelle branche en tant que branche de développement&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git branch devel
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Envoyer_une_branche_au_serveur"><span class="mw-headline-number">4.25.2</span> Envoyer une branche au serveur</span></h3>
+<p>Pour envoyer une branche au serveur&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git push origin &lt;ma_branche&gt;</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Lister_des_branches"><span class="mw-headline-number">4.25.3</span> Lister des branches</span></h3>
+<p>Maintenant, la branche devel est créer, pour le vérifier&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git branch -a
+  devel
+<b>* master</b>
+</pre>
+</td></tr></table><br />
+<p>L''*' signifie la branche courante (en cours d'utilisation).
+</p><p>Lorsque vous utilisez des branches distantes, vous pouvez les lister via cette option&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git branch -r
+  devel
+<b>* master</b>
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Changement_de_branche"><span class="mw-headline-number">4.25.4</span> Changement de branche</span></h3>
+<p>Pour changer de branche, il suffit d'utiliser l'option checkout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git checkout devel
+Switched to branch "devel"
+</pre>
+</td></tr></table><br />
+<p>Vérifions&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git branch
+<b>* devel</b>
+  master
+</pre>
+</td></tr></table><br />
+<p>Si l'on veut repasser sur la branche précédente, nous pouvons à n'importe quel moment faire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git checkout -f master
+$ git branch
+<b>* master</b>
+  devel
+</pre>
+</td></tr></table><br />
+<p>L'option -f correspond à l'option --hard du reset qui permet de synchroniser en local les changements effectués sur le dépôt.
+</p><p>Si vous travaillez sur une branche distante, faites comme ceci par exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git checkout deimos/myproject -b master
+$ git branch
+<b>* master</b>
+  devel
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="R.C3.A9cup.C3.A9rer_une_branche_depuis_un_serveur_distant"><span class="mw-headline-number">4.25.5</span> Récupérer une branche depuis un serveur distant</span></h3>
+<p>Une fois que votre "pull" est fait, changez de branche comme ceci (vous pouvez la nommer différemment si vous le souhaitez)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git checkout -b &lt;new_branch&gt; origin/&lt;new_remote_branch&gt;</pre></div></div>
+</td></tr></table><br />
+<ul><li> new_branch&#160;: le nom de ma nouvelle branche locale</li>
+<li> new_remote_branch&#160;: le nom de la nouvelle branche distante (côté serveur)</li></ul>
+<h3><span class="mw-headline" id="Supprimer_une_branche"><span class="mw-headline-number">4.25.6</span> Supprimer une branche</span></h3>
+<p>Pour supprimer une branche, rien de plus simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git branch -d devel
+</pre>
+</td></tr></table><br />
+<p>Si celà fonctionne parfait, si vous souhaitez forcer en cas de problème, utiliser '-D' à la place de '-d'. Pour appliquer les changements sur le serveur remote&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git push origin&#160;:devel</pre></div></div>
+</td></tr></table><br />
+<p>Ceci supprimera la branche devel sur le serveur distant.
+</p>
+<h3><span class="mw-headline" id="Merger_des_branches"><span class="mw-headline-number">4.25.7</span> Merger des branches</span></h3>
+<p>L'option merge consiste à fusionner 2 branches complètement. Comme par exemple faire fusionner une branche devel avec une stable pour que la devel devienne stable&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git checkout master
+git merge devel
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Rebase_:_Appliquer_un_patch_sur_plusieurs_branches"><span class="mw-headline-number">4.25.8</span> Rebase&#160;: Appliquer un patch sur plusieurs branches</span></h3>
+<p>Imaginons que nous avons travailler sur la branche devel mais qu'un bug en master a été découvert. Il est normal que si le master bénéficie du fix, la branche devel également. Nous allons donc nous placer dans la branche master, appliquer le patch, puis merger avec la branche devel le patch. <b>On se place donc sur la branche devel, puis on exécute ces commandes&#160;:</b>
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git checkout devel
+git rebase master
+</pre>
+</td></tr></table><br />
+<p>Il est possible de le faire de façon interactive grâce à l’argument -i&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git rebase -i master</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Cr.C3.A9er_une_branche_lors_d.27une_restauration"><span class="mw-headline-number">4.25.9</span> Créer une branche lors d'une restauration</span></h3>
+<p>Vous pouvez créer une branche <a href="Mise_en_place_d'un_serveur_et_client_Git.html#Restaurer_un_fichier_d.27un_ancien_commit" title="Mise en place d'un serveur et client Git">lors d'une restauration d'un fichier</a> en vous plaçant préalablement dans la branche et en utilisant l'option -b&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ git checkout bfbfefa4d9116beff394ad29e2721b1ab6118df0 -b version_2
+Switched to a new branch "version_2"
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Les_Tags"><span class="mw-headline-number">4.26</span> Les Tags</span></h2>
+<p>Les tags sont très pratiques pour marquer une version bien spécifique. Par exemple, pour releaser une version 1.0, il est possible de créer un tag et de s'en resservir par la suite pour télécharger cette version particulière. On peut tagger ce que l'on veut, ça permet de se repérer facilement.
+</p>
+<h3><span class="mw-headline" id="Cr.C3.A9er_un_Tag"><span class="mw-headline-number">4.26.1</span> Créer un Tag</span></h3>
+<p>Pour créer un tag, c'est facile&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git tag '1.0'</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>Il est possible de signer les tag via GPG
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Lister_les_tags"><span class="mw-headline-number">4.26.2</span> Lister les tags</span></h3>
+<p>Pour lister les tags disponibles&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git tag</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Supprimer_un_tag"><span class="mw-headline-number">4.26.3</span> Supprimer un tag</span></h3>
+<p>Pour supprimer un tag:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git tag -d v0.1
+git push origin&#160;:refs/tags/v0.1</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Envoyer_les_tags_sur_le_serveur"><span class="mw-headline-number">4.26.4</span> Envoyer les tags sur le serveur</span></h3>
+<p>Une fois les tags créés en local, il est possible de les pousser sur le serveur:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git push --tags</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="G.C3.A9rer_les_conflits"><span class="mw-headline-number">4.27</span> Gérer les conflits</span></h2>
+<p>Il est possible de gérer les conflits de façon interactive&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git mergetool</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="R.C3.A9solution_automatique_de_conflits_d.C3.A9j.C3.A0_vu"><span class="mw-headline-number">4.28</span> Résolution automatique de conflits déjà vu</span></h2>
+<p>Il est possible de demander à git de résoudre automatiquement des problèmes sur lesquels il serait déjà tombé&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git config --global rerere.enabled 1</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Utiliser_git_pour_trouver_un_bug"><span class="mw-headline-number">4.29</span> Utiliser git pour trouver un bug</span></h2>
+<p>Imaginons qu’un bug sournois surgisse soudainement et vienne perturber la bonne marche de votre projet. Après quelques investigations dignes d’un fumeur de pipe anglais, vous découvrez que le vil dysfonctionnement n’est apparu que récemment. Il s’agit bien là d’une régression&#160;!
+</p><p>Certes, vous pourriez perdre du temps à corriger cette régression de la manière classique, en plongeant dans le code poussiéreux et plein de toiles d’araignées virtuelles, mais il serait bien plus simple de découvrir exactement à quelle moment elle est apparue, quel est le commit correspondant, pour avoir une idée très précise de sa cause.
+</p><p>C’est exactement ce que permet de faire git-bisect, d’une manière particulièrement intuitive. Indiquez lui un commit présentant le dysfonctionnement (HEAD), et un commit passé, n’importe lequel, qui ne la présente pas.
+</p><p>Git vous place alors dans votre historique de développement, pile au milieu entre les deux commit. Après vérification, vous indiquez à git si la régression apparaît ou pas. Et on recommence. Chaque fois, on divise par 2 l’intervalle des commits ayant potentiellement introduit le bug, jusqu’à débusquer le fautif. Génial, non&#160;?
+</p><p>Passons à la pratique&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; git bisect start
+&gt; git bisect bad &lt;mauvaise_version&gt;
+&gt; git bisect good &lt;bonne_version&gt;
+&#160;
+Bisecting: 8 revisions left to test after this</pre></div></div>
+</td></tr></table><br />
+<p>8 commits ont potentiellement introduit la régression. On indique si le commit actuel est correct ou pas&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; git bisect good # ou git bisect bad
+Bisecting&#160;: 4 revisions left to test after this</pre></div></div>
+</td></tr></table><br />
+<p>Et on continue, encore et encore, jusqu’à ce qu’on se trouve le mauvais commit à l’origine de ce temps perdu (mais ça aurait pu être pire)&#160;:
+</p>
+<pre>37b4745bf75e44638b9fe796c6dc97c1fa349e8e is first bad commit
+</pre>
+<p>A tout moment, vous pouvez obtenir un historique de votre parcours&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git bisect log</pre></div></div>
+</td></tr></table><br />
+<p>Si a un moment précis, vous souhaitez ne pas tester un commit en particulier, pour n’importe quelle raison, utilisez la commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git bisect skip</pre></div></div>
+</td></tr></table><br />
+<p>Tout ceci est bel et bon, mais il y a mieux (non&#160;?! et si&#160;!). Supposions que vous soyez un fan de TDD. Vous disposez sûrement d’un script qui teste automatiquement si le code actuel est bon ou pas. Il est alors possible d’automatiser la recherche&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git bisect start HEAD &lt;bad_commit&gt; --
+git bisect run script</pre></div></div>
+</td></tr></table><br />
+<p>Allez prendre un café, git travaille pour vous. Note&#160;: le script doit renvoyer 0 si le code est correct, 1 s’il est incorrect, et 125 s’il est intestable (git skip). Pendant la bisection, git créé une branche spéciale dédiée. N’oubliez pas de repasser sur votre branche de développement quand vous aurez débusqué la régression. Il est possible de le faire simplement en tapant&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git bisect reset</pre></div></div>
+</td></tr></table><br />
+<p>Voilà, avec tout ça, fini les fastidieuses recherches de régression.<sup id="cite_ref-1" class="reference"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#cite_note-1">[1]</a></sup>
+</p>
+<h2><span class="mw-headline" id="Conna.C3.AEtre_ligne_par_ligne_les_commits"><span class="mw-headline-number">4.30</span> Connaître ligne par ligne les commits</span></h2>
+<p>Ceci est la solution de taper sur les doigts d'une personne qui a réaliser un commit. Entre autre, vous avez la possibilité de connaître ligne par ligne qui a écrit quoi&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; git blame &lt;fichier&gt;
+^a35889c (Deimos 2010-04-20 17:36:29 +0200   1) &lt;?php
+^a35889c (Deimos 2010-04-20 17:36:29 +0200   2) class DeleteHistory extends SpecialPage
+^a35889c (Deimos 2010-04-20 17:36:29 +0200   3) {
+724f724d (Deimos 2011-06-14 23:15:40 +0200   4) 	function __construct()
+724f724d (Deimos 2011-06-14 23:15:40 +0200   5) 	{
+724f724d (Deimos 2011-06-14 23:15:40 +0200   6) 		// Need to belong to Administor group
+724f724d (Deimos 2011-06-14 23:15:40 +0200   7) 		parent::__construct( 'DeleteHistory', 'editinterface' );
+724f724d (Deimos 2011-06-14 23:15:40 +0200   8) 		wfLoadExtensionMessages('DeleteHistory');</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="D.C3.A9placer_un_dossier_et_son_historique_vers_un_autre_repository"><span class="mw-headline-number">4.31</span> Déplacer un dossier et son historique vers un autre repository</span></h2>
+<p>On peut parfois avoir besoin de recréer un autre repository vierge pour contenir le dossier d'un autre repository. Ca a été mon cas pour l'extension <a class="external text" href="http://www.mediawiki.org/wiki/Extension:DeleteHistory">DeleteHistory</a> de Mediawiki qui j'ai créer. Au début, j'avais un repository appelé 'mediawiki_extensions' ou j'avais 2 extensions dedans. Et puis avec le temps et les version de Mediawiki qui avançaient, il était préférable de faire une séparation par plugins tout en gardant l'historique. Je vais donc vous expliquer comment j'ai fais (j'ai suivit cette documentation<sup id="cite_ref-2" class="reference"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#cite_note-2">[2]</a></sup>).
+</p><p>Nous allons travailler en local avec mon ancien repository que nous allons appeler oldrepo et mon nouveau repository newrepo (quelle originalité).
+</p>
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>Faites un repository temporaire si vous disposez déjà de celui ci car il sera supprimé à la fin
+</td></tr></table><br />
+<p>Nous allons donc cloner ce repo&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git clone git://git.deimos.fr/oldrepo.git
+git clone git://git.deimos.fr/newrepo.git</pre></div></div>
+</td></tr></table><br />
+<p>Puis nous allons filtrer sur le dossier qui nous intéresse, appelons le folder2keep&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git filter-branch --subdirectory-filter folder2keep -- -- all</pre></div></div>
+</td></tr></table><br />
+<p>Là, tous les fichiers et dossiers de folder2keep sont à la racine de notre repository. Si vous le souhaitez, vous pouvez créer un dossier et tout placer dedans, mais ceci n'est pas obligatoire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir new_directory/
+git mv * new_directory/</pre></div></div>
+</td></tr></table><br />
+<p>Remplacez * par tous vos éléments que vous souhaitez placer dedans et commitez&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git commit -m &quot;Collected the data I need to move&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Maintenant, nous allons aller dans notre fameux dossier et faire une référence locale entre les 2&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd ../newrepo/
+git remote add oldrepo ../oldrepo/</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite nous allons rappatrier les sources, créer la branche principale et merger le tout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git fetch oldrepo
+git branch oldrepo remotes/oldrepo/master
+git merge oldrepo</pre></div></div>
+</td></tr></table><br />
+<p>Maintenant nous allons transférer l'historique et faire un peu de ménage&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">git remote rm oldrepo
+git branch -d oldrepo
+git push origin master</pre></div></div>
+</td></tr></table><br />
+<p>Et voilà, le repository temporaire (vieux) peut être maintenant supprimé.
+</p>
+<h2><span class="mw-headline" id="Hooks"><span class="mw-headline-number">4.32</span> Hooks</span></h2>
+<p>Il existe des hooks dans Git permettant de faire des pre ou post traitement. Voici un use case permettant d'effectuer une action (lancer une commande via ssh) lorsqu'un tag arrive sur le serveur. L'idée est de pouvoir en fonction d'un tag (exemple: prod ou preprod) déployer une nouvelle version d'un soft sur X serveurs. Voici la liste des options qui vont être nécessaire:
+</p>
+<ol><li> Créer un hook dans le repository</li>
+<li> Créer un utilisateur dédié si vous utilisez Gitlab/GitHub/Gitolite</li>
+<li> Générer une clef privée SSH avec l'utilisateur 'git'</li>
+<li> Copier via ssh-copy-id vers les serveurs distant la clef de l'utilisateur 'git' (généralement www-data)</li>
+<li> Créer un script de déploiement et mettre les bons droits</li>
+<li> Cloner le repository sur tous les serveurs nécessaire</li></ol>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> repo.git/hooks/post-receive</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><ol><li class="li1"><pre class="de1"><span class="co0">#!/bin/bash                                                                                                                                                                                                                                                                    </span></pre></li><li class="li1"><pre class="de1">&#160;</pre></li><li class="li1 ln-xtra"><pre class="de1"><span class="co0"># Create your environment with DNS/IP servers separated by spaces</span></pre></li><li class="li1 ln-xtra"><pre class="de1"><span class="re2">name</span>=<span class="br0">&#40;</span> list array <span class="br0">&#41;</span></pre></li><li class="li2 ln-xtra"><pre class="de2"><span class="re2">prod</span>=<span class="br0">&#40;</span> X.X.X.X Y.Y.Y.Y <span class="br0">&#41;</span></pre></li><li class="li1 ln-xtra"><pre class="de1"><span class="re2">preprod</span>=<span class="br0">&#40;</span> Z.Z.Z.Z <span class="br0">&#41;</span></pre></li><li class="li1"><pre class="de1">&#160;</pre></li><li class="li1"><pre class="de1"><span class="co0"># Folder to deploy on client side</span></pre></li><li class="li1 ln-xtra"><pre class="de1"><span class="re2">folder</span>=<span class="st_h">'/var/www/cloned_repository'</span></pre></li><li class="li2"><pre class="de2">&#160;</pre></li><li class="li1"><pre class="de1"><span class="co0"># Set SSH remote username</span></pre></li><li class="li1 ln-xtra"><pre class="de1"><span class="re2">ssh_username</span>=<span class="st_h">'www-data'</span></pre></li><li class="li1"><pre class="de1">&#160;</pre></li><li class="li1"><pre class="de1"><span class="co0"># Log file</span></pre></li><li class="li2"><pre class="de2"><span class="re2">logfile</span>=<span class="st_h">'/var/log/git-deploy-hook.log'</span></pre></li><li class="li1"><pre class="de1">&#160;</pre></li><li class="li1"><pre class="de1"><span class="co0">########################################################################</span></pre></li><li class="li1"><pre class="de1"><span class="co0"># get infos</span></pre></li><li class="li1"><pre class="de1"><span class="kw2">read</span> oldrev newrev refname</pre></li><li class="li2"><pre class="de2">&#160;</pre></li><li class="li1"><pre class="de1"><span class="co0"># vars</span></pre></li><li class="li1"><pre class="de1"><span class="re2">tag</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$refname</span> <span class="sy0">|</span> <span class="kw2">cut</span> -d<span class="sy0">/</span> -f3<span class="sy0">`</span></pre></li><li class="li1"><pre class="de1"><span class="re2">environment</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$tag</span> <span class="sy0">|</span> <span class="kw2">cut</span> <span class="re5">-d-</span> -f1<span class="sy0">`</span></pre></li><li class="li1"><pre class="de1">&#160;</pre></li><li class="li2"><pre class="de2"><span class="co0"># function to call distant git deployments</span></pre></li><li class="li1"><pre class="de1">deploy_new_version<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span></pre></li><li class="li1"><pre class="de1">    <span class="kw3">declare</span> <span class="re5">-a</span> <span class="re2">servers</span>=<span class="br0">&#40;</span><span class="st0">&quot;<span class="es3">${!1}</span>&quot;</span><span class="br0">&#41;</span></pre></li><li class="li1"><pre class="de1">&#160;</pre></li><li class="li1"><pre class="de1">    <span class="kw3">echo</span> $<span class="br0">&#40;</span><span class="kw2">date</span> +<span class="st_h">'%Y/%m/%d -&#160;%H-%M-%S '</span><span class="br0">&#41;</span> <span class="st0">&quot;Begin deployment hook for <span class="es2">$environment</span> env&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span></pre></li><li class="li2"><pre class="de2">    <span class="kw1">for</span> server <span class="kw1">in</span> $<span class="br0">&#40;</span><span class="kw2">seq</span> <span class="nu0">0</span> $<span class="br0">&#40;</span><span class="br0">&#40;</span><span class="co1">${#servers[@]}</span> - <span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>&#160;; <span class="kw1">do</span></pre></li><li class="li1"><pre class="de1">        <span class="kw3">echo</span> <span class="st0">&quot;Deploying <span class="es2">$tag</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span></pre></li><li class="li1"><pre class="de1">        <span class="kw2">ssh</span> <span class="re1">$ssh_username</span><span class="sy0">@</span><span class="co1">${servers[$server]}</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>git_deploy.sh <span class="re1">$tag</span> <span class="re1">$folder</span> <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span></pre></li><li class="li1"><pre class="de1">    <span class="kw1">done</span></pre></li><li class="li1"><pre class="de1">    <span class="kw3">echo</span> $<span class="br0">&#40;</span><span class="kw2">date</span> +<span class="st_h">'%Y/%m/%d -&#160;%H-%M-%S '</span><span class="br0">&#41;</span> <span class="st0">&quot;Deployment hook finished for <span class="es2">$environment</span> env&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span></pre></li><li class="li2"><pre class="de2"><span class="br0">&#125;</span></pre></li><li class="li1"><pre class="de1">&#160;</pre></li><li class="li1"><pre class="de1"><span class="co0"># check if a tag has been pushed</span></pre></li><li class="li1"><pre class="de1"><span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw3">echo</span> <span class="re1">$refname</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-Eo</span> <span class="st0">&quot;^refs/tags/<span class="es2">$environment</span>&quot;</span><span class="br0">&#41;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>; <span class="kw1">then</span></pre></li><li class="li1"><pre class="de1">    <span class="kw3">echo</span> <span class="st0">&quot;Git hook is called for <span class="es2">$environment</span> environment&quot;</span></pre></li><li class="li2"><pre class="de2">    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="co1">${!environment[0]}</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span></pre></li><li class="li1"><pre class="de1">        <span class="co0"># Deploy the correct environment</span></pre></li><li class="li1"><pre class="de1">        deploy_new_version <span class="re1">$environment</span><span class="br0">&#91;</span><span class="sy0">@</span><span class="br0">&#93;</span></pre></li><li class="li1"><pre class="de1">    <span class="kw1">else</span></pre></li><li class="li1"><pre class="de1">        <span class="kw3">echo</span> <span class="st0">&quot;Error, <span class="es2">$environment</span> is not recognized as an existing environment&quot;</span></pre></li><li class="li2"><pre class="de2">        <span class="kw3">exit</span> <span class="nu0">1</span></pre></li><li class="li1"><pre class="de1">    <span class="kw1">fi</span></pre></li><li class="li1"><pre class="de1"><span class="kw1">fi</span></pre></li></ol></div></div>
+</td></tr></table><br />
+<p>Vous devez modifier les environnement avec ceux que vous voulez pour que quand un tag arrivera avec le nom du tag en question, il y ai une action qui soit déclenchée derrière. Par exemple pour déployer sur les serveurs de prod, il faudra mettre un tag de type "prod-v1.0".
+</p><p>Switchez avec l'utilisateur git (ou celui qui a les droits) et copiez la clé publique vers tous les serveurs sur lesquelles vont devoir agir les tags:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">su</span> - <span class="kw2">git</span>
+ssh-copy-id www-data<span class="sy0">@</span>x.x.x.x</pre></div></div>
+</td></tr></table><br />
+<p>Créez ensuite le script de déploiement:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /usr/bin/git_deploy.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+<span class="re2">logfile</span>=<span class="st_h">'/var/log/git-deploy-hook.log'</span>
+<span class="kw3">echo</span> $<span class="br0">&#40;</span><span class="kw2">date</span> +<span class="st_h">'%Y/%m/%d -&#160;%H-%M: '</span><span class="br0">&#41;</span> <span class="st_h">'Begin deployment hook'</span> <span class="sy0">&gt;&gt;</span><span class="re1">$logfile</span>
+<span class="kw3">cd</span> <span class="re4">$2</span>
+<span class="kw2">git fetch</span> origin <span class="re5">-v</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span> <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span>
+<span class="kw2">git fetch</span> origin <span class="re5">-v</span> <span class="re5">--tags</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span> <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span>
+<span class="kw2">git stash</span> drop <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span> <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span>
+<span class="kw2">git checkout</span> <span class="re5">-f</span> tags<span class="sy0">/</span><span class="re4">$1</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span> <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span>
+<span class="kw3">echo</span> $<span class="br0">&#40;</span><span class="kw2">date</span> +<span class="st_h">'%Y/%m/%d -&#160;%H-%M: '</span><span class="br0">&#41;</span> <span class="st_h">'Deployment finished'</span> <span class="sy0">&gt;&gt;</span> <span class="re1">$logfile</span></pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez rajouter toutes les commandes que vous voulez. Il faut bien entendu copier ce script sur tous les serveurs cible et lui donner les droits d'exécution.
+</p><p>Créez ensuite le fichier de logs et mettez les bons droits:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">touch</span> <span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>git-deploy-hook.log
+chow www-data. <span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>git-deploy-hook.log
+<span class="kw2">chmod</span> <span class="nu0">755</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>git_deploy.sh</pre></div></div>
+</td></tr></table><br />
+<p>Clonez ensuite les repository avec les utilisateurs finaux:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw3">cd</span> <span class="sy0">/</span>var<span class="sy0">/</span>www
+<span class="kw2">git clone</span> <span class="kw2">git</span><span class="sy0">@</span>gitlab<span class="sy0">/</span>cloned_repository.git
+<span class="kw2">chown</span> <span class="re5">-Rf</span> www-data. <span class="sy0">/</span>var<span class="sy0">/</span>www<span class="sy0">/</span>cloned_repository</pre></div></div>
+</td></tr></table><br />
+<p>Et voilà, il ne reste plus qu'à pusher un tag sur un commit:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">git tag</span> <span class="re5">-a</span> prod-v1.0 <span class="re5">-m</span> <span class="st_h">'production version 1.0'</span> 9fceb02
+<span class="kw2">git push</span> <span class="re5">--tags</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilitaires"><span class="mw-headline-number">5</span> Utilitaires</span></h1>
+<h2><span class="mw-headline" id="Gitk"><span class="mw-headline-number">5.1</span> Gitk</span></h2>
+<p>Gitk permet d'avoir une version graphique de l'état de votre git (breanches etc...).
+</p><p><a href="./File:Gittk.jpg.html" class="image"><img alt="Gittk.jpg" src="images/4/42/Gittk.jpg" width="310" height="456" /></a>
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="warning:_You_did_not_specify_any_refspecs_to_push.2C_and_the_current_remote"><span class="mw-headline-number">6.1</span> warning: You did not specify any refspecs to push, and the current remote</span></h2>
+<p>Si vous avez ce genre de message quand vous faites un push&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">warning: You did not specify any refspecs to push, and the current remote
+warning: has not configured any push refspecs. The default action in this
+warning: case is to push all matching refspecs, that is, all branches
+warning: that exist both locally and remotely will be updated.  This may
+warning: not necessarily be what you want to happen.
+warning: 
+warning: You can specify what action you want to take in this case, and
+warning: avoid seeing this message again, by configuring 'push.default' to:
+warning:   'nothing' &#160;: Do not push anything
+warning:   'matching'&#160;: Push all matching branches (default)
+warning:   'tracking'&#160;: Push the current branch to whatever it is tracking
+warning:   'current' &#160;: Push the current branch</pre></div></div>
+<p>Lancez simplement cette commande en mettant ce qui vous corresponds le plus&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> git</font>
+</td></tr>
+<tr>
+<td>
+<pre>git config --global push.default matching
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="R.C3.A9f.C3.A9rences"><span class="mw-headline-number">7</span> Références</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.miximum.fr/methodes-et-outils/79-debusquer-une-regression-avec-git-bisect">http://www.miximum.fr/methodes-et-outils/79-debusquer-une-regression-avec-git-bisect</a></span>
+</li>
+<li id="cite_note-2"><a href="Mise_en_place_d'un_serveur_et_client_Git.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://st-on-it.blogspot.fr/2010/01/how-to-move-folders-between-git.html">http://st-on-it.blogspot.fr/2010/01/how-to-move-folders-between-git.html</a></span>
+</li>
+</ol>
+<p><a rel="nofollow" class="external free" href="http://www.kernel.org/pub/software/scm/git/docs/user-manual.html">http://www.kernel.org/pub/software/scm/git/docs/user-manual.html</a><br />
+<a rel="nofollow" class="external free" href="http://git.wiki.kernel.org/index.php/GitFaq">http://git.wiki.kernel.org/index.php/GitFaq</a><br />
+<a rel="nofollow" class="external free" href="http://alexgirard.com/git-book/index.html">http://alexgirard.com/git-book/index.html</a><br />
+<a href="images/8/87/How_To_Install_A_Public_Git_Repository_On_A_Debian_Server.pdf" class="internal" title="How To Install A Public Git Repository On A Debian Server.pdf">How To Install A Public Git Repository On A Debian Server</a><br />
+<a href="images/0/04/Gitit.pdf" class="internal" title="Gitit.pdf">Git it</a><br />
+<a rel="nofollow" class="external free" href="http://www.unixgarden.com/index.php/administration-systeme/git-les-mains-dans-le-cambouis">http://www.unixgarden.com/index.php/administration-systeme/git-les-mains-dans-le-cambouis</a><br />
+<a rel="nofollow" class="external free" href="http://stackoverflow.com/questions/1811730/how-do-you-work-with-a-git-repository-within-another-repository">http://stackoverflow.com/questions/1811730/how-do-you-work-with-a-git-repository-within-another-repository</a><br />
+<a rel="nofollow" class="external free" href="http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/">http://chrisjean.com/2009/04/20/git-submodules-adding-using-removing-and-updating/</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.260 seconds
+Real time usage: 0.262 seconds
+Preprocessor visited node count: 1701/1000000
+Preprocessor generated node count: 4785/1000000
+Post‐expand include size: 23140/2097152 bytes
+Template argument size: 7012/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   95.146      1 - -total
+ 54.11%   51.488     96 - Template:Command
+ 24.24%   23.060      6 - Template:Config
+  3.90%    3.715      1 - Template:Nginx_Git_et_Gitweb
+  0.92%    0.874      2 - Template:Notes
+  0.83%    0.792      1 - Template:Warning
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2916-0!*!0!1!en!5!* and timestamp 20181111230818 and revision id 13444
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Mise_en_place_d%27un_serveur_et_client_Git&amp;oldid=13444">https://wiki.deimos.fr/index.php?title=Mise_en_place_d%27un_serveur_et_client_Git&amp;oldid=13444</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Mise+en+place+d%27un+serveur+et+client+Git" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Mise_en_place_d'un_serveur_et_client_Git.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Mise_en_place_d'un_serveur_et_client_Git.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Mise_en_place_d'un_serveur_et_client_Git.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_d%27un_serveur_et_client_Git&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_d%27un_serveur_et_client_Git&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Mise_en_place_d'un_serveur_et_client_Git.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Mise_en_place_d'un_serveur_et_client_Git.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Mise_en_place_d%27un_serveur_et_client_Git" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_d%27un_serveur_et_client_Git&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_d%27un_serveur_et_client_Git&amp;oldid=13444" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_d%27un_serveur_et_client_Git&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 2 February 2015, at 20:33.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":298});
+}</script>
+	</body>
+</html>
+	

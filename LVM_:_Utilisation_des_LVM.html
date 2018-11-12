@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>LVM : Utilisation des LVM - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./LVM_:_Utilisation_des_LVM.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"LVM_:_Utilisation_des_LVM","wgTitle":"LVM : Utilisation des LVM","wgCurRevisionId":13434,"wgRevisionId":13434,"wgArticleId":2307,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"LVM_:_Utilisation_des_LVM","wgRelevantArticleId":2307,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-LVM_Utilisation_des_LVM skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">LVM : Utilisation des LVM</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./LVM_:_Utilisation_des_LVM.html#mw-navigation">navigation</a>, 					<a href="./LVM_:_Utilisation_des_LVM.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./LVM_:_Utilisation_des_LVM.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./LVM_:_Utilisation_des_LVM.html#Cr.C3.A9er_une_partition"><span class="tocnumber">2</span> <span class="toctext">Créer une partition</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./LVM_:_Utilisation_des_LVM.html#Utilisation"><span class="tocnumber">3</span> <span class="toctext">Utilisation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./LVM_:_Utilisation_des_LVM.html#Activer_une_partition_LVM"><span class="tocnumber">3.1</span> <span class="toctext">Activer une partition LVM</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./LVM_:_Utilisation_des_LVM.html#Cr.C3.A9er_un_Volume_Group"><span class="tocnumber">3.2</span> <span class="toctext">Créer un Volume Group</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./LVM_:_Utilisation_des_LVM.html#Cr.C3.A9er_des_volumes"><span class="tocnumber">3.3</span> <span class="toctext">Créer des volumes</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./LVM_:_Utilisation_des_LVM.html#Redimentionnement"><span class="tocnumber">3.4</span> <span class="toctext">Redimentionnement</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="./LVM_:_Utilisation_des_LVM.html#Augmentation"><span class="tocnumber">3.4.1</span> <span class="toctext">Augmentation</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="./LVM_:_Utilisation_des_LVM.html#R.C3.A9duction"><span class="tocnumber">3.4.2</span> <span class="toctext">Réduction</span></a>
+<ul>
+<li class="toclevel-4 tocsection-10"><a href="./LVM_:_Utilisation_des_LVM.html#Reduction_du_FS"><span class="tocnumber">3.4.2.1</span> <span class="toctext">Reduction du FS</span></a></li>
+<li class="toclevel-4 tocsection-11"><a href="./LVM_:_Utilisation_des_LVM.html#Reduction_du_LV"><span class="tocnumber">3.4.2.2</span> <span class="toctext">Reduction du LV</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="./LVM_:_Utilisation_des_LVM.html#R.C3.A9cup.C3.A9ration_des_volumes"><span class="tocnumber">3.5</span> <span class="toctext">Récupération des volumes</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./LVM_:_Utilisation_des_LVM.html#Exporter.2FImporter_un_VG"><span class="tocnumber">3.6</span> <span class="toctext">Exporter/Importer un VG</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./LVM_:_Utilisation_des_LVM.html#Scanner_les_nouveaux_volumes_LVM"><span class="tocnumber">3.7</span> <span class="toctext">Scanner les nouveaux volumes LVM</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./LVM_:_Utilisation_des_LVM.html#Changement_de_disque"><span class="tocnumber">3.8</span> <span class="toctext">Changement de disque</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./LVM_:_Utilisation_des_LVM.html#Controler_la_visibilit.C3.A9_de_ses_volumes"><span class="tocnumber">3.9</span> <span class="toctext">Controler la visibilité de ses volumes</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="./LVM_:_Utilisation_des_LVM.html#Snapshot"><span class="tocnumber">3.10</span> <span class="toctext">Snapshot</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="./LVM_:_Utilisation_des_LVM.html#Cr.C3.A9ation_d.27un_Snapshot"><span class="tocnumber">3.10.1</span> <span class="toctext">Création d'un Snapshot</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="./LVM_:_Utilisation_des_LVM.html#Supprimer_le_snapshot"><span class="tocnumber">3.10.2</span> <span class="toctext">Supprimer le snapshot</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="./LVM_:_Utilisation_des_LVM.html#Rollback_des_modifications"><span class="tocnumber">3.10.3</span> <span class="toctext">Rollback des modifications</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-21"><a href="./LVM_:_Utilisation_des_LVM.html#Dumper_la_configuration"><span class="tocnumber">3.11</span> <span class="toctext">Dumper la configuration</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="./LVM_:_Utilisation_des_LVM.html#Visualiser_les_locks"><span class="tocnumber">3.12</span> <span class="toctext">Visualiser les locks</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="./LVM_:_Utilisation_des_LVM.html#FSCK_.C3.A0_chaud_sous_ext3.2F4"><span class="tocnumber">3.13</span> <span class="toctext">FSCK à chaud sous ext3/4</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="./LVM_:_Utilisation_des_LVM.html#Avoir_un_beau_GUI"><span class="tocnumber">4</span> <span class="toctext">Avoir un beau GUI</span></a></li>
+<li class="toclevel-1 tocsection-25"><a href="./LVM_:_Utilisation_des_LVM.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-26"><a href="./LVM_:_Utilisation_des_LVM.html#J.27ai_un_conflit_d.27UUID"><span class="tocnumber">5.1</span> <span class="toctext">J'ai un conflit d'UUID</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="./LVM_:_Utilisation_des_LVM.html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>La gestion par volumes logiques (en anglais, logical volume management ou LVM) est une méthode et un logiciel de découpage, de concaténation et d'utilisation des espaces de stockage d'un serveur. Il permet de gérer, sécuriser et optimiser de manière souple les espaces de stockage en ligne dans les systèmes d'exploitation de type UNIX/Linux.
+</p><p>On parle également de gestionnaire de volumes ou Volume Manager en anglais.
+</p><p>LVM n'étant pas très simple à utiliser, et ne le maniant pas non plus tous les jours, j'me suis dis qu'une petite doc était indispensable. Je la remplierais au fur et à mesure de mes besoins.
+</p><p>Voici les principaux fichiers et dossiers utilisés par LVM&#160;:
+</p>
+<table class="wikitable sortable" border="0">
+<tr>
+<th>File/Folder
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td align="center">/etc/lvm/lvm.conf
+</td>
+<td align="left">Fichier de configuration d'LVM
+</td></tr>
+<tr>
+<td align="center">/etc/lvm/cache.cache
+</td>
+<td align="left">Fichier de cache des noms des devices
+</td></tr>
+<tr>
+<td align="center">/etc/lvm/backup
+</td>
+<td align="left">Dossier contenant les backups automatiques des metadata des VG
+</td></tr>
+<tr>
+<td align="center">/etc/lvm/archive
+</td>
+<td align="left">Dossier contenant les archives automatiques des metadata des VG
+</td></tr>
+<tr>
+<td align="center">/var/lock/lvm
+</td>
+<td align="left">Fichier de lock permettant d'éviter le lancement simultané de plusieurs outils LVM, évitant la corruption de metadata
+</td></tr></table>
+<h1><span class="mw-headline" id="Cr.C3.A9er_une_partition"><span class="mw-headline-number">2</span> Créer une partition</span></h1>
+<p>Lorsque vous utilisez fdisk pour créer une partition et l'assigner en tant qu'LVM, il est possible qu'elle ne s'affiche pas dans les devices. Pour éviter de rebooter afin de la voir, il suffit de lancer cette commande sur le disque en question (sda par exemple)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> partx</font>
+</td></tr>
+<tr>
+<td>
+<pre>partx -a /dev/sda
+</pre>
+</td></tr></table><br />
+<p>Si ensuite vous avez besoin de l'ajouter dans le fstab, il est préférable d'utiliser les UUID. Pour les repérer, il existe une commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> blkid</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ blkid
+blkid/dev/sda1: UUID=&quot;fd292b5c-091f-4a2f-b694-7d881e2eaa54&quot; TYPE=&quot;ext4&quot; 
+/dev/sda2: UUID=&quot;a4ljAA-KRHZ-sSHH-E4yy-tKmc-ZsHF-Scrc2N&quot; TYPE=&quot;LVM2_member&quot; 
+/dev/mapper/vg_redhatsrv1-lv_root: UUID=&quot;74706659-f76e-4dd3-8f93-b3629923d356&quot; TYPE=&quot;ext4&quot; 
+/dev/mapper/vg_redhatsrv1-lv_swap: UUID=&quot;c02b0c7b-88b3-4521-820f-a42c27871e35&quot; TYPE=&quot;swap&quot; 
+/dev/sdb1: UUID=&quot;c7b14f0b-1ccd-40f8-8183-7e85cbcb9d64&quot; TYPE=&quot;crypto_LUKS&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Il ne vous reste plus qu'a rajouter une ligne de ce type dans le fstab&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/fstab</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">UUID=fd292b5c-091f-4a2f-b694-7d881e2eaa54 /mnt                   ext4    defaults        0 0</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">3</span> Utilisation</span></h1>
+<h2><span class="mw-headline" id="Activer_une_partition_LVM"><span class="mw-headline-number">3.1</span> Activer une partition LVM</span></h2>
+<p>Pour activer une partition LVM, nous allons utiliser pvcreate&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pvcreate</font>
+</td></tr>
+<tr>
+<td>
+<pre>pvcreate /dev/sda1
+</pre>
+</td></tr></table><br />
+<p>Vous pouvez voir ensuite l'état avec la commande pvdisplay.
+</p>
+<h2><span class="mw-headline" id="Cr.C3.A9er_un_Volume_Group"><span class="mw-headline-number">3.2</span> Créer un Volume Group</span></h2>
+<p>Nous devons ensuite créer un VG si nous voulons pouvoir créer ensuite des volumes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> vgcreate</font>
+</td></tr>
+<tr>
+<td>
+<pre>vgcreate <b>mon_vg</b> /dev/sda1
+</pre>
+</td></tr></table><br />
+<p>Vous devez mettre ici le nom du VG que vous souhaitez à la place de 'mon_vg'.
+</p>
+<h2><span class="mw-headline" id="Cr.C3.A9er_des_volumes"><span class="mw-headline-number">3.3</span> Créer des volumes</span></h2>
+<p>Pour créer les volumes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvcreate</font>
+</td></tr>
+<tr>
+<td>
+<pre>lvcreate -n <b>mon_lv1 -L 5G mon_vg</b>
+</pre>
+</td></tr></table><br />
+<p>Il faut donc&#160;:
+</p>
+<ul><li> mon_lv1&#160;: le nom du LV souhaité</li>
+<li> -L 5G&#160;: la taille du volume group</li>
+<li> mon_vg&#160;: le nom du VG sur lequel le LV doit être stocké.</li></ul>
+<h2><span class="mw-headline" id="Redimentionnement"><span class="mw-headline-number">3.4</span> Redimentionnement</span></h2>
+<h3><span class="mw-headline" id="Augmentation"><span class="mw-headline-number">3.4.1</span> Augmentation</span></h3>
+<p>Pour augmenter la taille d'une partition&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvextend</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lvextend -L +10G /dev/mapper/ma_partition</pre></div></div>
+</td></tr></table><br />
+<p>Puis il ne reste plus qu'à redimensionner le filesystem (xfs_grow par exemple pour le XFS)
+</p>
+<h3><span class="mw-headline" id="R.C3.A9duction"><span class="mw-headline-number">3.4.2</span> Réduction</span></h3>
+<p>Diminuer la taille d'un système de fichier est un peu plus délicat. En effet, si jamais on commet l'erreur de diminuer la taille du volume logique avant de réduire la taille du contenu (le système de fichier lui même) alors on détruit son système de fichier... pareil si on réduit trop la taille du volume logique.
+</p><p>Pour éviter tout risque, je conseille d'utiliser la méthode suivante (un peu plus longue que la normale, mais beaucoup plus fiable)&#160;:
+</p>
+<ul><li> Réduire la taille du système de fichier plus que nécessaire</li>
+<li> Réduire la taille du volume logique pour lui donner exactement la nouvelle taille souhaitée.</li>
+<li> Agrandir le système de fichier pour qu'il occupe tout l'espace disponible.</li></ul>
+<p>De cette façon, le risque d'erreur est beaucoup plus faible.
+</p>
+<h4><span class="mw-headline" id="Reduction_du_FS"><span class="mw-headline-number">3.4.2.1</span> Reduction du FS</span></h4>
+<p>Si vous ne souhaitez pas faire cette opération à la main, utilisez un live CD avec gparted inclu.
+</p><p>Attention, tous les systèmes de fichiers ne peuvent pas être "réduits". Pour ext3 et reiserfs, cela se fait très bien. Voila un exemple avec reiserfs...
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> df</font>
+</td></tr>
+<tr>
+<td>
+<pre>df -h 
+</pre>
+</td></tr></table><br />
+<p>Dans cet exemple, le volume "ca", se trouve dans le groupe de volume svg. Sur ce volume logique existe un système de fichier en reiserfs d'une taille de 512 Mo. Or, je n'utilise que 230 Mo. De plus, je sais que je n'ajouterai jamais rien dans ce volume. Je désire donc diminuer sa taille à 256 Mo (pour se laisser une marge de sécurité, et parce que ca fait un compte rond&#160;;) Je commence par démonter le système de fichier&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> umount</font>
+</td></tr>
+<tr>
+<td>
+<pre>umount /home/ca
+</pre>
+</td></tr></table><br />
+<p>Ensuite je vais donc diminuer la taille du système de fichier, plus que nécessaire. Plutôt que de retirer 256 Mo, je vais donc en retirer 258. Je peux le faire, car il reste 283 Mo de libre... Evidement, retirer plus de place qu'il n'en reste serait suicidaire...
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> resize_reiserfs</font>
+</td></tr>
+<tr>
+<td>
+<pre>resize_reiserfs -s -258M /dev/svg/ca
+</pre>
+</td></tr></table><br />
+<p>ATTENTION&#160;: Si vous êtes en ext3, on ne peut pas indiquer la quantité d'espace à enlever, il faut donner la taille finale voulue (512-258). la bonne commande aurait été&#160;:{{
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> resize2fs</font>
+</td></tr>
+<tr>
+<td>
+<pre>resize2fs -p /dev/svg/ca 254M
+</pre>
+</td></tr></table><br />
+<p>Il est possible qu'il vous demande de faire cette commande avant. Si c'est le cas, faites le&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> e2fsck</font>
+</td></tr>
+<tr>
+<td>
+<pre>e2fsck -f /dev/svg/ca
+</pre>
+</td></tr></table><br />
+<h4><span class="mw-headline" id="Reduction_du_LV"><span class="mw-headline-number">3.4.2.2</span> Reduction du LV</span></h4>
+<p>Dans le cas ou vous ne verriez pas le LV dans /dev/mapper, alors il faudra l'activer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvchange</font>
+</td></tr>
+<tr>
+<td>
+<pre>lvchange -a y /dev/svg/ca
+</pre>
+</td></tr></table><br />
+<p>Note: pour désactiver un LV, il faut change le "y" en "n".
+</p><p>Maintenant que le système de fichier à diminué, il faut donner au volume logique sa nouvelle taille, 256 Mo au lieu de 512&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvresize</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lvresize -L -256M /dev/svg/ca
+  WARNING: Reducing active logical volume to 256.00 MB
+  THIS MAY DESTROY YOUR DATA (filesystem etc.)
+Do you really want to reduce ca? [y/n]: y
+  Reducing logical volume ca to 256.00 MB</pre></div></div>
+</td></tr></table><br />
+<p>Plus qu'une derniere étape, on indique au système de fichier qu'il peut s'étendre automatiquement pour prendre tout l'espace disponible. Il devrait donc pouvoir grandir de 2 Mo. Il trouvera tout seul la taille exacte en nombre de bloc etc... On n'a pas pris le risque de faire une erreur en le réduisant "pile poile" de la même taille que le volume logique, car la moindre erreur aurait pu corrompu le système de fichier à quelques blocs prés.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> resize2fs</font>
+</td></tr>
+<tr>
+<td>
+<pre>resize_reiserfs /dev/svg/ca
+</pre>
+</td></tr></table><br />
+<p>ou, si vous utilisez ext3&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> resize2fs</font>
+</td></tr>
+<tr>
+<td>
+<pre>resize2fs /dev/svg/ca
+</pre>
+</td></tr></table><br />
+<p>Il ne reste plus qu'a remonter le système de fichier&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ mount /dev/svg/ca /home/ca
+$ df -h | grep ca
+/dev/mapper/svg-ca    256M  230M   27M  90% /home/ca</pre></div></div>
+</td></tr></table><br />
+<p>C'est gagné... Le système de fichier fait maintenant 256 Mo, et nous avons toujours nos 230 Mo de données à l'intérieur. Conclusion&#160;: Jouer avec la taille des volumes logiques fonctionne très bien, il faut juste prendre son temps et ne pas faire n'importe quoi&#160;:)
+</p>
+<h2><span class="mw-headline" id="R.C3.A9cup.C3.A9ration_des_volumes"><span class="mw-headline-number">3.5</span> Récupération des volumes</span></h2>
+<p>Si je suis en mode restauration, et je souhaite monter mes filesystems, comment je fais&#160;?
+</p><p>On s'assure que le modules est correctement chargé&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> modprobe</font>
+</td></tr>
+<tr>
+<td>
+<pre>modprobe dm-mod
+</pre>
+</td></tr></table><br />
+<p>On scan tous les LVM&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>vgscan
+vgchange -ay
+</pre>
+</td></tr></table><br />
+<p>Et on monte le LV&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir -p /mnt/VolGroup00/LogVol00
+mount /dev/VolGroup00/LogVol00 /mnt/VolGroup00/LogVol00
+</pre>
+</td></tr></table><br />
+<p>Une fois terminé, vous pouvez désactiver votre volume&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> vgchange</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">vgchange -an VolGroup00</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Exporter.2FImporter_un_VG"><span class="mw-headline-number">3.6</span> Exporter/Importer un VG</span></h2>
+<ul><li> Vous pouvez démonter complètement un volume group comme ceci&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> vgexport</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">vgexport &lt;mon_vg&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Cela vous assurera que plus rien n'est monté et actif sur votre machine.
+</p>
+<ul><li> Pour le remonter, c'est assez simple&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> vgimport</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">vgimport &lt;mon_vg&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Puis activez le vg pour afficher les volumes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> vgchange</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">vgchange -ay &lt;mon_vg&gt;</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Scanner_les_nouveaux_volumes_LVM"><span class="mw-headline-number">3.7</span> Scanner les nouveaux volumes LVM</span></h2>
+<p>Vous pouvez vérifier qu'il y a un nouveau volume en scannant les PV&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pvscan</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pvscan</pre></div></div>
+</td></tr></table><br />
+<p>Les nouveaux voluments s'afficheront alors.
+</p>
+<h2><span class="mw-headline" id="Changement_de_disque"><span class="mw-headline-number">3.8</span> Changement de disque</span></h2>
+<p>Si vous avez un VG avec plusieurs disques dedans. L'un d'entre eux est défectueux et vous avez ajouté son remplaçant dans le VG. Il existe une solution à chaud permettant retirer le disque défectueux du VG sans perte de données&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pvmove</font>
+</td></tr>
+<tr>
+<td>
+<pre>pvmove /dev/&lt;mon_disque_defectueux&gt;
+</pre>
+</td></tr></table><br />
+<p>Il ne reste plus qu'à retirer le disque.
+</p>
+<h2><span class="mw-headline" id="Controler_la_visibilit.C3.A9_de_ses_volumes"><span class="mw-headline-number">3.9</span> Controler la visibilité de ses volumes</span></h2>
+<p>Vous pouvez désactiver la visibilité d'un volume comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvchange</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lvchange -an mon_lv</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez activer la visibilité d'un volume de cette façon&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvchange</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lvchange -ay mon_lv</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez forcer un lv à être accessible qu'en lecture&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvchange</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lvchange -pr mon_lv</pre></div></div>
+</td></tr></table><br />
+<p>Ou en écriture&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvchange</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lvchange -pw mon_lv</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Snapshot"><span class="mw-headline-number">3.10</span> Snapshot</span></h2>
+<h3><span class="mw-headline" id="Cr.C3.A9ation_d.27un_Snapshot"><span class="mw-headline-number">3.10.1</span> Création d'un Snapshot</span></h3>
+<p>Pour créer un snapshot d'un LV existant&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvcreate</font>
+</td></tr>
+<tr>
+<td>
+<pre>lvcreate -s -n datasnap -L +4G vgdata/lvdata
+</pre>
+</td></tr></table><br />
+<p>Ici je viens créer un Snapshot de 4G.
+</p>
+<h3><span class="mw-headline" id="Supprimer_le_snapshot"><span class="mw-headline-number">3.10.2</span> Supprimer le snapshot</span></h3>
+<p>Si je suis satisfait des mdoifications effectuées, je souhaites supprimer le snapshot:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvremove</font>
+</td></tr>
+<tr>
+<td>
+<pre>lvremove /dev/vgdata/datasnap
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Rollback_des_modifications"><span class="mw-headline-number">3.10.3</span> Rollback des modifications</span></h3>
+<p>Si je ne suis pas satisfait des modifications et souhaites faire un rollback depuis le snapshot, il va falloir démonter la partition et revert:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvconvert</font>
+</td></tr>
+<tr>
+<td>
+<pre>umount &lt;mountpoint&gt;
+lvconvert --merge -v vgdata/datasnap
+lvchange -an /dev/vgdata/data
+lvchange -ay /dev/vgdata/data
+mount /dev/vgdata/data &lt;mountpoint&gt;
+</pre>
+</td></tr></table><br />
+<p>L'ancienne partition sera remontée au bon endroit.
+</p>
+<h2><span class="mw-headline" id="Dumper_la_configuration"><span class="mw-headline-number">3.11</span> Dumper la configuration</span></h2>
+<p>Vous pouvez avoir besoin de dumper la configuration d'LVM. Pour ce faire, lancez ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; lvm dumpconfig
+  devices {
+  	dir=&quot;/dev&quot;
+  	scan=&quot;/dev&quot;
+  	obtain_device_list_from_udev=1
+  	preferred_names=[&quot;^/dev/mpath/&quot;, &quot;^/dev/mapper/mpath&quot;, &quot;^/dev/[hs]d&quot;]
+  	filter=&quot;a/.*/&quot;
+  	cache_dir=&quot;/etc/lvm/cache&quot;
+  	cache_file_prefix=&quot;&quot;
+  	write_cache_state=1
+  	sysfs_scan=1
+  	md_component_detection=1
+  	md_chunk_alignment=1
+  	data_alignment_detection=1
+  	data_alignment=0
+  	data_alignment_offset_detection=1
+  	ignore_suspended_devices=0
+  	disable_after_error_count=0
+  	require_restorefile_with_uuid=1
+  	pv_min_size=2048
+  	issue_discards=0
+  }
+  dmeventd {
+  	mirror_library=&quot;libdevmapper-event-lvm2mirror.so&quot;
+...</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Visualiser_les_locks"><span class="mw-headline-number">3.12</span> Visualiser les locks</span></h2>
+<p>Pour visualiser les locks actuels sur les LVM, utilisez cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> lvmdiskscan</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; lvmdiskscan
+  /dev/ram0  [      16,00 MiB] 
+  /dev/root  [       2,81 GiB] 
+  /dev/ram1  [      16,00 MiB] 
+  /dev/sda1  [     200,00 MiB] 
+  /dev/ram2  [      16,00 MiB] 
+  /dev/sda2  [    1000,00 MiB] 
+  /dev/ram3  [      16,00 MiB] 
+  /dev/sda3  [       2,83 GiB] LVM physical volume
+  ...
+  /dev/ram13 [      16,00 MiB] 
+  /dev/ram14 [      16,00 MiB] 
+  /dev/ram15 [      16,00 MiB] 
+  /dev/sdb   [       4,00 GiB] 
+  2 disks
+  18 partitions
+  0 LVM physical volume whole disks
+  1 LVM physical volume</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="FSCK_.C3.A0_chaud_sous_ext3.2F4"><span class="mw-headline-number">3.13</span> FSCK à chaud sous ext3/4</span></h2>
+<p>Vous en aviez rêver hein&#160;? Il est effectivement possible de faire du fsck à chaud grâce aux snapshots LVM. Voici un petit script qui permet de scanner tous les LV de type ext3 et ext4 et les dégragmenter (<i>Note&#160;: Il vous faut 10% d'espace libre par rapport au plus gros LV dans vos VG</i>)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> hot_fsck.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+<span class="co0"># Made by deimosfr</span>
+<span class="co0"># Inspired from https://www.redhat.com/archives/ext3-users/2008-January/msg00032.html</span>
+&#160;
+<span class="re2">EMAIL</span>=deimos<span class="sy0">@</span>deimos.fr
+&#160;
+<span class="co0"># Get line by line</span>
+<span class="re2">IFS</span>=$<span class="st_h">'\n'</span>
+&#160;
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="sy0">`</span>lvs <span class="re5">--unbuffered</span> <span class="re5">-o</span> lv_name,vg_name,lv_size,vg_free <span class="re5">--units</span> m <span class="re5">--noheadings</span> --nosuffix<span class="sy0">`</span>&#160;; <span class="kw1">do</span>
+	<span class="co0"># Get informations on the device</span>
+	<span class="re2">VOLUME</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$line</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print $1 }'</span><span class="sy0">`</span>
+	<span class="re2">VG</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$line</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print $2 }'</span><span class="sy0">`</span>
+	<span class="re2">LV_SIZE</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$line</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print $3 }'</span> <span class="sy0">|</span> <span class="kw2">sed</span> <span class="st_h">'s/\..*//g'</span><span class="sy0">`</span>
+	<span class="re2">VG_FREE_SIZE</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$line</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print $4 }'</span> <span class="sy0">|</span> <span class="kw2">sed</span> <span class="st_h">'s/\..*//g'</span><span class="sy0">`</span>
+	<span class="re2">SNAPSIZE</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$LV_SIZE</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ printf(&quot;%s\n&quot;), int($1*0.1) }'</span><span class="sy0">`</span>
+&#160;
+	<span class="co0"># Check if 10% of the LV size is free on the VG</span>
+	<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$SNAPSIZE</span> <span class="re5">-lt</span> <span class="re1">$VG_FREE_SIZE</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+		<span class="co0"># Check if it is ext3 or ext4</span>
+		<span class="re2">LV_DEV</span>=<span class="sy0">`</span><span class="kw3">echo</span> <span class="co1">${VOLUME}</span> <span class="sy0">|</span> <span class="kw2">sed</span> <span class="st_h">'s/\-/--/'</span><span class="sy0">`</span>
+		<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="sy0">`</span><span class="kw2">mount</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="sy0">/</span>dev<span class="sy0">/</span>mapper<span class="sy0">/</span><span class="co1">${VG}</span>-<span class="co1">${LV_DEV}</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-c</span> <span class="st0">&quot;ext[3-4]&quot;</span><span class="sy0">`</span> <span class="re5">-ge</span> <span class="nu0">1</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+		        <span class="kw3">echo</span> <span class="st0">&quot;Analyzing <span class="es3">${VG}</span>-<span class="es3">${VOLUME}</span>&quot;</span>
+		        <span class="re2">TMPFILE</span>=<span class="sy0">`</span><span class="kw2">mktemp</span> <span class="re5">-t</span> e2fsck_<span class="co1">${VG}</span>_<span class="co1">${VOLUME}</span>.log.XXXXXXXXXX<span class="sy0">`</span>
+		        <span class="re2">START</span>=$<span class="br0">&#40;</span><span class="kw2">date</span> +<span class="st_h">'%Y%m%d%H%M%S'</span><span class="br0">&#41;</span>
+&#160;
+		        <span class="co0"># Create snapshot</span>
+		        lvcreate <span class="re5">-s</span> <span class="re5">-L</span> <span class="co1">${SNAPSIZE}</span> <span class="re5">-n</span> <span class="st0">&quot;<span class="es3">${VOLUME}</span>-snap&quot;</span> <span class="st0">&quot;<span class="es3">${VG}</span>/<span class="es3">${VOLUME}</span>&quot;</span>
+		        <span class="kw1">if</span> <span class="kw2">nice</span> logsave <span class="re5">-as</span> <span class="re1">$TMPFILE</span> e2fsck <span class="re5">-p</span> <span class="re5">-C</span> <span class="nu0">0</span> <span class="st0">&quot;/dev/<span class="es3">${VG}</span>/<span class="es3">${VOLUME}</span>-snap&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="kw2">nice</span> logsave <span class="re5">-as</span> <span class="re1">$TMPFILE</span> e2fsck <span class="re5">-fy</span> <span class="re5">-C</span> <span class="nu0">0</span> <span class="st0">&quot;/dev/<span class="es3">${VG}</span>/<span class="es3">${VOLUME}</span>-snap&quot;</span>&#160;; <span class="kw1">then</span>
+		                <span class="co0"># Set to 0 the fsck counter</span>
+		                tune2fs <span class="re5">-C</span> <span class="nu0">0</span> <span class="re5">-T</span> <span class="st0">&quot;<span class="es3">${START}</span>&quot;</span> <span class="st0">&quot;/dev/<span class="es3">${VG}</span>/<span class="es3">${VOLUME}</span>&quot;</span>
+		        <span class="kw1">else</span>
+		                <span class="co0"># Set the fsck counter at max to fsck next time and send an email</span>
+		                tune2fs <span class="re5">-C</span> <span class="nu0">16000</span> <span class="re5">-T</span> <span class="st0">&quot;19000101&quot;</span> <span class="st0">&quot;/dev/<span class="es3">${VG}</span>/<span class="es3">${VOLUME}</span>&quot;</span>
+		                <span class="kw1">if</span> <span class="kw3">test</span> <span class="re5">-n</span> <span class="st0">&quot;EMAIL&quot;</span>; <span class="kw1">then</span>
+		                        mail <span class="re5">-s</span> <span class="st0">&quot;E2fsck of /dev/<span class="es3">${VG}</span>/<span class="es3">${VOLUME}</span> failed on host <span class="es5">`hostname`</span>&#160;!&quot;</span> <span class="re1">$EMAIL</span> <span class="sy0">&lt;</span> <span class="re1">$TMPFILE</span>
+		                <span class="kw1">fi</span>
+		        <span class="kw1">fi</span>
+&#160;
+		        <span class="co0"># Merge / Remove snapshot</span>
+		        lvremove <span class="re5">-f</span> <span class="st0">&quot;<span class="es3">${VG}</span>/<span class="es3">${VOLUME}</span>-snap&quot;</span>
+		        <span class="kw2">rm</span> <span class="re1">$TMPFILE</span>
+		<span class="kw1">fi</span>
+	<span class="kw1">fi</span>
+<span class="kw1">done</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Avoir_un_beau_GUI"><span class="mw-headline-number">4</span> Avoir un beau GUI</span></h1>
+<p>Bon, pour les connaisseurs de LVM et de Red Hat, vous connaissez certainement la commande <i>system-config-lvm</i>. Pour debian ça serait cool hein si on pouvaient l'avoir&#160;! Et bah bibi got the solution&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>sudo apt-get install python-gtk2 python-gtk-1.2 python-glade-1.2 python-glade2 python-gnome2
+wget http://download.fedora.redhat.com/pub/fedora/linux/core/updates/5/i386/system-config-lvm-1.0.18-1.2.FC5.noarch.rpm
+sudo alien system-config-lvm-1.0.18-1.2.FC5.noarch.rpm 
+sudo dpkg -i system-config-lvm_1.0.18-2.2_all.deb
+sudo ln -s /usr/bin/python2.4 /usr/bin/python2 
+</pre>
+</td></tr></table><br />
+<p>Ya plus qu'a lancer et faire "ouaaaaaaa"&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> system-config-lvm</font>
+</td></tr>
+<tr>
+<td>
+<pre>system-config-lvm
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="J.27ai_un_conflit_d.27UUID"><span class="mw-headline-number">5.1</span> J'ai un conflit d'UUID</span></h2>
+<p>Si vous avez la malchance de tomber sur un conflit d'UUID, vous pouvez en régénérer via la commande suivante&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> uuidgen</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">uuidgen</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p><a href="./File:Lvm.pdf.html" title="File:Lvm.pdf">Técharger la documentation LVM</a><br />
+<a href="./File:Lvm_beginner.pdf.html" title="File:Lvm beginner.pdf">Doccumentation for beginner</a><br />
+<a href="./File:LVM_Snapshots.pdf.html" title="File:LVM Snapshots.pdf">Documentation on LVM Snapshots</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.096 seconds
+Real time usage: 0.095 seconds
+Preprocessor visited node count: 672/1000000
+Preprocessor generated node count: 1926/1000000
+Post‐expand include size: 8218/2097152 bytes
+Template argument size: 2662/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   28.942      1 - -total
+ 39.62%   11.467      2 - Template:Config
+ 35.54%   10.287     37 - Template:Command
+  6.09%    1.764      5 - Template:Array_2col_cl
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2307-0!*!*!1!en!5!* and timestamp 20181111230638 and revision id 13434
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=LVM_:_Utilisation_des_LVM&amp;oldid=13434">https://wiki.deimos.fr/index.php?title=LVM_:_Utilisation_des_LVM&amp;oldid=13434</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=LVM+%3A+Utilisation+des+LVM" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./LVM_:_Utilisation_des_LVM.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./LVM_:_Utilisation_des_LVM.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./LVM_:_Utilisation_des_LVM.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=LVM_:_Utilisation_des_LVM&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=LVM_:_Utilisation_des_LVM&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./LVM_:_Utilisation_des_LVM.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/LVM_:_Utilisation_des_LVM.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/LVM_:_Utilisation_des_LVM" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=LVM_:_Utilisation_des_LVM&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=LVM_:_Utilisation_des_LVM&amp;oldid=13434" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=LVM_:_Utilisation_des_LVM&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 September 2014, at 11:24.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

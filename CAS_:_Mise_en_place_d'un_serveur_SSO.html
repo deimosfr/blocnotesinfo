@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>CAS : Mise en place d'un serveur SSO - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"CAS_:_Mise_en_place_d'un_serveur_SSO","wgTitle":"CAS : Mise en place d'un serveur SSO","wgCurRevisionId":8074,"wgRevisionId":8074,"wgArticleId":2989,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"CAS_:_Mise_en_place_d'un_serveur_SSO","wgRelevantArticleId":2989,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-xml {line-height: normal;}
+.source-xml li, .source-xml pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for xml
+ * CSS class: source-xml, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.xml.source-xml .de1, .xml.source-xml .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.xml.source-xml  {font-family:monospace;}
+.xml.source-xml .imp {font-weight: bold; color: red;}
+.xml.source-xml li, .xml.source-xml .li1 {font-weight: normal; vertical-align:top;}
+.xml.source-xml .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.xml.source-xml .li2 {font-weight: bold; vertical-align:top;}
+.xml.source-xml .es0 {color: #000099; font-weight: bold;}
+.xml.source-xml .br0 {color: #66cc66;}
+.xml.source-xml .sy0 {color: #66cc66;}
+.xml.source-xml .st0 {color: #ff0000;}
+.xml.source-xml .nu0 {color: #cc66cc;}
+.xml.source-xml .sc-1 {color: #808080; font-style: italic;}
+.xml.source-xml .sc0 {color: #00bbdd;}
+.xml.source-xml .sc1 {color: #ddbb00;}
+.xml.source-xml .sc2 {color: #339933;}
+.xml.source-xml .sc3 {color: #009900;}
+.xml.source-xml .re0 {color: #000066;}
+.xml.source-xml .re1 {color: #000000; font-weight: bold;}
+.xml.source-xml .re2 {color: #000000; font-weight: bold;}
+.xml.source-xml .ln-xtra, .xml.source-xml li.ln-xtra, .xml.source-xml div.ln-xtra {background-color: #ffc;}
+.xml.source-xml span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-CAS_Mise_en_place_d_un_serveur_SSO skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">CAS : Mise en place d'un serveur SSO</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#mw-navigation">navigation</a>, 					<a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#Purpose"><span class="tocnumber">2</span> <span class="toctext">Purpose</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#Tomcat_installation_.26_configuration"><span class="tocnumber">3.1</span> <span class="toctext">Tomcat installation &amp; configuration</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#JA-SIG_Webapp_configuration_.26_compilation"><span class="tocnumber">3.2</span> <span class="toctext">JA-SIG Webapp configuration &amp; compilation</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#JA-SIG_Webapp_installation_.26_tests"><span class="tocnumber">3.3</span> <span class="toctext">JA-SIG Webapp installation &amp; tests</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#CASification_of_the_Applications"><span class="tocnumber">4</span> <span class="toctext">CASification of the Applications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#Confluence_.26_Jira"><span class="tocnumber">4.1</span> <span class="toctext">Confluence &amp; Jira</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#Confluence"><span class="tocnumber">4.1.1</span> <span class="toctext">Confluence</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#Jira"><span class="tocnumber">4.1.2</span> <span class="toctext">Jira</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://en.wikipedia.org/wiki/Single_sign_on">Single sign-on (SSO)</a> is a property of access control of multiple, related, but independent software systems. With this property a user logs in once and gains access to all systems without being prompted to log in again at each of them. Single sign-off is the reverse property whereby a single action of signing out terminates access to multiple software systems.
+</p><p>As different applications and resources support different authentication mechanisms, single sign-on has to internally translate to and store different credentials compared to what is used for initial authentication.
+</p>
+<h1><span class="mw-headline" id="Purpose"><span class="mw-headline-number">2</span> Purpose</span></h1>
+<p>In order to avoid users to sign on for each application, we want to have them to authenticate on a dedicated application. Then, each time the user will go on an other application, this application will ask to the authentication application is the user is already authenticated and permitted to use this application.
+</p><p>The product chosen for this purpose is <a rel="nofollow" class="external text" href="http://www.jasig.org/">JAS-SIG CAS</a>. It's widely used various environments, from big universities to SME or Big companies such as Valtech, Smile or CGG Veritas.
+</p><p>The 2 main apllications currently used in my company (confluence &amp; jira) have already been "CASified" by other people and the way to do it is well documented. For the other applications, there are several client libraries developped. These libraries must be integrated and used in the various applications. The difficulty of this depends on the application's source availbility, how clear the sources are and what knowledge admins and/or developpers have of the application. Succesfull CASificication of some applications will be described on this page.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Tomcat_installation_.26_configuration"><span class="mw-headline-number">3.1</span> Tomcat installation &amp; configuration</span></h2>
+<p>You need a tomcat server, preferably installed on a debian system (but it can really be any kind of system).
+</p><p>So, install a basic debian server environment.
+</p><p>Install sun java 5 or 6 (it doesn't really matter)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install sun-java6-jdk sun-java6-fonts
+</pre>
+</td></tr></table><br />
+<p>Install tomcat (release 5.5 actually).<br />
+To avoid problems, you'll need to edit /etc/default/tomcat5.5 and uncomment the line which defines TOMCAT5_SECURITY. By default, this variable is set to "yes". Set it to "no".
+</p><p>You'll also need to  have SSL enabled on your tomcat. For this, follow the instructions given on this page (just change the validity lenght from 365 to 3652)&#160;:<br />
+<a rel="nofollow" class="external free" href="http://blogs.dfwikilabs.org/pigui/2007/12/10/configuring-tomcat-55-for-ssl-using-openssl/">http://blogs.dfwikilabs.org/pigui/2007/12/10/configuring-tomcat-55-for-ssl-using-openssl/</a><br />
+<a rel="nofollow" class="external free" href="http://tomcat.apache.org/tomcat-5.5-doc/ssl-howto.html">http://tomcat.apache.org/tomcat-5.5-doc/ssl-howto.html</a>
+</p><p>You'll have to use the certificate on the various clients. I'll remind you this when needed.
+</p>
+<h2><span class="mw-headline" id="JA-SIG_Webapp_configuration_.26_compilation"><span class="mw-headline-number">3.2</span> JA-SIG Webapp configuration &amp; compilation</span></h2>
+<p>You have to download and compile the cas web application (the cas server by itself). For this you'll need to you maven. For convenience and clarity, do the following operation on a development server. You don't have to install and compile on the production server.
+</p><p>Install maven2&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install maven2
+</pre>
+</td></tr></table><br />
+<p>If your system is not debian lenny, just help yourself.
+</p><p>Download the tar file from ja-sig website (<a rel="nofollow" class="external free" href="http://www.jasig.org/cas/download">http://www.jasig.org/cas/download</a>) .
+</p><p>Untar the file where you want.
+</p>
+<ul><li> Change to the directory you've just untared and edit the file pom.xml</li></ul>
+<p>At the end of the dependencies element, add this&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> pox.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1"><span class="sc3"><span class="re1">&lt;dependency<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;groupId<span class="re2">&gt;</span></span></span>${project.groupId}<span class="sc3"><span class="re1">&lt;/groupId<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;artifactId<span class="re2">&gt;</span></span></span>cas-server-support-ldap<span class="sc3"><span class="re1">&lt;/artifactId<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;version<span class="re2">&gt;</span></span></span>${project.version}<span class="sc3"><span class="re1">&lt;/version<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/dependency<span class="re2">&gt;</span></span></span></pre></div></div>
+</td></tr></table><br />
+<ul><li> A few lines below, comment out the line </li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> pox.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1">               <span class="sc-1">&lt;!--</span>
+<span class="sc-1">                &lt;module&gt;cas-server-support-ldap&lt;/module&gt;</span>
+<span class="sc-1">                --&gt;</span></pre></div></div>
+</td></tr></table><br />
+<ul><li> Save the file and exit your editor</li>
+<li> Then change directory to cas-server-webapp/src/main/webapp/WEB-INF and edit the file deployerConfigContext.xml</li>
+<li> Find the string "SimpleTestUsernamePassword". Comment out this bean and add a new bean for the ldap authentication. You should have this&#160;:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> deployerConfigContext.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1"><span class="sc-1">&lt;!--</span>
+<span class="sc-1">    &lt;bean class=&quot;org.jasig.cas.authentication.handler.support.SimpleTestUsernamePasswordAuthenticationHandler&quot; /&gt;</span>
+<span class="sc-1">--&gt;</span>
+    <span class="sc3"><span class="re1">&lt;bean</span> <span class="re0">class</span>=<span class="st0">&quot;org.jasig.cas.adaptors.ldap.BindLdapAuthenticationHandler&quot;</span><span class="re2">&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;property</span> <span class="re0">name</span>=<span class="st0">&quot;filter&quot;</span> <span class="re0">value</span>=<span class="st0">&quot;uid=%u&quot;</span> <span class="re2">/&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;property</span> <span class="re0">name</span>=<span class="st0">&quot;searchBase&quot;</span> <span class="re0">value</span>=<span class="st0">&quot;dc=openldap,dc=mycompany,dc=lan&quot;</span> <span class="re2">/&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;property</span> <span class="re0">name</span>=<span class="st0">&quot;contextSource&quot;</span> <span class="re0">ref</span>=<span class="st0">&quot;contextSource&quot;</span> <span class="re2">/&gt;</span></span>
+    <span class="sc3"><span class="re1">&lt;/bean<span class="re2">&gt;</span></span></span></pre></div></div>
+</td></tr></table><br />
+<ul><li> In the same file, go to the end and before the &lt;/beans&gt;, add this new bean declaration&#160;:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> deployerConfigContext.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1">      <span class="sc3"><span class="re1">&lt;bean</span> <span class="re0">id</span>=<span class="st0">&quot;contextSource&quot;</span> <span class="re0">class</span>=<span class="st0">&quot;org.springframework.ldap.core.support.LdapContextSource&quot;</span><span class="re2">&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;property</span> <span class="re0">name</span>=<span class="st0">&quot;anonymousReadOnly&quot;</span> <span class="re0">value</span>=<span class="st0">&quot;false&quot;</span> <span class="re2">/&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;property</span> <span class="re0">name</span>=<span class="st0">&quot;pooled&quot;</span> <span class="re0">value</span>=<span class="st0">&quot;true&quot;</span> <span class="re2">/&gt;</span></span>
+                <span class="sc3"><span class="re1">&lt;property</span> <span class="re0">name</span>=<span class="st0">&quot;urls&quot;</span><span class="re2">&gt;</span></span>
+                        <span class="sc3"><span class="re1">&lt;list<span class="re2">&gt;</span></span></span>
+                                <span class="sc3"><span class="re1">&lt;value<span class="re2">&gt;</span></span></span>ldap://tasmania/<span class="sc3"><span class="re1">&lt;/value<span class="re2">&gt;</span></span></span>
+                                <span class="sc3"><span class="re1">&lt;value<span class="re2">&gt;</span></span></span>ldap://star1/<span class="sc3"><span class="re1">&lt;/value<span class="re2">&gt;</span></span></span>
+                        <span class="sc3"><span class="re1">&lt;/list<span class="re2">&gt;</span></span></span>
+                <span class="sc3"><span class="re1">&lt;/property<span class="re2">&gt;</span></span></span>
+                <span class="sc-1">&lt;!-- uncomment the following lines if you nead to bind to the directory. Adjust to your needs.</span>
+<span class="sc-1">                &lt;property name=&quot;password&quot; value=&quot;{password_goes_here}&quot; /&gt;</span>
+<span class="sc-1">                &lt;property name=&quot;userName&quot; value=&quot;{username_goes_here}&quot; /&gt;</span>
+<span class="sc-1">                &lt;property name=&quot;baseEnvironmentProperties&quot;&gt;</span>
+<span class="sc-1">                        &lt;map&gt;</span>
+<span class="sc-1">                                &lt;entry&gt;</span>
+<span class="sc-1">                                        &lt;key&gt;&lt;value&gt;java.naming.security.protocol&lt;/value&gt;&lt;/key&gt;</span>
+<span class="sc-1">                                        &lt;value&gt;ssl&lt;/value&gt;</span>
+<span class="sc-1">                                &lt;/entry&gt;</span>
+<span class="sc-1">                                &lt;entry&gt;</span>
+<span class="sc-1">                                        &lt;key&gt;&lt;value&gt;java.naming.security.authentication&lt;/value&gt;&lt;/key&gt;</span>
+<span class="sc-1">                                        &lt;value&gt;simple&lt;/value&gt;</span>
+<span class="sc-1">                                &lt;/entry&gt;</span>
+<span class="sc-1">                        &lt;/map&gt;</span>
+<span class="sc-1">                &lt;/property&gt;</span>
+<span class="sc-1">                --&gt;</span>
+        <span class="sc3"><span class="re1">&lt;/bean<span class="re2">&gt;</span></span></span></pre></div></div>
+</td></tr></table><br />
+<ul><li> Save the file and exit your editor</li>
+<li> Go back to the top directory (the one you untared the initial file) and compile the whole stuff with maven&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mvn</font>
+</td></tr>
+<tr>
+<td>
+<pre>mvn -Dmaven.test.skip=true package install
+</pre>
+</td></tr></table><br />
+<p>If the compilation succeeded, you have a cas.war file in $TOPDIR/cas-server-webapp/target.
+</p>
+<h2><span class="mw-headline" id="JA-SIG_Webapp_installation_.26_tests"><span class="mw-headline-number">3.3</span> JA-SIG Webapp installation &amp; tests</span></h2>
+<p>Copy the war file to the webapps directory (/var/lib/tomcat5.5/webapss) of your tomcat server.
+</p><p>Once the file has been copied, eventually restart tomcat. Then, if every thing is ok, you shod be able to access 
+</p><p><a rel="nofollow" class="external free" href="http://ServerName:8180/cas/login">http://ServerName:8180/cas/login</a> and login with your regular account &amp; password
+</p><p>You should also be able to use the ssl connection&#160;:
+</p>
+<pre><a rel="nofollow" class="external free" href="https://ServerName:8443/cas/login">https://ServerName:8443/cas/login</a>
+</pre>
+<p>To reset the test, you have to remove the cookies from your browser (Oputils/effacer mes traces, uncheck every thing but the stuff related to cookies).
+</p><p>Well, if you successfully accessed the pages above, you can now configure your various applications to use the CAS server.
+</p>
+<h1><span class="mw-headline" id="CASification_of_the_Applications"><span class="mw-headline-number">4</span> CASification of the Applications</span></h1>
+<p>Now you have a working CAS server. You'll have to integrate CAS to your various applications. It can be done more or less simply, depending of the application and of the programming language and/or environment used for these applications.
+</p><p>However, there are some common things to take care of, specially about your cas server's certificate. Most applications  require to have this certificate trusted/approved/recognized. That means you must declare this certificate in some way.
+Tomcat webapps &amp; certificate.
+</p><p>For webapps applications such as jira or confluence, you need to add your cas server's certificate to the certificate repository of the jvm used by your tomcat server.
+</p><p>To do so, first find the JVM used by tomcat. For debian based system It may be the global jvm in /usr/lib/jvm. For jira &amp; confluence, the jvm is embedded with the packages. If you jira is in /home/jira, the jvm used might also under this directory.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> keytool</font>
+</td></tr>
+<tr>
+<td>
+<pre>keytool -import -alias cas -file YourCASServerCertificate.pem -keystore $JAVA_HOME/jre/lib/security/cacerts
+</pre>
+</td></tr></table><br />
+<p>The default password for the jre certificate store is "changeit" ...
+</p>
+<h2><span class="mw-headline" id="Confluence_.26_Jira"><span class="mw-headline-number">4.1</span> Confluence &amp; Jira</span></h2>
+<p>These 2 softwares are provided by the same company and use the same technologies. So their configuration to use CAS is almost identical. You could use 2 different configurations&#160;:<br />
+<a rel="nofollow" class="external free" href="http://www.soulwing.org/">http://www.soulwing.org/</a><br />
+<a rel="nofollow" class="external free" href="http://www.ja-sig.org/wiki/display/CASC/Configuring+Confluence+with+JASIG+CAS+Client+for+Java+3.1">http://www.ja-sig.org/wiki/display/CASC/Configuring+Confluence+with+JASIG+CAS+Client+for+Java+3.1</a><br />
+</p><p>The configuration used in my company is based on the last one. Actually, some modifications were needed for the Single Sign On AND the Singel Sign Out work correctly. Here are the configurations...
+</p>
+<h3><span class="mw-headline" id="Confluence"><span class="mw-headline-number">4.1.1</span> Confluence</span></h3>
+<p>First, add the CAS server's certificate in the jvm keystore as describe above.
+</p><p>Go to the directory $CONFLUENCE_HOME/confluence/WEB-INF
+</p><p>edit the file classes/seraph-config.xml and modify the value of "parameter" for login.url, link.login.url, logout.url to use the cas server. Replace the authenticator class with the jasig cas. You should finally have something like this&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> seraph-config.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1"><span class="sc3"><span class="re1">&lt;security-config<span class="re2">&gt;</span></span></span>
+ <span class="sc3"><span class="re1">&lt;parameters<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>login.url<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>https://deb-cas:8443/cas/login?service=${originalurl}<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>link.login.url<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>https://deb-cas:8443/cas/login?service=http://192.168.0.234:18080/<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>logout.url<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>https://deb-cas:8443/cas/logout<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>cookie.encoding<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>cNf<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>login.cookie.key<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>seraph.confluence<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+&#160;
+  <span class="sc3">&lt;\!--only basic authentication available--<span class="re2">&gt;</span></span>
+  <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>authentication.type<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>os_authType<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+ <span class="sc3"><span class="re1">&lt;/parameters<span class="re2">&gt;</span></span></span>
+&#160;
+ <span class="sc3"><span class="re1">&lt;rolemapper</span> <span class="re0">class</span>=<span class="st0">&quot;com.atlassian.confluence.security.ConfluenceRoleMapper&quot;</span><span class="re2">/&gt;</span></span>
+ <span class="sc3"><span class="re1">&lt;controller</span> <span class="re0">class</span>=<span class="st0">&quot;com.atlassian.confluence.setup.seraph.ConfluenceSecurityController&quot;</span><span class="re2">/&gt;</span></span>
+ <span class="sc3"><span class="re1">&lt;authenticator</span> <span class="re0">class</span>=<span class="st0">&quot;org.jasig.cas.client.integration.atlassian.ConfluenceCasAuthenticator&quot;</span><span class="re2">/&gt;</span></span>
+&#160;
+ <span class="sc3"><span class="re1">&lt;services<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;service</span> <span class="re0">class</span>=<span class="st0">&quot;com.atlassian.seraph.service.PathService&quot;</span><span class="re2">&gt;</span></span>
+   <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>config.file<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>seraph-paths.xml<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+   <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;/service<span class="re2">&gt;</span></span></span>
+ <span class="sc3"><span class="re1">&lt;/services<span class="re2">&gt;</span></span></span>
+&#160;
+ <span class="sc3"><span class="re1">&lt;interceptors<span class="re2">&gt;</span></span></span>
+  <span class="sc3"><span class="re1">&lt;interceptor</span> <span class="re0">name</span>=<span class="st0">&quot;login-logger&quot;</span> <span class="re0">class</span>=<span class="st0">&quot;com.atlassian.confluence.user.ConfluenceLoginInterceptor&quot;</span><span class="re2">/&gt;</span></span>
+ <span class="sc3"><span class="re1">&lt;/interceptors<span class="re2">&gt;</span></span></span>
+<span class="sc3"><span class="re1">&lt;/security-config<span class="re2">&gt;</span></span></span></pre></div></div>
+</td></tr></table><br />
+<p>Next, edit the file web.xml and add the following lines after the 2 context-param tokens&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> web.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1"><span class="sc-1">&lt;!-- CAS Java Client --&gt;</span>
+    <span class="sc3"><span class="re1">&lt;filter<span class="re2">&gt;</span></span></span>
+       <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CAS Single Sign Out Filter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+       <span class="sc3"><span class="re1">&lt;filter-class<span class="re2">&gt;</span></span></span>org.jasig.cas.client.session.SingleSignOutFilter<span class="sc3"><span class="re1">&lt;/filter-class<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;filter<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CAS Authentication Filter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-class<span class="re2">&gt;</span></span></span>org.jasig.cas.client.authentication.AuthenticationFilter<span class="sc3"><span class="re1">&lt;/filter-class<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+                <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>casServerLoginUrl<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+                <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>https://deb-cas:8443/cas/login<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+                <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>validateUrl<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+                <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>https://deb-cas:8443/cas/serviceValidate<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+                <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>serverName<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+                <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>http://192.168.0.234:18080<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;filter<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CasValidationFilter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-class<span class="re2">&gt;</span></span></span>org.jasig.cas.client.validation.Cas20ProxyReceivingTicketValidationFilter<span class="sc3"><span class="re1">&lt;/filter-class<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+            <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>casServerUrlPrefix<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+            <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>https://deb-cas:8443/cas<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+            <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>serverName<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+            <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>http://192.168.0.234:18080<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;init-param<span class="re2">&gt;</span></span></span>
+            <span class="sc3"><span class="re1">&lt;param-name<span class="re2">&gt;</span></span></span>redirectAfterValidation<span class="sc3"><span class="re1">&lt;/param-name<span class="re2">&gt;</span></span></span>
+            <span class="sc3"><span class="re1">&lt;param-value<span class="re2">&gt;</span></span></span>true<span class="sc3"><span class="re1">&lt;/param-value<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;/init-param<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;filter<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CAS HttpServletRequest Wrapper Filter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-class<span class="re2">&gt;</span></span></span>org.jasig.cas.client.util.HttpServletRequestWrapperFilter<span class="sc3"><span class="re1">&lt;/filter-class<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;filter-mapping<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CAS Single Sign Out Filter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;url-pattern<span class="re2">&gt;</span></span></span>/*<span class="sc3"><span class="re1">&lt;/url-pattern<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter-mapping<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;filter-mapping<span class="re2">&gt;</span></span></span>
+      <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CAS Authentication Filter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+      <span class="sc3"><span class="re1">&lt;url-pattern<span class="re2">&gt;</span></span></span>/*<span class="sc3"><span class="re1">&lt;/url-pattern<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter-mapping<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;filter-mapping<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CasValidationFilter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;url-pattern<span class="re2">&gt;</span></span></span>/*<span class="sc3"><span class="re1">&lt;/url-pattern<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter-mapping<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;filter-mapping<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;filter-name<span class="re2">&gt;</span></span></span>CAS HttpServletRequest Wrapper Filter<span class="sc3"><span class="re1">&lt;/filter-name<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;url-pattern<span class="re2">&gt;</span></span></span>/*<span class="sc3"><span class="re1">&lt;/url-pattern<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/filter-mapping<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc3"><span class="re1">&lt;listener<span class="re2">&gt;</span></span></span>
+       <span class="sc3"><span class="re1">&lt;listener-class<span class="re2">&gt;</span></span></span>org.jasig.cas.client.session.SingleSignOutHttpSessionListener<span class="sc3"><span class="re1">&lt;/listener-class<span class="re2">&gt;</span></span></span>
+    <span class="sc3"><span class="re1">&lt;/listener<span class="re2">&gt;</span></span></span>
+&#160;
+    <span class="sc-1">&lt;!-- End Of CAS Configuration --&gt;</span></pre></div></div>
+</td></tr></table><br />
+<p>Finally, locate and edit the file classes/xwork.xml and modify ther redirect parameter in the action.logout item. If you can't locate the file xwork.xml, just unpack it from lib/confluence-*.jar. You can unpack it with the unzip utility...
+</p><p>You should have something like this&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> xwork.xml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="xml source-xml"><pre class="de1">         <span class="sc3"><span class="re1">&lt;action</span> <span class="re0">name</span>=<span class="st0">&quot;logout&quot;</span> <span class="re0">class</span>=<span class="st0">&quot;com.atlassian.confluence.user.actions.LogoutAction&quot;</span><span class="re2">&gt;</span></span>
+            <span class="sc3"><span class="re1">&lt;interceptor-ref</span> <span class="re0">name</span>=<span class="st0">&quot;defaultStack&quot;</span><span class="re2">/&gt;</span></span>
+            <span class="sc3"><span class="re1">&lt;result</span> <span class="re0">name</span>=<span class="st0">&quot;error&quot;</span> <span class="re0">type</span>=<span class="st0">&quot;velocity&quot;</span><span class="re2">&gt;</span></span>/logout.vm<span class="sc3"><span class="re1">&lt;/result<span class="re2">&gt;</span></span></span>
+            <span class="sc3"><span class="re1">&lt;result</span> <span class="re0">name</span>=<span class="st0">&quot;success&quot;</span> <span class="re0">type</span>=<span class="st0">&quot;redirect&quot;</span><span class="re2">&gt;</span></span>https://deb-cas:8443/cas/logout<span class="sc3"><span class="re1">&lt;/result<span class="re2">&gt;</span></span></span>
+        <span class="sc3"><span class="re1">&lt;/action<span class="re2">&gt;</span></span></span></pre></div></div>
+</td></tr></table><br />
+<p>Now, you can restart your confluence server. You should be able to login through CAS SSO.
+</p>
+<h3><span class="mw-headline" id="Jira"><span class="mw-headline-number">4.1.2</span> Jira</span></h3>
+<p>Just proceed as for confluence. In classes/seraph-config.xml, replace Confluence by Jira in the class name org.jasig.cas.client.integration.atlassian.ConfluenceCasAuthenticator
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.044 seconds
+Real time usage: 0.044 seconds
+Preprocessor visited node count: 210/1000000
+Preprocessor generated node count: 588/1000000
+Post‐expand include size: 2388/2097152 bytes
+Template argument size: 748/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   14.912      1 - -total
+ 81.77%   12.194      7 - Template:Config
+ 10.04%    1.498      4 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2989-0!*!*!1!en!5!* and timestamp 20181111230655 and revision id 8074
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=CAS_:_Mise_en_place_d%27un_serveur_SSO&amp;oldid=8074">https://wiki.deimos.fr/index.php?title=CAS_:_Mise_en_place_d%27un_serveur_SSO&amp;oldid=8074</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=CAS+%3A+Mise+en+place+d%27un+serveur+SSO" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=CAS_:_Mise_en_place_d%27un_serveur_SSO&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=CAS_:_Mise_en_place_d%27un_serveur_SSO&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./CAS_:_Mise_en_place_d'un_serveur_SSO.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/CAS_:_Mise_en_place_d'un_serveur_SSO.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/CAS_:_Mise_en_place_d%27un_serveur_SSO" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=CAS_:_Mise_en_place_d%27un_serveur_SSO&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=CAS_:_Mise_en_place_d%27un_serveur_SSO&amp;oldid=8074" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=CAS_:_Mise_en_place_d%27un_serveur_SSO&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 8 October 2009, at 16:59.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

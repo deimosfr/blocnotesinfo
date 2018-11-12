@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Gestion des packages Solaris - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Gestion_des_packages_Solaris.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Gestion_des_packages_Solaris","wgTitle":"Gestion des packages Solaris","wgCurRevisionId":10381,"wgRevisionId":10381,"wgArticleId":1731,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Gestion_des_packages_Solaris","wgRelevantArticleId":1731,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Gestion_des_packages_Solaris skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Gestion des packages Solaris</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Gestion_des_packages_Solaris.html#mw-navigation">navigation</a>, 					<a href="Gestion_des_packages_Solaris.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Gestion_des_packages_Solaris.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Gestion_des_packages_Solaris.html#Localisations"><span class="tocnumber">2</span> <span class="toctext">Localisations</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Gestion_des_packages_Solaris.html#Identification"><span class="tocnumber">3</span> <span class="toctext">Identification</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Gestion_des_packages_Solaris.html#Les_Outils"><span class="tocnumber">4</span> <span class="toctext">Les Outils</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Gestion_des_packages_Solaris.html#pkgtrans"><span class="tocnumber">4.1</span> <span class="toctext">pkgtrans</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Gestion_des_packages_Solaris.html#pkginfo"><span class="tocnumber">4.2</span> <span class="toctext">pkginfo</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Gestion_des_packages_Solaris.html#pkgadd"><span class="tocnumber">4.3</span> <span class="toctext">pkgadd</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="Gestion_des_packages_Solaris.html#Spool"><span class="tocnumber">4.3.1</span> <span class="toctext">Spool</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="Gestion_des_packages_Solaris.html#pkgchk"><span class="tocnumber">4.4</span> <span class="toctext">pkgchk</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Gestion_des_packages_Solaris.html#pkgrm"><span class="tocnumber">4.5</span> <span class="toctext">pkgrm</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="Gestion_des_packages_Solaris.html#Spool_2"><span class="tocnumber">4.5.1</span> <span class="toctext">Spool</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="Gestion_des_packages_Solaris.html#pkgtrans_2"><span class="tocnumber">4.6</span> <span class="toctext">pkgtrans</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Gestion_des_packages_Solaris.html#prodreg"><span class="tocnumber">4.7</span> <span class="toctext">prodreg</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Gestion_des_packages_Solaris.html#Emplacements_des_packages"><span class="tocnumber">5</span> <span class="toctext">Emplacements des packages</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Les packages sont comme sous toutes les distributions, un moyen simple d'installer un logiciel. Nous allons voir ici toutes les façons de gérer ces packages.
+</p>
+<h1><span class="mw-headline" id="Localisations"><span class="mw-headline-number">2</span> Localisations</span></h1>
+<p>Pour savoir ce qui est installé sur votre système, il suffit de regarder dans le fichier /var/sadm/install/contents&#160;:
+</p>
+<pre>more /var/sadm/install/contents
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">(output edited for brevity)
+/bin=./usr/bin s none SUNWcsr
+/dev d none 0755 root sys SUNWcsr SUNWcsd
+/dev/allkmem=../devices/pseudo/mm@0:allkmem s none SUNWcsd
+/dev/arp=../devices/pseudo/arp@0:arp s none SUNWcsd
+/etc/ftpd/ftpusers e ftpusers 0644 root sys 198 16387 1094222536 SUNWftpr
+/etc/passwd e passwd 0644 root sys 580 48298 1094222123 SUNWcsr</pre></div></div>
+<p>Pour trouver ou un logiciel est installé sur le système vous pouvez également faire comme ceci&#160;:
+</p>
+<pre>pkgchk -l -P showrev
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Pathname: /usr/bin/showrev
+Type: regular file
+Expected mode: 0755
+Expected owner: root
+Expected group: sys
+Expected file size (bytes): 29980
+Expected sum(1) of contents: 57864
+Expected last modification: Dec 14 06:17:58 AM 2004
+Referenced by the following packages:
+        SUNWadmc       
+Current status: installed
+&#160;
+Pathname: /usr/share/man/man1m/showrev.1m
+Type: regular file
+Expected mode: 0644
+Expected owner: root
+Expected group: root
+Expected file size (bytes): 3507
+Expected sum(1) of contents: 35841
+Expected last modification: Dec 10 10:42:54 PM 2004
+Referenced by the following packages:
+        SUNWman        
+Current status: installed</pre></div></div>
+<h1><span class="mw-headline" id="Identification"><span class="mw-headline-number">3</span> Identification</span></h1>
+<p>Lorsque vous avez téléchargé un package et que vous voulez par exemple vérifier si c'est pour sparc ou x86, voici ce qu'il faut faire&#160;:
+</p><p>On vérifie que c'est bien un package&#160;:
+</p>
+<pre>file SUNWrsc.pkg
+</pre>
+<pre>SUNWrsc.pkg:	package datastream
+</pre>
+<p>Ensuite on affiche le head du package&#160;:
+</p>
+<pre>head SUNWrsc.pkg
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># PaCkAgE DaTaStReAm
+SUNWrsc 1 3266
+# end of header
+SUNW_PRODVERS=2.2.1
+SUNW_PKGVERS=1.0
+PKG=SUNWrsc
+NAME=Remote System Control
+DESC=Sun Remote System Control system software
+ARCH=sparc
+VENDOR=Sun Microsystems, Inc.</pre></div></div>
+<h1><span class="mw-headline" id="Les_Outils"><span class="mw-headline-number">4</span> Les Outils</span></h1>
+<table border="1" width="100%">
+<tr>
+<th>Outils
+</th>
+<th>Descriptions
+</th></tr>
+<tr>
+<td>pkgtrans
+</td>
+<td>Transformer les packages d'un format à un autre
+</td></tr>
+<tr>
+<td>pkgadd
+</td>
+<td>Installer un package du système
+</td></tr>
+<tr>
+<td>pkgrm
+</td>
+<td>Supprimer un package du système
+</td></tr>
+<tr>
+<td>pkginfo
+</td>
+<td>Affiche les informations sur un package
+</td></tr>
+<tr>
+<td>pkgchk
+</td>
+<td>Vérifie l'état d'installation d'un package
+</td></tr></table>
+<h2><span class="mw-headline" id="pkgtrans"><span class="mw-headline-number">4.1</span> pkgtrans</span></h2>
+<p>Ceci va transformer le package système dans le format "data stream"&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkgtrans</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pkgtrans /var/tmp /tmp/SUNWrsc.pkg SUNWrsc</pre></div></div>
+</td></tr></table><br />
+<p>Vous obtiendrez un pkg. Si vous souhaitez faire l'inverse&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkgtrans</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pkgtrans SUNWrsc.pkg .</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="pkginfo"><span class="mw-headline-number">4.2</span> pkginfo</span></h2>
+<p>Voici un exemple&#160;:
+</p>
+<pre>pkginfo -l SUNWman
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">   PKGINST:  SUNWman
+      NAME:  On-Line Manual Pages
+  CATEGORY:  system
+      ARCH:  sparc
+   VERSION:  43.0,REV=67.0
+   BASEDIR:  /usr
+    VENDOR:  Sun Microsystems, Inc.
+      DESC:  System Reference Manual Pages
+    PSTAMP:  2004.09.01.17.00
+  INSTDATE:  Sep 24 2004 12:32
+   HOTLINE:  Please contact your local service provider
+    STATUS:  completely installed
+     FILES:    11383 installed pathnames
+                   8 shared pathnames
+                  97 directories
+              119848 blocks used (approx)</pre></div></div>
+<h2><span class="mw-headline" id="pkgadd"><span class="mw-headline-number">4.3</span> pkgadd</span></h2>
+<p>Pour installer un pacakge bien particuler, faites ceci&#160;:
+</p>
+<pre>pkgadd -d . SUNWvts
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Processing package instance &lt;SUNWvts&gt; from
+ &lt;/cdrom/sol_10_sparc_4/Solaris_10/ExtraValue/CoBundled/SunVTS_6.0/Packages&gt;
+&#160;
+SunVTS Framework(sparc) 6.0,REV=2004.08.18.12.00
+Copyright 2004 Sun Microsystems, Inc.  All rights reserved.
+Use is subject to license terms.
+Using &lt;/opt&gt; as the package base directory.
+## Processing package information.
+## Processing system information.
+## Verifying package dependencies.
+## Verifying disk space requirements.
+## Checking for conflicts with packages already installed.
+## Checking for setuid/setgid programs.
+&#160;
+This package contains scripts which will be executed with super-user
+permission during the process of installing this package.
+&#160;
+Do you want to continue with the installation of &lt;SUNWvts&gt; [y,n,?] y
+&#160;
+Installing SunVTS Framework as &lt;SUNWvts&gt;
+&#160;
+## Installing part 1 of 1.
+9213 blocks
+&#160;
+Installation of &lt;SUNWvts&gt; was successful.</pre></div></div>
+<p>Pour installer tous les packages au format data stream&#160;:
+</p>
+<pre>pkgadd -d /tmp/SUNWrsc.pkg all
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Processing package instance &lt;SUNWrsc&gt; from &lt;/tmp/SUNWrsc.pkg&gt;
+&#160;
+Remote System Control(sparc) 2.2.1,REV=2002.02.11
+Copyright 2001 Sun Microsystems, Inc. All rights reserved.
+Using &lt;/&gt; as the package base directory.
+## Processing package information.
+## Processing system information.
+   15 package pathnames are already properly installed.
+## Verifying disk space requirements.
+## Checking for conflicts with packages already installed.
+## Checking for setuid/setgid programs.
+&#160;
+Installing Remote System Control as &lt;SUNWrsc&gt;
+&#160;
+## Installing part 1 of 1.
+10499 blocks
+&#160;
+Installation of &lt;SUNWrsc&gt; was successful.</pre></div></div>
+<p>Si le package se trouve sur un site web&#160;:
+</p>
+<pre>pkgadd -d <a rel="nofollow" class="external free" href="http://instructor/packages/SUNWrsc.pkg">http://instructor/packages/SUNWrsc.pkg</a> all
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">## Downloading...
+..............25%..............50%..............75%..............100%
+## Download Complete
+&#160;
+&#160;
+Processing package instance &lt;SUNWrsc&gt; from 
+&lt;http://instructor/packages/SUNWrsc.pkg&gt;
+&#160;
+Remote System Control(sparc) 2.2.1,REV=2002.02.11
+Copyright 2001 Sun Microsystems, Inc. All rights reserved.
+Using &lt;/&gt; as the package base directory.
+## Processing package information.
+## Processing system information.
+   15 package pathnames are already properly installed.
+## Verifying disk space requirements.
+## Checking for conflicts with packages already installed.
+## Checking for setuid/setgid programs.
+&#160;
+Installing Remote System Control as &lt;SUNWrsc&gt;
+&#160;
+## Installing part 1 of 1.
+10499 blocks
+&#160;
+Installation of &lt;SUNWrsc&gt; was successful.</pre></div></div>
+<h3><span class="mw-headline" id="Spool"><span class="mw-headline-number">4.3.1</span> Spool</span></h3>
+<p>Le spool est là ou les packages vont (/var/spool/pkg). Si par exemple sur le CD de Sun, on veut installer un package et qu'il soit également copié dans le répertoire de spool, voici un exemple&#160;:
+</p>
+<pre>kgadd -d /cdrom/cdrom0/s0/Solaris_10/Product -s spool SUNWauda
+</pre>
+<pre>Transferring &lt;SUNWauda&gt; package instance
+</pre>
+<p>Vérifions&#160;:
+</p>
+<pre>ls -al /var/spool/pkg
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">total 6
+drwxrwxrwt   3 root     bin          512 Oct  1 14:26 .
+drwxr-xr-x  12 root     bin          512 Sep 30 20:03 ..
+drwxrwxr-x   5 root     root         512 Oct  1 14:26 SUNWauda</pre></div></div>
+<p>Pour l'installer ensuite&#160;:
+</p>
+<pre>pkgadd SUNWauda
+</pre>
+<h2><span class="mw-headline" id="pkgchk"><span class="mw-headline-number">4.4</span> pkgchk</span></h2>
+<p>Cette commande permet de vérifer si un package est bien installé (path, checksum ...).
+</p>
+<ul><li> Pour lister le contenu d'un package&#160;:</li></ul>
+<pre>pkgchk -v SUNWladm
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/usr
+/usr/sadm
+/usr/sadm/lib
+/usr/sadm/lib/localeadm
+/usr/sadm/lib/localeadm/Locale_config_S10.txt
+/usr/sadm/lib/localeadm/admin
+/usr/sbin
+/usr/sbin/localeadm</pre></div></div>
+<ul><li> Pour vérifier si le fichier à changé par rapport à son origine (dans le package)&#160;:</li></ul>
+<pre>pkgchk -p /etc/shadow
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ERROR: /etc/shadow
+    modtime &lt;09/03/04 03:35:24 PM&gt; expected &lt;09/30/04 08:06:14 PM&gt; actual
+    file size &lt;296&gt; expected &lt;309&gt; actual
+    file cksum &lt;20180&gt; expected &lt;21288&gt; actual</pre></div></div>
+<ul><li> L'option -l liste les informations du contenu du package&#160;:</li></ul>
+<pre>pkgchk -l -p /usr/bin/showrev
+</pre>
+<p>&lt;dev&gt;
+Pathname: /usr/bin/showrev
+Type: regular file
+Expected mode: 0755
+Expected owner: root
+Expected group: sys
+Expected file size (bytes): 29656
+Expected sum(1) of contents: 31261
+Expected last modification: Sep 02 09:21:11 2004
+Referenced by the following packages:
+</p>
+<pre>       SUNWadmc       
+</pre>
+<p>Current status: installed
+&lt;/dev&gt;
+</p>
+<h2><span class="mw-headline" id="pkgrm"><span class="mw-headline-number">4.5</span> pkgrm</span></h2>
+<p>Pour supprimer un package&#160;:
+</p>
+<pre>pkgrm SUNWapchr
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">The following package is currently installed:
+   SUNWapchr       Apache Web Server (root)
+                   (sparc) 11.10.0,REV=2004.08.20.02.37
+&#160;
+Do you want to remove this package? [y,n,?,q] y
+&#160;
+## Removing installed package instance &lt;SUNWapchr&gt;
+## Verifying package dependencies.
+WARNING:
+    The &lt;SUNWapchu&gt; package depends on the package
+    currently being removed.
+WARNING:
+    The &lt;SUNWapchd&gt; package depends on the package
+    currently being removed.
+WARNING:
+    The &lt;SUNWipplr&gt; package depends on the package
+    currently being removed.
+WARNING:
+    The &lt;SUNWserweb&gt; package depends on the package
+    currently being removed.
+Dependency checking failed.
+&#160;
+Do you want to continue with the removal of this package [y,n,?,q] y
+## Processing package information.
+## Removing pathnames in class &lt;initd&gt;
+/etc/rcS.d/K16apache
+/etc/rc3.d/S50apache
+/etc/rc2.d/K16apache
+&#160;
+(output ommited for brevity)
+&#160;
+/etc/apache/httpd.conf-example
+/etc/apache/README.Solaris
+/etc/apache &lt;shared pathname not removed&gt;
+/etc &lt;shared pathname not removed&gt;
+## Updating system information.
+&#160;
+Removal of &lt;SUNWapchr&gt; was successful.</pre></div></div>
+<h3><span class="mw-headline" id="Spool_2"><span class="mw-headline-number">4.5.1</span> Spool</span></h3>
+<p>Pour supprimer un package et le supprimer du spool&#160;:
+</p>
+<pre>pkgrm -s spool SUNWauda
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">The following package is currently spooled:
+   SUNWauda        Audio Applications
+                   (sparc) 11.10.0,REV=2004.09.03.08.15
+&#160;
+Do you want to remove this package? [y,n,?,q] y
+&#160;
+Removing spooled package instance &lt;SUNWauda&gt;</pre></div></div>
+<h2><span class="mw-headline" id="pkgtrans_2"><span class="mw-headline-number">4.6</span> pkgtrans</span></h2>
+<p>Pour transformer des packages en un package stream, rien de plus simple&#160;:
+</p>
+<pre>pkgtrans -s  Product  /var/tmp/stream.pkg SUNWzlib SUNWftpr SUNWftpu
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Transferring &lt;SUNWzlib&gt; package instance
+Transferring &lt;SUNWftpr&gt; package instance
+Transferring &lt;SUNWftpu&gt; package instance
+&lt;syntaxhighlight lang=text&gt;
+&#160;
+On vérifie&#160;:
+ file /var/tmp/stream.pkg
+Un head&#160;:
+ head -5 /var/tmp/stream.pkg
+&lt;syntaxhighlight lang=text&gt;
+# PaCkAgE DaTaStReAm
+SUNWzlib 1 186
+SUNWftpr 1 70
+SUNWftpu 1 300
+# end of header</pre></div></div>
+<p>Maintenant, à l'installation&#160;:
+</p>
+<pre>pkgadd -d /var/tmp/stream.pkg
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">The following packages are available:
+  1  SUNWftpr     FTP Server, (Root)
+                  (sparc) 11.10.0,REV=2004.12.11.01.30
+  2  SUNWftpu     FTP Server, (Usr)
+                  (sparc) 11.10.0,REV=2004.12.11.01.30
+  3  SUNWzlib     The Zip compression library
+                  (sparc) 11.10.0,REV=2004.12.10.05.25
+&#160;
+Select package(s) you wish to process (or 'all' to process
+all packages). (default: all) [?,??,q]: q</pre></div></div>
+<h2><span class="mw-headline" id="prodreg"><span class="mw-headline-number">4.7</span> prodreg</span></h2>
+<p>Ceci permet d'avoir une interface graphique pour gérer les packages comme à l'installation de Solaris&#160;:<br />
+<a href="./File:Prodreg.png.html" class="image"><img alt="Prodreg.png" src="images/1/11/Prodreg.png" width="802" height="602" /></a>
+</p>
+<h1><span class="mw-headline" id="Emplacements_des_packages"><span class="mw-headline-number">5</span> Emplacements des packages</span></h1>
+<p>Pour ne pas risquer d'habimer le système principale, les packages s'installent dans des endroits bien précis&#160;:
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Fichiers ou dossiers
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>/var/sadm/install/contents
+</td>
+<td>La liste de tous les packages du système
+</td></tr>
+<tr>
+<td>/opt/<i>pkgname</i>
+</td>
+<td>Path de la plus part des packages installés
+</td></tr>
+<tr>
+<td>/opt/<i>pkgname</i>/bin ou /opt/bin
+</td>
+<td>Binaires de la plus part des packages installés
+</td></tr>
+<tr>
+<td>/var/opt/<i>pkgname</i> ou /etc/opt/<i>pkgname</i>
+</td>
+<td>Logs de la plus part des packages installés
+</td></tr></table>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.024 seconds
+Real time usage: 0.024 seconds
+Preprocessor visited node count: 215/1000000
+Preprocessor generated node count: 456/1000000
+Post‐expand include size: 394/2097152 bytes
+Template argument size: 120/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    1.663      1 - -total
+ 91.77%    1.526      2 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1731-0!*!*!1!en!5!* and timestamp 20181111230618 and revision id 10381
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Gestion_des_packages_Solaris&amp;oldid=10381">https://wiki.deimos.fr/index.php?title=Gestion_des_packages_Solaris&amp;oldid=10381</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Gestion+des+packages+Solaris" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Gestion_des_packages_Solaris.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Gestion_des_packages_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Gestion_des_packages_Solaris.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Gestion_des_packages_Solaris&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Gestion_des_packages_Solaris&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Gestion_des_packages_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Gestion_des_packages_Solaris.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Gestion_des_packages_Solaris" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Gestion_des_packages_Solaris&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Gestion_des_packages_Solaris&amp;oldid=10381" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Gestion_des_packages_Solaris&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 February 2012, at 18:06.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

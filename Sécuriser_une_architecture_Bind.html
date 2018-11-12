@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Sécuriser une architecture Bind - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Sécuriser_une_architecture_Bind.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Sécuriser_une_architecture_Bind","wgTitle":"Sécuriser une architecture Bind","wgCurRevisionId":8240,"wgRevisionId":8240,"wgArticleId":3011,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Sécuriser_une_architecture_Bind","wgRelevantArticleId":3011,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Sécuriser_une_architecture_Bind skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Sécuriser une architecture Bind</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Sécuriser_une_architecture_Bind.html#mw-navigation">navigation</a>, 					<a href="Sécuriser_une_architecture_Bind.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Sécuriser_une_architecture_Bind.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Sécuriser_une_architecture_Bind.html#Impl.C3.A9mentation"><span class="tocnumber">2</span> <span class="toctext">Implémentation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Sécuriser_une_architecture_Bind.html#Ressources"><span class="tocnumber">3</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>La figure ci-dessous présente le fonctionnement général des requêtes DNS dans une architecture comportant plusieurs serveurs DNS. Certains de ces serveurs (IP 192.168.69.1, 192.168.66.1 et 194.54.3.68) sont associés à la gestion des noms d'un domaine fictif <tt>test.fr</tt>. Un autre serveur DNS privé (IP 10.59.1.3) est associé à la gestion d'un domaine fictif privé (invisible depuis Internet) nommé <tt>here.local</tt>. On a également représenté deux serveurs DNS externes quelconques situés sur Internet.
+</p><p>Cette architecture correspond à une situation où les serveurs DNS internes de l'entreprise sont installés dans la zone protégée du réseau, à la fois pour le domaine visible depuis Internet (<tt>test.fr</tt>) et pour son domaine privé local (<tt>here.local</tt>). Plusieurs serveurs DNS (deux au moins) devant être disponibles depuis Internet pour gérer le domaine public <tt>test.fr</tt> (c'est une obligation pour se voir attribuer un nom de domaine), un deuxième serveur est positionné dans une DMZ (192.168.66.1), et un troisième (194.54.3.68) est certainement situé chez un prestataire extérieur offrant un service de secours réellement redondant.
+</p>
+<h1><span class="mw-headline" id="Impl.C3.A9mentation"><span class="mw-headline-number">2</span> Implémentation</span></h1>
+<p><a href="./File:Dns_general.png.html" class="image"><img alt="Dns general.png" src="images/0/0c/Dns_general.png" width="938" height="636" /></a>
+</p><p>Dans ce schéma, on distingue les différents types de requêtes DNS pouvant transiter sur le réseau&#160;:
+</p>
+<ul><li> Les <i>requêtes récursives</i> correspondent aux demandes normalement effectuées par les clients à leur serveur DNS habituel, lequel prend alors en charge la totalité du protocole de résolution des noms. Il consulte son cache et contacte si besoin plusieurs autres serveurs DNS pour obtenir une réponse ou une erreur.</li>
+<li> Les <i>requêtes itératives</i> correspondent aux demandes de résolution effectuées généralement entre les serveurs DNS eux-mêmes. Les réponses aux requêtes itératives peuvent consister à rediriger le demandeur vers un autre serveur, charge au demandeur de poursuivre lui-même la résolution.</li>
+<li> Les requêtes de <i>transferts de zones</i> sont effectuées entre un serveur secondaire et le serveur primaire pour un même domaine pour permettre au serveur secondaire de posséder une copie à jour de la zone DNS qu'il gère.</li></ul>
+<p>On distingue également le double rôle que jouent généralement les serveurs DNS du point de vue des flux d'information traversant l'architecture. En effet, ils sont à la fois&#160;:
+</p>
+<ul><li> des serveurs au sens propre du terme qui répondent aux demandes entrantes de clients externes (d'autres serveurs DNS) concernant le domaine géré (<tt>test.fr</tt> dans notre exemple)&#160;;</li>
+<li> et des relais qui exécutent pour le compte de clients internes des demandes sortantes de résolution DNS et maintiennent aussi un cache pour les accélérer.</li></ul>
+<p>Une première approche de la sécurité des serveurs DNS consiste à clarifier l'architecture et bien paramétrer les serveurs de manière à ce qu'il répondent à ces différentes demandes correctement en fonction de l'origine du client.
+</p><p>Ainsi, il importe d'abord de limiter correctement les transferts de zones, qui diffusent la totalité des informations concernant <tt>test.fr</tt> en une seule fois. Cette limitation doit être faite sur le serveur primaire (IP 192.168.69.1) en y identifiant les serveurs secondaires autorisés à recevoir une copie de la zone&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>zone "test.fr" {
+  type master;
+  file "/etc/bind/db.test.fr";
+  allow-transfer {
+    192.168.66.1;
+    // or 194.56.3.68; (see below)
+  };
+};
+</pre>
+</td></tr></table><br />
+<p>Mais cette limitation peut également être effectuée sur le serveur secondaire (IP 192.168.66.1) en lui indiquant précisément le serveur primaire à utiliser pour la zone <tt>test.fr</tt> dont il est secondaire&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>zone "test.fr" {
+  type slave;
+  masters { 192.168.69.1; };
+  file "/etc/bind/bak.db.test.fr";
+  allow-transfer {
+    194.56.3.68; // or "none"
+  };
+};
+</pre>
+</td></tr></table><br />
+<p>Ensuite, sur le serveur primaire comme sur le serveur secondaire, il est possible de contrôler les accès effectués aux zones gérées&#160;:
+</p>
+<ul><li> les requêtes itératives proviennent d'autres serveurs (c'est à dire d'Internet)&#160;;</li>
+<li> les requêtes récursives proviennent seulement des clients internes, c'est à dire des utilisateurs finaux (ou de leur mandataire).</li></ul>
+<p>En effet, dans l'exemple que nous suivons le serveur DNS interne public à l'adresse IP 192.168.69.1 reçoit en fait les requêtes des utilisateurs via le serveur DNS interne privé à l'adresse 10.59.1.3. Ce dernier est en fait normalement son seul client, à part pour quelques exceptions (autres serveurs, dépannages éventuels, etc.). Ce sont ces règles que nous appliquons ici&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>// We allow only recursive queries from the internal nameserver, the 2nd, and self
+acl "ns_rzo" { 192.168.66.1; 10.59.1.3; 127.0.0.1; };
+// We also allow some admin. station to do queries here directly in case of problem
+acl "admin" { 192.168.65.1; };
+…
+  allow-query { any; }; // or "slaves_ns"
+  allow-recursion { "ns_rzo"; "admin"; };
+</pre>
+</td></tr></table><br />
+<p>Nous avons donc ici le cas d'un serveur DNS (IP 192.168.69.1) qui contient la référence du domaine public d'une entreprise (<tt>test.fr</tt>), qui gère pour le compte de tous les postes de travail la résolution des requêtes DNS sur Internet mais dont la configuration ne permet quasiment qu'un seul client. C'est en fait parfaitement conforme au cheminement souhaité des flux réseau dans l'architecture.
+Par ailleurs, le serveur DNS interne privé (IP 10.59.1.3) étant très proche du serveur DNS accédant à Internet, il n'est pas nécessaire d'utiliser ses fonctions de cache qui sont redondantes avec celles mises en œuvre au niveau suivant. Il est alors utile de faire fonctionner ce dernier serveur en mode relais pur&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>options {
+…
+  // Allowed forwarders (only the DMZ nameservers)
+  forwarders {
+    192.168.69.1; 192.168.66.1;
+  };
+  // We *always* forward
+  forward only;
+…
+};
+</pre>
+</td></tr></table><br />
+<p>L'intérêt de ce type d'architecture est de permettre une protection maximale du serveur DNS interne privé de l'entreprise  qui n'accède absolument pas à Internet directement mais qui est cependant en mesure d'assurer l'ensemble des services DNS nécessaires aux postes de travail du réseau local, y compris la résolution de noms externes à l'entreprise. Ce serveur est aussi en mesure de résoudre les noms internes à l'entreprise (dans le domaine here.local) qu'il gère directement. Les postes de travail accèdent donc de manière transparente à tous les différents domaines.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">3</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://fr.wikibooks.org/wiki/Utilisateur:Rortalo/S%C3%A9curit%C3%A9_informatique/DNS_avec_BIND_9">http://fr.wikibooks.org/wiki/Utilisateur:Rortalo/S%C3%A9curit%C3%A9_informatique/DNS_avec_BIND_9</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.016 seconds
+Real time usage: 0.016 seconds
+Preprocessor visited node count: 51/1000000
+Preprocessor generated node count: 154/1000000
+Post‐expand include size: 1541/2097152 bytes
+Template argument size: 917/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    1.597      1 - -total
+ 80.02%    1.278      4 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3011-0!*!*!1!en!5!* and timestamp 20181111230703 and revision id 8240
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Sécuriser_une_architecture_Bind&amp;oldid=8240">https://wiki.deimos.fr/index.php?title=Sécuriser_une_architecture_Bind&amp;oldid=8240</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=S%C3%A9curiser+une+architecture+Bind" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Sécuriser_une_architecture_Bind.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Sécuriser_une_architecture_Bind.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Sécuriser_une_architecture_Bind.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=S%C3%A9curiser_une_architecture_Bind&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=S%C3%A9curiser_une_architecture_Bind&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Sécuriser_une_architecture_Bind.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Sécuriser_une_architecture_Bind.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/S%C3%A9curiser_une_architecture_Bind" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=S%C3%A9curiser_une_architecture_Bind&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=S%C3%A9curiser_une_architecture_Bind&amp;oldid=8240" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=S%C3%A9curiser_une_architecture_Bind&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 20 November 2009, at 20:21.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":30});
+}</script>
+	</body>
+</html>
+	

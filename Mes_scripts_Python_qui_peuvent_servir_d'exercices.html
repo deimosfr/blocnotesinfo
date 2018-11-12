@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Mes scripts Python qui peuvent servir d'exercices - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Mes_scripts_Python_qui_peuvent_servir_d'exercices","wgTitle":"Mes scripts Python qui peuvent servir d'exercices","wgCurRevisionId":11014,"wgRevisionId":11014,"wgArticleId":3394,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Mes_scripts_Python_qui_peuvent_servir_d'exercices","wgRelevantArticleId":3394,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-python {line-height: normal;}
+.source-python li, .source-python pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for python
+ * CSS class: source-python, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.python.source-python .de1, .python.source-python .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.python.source-python  {font-family:monospace;}
+.python.source-python .imp {font-weight: bold; color: red;}
+.python.source-python li, .python.source-python .li1 {font-weight: normal; vertical-align:top;}
+.python.source-python .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.python.source-python .li2 {font-weight: bold; vertical-align:top;}
+.python.source-python .kw1 {color: #ff7700;font-weight:bold;}
+.python.source-python .kw2 {color: #008000;}
+.python.source-python .kw3 {color: #dc143c;}
+.python.source-python .kw4 {color: #0000cd;}
+.python.source-python .co1 {color: #808080; font-style: italic;}
+.python.source-python .coMULTI {color: #808080; font-style: italic;}
+.python.source-python .es0 {color: #000099; font-weight: bold;}
+.python.source-python .br0 {color: black;}
+.python.source-python .sy0 {color: #66cc66;}
+.python.source-python .st0 {color: #483d8b;}
+.python.source-python .nu0 {color: #ff4500;}
+.python.source-python .me1 {color: black;}
+.python.source-python .ln-xtra, .python.source-python li.ln-xtra, .python.source-python div.ln-xtra {background-color: #ffc;}
+.python.source-python span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Mes_scripts_Python_qui_peuvent_servir_d_exercices skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Mes scripts Python qui peuvent servir d'exercices</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html#mw-navigation">navigation</a>, 					<a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html#Red_Hat_Satellite"><span class="tocnumber">2</span> <span class="toctext">Red Hat Satellite</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Python-logo.png.html" class="image" title="Python"><img alt="Python" src="images/3/31/Python-logo.png" width="220" height="69" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>2.7 / 3.2</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td></td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://www.python.org/">Python Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>06/06/2012</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>C'est pas toujours simple de commencer un langage de programmation, surtout quand on en a jamais fait à l'école&#160;! C'est pourquoi je vous propose des petits scripts que j'ai fais juste après m'être tapé des bouquins. Les scripts devraient donc aller plus ou moins crescendo niveau difficulté.
+</p>
+<h1><span class="mw-headline" id="Red_Hat_Satellite"><span class="mw-headline-number">2</span> Red Hat Satellite</span></h1>
+<p>J'ai créer ce script pour le serveur <a href="./Satellite_:_Déploiement_d'OS_Red_Hat_via_Red_Hat_Satellite.html" title="Satellite : Déploiement d'OS Red Hat via Red Hat Satellite">Satellite de Red Hat</a>, afin de gagner du temps lorsqu'il faut signer et envoyer plusieurs packages sur un serveur Satellite&#160;:
+</p><p><br />
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> satellite_add_packages.py</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="python source-python"><pre class="de1"><span class="co1">#!/usr/bin/env python</span>
+<span class="co1"># Made by Pierre Mavro 14/03/2012</span>
+<span class="co1"># Version&#160;: 0.1</span>
+<span class="co1"># This script permit to automate in a non secure way, new packages for a custom repository on Red Hat Satellite</span>
+<span class="co1"># Require&#160;: pexpect</span>
+&#160;
+<span class="kw1">import</span> <span class="kw3">getopt</span><span class="sy0">,</span> <span class="kw3">os</span><span class="sy0">,</span> <span class="kw3">sys</span><span class="sy0">,</span> <span class="kw3">glob</span><span class="sy0">,</span> pexpect
+<span class="kw1">from</span> <span class="kw3">string</span> <span class="kw1">import</span> Template
+&#160;
+<span class="co1"># Help</span>
+cmd_name <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>
+<span class="kw1">def</span> <span class="kw2">help</span><span class="br0">&#40;</span><span class="kw3">code</span><span class="br0">&#41;</span>:
+    <span class="kw1">print</span> cmd_name<span class="sy0">,</span> <span class="st0">&quot;[-h] [-r] [-s] [-l] [-p] [-d]&quot;</span>
+    <span class="kw2">str</span> <span class="sy0">=</span> <span class="st0">&quot;&quot;&quot;
+   -h, --help
+      Show this help
+   -s, --passphrase
+      Passphrase to sign packages
+   -r, --repository
+      Select wished repository to push the packages
+   -l, --login
+      Red Hat Network username
+   -p, --password
+      Red Hat Network password
+   -f, --folder
+      folder were new packages should be added (default: /tmp/packages)
+   -d, --debug
+      Debug mode
+&quot;&quot;&quot;</span>
+    <span class="kw1">print</span> <span class="kw2">str</span>
+    <span class="kw3">sys</span>.<span class="me1">exit</span><span class="br0">&#40;</span><span class="kw3">code</span><span class="br0">&#41;</span>
+&#160;
+<span class="kw1">class</span> bcolors:
+    OK <span class="sy0">=</span> <span class="st0">'<span class="es0">\0</span>33[92m'</span>
+    FAIL <span class="sy0">=</span> <span class="st0">'<span class="es0">\0</span>33[91m'</span>
+    END <span class="sy0">=</span> <span class="st0">'<span class="es0">\0</span>33[0m'</span>
+&#160;
+    <span class="kw1">def</span> disable<span class="br0">&#40;</span><span class="kw2">self</span><span class="br0">&#41;</span>:
+        <span class="kw2">self</span>.<span class="me1">OK</span> <span class="sy0">=</span> <span class="st0">''</span>
+        <span class="kw2">self</span>.<span class="me1">FAIL</span> <span class="sy0">=</span> <span class="st0">''</span>
+        <span class="kw2">self</span>.<span class="me1">END</span> <span class="sy0">=</span> <span class="st0">''</span>
+&#160;
+<span class="co1"># Sign and push function</span>
+<span class="kw1">def</span> sign_push<span class="br0">&#40;</span>passphrase<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="br0">&#41;</span>:
+&#160;
+    <span class="co1"># Package signing</span>
+    <span class="kw1">def</span> sign<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>passphrase<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>:
+        <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> <span class="nu0">80</span>*<span class="st0">'='</span> + <span class="st0">&quot;<span class="es0">\n</span>&quot;</span>
+        <span class="kw1">print</span> <span class="st0">'[+] Signing packages&#160;:'</span>
+        <span class="co1"># Sign all packages</span>
+        <span class="kw1">for</span> package <span class="kw1">in</span> rpm_files:
+            <span class="co1"># Formating</span>
+            charspace <span class="sy0">=</span> Template<span class="br0">&#40;</span><span class="st0">&quot;{0:&lt;$space}&quot;</span><span class="br0">&#41;</span>
+            <span class="kw1">print</span> charspace.<span class="me1">substitute</span><span class="br0">&#40;</span>space <span class="sy0">=</span> charspacing<span class="br0">&#41;</span>.<span class="me1">format</span><span class="br0">&#40;</span><span class="st0">' - '</span> + package + <span class="st0">'...'</span><span class="br0">&#41;</span><span class="sy0">,</span>
+            <span class="co1"># Launch resign</span>
+            child <span class="sy0">=</span> pexpect.<span class="me1">spawn</span><span class="br0">&#40;</span><span class="st0">'rpm --resign '</span> + package<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span> <span class="br0">&#40;</span><span class="st0">'Enter pass phrase|Entrez la phrase de passe'</span><span class="br0">&#41;</span>
+            child.<span class="me1">sendline</span> <span class="br0">&#40;</span>passphrase<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span><span class="br0">&#40;</span>pexpect.<span class="me1">EOF</span><span class="br0">&#41;</span>
+            child.<span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+            <span class="co1"># Check return status</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>child.<span class="me1">exitstatus</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">OK</span> + <span class="st0">'OK'</span> + bcolors.<span class="me1">END</span> + <span class="st0">' ] '</span>
+            <span class="kw1">else</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">FAIL</span> + <span class="st0">'FAIL'</span> + bcolors.<span class="me1">END</span> + <span class="st0">']'</span>
+&#160;
+    <span class="co1"># Package push</span>
+    <span class="kw1">def</span> push<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>:
+        <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> <span class="nu0">80</span>*<span class="st0">'='</span> + <span class="st0">&quot;<span class="es0">\n</span>&quot;</span>
+        <span class="kw1">print</span> <span class="st0">'[+] Adding packages to satellite server&#160;:'</span>
+        <span class="kw1">for</span> package <span class="kw1">in</span> rpm_files:
+            <span class="co1"># Formating</span>
+            charspace <span class="sy0">=</span> Template<span class="br0">&#40;</span><span class="st0">&quot;{0:&lt;$space}&quot;</span><span class="br0">&#41;</span>
+            <span class="kw1">print</span> charspace.<span class="me1">substitute</span><span class="br0">&#40;</span>space <span class="sy0">=</span> charspacing<span class="br0">&#41;</span>.<span class="me1">format</span><span class="br0">&#40;</span><span class="st0">' - '</span> + package + <span class="st0">'...'</span><span class="br0">&#41;</span><span class="sy0">,</span>
+            <span class="co1"># RPM push command</span>
+            child <span class="sy0">=</span> pexpect.<span class="me1">spawn</span><span class="br0">&#40;</span><span class="st0">'rhnpush --force --no-cache -c '</span> + repository + <span class="st0">' '</span> + package<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span> <span class="br0">&#40;</span><span class="st0">'Red Hat Network username'</span><span class="br0">&#41;</span>
+            child.<span class="me1">sendline</span> <span class="br0">&#40;</span>login<span class="br0">&#41;</span>
+            child.<span class="me1">expect</span> <span class="br0">&#40;</span><span class="st0">'Red Hat Network password'</span><span class="br0">&#41;</span>
+            child.<span class="me1">sendline</span> <span class="br0">&#40;</span>password<span class="br0">&#41;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: child.<span class="me1">logfile</span> <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdout</span>
+            child.<span class="me1">expect</span><span class="br0">&#40;</span>pexpect.<span class="me1">EOF</span><span class="br0">&#41;</span>
+            child.<span class="me1">close</span><span class="br0">&#40;</span><span class="br0">&#41;</span>
+            <span class="co1"># Check return status</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span>child.<span class="me1">exitstatus</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">OK</span> + <span class="st0">'OK'</span> + bcolors.<span class="me1">END</span> + <span class="st0">' ] '</span>
+            <span class="kw1">else</span>:
+                <span class="kw1">print</span> <span class="st0">'[ '</span> + bcolors.<span class="me1">FAIL</span> + <span class="st0">'FAIL'</span> + bcolors.<span class="me1">END</span> + <span class="st0">' ]'</span>
+&#160;
+    <span class="co1"># Get rpm files list</span>
+    rpm_files<span class="sy0">=</span><span class="kw3">glob</span>.<span class="kw3">glob</span><span class="br0">&#40;</span>folder + <span class="st0">'/*.rpm'</span><span class="br0">&#41;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> <span class="nu0">80</span>*<span class="st0">'='</span> + <span class="st0">&quot;<span class="es0">\n</span>&quot;</span> + <span class="st0">'RPM found&#160;:'</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>debug <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>: <span class="kw1">print</span> rpm_files
+&#160;
+    <span class="co1"># Check if RPM were found</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw2">len</span><span class="br0">&#40;</span>rpm_files<span class="br0">&#41;</span> <span class="sy0">==</span> <span class="nu0">0</span><span class="br0">&#41;</span>:
+       <span class="kw1">print</span> <span class="st0">&quot;No RPM were found in &quot;</span> + folder
+       <span class="kw3">sys</span>.<span class="me1">exit</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    <span class="co1"># Get maximum rpm size for visual answers (OK/FAIL)</span>
+    charspacing<span class="sy0">=</span><span class="nu0">0</span>
+    <span class="kw1">for</span> package <span class="kw1">in</span> rpm_files:
+        count <span class="sy0">=</span> <span class="kw2">len</span><span class="br0">&#40;</span>package<span class="br0">&#41;</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span>count <span class="sy0">&gt;</span> charspacing<span class="br0">&#41;</span>:
+            charspacing<span class="sy0">=</span>count
+    charspacing +<span class="sy0">=</span> <span class="nu0">10</span>
+&#160;
+    <span class="co1"># Sign packages</span>
+    sign<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>passphrase<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>
+    <span class="co1"># Push packages</span>
+    push<span class="br0">&#40;</span>rpm_files<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="sy0">,</span>charspacing<span class="br0">&#41;</span>
+&#160;
+<span class="co1"># Main</span>
+<span class="kw1">def</span> main<span class="br0">&#40;</span>argv<span class="br0">&#41;</span>:
+    <span class="kw1">try</span>:
+        opts<span class="sy0">,</span> args <span class="sy0">=</span> <span class="kw3">getopt</span>.<span class="kw3">getopt</span><span class="br0">&#40;</span>argv<span class="sy0">,</span> <span class="st0">'hs:r:l:p:f:d'</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="st0">&quot;passphrase=&quot;</span><span class="sy0">,</span><span class="st0">&quot;repository=&quot;</span><span class="sy0">,</span><span class="st0">&quot;login=&quot;</span><span class="sy0">,</span><span class="st0">&quot;password=&quot;</span><span class="sy0">,</span><span class="st0">&quot;folder=&quot;</span><span class="sy0">,</span><span class="st0">&quot;help&quot;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+    <span class="kw1">except</span> <span class="kw3">getopt</span>.<span class="me1">GetoptError</span>:
+        <span class="co1"># Print help and exit</span>
+        <span class="kw1">print</span> <span class="st0">&quot;Unknow option, bad or missing argument<span class="es0">\n</span>&quot;</span>
+        <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    <span class="co1"># Initialize vars</span>
+    <span class="co1"># GPG passphrase for package sign in</span>
+    passphrase<span class="sy0">=</span><span class="kw2">None</span>
+    repository<span class="sy0">=</span><span class="kw2">None</span>
+    login<span class="sy0">=</span><span class="kw2">None</span>
+    password<span class="sy0">=</span><span class="kw2">None</span>
+    folder<span class="sy0">=</span><span class="st0">'/tmp/'</span>
+    debug<span class="sy0">=</span><span class="nu0">0</span>
+&#160;
+    <span class="co1"># Check opts</span>
+    <span class="kw1">for</span> opt<span class="sy0">,</span> arg <span class="kw1">in</span> opts:
+        <span class="kw1">if</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-h&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--help&quot;</span><span class="br0">&#41;</span>:
+            <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span>
+            <span class="kw3">sys</span>.<span class="me1">exit</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-s&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--passphrase&quot;</span><span class="br0">&#41;</span>:
+            passphrase <span class="sy0">=</span> <span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-r&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--repository&quot;</span><span class="br0">&#41;</span>:
+            repository<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-l&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--login&quot;</span><span class="br0">&#41;</span>:
+            login<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-p&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--password&quot;</span><span class="br0">&#41;</span>:
+            password<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-f&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--folder&quot;</span><span class="br0">&#41;</span>:
+            folder<span class="sy0">=</span><span class="kw2">str</span><span class="br0">&#40;</span>arg<span class="br0">&#41;</span>
+        <span class="kw1">elif</span> opt <span class="kw1">in</span> <span class="br0">&#40;</span><span class="st0">&quot;-d&quot;</span><span class="sy0">,</span> <span class="st0">&quot;--debug&quot;</span><span class="br0">&#41;</span>:
+            debug<span class="sy0">=</span><span class="nu0">1</span>
+        <span class="kw1">else</span>:
+            <span class="kw1">print</span> <span class="st0">&quot;Unknow option, please see usage<span class="es0">\n</span>&quot;</span>
+            <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    <span class="co1"># Checks</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>passphrase <span class="kw1">or</span> repository <span class="kw1">or</span> login <span class="kw1">or</span> password<span class="br0">&#41;</span> <span class="kw1">is</span> <span class="kw2">None</span>:
+        <span class="kw1">print</span> <span class="st0">&quot;Unknow option, please see usage<span class="es0">\n</span>&quot;</span>
+        <span class="kw2">help</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span>
+&#160;
+    sign_push<span class="br0">&#40;</span>passphrase<span class="sy0">,</span>repository<span class="sy0">,</span>login<span class="sy0">,</span>password<span class="sy0">,</span>folder<span class="sy0">,</span>debug<span class="br0">&#41;</span>
+&#160;
+<span class="kw1">if</span> __name__ <span class="sy0">==</span> <span class="st0">&quot;__main__&quot;</span>:
+   main<span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#91;</span><span class="nu0">1</span>:<span class="br0">&#93;</span><span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.032 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 50/1000000
+Preprocessor generated node count: 180/1000000
+Post‐expand include size: 1474/2097152 bytes
+Template argument size: 163/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   19.005      1 - -total
+ 83.17%   15.806      1 - Template:Satellite_satellite_add_packages.py
+ 78.91%   14.996      1 - Template:Config
+ 10.71%    2.035      1 - Template:Infobox
+  3.53%    0.671      1 - Template:Dev_Introduction_exercices
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3394-0!*!0!1!en!5!* and timestamp 20181111230837 and revision id 11014
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Mes_scripts_Python_qui_peuvent_servir_d%27exercices&amp;oldid=11014">https://wiki.deimos.fr/index.php?title=Mes_scripts_Python_qui_peuvent_servir_d%27exercices&amp;oldid=11014</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Mes+scripts+Python+qui+peuvent+servir+d%27exercices" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Mes_scripts_Python_qui_peuvent_servir_d%27exercices&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Mes_scripts_Python_qui_peuvent_servir_d%27exercices&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Mes_scripts_Python_qui_peuvent_servir_d'exercices.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Mes_scripts_Python_qui_peuvent_servir_d'exercices.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Mes_scripts_Python_qui_peuvent_servir_d%27exercices" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Mes_scripts_Python_qui_peuvent_servir_d%27exercices&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Mes_scripts_Python_qui_peuvent_servir_d%27exercices&amp;oldid=11014" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Mes_scripts_Python_qui_peuvent_servir_d%27exercices&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 6 June 2012, at 13:09.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":68});
+}</script>
+	</body>
+</html>
+	

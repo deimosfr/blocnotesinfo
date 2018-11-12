@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Mise en place de certificats SSL sous Apache 2 - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Mise_en_place_de_certificats_SSL_sous_Apache_2","wgTitle":"Mise en place de certificats SSL sous Apache 2","wgCurRevisionId":8025,"wgRevisionId":8025,"wgArticleId":1987,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Mise_en_place_de_certificats_SSL_sous_Apache_2","wgRelevantArticleId":1987,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Mise_en_place_de_certificats_SSL_sous_Apache_2 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Mise en place de certificats SSL sous Apache 2</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#mw-navigation">navigation</a>, 					<a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Debian"><span class="tocnumber">2.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#OpenBSD"><span class="tocnumber">2.2</span> <span class="toctext">OpenBSD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Debian_2"><span class="tocnumber">4</span> <span class="toctext">Debian</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Cr.C3.A9ation_d.27une_autorit.C3.A9_de_certification"><span class="tocnumber">4.1</span> <span class="toctext">Création d'une autorité de certification</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Cr.C3.A9ation_d.27un_certificat_serveur_pour_notre_r.C3.A9seau_local"><span class="tocnumber">4.2</span> <span class="toctext">Création d'un certificat serveur pour notre réseau local</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Int.C3.A9gration_dans_Apache"><span class="tocnumber">4.3</span> <span class="toctext">Intégration dans Apache</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#OpenBSD_2"><span class="tocnumber">4.4</span> <span class="toctext">OpenBSD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Configuration_d.27Apache"><span class="tocnumber">5</span> <span class="toctext">Configuration d'Apache</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Debian_3"><span class="tocnumber">5.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#OpenBSD_3"><span class="tocnumber">5.2</span> <span class="toctext">OpenBSD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#Multi-VirtualHost_SSL"><span class="tocnumber">6</span> <span class="toctext">Multi-VirtualHost SSL</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#R.C3.A9f.C3.A9rences"><span class="tocnumber">7</span> <span class="toctext">Références</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Les certificats ne sont pas toujours simple à comprendre et à mettre ne place. Néanmoins, je vais essayer de faire claire. Pour les personnes qui souhaitent être signé par une autorité de certification gratuite, je vous invite à aller sur le site <a rel="nofollow" class="external text" href="http://www.cacert.org/">CACert</a>.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Debian"><span class="mw-headline-number">2.1</span> Debian</span></h2>
+<p>Encore une fois, c'est assez simple ici&#160;:
+</p>
+<pre>apt-get install openssl
+</pre>
+<p>Ensuite vous allez vous télécharger un petit programme qui va vous simplifier la vie&#160;:
+</p>
+<pre>cd ~/
+mkdir ssl
+</pre>
+<p><a href="./File:Cert_manager.tar.gz.html" title="File:Cert manager.tar.gz">Voici le fichier à télécharger</a> et à mettre dans votre dossier ssl.
+</p><p>Une fois fait décompressez le&#160;:
+</p>
+<pre>tar -xzvf cert_manager.tar.gz
+</pre>
+<h2><span class="mw-headline" id="OpenBSD"><span class="mw-headline-number">2.2</span> OpenBSD</span></h2>
+<p>Pour OpenBSD, rien de spéciale à installer. Apache est fourni en standart avec le module SSL.
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h1><span class="mw-headline" id="Debian_2"><span class="mw-headline-number">4</span> Debian</span></h1>
+<p>Rendons nous dans le dossier décompressé&#160;:
+</p>
+<pre>cd CERT_MANAGER
+</pre>
+<p>Si vous souhaitez changer le nombre de jours pour la validité de votre certificat, éditez le fichier ca_openssl.cnf et modifiez la ligne 39&#160;:
+</p>
+<pre>default_days    = 365
+</pre>
+<p>Changez 365 par ce que vous voulez (3650 pour 10 ans par exemple).
+</p>
+<h3><span class="mw-headline" id="Cr.C3.A9ation_d.27une_autorit.C3.A9_de_certification"><span class="mw-headline-number">4.1</span> Création d'une autorité de certification</span></h3>
+<p>Nous allons maintenant créer l'autorité de certification de notre réseau local. En premier lieu, nous initialisons notre environnement de gestion des certificats&#160;:
+</p>
+<pre>./cert_manager.sh --init
+</pre>
+<p>Cette commande crée les dossiers et fichiers nécessaires au bon fonctionnement de notre script et vous pose les questions nécessaires à la configuration de votre autorité  de certification&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">You will now be asked to give informations for your certificate authority.
+Description du domaine [défaut&#160;: Domaine local]: Deimos
+Code de votre pays [défaut&#160;: FR]: 
+Nom de votre région [défaut&#160;: Ile de France]: 
+Nom de votre ville [défaut&#160;: Paris]: 
+Nom de votre domaine [défaut&#160;: domain.local]: www.deimos.fr
+Email de l'administrateur [défaut&#160;: root@domain.local]: root@deimos.fr</pre></div></div>
+<p>Nous créons ensuite notre autorité de certification&#160;:
+</p>
+<pre>./cert_manager.sh --create-ca
+</pre>
+<p>Vous disposez à présent du nécessaire pour signer vos propres certificats.
+</p>
+<h3><span class="mw-headline" id="Cr.C3.A9ation_d.27un_certificat_serveur_pour_notre_r.C3.A9seau_local"><span class="mw-headline-number">4.2</span> Création d'un certificat serveur pour notre réseau local</span></h3>
+<p>Maintenant que vous disposez d'une autorité de certification, nous allons créer une requête de certification afin d'obtenir au final un certificat signé par notre autorité. Par exemple, pour créer un certificat pour notre serveur HTTPS&#160;:
+</p>
+<pre>./cert_manager.sh --generate-csr=<b>https</b>
+</pre>
+<p><b>Remarque: https</b> est utilisé pour générer le nom de fichier de la requête. Il est préférable que cette valeur ne contienne ni espace, ni caractères spéciaux.
+</p><p>Vous devez alors saisir les informations de votre certificat&#160;:
+</p>
+<pre>You will now be asked to give informations for your certificate authority.
+Type de serveur [défault&#160;: HTTP server]: <b>HTTPS server</b>
+Code de votre pays [défaut&#160;: FR]: 
+Nom de votre région [défaut&#160;: Ile de France]: 
+Nom de votre ville [défaut&#160;: Paris]: 
+Email de l'administrateur [défaut&#160;: root@deimos.fr]: 
+Nom de votre domaine [défaut&#160;: domain.local]: www.deimos.fr
+Noms de domaines supplémentaires, un par ligne. Finissez par une ligne vide.
+SubjectAltName: DNS:doc.deimos.fr
+SubjectAltName: DNS:imp.deimos.fr
+SubjectAltName: DNS:mail.deimos.fr
+SubjectAltName: DNS:
+</pre>
+<p>Remarque: Comme vous pouvez le voir, cet outil vous donne la possibilité de générer des certificats valides pour plusieurs noms de domaines.
+</p><p>A la fin de la procédure, l'outil vous affiche la requête créée car vous pouvez, si vous le souhaitez, faire signer cette requête par le site <a rel="nofollow" class="external text" href="http://www.cacert.org/">CACert</a>.
+</p><p>Si le certificat est destiné à votre réseau local, vous pouvez utiliser votre autorité de certification pour le signer&#160;:
+</p>
+<pre>./cert_manager.sh --sign-csr=<b>https</b>
+</pre>
+<p>Cette commande vous affiche les informations incluses dans la demande de certificat et vous demande si vous acceptez de le signer&#160;:
+</p>
+<pre>Sign the certificate? [y/n]:y
+1 out of 1 certificate requests certified, commit? [y/n]y
+</pre>
+<p>Vous disposez à présent de 2 fichiers qui ensemble forment votre certificat&#160;:
+</p>
+<pre>./CERTIFICATES/https_cert.pem
+./PRIVATE_KEYS/https_key.pem
+</pre>
+<p>Il vous suffit a présent de copier ces fichiers et la clef publique de votre autorité de certification à l'endroit approprié pour la configuration de votre serveur&#160;:
+</p>
+<pre>./CERTIFICATE_AUTHORITY/ca-cert.pem
+</pre>
+<h3><span class="mw-headline" id="Int.C3.A9gration_dans_Apache"><span class="mw-headline-number">4.3</span> Intégration dans Apache</span></h3>
+<p>Pour la partie Apache, c'est asez simple, il suffit de copier certains fichiers&#160;:
+</p>
+<pre>mkdir -p /etc/apache2/ssl/
+cp CERTIFICATE_AUTHORITY/ca-cert.pem /etc/apache2/ssl/deimos.fr.ca.crt
+cp CERTIFICATES/https_cert.cert /etc/apache2/ssl/deimos.fr.crt
+cp PRIVATE_KEYS/https_key.pem /etc/apache2/ssl/deimos.fr.key
+</pre>
+<p>Puis mettre ceci dans un VirtualHost au niveau d'Apache (faire un Virtualhost spécial SSL)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;VirtualHost *:443&gt;
+        ServerAdmin deimos@deimos.fr
+        ServerName fire.deimos.fr
+&#160;
+        SSLEngine on
+        SSLCACertificateFile /etc/apache2/ssl/deimos.fr.ca.crt
+        SSLCertificateFile /etc/apache2/ssl/deimos.fr.crt
+        SSLCertificateKeyFile /etc/apache2/ssl/deimos.fr.key
+&#160;
+        DocumentRoot /var/www/
+&#160;
+        &lt;Directory /var/www/&gt;
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all 
+        &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</pre></div></div>
+<h2><span class="mw-headline" id="OpenBSD_2"><span class="mw-headline-number">4.4</span> OpenBSD</span></h2>
+<p>Pour générer les certificats, voici la marche à suivre&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>cd /etc/ssl
+openssl genrsa -out /etc/ssl/private/server.key 2048
+openssl req -new -key /etc/ssl/private/server.key -out /etc/ssl/private/server.csr
+openssl x509 -req -days 3650 -in /etc/ssl/private/server.csr -signkey /etc/ssl/private/server.key -out /etc/ssl/server.crt
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration_d.27Apache"><span class="mw-headline-number">5</span> Configuration d'Apache</span></h1>
+<h2><span class="mw-headline" id="Debian_3"><span class="mw-headline-number">5.1</span> Debian</span></h2>
+<p>Pour finir, ajouter ceci à /etc/apache2/ports.conf&#160;:
+</p>
+<pre>Listen 443
+</pre>
+<p>Il ne reste plus qu'à activer le mod ssl pour la configuration&#160;:
+</p>
+<pre>a2enmod ssl
+</pre>
+<p>On peut maintenant admirer le résultat en redémarrant Apache2&#160;:-)&#160;:
+</p>
+<pre>/etc/init.d/apache2 restart
+</pre>
+<h2><span class="mw-headline" id="OpenBSD_3"><span class="mw-headline-number">5.2</span> OpenBSD</span></h2>
+<h1><span class="mw-headline" id="Multi-VirtualHost_SSL"><span class="mw-headline-number">6</span> Multi-VirtualHost SSL</span></h1>
+<p>Comme tout le monde, un jour tu as essayé d’avoir des VHost en ssl, et <a rel="nofollow" class="external text" href="http://httpd.apache.org/docs/2.0/ssl/ssl_faq.html#vhosts2">les gens d’Apache t’ont informé que tu peux crever</a>. Le problème étant que tu ne peux avoir qu’un seul certificat car les infos comme le Host sont à l’intérieur de la requête, et ne sont pas accessibles à la couche qui décide du certificat à utiliser et s’occuppe du chiffrement.
+</p><p>Il existait des trucs pas beaux pour éviter le warning dans le browser, genre mettre un certificat pour *.mondomainedelamortquitue.biz mais c’est mort si tu as plusieurs domaines sur le serveur.
+</p><p>Donc voici la solution qui explique que même si la lib OpenSSL ne supporte pas l’extension TLS qu’il te faut (SNI), du coté de chez GNU c’est supporté depuis 2 ans. Voilà la documentation tant attendue&#160;:
+</p><p><a href="./File:Ssl_mod_gnutls.pdf.html" title="File:Ssl mod gnutls.pdf">Documentation sur l'implémentation du multi-SSL avec mod_gnutls</a><br />
+<a href="./File:Enable_Multiple_HTTPS_Sites_For_One_IP_Using_TLS_Extensions.pdf.html" title="File:Enable Multiple HTTPS Sites For One IP Using TLS Extensions.pdf">Documentation on enabling multiple HTTPS Sites For one IP using TLS extensions</a>
+</p>
+<h1><span class="mw-headline" id="R.C3.A9f.C3.A9rences"><span class="mw-headline-number">7</span> Références</span></h1>
+<p><a href="./File:Secure_Websites_Using_SSL_And_Certificates.pdf.html" title="File:Secure Websites Using SSL And Certificates.pdf">SSL and Certificates Documentations</a><br />
+<a rel="nofollow" class="external free" href="http://www.traduc.org/docs/HOWTO/lecture/SSL-Certificates-HOWTO.html">http://www.traduc.org/docs/HOWTO/lecture/SSL-Certificates-HOWTO.html</a><br />
+<a rel="nofollow" class="external text" href="http://www.openbsd.org/faq/fr/faq10.html#HTTPS">Documentation pour OpenBSD</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.016 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 89/1000000
+Preprocessor generated node count: 152/1000000
+Post‐expand include size: 413/2097152 bytes
+Template argument size: 276/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.880      1 - -total
+100.00%    0.880      1 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1987-0!*!*!1!en!5!* and timestamp 20181111230820 and revision id 8025
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_certificats_SSL_sous_Apache_2&amp;oldid=8025">https://wiki.deimos.fr/index.php?title=Mise_en_place_de_certificats_SSL_sous_Apache_2&amp;oldid=8025</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Mise+en+place+de+certificats+SSL+sous+Apache+2" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_certificats_SSL_sous_Apache_2&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_certificats_SSL_sous_Apache_2&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Mise_en_place_de_certificats_SSL_sous_Apache_2.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Mise_en_place_de_certificats_SSL_sous_Apache_2.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Mise_en_place_de_certificats_SSL_sous_Apache_2" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_certificats_SSL_sous_Apache_2&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_certificats_SSL_sous_Apache_2&amp;oldid=8025" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_certificats_SSL_sous_Apache_2&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 24 September 2009, at 12:28.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":52});
+}</script>
+	</body>
+</html>
+	

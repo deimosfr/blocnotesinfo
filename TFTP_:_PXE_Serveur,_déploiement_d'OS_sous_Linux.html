@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>TFTP : PXE Serveur, déploiement d'OS sous Linux - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux","wgTitle":"TFTP : PXE Serveur, déploiement d'OS sous Linux","wgCurRevisionId":8997,"wgRevisionId":8997,"wgArticleId":1784,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux","wgRelevantArticleId":1784,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-TFTP_PXE_Serveur_déploiement_d_OS_sous_Linux skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">TFTP : PXE Serveur, déploiement d'OS sous Linux</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#mw-navigation">navigation</a>, 					<a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Pr.C3.A9requis"><span class="tocnumber">2</span> <span class="toctext">Prérequis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#tftpd-hpa"><span class="tocnumber">4.1</span> <span class="toctext">tftpd-hpa</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Inetd"><span class="tocnumber">4.2</span> <span class="toctext">Inetd</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Iptables"><span class="tocnumber">4.3</span> <span class="toctext">Iptables</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#DHCP_sous_Linux"><span class="tocnumber">4.4</span> <span class="toctext">DHCP sous Linux</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#DHCP_sous_Windows"><span class="tocnumber">4.5</span> <span class="toctext">DHCP sous Windows</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Boot_loader"><span class="tocnumber">4.6</span> <span class="toctext">Boot loader</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Mise_en_place_des_OS"><span class="tocnumber">5</span> <span class="toctext">Mise en place des OS</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Debian"><span class="tocnumber">5.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Memtest86.2B"><span class="tocnumber">5.2</span> <span class="toctext">Memtest86+</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#OpenBSD"><span class="tocnumber">5.3</span> <span class="toctext">OpenBSD</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Red_Hat"><span class="tocnumber">5.4</span> <span class="toctext">Red Hat</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Protection_par_mot_de_passe"><span class="tocnumber">6</span> <span class="toctext">Protection par mot de passe</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Le démarrage PXE (sigle de Pre-boot eXecution Environment) permet à une station de travail de démarrer depuis le réseau un système d'exploitation qui se trouve sur un serveur.
+</p><p>Il permet également d'installer de manière automatique et à distance des serveurs sous diverses OS.
+</p><p>Pour activer le PXE, il faut auparavant le configurer dans le BIOS. L’option se trouve fréquemment dans un menu concernant la carte réseau.
+</p><p>Le boot par PXE s'effectue en plusieurs étapes&#160;:
+</p>
+<ul><li> Recherche d'une adresse IP sur un serveur DHCP ainsi que du fichier à booter</li>
+<li> Téléchargement du fichier à booter sur un serveur Trivial FTP.</li>
+<li> Exécution du fichier à booter.</li></ul>
+<p>Il est à noter que la taille du fichier à booter ne permet pas de booter directement un noyau Linux, par exemple, mais qu'il faut que ce logiciel à booter le télécharge et l'exécute lui même.
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2</span> Prérequis</span></h1>
+<p>Dans les prérequis, c'est assez simple, il faut juste un <a href="./DHCP3_:_Installation_et_configuration_d'un_serveur_DHCP.html" title="DHCP3 : Installation et configuration d'un serveur DHCP">serveur DHCP</a> qui est capable de faire booter sur PXE. Nous verrons ici la configuration de ce serveur DHCP pour qu'il accepte de faire booter par le réseau.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<p>Pour installer le serveur PXE&#160;:
+</p>
+<pre>apt-get install tftpd-hpa syslinux
+</pre>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="tftpd-hpa"><span class="mw-headline-number">4.1</span> tftpd-hpa</span></h2>
+<p>Nous allons éditer ce fichier /etc/default/tftpd-hpa pour remplacer la valeur de RUN_DAEMON&#160;:
+</p>
+<pre>RUN_DAEMON="yes"
+</pre>
+<h2><span class="mw-headline" id="Inetd"><span class="mw-headline-number">4.2</span> Inetd</span></h2>
+<p>On désactive le tsize de tftp-hpa qui limite la taille des fichiers qui vont être rapatriés. Pour celà rajoutez une ligne dans /etc/inetd.conf et vérifier qu'une autre est bien commentée&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/inetd.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>tftp            dgram   udp     wait    root  /usr/sbin/in.tftpd /usr/sbin/in.tftpd -s /var/lib/tftpboot
+# tftp            dgram   udp     wait    nobody    /usr/sbin/tcpd /usr/sbin/in.tftpd -r blksize /tftpboot
+</pre>
+</td></tr></table><br />
+<p>Une fois fait, nous allons redémarrer inetd et tftpd&#160;:
+</p>
+<pre>/etc/init.d/inetd restart
+/etc/init.d/tftpd-hpa start
+</pre>
+<p>Pour vérifier que tout fonctionne&#160;:
+</p>
+<pre>$ netstat -uap | grep tftp
+udp        0      0 *:tftp                  *:*                                30265/in.tftpd
+</pre>
+<p>Si la ligne ci dessus apparait, c'est que tout s'est bien déroulé&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Iptables"><span class="mw-headline-number">4.3</span> Iptables</span></h2>
+<p>Voici la jolie ligne a rajouter à iptables pour autoriser le tftp&#160;:
+</p>
+<pre>iptables -A INPUT -s 10.1.1.0/255.255.255.0 -p udp -j ACCEPT
+</pre>
+<h2><span class="mw-headline" id="DHCP_sous_Linux"><span class="mw-headline-number">4.4</span> DHCP sous Linux</span></h2>
+<p>Dans le cas où votre DHCP est sous Linux, éditez le fichier /etc/dhcp3/dhcpd.conf et rajoutez ces lignes dans votre subnet&#160;:
+</p>
+<pre>subnet 192.168.0.0 netmask 255.255.255.0 {
+...
+<b>filename "pxelinux.0";</b>
+<b>next-server </b>192.168.1.254;
+...
+}
+</pre>
+<p>Next-server est pour donner l'adresse IP du serveur PXE.<br />
+Puis redémarrez votre serveur DHCP&#160;:
+</p>
+<pre>/etc/init.d/dhcp3 restart
+</pre>
+<h2><span class="mw-headline" id="DHCP_sous_Windows"><span class="mw-headline-number">4.5</span> DHCP sous Windows</span></h2>
+<p>Dans le cas où votre DHCP est sous Windows, au niveau de votre configuration du DHCP (générale ou non) ajoutez l'adresse du serveur TFTP&#160;:
+</p>
+<h2><span class="mw-headline" id="Boot_loader"><span class="mw-headline-number">4.6</span> Boot loader</span></h2>
+<p>Maintenant, nous devons préparer et organiser notre serveur TFTP&#160;:
+</p>
+<pre>cd /var/lib/tftpboot
+mkdir pxelinux.cfg os-installer
+touch boot.txt
+cp /usr/lib/syslinux/{pxelinux.0,menu.c32} .
+</pre>
+<p>Nous avons donc ici insérez pxelinux.0 qui est indipensable pour booter nos OS et menu.c32 qui permet d'avoir un petit menu assez basique mais bien pratique quand nous aurons nos OS d'installé.
+</p><p>Nous allons configurer la configuration global du serveur. Créez et éditez le fichier pxelinux.cfg/default pour y insérer ceci&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">PROMPT 1
+DISPLAY boot.txt
+&#160;
+F1 boot-screens/f1.txt
+F2 boot-screens/f2.txt
+F3 boot-screens/f3.txt
+F4 boot-screens/f4.txt
+F5 boot-screens/f5.txt
+F6 boot-screens/f6.txt
+F7 boot-screens/f7.txt
+F8 boot-screens/f8.txt
+F9 boot-screens/f9.txt
+F0 boot-screens/f10.txt
+&#160;
+# On définit ce qui sera lancer par defaut lors du boot, à savoir le menu graphique choisi
+DEFAULT menu.c32              
+NOESCAPE 1
+# On choisi un titre pour l'écran d'arrivé
+MENU TITLE -=[ TFTP Server - OS Installer ]=-
+# Il y a un boot automatique au bout de 20 secondes
+TIMEOUT  200
+&#160;
+# Le boot automatique s'effectue sur le disque dur en locale
+LABEL Local Hard Drive Boot
+        localboot 0  --</pre></div></div>
+<p>La configuration de base est maintenant prête. Nous n'avons plus qu'à ajouter des OS.
+</p>
+<h1><span class="mw-headline" id="Mise_en_place_des_OS"><span class="mw-headline-number">5</span> Mise en place des OS</span></h1>
+<p>Nous allons voir ici comment mettre en place différents types d'OS. Avant de continuer allez dans ce dossier&#160;:
+</p>
+<pre>cd os-installer
+</pre>
+<h2><span class="mw-headline" id="Debian"><span class="mw-headline-number">5.1</span> Debian</span></h2>
+<p>Nous allons donc créer le nécessaire, c'est à dire un dossier, puis y insérer le kernel. Nous allons ici faire la version 32 et 64 bits&#160;:
+</p>
+<pre>mkdir -p debian-installer/{x64,x86}
+</pre>
+<p>Pour la version 32 bits&#160;:
+</p>
+<pre>cd debian-installer/x86
+wget http://ftp.debian.org/dists/stable/main/installer-i386/current/images/netboot/debian-installer/i386/initrd.gz \
+http://ftp.debian.org/dists/stable/main/installer-i386/current/images/netboot/debian-installer/i386/linux
+</pre>
+<p>Pour la version 64 bits&#160;:
+</p>
+<pre>cd debian-installer/x64
+wget http://ftp.debian.org/dists/stable/main/installer-amd64/current/images/netboot/debian-installer/amd64/initrd.gz \
+http://ftp.debian.org/dists/stable/main/installer-amd64/current/images/netboot/debian-installer/amd64/linux
+</pre>
+<p>Ensuite rajoutez ces lignes (en fonction de l'architechture que vous avez choisis) dans le fichier /var/lib/tftpboot/pxelinux.cfg/default&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">LABEL x64 - Debian
+        kernel os-installer/debian-installer/x86/linux
+        append vga=791 priority=low initrd=os-installer/debian-installer/x86/initrd.gz --
+&#160;
+LABEL x86 - Debian
+        kernel os-installer/debian-installer/x64/linux
+        append vga=791 priority=low initrd=os-installer/debian-installer/x64/initrd.gz --</pre></div></div>
+<ul><li> vga=791&#160;: charge la résolution 1024*768</li>
+<li> priority=low&#160;: charge le mode expert de debian</li></ul>
+<p>Note&#160;: Pour automatiser les installations, <a href="Automatiser_une_installation_de_Debian.html" title="Automatiser une installation de Debian">suivez ce lien : Automatiser une installation de Debian</a>
+</p>
+<h2><span class="mw-headline" id="Memtest86.2B"><span class="mw-headline-number">5.2</span> Memtest86+</span></h2>
+<p>A l'heure ou j'écris ces ligne, la dernière version est la 1.70. Je vais donc faire cet exemple avec celle-ci&#160;:
+</p>
+<pre>mkdir -p memtest86
+</pre>
+<p>Téléchargons donc cette version (nous allons prendre le binaire bootable)&#160;:
+</p>
+<pre>cd memtest86
+wget http://www.memtest.org/download/1.70/memtest86+-1.70.bin.gz
+gzip -d http://www.memtest.org/download/1.70/memtest86+-1.70.bin.gz
+</pre>
+<p>Ensuite petite subtilité, il faut renommer et enlever le .bin pour que celà fonctionne&#160;:
+</p>
+<pre>mv memtest86+-1.70{,.bin}
+</pre>
+<p>Ensuite rajoutez ces lignes (en fonction de l'architechture que vous avez choisis) dans le fichier /var/lib/tftpboot/pxelinux.cfg/default&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">LABEL Memtest86+ (RAM Testing Program)
+        kernel os-installer/memtest/memtest86+-1.70</pre></div></div>
+<h2><span class="mw-headline" id="OpenBSD"><span class="mw-headline-number">5.3</span> OpenBSD</span></h2>
+<p>Encore une fois, nous allons ici faire le nécessaire pour pouvoir lancer OpenBSD en version32 et 64 bits&#160;:
+</p>
+<pre>mkdir -p openbsd-installer/{x64,x86}
+</pre>
+<p>Pour la version 32 bits&#160;:
+</p>
+<pre>cd openbsd-installer/x86
+wget http://ftp.arcane-networks.fr/pub/OpenBSD/4.1/i386/floppy41.fs
+</pre>
+<p>Pour la version 64 bits&#160;:
+</p>
+<pre>cd openbsd-installer/x64
+wget http://ftp.arcane-networks.fr/pub/OpenBSD/4.1/amd64/floppy41.fs
+</pre>
+<p>Nous prenons ici les floppy et non les versions CD car nous allons utiliser un nouveau module appellé memdisk qui est capable de charger une iso mais uniquement de la taille inférieure à celle d'une disquette. Copiez donc ce module&#160;:
+</p>
+<pre>cp /usr/lib/syslinux/memdisk /var/lib/tftpboot/
+</pre>
+<p>Ensuite rajoutez ces lignes (en fonction de l'architecture que vous avez choisis) dans le fichier /var/lib/tftpboot/pxelinux.cfg/default&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">LABEL x64 - OpenBSD 4.1
+        kernel memdisk
+        append initrd=x64/openbsd-installer/floppy41.fs  --
+&#160;
+LABEL x86 - OpenBSD 4.1
+        kernel memdisk
+        append initrd=x86/openbsd-installer/floppy41.fs  --</pre></div></div>
+<h2><span class="mw-headline" id="Red_Hat"><span class="mw-headline-number">5.4</span> Red Hat</span></h2>
+<p>Red Hat est un peu spéciale car il va falloir créer un DVD, puis le copier pour y insérer le kernel. Nous allons ici faire la version 32 et 64 bits&#160;:
+</p>
+<pre>mkdir -p redhat-installer/{x64,x86}
+</pre>
+<p><a href="Créer_un_DVD_RedHat_à_partir_des_CD.html" title="Créer un DVD RedHat à partir des CD">Créez le DVD</a>, puis nous allons le copier dans le bon dossier suivant votre version (32 ou 64 bits).
+</p><p>Pour la version 32 bits&#160;:
+</p>
+<pre>cd redhat-installer/x86
+cp -Rf votre_dvd/* votre_dvd/.* .
+</pre>
+<p>Pour la version 64 bits&#160;:
+</p>
+<pre>cd redhat-installer/x64
+cp -Rf votre_dvd/* votre_dvd/.* .
+</pre>
+<p>Ensuite rajoutez ces lignes (en fonction de l'architechture que vous avez choisis) dans le fichier /var/lib/tftpboot/pxelinux.cfg/default&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">LABEL x64 - Red Hat
+        kernel os-installer/redhat-installer/x86/linux
+        append vga=791 priority=low initrd=os-installer/redhat-installer/x86/initrd.gz --
+&#160;
+LABEL x86 - Red Hat
+        kernel os-installer/redhat-installer/x64/linux
+        append vga=791 priority=low initrd=os-installer/redhat-installer/x64/initrd.gz --</pre></div></div>
+<ul><li> vga=791&#160;: charge la résolution 1024*768</li></ul>
+<h1><span class="mw-headline" id="Protection_par_mot_de_passe"><span class="mw-headline-number">6</span> Protection par mot de passe</span></h1>
+<p>L’archive SYSLINUX contient un executable nommé sha1pass (c’est un script Perl) qui génère les mot de passe au bon format. Pour l’utiliser sous Debian il faut le module Perl qui va bien&#160;:
+</p>
+<pre>apt-get install libdigest-sha1-perl
+</pre>
+<p>Ensuite on execute la commande avec le mot de passe en paramètre et il nous donne la chaine à coller dans le fichier de configuration. Par exemple pour proteger Ghost&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">LABEL ghost
+        MENU LABEL Ghost
+        MENU PASSWD $4$jfoBirJg$rSDbzznCZtmJAES9RH/lC92/3Rs$
+        kernel memdisk
+        append initrd=ghost/ghost288.IMA</pre></div></div>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a href="./File:Pxe_ubuntu.pdf.html" title="File:Pxe ubuntu.pdf">Documentation TFTP sur Ubuntu</a><br />
+<a href="./File:Booting_On_PXE.pdf.html" title="File:Booting On PXE.pdf">Documentation TFTP sur Debian</a><br />
+<a href="./File:Démarrez_sans_disque_avec_PXE,_Grub_et_NFS.pdf.html" title="File:Démarrez sans disque avec PXE, Grub et NFS.pdf">Démarrez sans disque avec PXE, Grub et NFS</a><br />
+<a href="Configuration_et_installation_via_port_série_d'OpenBSD_sur_Soekris.html" title="Configuration et installation via port série d'OpenBSD sur Soekris">Configuration et installation de la Soekris (PXE OpenBSD)</a><br />
+<a rel="nofollow" class="external text" href="http://www.thegibson.org/blog/archives/10">Booter des BSD avec PXElinux</a><br />
+<a rel="nofollow" class="external text" href="http://en.opensuse.org/SuSE_install_with_PXE_boot">Mise en place d'un PXE et ses résolution de ses problèmes</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 208/1000000
+Preprocessor generated node count: 406/1000000
+Post‐expand include size: 386/2097152 bytes
+Template argument size: 230/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    1.150      1 - -total
+100.00%    1.150      1 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1784-0!*!0!1!en!5!* and timestamp 20181111230700 and revision id 8997
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=TFTP_:_PXE_Serveur,_déploiement_d%27OS_sous_Linux&amp;oldid=8997">https://wiki.deimos.fr/index.php?title=TFTP_:_PXE_Serveur,_déploiement_d%27OS_sous_Linux&amp;oldid=8997</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=TFTP+%3A+PXE+Serveur%2C+d%C3%A9ploiement+d%27OS+sous+Linux" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/TFTP_:_PXE_Serveur,_déploiement_d'OS_sous_Linux.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux&amp;oldid=8997" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 20 May 2010, at 05:14.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

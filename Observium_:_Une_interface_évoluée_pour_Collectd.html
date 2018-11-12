@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Observium : Une interface évoluée pour Collectd - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Observium_:_Une_interface_évoluée_pour_Collectd.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Observium_:_Une_interface_évoluée_pour_Collectd","wgTitle":"Observium : Une interface évoluée pour Collectd","wgCurRevisionId":10648,"wgRevisionId":10648,"wgArticleId":3343,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Observium_:_Une_interface_évoluée_pour_Collectd","wgRelevantArticleId":3343,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li, .source-php pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.php.source-php .de1, .php.source-php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.php.source-php  {font-family:monospace;}
+.php.source-php .imp {font-weight: bold; color: red;}
+.php.source-php li, .php.source-php .li1 {font-weight: normal; vertical-align:top;}
+.php.source-php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.php.source-php .li2 {font-weight: bold; vertical-align:top;}
+.php.source-php .kw1 {color: #b1b100;}
+.php.source-php .kw2 {color: #000000; font-weight: bold;}
+.php.source-php .kw3 {color: #990000;}
+.php.source-php .kw4 {color: #009900; font-weight: bold;}
+.php.source-php .co1 {color: #666666; font-style: italic;}
+.php.source-php .co2 {color: #666666; font-style: italic;}
+.php.source-php .co3 {color: #0000cc; font-style: italic;}
+.php.source-php .co4 {color: #009933; font-style: italic;}
+.php.source-php .coMULTI {color: #666666; font-style: italic;}
+.php.source-php .es0 {color: #000099; font-weight: bold;}
+.php.source-php .es1 {color: #000099; font-weight: bold;}
+.php.source-php .es2 {color: #660099; font-weight: bold;}
+.php.source-php .es3 {color: #660099; font-weight: bold;}
+.php.source-php .es4 {color: #006699; font-weight: bold;}
+.php.source-php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php.source-php .es6 {color: #009933; font-weight: bold;}
+.php.source-php .es_h {color: #000099; font-weight: bold;}
+.php.source-php .br0 {color: #009900;}
+.php.source-php .sy0 {color: #339933;}
+.php.source-php .sy1 {color: #000000; font-weight: bold;}
+.php.source-php .st0 {color: #0000ff;}
+.php.source-php .st_h {color: #0000ff;}
+.php.source-php .nu0 {color: #cc66cc;}
+.php.source-php .nu8 {color: #208080;}
+.php.source-php .nu12 {color: #208080;}
+.php.source-php .nu19 {color:#800080;}
+.php.source-php .me1 {color: #004000;}
+.php.source-php .me2 {color: #004000;}
+.php.source-php .re0 {color: #000088;}
+.php.source-php .ln-xtra, .php.source-php li.ln-xtra, .php.source-php div.ln-xtra {background-color: #ffc;}
+.php.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Observium_Une_interface_évoluée_pour_Collectd skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Observium : Une interface évoluée pour Collectd</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#mw-navigation">navigation</a>, 					<a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Pr.C3.A9requis"><span class="tocnumber">2.1</span> <span class="toctext">Prérequis</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Observium"><span class="tocnumber">2.2</span> <span class="toctext">Observium</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#MySQL"><span class="tocnumber">2.3</span> <span class="toctext">MySQL</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Apache"><span class="tocnumber">2.4</span> <span class="toctext">Apache</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#SNMP"><span class="tocnumber">2.5</span> <span class="toctext">SNMP</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Contrab"><span class="tocnumber">2.6</span> <span class="toctext">Contrab</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Ajouter_un_utilisateur"><span class="tocnumber">3.1</span> <span class="toctext">Ajouter un utilisateur</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Ajouter_une_machine_.C3.A0_surveiller"><span class="tocnumber">3.2</span> <span class="toctext">Ajouter une machine à surveiller</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Collectd"><span class="tocnumber">3.3</span> <span class="toctext">Collectd</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Hack_hostname_en_majuscule"><span class="tocnumber">3.3.1</span> <span class="toctext">Hack hostname en majuscule</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Ressources"><span class="tocnumber">4</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<div class="thumb tright"><div class="thumbinner" style="width:247px;"><a href="./File:Observium-logo.png.html" class="image"><img alt="" src="images/0/03/Observium-logo.png" width="245" height="300" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="./File:Observium-logo.png.html" class="internal" title="Enlarge"></a></div>Observium</div></div></div>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://www.observium.org">Observium</a> est un outil de supervision orienté graphique tel que <a href="./Munin_:_Surveiller_ses_serveurs_de_façons_très_simple.html" title="Munin : Surveiller ses serveurs de façons très simple">Munin</a>. L'avantage de cette solution est qu'elle gère les graphiques <a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html" title="RRDtool : créer ses propre graphiques avec RRDtool">RRD</a> de <a href="./Collectd_:_Installation_et_configuration_de_Collectd.html" title="Collectd : Installation et configuration de Collectd">Collectd</a>.
+</p><p>Vu qu'aujourd'hui, une interface graphique performante est vraiment quelque chose qui manque à <a href="./Collectd_:_Installation_et_configuration_de_Collectd.html" title="Collectd : Installation et configuration de Collectd">Collectd</a>, il était dommage d'avoir une solution aussi performante sans interface à sa hauteur. C'est pourquoi après plusieurs recherches, j'ai fini par tomber sur <a rel="nofollow" class="external text" href="http://www.observium.org">Observium</a> qui réponds à ce besoin.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2.1</span> Prérequis</span></h2>
+<p>Nous allons utiliser une Debian 6 pour ce tuto. Voici la liste des packages requis (utilisez les ports non-free pour le package snmp-mibs-downloader)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install libapache2-mod-php5 php5-cli php5-mysql php5-gd php5-snmp php-pear snmp graphviz subversion mysql-server mysql-client rrdtool fping imagemagick whois mtr-tiny nmap ipmitool snmp-mibs-downloader php-net-ipv4</pre></div></div>
+</td></tr></table><br />
+<p>Puis nous allons installer une librairie php ipv6 nécessaire qui n'est malheureusement pas packagée&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pear</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pear install Net_IPv6</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Observium"><span class="mw-headline-number">2.2</span> Observium</span></h2>
+<p>Nous allons maintenant télécharger et décompresser observium, puis créer quelques dossiers nécessaires&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd /var/www/
+wget http://www.observium.org/observium-latest.tar.gz
+tar -xzf observium-latest.tar.gz
+rm -f observium-latest.tar.gz
+cd /var/www/observium
+mkdir graphs rrd
+chown -Rf www-data. .</pre></div></div>
+</td></tr></table><br />
+<p>Nous créons un fichier de configuration basique&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cp config.php.default config.php</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="MySQL"><span class="mw-headline-number">2.3</span> MySQL</span></h2>
+<p>Passons à la base de données. Il va falloir la créer avec un utilisateur (n'oubliez pas de remplacer le password)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; mysql -uroot -p
+mysql&gt; CREATE DATABASE observium;
+mysql&gt; GRANT ALL PRIVILEGES ON observium.* TO 'observium'@'localhost' IDENTIFIED BY '&lt;password&gt;';
+mysql&gt; flush privileges;</pre></div></div>
+</td></tr></table><br />
+<p>Changeons dans le fichier de configuration la localisation d'Observium, ajoutons une entrée pour fping et modifions les champs SQL pour les adapter avec les bonnes données&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /var/www/observium/config.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1"><span class="kw2">&lt;?php</span>
+&#160;
+<span class="co2">## Have a look in defaults.inc.php for examples of settings you can set here. DO NOT EDIT defaults.inc.php!</span>
+&#160;
+<span class="co2">### Database config</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'db_host'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;localhost&quot;</span><span class="sy0">;</span>
+<span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'db_user'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;USERNAME&quot;</span><span class="sy0">;</span></span><span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'db_pass'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;PASSWORD&quot;</span><span class="sy0">;</span></span><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'db_name'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;observium&quot;</span><span class="sy0">;</span>
+&#160;
+<span class="co2">### Locations</span>
+<span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'fping'</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;/usr/bin/fping&quot;</span><span class="sy0">;</span></span><span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'install_dir'</span><span class="br0">&#93;</span>  <span class="sy0">=</span> <span class="st0">&quot;/var/www/observium&quot;</span><span class="sy0">;</span></span><span class="sy0">...</span></pre></div></div>
+</td></tr></table><br />
+<p>Ensuite, nous allons importer le schema pour la construction de la base&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mysql -uobservium -p observium &lt; database-schema.sql</pre></div></div>
+</td></tr></table><br />
+<p>Et nous allons updater la base avec quelques mises à jour&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">scripts/update-sql.php database-update-pre1000.sql
+scripts/update-sql.php database-update-pre1435.sql
+scripts/update-sql.php database-update-pre2245.sql
+scripts/update-sql.php database-update.sql</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Apache"><span class="mw-headline-number">2.4</span> Apache</span></h2>
+<p>Puis nous allons créer la configuration apache pour ce nouveau site (n'oubliez pas de faire l'enregistrement dns)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/apache2/sites-available/observium</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;<span class="kw3">VirtualHost</span> *:<span class="nu0">80</span>&gt;
+    <span class="kw1">DocumentRoot</span> /var/www/observium/html/
+<span class="xtra ln-xtra">    <span class="kw1">ServerName</span>  observium.deimos.fr</span>    <span class="kw1">CustomLog</span> /var/log/apache2/access.log combined
+    <span class="kw1">ErrorLog</span> /var/log/apache2/error.log
+    &lt;<span class="kw3">Directory</span> <span class="st0">&quot;/var/www/observium/html/&quot;</span>&gt;
+        <span class="kw1">Options</span> <span class="kw2">Indexes</span> <span class="kw2">FollowSymLinks</span> MultiViews
+        <span class="kw1">AllowOverride</span> <span class="kw2">All</span>
+        <span class="kw1">Order</span> <span class="kw1">allow</span>,<span class="kw1">deny</span>
+        <span class="kw1">allow</span> from <span class="kw2">all</span>
+    &lt;/<span class="kw3">Directory</span>&gt;
+&lt;/<span class="kw3">VirtualHost</span>&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Puis on active cette nouvelle configuration, on s'assure que le module rewrite est bien actif et on reload apache&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> a2ensite</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">a2enmod rewrite
+a2ensite observium
+/etc/init.d/apache2 reload</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="SNMP"><span class="mw-headline-number">2.5</span> SNMP</span></h2>
+<p>Pour le SNMP, nous allons éditer le fichier de configuration pour lui ajouter une ligne contenant des informations sur les mibs&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/snmp/snmp.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#
+# As the snmp packages come without MIB files due to license reasons, loading
+# of MIBs is disabled by default. If you added the MIBs you can reenable
+# loaging them by commenting out the following line.
+<span class="xtra ln-xtra"># mibs&#160;:</span><span class="xtra ln-xtra">mibdirs /var/www/observium/mibs</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Contrab"><span class="mw-headline-number">2.6</span> Contrab</span></h2>
+<p>Il va vous falloir <a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Ajouter_un_utilisateur">créer un utilisateur</a> admin par exemple et <a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#Ajouter_une_machine_.C3.A0_surveiller">ajouter un host</a> avant d'initialiser et récupérer les premières données.
+</p><p>Une fois fait, on lance pour la première fois la moulinette&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">./discovery.php -h all
+./poller.php -h all</pre></div></div>
+</td></tr></table><br />
+<p>Et enfin on créer un fichier de cron pour ce service&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cron.d/observium</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">33 */6 * * *   root    cd /var/www/observium/ &amp;&amp; ./discovery.php -h all &gt;&gt; /dev/null 2&gt;&amp;1
+*/5 * * * *   root    cd /var/www/observium/ &amp;&amp; ./discovery.php -h new &gt;&gt; /dev/null 2&gt;&amp;1
+*/5 * * * *   root    cd /var/www/observium/ &amp;&amp; ./poller.php -h all &gt;&gt; /dev/null 2&gt;&amp;1</pre></div></div>
+</td></tr></table><br />
+<p>Et enfin, on reload le service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/etc/init.d/cron reload</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Ajouter_un_utilisateur"><span class="mw-headline-number">3.1</span> Ajouter un utilisateur</span></h2>
+<p>Ceci est normalement uniquement pour l'admin. Ensuite il est préférable d'avoir un backend en LDAP&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/var/www/observium/adduser.php &lt;username&gt; &lt;password&gt; 10</pre></div></div>
+</td></tr></table><br />
+<ul><li> 10&#160;: C'est le niveau de droits allant de 0 à 10 (10 étant admin).</li></ul>
+<h2><span class="mw-headline" id="Ajouter_une_machine_.C3.A0_surveiller"><span class="mw-headline-number">3.2</span> Ajouter une machine à surveiller</span></h2>
+<p>Voici comment rajouter une machine pour la monitorer en SNMP&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> addhost.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/var/www/observium/addhost.php &lt;hostname&gt; &lt;community&gt; v2c</pre></div></div>
+</td></tr></table><br />
+<p>Voici un exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> addhost.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; /var/www/observium/addhost.php localhost public v2c
+Created host&#160;: localhost (id:1) (os:linux)</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Collectd"><span class="mw-headline-number">3.3</span> Collectd</span></h2>
+<p>Si vous souhaitez ajouter <a href="./Collectd_:_Installation_et_configuration_de_Collectd.html" title="Collectd : Installation et configuration de Collectd">Collectd</a> à vos graphs de serveurs, c'est possible. Il vous faut pour cela éditer la configuration du serveur et rajouter ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> config.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+### Locations
+$config['collectd_dir'] = '/var/lib/collectd/rrd';
+...</pre></div></div>
+</td></tr></table><br />
+<p>Côté client, il faut s'assurer que la variable Hostname soit correctement configurée, comme par exemple&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Hostname &quot;localhost&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Tous les serveurs existants dans collectd doivent exister sur Observium. C'est pour cela que nous allons ajouter automatiquement toutes les machines&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> addhost.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd /var/lib/collectd/rrd/&#160;; for i in *&#160;; do /var/www/observium/addhost.php $i lookullink v2c&#160;; done</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Hack_hostname_en_majuscule"><span class="mw-headline-number">3.3.1</span> Hack hostname en majuscule</span></h3>
+<p>J'ai beau avoir contacté les dev d'Obervium, vous aurez des soucis si vous voulez intégrer Collectd avec des hostnames ayant des noms avec des majuscules. En effet, du fait qu'il soit logique d'avoir des hostname en minuscule, ils se sont dit qu'ils ne géreraient pas les majuscules. Et si comme moi vos hostnames sous Collectd sont en majuscule, impossible alors de faire une intégration. J'ai chercher 1000 manières de contourner proprement ce problème et à chaque fois ça nécessitait de la réécriture de code et non de la configuration côté Collectd ou Observium.
+</p><p>Bref, j'ai donc fini par modifier le code, mais très très très légèrement. En fait je me suis simplement occupé du script de création d'host pour qu'il créer des liens symbolique (je sais c'est pas ultra propre)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> addhost.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1">#!/usr/bin/env php
+<span class="kw2">&lt;?php</span>
+&#160;
+<span class="coMULTI">/* Observium Network Management and Monitoring System</span>
+<span class="coMULTI">&#160;* Copyright (C) 2006-2011, Observium Developers - http://www.observium.org</span>
+<span class="coMULTI">&#160;*</span>
+<span class="coMULTI">&#160;* This program is free software: you can redistribute it and/or modify</span>
+<span class="coMULTI">&#160;* it under the terms of the GNU General Public License as published by</span>
+<span class="coMULTI">&#160;* the Free Software Foundation, either version 3 of the License, or</span>
+<span class="coMULTI">&#160;* (at your option) any later version.</span>
+<span class="coMULTI">&#160;*</span>
+<span class="coMULTI">&#160;* See COPYING for more details.</span>
+<span class="coMULTI">&#160;*/</span>
+&#160;
+<span class="kw1">include</span><span class="br0">&#40;</span><span class="st0">&quot;includes/defaults.inc.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">include</span><span class="br0">&#40;</span><span class="st0">&quot;config.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">include</span><span class="br0">&#40;</span><span class="st0">&quot;includes/functions.php&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">isset</span><span class="br0">&#40;</span><span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+  <span class="re0">$host</span>    <span class="sy0">=</span> <span class="kw3">strtolower</span><span class="br0">&#40;</span><span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="re0">$community</span> <span class="sy0">=</span> <span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">2</span><span class="br0">&#93;</span><span class="sy0">;</span>
+  <span class="re0">$snmpver</span>   <span class="sy0">=</span> <span class="kw3">strtolower</span><span class="br0">&#40;</span><span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">3</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="xtra ln-xtra">  <span class="re0">$host_upper</span> <span class="sy0">=</span> <span class="kw3">strtoupper</span><span class="br0">&#40;</span><span class="re0">$host</span><span class="br0">&#41;</span><span class="sy0">;</span></span><span class="xtra ln-xtra">  <span class="re0">$host_fullpath</span> <span class="sy0">=</span> <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'collectd_dir'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'/'</span> <span class="sy0">.</span> <span class="re0">$host</span><span class="sy0">;</span></span><span class="xtra ln-xtra">  <span class="re0">$host_fullpath_upper</span> <span class="sy0">=</span> <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'collectd_dir'</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="st_h">'/'</span> <span class="sy0">.</span> <span class="re0">$host_upper</span><span class="sy0">;</span></span>&#160;
+  <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_numeric</span><span class="br0">&#40;</span><span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">4</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    <span class="re0">$port</span> <span class="sy0">=</span> <span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">4</span><span class="br0">&#93;</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+  <span class="kw1">else</span>
+  <span class="br0">&#123;</span>
+    <span class="re0">$port</span> <span class="sy0">=</span> <span class="nu0">161</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+&#160;
+  <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">@!</span><span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">5</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    <span class="re0">$transport</span> <span class="sy0">=</span> <span class="st_h">'udp'</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+  <span class="kw1">else</span>
+  <span class="br0">&#123;</span>
+    <span class="re0">$transport</span> <span class="sy0">=</span> <span class="re0">$argv</span><span class="br0">&#91;</span><span class="nu0">5</span><span class="br0">&#93;</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+&#160;
+  <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">!</span><span class="re0">$snmpver</span><span class="br0">&#41;</span> <span class="re0">$snmpver</span> <span class="sy0">=</span> <span class="st0">&quot;v2c&quot;</span><span class="sy0">;</span>
+&#160;
+  <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$community</span><span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    <span class="kw3">unset</span><span class="br0">&#40;</span><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'snmp'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'community'</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'snmp'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'community'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="re0">$community</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+&#160;
+  addHost<span class="br0">&#40;</span><span class="re0">$host</span><span class="sy0">,</span> <span class="re0">$community</span><span class="sy0">,</span> <span class="re0">$snmpver</span><span class="sy0">,</span> <span class="re0">$port</span> <span class="sy0">=</span> <span class="st_h">'161'</span><span class="sy0">,</span> <span class="re0">$transport</span> <span class="sy0">=</span> <span class="st_h">'udp'</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="xtra ln-xtra">    <span class="co2"># Add symlink to correct uppercase hostname problems</span></span><span class="xtra ln-xtra">    <span class="kw1">if</span> <span class="br0">&#40;</span><span class="kw3">is_dir</span><span class="br0">&#40;</span><span class="re0">$host_fullpath</span><span class="br0">&#41;</span> or <span class="kw3">is_link</span><span class="br0">&#40;</span><span class="re0">$host_fullpath</span><span class="br0">&#41;</span><span class="br0">&#41;</span></span><span class="xtra ln-xtra">    <span class="br0">&#123;</span></span><span class="xtra ln-xtra">        <span class="kw3">exit</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span></span><span class="xtra ln-xtra">    <span class="br0">&#125;</span></span><span class="xtra ln-xtra">    <span class="kw1">elseif</span> <span class="br0">&#40;</span><span class="kw3">is_dir</span><span class="br0">&#40;</span><span class="re0">$host_fullpath_upper</span><span class="br0">&#41;</span><span class="br0">&#41;</span></span><span class="xtra ln-xtra">    <span class="br0">&#123;</span></span><span class="xtra ln-xtra">        <span class="kw3">symlink</span><span class="br0">&#40;</span><span class="re0">$host_fullpath_upper</span><span class="sy0">,</span> <span class="re0">$host_fullpath</span><span class="br0">&#41;</span><span class="sy0">;</span></span><span class="xtra ln-xtra">    <span class="br0">&#125;</span></span>&#160;
+<span class="br0">&#125;</span> <span class="kw1">else</span> <span class="br0">&#123;</span> 
+&#160;
+<span class="kw1">print</span> Console_Color<span class="sy0">::</span><span class="me2">convert</span><span class="br0">&#40;</span><span class="st0">&quot;</span>
+<span class="st0">Observium v&quot;</span><span class="sy0">.</span><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'version'</span><span class="br0">&#93;</span><span class="sy0">.</span><span class="st0">&quot; Add Host Tool</span>
+&#160;
+<span class="st0">Usage: ./addhost.php &lt;%Whostname%n&gt; [community] [v1|v2c] [port] [&quot;</span> <span class="sy0">.</span> <span class="kw3">join</span><span class="br0">&#40;</span><span class="st0">&quot;|&quot;</span><span class="sy0">,</span><span class="re0">$config</span><span class="br0">&#91;</span><span class="st_h">'snmp'</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st_h">'transports'</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="sy0">.</span> <span class="st0">&quot;]</span>
+&#160;
+<span class="st0">%rRemeber to discover the host afterwards.%n</span>
+&#160;
+<span class="st0">&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="sy1">?&gt;</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">4</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.observium.org/wiki/Ubuntu_SVN_Installation">http://www.observium.org/wiki/Ubuntu_SVN_Installation</a><br />
+<a rel="nofollow" class="external free" href="http://www.outsidaz.org/blog/2012/02/09/deploying-observium-on-rhel6-with-selinux/">http://www.outsidaz.org/blog/2012/02/09/deploying-observium-on-rhel6-with-selinux/</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.100 seconds
+Real time usage: 0.099 seconds
+Preprocessor visited node count: 413/1000000
+Preprocessor generated node count: 1174/1000000
+Post‐expand include size: 4295/2097152 bytes
+Template argument size: 1285/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   58.483      1 - -total
+ 84.06%   49.158      7 - Template:Config
+ 11.56%    6.759     14 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3343-0!*!0!1!en!5!* and timestamp 20181111230716 and revision id 10648
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Observium_:_Une_interface_évoluée_pour_Collectd&amp;oldid=10648">https://wiki.deimos.fr/index.php?title=Observium_:_Une_interface_évoluée_pour_Collectd&amp;oldid=10648</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Observium+%3A+Une+interface+%C3%A9volu%C3%A9e+pour+Collectd" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Observium_:_Une_interface_%C3%A9volu%C3%A9e_pour_Collectd&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Observium_:_Une_interface_%C3%A9volu%C3%A9e_pour_Collectd&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Observium_:_Une_interface_évoluée_pour_Collectd.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Observium_:_Une_interface_évoluée_pour_Collectd.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Observium_:_Une_interface_%C3%A9volu%C3%A9e_pour_Collectd" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Observium_:_Une_interface_%C3%A9volu%C3%A9e_pour_Collectd&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Observium_:_Une_interface_%C3%A9volu%C3%A9e_pour_Collectd&amp;oldid=10648" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Observium_:_Une_interface_%C3%A9volu%C3%A9e_pour_Collectd&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 22 March 2012, at 15:56.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

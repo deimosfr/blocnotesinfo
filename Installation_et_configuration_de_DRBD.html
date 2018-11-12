@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration de DRBD - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_de_DRBD.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_de_DRBD","wgTitle":"Installation et configuration de DRBD","wgCurRevisionId":12955,"wgRevisionId":12955,"wgArticleId":2011,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_de_DRBD","wgRelevantArticleId":2011,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_de_DRBD skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration de DRBD</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Installation_et_configuration_de_DRBD.html#mw-navigation">navigation</a>, 					<a href="Installation_et_configuration_de_DRBD.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Installation_et_configuration_de_DRBD.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Installation_et_configuration_de_DRBD.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Installation_et_configuration_de_DRBD.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Installation_et_configuration_de_DRBD.html#drbd.conf"><span class="tocnumber">3.1</span> <span class="toctext">drbd.conf</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Installation_et_configuration_de_DRBD.html#global_common.conf"><span class="tocnumber">3.2</span> <span class="toctext">global_common.conf</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Installation_et_configuration_de_DRBD.html#r0.res"><span class="tocnumber">3.3</span> <span class="toctext">r0.res</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Installation_et_configuration_de_DRBD.html#Synchronisation"><span class="tocnumber">4</span> <span class="toctext">Synchronisation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Installation_et_configuration_de_DRBD.html#Node_1"><span class="tocnumber">4.1</span> <span class="toctext">Node 1</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Installation_et_configuration_de_DRBD.html#Node_2"><span class="tocnumber">4.2</span> <span class="toctext">Node 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Installation_et_configuration_de_DRBD.html#Utilisation"><span class="tocnumber">5</span> <span class="toctext">Utilisation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Installation_et_configuration_de_DRBD.html#Passer_en_master"><span class="tocnumber">5.1</span> <span class="toctext">Passer en master</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Installation_et_configuration_de_DRBD.html#Passer_en_slave"><span class="tocnumber">5.2</span> <span class="toctext">Passer en slave</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Installation_et_configuration_de_DRBD.html#Synchronisation_manuelle"><span class="tocnumber">5.3</span> <span class="toctext">Synchronisation manuelle</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Installation_et_configuration_de_DRBD.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="Installation_et_configuration_de_DRBD.html#Ma_syncro_ne_fonctionne_pas.2C_j.27ai_:_Secondary.2FUnknown"><span class="tocnumber">6.1</span> <span class="toctext">Ma syncro ne fonctionne pas, j'ai&#160;: Secondary/Unknown</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Installation_et_configuration_de_DRBD.html#Que_faire_en_cas_de_split_brain_.3F"><span class="tocnumber">6.2</span> <span class="toctext">Que faire en cas de split brain&#160;?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="Installation_et_configuration_de_DRBD.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><b>DRBD</b> est un systeme permettant de faire du RAID1 logiciel à travers un réseau local.<br />
+cela permet par exemple de faire de la haute disponibilité et du partage de ressources sur un cluster sans baie de disque.
+</p><p>Ici nous installerons <b>DRBD8</b>, le but étant par la suite de pouvoir implementer un Filesystem cluster (voir doc sur OCFS2) ce qui n'est pas géré sur DRBD7.<br />
+Pour cela nous utilisons les packages DRBD8 des depots debian. Nous travaillerons ici sur un cluster de 2 noeuds.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>pour commencer, installer les paquets suivant&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install drbd8-utils
+</pre>
+</td></tr></table><br />
+<p>Puis nous allons charger le module et le mettre en persistant (pour les prochains reboot)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>modprobe drbd
+echo "drbd" &gt;&gt; /etc/modules
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="drbd.conf"><span class="mw-headline-number">3.1</span> drbd.conf</span></h2>
+<p>Le fichier drbd.conf est plutôt pas mal de base car il permet d'écrire une configuration extensible&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/drbd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># You can find an example in  /usr/share/doc/drbd.../drbd.conf.example
+&#160;
+include &quot;drbd.d/global_common.conf&quot;;
+include &quot;drbd.d/*.res&quot;;</pre></div></div>
+</td></tr></table><br />
+<p>Je n'y ai donc pas touché.
+</p>
+<h2><span class="mw-headline" id="global_common.conf"><span class="mw-headline-number">3.2</span> global_common.conf</span></h2>
+<p>Ce fichier est donc le fichier par défaut, qui ne peut contenir des configurations pour vos hosts, mais qui également permet d'avoir une configuration global pour vos différentes configurations DRBD (section common)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/drbd.d/global_common.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># Global configuration
+global {
+    # Do not report statistics usage to LinBit
+    usage-count no;
+}
+&#160;
+# All resources inherit the options set in this section
+common {
+    # C (Synchronous replication protocol)
+    protocol C;
+&#160;
+    startup {
+        # Wait for connection timeout (in seconds)
+        wfc-timeout 1&#160;;
+        # Wait for connection timeout, if this node was a degraded cluster (in seconds)
+        degr-wfc-timeout 1&#160;;
+    }
+&#160;
+    net {
+        # Maximum number of requests to be allocated by DRBD
+        max-buffers 8192;
+        # The highest number of data blocks between two write barriers
+        max-epoch-size 8192;
+        # The size of the TCP socket send buffer
+        sndbuf-size 512k;
+        # How often the I/O subsystem’s controller is forced to process pending I/O requests
+        unplug-watermark 8192;
+        # The HMAC algorithm to enable peer authentication at all
+        cram-hmac-alg sha1;
+        # The shared secret used in peer authentication
+        shared-secret &quot;xxx&quot;;
+        # Split brains
+        # Split brain, resource is not in the Primary role on any host
+        after-sb-0pri disconnect;
+        # Split brain, resource is in the Primary role on one host
+        after-sb-1pri disconnect;
+        # Split brain, resource is in the Primary role on both host
+        after-sb-2pri disconnect;
+        # Helps to solve the cases when the outcome of the resync decision is incompatible with the current role assignment
+        rr-conflict disconnect;
+    }
+&#160;
+    handlers {
+        # If the node is primary, degraded and if the local copy of the data is inconsistent
+        pri-on-incon-degr &quot;echo Current node is primary, degraded and the local copy of the data is inconsistent | wall &quot;;
+    }
+&#160;
+    disk {
+        # The node downgrades the disk status to inconsistent on io errors
+        on-io-error pass_on;
+        # Disable protecting data if power failure (done by hardware)
+        no-disk-barrier;
+        # Disable the backing device to support disk flushes
+        no-disk-flushes;
+        # Do not let write requests drain before write requests of a new reordering domain are issued
+        no-disk-drain;
+        # Disables the use of disk flushes and barrier BIOs when accessing the meta data device
+        no-md-flushes;
+    }
+&#160;
+    syncer {
+        # The maximum bandwidth a resource uses for background re-synchronization
+        rate 500M;
+        # Control how big the hot area (= active set) can get
+        al-extents 3833;
+    } 
+}</pre></div></div>
+</td></tr></table><br />
+<p>J'ai mis en commentaire toutes mes modifications.
+</p>
+<h2><span class="mw-headline" id="r0.res"><span class="mw-headline-number">3.3</span> r0.res</span></h2>
+<p>Maintenant nous allons créer un fichier pour ajouter notre ressource 0&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/drbd.d/r0.res</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">resource r0 {
+    # Node 1
+    on srv1 {
+        device       /dev/drbd0;
+        # Disk containing the drbd partition
+        disk         /dev/mapper/datas-drbd;
+        # IP address of this host
+        address      192.168.100.1:7788;
+        # Store metadata on the same device
+        meta-disk    internal;
+    }
+    # Node 2
+    on srv2 {
+        device      /dev/drbd0;
+        disk        /dev/mapper/lvm-drbd;
+        address     192.168.20.4:7788;
+        meta-disk   internal;
+    }
+}</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Synchronisation"><span class="mw-headline-number">4</span> Synchronisation</span></h1>
+<p>Nous allons avoir besoin de lancer la première synchro maintenant.
+</p><p>Sur les 2 noeuds, lancez cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>drbdadm create-md r0
+</pre>
+</td></tr></table><br />
+<p>Toujours sur les 2 noeuds, lancez cette commande pour activer la ressource&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>drbdadm up r0
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Node_1"><span class="mw-headline-number">4.1</span> Node 1</span></h2>
+<p>Nous allons demander au premier node de faire la première réplication bloc par bloc&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>drbdadm -- --overwrite-data-of-peer primary r0
+</pre>
+</td></tr></table><br />
+<p>Il va ensuite falloir attendre la fin de la syncro avant de passer à la suite&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; cat /proc/drbd
+version: 8.3.7 (api:88/proto:86-91)
+srcversion: EE47D8BF18AC166BE219757 
+ 0: cs:<b>SyncSource</b> ro:Primary/Secondary ds:<b>UpToDate/Inconsistent</b> C r----
+   ns:912248 nr:0 dw:0 dr:920640 al:0 bm:55 lo:1 pe:388 ua:2048 ap:0 ep:1 wo:b oos:3283604
+        [===&gt;................] sync'ed: 21.9% (3283604/4194304)K
+        finish: 1:08:24 speed: 580 (452) K/sec
+</pre>
+</td></tr></table><br />
+<p>L'affichage de /proc/drbd permet de voir l'état de réplication. A la fin, vous devriez avoir quelque chose comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; cat /proc/drbd
+version: 8.3.7 (api:88/proto:86-91)
+srcversion: EE47D8BF18AC166BE219757
+ 0: cs:<b>Connected</b> ro:Secondary/Primary ds:<b>UpToDate/UpToDate</b> C r----
+    ns:0 nr:4194304 dw:4194304 dr:0 al:0 bm:256 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:0
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Node_2"><span class="mw-headline-number">4.2</span> Node 2</span></h2>
+<p>Si l'on veut faire du dual master, il faut que cette option soit active dans la configuration&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/drbd.d/r0.res</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">resource &lt;resource&gt;
+  startup {
+    become-primary-on both;
+  }
+  net {
+    protocol C;
+    allow-two-primaries yes;
+  }
+}</pre></div></div>
+</td></tr></table><br />
+<p>Maintenant nous pouvons activer l'autre noeud en tant que primaire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>drbdadm primary r0
+</pre>
+</td></tr></table><br />
+<p>Une fois la synchronisation terminée, DRBD est installé et correctement configuré.<br />
+Il faut maintenant formater le device <b>/dev/drbd0</b> avec un system de fichier, par exemple ext3 pour de l'actif/passif ou de l'OCFS2 par exemple si vous voulez de l'actif/actif (il en existe d'autres tel que le GFS2).
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mkfs</font>
+</td></tr>
+<tr>
+<td>
+<pre>mkfs.ext3 /dev/drbd0
+</pre>
+<p>ou
+</p>
+<pre>mkfs.ocfs2 /dev/drbd0
+</pre>
+</td></tr></table><br />
+<p>Puis montez le volume dans un dossier pour accéder aux données&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mount</font>
+</td></tr>
+<tr>
+<td>
+<pre>mount /dev/drbd0 /mnt/data
+</pre>
+</td></tr></table><br />
+<p>Seul un noeud primaire peut monter et acceder aux données du volume DRBD.<br />
+Lorsque DRBD fonctionne avec HeartBeat en mode CRM, si le noeud primaire tombe, le cluster est capable de basculer le noeud secondaire en primaire.<br />
+Lorsque l'ancien primaire est à nouveau "UP" il se synchronisera et deviendra à son tour un secondaire.
+</p>
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">5</span> Utilisation</span></h1>
+<h2><span class="mw-headline" id="Passer_en_master"><span class="mw-headline-number">5.1</span> Passer en master</span></h2>
+<p>Pour passer tous les volumes en primaire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">drbdadm primary all</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>Remplacez <b>all</b> par le nom de votre volume si vous ne souhaitez opérer que sur un seul
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Passer_en_slave"><span class="mw-headline-number">5.2</span> Passer en slave</span></h2>
+<p>Pour passer un volume en slave&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">drbdadm secondary all</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Synchronisation_manuelle"><span class="mw-headline-number">5.3</span> Synchronisation manuelle</span></h2>
+<p>Pour démarrer une synchronisation manuelle (va invalider toutes vos données)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">drbdadm invalidate all</pre></div></div>
+</td></tr></table><br />
+<p>Pour faire la même chose mais sur les autres noeuds&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">drbdadm invalidate_remote all</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Ma_syncro_ne_fonctionne_pas.2C_j.27ai_:_Secondary.2FUnknown"><span class="mw-headline-number">6.1</span> Ma syncro ne fonctionne pas, j'ai&#160;: Secondary/Unknown</span></h2>
+<p>Si vous avez ce type de message&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; cat /proc/drbd
+version: 8.3.7 (api:88/proto:86-91)
+srcversion: EE47D8BF18AC166BE219757 
+ 0: cs:StandAlone ro:Secondary/Unknown ds:Inconsistent/DUnknown   r----
+    ns:0 nr:0 dw:0 dr:0 al:0 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:4194304</pre></div></div>
+</td></tr></table><br />
+<p>Il faut que vous vérifiez si les machines sont bien configurées au niveau de vos ressources et également qu'elles arrivent bien à se telnetter (firewalling etc...)
+</p>
+<h2><span class="mw-headline" id="Que_faire_en_cas_de_split_brain_.3F"><span class="mw-headline-number">6.2</span> Que faire en cas de split brain&#160;?</span></h2>
+<p>Si vous vous retrouvez dans ce cas de figure&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; cat /proc/drbd
+primary/unknown
+</pre>
+<p>ou
+</p>
+<pre>secondary/unknown
+</pre>
+</td></tr></table><br />
+<p>1. Démontez les volumes drbd<br />
+2. Sur le primaire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> drbdadm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">drbdadm connect all</pre></div></div>
+</td></tr></table><br />
+<p>3. Sur le secondaire (cela va détruire toutes les données et les réimporter depuis le master)
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">drbdadm -- --discard-my-data connect all</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a href="./File:Heartbeat2_Xen_cluster_with_drbd8_and_OCFS2.pdf.html" title="File:Heartbeat2 Xen cluster with drbd8 and OCFS2.pdf">Documentation on Heartbeat2 Xen cluster with drbd8 and OCFS2</a><br />
+<a href="images/1/15/DRBD_8_3_Third_Node_Replication_With_Debian_Etch.pdf" class="internal" title="DRBD 8 3 Third Node Replication With Debian Etch.pdf">DRBD 8 3 Third Node Replication</a><br />
+<a rel="nofollow" class="external text" href="http://fr.slideshare.net/deimosfr/drbd-25911753">DRBD advanced usages</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.052 seconds
+Real time usage: 0.053 seconds
+Preprocessor visited node count: 387/1000000
+Preprocessor generated node count: 1080/1000000
+Post‐expand include size: 5067/2097152 bytes
+Template argument size: 1839/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   12.049      1 - -total
+ 39.76%    4.791     18 - Template:Command
+ 30.92%    3.726      4 - Template:Config
+  6.52%    0.786      1 - Template:Notes
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2011-0!*!*!1!en!5!* and timestamp 20181111230708 and revision id 12955
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_DRBD&amp;oldid=12955">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_DRBD&amp;oldid=12955</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+de+DRBD" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_de_DRBD.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Installation_et_configuration_de_DRBD.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_de_DRBD.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_DRBD&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_DRBD&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Installation_et_configuration_de_DRBD.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_de_DRBD.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_de_DRBD" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_DRBD&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_DRBD&amp;oldid=12955" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_DRBD&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 7 September 2013, at 09:56.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

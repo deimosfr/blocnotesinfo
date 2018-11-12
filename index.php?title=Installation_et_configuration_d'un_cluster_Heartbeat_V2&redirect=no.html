@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration d'un cluster Heartbeat V2 - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_d'un_cluster_Heartbeat_V2.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_d'un_cluster_Heartbeat_V2","wgTitle":"Installation et configuration d'un cluster Heartbeat V2","wgCurRevisionId":7356,"wgRevisionId":7356,"wgArticleId":1988,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_d'un_cluster_Heartbeat_V2","wgRelevantArticleId":1988,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_d_un_cluster_Heartbeat_V2 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration d'un cluster Heartbeat V2</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#mw-navigation">navigation</a>, 					<a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Via_les_depots_officiels"><span class="tocnumber">2.1</span> <span class="toctext">Via les depots officiels</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Via_des_packages_externes"><span class="tocnumber">2.2</span> <span class="toctext">Via des packages externes</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#hosts"><span class="tocnumber">2.3</span> <span class="toctext">hosts</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#NTP"><span class="tocnumber">2.4</span> <span class="toctext">NTP</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#sysctl.conf"><span class="tocnumber">2.5</span> <span class="toctext">sysctl.conf</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#ha.cf"><span class="tocnumber">3.1</span> <span class="toctext">ha.cf</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#authkeys"><span class="tocnumber">3.2</span> <span class="toctext">authkeys</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#R.C3.A9plications_et_tests"><span class="tocnumber">3.3</span> <span class="toctext">Réplications et tests</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Configuration_de_services_cluster"><span class="tocnumber">4</span> <span class="toctext">Configuration de services cluster</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#crm_config"><span class="tocnumber">4.1</span> <span class="toctext">crm_config</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#nodes"><span class="tocnumber">4.2</span> <span class="toctext">nodes</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#ressources"><span class="tocnumber">4.3</span> <span class="toctext">ressources</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#constraints"><span class="tocnumber">4.4</span> <span class="toctext">constraints</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Management_des_Services_Cluster"><span class="tocnumber">5</span> <span class="toctext">Management des Services Cluster</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Pr.C3.A9paration_d.27un_service_cluster"><span class="tocnumber">5.1</span> <span class="toctext">Préparation d'un service cluster</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Basculer_un_service_sur_un_autre_noeud"><span class="tocnumber">5.2</span> <span class="toctext">Basculer un service sur un autre noeud</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#D.C3.A9marrer_un_service"><span class="tocnumber">5.3</span> <span class="toctext">Démarrer un service</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Ajout_d.27un_noeud_suppl.C3.A9mentaire"><span class="tocnumber">5.4</span> <span class="toctext">Ajout d'un noeud supplémentaire</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#Ressources_2"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://linux-ha.org">Heartbeat</a> est l'un des cluster software les plus utilisés car il est très souple, puissant et stable. Nous allons donc voir comment précéder à une installation, configuration et surveillance des services pour Heartbeat 2. Heartbeat 2 va permettre par rapport à la version 1 de gérer plus de 2 noeuds.
+</p><p>Contrairement à la version 1 de Heartbeat, cette solution ne peut être montée en 30 min. Il faudra passer quelques heures dessus...
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h3><span class="mw-headline" id="Via_les_depots_officiels"><span class="mw-headline-number">2.1</span> Via les depots officiels</span></h3>
+<p>Allez hop, comme dab, c'est relativement simple&#160;:
+</p>
+<pre>apt-get install heartbeat-2
+</pre>
+<h3><span class="mw-headline" id="Via_des_packages_externes"><span class="mw-headline-number">2.2</span> Via des packages externes</span></h3>
+<p>Pour ceux qui ne veulent pas utiliser les packages Debian car pas assez complet, allez sur ce site <a rel="nofollow" class="external free" href="http://download.opensuse.org/repositories/server:/ha-clustering/">http://download.opensuse.org/repositories/server:/ha-clustering/</a> et téléchargez les packages pour votre distribution (j'ai par exmemple prit ceux de Debian 64bits). Créer vous un dossier dans lequel vous aurez mis tous les packages et placez vous dedans, puis&#160;:
+</p>
+<pre>dpkg -i *
+apt-get -f install
+</pre>
+<p>Ceci installera tous les packages ainsi que les dépendances.<br />
+</p><p>Si vous souhaitez utiliser l'interface graphique, vous aurez également besoin d'installer ces packages&#160;:
+</p>
+<pre>apt-get install python-central python python-glade2 python-xml python-gtk2 python-gtkmvc 
+</pre>
+<p>Effectuez ceci sur les 2 noeuds. Ici ils s'appellent&#160;:
+</p>
+<ul><li> deb-node1</li>
+<li> deb-node2</li></ul>
+<h2><span class="mw-headline" id="hosts"><span class="mw-headline-number">2.3</span> hosts</span></h2>
+<p>Pour faciliter la configuration et les transactions ha, configurez correctement votre fichier /etc/hosts sur tous les noeuds&#160;:
+</p>
+<pre>192.168.0.155   deb-node1
+192.168.0.150   deb-node2
+</pre>
+<p>Un serveur DNS peut également faire l'affaire&#160;!
+</p>
+<h2><span class="mw-headline" id="NTP"><span class="mw-headline-number">2.4</span> NTP</span></h2>
+<p>Veillez à ce que tous les serveurs aient la même heure. Il est donc conseillé de les synchroniser sur le même serveur NTP (ex&#160;: ntpdate 0.pool.ntp.org)
+</p>
+<h2><span class="mw-headline" id="sysctl.conf"><span class="mw-headline-number">2.5</span> sysctl.conf</span></h2>
+<p>Nous allons modifier la gestion des fichiers "core". Heartbeat recommande de modifier la configuration par défaut en ajoutant la ligne suivante dans /etc/sysctl.conf&#160;:
+</p>
+<pre>kernel/core_uses_pid=1
+</pre>
+<p>Il faut ensuite appliquer cette configuration:
+</p>
+<pre>/etc/init.d/procps.sh restart
+</pre>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Dans un premier temps, nous allons récupérer les fichiers de conf d'exemple&#160;:
+</p>
+<pre>cd /usr/share/doc/heartbeat-2
+gzip -d ha.cf.gz haresources.gz
+cp authkeys ha.cf haresources /etc/ha.d/
+</pre>
+<p>Ensuite nous allons commencer à editer les fichiers de configuration. Allez dans /etc/ha.d/
+</p>
+<h2><span class="mw-headline" id="ha.cf"><span class="mw-headline-number">3.1</span> ha.cf</span></h2>
+<p>Un exemple de fichier de configuration du ha.cf peut être trouvé dans /usr/share/doc/heartbeat/ha.cf.gz.
+</p><p>Voici le contenu du fichier /etc/ha.d/ha.cf une fois modifié&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">logfacility     local0 # Pour l'integration au syslog
+auto_failback   off # Les services ne rebasculent pas automatiquement quand un noeud revient up
+rtprio          5 # Assigne la priorité au service heartbeat
+deadping        20 # Problème de noeud si il ne réponds pas au bout de 20 sec
+&#160;
+autojoin        other # Autorise la connexions d'autres noeuds au cluster
+node            deb-node1 # Mon premier noeud
+node            deb-node2 # Mon second noeud
+&#160;
+crm             on # On autorise les connexions via GUI
+apiauth	mgmtd	uid=root
+respawn	root	/usr/lib/heartbeat/mgmtd -v
+&#160;
+respawn hacluster /usr/lib/heartbeat/ipfail # Lance une commande au boot du noeud
+apiauth ipfail gid=haclient uid=root # On autorise root du group haclient</pre></div></div>
+<h2><span class="mw-headline" id="authkeys"><span class="mw-headline-number">3.2</span> authkeys</span></h2>
+<p>Ce fichier sert à l'échange d'information entre les différents noeuds. Je peux choisir le sha1 comme algorithme de cryptage, suivit de ma passphrase&#160;:
+</p>
+<pre>#
+#       Authentication file.  Must be mode 600
+#
+#
+#       Must have exactly one auth directive at the front.
+#       auth    send authentication using this method-id
+#
+#       Then, list the method and key that go with that method-id
+#
+#       Available methods: crc sha1, md5.  Crc doesn't need/want a key.
+#
+#       You normally only have one authentication method-id listed in this file
+#
+#       Put more than one to make a smooth transition when changing auth
+#       methods and/or keys.
+#
+#
+#       sha1 is believed to be the "best", md5 next best.
+#
+#       crc adds no security, except from packet corruption.
+#               Use only on physically secure networks.
+#
+auth 1
+1 <i>sha1</i> <b>This is my key&#160;!</b>
+</pre>
+<p>On oublies pas de mettre les bons droits sur ce fichier&#160;:
+</p>
+<pre>chmod 0600 authkeys
+</pre>
+<h2><span class="mw-headline" id="R.C3.A9plications_et_tests"><span class="mw-headline-number">3.3</span> Réplications et tests</span></h2>
+<p>Maintenant que nos fichiers sont prêts, nous allons les uploader sur les autres noeuds&#160;:
+</p>
+<pre>scp ha.cf autkeys deb-node2:/etc/ha.d/
+</pre>
+<p>Maintenant, il ne reste plus qu'a redémarrer les noeuds&#160;:
+</p>
+<pre>/etc/init.d/heartbeat restart
+ssh root@deb-node2 /etc/init.d/heartbeat restart
+</pre>
+<p>Maintenant nous allons vérifier si tout fonctionne&#160;:
+</p>
+<pre>crm_mon -i 5
+</pre>
+<p>Le chiffre 5 correspond au nombre de secondes que le moniteur va essayer de regarder l'état du cluster. Si il essaye de se connecter continuellement et que vous n'avez rien de concluant, regardez vos logs&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ tail /var/log/syslog
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: #========= Input message message start ==========#
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: MSG: Dumping message with 6 fields
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: MSG[0]&#160;: [t=cib]
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: MSG[1]&#160;: [cib_op=cib_query]
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: MSG[2]&#160;: [cib_callid=3]
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: MSG[3]&#160;: [cib_callopt=256]
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: MSG[4]&#160;: [cib_clientid=bc414c54-4630-456c-ad8a-6ab01b7e2152]
+Jun 25 13:35:40 deb-node1 cib: [2739]: info: MSG[5]&#160;: [cib_clientname=2775]</pre></div></div>
+<p>Là nous rencontrons donc <b>un problème qui apparait si heartbeat s'est lancé et a gardé en mémoire une ancienne configuration</b>. Arrêtez donc tous les noeuds et supprimez le contenu du dossier /var/lib/heartbeat/crm&#160;:
+</p>
+<pre>/etc/init.d/heartbeat stop
+rm /var/lib/heartbeat/crm/*
+/etc/init.d/heartbeat start
+</pre>
+<p>Et maintenant nous allons regarder de nouveau l'état de notre cluster&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;nowiki&gt;$ crm_mon -i5
+&#160;
+Refresh in 5s...
+============
+Last updated: Tue Jun 26 06:58:38 2007
+Current DC: deb-node2 (18ef92e2-cff0-469b-ab77-a2ef0e45ebd7)
+2 Nodes configured.
+0 Resources configured.&lt;/nowiki&gt;</pre></div></div>
+<h1><span class="mw-headline" id="Configuration_de_services_cluster"><span class="mw-headline-number">4</span> Configuration de services cluster</span></h1>
+<p>Le fichier qui va nous intéresser est <b>/var/lib/heartbeat/crm/cib.xml</b> (alias CIB).
+</p>
+<h2><span class="mw-headline" id="crm_config"><span class="mw-headline-number">4.1</span> crm_config</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;nowiki&gt;   &lt;configuration&gt;
+     &lt;crm_config&gt;
+       &lt;cluster_property_set id=&quot;cib-bootstrap-options&quot;&gt;
+         &lt;attributes&gt;
+           &lt;nvpair name=&quot;default_resource_stickiness&quot; id=&quot;options-default_resource_stickiness&quot; value=&quot;0&quot;/&gt;
+           &lt;nvpair id=&quot;options-transition_idle_timeout&quot; name=&quot;transition_idle_timeout&quot; value=&quot;61s&quot;/&gt;
+           &lt;nvpair id=&quot;symmetric_cluster&quot; name=&quot;symmetric_cluster&quot; value=&quot;true&quot;/&gt;
+           &lt;nvpair id=&quot;no_quorum_policy&quot; name=&quot;no_quorum_policy&quot; value=&quot;stop&quot;/&gt;
+           &lt;nvpair id=&quot;default_resource_failure_stickiness&quot; name=&quot;default_resource_failure_stickiness&quot; value=&quot;0&quot;/&gt;
+           &lt;nvpair id=&quot;stonith_enabled&quot; name=&quot;stonith_enabled&quot; value=&quot;false&quot;/&gt;
+           &lt;nvpair id=&quot;stop_orphan_resources&quot; name=&quot;stop_orphan_resources&quot; value=&quot;true&quot;/&gt;
+           &lt;nvpair id=&quot;stop_orphan_actions&quot; name=&quot;stop_orphan_actions&quot; value=&quot;true&quot;/&gt;
+           &lt;nvpair id=&quot;remove_after_stop&quot; name=&quot;remove_after_stop&quot; value=&quot;true&quot;/&gt;
+           &lt;nvpair id=&quot;is_managed_default&quot; name=&quot;is_managed_default&quot; value=&quot;true&quot;/&gt;
+           &lt;nvpair id=&quot;short_resource_names&quot; name=&quot;short_resource_names&quot; value=&quot;true&quot;/&gt;
+         &lt;/attributes&gt;
+       &lt;/cluster_property_set&gt;
+     &lt;/crm_config&gt;&lt;/nowiki&gt;</pre></div></div>
+<ul><li> <b>default_resource_stickiness</b>&#160;: vous préférez garder votre service le noeud actuel ou le bouger sur un qui a plus de ressources disponibles&#160;? Cette option est équivalent à "auto_failback on" à l'exeption que les ressources peuvent bouger sur d'autres noeuds que celui sur lesquel elles étaitent activées.
+<ul><li> <i>0</i>&#160;: Si la valeur est à 0, des ressources y seront automatiquement assignées.</li>
+<li> <i>&gt; 0</i>&#160;: La ressource préfèrera retourner elle même à son noeud d'origine, mais elle peut également bouger si ce noeud n'est pas disponible. Une valeur plus forte renforcera la ressource à rester là où elle est actuellement.</li>
+<li> <i>&lt; 0</i>&#160;: La ressource préfèrera bouger ailleur que là où elle est actuellement. Une valeur plus forte entrainera le déplacement de cette ressource.</li>
+<li> <i>INFINITY</i>&#160;: La ressource retournera toujours à sa place initiale à moins qu'elle y soit forcée (noeud éteint, stand bye...). Cette option est équivalente à "auto_failback off" à l'exeption que les ressources peuvent bouger sur d'autres noeuds que celui sur lesquel elles étaitent activées.</li>
+<li> <i>-INFINITY</i>&#160;: Les ressources iront automatiquement sur un autre noeud.</li></ul></li></ul>
+<ul><li> <b>options-transition_idle_timeout (60s par défaut)</b>&#160;: Si aucunes action n'a été détectée pendant ce temps, la transition est considérée comme échouée. Si chaque opérations initialisées à un timeout plus élevé, alors il sera prit en compte.</li></ul>
+<ul><li> <b>symmetric_cluster (true par défaut)</b>&#160;: Spécifie que les ressources peuvent être lancées sur n'importe quel noeud. Sinon, il faudra créer des "constraints" spécifique pour chaque ressources.</li></ul>
+<ul><li> <b>no_quorum_policy (stop par défaut)</b>&#160;:
+<ul><li> <i>ignore</i>&#160;: Prétend que nous avons un quorum</li>
+<li> <i>freeze</i>&#160;: ne démarre aucunes ressources non présentes dans notre partition. Les ressources dans notre partition peuvent être déplacer sur un autre noeud avec la partition (fencing désactivé).</li>
+<li> <i>stop</i>&#160;: stop toutes les ressources activées dans notre partition (fencing désactivé)</li></ul></li></ul>
+<ul><li> <b>default_resource_failure_stickiness</b>&#160;: forcer une ressource à migrer après un échec.</li></ul>
+<ul><li> <b>stonith_enabled (false par défaut)</b>&#160;: Les noeuds en échec seront fencés.</li></ul>
+<ul><li> <b>stop_orphan_resources (true par défaut)</b>&#160;: Si une ressource est trouvée n'ayant pas de définition.
+<ul><li> <i>true</i>&#160;: arrête l'action</li>
+<li> <i>false</i>&#160;: ignore l'action</li></ul></li></ul>
+<p>Cela affecte plus le comportement de CRM quand la ressource est supprimée par un admin sans qu'il l'ai arrêtée au préalable.
+</p>
+<ul><li> <b>stop_orphan_actions (true par défaut)</b>&#160;: Si une action récursive est trouvée et qu'il n'y a pas de définition&#160;:
+<ul><li> <i>true</i>&#160;: arrête l'action</li>
+<li> <i>false</i>&#160;: ignore l'action</li></ul></li></ul>
+<p>Cela affecte plus le comportement de CRM quand l'intervalle pour une action récurente est modifiée.
+</p>
+<ul><li> <b>remove_after_stop</b>&#160;: Cela supprime la ressource de la section "status" du CIB.</li></ul>
+<ul><li> <b>is_managed_default (true par défaut)</b>&#160;: A moins que la définition de la ressource dise autrement&#160;:
+<ul><li> <i>true</i>&#160;: la ressource sera démarrée, arrêtée, monitorée et déplacée sir besoin.</li>
+<li> <i>false</i>&#160;: la ressource ne sera pas démarrée si arrêtée, arrêtée si démarrée et non plus si elle a des action récurentes planifiées.</li></ul></li></ul>
+<ul><li> <b>short_resource_names (false par défaut, true recommandé)</b>&#160;: Cette option est pour avoir une compatibilitée avec les versions antérieures à 2.0.2</li></ul>
+<h2><span class="mw-headline" id="nodes"><span class="mw-headline-number">4.2</span> nodes</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;nowiki&gt;     &lt;nodes&gt;
+       &lt;node id=&quot;cdd9b426-ba04-4bcd-98a8-76f1d5a8ecb0&quot; uname=&quot;deb-node3&quot; type=&quot;normal&quot;/&gt;
+       &lt;node id=&quot;18ef92e2-cff0-469b-ab77-a2ef0e45ebd7&quot; uname=&quot;deb-node2&quot; type=&quot;normal&quot;/&gt;
+       &lt;node id=&quot;08f85a1b-291f-46a7-b2d8-cab46788e23d&quot; uname=&quot;deb-node1&quot; type=&quot;normal&quot;/&gt;
+     &lt;/nodes&gt;&lt;/nowiki&gt;</pre></div></div>
+<p>Ici nous allons donc définir nos neuds.
+</p>
+<ul><li> id&#160;: il est automatiquement généré au lancement de heartbeat et change en fonction de plusieurs critères.</li>
+<li> uname&#160;: nom des noeuds.</li>
+<li> type&#160;: normal, member ou ping.</li></ul>
+<p>Si vous ne savez pas quoi mettre car les id n'ont pas été encore générés, mettez ceci&#160;:
+</p>
+<pre>      &lt;node/&gt;
+</pre>
+<h2><span class="mw-headline" id="ressources"><span class="mw-headline-number">4.3</span> ressources</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;nowiki&gt; 26      &lt;resources&gt;
+ 27        &lt;group id=&quot;group_1&quot;&gt;
+ 28          &lt;primitive class=&quot;ocf&quot; id=&quot;IPaddr_192_168_0_90&quot; provider=&quot;heartbeat&quot; type=&quot;IPaddr&quot;&gt;
+ 29            &lt;operations&gt;
+ 30              &lt;op id=&quot;IPaddr_192_168_0_90_mon&quot; interval=&quot;5s&quot; name=&quot;monitor&quot; timeout=&quot;5s&quot;/&gt;
+ 31            &lt;/operations&gt;
+ 32            &lt;instance_attributes id=&quot;IPaddr_192_168_0_90_inst_attr&quot;&gt;
+ 33              &lt;attributes&gt;
+ 34                &lt;nvpair id=&quot;IPaddr_192_168_0_90_attr_0&quot; name=&quot;ip&quot; value=&quot;192.168.0.90&quot;/&gt;
+ 35              &lt;/attributes&gt;
+ 36            &lt;/instance_attributes&gt;
+ 37            &lt;instance_attributes id=&quot;IPaddr_192_168_0_90&quot;&gt;
+ 38              &lt;attributes&gt;
+ 39                &lt;nvpair id=&quot;IPaddr_192_168_0_90-apache2&quot; name=&quot;apache2&quot; value=&quot;started&quot;/&gt;
+ 40              &lt;/attributes&gt;
+ 41            &lt;/instance_attributes&gt;
+ 42          &lt;/primitive&gt;
+ 43          &lt;primitive class=&quot;lsb&quot; provider=&quot;heartbeat&quot; type=&quot;apache2&quot; id=&quot;apache2_2&quot;&gt;
+ 44            &lt;operations&gt;
+ 45              &lt;op id=&quot;apache2_2_mon&quot; interval=&quot;120s&quot; name=&quot;monitor&quot; timeout=&quot;60s&quot;/&gt;
+ 46            &lt;/operations&gt;
+ 47            &lt;instance_attributes id=&quot;apache2_2&quot;&gt;
+ 48              &lt;attributes&gt;
+ 49                &lt;nvpair id=&quot;apache2_2-deb-node2&quot; name=&quot;deb-node2&quot; value=&quot;started&quot;/&gt;
+ 50                &lt;nvpair id=&quot;apache2_2-group_1&quot; name=&quot;group_1&quot; value=&quot;stopped&quot;/&gt;
+ 51                &lt;nvpair name=&quot;target_role&quot; id=&quot;apache2_2-target_role&quot; value=&quot;started&quot;/&gt;
+ 52              &lt;/attributes&gt;
+ 53            &lt;/instance_attributes&gt;
+ 54          &lt;/primitive&gt;
+ 55          &lt;instance_attributes id=&quot;group_1&quot;&gt;
+ 56            &lt;attributes&gt;
+ 57              &lt;nvpair id=&quot;group_1-deb-node2&quot; name=&quot;deb-node2&quot; value=&quot;started&quot;/&gt;
+ 58              &lt;nvpair id=&quot;group_1-apache2_2&quot; name=&quot;apache2_2&quot; value=&quot;stopped&quot;/&gt;
+ 59            &lt;/attributes&gt;
+ 60          &lt;/instance_attributes&gt;
+ 61        &lt;/group&gt;
+&lt;/nowiki&gt;</pre></div></div>
+<ul><li> L26&#160;: Ici nous avons donc créer un groupe. Je vous le conseil fortement, pour éviter de faire des conneries. Le groupe s'appelle "group_1".</li></ul>
+<ul><li> L27&#160;: Ensuite nous lui insérons "IPaddr_192_168_0_90" comme nom pour la définition d'une adresse IP. Le type étant "IPaddr".<br /></li>
+<li> L29&#160;: Nous lui insérons une opération de monitoring pour qu'il check toutes les 5 sec si tout se passe bien avec un timeout de 5 sec.<br /></li>
+<li> L34&#160;: Au niveau des attributs, nous lui mettons l'adresse IP virtuelle que nous souhaitons utiliser.<br /></li>
+<li> L39&#160;: On va lui définir une instance qui va permettre de faire fonctionner apache2 (non configuré encore) et l'adresse IP.</li></ul>
+<ul><li> L43&#160;: Maintenant on créer la primitive pour Apache2</li>
+<li> L45&#160;: On va monitorer apache2 toutes les 120s avec un timeout de 60s</li>
+<li> L49&#160;: Apache2 doit démarrer sur le noeud2 par défaut</li>
+<li> L50&#160;: On lui indique que group</li>
+<li> L51&#160;: L'état d'Apache2 doit être démarré par défaut</li></ul>
+<p>Le plus simple, pour éviter de se prendre la tête, c'est d'utilier le GUI heartbeat. Il vous fera la configuration&#160;:-)
+</p>
+<h2><span class="mw-headline" id="constraints"><span class="mw-headline-number">4.4</span> constraints</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&lt;nowiki&gt; 98      &lt;constraints&gt;
+ 99        &lt;rsc_location id=&quot;rsc_location_group_1&quot; rsc=&quot;group_1&quot;&gt;
+100          &lt;rule id=&quot;prefered_location_group_1&quot; score=&quot;100&quot;&gt;
+101            &lt;expression attribute=&quot;#uname&quot; id=&quot;prefered_location_group_1_expr&quot; operation=&quot;eq&quot; value=&quot;deb-node1&quot;/&gt;
+102          &lt;/rule&gt;
+103        &lt;/rsc_location&gt;
+104        &lt;rsc_location id=&quot;cli-prefer-apache2_2&quot; rsc=&quot;apache2_2&quot;&gt;
+105          &lt;rule id=&quot;cli-prefer-rule-apache2_2&quot; score=&quot;INFINITY&quot;&gt;
+106            &lt;expression id=&quot;cli-prefer-expr-apache2_2&quot; attribute=&quot;#uname&quot; operation=&quot;eq&quot; value=&quot;deb-node2&quot; type=&quot;string&quot;/&gt;
+107          &lt;/rule&gt;
+108        &lt;/rsc_location&gt;
+109      &lt;/constraints&gt;
+110    &lt;/configuration&gt;
+111  &lt;/cib&gt;
+&lt;/nowiki&gt;</pre></div></div>
+<p>Les contrataints servent à indiquer qui doit démarrer avant qui. A vous de voir selon vos besoins.
+</p>
+<h1><span class="mw-headline" id="Management_des_Services_Cluster"><span class="mw-headline-number">5</span> Management des Services Cluster</span></h1>
+<p>Pour commencer, je vous invite fortement à <a rel="nofollow" class="external text" href="http://www.linux-ha.org/v2/AdminTools/crm_resource">consulter cette page</a>.
+</p><p>Pour lister les services, voici la commande&#160;:
+</p>
+<pre>crm_resource -L
+</pre>
+<h2><span class="mw-headline" id="Pr.C3.A9paration_d.27un_service_cluster"><span class="mw-headline-number">5.1</span> Préparation d'un service cluster</span></h2>
+<p>Avant de continuer, assurez-vous que les fichiers de configuration des deux serveurs sont identiques, et que les services sont arrêtés (<b>ici apache2</b>):
+</p>
+<pre>/etc/init.d/<b>apache2</b> stop
+</pre>
+<p>Il faut ensuite faire en sorte que les services gérés par Heartbeat ne soient plus lancés automatiquement au démarrage de Linux&#160;:
+</p>
+<pre>update-rc.d -f <b>apache2</b> remove
+</pre>
+<p>Vous pouvez maintenant taper (sur les 2 serveurs)&#160;:
+</p>
+<pre>/etc/init.d/heartbeat start
+</pre>
+<p>Au bout de quelques instants, les services se sont normalement lancés sur la première machine, pendant que l'autre est en attente.
+</p>
+<h2><span class="mw-headline" id="Basculer_un_service_sur_un_autre_noeud"><span class="mw-headline-number">5.2</span> Basculer un service sur un autre noeud</span></h2>
+<p>Pour basculer par exemple notre service apache2 (<b>apache2_2</b>) sur le deuxième noeud (<b>deb-node2</b>)&#160;:
+</p>
+<pre>crm_resource -M -r <b>apache2_2</b> -H <b>deb-node2</b>
+</pre>
+<p>Si vous voulez basculer un service d'un noeud sur lui même, vous aurez l'erreur suivante&#160;:
+</p>
+<pre>Error performing operation: apache2_2 is already active on deb-node2
+</pre>
+<h2><span class="mw-headline" id="D.C3.A9marrer_un_service"><span class="mw-headline-number">5.3</span> Démarrer un service</span></h2>
+<p>Pour démarrer un service cluster c'est assez simple. Ici nous voulons démarrer apache2 (<b>apache2_2</b>)
+</p>
+<pre>crm_resource -r <b>apache2_2</b> -p target_role -v started
+</pre>
+<p>Si jamais vous souhaitez faire démarrer apache2 sur le deuxième noeud, vous devez d'abord le réalouer avant de le démarrer (<a href="Installation_et_configuration_avancée_d'un_cluster_Heartbeat.html#Basculer_un_service_sur_un_autre_noeud" title="Installation et configuration avancée d'un cluster Heartbeat" class="mw-redirect">documentation ici</a>). Ex&#160;:
+</p>
+<pre>crm_resource -M -r <b>apache2_2</b> -H <b>deb-node2</b>
+crm_resource -r <b>apache2_2</b> -p target_role -v started
+</pre>
+<p>Ceci va donc basculer apache2_2 qui tournait (<b>donc actuellement arrêté</b>) sur le deuxième noeud, mais ça ne va pas le démarrer pour autant. Il faudra donc lancer la deuxième ligne pour le démarrer.
+</p>
+<h2><span class="mw-headline" id="Ajout_d.27un_noeud_suppl.C3.A9mentaire"><span class="mw-headline-number">5.4</span> Ajout d'un noeud supplémentaire</span></h2>
+<p>Alors voilà, il existe plusieurs solutions. Je vous donne celle qui à mon sens me semble la meilleure. Dans le fichier /etc/ha.d/ha.cf vérifiez ceci (sinon il faudra reloader la conf de votre heartbeat, ce qui entrainera une petite coupure)&#160;:
+</p>
+<pre>autojoin        other # Autorise la connexions d'autres noeuds au cluster
+</pre>
+<p>Ceci va donc autoriser des noeuds qui ne sont pas entrés dans le fichier ha.cf à se connecter.
+</p><p>Pour celà, un minimum de sécurité est obligatoire, c'est pour ca qu'il faut quand même copier les fichier ha.cf et authkeys sur deb-node3 (mon nouveau noeud).<br />
+<b>Note</b>&#160;: Editez d'abord le fichier ha.cf pour le rajouter le nouveau noeud. Ce qui pourra vous permettre au prochain démarrage d'avoir ce noeud en <i>dur</i>&#160;:
+</p>
+<pre>autojoin        other # Autorise la connexions d'autres noeuds au cluster
+node            deb-node1 # Mon premier noeud
+node            deb-node2 # Mon second noeud
+<b>node            deb-node3 # Mon 3eme noeud</b>
+</pre>
+<p>Maintenant on envoie tout ça sur le nouveau noeud et on oublies pas de lui mettre les bons droits&#160;:
+</p>
+<pre>cd /etc/ha.d/
+scp ha.cf authkeys deb-node3:/etc/ha.d/
+ssh deb-node3 chown hacluster:haclient /var/lib/heartbeat/crm/*
+</pre>
+<p>Et maintenant le 3ème noeud rejoint le cluster&#160;:
+</p>
+<pre>$ /etc/init.d/heartbeat restart
+$ crm_mon -i5
+Node: deb-node2 (18ef92e2-cff0-469b-ab77-a2ef0e45ebd7): online
+Node: deb-node1 (08f85a1b-291f-46a7-b2d8-cab46788e23d): online
+Node: deb-node3 (cdd9b426-ba04-4bcd-98a8-76f1d5a8ecb0): online
+</pre>
+<p>Et voilà, c'est intégré et sans coupures&#160;:-)
+</p><p>En cas de création d'une nouvelle machine par "rsync" d'une machine du cluster, il faut impérativement supprimer les fichiers suivants sur la nouvelle machine&#160;:
+</p>
+<pre>rm /var/lib/heartbeat/hb_uuid
+</pre>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<p><a rel="nofollow" class="external text" href="http://www.clusterlabs.org/mw/FAQ">FAQ Clusterlab (Excellent site)</a>
+</p>
+<h1><span class="mw-headline" id="Ressources_2"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a href="images/7/7d/HeartBeat_2.pdf" class="internal" title="HeartBeat 2.pdf">Documentation sur la mise en place d'Heartbeat 2</a><br />
+<a href="images/0/02/Setup_web_server_cluster.pdf" class="internal" title="Setup web server cluster.pdf">Documentation on Setting up a Web Server with Apache, LVS and Heartbeat 2</a><br />
+<a href="images/d/dd/Heartbeat2_Xen_cluster_with_drbd8_and_OCFS2.pdf" class="internal" title="Heartbeat2 Xen cluster with drbd8 and OCFS2.pdf">Documentation on Heartbeat2 Xen cluster with drbd8 and OCFS2</a><br />
+<a href="images/3/31/L-haccmdb-pdf.pdf" class="internal" title="L-haccmdb-pdf.pdf">Enable high availability for composite applications</a><br />
+<a rel="nofollow" class="external free" href="http://en.wikipedia.org/wiki/High_availability">http://en.wikipedia.org/wiki/High_availability</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.024 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 189/1000000
+Preprocessor generated node count: 314/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1988-0!*!0!1!en!*!* and timestamp 20181111233245 and revision id 7356
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V2&amp;oldid=7356">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V2&amp;oldid=7356</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+d%27un+cluster+Heartbeat+V2&amp;returntoquery=redirect%3Dno" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V2.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V2.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V2&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V2&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="index.php%3Ftitle=Installation_et_configuration_d'un_cluster_Heartbeat_V2&amp;redirect=no.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_d'un_cluster_Heartbeat_V2.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_d%27un_cluster_Heartbeat_V2" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V2&amp;redirect=no&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V2&amp;oldid=7356" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V2&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 18 February 2009, at 18:37.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":58});
+}</script>
+	</body>
+</html>
+	

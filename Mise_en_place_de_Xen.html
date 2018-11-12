@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Mise en place de Xen - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Mise_en_place_de_Xen.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Mise_en_place_de_Xen","wgTitle":"Mise en place de Xen","wgCurRevisionId":8443,"wgRevisionId":8443,"wgArticleId":999,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Mise_en_place_de_Xen","wgRelevantArticleId":999,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Mise_en_place_de_Xen skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Mise en place de Xen</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Mise_en_place_de_Xen.html#mw-navigation">navigation</a>, 					<a href="Mise_en_place_de_Xen.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Mise_en_place_de_Xen.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Mise_en_place_de_Xen.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Mise_en_place_de_Xen.html#32_bits"><span class="tocnumber">2.1</span> <span class="toctext">32 bits</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Mise_en_place_de_Xen.html#64_bits"><span class="tocnumber">2.2</span> <span class="toctext">64 bits</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Mise_en_place_de_Xen.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Mise_en_place_de_Xen.html#Noyau"><span class="tocnumber">3.1</span> <span class="toctext">Noyau</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Mise_en_place_de_Xen.html#Modules"><span class="tocnumber">3.2</span> <span class="toctext">Modules</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Mise_en_place_de_Xen.html#R.C3.A9seau"><span class="tocnumber">3.3</span> <span class="toctext">Réseau</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="Mise_en_place_de_Xen.html#Configuration_de_l.27interface"><span class="tocnumber">3.3.1</span> <span class="toctext">Configuration de l'interface</span></a>
+<ul>
+<li class="toclevel-4 tocsection-10"><a href="Mise_en_place_de_Xen.html#Interface_Physique"><span class="tocnumber">3.3.1.1</span> <span class="toctext">Interface Physique</span></a></li>
+<li class="toclevel-4 tocsection-11"><a href="Mise_en_place_de_Xen.html#Interface_dummy"><span class="tocnumber">3.3.1.2</span> <span class="toctext">Interface dummy</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3 tocsection-12"><a href="Mise_en_place_de_Xen.html#Mode_Bridge"><span class="tocnumber">3.3.2</span> <span class="toctext">Mode Bridge</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="Mise_en_place_de_Xen.html#Linux"><span class="tocnumber">3.4</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Mise_en_place_de_Xen.html#Windows"><span class="tocnumber">3.5</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Mise_en_place_de_Xen.html#BSD"><span class="tocnumber">3.6</span> <span class="toctext">BSD</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Mise_en_place_de_Xen.html#Options_suppl.C3.A9mentaires"><span class="tocnumber">3.7</span> <span class="toctext">Options supplémentaires</span></a>
+<ul>
+<li class="toclevel-3 tocsection-17"><a href="Mise_en_place_de_Xen.html#VNC_Server_au_boot_d.27une_VM"><span class="tocnumber">3.7.1</span> <span class="toctext">VNC Server au boot d'une VM</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="Mise_en_place_de_Xen.html#Diff.C3.A9rents_p.C3.A9riph.C3.A9riques_de_boot"><span class="tocnumber">3.7.2</span> <span class="toctext">Différents périphériques de boot</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Mise_en_place_de_Xen.html#Limitations"><span class="tocnumber">3.7.3</span> <span class="toctext">Limitations</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Mise_en_place_de_Xen.html#Migration"><span class="tocnumber">3.7.4</span> <span class="toctext">Migration</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-21"><a href="Mise_en_place_de_Xen.html#Lancement_d.27une_machine_Virtuelle"><span class="tocnumber">4</span> <span class="toctext">Lancement d'une machine Virtuelle</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="Mise_en_place_de_Xen.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-23"><a href="Mise_en_place_de_Xen.html#4gb_seg_fixup.2C_process_syslogd_.28pid_15584.29.2C_cs:ip_73:b7ed76d0"><span class="tocnumber">5.1</span> <span class="toctext">4gb seg fixup, process syslogd (pid 15584), cs:ip 73:b7ed76d0</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Mise_en_place_de_Xen.html#Error:_Device_2049_.28vbd.29_could_not_be_connected._Hotplug_scripts_not_working"><span class="tocnumber">5.2</span> <span class="toctext">Error: Device 2049 (vbd) could not be connected. Hotplug scripts not working</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Mise_en_place_de_Xen.html#Error:_Device_0_.28vif.29_could_not_be_connected._Backend_device_not_found"><span class="tocnumber">5.3</span> <span class="toctext">Error: Device 0 (vif) could not be connected. Backend device not found</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Mise_en_place_de_Xen.html#re0:_watchdog_timeout"><span class="tocnumber">5.4</span> <span class="toctext">re0: watchdog timeout</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="Mise_en_place_de_Xen.html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Xen permet de faire tourner plusieurs systèmes d'exploitation (et leurs applications) de manière isolée sur une même machine physique sur plateforme x86. Les systèmes d'exploitation invités partagent ainsi les ressources de la machine hôte.
+</p><p>Xen est un «&#160;paravirtualiseur&#160;» ou un «&#160;hyperviseur&#160;» de machines virtuelles. Les systèmes d'exploitation invités ont «&#160;conscience&#160;» du Xen sous-jacent, ils ont besoin d'être «&#160;portés&#160;» (adaptés) pour fonctionner sur Xen. Linux, NetBSD, FreeBSD et Plan 9 peuvent d'ores-et-déjà fonctionner sur Xen.
+</p><p>Xen 3 peut également faire tourner des systèmes non modifiés comme Windows sur des processeurs supportant la technologie VT.
+</p><p>Avec les technologies Intel Vanderpool et AMD Pacifica ce portage ne sera bientôt plus nécessaire et tous les systèmes d'exploitation seront supportés.
+</p><p>Les architectures x86, x64, IA-64, PowerPC et SPARC sont supportées. Le multiprocesseur (SMP) et partiellement l'Hyper-Threading sont supportés.
+</p><p>Certains se poseront la question, pourquoi ne pas prendre la version XenExpress ou une version payante pour avoir d'autres fonctionnalitées&#160;? A part pour avoir du support ça ne sert à rien si ce n'est d'avoir une jolie interface graphique pour gérer ses VM.
+</p><p>A mon avis, a part si vous gérer un parc de 100 machines physiques, je pense qu'il n'est vraiment pas nécessaire d'avoir la version payante. Voici les différences qui viennent du Citrix DataSheet (26/01/2008)&#160;:<br />
+<a href="./File:Xendiff.png.html" class="image"><img alt="Xendiff.png" src="images/3/31/Xendiff.png" width="443" height="568" /></a><br />
+La version que nous allons installer ci dessous, il n'y a aucunes restrictions et c'est gratuit&#160;:-). Parcontre vous allez passer plus de temps sur la configuration qu'avec un GUI, ça c'est sur&#160;! Avous de voir ce dont vous avez réèlement besoin.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="32_bits"><span class="mw-headline-number">2.1</span> 32 bits</span></h2>
+<p>C'est très facile sous Debian d'installer Xen&#160;:
+</p>
+<pre>apt-get install linux-image-2.6-xen-686 xen-hypervisor-3.0.3-1-i386-pae xen-tools xen-linux-system-2.6.18-5-xen-686 linux-headers-2.6-xen-686 libc6-xen
+</pre>
+<p>Et si vous avez également besoin d'installer Windows, alors rajoutez ceci&#160;:
+</p>
+<pre>apt-get install xen-ioemu-3.0.3-1
+</pre>
+<h2><span class="mw-headline" id="64_bits"><span class="mw-headline-number">2.2</span> 64 bits</span></h2>
+<p>C'est très facile sous Debian d'installer Xen&#160;:
+</p>
+<pre>apt-get install linux-image-2.6-xen-amd64 linux-image-xen-amd64 xen-linux-system-2.6.18-5-xen-amd64 linux-headers-2.6-xen-amd64 xen-hypervisor-3.2-1-amd64 xen-tools xenstore-utils xenwatch xen-shell
+</pre>
+<p>Et si vous avez également besoin d'installer Windows, alors rajoutez ceci&#160;:
+</p>
+<pre>apt-get install xen-ioemu-3.0.3-1
+</pre>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Noyau"><span class="mw-headline-number">3.1</span> Noyau</span></h2>
+<p>Pour configurer le noyau, nous allons utiliser certaines directives pour nous assurer que dom0_mem ne prendra jamais plus de 512 Mo de mémoire. Ceci pour laisser tout l'espace disponible à nos domUs&#160;:
+</p>
+<pre>title           Xen 3.0.3-1-i386-pae / Debian GNU/Linux, kernel 2.6.18-5-xen-686
+root            (hd0,1)
+kernel          /boot/xen-3.0.3-1-i386-pae.gz <b>dom0_mem=512m</b>
+module          /boot/vmlinuz-2.6.18-5-xen-686 root=/dev/sda2 ro console=tty0 <b>max_loop=64</b>
+module          /boot/initrd.img-2.6.18-5-xen-686
+</pre>
+<p>La directive "max_loop=64" nous garanti que nous n'allons pas manquer de loopback devices, massivement utilisés par Xen. Cette erreur est classique et se repère à ce type de message&#160;:
+</p>
+<pre>Error: Device 2049 (vbd) could not be connected. Backend device not found.
+</pre>
+<h2><span class="mw-headline" id="Modules"><span class="mw-headline-number">3.2</span> Modules</span></h2>
+<p>Nous allons également charger le module loop et le mettre à 64 comme ci dessus 
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /etc/modules</font>
+</td></tr>
+<tr>
+<td>
+<pre>loop max_loop=64
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="R.C3.A9seau"><span class="mw-headline-number">3.3</span> Réseau</span></h2>
+<h3><span class="mw-headline" id="Configuration_de_l.27interface"><span class="mw-headline-number">3.3.1</span> Configuration de l'interface</span></h3>
+<h4><span class="mw-headline" id="Interface_Physique"><span class="mw-headline-number">3.3.1.1</span> Interface Physique</span></h4>
+<p>Mettons en place une interface de bridge, /etc/network/interfaces&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">auto eth0
+iface eth0 inet static
+        address 192.168.0.90
+        netmask 255.255.255.0
+        gateway 192.168.0.248
+&#160;
+auto eth1
+iface eth1 inet manual
+&#160;
+auto xenbr0
+iface xenbr0 inet static
+        address 192.168.130.254
+        netmask 255.255.255.0
+        bridge_ports eth1
+        bridge_maxwait 0</pre></div></div>
+<p>Nous bridgeons sur eth1 car nous ne disposons sur cette machine qu'une seule IP publique. Il est donc hors de question de bridger sur l'interface publique eth0. Il faudra créer une interface dummy0 (simuler) si vous ne possédez qu'une seule interface physique.
+</p><p><b>Il est d'ailleur fortement recommendé de créer une interface dummy pour éviter tous problèmes de POSTROUTING avec Iptables et ralentissements réseaux&#160;:</b>
+</p>
+<pre>iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to 192.168.0.3:80
+</pre>
+<p>Pour voir les bridges&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ brctl show
+bridge name	bridge id		STP enabled	interfaces
+xenbr0		8000.ee5ad8739af7	no		vif0.0
+							peth0
+							tap0
+							vif6.0
+							vif31.0</pre></div></div>
+<h4><span class="mw-headline" id="Interface_dummy"><span class="mw-headline-number">3.3.1.2</span> Interface dummy</span></h4>
+<p>Modifiez le fichier /etc/network/interfaces&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">auto eth0
+iface eth0 inet static
+        address 192.168.0.90
+        netmask 255.255.255.0
+        gateway 192.168.0.248
+&#160;
+iface dummy0 inet manual
+&#160;
+auto xenbr0
+iface xenbr0 inet static
+        address 192.168.130.254
+        netmask 255.255.255.0
+        bridge_ports dummy0
+        bridge_maxwait 0</pre></div></div>
+<p>On peut vérifier ses bridges avec cette commande&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ brctl show
+xenbr0		8000.1a87802de454	no		dummy0
+							vif1.0
+							tap0</pre></div></div>
+<h3><span class="mw-headline" id="Mode_Bridge"><span class="mw-headline-number">3.3.2</span> Mode Bridge</span></h3>
+<p>Le mode "Bridge" est mis en place par le script <i>/etc/xen/scripts/network-bridge</i>.<br />
+en voici le fonctionnement&#160;:<br /><br />
+</p>
+<ul><li> Creation du nouveau Bridge <i>"xenbr0"</i></li>
+<li> Arret de la "Vrai" carte ethernet <i>"eth0"</i></li>
+<li> copie des adresses MAC et IP de <i>"eth0"</i> sur une interface reseau virtuelle <i>"veth0"</i></li>
+<li> renomage de <i>"eth0"</i> en <i>"peth0"</i></li>
+<li> renomage de <i>"veth0"</i> en <i>"eth0"</i></li>
+<li> attachement de <i>"peth0"</i> et <i>"vif0.0"</i> sur le bridge <i>"xenbr0"</i></li>
+<li> demarage des interfaces du bridge <i>"xenbr0"</i>, <i>"peth0"</i>, <i>"eth0"</i> et <i>"vif0.0"</i></li></ul>
+<p>Pour activer le mode bridge, editez le fichier <b>"/etc/xen/xend-config.sxp"</b> et decommentez&#160;:
+</p>
+<pre>(network-script network-bridge)
+(vif-script vif-bridge)
+</pre>
+<p>Editez ce fichier /etc/xen-tools/xen-tools.conf et mettez ceci&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lvm         = my_lvm_vg # Va utiliser un volgroup LVM pour créer les partitions à la volée
+debootstrap = 1
+&#160;
+size   = 5Gb      # Disk image size.
+memory = 128Mb    # Memory size
+swap   = 128Mb    # Swap size
+fs     = ext3     # use the EXT3 filesystem for the disk image.
+dist   = etch     # Default distribution to install.
+image  = full
+&#160;
+gateway   = 192.168.0.11
+netmask   = 255.255.255.0
+&#160;
+passwd = 1
+&#160;
+kernel = /boot/vmlinuz-`uname -r`
+initrd = /boot/initrd.img-`uname -r`
+&#160;
+serial_device = hvc0</pre></div></div>
+<h2><span class="mw-headline" id="Linux"><span class="mw-headline-number">3.4</span> Linux</span></h2>
+<p>Pour créer une image avec debootstrap (Debian par exemple), utilisez le fichier <b>/etc/xen-tools/xen-tools.conf</b>. Quand vous l'aurez édité comme vous le souhaitez, vous pourrez créer l'image appropriée. Voici quelques exemples&#160;:
+</p>
+<pre>xen-create-image --hostname=vm03.example.com --ip=192.168.0.103 --netmask=255.255.255.0 --gateway=192.168.0.1 --dir=/vserver/images --dist=sarge --debootstrap
+</pre>
+<pre>xen-create-image --debootstrap --hostname xen-etch --dhcp --dist=etch
+</pre>
+<pre>xen-create-image --hostname=xen4 --size=3Gb --swap=128Mb --memory=512Mb --ip=172.30.4.155
+</pre>
+<h2><span class="mw-headline" id="Windows"><span class="mw-headline-number">3.5</span> Windows</span></h2>
+<p>Pour Windows, ne vous attendez pas à des perfs de malade niveau réseau et disques car tant que les PV drivers n'auront pas été libérés des versions commerciales (même la Xen Express), les perfs resteront pauvres (ex. réseaux&#160;: 1,5Mo/s Max).
+</p><p>Néanmoins, si cela vous suffit, insérez ceci pour créer un fichier de 4 Go&#160;:
+</p>
+<pre>dd if=/dev/zero of=/var/xen/images/WinXP.img bs=1M count=4096
+</pre>
+<p>Ensuite configurez ci dessous ce qu'il faut pour que ca fonctionne&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">kernel          = &quot;/usr/lib/xen-3.0.3-1/boot/hvmloader&quot;
+builder         = 'hvm'
+name            = &quot;WindowsXP&quot;
+disk            = [ 'file:/mnt/disk1/Winxp/WinXP.img,ioemu:hda,w', 'file:/mnt/disk1/xp-sp2.iso,hdb:cdrom,r' ]
+&#160;
+device_model    = '/usr/lib/xen-3.0.3-1/bin/qemu-dm'
+&#160;
+# cdrom n'est plus utilisé depuis XEN 3.02
+cdrom           = '/dev/hdb'
+&#160;
+memory          = 512
+boot            = 'dca'
+device_model    = 'qemu-dm'
+nic=2
+vif = [ 'type=ioemu, mac=00:50:56:01:09:01, bridge=xenbr0, model=pcnet' ]
+sdl             = 1
+vncviewer       = 0
+localtime       = 1
+ne2000          = 0
+vcpus           = 1
+serial          = 'pty'
+&#160;
+# Correct mouse problems
+usbdevice       = 'tablet'
+&#160;
+on_poweroff = 'destroy'
+on_reboot   = 'restart'
+on_crash    = 'restart'</pre></div></div>
+<p>Changez l'option vpcu en fonction du nombre de cores disponibles sur votre machine.
+</p><p>Il ne reste plus qu'a lancer l'install&#160;:
+</p>
+<pre>xm create /etc/xen/WindowsXP.cfg
+</pre>
+<h2><span class="mw-headline" id="BSD"><span class="mw-headline-number">3.6</span> BSD</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">kernel = '/usr/lib/xen-3.0.3-1/boot/hvmloader'
+builder = 'hvm'
+&#160;
+memory = '512'
+name = 'OpenBSD'
+&#160;
+device_model    = '/usr/lib/xen-3.0.3-1/bin/qemu-dm'
+&#160;
+# Nombre de cartes reseaux
+nic = 1
+# ne2k_pci n'est pas la plus rapide (RTL8139), mais fonctionne avec xBSD
+# Sinon la pcnet fonctionne également
+vif = [ 'type=ioemu, bridge=xenbr0, model=pcnet' ]
+&#160;
+sdl = 0
+&#160;
+# L'output sera visible sur un serveur vnc sur son display 1
+vnc = 1
+vnclisten = '192.168.130.20'
+vncunused = 0
+vncdisplay = 1
+vncpasswd = ''
+&#160;
+# Pour disque physique&#160;: phy:/dev/mapper/exemple
+# Pour un fichier&#160;: file:/mnt/iso/exemples.iso
+disk = [ 'file:/root/test.img,ioemu:hda,w', 'file:/root/iso/cd42.iso,hdc:cdrom,r' ]
+&#160;
+boot = 'cd'
+&#160;
+on_poweroff = 'destroy'
+on_reboot = 'restart'
+on_crash = 'restart'
+&#160;
+acpi = 0
+apic = 0</pre></div></div>
+<p>Pour les images disques, voici les formats supportés&#160;:
+</p>
+<pre>vvfat vpc bochs dmg cloop vmdk qcow cow raw parallels qcow2 dmg raw host_device
+</pre>
+<h2><span class="mw-headline" id="Options_suppl.C3.A9mentaires"><span class="mw-headline-number">3.7</span> Options supplémentaires</span></h2>
+<p>Voici quelques options supplémentaires qui peuvent s'avérer très utiles...
+</p>
+<h3><span class="mw-headline" id="VNC_Server_au_boot_d.27une_VM"><span class="mw-headline-number">3.7.1</span> VNC Server au boot d'une VM</span></h3>
+<p>Pour lancer au serveur VNC au boot d'une VM, rajoutez ces lignes dans votre fichier de conf de VM (ici&#160;: /etc/xen/WindowsXP.cfg)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">vnc             = 1
+vncviewer       = 1
+vncdisplay      = 1
+stdvga          = 0
+sdl             = 0</pre></div></div>
+<p>Puis éditez /etc/xen/xend-config.sxp et rajoutez ceci&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># The interface for VNC servers to listen on. Defaults
+# to 127.0.0.1  To restore old 'listen everywhere' behaviour
+# set this to 0.0.0.0
+(vnc-listen '0.0.0.0')</pre></div></div>
+<p>Vous aurez peut être besoin d'un package pour que cela fonctionne&#160;:
+</p>
+<pre>apt-get install libsdl1.2debian-all
+</pre>
+<h3><span class="mw-headline" id="Diff.C3.A9rents_p.C3.A9riph.C3.A9riques_de_boot"><span class="mw-headline-number">3.7.2</span> Différents périphériques de boot</span></h3>
+<ul><li> Pour charger un disque dur qui se trouve dans une image <b>pour Windows</b>&#160;:</li></ul>
+<pre>disk            = [ 'file:/mnt/disk1/Winxp/WindowsXP.img,ioemu:hda,w' ]
+</pre>
+<ul><li> Charger un CD depuis un lecteur <b>pour Windows</b>&#160;:</li></ul>
+<pre>disk            = [ 'phy:/dev/cdrom,<b>ioemu:hda</b>,r' ]
+</pre>
+<ul><li> Charger une image ISO&#160;:</li></ul>
+<pre>disk            = [ 'file:/mnt/disk1/xp-sp2.iso,<b>hda</b>:cdrom,r' ]
+</pre>
+<p>hda&#160;: <b>doit correspondre le udev de votre cdrom&#160;!</b>
+</p>
+<ul><li> Charger un CD depuis un lecteur&#160;:</li></ul>
+<pre>disk            = [ 'phy:/dev/cdrom,<b>hda</b>:cdrom,r' ]
+</pre>
+<p>hda&#160;: <b>doit correspondre le udev de votre cdrom&#160;!</b>
+</p>
+<h3><span class="mw-headline" id="Limitations"><span class="mw-headline-number">3.7.3</span> Limitations</span></h3>
+<p>Affection CPU&#160;: en plus/en mois&#160;:<br />
+Augmentation à chaud de la mémoire utilisée&#160;:<br />
+</p>
+<pre>xm mem-max xen4 612
+xm mem-set xen4 612
+</pre>
+<p>Il ne faut pas oublier de modifier le fichier de configuration du serveur virtuel qui contient également la taille de la mémoire.
+</p>
+<h3><span class="mw-headline" id="Migration"><span class="mw-headline-number">3.7.4</span> Migration</span></h3>
+<p>Migration mémoire à partir du serveur source&#160;:
+</p>
+<pre>xm migrate -l xen2migrate xenhost_destination
+</pre>
+<h1><span class="mw-headline" id="Lancement_d.27une_machine_Virtuelle"><span class="mw-headline-number">4</span> Lancement d'une machine Virtuelle</span></h1>
+<p>Pour lancer une machine, rien de plus simple&#160;:
+</p>
+<pre>xm create -c <b>/etc/xen/ma_xen.cfg</b>
+</pre>
+<p><b>L'option -c sert à récupérer la main juste après l'exécution de celle-ci.<br /></b>
+Si vous ne faites pas -c, vous pouvez récupérer une console comme ceci&#160;:
+</p>
+<pre>xm console <b>le_nom_de_ma_machine_xen</b>
+</pre>
+<p>Si on souhaites sortir de la console&#160;:
+</p>
+<pre>Ctrl + AltGr + ]
+</pre>
+<p>Ensuite on peut vérifier l'état&#160;:
+</p>
+<pre>xm list
+</pre>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="4gb_seg_fixup.2C_process_syslogd_.28pid_15584.29.2C_cs:ip_73:b7ed76d0"><span class="mw-headline-number">5.1</span> 4gb seg fixup, process syslogd (pid 15584), cs:ip 73:b7ed76d0</span></h2>
+<p>Le noyau de l'invité, qui est un vserver maître, donne un certain nombre d'insultes. La solution est indiquée ici: <br />
+<a rel="nofollow" class="external free" href="http://bugs.donarmstrong.com/cgi-bin/bugreport.cgi?bug=405223">http://bugs.donarmstrong.com/cgi-bin/bugreport.cgi?bug=405223</a>
+</p><p>Elle consiste en l'installation de libc6-xen et un mv /lib/tls /lib/tls.disabled sur les vservers invités.
+</p>
+<h2><span class="mw-headline" id="Error:_Device_2049_.28vbd.29_could_not_be_connected._Hotplug_scripts_not_working"><span class="mw-headline-number">5.2</span> Error: Device 2049 (vbd) could not be connected. Hotplug scripts not working</span></h2>
+<p>Ce message est obtenu au lancement d'un DomU (xm create toto.cfg). Une des causes peut être la non existence d'une des partitions du DomU. Si vous utilisez du LVM, vérifier que les volumes existent.
+</p>
+<h2><span class="mw-headline" id="Error:_Device_0_.28vif.29_could_not_be_connected._Backend_device_not_found"><span class="mw-headline-number">5.3</span> Error: Device 0 (vif) could not be connected. Backend device not found</span></h2>
+<p>C'est certainement parce que le réseau de votre Xend n'est pas configuré. Pour cela, remplacer dans votre fichier /etc/xen/xend-config.sxp la ligne&#160;:
+</p>
+<pre>(network-script network-dummy)
+</pre>
+<p>par
+</p>
+<pre>(network-script 'network-bridge netdev=eth0')
+</pre>
+<p>Ne pas oublier de relancer xend&#160;:
+</p>
+<pre>/etc/init.d/xend restart
+</pre>
+<h2><span class="mw-headline" id="re0:_watchdog_timeout"><span class="mw-headline-number">5.4</span> re0: watchdog timeout</span></h2>
+<p>Voila tout ce que nous obtenions lorsque nous choisissions le driver NIC rtl8139 pour un domU NetBSD ou OpenBSD.
+</p><p>Finalement, c’est une réponse de <a rel="nofollow" class="external text" href="http://mail-index4.netbsd.org/port-xen/2006/10/25/0001.html">Manuel Bouyer sur port-xen</a> qui donne la solution&#160;:<br />
+Désactiver <b>re*</b>&#160;! C’est alors <b>rtk*</b> qui prend la main, et là, point de timeout, de latences ou autres dysfonctionnement, “juste ça marche”.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.cl.cam.ac.uk/research/srg/netos/xen/readmes/user/">http://www.cl.cam.ac.uk/research/srg/netos/xen/readmes/user/</a><br />
+<a href="./File:Xen.pdf.html" title="File:Xen.pdf">Documentation Xen</a><br />
+<a href="./File:Paravirtualization_avec_Xen.pdf.html" title="File:Paravirtualization avec Xen.pdf">Paravirtualization avec Xen</a><br />
+<a href="./File:Xen_serveur_parfait.pdf.html" title="File:Xen serveur parfait.pdf">Xen mise en place d'un serveur Parfait</a><br />
+<a href="./File:Xen-Tools_Xen-Shell_And_Argo.pdf.html" title="File:Xen-Tools Xen-Shell And Argo.pdf">Documentation Xentools (Xen-Shell et Argo)</a><br />
+<a href="./File:XenExpress.pdf.html" title="File:XenExpress.pdf">Documentation XenExpress</a><br />
+<a href="./File:Xen4Debian.pdf.html" title="File:Xen4Debian.pdf">Documentation Xen for Debian</a><br />
+<a href="./File:How_To_Make_Your_Xen-PAE_Kernel_Work_With_More_Than_4GB_RAM.pdf.html" title="File:How To Make Your Xen-PAE Kernel Work With More Than 4GB RAM.pdf">How To Make Your Xen-PAE Kernel Work With More Than 4GB RAM</a><br />
+<a href="./Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP.html" title="Xen et vserver : monitoring des VM sur une page PHP">Xen et vserver : monitoring des VM sur une page PHP</a><br />
+<a href="./File:Heartbeat2_Xen_cluster_with_drbd8_and_OCFS2.pdf.html" title="File:Heartbeat2 Xen cluster with drbd8 and OCFS2.pdf">Documentation on Heartbeat2 Xen cluster with drbd8 and OCFS2</a><br />
+<a href="./File:XEN_On_An_Ubuntu_High_Performance.pdf.html" title="File:XEN On An Ubuntu High Performance.pdf">XEN On An Ubuntu - High Performance</a><br />
+<a href="./File:NetBSD_Xen_Guide.pdf.html" title="File:NetBSD Xen Guide.pdf">NetBSD Xen Guide</a><br />
+<a href="./File:XEN_et_l’optimisation_d’espace_disque.pdf.html" title="File:XEN et l’optimisation d’espace disque.pdf">XEN et l’optimisation d’espace disque</a><br />
+<a href="images/e/ef/Problématique_de_consolidation_et_atteinte_des_objectifs_de_niveau_de_service_(SLO)_avec_Xen.pdf" class="internal" title="Problématique de consolidation et atteinte des objectifs de niveau de service (SLO) avec Xen.pdf">Problématique de consolidation et atteinte des objectifs de niveau de service (SLO) avec Xen</a><br />
+<a href="images/e/eb/How_To_Run_Fully-Virtualized_Guests_(HVM)_With_Xen_3_2_On_Debian_Lenny_(x86_64)_.pdf" class="internal" title="How To Run Fully-Virtualized Guests (HVM) With Xen 3 2 On Debian Lenny (x86 64) .pdf">How To Run Fully-Virtualized Guests (HVM) With Xen 3 2 On Debian Lenny</a><br />
+<a href="images/b/b9/Xen_Live_Migration_Of_An_LVM-Based_Virtual_Machine_With_iSCSI_On_Debian_Lenny.pdf" class="internal" title="Xen Live Migration Of An LVM-Based Virtual Machine With iSCSI On Debian Lenny.pdf">Xen Live Migration Of An LVM-Based Virtual Machine With iSCSI On Debian Lenny</a><br />
+<a href="images/6/6f/Creating_A_Fully_Encrypted_Para-Virtualised_Xen_Guest_System_Using_Debian_Lenny.pdf" class="internal" title="Creating A Fully Encrypted Para-Virtualised Xen Guest System Using Debian Lenny.pdf">Creating A Fully Encrypted Para-Virtualised Xen Guest System Using Debian Lenny</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.032 seconds
+Real time usage: 0.032 seconds
+Preprocessor visited node count: 230/1000000
+Preprocessor generated node count: 406/1000000
+Post‐expand include size: 210/2097152 bytes
+Template argument size: 73/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    1.082      1 - -total
+100.00%    1.082      1 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:999-0!*!0!1!en!5!* and timestamp 20181111230817 and revision id 8443
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_Xen&amp;oldid=8443">https://wiki.deimos.fr/index.php?title=Mise_en_place_de_Xen&amp;oldid=8443</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Mise+en+place+de+Xen" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Mise_en_place_de_Xen.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Mise_en_place_de_Xen.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Mise_en_place_de_Xen.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_Xen&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_Xen&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Mise_en_place_de_Xen.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Mise_en_place_de_Xen.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Mise_en_place_de_Xen" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_Xen&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_Xen&amp;oldid=8443" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_de_Xen&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 13 December 2009, at 16:24.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":67});
+}</script>
+	</body>
+</html>
+	

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>OpenSSH : Export / Echange de clefs SSH - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="../opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="_Echange_de_clefs_SSH.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="../load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="../load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="../load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"OpenSSH_:_Export_/_Echange_de_clefs_SSH","wgTitle":"OpenSSH : Export / Echange de clefs SSH","wgCurRevisionId":13004,"wgRevisionId":13004,"wgArticleId":2389,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"OpenSSH_:_Export_/_Echange_de_clefs_SSH","wgRelevantArticleId":2389,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-OpenSSH_Export_Echange_de_clefs_SSH skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">OpenSSH : Export / Echange de clefs SSH</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="_Echange_de_clefs_SSH.html#mw-navigation">navigation</a>, 					<a href="_Echange_de_clefs_SSH.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="_Echange_de_clefs_SSH.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="_Echange_de_clefs_SSH.html#Basique"><span class="tocnumber">2</span> <span class="toctext">Basique</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="_Echange_de_clefs_SSH.html#Serveur"><span class="tocnumber">2.1</span> <span class="toctext">Serveur</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="_Echange_de_clefs_SSH.html#Client"><span class="tocnumber">2.2</span> <span class="toctext">Client</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="_Echange_de_clefs_SSH.html#Change_ssh_key_passphrase"><span class="tocnumber">2.3</span> <span class="toctext">Change ssh key passphrase</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="_Echange_de_clefs_SSH.html#Complexe_avec_restrictions"><span class="tocnumber">3</span> <span class="toctext">Complexe avec restrictions</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="_Echange_de_clefs_SSH.html#ssh-add"><span class="tocnumber">4</span> <span class="toctext">ssh-add</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="_Echange_de_clefs_SSH.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="_Echange_de_clefs_SSH.html#Authentication_refused:_bad_ownership_or_modes_for_directory"><span class="tocnumber">5.1</span> <span class="toctext">Authentication refused: bad ownership or modes for directory</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="_Echange_de_clefs_SSH.html#Disabling_protocol_version_1._Could_not_load_host_key"><span class="tocnumber">5.2</span> <span class="toctext">Disabling protocol version 1. Could not load host key</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="_Echange_de_clefs_SSH.html#Je_ne_peux_pas_changer_le_mot_de_passe_root_et_je_veux_absolument_me_connecter_sur_la_machine"><span class="tocnumber">5.3</span> <span class="toctext">Je ne peux pas changer le mot de passe root et je veux absolument me connecter sur la machine</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="_Echange_de_clefs_SSH.html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>L'échange de clefs SSH est génial pour ne pas avoir à taper son mot de passe SSH. C'est d'autant plus très simple à réaliser.
+</p>
+<h1><span class="mw-headline" id="Basique"><span class="mw-headline-number">2</span> Basique</span></h1>
+<h2><span class="mw-headline" id="Serveur"><span class="mw-headline-number">2.1</span> Serveur</span></h2>
+<p>Sur le serveur, le compte de l'utilisateur sur lequel le client va se connecter (<b>root</b> par exemple), il faut que le dossier .ssh soit présent&#160;:
+</p>
+<pre>mkdir .ssh
+</pre>
+<h2><span class="mw-headline" id="Client"><span class="mw-headline-number">2.2</span> Client</span></h2>
+<p>Sur le client, il faut générer une paire de clef, <b>sauf si vous en posédez déjà une (~./ssh/id_dsa.pub)</b>&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="../File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="../images/9/9c/Terminal.png" width="32" height="32" /></a> ssh-keygen</font>
+</td></tr>
+<tr>
+<td>
+<pre>ssh-keygen -t rsa
+</pre>
+</td></tr></table><br />
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="../File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="../images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>Pour plus de sécurité, chiffrez votre clé privée à la création en ajoutant -p. Si vous vous faites voler vos clés, ce ne sera pas si grave&#160;:
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="../File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="../images/9/9c/Terminal.png" width="32" height="32" /></a> ssh-keygen</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ssh-keygen -t rsa -p</pre></div></div>
+</td></tr></table><br />
+</td></tr></table><br />
+<p>Ensuite, il faut envoyer la clef au serveur&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="../File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="../images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>cat .ssh/id_rsa.pub | ssh <b>root</b>@<b>hote_distant</b> "cat &gt;&gt; .ssh/authorized_keys"
+</pre>
+<p>ou
+</p>
+<pre>ssh-copy-id -i ~/.ssh/id_rsa.pub root@serveur-distant
+</pre>
+</td></tr></table><br />
+<p>Maintenant, si on se connecte sur le serveur, il ne nous demande plus de mot de passe&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="../File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="../images/9/9c/Terminal.png" width="32" height="32" /></a> ssh</font>
+</td></tr>
+<tr>
+<td>
+<pre>ssh <b>root</b>@<b>hote_distant</b>
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Change_ssh_key_passphrase"><span class="mw-headline-number">2.3</span> Change ssh key passphrase</span></h2>
+<p>You can change your ssh passphrase&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="../File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="../images/9/9c/Terminal.png" width="32" height="32" /></a> ssh-keygen</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ssh-keygen -f ~/.ssh/id_rsa -p</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Complexe_avec_restrictions"><span class="mw-headline-number">3</span> Complexe avec restrictions</span></h1>
+<p>Si par exemple vous ne souhaitez pas que depuis n'importe où on puisse se connecter avec l'utilisateur root, il faut faire un échange de clef basique entre la machine cliente et le serveur, puis éditer sur le serveur&#160;:
+</p>
+<ul><li> Le fichier de configuration du server OpenSSH /etc/ssh/sshd_config&#160;:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="../File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="../images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/ssh/sshd_config</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">PermitRootLogin without-password</pre></div></div>
+</td></tr></table><br />
+<ul><li> La clef autorisée /root/.ssh/autorized_keys&#160;:</li></ul>
+<pre><b>from="10.0.0.1"</b> ssh-dss..... (la clef en question)
+</pre>
+<p>Et pour finir redémarrez OpenSSH&#160;:-). Maintenant, seule la machine 10.0.0.1 sera autorisée à se connecter directement en root et uniquement via la clef.
+</p><p>Si vous avez plusieurs machines ou hôtes à ajoutez, séparez les par des virgules.
+</p>
+<h1><span class="mw-headline" id="ssh-add"><span class="mw-headline-number">4</span> ssh-add</span></h1>
+<p>ssh-add<sup id="cite_ref-1" class="reference"><a href="_Echange_de_clefs_SSH.html#cite_note-1">[1]</a></sup> est un outil permettant d'avoir une clef ssh privée avec passphrase et de ne pas avoir à la taper à chaque fois, mais simplement une fois lors de la première utilisation. Il existe aussi son penchant X qui s'appelle ssh-askpass. Il est possible également de définir un timeout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="../File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="../images/9/9c/Terminal.png" width="32" height="32" /></a> ssh-add</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ssh-agent
+ssh-add -t 3600</pre></div></div>
+</td></tr></table><br />
+<p>Donc là au bout d'une heure, il faudra de nouveau rentrer la passphrase.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Authentication_refused:_bad_ownership_or_modes_for_directory"><span class="mw-headline-number">5.1</span> Authentication refused: bad ownership or modes for directory</span></h2>
+<p>Si vous rencontrez ce type d'erreur&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Authentication refused: bad ownership or modes for directory /home/client
+Failed publickey for client from x.x.x.x port 57113 ssh2
+Connection closed by x.x.x.x</pre></div></div>
+<p>Vous avez des problèmes de droit dans le home de votre utilisateur. Vérifiez bien qu'il a quelquechose comme 755. Si ce n'est pas possible de changer les droits, alors il faut dire à SSH d'être moins restrictif sur les permissions. Il faut donc modifier le fichier <b>/etc/ssh/sshd_config</b> et mettre cette option&#160;:
+</p>
+<pre>StrictModes no
+</pre>
+<h2><span class="mw-headline" id="Disabling_protocol_version_1._Could_not_load_host_key"><span class="mw-headline-number">5.2</span> Disabling protocol version 1. Could not load host key</span></h2>
+<p>J'ai eu ce petit soucis notament avec le live CD de Xen Enterprise pour effectuer des P2V. Je voulais me connecter à distance pour vérifier l'état d'avancement de la migration. Or il fallait générer des clefs SSH pour démarrer le serveur. Voici donc la procédure&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="../File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="../images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>ssh-keygen -t rsa1 -f /etc/ssh_host_rsa_key -N ""
+ssh-keygen -t dsa -f /etc/ssh_host_dsa_key -N ""
+/usr/sbin/sshd
+</pre>
+</td></tr></table><br />
+<p>Et voilà le problème du serveur avec clefs manquantes est résolu&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Je_ne_peux_pas_changer_le_mot_de_passe_root_et_je_veux_absolument_me_connecter_sur_la_machine"><span class="mw-headline-number">5.3</span> Je ne peux pas changer le mot de passe root et je veux absolument me connecter sur la machine</span></h2>
+<p>Attention à cette tchnique car n'importe qui pourra s'y connecter. Mais pour les plus aventuriers d'entre vous, modifiez ces paramètres&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="../File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="../images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/ssh/sshd_config</font>
+</td></tr>
+<tr>
+<td>
+<pre>PermitRootLogin <b>yes</b>
+StrictModes <b>no</b>
+PermitEmptyPasswords <b>yes</b>
+</pre>
+</td></tr></table><br />
+<p>Redémarrez votre service SSH, et voilà, votre serveur est maintenant une vrai passoire&#160;:-)
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p><a href="../File:How_To_Set_Up_SSH_With_Public-Key_Authentication_On_Debian.pdf.html" title="File:How To Set Up SSH With Public-Key Authentication On Debian.pdf">How To Set Up SSH With Public-Key Authentication</a>
+</p>
+<ol class="references">
+<li id="cite_note-1"><a href="_Echange_de_clefs_SSH.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch06_03.htm">http://docstore.mik.ua/orelly/networking_2ndEd/ssh/ch06_03.htm</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.032 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 209/1000000
+Preprocessor generated node count: 596/1000000
+Post‐expand include size: 2480/2097152 bytes
+Template argument size: 1071/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    8.657      1 - -total
+ 35.22%    3.049      7 - Template:Command
+ 19.47%    1.686      1 - Template:Notes
+ 12.95%    1.121      2 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2389-0!*!*!1!en!5!* and timestamp 20181111230628 and revision id 13004
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Export_/_Echange_de_clefs_SSH&amp;oldid=13004">https://wiki.deimos.fr/index.php?title=OpenSSH_:_Export_/_Echange_de_clefs_SSH&amp;oldid=13004</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=OpenSSH+%3A+Export+%2F+Echange+de+clefs+SSH" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="_Echange_de_clefs_SSH.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="_Echange_de_clefs_SSH.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="_Echange_de_clefs_SSH.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Export_/_Echange_de_clefs_SSH&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Export_/_Echange_de_clefs_SSH&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="_Echange_de_clefs_SSH.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(../images/a/a7/Logo_deimosfr.png);" href="../index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="../index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="../Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="../BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="../Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="../Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="../Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="../Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="../Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="../Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="../Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="../Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="../Special:WhatLinksHere/OpenSSH_:_Export_/_Echange_de_clefs_SSH.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/OpenSSH_:_Export_/_Echange_de_clefs_SSH" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Export_/_Echange_de_clefs_SSH&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Export_/_Echange_de_clefs_SSH&amp;oldid=13004" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Export_/_Echange_de_clefs_SSH&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 25 October 2013, at 09:02.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="../resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="../resources/assets/poweredby_mediawiki_132x47.png 1.5x, ../resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="../extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

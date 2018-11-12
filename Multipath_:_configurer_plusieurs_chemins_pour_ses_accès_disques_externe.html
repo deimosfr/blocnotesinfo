@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Multipath : configurer plusieurs chemins pour ses accès disques externe - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe","wgTitle":"Multipath : configurer plusieurs chemins pour ses accès disques externe","wgCurRevisionId":10773,"wgRevisionId":10773,"wgArticleId":3330,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe","wgRelevantArticleId":3330,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Multipath_configurer_plusieurs_chemins_pour_ses_accès_disques_externe skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Multipath : configurer plusieurs chemins pour ses accès disques externe</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#mw-navigation">navigation</a>, 					<a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Device_Mapper"><span class="tocnumber">2</span> <span class="toctext">Device Mapper</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Multipathing"><span class="tocnumber">3</span> <span class="toctext">Multipathing</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Installation"><span class="tocnumber">3.1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Configuration"><span class="tocnumber">3.2</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Utilisation"><span class="tocnumber">3.3</span> <span class="toctext">Utilisation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#FAQ"><span class="tocnumber">4</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Je_ne_vois_toujours_pas_mes_nouveaux_LUN.2C_comment_rafraichir_.3F"><span class="tocnumber">4.1</span> <span class="toctext">Je ne vois toujours pas mes nouveaux LUN, comment rafraichir&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Je_n.27arrive_pas_.C3.A0_voir_correctement_ma_nouvelle_partition.2C_comment_m.27y_prendre_.3F"><span class="tocnumber">4.2</span> <span class="toctext">Je n'arrive pas à voir correctement ma nouvelle partition, comment m'y prendre&#160;?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#Ressources"><span class="tocnumber">5</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Nous allons aborder ici 2 points&#160;:
+</p>
+<ul><li> Les devices mapper</li>
+<li> Le multipathing</li></ul>
+<p>Nous avons besoin de comprendre comment fonctionne les device mapper avant d'attaquer le multipathing, c'est pourquoi il y aura une explication sur les 2 dans cette documentation.
+</p><p>Dans le noyau Linux, la carte des périphériques (device-mapper en anglais) sert de framework générique pour créer une projection d'un périphérique bloc ("mapper" le périphérique) sur un autre. Elle est à la base de LVM2 et EVMS, des RAIDs logiciels, ou encore du chiffrage de disque; et offre des fonctionnalités supplémentaires telles que l'instantané de système de fichiers (file-system snapshot).<br />
+La carte des périphériques fonctionne en traitant les données que lui transmet un périphérique bloc virtuel (fourni par elle-même), et en passant les données résultantes à un autre périphérique bloc.
+</p><p>Le Multipathing permet d'avoir plusieurs chemin pour accéder aux même données. Ceci a pour but d'augmenter les capacités d'accès aux données si l'équipement de stockage le permet (actif/actif) et d'assurer de la redondance en cas de panne d'un équipement, tel qu'un contrôleur. Voici a quoi ressemble une architecture faite de multipathing&#160;:
+</p><p><a href="./File:Multipath.png.html" class="image"><img alt="Multipath.png" src="images/6/66/Multipath.png" width="422" height="337" /></a>
+</p><p>Cela fonctionne également très bien avec un seul SAN.
+</p>
+<h1><span class="mw-headline" id="Device_Mapper"><span class="mw-headline-number">2</span> Device Mapper</span></h1>
+<p>Les Device mapper sont très rarement utilisés manuellement. Ce sont généralement des couches supérieurs qui les utilisent tel que LVM. Néanmoins, nous allons voir comment s'en servir.
+</p><p>Pour ajouter une partition dans device mapper&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dmsetup</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dmsetup create &lt;device&gt; &lt;map_table&gt;</pre></div></div>
+</td></tr></table><br />
+<ul><li> device&#160;: nom du device a créer</li>
+<li> map_table&#160;: est un fichier qui doit contenir les règles de mapping, exemple&#160;:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> map_table</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">0 409600 linear /dev/sdal 0
+409600 2048000 linear /dev/sda2 0</pre></div></div>
+</td></tr></table><br />
+<p>Si je souhaites créer un device mapper, je peux le faire en une ligne de commande également et sans fichier&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dmsetup</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &quot;0 `blockdev --getsize /dev/sda1` linear /dev/sda1 0&quot; | dmsetup create mynewdm</pre></div></div>
+</td></tr></table><br />
+<p>Il existe plusieurs type de mapping tagets&#160;:
+</p>
+<ul><li> linera&#160;: allocation continue</li>
+<li> stripped&#160;: allocation segmentée entre tous les périphériques</li>
+<li> erreur&#160;: pour générer des erreurs (idéale pour le dev et tests)</li>
+<li> snapshot - périphérique copy-on-write</li>
+<li> snapshot-origin&#160;: mapping vers un volume originial</li>
+<li> zero - sparse block devices (équivalent à /dev/null)</li>
+<li> multipath&#160;: multi routes pour une connection à un périphérique</li></ul>
+<p>Pour voir toutes les devices mapper disponibles&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dmsetup</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; dmsetup table
+myvg-rootvol: 0 10092544 linear 8:3 2048</pre></div></div>
+</td></tr></table><br />
+<p>Pour supprimer un device mapper&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dmsetup</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dmsetup remove &lt;disk&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Pour lister tous les devices mapper sous forme d'arbre&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dmsetup</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dmsetup ls --tree</pre></div></div>
+<p><a href="./File:Dm-tree.png.html" class="image"><img alt="Dm-tree.png" src="images/b/b6/Dm-tree.png" width="162" height="338" /></a>
+</p>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Multipathing"><span class="mw-headline-number">3</span> Multipathing</span></h1>
+<h2><span class="mw-headline" id="Installation"><span class="mw-headline-number">3.1</span> Installation</span></h2>
+<p>Le multipath n'est pas quelque chose d'installé de base, nous allons donc avoir besoin d'installer un package&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">yum install device-mapper-multipath</pre></div></div>
+</td></tr></table><br />
+<p>Puis nous allons charger les modules et passer le service en persistant&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">modprobe dm_multipath
+modprobe dm-round-robin
+chkconfig multipathd on</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3.2</span> Configuration</span></h2>
+<p>Si vous n'avez pas de fichier de configuration, prenez en un dans la doc&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cp /usr/share/doc/device-mapper-multipath-0.4.9/multipath.conf /etc/</pre></div></div>
+</td></tr></table><br />
+<p>Multipath utilise une notion de groupes allant de 0 à 1024 (du plus prioritaire au moins). Un seul groupe est actif à la fois. Un groupe peut contenir plusieurs chemins.
+</p><p>Nous allons passer à la configuration de notre service de multipathing (je ne présente que les lignes essentielles)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/multipath.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+# Blacklist all devices by default. Remove this to enable multipathing
+# on the default devices.
+#blacklist {
+#        devnode &quot;*&quot;
+#}
+## Use user friendly names, instead of using WWIDs as names.
+defaults {
+        user_friendly_names yes
+}
+##
+## Here is an example of how to configure some standard options.
+##
+#
+defaults {
+        udev_dir                /dev
+        polling_interval        10
+        selector                &quot;round-robin 0&quot;
+        path_grouping_policy    multibus
+        getuid_callout          &quot;/lib/udev/scsi_id --whitelisted --device=/dev/%n&quot;
+        prio                    alua
+        path_checker            readsector0
+        rr_min_io               100
+        max_fds                 8192
+        rr_weight               priorities
+        failback                immediate
+        no_path_retry           fail
+        user_friendly_names     yes
+}
+blacklist {
+       wwid 26353900f02796769
+       devnode &quot;^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*&quot;
+       devnode &quot;^hd[a-z]&quot;
+}
+...</pre></div></div>
+</td></tr></table><br />
+<p>Je vous conseil fortement de regarder le man pour le choix des options ci dessus.
+</p><p>Nous allons pouvoir démarrer notre service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> service</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service multipathd start</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">3.3</span> Utilisation</span></h2>
+<p>Voici l'ordre et les outis à utiliser pour la détection de disques, cette section est très importante&#160;:
+</p>
+<ol><li> <b>Les devices&#160;: partprobe /dev/&lt;device&gt; (ex: sda)</b></li>
+<li> <b>Les device-mapper&#160;: kpartx -a /dev/&lt;device-mapper&gt; (ex: dm-1)</b></li>
+<li> <b>Le multipath&#160;: partprobe /dev/mapper/&lt;multipath&gt; (ex: mpath0)</b></li></ol>
+<p>Si nous souhaitons voir les paths actifs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> multipath</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">multipath -l</pre></div></div>
+</td></tr></table><br />
+<p>Pour créer des partitions sur un device mapper multipathé, il faut <b>absolument</b> le faire sur le disque sous jassent (ex: /dev/sda) et non le device mapper multipathé&#160;! Donc la procédure consiste a créer sa partition avec fdisk par exemple, puis faire détecter sa nouvelle partition&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">partprobe /dev/sda
+partprobe /dev/sdb
+kpartx -a /dev/mapper/mpath0</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">4</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Je_ne_vois_toujours_pas_mes_nouveaux_LUN.2C_comment_rafraichir_.3F"><span class="mw-headline-number">4.1</span> Je ne vois toujours pas mes nouveaux LUN, comment rafraichir&#160;?</span></h2>
+<p>Il est possible que la création de nouveaux LUN/partition nécessite un nouveau scan pour les détecter. Nous allons avoir besoin de ce package&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">yum install sg3_utils</pre></div></div>
+</td></tr></table><br />
+<p>Puis lançons le scan&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rescan-scsi-bus.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rescan-scsi-bus.sh</pre></div></div>
+</td></tr></table><br />
+<p>Ou sinon, nous pouvons le faire directement avec /proc.
+</p>
+<ul><li> Si c'est sur une plateforme de type SCSI&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &quot;- - -&quot; &gt; /sys/class/scsi_host/&lt;HBA&gt;/scan</pre></div></div>
+</td></tr></table><br />
+<ul><li> Si c'est pour une baie Fibre Optique&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &quot;1&quot; &gt; /sys/class/fc_host/&lt;HBA&gt;/issue_lip
+echo &quot;- - -&quot; &gt; /sys/class/scsi_host/&lt;HBA&gt;/scan</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Je_n.27arrive_pas_.C3.A0_voir_correctement_ma_nouvelle_partition.2C_comment_m.27y_prendre_.3F"><span class="mw-headline-number">4.2</span> Je n'arrive pas à voir correctement ma nouvelle partition, comment m'y prendre&#160;?</span></h2>
+<p>Voici comment procéder lorsque l'on rencontre un problème lors de la création d'une partition sur un multipath. Prenons cette exemple &#160;:
+</p>
+<ul><li> Je ne vois pas mpath0p2 sur 1 machine, alors que sur les autres machines, je les voit&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ls /dev/mpath/
+<span class="xtra ln-xtra">mpath0  mpath0p1</span></pre></div></div>
+</td></tr></table><br />
+<ul><li> Je vérifie que je vois bien ma partition sur les 2 paths (sda2 et sdb2)&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> fdisk</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; fdisk -l
+&#160;
+Disk /dev/hda: 8589 MB, 8589934592 bytes
+255 heads, 63 sectors/track, 1044 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+&#160;
+   Device Boot      Start         End      Blocks   Id  System
+/dev/hda1   *           1          13      104391   83  Linux
+/dev/hda2              14         274     2096482+  8e  Linux LVM
+/dev/hda3             275         339      522112+  82  Linux swap / Solaris
+&#160;
+Disk /dev/sda: 5368 MB, 5368709120 bytes
+166 heads, 62 sectors/track, 1018 cylinders
+Units = cylinders of 10292 * 512 = 5269504 bytes
+&#160;
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1               1          10       51429   83  Linux
+/dev/sda2              11         770     3910960   8e  Linux LVM
+&#160;
+Disk /dev/sdb: 5368 MB, 5368709120 bytes
+166 heads, 62 sectors/track, 1018 cylinders
+Units = cylinders of 10292 * 512 = 5269504 bytes
+&#160;
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1               1          10       51429   83  Linux
+/dev/sdb2              11         770     3910960   8e  Linux LVM
+&#160;
+Disk /dev/dm-1: 5368 MB, 5368709120 bytes
+166 heads, 62 sectors/track, 1018 cylinders
+Units = cylinders of 10292 * 512 = 5269504 bytes
+&#160;
+     Device Boot      Start         End      Blocks   Id  System
+/dev/dm-1p1               1          10       51429   83  Linux
+&#160;
+Disk /dev/dm-2: 52 MB, 52663296 bytes
+255 heads, 63 sectors/track, 6 cylinders
+Units = cylinders of 16065 * 512 = 8225280 bytes
+&#160;
+Disk /dev/dm-2 doesn't contain a valid partition table</pre></div></div>
+</td></tr></table><br />
+<p>S'assurer que dans la configuration, il n'y a pas des options de blacklist qui m'empêcherait de voir correctement les devices. Pour cela, nous allons commenter toutes les parties blacklist&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/multipath.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#blacklist {
+#       wwid 26353900f02796769
+#       devnode &quot;^(ram|raw|loop|fd|md|dm-|sr|scd|st)[0-9]*&quot;
+#       devnode &quot;^hd[a-z]&quot;
+#}</pre></div></div>
+</td></tr></table><br />
+<ul><li> On voit que /dev/dm-1p1 est présent, mais pas le 2 (tout du moins qu'il y a une erreur). Je vérifie de nouveau qu'il n'y a aucune présence de mon dm-2&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ls -l /dev/dm-1
+brw-rw---- 1 root root 253, 1 Mar  1 13:42 /dev/dm-1</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ls -l /dev/mapper/
+total 0
+crw------- 1 root root  10, 62 Mar  1 13:41 control
+brw-rw---- 1 root disk 253,  1 Mar  1 13:42 mpath0
+brw-rw---- 1 root root 253,  2 Mar  1 14:06 mpath0p1
+brw------- 1 root root 253,  0 Mar  1 13:41 myvg0-mylv0</pre></div></div>
+</td></tr></table><br />
+<ul><li> On voit que "253,  1" correspond à /dev/dm-1. On va faire un kpartx et partprobe sur les 2 pour rafraichir les paths&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">kpartx -a /dev/dm-1
+kpartx -a /dev/dm-2
+partprobe /dev/mapper/mpath0</pre></div></div>
+</td></tr></table><br />
+<p>Même si vous avez des erreurs du type&#160;:
+</p>
+<pre>device-mapper: create ioctl failed: Device or resource busy
+</pre>
+<p>Ce n'est pas grâve, ça lui permet de rafriachir la liste des devices mapper.
+</p>
+<ul><li> Et là ça marche&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ls -l /dev/mapper/
+total 0
+crw------- 1 root root  10, 62 Mar  1 13:41 control
+brw-rw---- 1 root disk 253,  1 Mar  1 13:42 mpath0
+brw-rw---- 1 root root 253,  2 Mar  1 14:06 mpath0p1
+<span class="xtra ln-xtra">brw-rw---- 1 root disk 253,  3 Mar  1 14:19 mpath0p2</span>brw------- 1 root root 253,  0 Mar  1 13:41 myvg0-mylv0</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">5</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html-single/DM_Multipath/index.html">http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html-single/DM_Multipath/index.html</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.056 seconds
+Real time usage: 0.056 seconds
+Preprocessor visited node count: 448/1000000
+Preprocessor generated node count: 1314/1000000
+Post‐expand include size: 4760/2097152 bytes
+Template argument size: 1415/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   14.213      1 - -total
+ 65.98%    9.378     21 - Template:Command
+ 14.66%    2.084      3 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3330-0!*!*!1!en!5!* and timestamp 20181111230701 and revision id 10773
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe&amp;oldid=10773">https://wiki.deimos.fr/index.php?title=Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe&amp;oldid=10773</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Multipath+%3A+configurer+plusieurs+chemins+pour+ses+acc%C3%A8s+disques+externe" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Multipath_:_configurer_plusieurs_chemins_pour_ses_acc%C3%A8s_disques_externe&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Multipath_:_configurer_plusieurs_chemins_pour_ses_acc%C3%A8s_disques_externe&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Multipath_:_configurer_plusieurs_chemins_pour_ses_accès_disques_externe.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Multipath_:_configurer_plusieurs_chemins_pour_ses_acc%C3%A8s_disques_externe" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Multipath_:_configurer_plusieurs_chemins_pour_ses_acc%C3%A8s_disques_externe&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Multipath_:_configurer_plusieurs_chemins_pour_ses_acc%C3%A8s_disques_externe&amp;oldid=10773" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Multipath_:_configurer_plusieurs_chemins_pour_ses_acc%C3%A8s_disques_externe&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 17 April 2012, at 09:46.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":47});
+}</script>
+	</body>
+</html>
+	

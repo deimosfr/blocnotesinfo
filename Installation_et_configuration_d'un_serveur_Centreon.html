@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration d'un serveur Centreon - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_d'un_serveur_Centreon.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_d'un_serveur_Centreon","wgTitle":"Installation et configuration d'un serveur Centreon","wgCurRevisionId":7818,"wgRevisionId":7818,"wgArticleId":2921,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_d'un_serveur_Centreon","wgRelevantArticleId":2921,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_d_un_serveur_Centreon skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration d'un serveur Centreon</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Installation_et_configuration_d'un_serveur_Centreon.html#mw-navigation">navigation</a>, 					<a href="Installation_et_configuration_d'un_serveur_Centreon.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#LAMP"><span class="tocnumber">2.1</span> <span class="toctext">LAMP</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Nagios_3"><span class="tocnumber">2.2</span> <span class="toctext">Nagios 3</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#NDOutils"><span class="tocnumber">2.3</span> <span class="toctext">NDOutils</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Centreon"><span class="tocnumber">2.4</span> <span class="toctext">Centreon</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Centreon_2"><span class="tocnumber">3.1</span> <span class="toctext">Centreon</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Nagios"><span class="tocnumber">3.1.1</span> <span class="toctext">Nagios</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#ndo2db"><span class="tocnumber">3.1.2</span> <span class="toctext">ndo2db</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#ndomod"><span class="tocnumber">3.1.3</span> <span class="toctext">ndomod</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#CentStorage"><span class="tocnumber">3.1.4</span> <span class="toctext">CentStorage</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Langues"><span class="tocnumber">3.2</span> <span class="toctext">Langues</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#PhpSysInfo"><span class="tocnumber">3.3</span> <span class="toctext">PhpSysInfo</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Activer_l.27interface_Web_Nagios"><span class="tocnumber">3.4</span> <span class="toctext">Activer l'interface Web Nagios</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#FAQ"><span class="tocnumber">4</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Connection_Error_to_NDO_DataBase_.21"><span class="tocnumber">4.1</span> <span class="toctext">Connection Error to NDO DataBase&#160;!</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#movement_KO"><span class="tocnumber">4.2</span> <span class="toctext">movement KO</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Warning:_File_.27.2Fvar.2Flib.2Fcentreon.2Fservice-perfdata.27_could_not_be_opened_-_service_performance_data_will_not_be_written_to_file.21"><span class="tocnumber">4.3</span> <span class="toctext">Warning: File '/var/lib/centreon/service-perfdata' could not be opened - service performance data will not be written to file!</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#DB_Error"><span class="tocnumber">4.4</span> <span class="toctext">DB Error</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#J.27ai_pas_de_graphs.2C_pas_d.27erreurs"><span class="tocnumber">4.5</span> <span class="toctext">J'ai pas de graphs, pas d'erreurs</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#Depuis_Centron_mon_export_Nagios_fonctionne_sans_erreurs.2C_pourtant_je_ne_vois_pas_mes_nouveaux_services_apparaitrent"><span class="tocnumber">4.6</span> <span class="toctext">Depuis Centron mon export Nagios fonctionne sans erreurs, pourtant je ne vois pas mes nouveaux services apparaitrent</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-23"><a href="Installation_et_configuration_d'un_serveur_Centreon.html#R.C3.A9f.C3.A9rences"><span class="tocnumber">5</span> <span class="toctext">Références</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Centreon est un des logiciels de supervision sous licence GPL le plus flexible et performant. Il s'appuye sur la technologie OpenSource Nagios.
+</p><p>Destiné à un large type de profils utilisateurs, il s'adapte parfaitement à la mesure d'indicateurs systèmes, réseaux et applicatifs.<br />
+Centreon regroupe un ensemble de fonctions essentiels à la gestion de la surveillance des infrastructures critiques.<br />
+Modulaire, il s'adapte à vos besoins et vous permet d'étendre davantage la portée de ses fonctionnalités
+</p><p>Pour ma part, j'ai choisis de passer de Nagios 3 à Centreon pour avoir des graphiques et du reporting.
+</p><p>L'installation ci dessous est effectuée sur Debian Lenny 64 bits.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="LAMP"><span class="mw-headline-number">2.1</span> LAMP</span></h2>
+<p>Pour l'installation, on va déjà installer les prérequis, c'est à dire un serveur web, mail, sql (Apache2+PHP, postfix, mysql) ainsi que les librairies nécessaire pour faire des graphs (rrdtool)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install sudo sysutils mailx lsb-release postfix build-essential apache2 apache2-mpm-prefork php5 php5-mysql php-pear php5-ldap php5-snmp php5-gd mysql-server-5.0 libmysqlclient15-dev rrdtool \
+librrds-perl libconfig-inifiles-perl libcrypt-des-perl libdigest-hmac-perl libdigest-sha1-perl libgd-gd2-perl snmp snmpd libnet-snmp-perl libsnmp-perl libgd2-xpm libgd2-xpm-dev libpng12-dev 
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Nagios_3"><span class="mw-headline-number">2.2</span> Nagios 3</span></h2>
+<p>Ensuite, nous allons installer nagios3 ainsi que les plugins&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install nagios3 nagios3-common nagios3-doc nagios-plugins nagios-plugins-basic nagios-plugins-standard nagios-images dnsutils fping
+</pre>
+</td></tr></table><br />
+<p>Créons le groupe nagcmd, puis ajoutons nagios et nagcmd à www-data (apache2)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> usermod</font>
+</td></tr>
+<tr>
+<td>
+<pre>groupadd nagcmd
+usermod -G nagios,nagcmd nagios
+usermod -G nagios,nagcmd www-data
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="NDOutils"><span class="mw-headline-number">2.3</span> NDOutils</span></h2>
+<p>Installons maintenant NDOutils&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install ndoutils-nagios3-mysql ndoutils-common dbconfig-common
+</pre>
+</td></tr></table><br />
+<p>Activons le en initiant la valeur suivante à 1&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/ndoutils</font>
+</td></tr>
+<tr>
+<td>
+<pre>ENABLE_NDOUTILS=<b>1</b>
+</pre>
+</td></tr></table><br />
+<p>Puis redémarrons le service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/ndoutils restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Centreon"><span class="mw-headline-number">2.4</span> Centreon</span></h2>
+<p>Enfin, nous arrivons à Centreon&#160;! Téléchargeons donc la dernière version, décompressons le, puis lançons l'installation&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>cd ~
+wget &quot;http://download.centreon.com/index.php?id=105&quot;
+tar -xzf centreon-2.0.2.tar.gz
+cd centreon-2.0.2
+./install.sh -i
+</pre>
+</td></tr></table><br />
+<p>Et voilà....l'installation est partie&#160;!!! Alors, voici les étapes une par une (on va le faire à la méthode golio dès fois que vous ayez des différences)&#160;:
+</p>
+<pre>###############################################################################
+#                                                                             #
+#                         Centreon (www.centreon.com)                         #
+#                          Thanks for using Centreon                          #
+#                                                                             #
+#                                    v2.0.2                                   #
+#                                                                             #
+#                             infos@oreon-project.org                         #
+#                                                                             #
+#                   Make sure you have installed and configured               #
+#                   sudo - sed - php - apache - rrdtool - mysql               #
+#                                                                             #
+###############################################################################
+------------------------------------------------------------------------
+	Checking all needed binaries
+------------------------------------------------------------------------
+rm                                                         <span style="color:green">OK</span>
+cp                                                         <span style="color:green">OK</span>
+mv                                                         <span style="color:green">OK</span>
+/bin/chmod                                                 <span style="color:green">OK</span>
+/bin/chown                                                 <span style="color:green">OK</span>
+echo                                                       <span style="color:green">OK</span>
+more                                                       <span style="color:green">OK</span>
+mkdir                                                      <span style="color:green">OK</span>
+find                                                       <span style="color:green">OK</span>
+/bin/grep                                                  <span style="color:green">OK</span>
+/bin/cat                                                   <span style="color:green">OK</span>
+/bin/sed                                                   <span style="color:green">OK</span>
+
+You will now read Centreon Licence.
+	Press enter to continue.
+</pre>
+<p>Bon on fait enter hein, puis on accepte (ou pas) la license GNU&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">		    GNU GENERAL PUBLIC LICENSE
+		       Version 2, June 1991
+&#160;
+ Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+                       51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+&#160;
+			    Preamble
+&#160;
+  The licenses for most software are designed to take away your
+....
+q
+&#160;
+Do you accept GPL license&#160;?
+[y/n], default to [n]:</pre></div></div>
+<p>On fait y.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">------------------------------------------------------------------------
+	Please choose what you want to install
+------------------------------------------------------------------------
+&#160;
+Do you want to install&#160;: Centreon Web Front
+[y/n], default to [n]:</pre></div></div>
+<p>Oh bah le frontend, ça serait mieux hein, c'est un peu pour ça qu'on l'installe à la base&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">------------------------------------------------------------------------
+	Please choose what you want to install
+------------------------------------------------------------------------
+&#160;
+Do you want to install&#160;: Centreon Web Front
+[y/n], default to [n]:</pre></div></div>
+<p>Donc <b>y</b>.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Do you want to install&#160;: Centreon CentCore
+[y/n], default to [n]:</pre></div></div>
+<p>Alors pour ma part, je vais dire oui (y). Mais vous, faites en fonction de vos besoins. CentCore permet d'avoir des satellites dans des datacenters ou filiales par exemple afin d'avoir des alertes non erronées en cas de perte de ligne entre votre serveur et les agents (type NRPE ou NCSA).
+</p><p>Pour résumer, si c'est une grosse architecture que vous allez déployer, je vous le conseil, sinon laissez non.
+</p><p>Ensuite pour les plugins Nagios, évidement qu'on va les mettre&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Do you want to install&#160;: Centreon Nagios Plugins
+[y/n], default to [n]:</pre></div></div>
+<p>Donc <b>y</b>.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Do you want to install&#160;: Centreon Snmp Traps process
+[y/n], default to [n]:</pre></div></div>
+<p>Encore une fois, si vous avez des besoins pour récupérer des traps SNMP de vos équipements (type Cisco, Alcatel, Brocade etc...), alors activez ceci, sinon ce n'est pas la peine. Pour moi, j'en ai encore besoin donc <b>y</b>.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Where is your Centreon directory?
+default to [/usr/local/centreon]
+&#160;
+Do you want me to create this directory&#160;? [/usr/local/centreon]
+[y/n], default to [n]:</pre></div></div>
+<p>Si le dossier vous convient faites <b>y</b>, sinon créez le et modifiez le chemin. Moi je vais gentillement le garder (donc y).
+</p>
+<pre>Path /usr/local/centreon                                   <span style="color:green">OK</span>
+
+Where is your Centreon log directory
+default to [/usr/local/centreon/log]
+</pre>
+<p>Donc là ça y est hein&#160;! C'est la débandade&#160;! Depuis quand on fout des logs n'importe&#160;? Donc on va faire les choses propres siyouplé, on va créer un dossier /var/log/centreon et il va le faire encore une fois gentillement&#160;:
+</p>
+<pre>&gt; <b>/var/log/centreon</b>
+
+Do you want me to create this directory&#160;? [/var/log/centreon]
+[y/n], default to [n]:
+&gt; <b>y</b>
+Path /var/log/centreon                                     <span style="color:green">OK</span>
+</pre>
+<p>Bon, maintenant les fichiers de conf. L'endroit par défaut est plutôt bien&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Where is your Centreon etc directory
+default to [/etc/centreon]</pre></div></div>
+<p>Ca c'est impec, donc on va faire 'enter'.
+</p>
+<pre>Do you want me to create this directory&#160;? [/etc/centreon]
+[y/n], default to [n]:
+&gt; <b>y</b>
+
+Path /etc/centreon                                         <span style="color:green">OK</span>
+</pre>
+<p>Et puis oui, il va le créer (y).<br />
+PS&#160;: Ceux qu'en on marre, ils peuvent faire une pause hein, c'est encore un peu long.
+</p>
+<pre>Where is your Centreon generation_files directory?
+default to [/usr/local/centreon]
+
+Path /usr/local/centreon                                   <span style="color:green">OK</span>
+</pre>
+<p>Là ça me parait pas trop mal (enter).
+</p>
+<pre>Where is your Centreon variable library directory?
+default to [/var/lib/centreon]
+&gt;
+
+Directory /var/lib/centreon does not exists.               <span style="color:orange">CRITICAL</span>
+
+Where is your Centreon variable library directory?
+default to [/var/lib/centreon]
+&gt; 
+
+Do you want me to create this directory&#160;? [/var/lib/centreon]
+[y/n], default to [n]:
+&gt; y
+
+Path /var/lib/centreon                                     <span style="color:green">OK</span>
+</pre>
+<p>On valide encore une fois.
+</p>
+<pre>Where is the RRD perl module installed [RRDs.pm]
+default to [/usr/lib/perl5/RRDs.pm]
+
+Path /usr/lib/perl5                                        <span style="color:green">OK</span>
+/usr/bin/rrdtool                                           <span style="color:green">OK</span>
+/usr/bin/mail                                              <span style="color:green">OK</span>
+</pre>
+<p>Youpi c'est les bons path, on valide. Et pour PEAR&#160;?
+</p>
+<pre>Where is PEAR [PEAR.php] 
+default to [/usr/share/php/PEAR.php]
+
+Path /usr/share/php                                        <span style="color:green">OK</span>
+</pre>
+<p>Youpi c'est encore bon...rohhh trop de la chance&#160;! On continue&#160;?
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Where is installed Nagios&#160;?
+default to [/usr/local/nagios]</pre></div></div>
+<p>Faux, nul..là j'ai envie de te dire menteur&#160;! Du fait qu'on ai pas installé via les sources nagios, mais via les dépos Debian, le chemin n'est pas bon. Le bon chemin est donc <b>/usr/share/nagios3</b>&#160;:
+</p>
+<pre><b>/usr/share/nagios3</b>
+
+Path /usr/share/nagios3                                    <span style="color:green">OK</span>
+
+Where is your nagios config directory
+default to [/usr/local/nagios/etc]
+</pre>
+<p>Là on va mettre <b>/etc/nagios3</b>&#160;:
+</p>
+<pre>Where is your nagios config directory
+default to [/usr/local/nagios/etc]
+<b>/etc/nagios3</b>
+
+Path /etc/nagios3                                          <span style="color:green">OK</span>
+</pre>
+<p>On va mettre <b>/var/log/nagios3</b> pour ici qui va contenir le fichier nagios.log&#160;:
+</p>
+<pre>Where is your Nagios var directory&#160;?
+default to [/usr/local/nagios/var]
+<b>/var/log/nagios3</b>
+
+Path /var                                                  <span style="color:green">OK</span>
+</pre>
+<p>Le répertoire ci dessous est sensé contenir tous les plugins. Nous allons donc mettre <b>/usr/lib/nagios/plugins</b>&#160;:
+</p>
+<pre>Where is your Nagios plugins (libexec) directory&#160;?
+default to [/usr/local/nagios/libexec]
+<b>/usr/lib/nagios/plugins</b>
+
+Path /lib                                                  <span style="color:green">OK</span>
+/usr/sbin/nagios3                                          <span style="color:green">OK</span>
+</pre>
+<p>Maintenant, l'emplacement des logos que nous allons modifier par <b>/usr/share/nagios3/htdocs/images/logos</b>&#160;:
+</p>
+<pre>Where is your Nagios image directory&#160;?
+default to [/usr/local/nagios/share/images/logos]
+<b>/usr/share/nagios3/htdocs/images/logos </b>
+
+Path /usr/share/nagios3/htdocs/images/logos                <span style="color:green">OK</span>
+/usr/sbin/nagios3stats                                     <span style="color:green">OK</span>
+p1_file&#160;: /usr/lib/nagios3/p1.pl                           <span style="color:green">OK</span>
+/usr/bin/php                                               <span style="color:green">OK</span>
+/usr/bin/perl                                              <span style="color:green">OK</span>
+</pre>
+<p>Pour les CentPlugins, on va tout laisser par défaut et le laisser créer le répertoire&#160;:
+</p>
+<pre>Where is your CentPlugins Traps binary
+default to [/usr/local/centreon/bin]
+
+Do you want me to create this directory&#160;? [/usr/local/centreon/bin]
+[y/n], default to [n]:
+
+Path /usr/local/centreon/bin                               <span style="color:green">OK</span>
+Finding Apache group&#160;:                                     <span style="font-weight:bold">www-data</span>
+Finding Apache user&#160;:                                      <span style="font-weight:bold">www-data</span>
+Finding Nagios user&#160;:                                      <span style="font-weight:bold">nagios</span>
+Finding Nagios group&#160;:                                     <span style="font-weight:bold">nagios</span>
+</pre>
+<p>Pour la librairie ndo c'est <b>/usr/lib/ndoutils/ndomod-mysql-3x.o</b>&#160;:
+</p>
+<pre>Where is your NDO ndomod binary&#160;? 
+default to [/usr/sbin/ndomod.o]
+<b>/usr/lib/ndoutils/ndomod-mysql-3x.o</b>
+
+/usr/lib/ndoutils/ndomod-mysql-3x.o                        <span style="color:green">OK</span>
+</pre>
+<p>Maintenant, le sudo, tout est bon de base, on ne touche à rien, il fait tout tout seul&#160;:
+</p>
+<pre>------------------------------------------------------------------------
+	Configure Sudo
+------------------------------------------------------------------------
+
+Where is sudo configuration file
+default to [/etc/sudoers]
+
+/etc/sudoers                                               <span style="color:green">OK</span>
+Nagios init script                                         <span style="color:green">OK</span>
+Your sudo is not configured
+
+Do you want me to configure your sudo&#160;? (WARNING) 
+[y/n], default to [n]:
+&gt; y
+Configuring Sudo                                           <span style="color:green">OK</span>
+</pre>
+<p>Viens le moment d'apache. Il se propose de nous faire la conf (tant mieux)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">------------------------------------------------------------------------
+	Configure Apache server
+------------------------------------------------------------------------
+&#160;
+Do you want to add Centreon Apache sub configuration file&#160;?
+[y/n], default to [n]:</pre></div></div>
+<p>Donc y, et de reloader la conf et enfin checker les modules (y)&#160;:
+</p>
+<pre>Do you want to reload your Apache&#160;?
+[y/n], default to [n]:
+
+Reloading Apache service                                   <span style="color:green">OK</span>
+Preparing Centreon temporary files
+Change right on /var/log/centreon                          <span style="color:green">OK</span>
+Change right on /etc/centreon                              <span style="color:green">OK</span>
+Change right on /usr/share/nagios3/htdocs/images/logos     <span style="color:green">OK</span>
+Install nagios documentation                               <span style="color:green">OK</span>
+Change macros for insertBaseConf.sql                       <span style="color:green">OK</span>
+Change macros for php files
+Change macros for php files                                <span style="color:green">OK</span>
+Change right on /etc/nagios3                               <span style="color:green">OK</span>
+Copy CentWeb in system directory
+Install CentWeb (web front of centreon)                    <span style="color:green">OK</span>
+Install libraries                                          <span style="color:green">OK</span>
+Change macros for centreon.cron                            <span style="color:green">OK</span>
+Install Centreon cron.d file                               <span style="color:green">OK</span>
+Change macros for archiveDayLog                            <span style="color:green">OK</span>
+Change macros for centAcl.php                              <span style="color:green">OK</span>
+Install cron directory                                     <span style="color:green">OK</span>
+Pear Modules
+Check PEAR modules
+PEAR                            1.5.0       1.7.1          <span style="color:green">OK</span>
+DB                              1.7.6                      <span style="color:red">NOK</span>
+DB_DataObject                   1.8.4                      <span style="color:red">NOK</span>
+DB_DataObject_FormBuilder       1.0.0RC4                   <span style="color:red">NOK</span>
+MDB2                            2.0.0                      <span style="color:red">NOK</span>
+Date                            1.4.6                      <span style="color:red">NOK</span>
+HTML_Common                     1.2.2                      <span style="color:red">NOK</span>
+HTML_QuickForm                  3.2.5                      <span style="color:red">NOK</span>
+HTML_QuickForm_advmultiselect   1.1.0                      <span style="color:red">NOK</span>
+HTML_Table                      1.6.1                      <span style="color:red">NOK</span>
+Archive_Tar                     1.1         1.3.2          <span style="color:green">OK</span>
+Auth_SASL                       1.0.1                      <span style="color:red">NOK</span>
+Console_Getopt                  1.2         1.2.3          <span style="color:green">OK</span>
+Net_SMTP                        1.2.8                      <span style="color:red">NOK</span>
+Net_Socket                      1.0.1                      <span style="color:red">NOK</span>
+Net_Traceroute                  0.21                       <span style="color:red">NOK</span>
+Net_Ping                        2.4.1                      <span style="color:red">NOK</span>
+Validate                        0.6.2                      <span style="color:red">NOK</span>
+XML_RPC                         1.4.5                      <span style="color:red">NOK</span>
+SOAP                            0.10.1                     <span style="color:red">NOK</span>
+Log                             1.9.11                     <span style="color:red">NOK</span>
+</pre>
+<p>Et vu que là, c'est un peu la merdas parcequ'il n'y a pas grand chose au niveau des modules PHP (PEAR). Vu qu'encore une fois, il est gentil, nous allons lui dire d'installer et upgrader les modules non existants (y)&#160;:
+</p>
+<pre>Do you want me to install/upgrade your PEAR modules
+[y/n], default to [y]:
+
+Upgrading PEAR modules
+Installing PEAR modules
+DB                              1.7.6       1.7.13         <span style="color:green">OK</span>
+DB_DataObject                   1.8.4       1.8.10         <span style="color:green">OK</span>
+DB_DataObject_FormBuilder       1.0.0RC4    1.0.0RC7       <span style="color:green">OK</span>
+MDB2                            2.0.0       2.4.1          <span style="color:green">OK</span>
+HTML_QuickForm_advmultiselect   1.1.0       1.5.1          <span style="color:green">OK</span>
+HTML_Table                      1.6.1       1.8.2          <span style="color:green">OK</span>
+Auth_SASL                       1.0.1       1.0.2          <span style="color:green">OK</span>
+Net_SMTP                        1.2.8       1.3.2          <span style="color:green">OK</span>
+Net_Traceroute                  0.21        0.21.1         <span style="color:green">OK</span>
+Net_Ping                        2.4.1       2.4.4          <span style="color:green">OK</span>
+Validate                        0.6.2       0.8.2          <span style="color:green">OK</span>
+XML_RPC                         1.4.5       1.5.1          <span style="color:green">OK</span>
+SOAP                            0.10.1      0.12.0         <span style="color:green">OK</span>
+Log                             1.9.11      1.11.4         <span style="color:green">OK</span>
+Check PEAR modules
+PEAR                            1.5.0       1.7.1          <span style="color:green">OK</span>
+DB                              1.7.6       1.7.13         <span style="color:green">OK</span>
+DB_DataObject                   1.8.4       1.8.10         <span style="color:green">OK</span>
+DB_DataObject_FormBuilder       1.0.0RC4    1.0.0RC7       <span style="color:green">OK</span>
+MDB2                            2.0.0       2.4.1          <span style="color:green">OK</span>
+Date                            1.4.6       1.4.7          <span style="color:green">OK</span>
+HTML_Common                     1.2.2       1.2.5          <span style="color:green">OK</span>
+HTML_QuickForm                  3.2.5       3.2.11         <span style="color:green">OK</span>
+HTML_QuickForm_advmultiselect   1.1.0       1.5.1          <span style="color:green">OK</span>
+HTML_Table                      1.6.1       1.8.2          <span style="color:green">OK</span>
+Archive_Tar                     1.1         1.3.2          <span style="color:green">OK</span>
+Auth_SASL                       1.0.1       1.0.2          <span style="color:green">OK</span>
+Console_Getopt                  1.2         1.2.3          <span style="color:green">OK</span>
+Net_SMTP                        1.2.8       1.3.2          <span style="color:green">OK</span>
+Net_Socket                      1.0.1       1.0.9          <span style="color:green">OK</span>
+Net_Traceroute                  0.21        0.21.1         <span style="color:green">OK</span>
+Net_Ping                        2.4.1       2.4.4          <span style="color:green">OK</span>
+Validate                        0.6.2       0.8.2          <span style="color:green">OK</span>
+XML_RPC                         1.4.5       1.5.1          <span style="color:green">OK</span>
+SOAP                            0.10.1      0.12.0         <span style="color:green">OK</span>
+Log                             1.9.11      1.11.4         <span style="color:green">OK</span>
+All PEAR modules                                           <span style="color:green">OK</span>
+------------------------------------------------------------------------
+		Centreon Post Install
+------------------------------------------------------------------------
+
+Create /usr/local/centreon/www/install/install.conf.php    <span style="color:green">OK</span>
+Create /etc/centreon/instCentWeb.conf                      <span style="color:green">OK</span>
+</pre>
+<p>Maintenant, CentStorage va être installé et est appellé ODS (Oreon Data Storage). Il nous permet l'archivage des graphes RRD dans MySQL.
+</p>
+<pre>------------------------------------------------------------------------
+	Start CentStorage Installation
+------------------------------------------------------------------------
+
+Where is your Centreon Run Dir directory?
+default to [/var/run/centreon]
+</pre>
+<p>Là on va le laisser tout créer (y)&#160;:
+</p>
+<pre>Do you want me to create this directory&#160;? [/var/run/centreon]
+[y/n], default to [n]:
+
+Path /var/run/centreon                                     <span style="color:green">OK</span>
+</pre>
+<p>On va tout laisser tout bien comme il faut (un peu comme dab).
+</p>
+<pre>Where is your CentStorage binary directory
+default to [/usr/local/centreon/bin]
+
+Path /usr/local/centreon/bin                               <span style="color:green">OK</span>
+</pre>
+<p>Encore une fois, on ne touche à rien
+</p>
+<pre>Where is your CentStorage RRD directory
+default to [/var/lib/centreon]
+
+Path /var/lib/centreon                                     <span style="color:green">OK</span>
+Finding Nagios group&#160;:                                     <span style="font-weight:bold">nagios</span>
+Finding Nagios user&#160;:                                      <span style="font-weight:bold">nagios</span>
+Preparing Centreon temporary files
+/tmp/centreon-setup exists, it will be moved...
+install www/install/createTablesCentstorage.sql            <span style="color:green">OK</span>
+Creating Centreon Directory '/var/lib/centreon/status'     <span style="color:green">OK</span>
+Creating Centreon Directory '/var/lib/centreon/metrics'    <span style="color:green">OK</span>
+Change macros for centstorage binary                       <span style="color:green">OK</span>
+Install CentStorage binary                                 <span style="color:green">OK</span>
+Install library for centstorage                            <span style="color:green">OK</span>
+Change right&#160;: /var/run/centreon                           <span style="color:green">OK</span>
+Change macros for centstorage init script                  <span style="color:green">OK</span>
+</pre>
+<p>Il ne reste plus que les scripts de runlevels à installer, donc y comme dab&#160;:
+</p>
+<pre>Do you want me to install CentStorage init script&#160;?
+[y/n], default to [n]:
+
+CentStorage init script installed                          <span style="color:green">OK</span>
+
+Do you want me to install CentStorage run level&#160;?
+[y/n], default to [n]:
+
+update-rc.d: warning: /etc/init.d/centstorage missing LSB information
+update-rc.d: see &lt;<a rel="nofollow" class="external free" href="http://wiki.debian.org/LSBInitScripts">http://wiki.debian.org/LSBInitScripts</a>&gt;
+ Adding system startup for /etc/init.d/centstorage ...
+   /etc/rc0.d/K30centstorage -&gt; ../init.d/centstorage
+   /etc/rc1.d/K30centstorage -&gt; ../init.d/centstorage
+   /etc/rc6.d/K30centstorage -&gt; ../init.d/centstorage
+   /etc/rc2.d/S40centstorage -&gt; ../init.d/centstorage
+   /etc/rc3.d/S40centstorage -&gt; ../init.d/centstorage
+   /etc/rc4.d/S40centstorage -&gt; ../init.d/centstorage
+   /etc/rc5.d/S40centstorage -&gt; ../init.d/centstorage
+Change macros for logAnalyser                              <span style="color:green">OK</span>
+Install logAnalyser                                        <span style="color:green">OK</span>
+Change macros for nagiosPerfTrace                          <span style="color:green">OK</span>
+Install nagiosPerfTrace                                    <span style="color:green">OK</span>
+Change macros for centstorage.cron                         <span style="color:green">OK</span>
+Install CentStorage cron                                   <span style="color:green">OK</span>
+Create /etc/centreon/instCentStorage.conf                  <span style="color:green">OK</span>
+</pre>
+<p>Maintenant on touche au but, faisons l'installation de CentCore&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">------------------------------------------------------------------------
+	Start CentCore Installation
+------------------------------------------------------------------------
+&#160;
+Where is your CentCore binary directory
+default to [/usr/local/centreon/bin]</pre></div></div>
+<p>On va laisser par défaut, c'est bon&#160;:
+</p>
+<pre>Path /usr/local/centreon/bin                               <span style="color:green">OK</span>
+/usr/bin/ssh                                               <span style="color:green">OK</span>
+/usr/bin/scp                                               <span style="color:green">OK</span>
+Finding Nagios group&#160;:                                     <span style="font-weight:bold">nagios</span>
+Finding Nagios user&#160;:                                      <span style="font-weight:bold">nagios</span>
+Preparing Centreon temporary files
+/tmp/centreon-setup exists, it will be moved...
+Change CentCore Macro                                      <span style="color:green">OK</span>
+Copy CentCore in binary directory                          <span style="color:green">OK</span>
+Change right&#160;: /var/run/centreon                           <span style="color:green">OK</span>
+Change right&#160;: /var/lib/centreon                           <span style="color:green">OK</span>
+Replace CentCore init script Macro                         <span style="color:green">OK</span>
+</pre>
+<p>Et puis on va le laisser encore une fois créer les scripts de runlevels (y)&#160;:
+</p>
+<pre>Do you want me to install CentCore init script&#160;?
+[y/n], default to [n]:
+
+CentCore init script installed                             <span style="color:green">OK</span>
+
+Do you want me to install CentCore run level&#160;?
+[y/n], default to [n]:
+
+update-rc.d: warning: /etc/init.d/centcore missing LSB information
+update-rc.d: see &lt;<a rel="nofollow" class="external free" href="http://wiki.debian.org/LSBInitScripts">http://wiki.debian.org/LSBInitScripts</a>&gt;
+ Adding system startup for /etc/init.d/centcore ...
+   /etc/rc0.d/K30centcore -&gt; ../init.d/centcore
+   /etc/rc1.d/K30centcore -&gt; ../init.d/centcore
+   /etc/rc6.d/K30centcore -&gt; ../init.d/centcore
+   /etc/rc2.d/S40centcore -&gt; ../init.d/centcore
+   /etc/rc3.d/S40centcore -&gt; ../init.d/centcore
+   /etc/rc4.d/S40centcore -&gt; ../init.d/centcore
+   /etc/rc5.d/S40centcore -&gt; ../init.d/centcore
+Create /etc/centreon/instCentCore.conf                     <span style="color:green">OK</span>
+</pre>
+<p>Passons au CentPlugins, le dossier par défaut est bon aussi (y)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">------------------------------------------------------------------------
+	Start CentPlugins Installation
+------------------------------------------------------------------------
+&#160;
+Where is your CentPlugins lib directory
+default to [/var/lib/centreon/centplugins]</pre></div></div>
+<p>Et il va créer tout ça comme un grand (y):
+</p>
+<pre>Do you want me to create this directory&#160;? [/var/lib/centreon/centplugins]
+[y/n], default to [n]:
+
+Path /var/lib/centreon/centplugins                         <span style="color:green">OK</span>
+Finding Nagios user&#160;:                                      <span style="font-weight:bold">nagios</span>
+Finding Nagios group&#160;:                                     <span style="font-weight:bold">nagios</span>
+Preparing Centreon temporary files
+/tmp/centreon-setup exists, it will be moved...
+Change macros for CentPlugins                              <span style="color:green">OK</span>
+Installing the plugins                                     <span style="color:green">OK</span>
+Change right on centreon.conf                              <span style="color:green">OK</span>
+CentPlugins is installed
+</pre>
+<p>Pour ceux qui ont voulut les trappes SNMP, il faut évidement que le SNMP soit installé, puis validez tout le reste (y)&#160;:
+</p>
+<pre>------------------------------------------------------------------------
+	Start CentPlugins Traps Installation
+------------------------------------------------------------------------
+
+Where is your SNMP configuration directory
+default to [/etc/snmp]
+
+/etc/snmp                                                  <span style="color:green">OK</span>
+
+Where is your SNMPTT binaries directory
+default to [/usr/local/centreon/bin/]
+
+/usr/local/centreon/bin/                                   <span style="color:green">OK</span>
+Finding Nagios group&#160;:                                     <span style="font-weight:bold">nagios</span>
+Finding Apache user&#160;:                                      <span style="font-weight:bold">www-data</span>
+Preparing Centreon temporary files
+/tmp/centreon-setup exists, it will be moved...
+Change macros for CentPluginsTraps                         <span style="color:green">OK</span>
+Installing the plugins Trap binaries                       <span style="color:green">OK</span>
+Backup all your snmp files                                 <span style="color:green">OK</span>
+Change macros for snmptrapd.conf                           <span style="color:green">OK</span>
+Change macros for snmptt.ini                               <span style="color:green">OK</span>
+Install&#160;: snmptrapd.conf                                   <span style="color:green">OK</span>
+Install&#160;: snmp.conf                                        <span style="color:green">OK</span>
+Install&#160;: snmptt.ini                                       <span style="color:green">OK</span>
+Install&#160;: snmptt                                           <span style="color:green">OK</span>
+Install&#160;: snmpttconvertmib                                 <span style="color:green">OK</span>
+Create /etc/centreon/instCentPlugins.conf                  <span style="color:green">OK</span>
+###############################################################################
+#                                                                             #
+#      Go to the URL&#160;: <a rel="nofollow" class="external free" href="http://your-server/centreon/">http://your-server/centreon/</a>                         #
+#                   	to finish the setup                                     #
+#                                                                             #
+#                    Report bugs at <a rel="nofollow" class="external free" href="http://trac.centreon.com">http://trac.centreon.com</a>                #
+#                                                                             #
+#                           Thanks for using Centreon.                        #
+#                             -----------------------                         #
+#                        Contact&#160;: infos@centreon.com                         #
+#                            <a rel="nofollow" class="external free" href="http://www.centreon.com">http://www.centreon.com</a>                        #
+#                                                                             #
+###############################################################################
+</pre>
+<p>Fini&#160;!!! On y croyais plus&#160;! Si leur script pouvait faire de l'autodection on gagnerais du temps quand même. Et si c'était packagé, ça serait encore mieux&#160;! Mais bon, c'est leur gagne pain&#160;! C'est déjà gratuit, on va pas trop se pleindre&#160;!
+</p><p>Allez, on restart le service apache et on part sur du clic à tout va&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/apache2 restart
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Centreon_2"><span class="mw-headline-number">3.1</span> Centreon</span></h2>
+<p>Nous allons pouvoir passer à l'interface graphique&#160;! Tout d'abord, on va mettre les bons droits au dossier nagios3&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>chown -Rf nagios:www-data /etc/nagios3
+chmod -Rf 775 /etc/nagios3
+</pre>
+</td></tr></table><br />
+<p>Voilà, maintenant connectons nous à <a rel="nofollow" class="external free" href="http://your-server/centreon">http://your-server/centreon</a> et commençons l'installation&#160;:
+</p><p><a href="./File:Centreon1.png.html" class="image"><img alt="Centreon1.png" src="images/d/d4/Centreon1.png" width="600" height="300" /></a>
+</p><p><a href="./File:Centreon2.png.html" class="image"><img alt="Centreon2.png" src="images/1/1b/Centreon2.png" width="600" height="477" /></a>
+</p><p><a href="./File:Centreon3.png.html" class="image"><img alt="Centreon3.png" src="images/8/89/Centreon3.png" width="600" height="389" /></a>
+</p><p><a href="./File:Centreon4.png.html" class="image"><img alt="Centreon4.png" src="images/1/13/Centreon4.png" width="600" height="357" /></a>
+</p><p>Tout doit être bon jusque là.
+</p><p><a href="./File:Centreon5.png.html" class="image"><img alt="Centreon5.png" src="images/1/18/Centreon5.png" width="600" height="547" /></a>
+</p><p>Ajustez les valeurs pour votre base de donnée.
+</p><p><a href="./File:Centreon6.png.html" class="image"><img alt="Centreon6.png" src="images/7/7c/Centreon6.png" width="600" height="399" /></a>
+</p><p><a href="./File:Centreon7.png.html" class="image"><img alt="Centreon7.png" src="images/9/97/Centreon7.png" width="600" height="300" /></a>
+</p><p>Spécifiez l'utilisateur qui sera admin de Centreon.
+</p><p><a href="./File:Centreon8.png.html" class="image"><img alt="Centreon8.png" src="images/4/4d/Centreon8.png" width="600" height="305" /></a>
+</p><p>Pour ma part, j'ai opté pour avoir une connexion de mes utilisateurs via LDAP, donc je configure ci dessous les paramètres de mon OpenLDAP.
+</p><p><a href="./File:Centreon9.png.html" class="image"><img alt="Centreon9.png" src="images/e/e0/Centreon9.png" width="600" height="356" /></a>
+</p><p><a href="./File:Centreon10.png.html" class="image"><img alt="Centreon10.png" src="images/2/2b/Centreon10.png" width="600" height="300" /></a>
+</p><p><a href="./File:Centreon11.png.html" class="image"><img alt="Centreon11.png" src="images/0/0c/Centreon11.png" width="600" height="408" /></a>
+</p><p><a href="./File:Centreon12.png.html" class="image"><img alt="Centreon12.png" src="images/6/6b/Centreon12.png" width="600" height="399" /></a>
+</p><p>Tout est bon, l'installation est terminée&#160;:-)
+</p>
+<h3><span class="mw-headline" id="Nagios"><span class="mw-headline-number">3.1.1</span> Nagios</span></h3>
+<p>Maintenant, on va passer à la configuration. Allez dans Configuration -&gt; Nagios -&gt; nagios.cfg et modifiez les lignes suivantes&#160;:
+</p>
+<pre>Log file&#160;: <b>/var/log/nagios3/nagios.log</b>
+Downtime File&#160;: <b>/var/cache/nagios3/downtime.log</b>
+Comment File&#160;: <b>/var/cache/nagios3/comment.log</b>
+Temp File&#160;: <b>/var/cache/nagios3/nagios.tmp</b>
+Lock File&#160;: <b>/var/cache/nagios3/nagios.lock</b>
+Status File&#160;: <b>/var/log/nagios3/status.log</b>
+External Command File&#160;: <b>/var/lib/nagios3/rw/nagios.cmd</b>
+</pre>
+<p>Allez dans Configuration -&gt; Nagios -&gt; nagios.cfg -&gt; Data et modifiez les lignes suivantes&#160;:
+</p>
+<pre>Service Performance Data File&#160;: <b>/usr/lib/nagios/plugins/process-service-perfdata</b>
+</pre>
+<p>Allez dans Configuration -&gt; Nagios -&gt; cgi -&gt;  Cgi.cfg et modifiez les lignes suivantes&#160;:
+</p>
+<pre>URL HTML Path&#160;: <b>/nagios3</b>
+Nagios Process Check Command&#160;: <b>/usr/lib/nagios/plugins/check_nagios /var/log/nagios3/status.log 5 '/usr/sbin/nagios3'</b>
+</pre>
+<p>Sauvegardez puis exécutez cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chown</font>
+</td></tr>
+<tr>
+<td>
+<pre>chown nagios. /usr/lib/nagios/plugins/process-service-perfdata
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="ndo2db"><span class="mw-headline-number">3.1.2</span> ndo2db</span></h3>
+<ul><li> Tout d'abord, on va régler les paramètres de base. Prennez donc votre belle interface graphique et allez dans&#160;: Configuration -&gt; Centreon -&gt; ndo2db.cfg -&gt; Principale, puis modifiez ceci&#160;:</li></ul>
+<pre>Socket Type&#160;: <b>unix</b>
+Socket Name&#160;: <b>/var/cache/nagios3/ndo.sock</b>
+</pre>
+<ul><li> Maintenant allez dans Configuration -&gt; Centreon -&gt; ndo2db.cfg -&gt; Principale -&gt; Database puis adaptez à votre conf. Pour ma part, j'ai du changer les champs suivants&#160;:</li></ul>
+<pre>Database Name&#160;: <b>ndoutils</b>
+User&#160;: <b>ndoutils</b>
+Password&#160;: <b>password</b>
+</pre>
+<p>Mettez le mot de passe que vous voulez et sauvegardez. Puis faites de même pour cet utilisateur au niveau SQL&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql -uroot -p</font>
+</td></tr>
+<tr>
+<td>
+<pre>SET PASSWORD FOR 'ndoutils'@'localhost' = PASSWORD( '<b>password'</b> );
+FLUSH PRIVILEGES&#160;;
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="ndomod"><span class="mw-headline-number">3.1.3</span> ndomod</span></h3>
+<p>Allons dans Configuration -&gt; Centreon -&gt; ndo2db.cfg puis modifiez ces paramètres&#160;:
+</p>
+<pre>Instance Name&#160;: <b>default</b>
+Interface Type&#160;: <b>unixsocket</b>
+Output&#160;: <b>/var/cache/nagios3/ndo.sock</b>
+Buffer File&#160;: <b>/var/cache/nagios3/ndomod.tmp</b>
+</pre>
+<p>Puis sauvegardez et redémarrez le service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/ndoutils restart
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="CentStorage"><span class="mw-headline-number">3.1.4</span> CentStorage</span></h3>
+<p>Il va falloir maintenant configurer CentStorage qui va nous permettre de faire de beaux graphs. Pour cela, allez dans Administration -&gt; Options -&gt; CentStorage -&gt; Options, puis modifiez ce qui suit&#160;:
+</p>
+<pre>Perfdata&#160;: <b>/usr/lib/nagios/plugins/process-service-perfdata</b>
+Drop file&#160;: <b>/var/lib/centreon/service-perfdata.tmp</b>
+Nagios current log file to parse&#160;: <b>/var/log/nagios3/nagios.log</b>
+</pre>
+<p>Nous allons également mettre des droits sur le dossier de logs, sinon centstorage ne pourra pas créer ses logs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chown</font>
+</td></tr>
+<tr>
+<td>
+<pre>chown -Rf nagios. /var/log/centreon
+</pre>
+</td></tr></table><br />
+<p>Puis on va redémarrer CentStorage&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/centstorage restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Langues"><span class="mw-headline-number">3.2</span> Langues</span></h2>
+<h2><span class="mw-headline" id="PhpSysInfo"><span class="mw-headline-number">3.3</span> PhpSysInfo</span></h2>
+<p>Pour ceux qui ne connaissent pas, il y a PhpSysInfo intégré à Centreon (ils ont raison, pourquoi réinventer la roue). Pour faire quelques petites retouches sympas, voici le fichier de conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /usr/local/centreon/www/include/options/sysInfos/config.php</font>
+</td></tr>
+<tr>
+<td>
+<pre>$default_template='aq';
+$loadbar = true;
+</pre>
+</td></tr></table><br />
+<p>Ce qui nous met un thème aqua (à la Mac OS X) et une bar de charge système, ce qui est sympathique. Vous pouvez aussi configurer d'autres infos concernant la température des disques etc...je vous invite à jetter un oeil <a rel="nofollow" class="external text" href="http://phpsysinfo.sourceforge.net">sur la doc officielle</a>.
+</p>
+<h2><span class="mw-headline" id="Activer_l.27interface_Web_Nagios"><span class="mw-headline-number">3.4</span> Activer l'interface Web Nagios</span></h2>
+<p>Nous allons activer cette interface pour 2 raisons&#160;:
+</p>
+<ul><li> Les droits sur les fichiers de base</li>
+<li> Avoir une interface de secours</li></ul>
+<p>Nous allons donc créer le fichier (sauf s'il existe déjà) /etc/nagios3/htpasswd.users en lui ajoutant directement un utilisateur nagios. Pour celà, nous allons utiliser la commande htpasswd&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htpasswd</font>
+</td></tr>
+<tr>
+<td>
+<pre>htpasswd -c /etc/nagios3/htpasswd.users nagiosadmin
+</pre>
+</td></tr></table><br />
+<p>Mettez un mot de passe. Si vous avez besoin de rajouter d'autres utilisateurs, faites la même chose sans le "-c", exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htpasswd</font>
+</td></tr>
+<tr>
+<td>
+<pre>htpasswd /etc/nagios3/htpasswd.users deimos
+</pre>
+</td></tr></table><br />
+<p>Puis reloader votre config apache. Ensuite, il vous faudra toucher la config de Centreon, en allant dans Configuration -&gt; Nagios -&gt; cgi, puis remplacer nagiosadmin par l'utilisateur nagios. Rechargez ensuite votre config Nagios depuis Centreon.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">4</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Connection_Error_to_NDO_DataBase_.21"><span class="mw-headline-number">4.1</span> Connection Error to NDO DataBase&#160;!</span></h2>
+<p>Ceci est due à l'installation packagée de Debian&#160;! Bref, c'est pas grand chose à régler.
+</p><p>Regardez plus haut, <a href="Installation_et_configuration_d'un_serveur_Centreon.html#ndo2db" title="Installation et configuration d'un serveur Centreon">la réponse est là</a>.
+</p>
+<h2><span class="mw-headline" id="movement_KO"><span class="mw-headline-number">4.2</span> movement KO</span></h2>
+<p>Si vous avez ce type d'erreurs quand vous chargez votre config Nagios depuis Centreon, c'est que vous avez soit un problème de droit, soit un problème d'NDOutils. Vérifiez à bien avoir suivit la procédure décrites <a href="Installation_et_configuration_d'un_serveur_Centreon.html#NDOutils">plus haut</a>.
+</p>
+<h2><span class="mw-headline" id="Warning:_File_.27.2Fvar.2Flib.2Fcentreon.2Fservice-perfdata.27_could_not_be_opened_-_service_performance_data_will_not_be_written_to_file.21"><span class="mw-headline-number">4.3</span> Warning: File '/var/lib/centreon/service-perfdata' could not be opened - service performance data will not be written to file!</span></h2>
+<p>Si celà arrive dans les logs de nagios, pas de panique, resettez les droits&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chown</font>
+</td></tr>
+<tr>
+<td>
+<pre>chown nagios. /var/lib/centreon/service-perfdata
+</pre>
+</td></tr></table><br />
+<p>Puis redémarrez nagios&#160;!
+</p>
+<h2><span class="mw-headline" id="DB_Error"><span class="mw-headline-number">4.4</span> DB Error</span></h2>
+<p>Vous avez peut être un message de ce type dans le fichier centAcl.log&#160;:
+</p>
+<pre>DB Error&#160;: DELETE FROM `centreon_acl` WHERE `group_id` = '14' [nativecode=1146 ** Table 'ndoutils.centreon_acl' doesn't exist]
+</pre>
+<p>C'est qu'il manque la table 'centreon_acl. Nous allons donc la créer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql -uroot -p</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">use ndoutils;
+CREATE TABLE IF NOT EXISTS `centreon_acl` (
+`id` int(11) NOT NULL auto_increment,
+`host_name` varchar(255) default NULL,
+`service_description` varchar(255) default NULL,
+`group_id` int(11) default NULL,
+PRIMARY KEY (`id`),
+KEY `host_name` (`host_name`),
+KEY `service_description` (`service_description`),
+KEY `group_id` (`group_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+quit;</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="J.27ai_pas_de_graphs.2C_pas_d.27erreurs"><span class="mw-headline-number">4.5</span> J'ai pas de graphs, pas d'erreurs</span></h2>
+<p>Un petit reboot serait bien. Je sais on est pas sous Windows, mais il y a tellement de services autour de Centreon qu'un petit reboot aiderais tous ces services à démarrer correctement et réinitialiser certaines choses.
+</p>
+<h2><span class="mw-headline" id="Depuis_Centron_mon_export_Nagios_fonctionne_sans_erreurs.2C_pourtant_je_ne_vois_pas_mes_nouveaux_services_apparaitrent"><span class="mw-headline-number">4.6</span> Depuis Centron mon export Nagios fonctionne sans erreurs, pourtant je ne vois pas mes nouveaux services apparaitrent</span></h2>
+<p>C'est du à l'utilisateur du CGI qui ne correspond pas. C'est vrai qu'un test ici est manquant, qui pourrait valider les droits. En attendant, c'est assez bloquant, je vous conseil de regarder <a href="Installation_et_configuration_d'un_serveur_Centreon.html#Activer_l.27interface_Web_Nagios" title="Installation et configuration d'un serveur Centreon">l'activation de l'interface web nagios</a> pour résoudre votre problème.
+</p>
+<h1><span class="mw-headline" id="R.C3.A9f.C3.A9rences"><span class="mw-headline-number">5</span> Références</span></h1>
+<p><a rel="nofollow" class="external free" href="http://en.doc.centreon.com/Main_Page/fr">http://en.doc.centreon.com/Main_Page/fr</a><br />
+<a rel="nofollow" class="external free" href="http://forum.centreon.com/showthread.php?p=48384#post48384">http://forum.centreon.com/showthread.php?p=48384#post48384</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.092 seconds
+Real time usage: 0.095 seconds
+Preprocessor visited node count: 604/1000000
+Preprocessor generated node count: 1430/1000000
+Post‐expand include size: 4467/2097152 bytes
+Template argument size: 1826/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   10.590      1 - -total
+ 31.85%    3.373     17 - Template:Command
+ 11.16%    1.182      2 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2921-0!*!0!1!en!5!* and timestamp 20181111230716 and revision id 7818
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Centreon&amp;oldid=7818">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Centreon&amp;oldid=7818</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+d%27un+serveur+Centreon" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_d'un_serveur_Centreon.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Installation_et_configuration_d'un_serveur_Centreon.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_d'un_serveur_Centreon.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Centreon&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Centreon&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Installation_et_configuration_d'un_serveur_Centreon.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_d'un_serveur_Centreon.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_d%27un_serveur_Centreon" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Centreon&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Centreon&amp;oldid=7818" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Centreon&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 23 August 2009, at 07:37.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

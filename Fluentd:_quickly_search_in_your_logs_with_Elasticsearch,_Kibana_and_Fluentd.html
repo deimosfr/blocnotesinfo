@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Fluentd: quickly search in your logs with Elasticsearch, Kibana and Fluentd - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd","wgTitle":"Fluentd: quickly search in your logs with Elasticsearch, Kibana and Fluentd","wgCurRevisionId":13334,"wgRevisionId":13334,"wgArticleId":3703,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd","wgRelevantArticleId":3703,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.javascript.source-javascript .de1, .javascript.source-javascript .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.javascript.source-javascript  {font-family:monospace;}
+.javascript.source-javascript .imp {font-weight: bold; color: red;}
+.javascript.source-javascript li, .javascript.source-javascript .li1 {font-weight: normal; vertical-align:top;}
+.javascript.source-javascript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.javascript.source-javascript .li2 {font-weight: bold; vertical-align:top;}
+.javascript.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.javascript.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.javascript.source-javascript .kw3 {color: #000066;}
+.javascript.source-javascript .kw5 {color: #FF0000;}
+.javascript.source-javascript .co1 {color: #006600; font-style: italic;}
+.javascript.source-javascript .co2 {color: #009966; font-style: italic;}
+.javascript.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.javascript.source-javascript .es0 {color: #000099; font-weight: bold;}
+.javascript.source-javascript .br0 {color: #009900;}
+.javascript.source-javascript .sy0 {color: #339933;}
+.javascript.source-javascript .st0 {color: #3366CC;}
+.javascript.source-javascript .nu0 {color: #CC0000;}
+.javascript.source-javascript .me1 {color: #660066;}
+.javascript.source-javascript .ln-xtra, .javascript.source-javascript li.ln-xtra, .javascript.source-javascript div.ln-xtra {background-color: #ffc;}
+.javascript.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Fluentd_quickly_search_in_your_logs_with_Elasticsearch_Kibana_and_Fluentd skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Fluentd: quickly search in your logs with Elasticsearch, Kibana and Fluentd</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#mw-navigation">navigation</a>, 					<a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Elasticsearch"><span class="tocnumber">2.1</span> <span class="toctext">Elasticsearch</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#kibana"><span class="tocnumber">2.2</span> <span class="toctext">kibana</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Fluentd"><span class="tocnumber">2.3</span> <span class="toctext">Fluentd</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Elasticsearch_plugin"><span class="tocnumber">2.3.1</span> <span class="toctext">Elasticsearch plugin</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Forwarders"><span class="tocnumber">3.1</span> <span class="toctext">Forwarders</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Receiver"><span class="tocnumber">3.2</span> <span class="toctext">Receiver</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Rsyslog"><span class="tocnumber">3.3</span> <span class="toctext">Rsyslog</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Log_files"><span class="tocnumber">3.4</span> <span class="toctext">Log files</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Nginx"><span class="tocnumber">3.4.1</span> <span class="toctext">Nginx</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-13"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Fluentd_Elasticsearch"><span class="tocnumber">3.5</span> <span class="toctext">Fluentd Elasticsearch</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#Usage"><span class="tocnumber">4</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Fluentd_logo.png.html" class="image" title="Fluentd"><img alt="Fluentd" src="images/9/94/Fluentd_logo.png" width="220" height="109" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>1.1.19-1</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://fluentd.org/">Fluentd Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>10/05/2014</td>
+   </tr><tr>
+      <th>Others</th>
+      <td><a rel="nofollow" class="external text" href="http://www.elasticsearch.org">Elasticsearch</a> 1.1<br /><a rel="nofollow" class="external text" href="http://www.elasticsearch.org/overview/kibana/">Kibana</a> 3.0.1</td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Managing logs is not a complicated tasks with classical syslog systems (syslog-ng, rsyslog...). However, being able to search in them quickly when you have several gigabit of logs, with scalability, with a nice graphical interface etc...is not the same thing.
+</p><p>Hopefully today, tools that permit to do it very well exists, here are the list of tools that's we're going to use to achieve it:
+</p>
+<ul><li> <b>Elasticsearch</b><sup id="cite_ref-1" class="reference"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_note-1">[1]</a></sup>: Elasticsearch is a flexible and powerful open source, distributed, real-time search and analytics engine. Architected from the ground up for use in distributed environments where reliability and scalability are must haves, Elasticsearch gives you the ability to move easily beyond simple full-text search. Through its robust set of APIs and query DSLs, plus clients for the most popular programming languages, Elasticsearch delivers on the near limitless promises of search technology</li>
+<li> <b>Kibana</b><sup id="cite_ref-2" class="reference"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_note-2">[2]</a></sup>: Kibana is Elasticsearch’s data visualization engine, allowing you to natively interact with all your data in Elasticsearch via custom dashboards. Kibana’s dynamic dashboard panels are savable, shareable and exportable, displaying changes to queries into Elasticsearch in real-time. You can perform data analysis in Kibana’s beautiful user interface using pre-designed dashboards or update these dashboards in real-time for on-the-fly data analysis.</li>
+<li> <b>Fluentd</b><sup id="cite_ref-3" class="reference"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_note-3">[3]</a></sup>: Fluentd is an open source data collector designed for processing data streams.</li></ul>
+<p>All those elements will be installed on the same machine to make it simpler at start. Fluentd is an alternative to Logstash. They both are data collector, however Fluentd permit to send logs to other destination:
+</p>
+<div class="center"><div class="floatnone"><a href="./File:Fluentd_explain.png.html" class="image"><img alt="Fluentd explain.png" src="images/b/b4/Fluentd_explain.png" width="500" height="314" /></a></div></div>
+<p>Here is what kind of infrastructure you can setup (no redundancy here, just a single instance):
+</p>
+<div class="center"><div class="floatnone"><a href="./File:Es_ki_fl.png.html" class="image"><img alt="Es ki fl.png" src="images/e/e7/Es_ki_fl.png" width="594" height="304" /></a></div></div>
+<p>To avoid dependencies issues, to make things simpler, we're going to use fluentd as forwarder here to transfer syslog and other kind of logs to another fluentd instance. On the last one, Elasticsearch and Kibana will be installed.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Elasticsearch"><span class="mw-headline-number">2.1</span> Elasticsearch</span></h2>
+<p>The first thing to put in place, is the backend that will store our logs. As we want the latest version, we're going to use the dedicated repository:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw3">cd</span> <span class="sy0">/</span>tmp
+<span class="kw2">wget</span> <span class="re5">-O</span> - http:<span class="sy0">//</span>packages.elasticsearch.org<span class="sy0">/</span>GPG-KEY-elasticsearch <span class="sy0">|</span> <span class="kw2">apt-key add</span> -
+<span class="kw3">echo</span> <span class="st0">&quot;deb http://packages.elasticsearch.org/elasticsearch/1.1/debian stable main&quot;</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>apt<span class="sy0">/</span>sources.list.d<span class="sy0">/</span>elasticsearch.list</pre></div></div>
+</td></tr></table><br />
+<p>Then we're ready to install:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">aptitude</span> update
+<span class="kw2">aptitude</span> <span class="kw2">install</span> elasticsearch openjdk-<span class="nu0">7</span>-jre-headless openntpd</pre></div></div>
+</td></tr></table><br />
+<p>To finish, configure the auto start of the service and run it:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1">update-rc.d elasticsearch defaults <span class="nu0">95</span> <span class="nu0">10</span>
+<span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>elasticsearch start</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="kibana"><span class="mw-headline-number">2.2</span> kibana</span></h2>
+<p>Regarding Kibana, there is unfortunately no repository at the moment. So we're going to use the git repository to make it simpler. First of all, install a web server like Nginx:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">aptitude</span> <span class="kw2">install</span> nginx <span class="kw2">git</span></pre></div></div>
+</td></tr></table><br />
+<p>Now clone the repository and use the latest version (here 3.0.1):
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw3">cd</span> <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>www
+<span class="kw2">git clone</span> https:<span class="sy0">//</span>github.com<span class="sy0">/</span>elasticsearch<span class="sy0">/</span>kibana.git
+<span class="kw3">cd</span> kibana
+<span class="kw2">git checkout</span> v3.0.1</pre></div></div>
+</td></tr></table><br />
+<p>You can get the list of all versions with <b>git tag</b> command.
+</p><p>You now need to configure Nginx to get it provided properly:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nginx/sites-enabled/default</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">server {
+        listen   80;
+        server_name  kibana.deimos.fr;
+&#160;
+        root /usr/share/nginx/www/kibana/src/;
+        index index.html;
+&#160;
+        access_log /var/log/nginx/kibana.deimos.fr_access.log;
+        error_log /var/log/nginx/kibana.deimos.fr_error.log; 
+&#160;
+        location / {
+            # First attempt to serve request as file, then
+            # as directory, then fall back to displaying a 404.
+            try_files $uri $uri/ /index.html;
+            # Uncomment to enable naxsi on this location
+            # include /etc/nginx/naxsi.rules
+        }
+ }</pre></div></div>
+</td></tr></table><br />
+<p>To finish for Kibana, edit the configuration file and adapt the elasticsearch line to your need:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /usr/share/nginx/www/kibana/src/config.js</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1">     <span class="sy0">*</span> <span class="sy0">====</span> elasticsearch
+     <span class="sy0">*</span>
+     <span class="sy0">*</span> The URL to your elasticsearch server. <span class="me1">You</span> almost certainly don<span class="st0">'t
+     * want +http://localhost:9200+ here. Even if Kibana and Elasticsearch are on
+     * the same host. By default this will attempt to reach ES at the same host you have
+     * kibana installed on. You probably want to set it to the FQDN of your
+     * elasticsearch host
+     *
+     * Note: this can also be an object if you want to pass options to the http client. For example:
+     *
+     *  +elasticsearch: {server: &quot;http://localhost:9200&quot;, withCredentials: true}+
+     *
+     */
+    elasticsearch: &quot;http://&lt;elasticserver_dns_name&gt;:9200&quot;,</span></pre></div></div>
+</td></tr></table><br />
+<p>Restart Nginx service to make the web interface available to <a rel="nofollow" class="external free" href="http://">http://</a>&lt;kibana_dns_name&gt;:
+</p>
+<div class="center"><div class="floatnone"><a href="./File:Kibana.png.html" class="image"><img alt="Kibana.png" src="images/6/6b/Kibana.png" width="800" height="528" /></a></div></div>
+<h2><span class="mw-headline" id="Fluentd"><span class="mw-headline-number">2.3</span> Fluentd</span></h2>
+<p>Fluentd is now the last part that will permit to send syslog to another Fluentd or Elasticsearch. So this has to be done on all Fluentd forwarders or servers.
+</p><p>First of all, we'll adjust system parameters to be sure we won't be faced to performances issues due to it. First, edit the security limits and add those lines:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/security/limits.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root soft nofile 65536
+root hard nofile 65536
+* soft nofile 65536
+* hard nofile 65536</pre></div></div>
+</td></tr></table><br />
+<p>Then we're going to add the sysctl tuning in that file:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/sysctl.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">net.ipv4.tcp_tw_recycle = 1
+net.ipv4.tcp_tw_reuse = 1
+net.ipv4.ip_local_port_range = 10240 65535</pre></div></div>
+</td></tr></table><br />
+<p>And apply the new configuration:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sysctl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1">sysctl <span class="re5">-p</span></pre></div></div>
+</td></tr></table><br />
+<p>We're going to add the official repository:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">wget</span> http:<span class="sy0">//</span>packages.treasure-data.com<span class="sy0">/</span>debian<span class="sy0">/</span>RPM-GPG-KEY-td-agent
+<span class="kw2">apt-key add</span> RPM-GPG-KEY-td-agent
+<span class="kw3">echo</span> <span class="st_h">'deb http://packages.treasure-data.com/debian/ lucid contrib'</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>etc<span class="sy0">/</span>apt<span class="sy0">/</span>sources.list.d<span class="sy0">/</span>fluentd.list</pre></div></div>
+</td></tr></table><br />
+<p>However, during the time I'm writing it documentation, there are no Wheezy version available (squeeze only) and there is a missing dependancy on the libssl. We're going to get it from squeeze and install it:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">wget</span> http:<span class="sy0">//</span>ftp.fr.debian.org<span class="sy0">/</span>debian<span class="sy0">/</span>pool<span class="sy0">/</span>main<span class="sy0">/</span>o<span class="sy0">/</span>openssl<span class="sy0">/</span>libssl0.9.8_0.9.8o-4squeeze14_amd64.deb
+<span class="kw2">dpkg</span> <span class="re5">-i</span> libssl0.9.8_0.9.8o-4squeeze14_amd64.deb</pre></div></div>
+</td></tr></table><br />
+<p>We're now ready to install Fluentd agent:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">aptitude</span> update
+<span class="kw2">aptitude</span> <span class="kw2">install</span> td-agent openntpd
+<span class="kw2">mkdir</span> <span class="sy0">/</span>etc<span class="sy0">/</span>td-agent<span class="sy0">/</span>config.d</pre></div></div>
+</td></tr></table><br />
+<p>Modify then the configuration to set the global configuration:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /etc/td-agent/td-agent.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1"><span class="co1">## match tag=debug.** and dump to console</span>
+&lt;match debug.**&gt;
+  type stdout
+&lt;/match&gt;
+&#160;
+<span class="co1"># HTTP input</span>
+<span class="co1"># POST http://localhost:8888/&lt;tag&gt;?json=&lt;json&gt;</span>
+<span class="co1"># POST http://localhost:8888/td.myapp.login?json={&quot;user&quot;%3A&quot;me&quot;}</span>
+<span class="co1"># @see http://docs.fluentd.org/articles/in_http</span>
+&lt;source&gt;
+  type http
+  <span class="kw1">port</span> <span class="nu0">8888</span>
+&lt;/source&gt;
+&#160;
+<span class="co1">## live debugging agent</span>
+&lt;source&gt;
+  type debug_agent
+  bind 127.0.0.1
+  <span class="kw1">port</span> <span class="nu0">24230</span>
+&lt;/source&gt;
+&#160;
+<span class="co1"># glob match pattern</span>
+<span class="kw1">include</span> config.d/*.conf</pre></div></div>
+</td></tr></table><br />
+<p>Restart td-agent service.
+</p>
+<h3><span class="mw-headline" id="Elasticsearch_plugin"><span class="mw-headline-number">2.3.1</span> Elasticsearch plugin</span></h3>
+<p>By default, it doesn't know how to forward to Elasticsearch. So we will need to install a dedicated plugin for it on the server, <b>not on the forwarders</b>.. Here is how to install it:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="sy0">&gt;</span> <span class="kw2">aptitude</span> <span class="kw2">install</span> build-essential ruby-dev libcurl4-openssl-dev <span class="kw2">make</span>
+<span class="sy0">&gt;</span> <span class="sy0">/</span>usr<span class="sy0">/</span>lib<span class="sy0">/</span>fluent<span class="sy0">/</span>ruby<span class="sy0">/</span>bin<span class="sy0">/</span>fluent-gem <span class="kw2">install</span> fluent-plugin-elasticsearch
+Building native extensions.  This could take a while...
+Fetching: multi_json-1.10.0.gem <span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">%</span><span class="br0">&#41;</span>
+Fetching: multipart-post-2.0.0.gem <span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">%</span><span class="br0">&#41;</span>
+Fetching: faraday-0.9.0.gem <span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">%</span><span class="br0">&#41;</span>
+Fetching: elasticsearch-transport-0.4.11.gem <span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">%</span><span class="br0">&#41;</span>
+Fetching: elasticsearch-api-0.4.11.gem <span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">%</span><span class="br0">&#41;</span>
+Fetching: elasticsearch-0.4.11.gem <span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">%</span><span class="br0">&#41;</span>
+Fetching: fluent-plugin-elasticsearch-0.3.0.gem <span class="br0">&#40;</span><span class="nu0">100</span><span class="sy0">%</span><span class="br0">&#41;</span>
+Successfully installed patron-0.4.18
+Successfully installed multi_json-1.10.0
+Successfully installed multipart-post-2.0.0
+Successfully installed faraday-0.9.0
+Successfully installed elasticsearch-transport-0.4.11
+Successfully installed elasticsearch-api-0.4.11
+Successfully installed elasticsearch-0.4.11
+Successfully installed fluent-plugin-elasticsearch-0.3.0
+<span class="nu0">8</span> gems installed
+Installing ri documentation <span class="kw1">for</span> patron-0.4.18...
+Installing ri documentation <span class="kw1">for</span> multi_json-1.10.0...
+Installing ri documentation <span class="kw1">for</span> multipart-post-2.0.0...
+Installing ri documentation <span class="kw1">for</span> faraday-0.9.0...
+Installing ri documentation <span class="kw1">for</span> elasticsearch-transport-0.4.11...
+Installing ri documentation <span class="kw1">for</span> elasticsearch-api-0.4.11...
+Installing ri documentation <span class="kw1">for</span> elasticsearch-0.4.11...
+Installing ri documentation <span class="kw1">for</span> fluent-plugin-elasticsearch-0.3.0...
+Installing RDoc documentation <span class="kw1">for</span> patron-0.4.18...
+Installing RDoc documentation <span class="kw1">for</span> multi_json-1.10.0...
+Installing RDoc documentation <span class="kw1">for</span> multipart-post-2.0.0...
+Installing RDoc documentation <span class="kw1">for</span> faraday-0.9.0...
+Installing RDoc documentation <span class="kw1">for</span> elasticsearch-transport-0.4.11...
+Installing RDoc documentation <span class="kw1">for</span> elasticsearch-api-0.4.11...
+Installing RDoc documentation <span class="kw1">for</span> elasticsearch-0.4.11...
+Installing RDoc documentation <span class="kw1">for</span> fluent-plugin-elasticsearch-0.3.0...</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Here you will see how to configure multiple options of Fluentd. Choose the one you want to add to your Fluentd instances (can have several). Here is a good example of what is needed in this kind of configuration:
+</p><p><a href="./File:Fluentd_archi_example.png.html" class="image"><img alt="Fluentd archi example.png" src="images/b/b9/Fluentd_archi_example.png" width="355" height="312" /></a>
+</p>
+<h2><span class="mw-headline" id="Forwarders"><span class="mw-headline-number">3.1</span> Forwarders</span></h2>
+<p>To make a Fluentd forwards data to a receiver, simply create that configuration file and set the Fluentd node to forward to:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/td-agent/config.d/forwarder.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;match **&gt;
+  type forward
+  &lt;server&gt;
+    host fluentd.deimos.fr
+    <span class="kw1">port</span> <span class="nu0">24224</span>
+  &lt;/server&gt;
+&lt;/match&gt;</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Receiver"><span class="mw-headline-number">3.2</span> Receiver</span></h2>
+<p>If you want your node to be able to receive data from other Fluentd forwarders, you need to add this configuration:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/td-agent/config.d/receiver.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1"><span class="co1">## built-in TCP input</span>
+<span class="co1">## @see http://docs.fluentd.org/articles/in_forward</span>
+&lt;source&gt;
+  type forward
+&lt;/source&gt;</pre></div></div>
+</td></tr></table><br />
+<p>In that use case, you need to add this on the server role of Fluentd.
+</p>
+<h2><span class="mw-headline" id="Rsyslog"><span class="mw-headline-number">3.3</span> Rsyslog</span></h2>
+<p>By default, Debian is using Rsyslog and we're going to see here how to forward syslog to fluentd. First of all, on the Fluentd forwarders, create a syslog file containing the configuration as follow:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/td-agent/config.d/syslog.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;source&gt;
+  type syslog
+  <span class="kw1">port</span> <span class="nu0">5140</span>
+  bind 127.0.0.1
+  tag syslog
+&lt;/source&gt;</pre></div></div>
+</td></tr></table><br />
+<p>And restart td-agent service. It will create a listening port for Syslog.
+</p><p>Then simply add this line to redirect (in addition of the local files) syslog to Fluentd:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/rsyslog.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">*.*          @127.0.0.1:5140</pre></div></div>
+</td></tr></table><br />
+<p>Restart Rsyslog service.
+</p>
+<h2><span class="mw-headline" id="Log_files"><span class="mw-headline-number">3.4</span> Log files</span></h2>
+<p>You may want to be able to log file as well. Here is a way to do it for a single access file from Nginx logs:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/td-agent/config.d/nginx.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;source&gt;
+  type tail
+  <span class="co1"># Select the file to watch</span>
+  path /var/log/nginx/access.log
+  <span class="co1"># Select a file to store offset position</span>
+  pos_file /tmp/td-agent.nginx.pos
+  <span class="co1"># Format type</span>
+  format syslog
+  <span class="co1"># Tag with a distinguish name</span>
+  tag system.nginx
+&lt;/source&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Then restart the td-agent service.
+</p>
+<h3><span class="mw-headline" id="Nginx"><span class="mw-headline-number">3.4.1</span> Nginx</span></h3>
+<p>The problem of the basic example above, is each elements are passed on a single line. That mean we can't filter accurately. Do do it, you will need to split with regex each fields and giving them a field name. You also need to specify the time and date format. Here is how to do it for Nginx:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/td-agent/config.d/nginx.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;source&gt;
+  type tail
+  path /var/log/nginx/access.log
+  pos_file /tmp/td-agent.nginx.pos
+  format syslog
+  tag nginx.access
+  <span class="co1"># Regex fields</span>
+  format /^(?&lt;remote&gt;[^ ]*) (?&lt;host&gt;[^ ]*) (?&lt;user&gt;[^ ]*) \[(?&lt;time&gt;[^\]]*)\] <span class="st0">&quot;(?&lt;method&gt;<span class="es0">\S</span>+)(?: +(?&lt;path&gt;[^<span class="es0">\&quot;</span>]*) +<span class="es0">\S</span>*)?&quot;</span> (?&lt;code&gt;[^ ]*) (?&lt;size&gt;[^ ]*) <span class="st0">&quot;(?&lt;referer&gt;[^<span class="es0">\&quot;</span>]*)&quot;</span> <span class="st0">&quot;(?&lt;agent&gt;[^<span class="es0">\&quot;</span>]*)&quot;</span>$/
+  <span class="co1"># Date and time format</span>
+  time_format&#160;%d/%b/%Y:%H:%M:%S&#160;%z 
+&lt;/source&gt;</pre></div></div>
+</td></tr></table><br />
+<p>It may be complicated to create a working regex the first time. That's why a website called Fluentar (<a rel="nofollow" class="external free" href="http://fluentular.herokuapp.com">http://fluentular.herokuapp.com</a>) can helps you to create the format line.
+</p>
+<h2><span class="mw-headline" id="Fluentd_Elasticsearch"><span class="mw-headline-number">3.5</span> Fluentd Elasticsearch</span></h2>
+<p>To send all incoming sources to Elasticsearch, simply create that configuration file:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/td-agent/config.d/forward_es.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;match **&gt;
+  type elasticsearch
+  logstash_format true
+  host localhost
+  <span class="kw1">port</span> <span class="nu0">9200</span>
+&lt;/match&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Then restart the td-agent service.
+</p>
+<h1><span class="mw-headline" id="Usage"><span class="mw-headline-number">4</span> Usage</span></h1>
+<p>If you look at the web interface, you should have something like this:
+</p>
+<div class="center"><div class="floatnone"><a href="./File:Kibana2.png.html" class="image"><img alt="Kibana2.png" src="images/c/cb/Kibana2.png" width="800" height="749" /></a></div></div>
+<p>You can now try to add other widget, look at <a rel="nofollow" class="external text" href="http://www.elasticsearch.org/guide/en/kibana/current/">the official documentation</a><sup id="cite_ref-4" class="reference"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_note-4">[4]</a></sup>.
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">5</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elasticsearch.org">http://www.elasticsearch.org</a></span>
+</li>
+<li id="cite_note-2"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elasticsearch.org/overview/kibana/">http://www.elasticsearch.org/overview/kibana/</a></span>
+</li>
+<li id="cite_note-3"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_ref-3">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://fluentd.org/">http://fluentd.org/</a></span>
+</li>
+<li id="cite_note-4"><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#cite_ref-4">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elasticsearch.org/guide/en/kibana/current/">http://www.elasticsearch.org/guide/en/kibana/current/</a></span>
+</li>
+</ol>
+<hr />
+<ul><li> <a rel="nofollow" class="external free" href="http://jasonwilder.com/blog/2013/11/19/fluentd-vs-logstash/">http://jasonwilder.com/blog/2013/11/19/fluentd-vs-logstash/</a></li>
+<li> <a rel="nofollow" class="external free" href="http://repeatedly.github.io/2014/02/analyze-event-logs-using-fluentd-and-elasticsearch/">http://repeatedly.github.io/2014/02/analyze-event-logs-using-fluentd-and-elasticsearch/</a></li>
+<li> <a rel="nofollow" class="external free" href="http://www.devconsole.info/?p=917">http://www.devconsole.info/?p=917</a></li>
+<li> <a rel="nofollow" class="external free" href="http://lifeandshell.com/install-elasticsearch-kibana-fluentd-opensource-splunk-with-syslog-clients/">http://lifeandshell.com/install-elasticsearch-kibana-fluentd-opensource-splunk-with-syslog-clients/</a></li>
+<li> <a rel="nofollow" class="external free" href="https://github.com/fluent/fluentd">https://github.com/fluent/fluentd</a></li></ul>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.148 seconds
+Real time usage: 0.149 seconds
+Preprocessor visited node count: 540/1000000
+Preprocessor generated node count: 1638/1000000
+Post‐expand include size: 5588/2097152 bytes
+Template argument size: 1742/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   97.751      1 - -total
+ 65.92%   64.441     11 - Template:Command
+ 24.32%   23.771     11 - Template:Config
+  2.06%    2.013      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3703-0!*!*!1!en!5!* and timestamp 20181111230714 and revision id 13334
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd&amp;oldid=13334">https://wiki.deimos.fr/index.php?title=Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd&amp;oldid=13334</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Fluentd%3A+quickly+search+in+your+logs+with+Elasticsearch%2C+Kibana+and+Fluentd" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd&amp;oldid=13334" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 10 May 2014, at 08:20.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

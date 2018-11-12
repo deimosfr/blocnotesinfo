@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Authentification SSO depuis Apache sur backend AD via Kerberos - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos","wgTitle":"Authentification SSO depuis Apache sur backend AD via Kerberos","wgCurRevisionId":11778,"wgRevisionId":11778,"wgArticleId":3482,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos","wgRelevantArticleId":3482,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Authentification SSO depuis Apache sur backend AD via Kerberos</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#mw-navigation">navigation</a>, 					<a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Pr.C3.A9requis"><span class="tocnumber">2</span> <span class="toctext">Prérequis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Windows_Server"><span class="tocnumber">3.1</span> <span class="toctext">Windows Server</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Linux_Server"><span class="tocnumber">3.2</span> <span class="toctext">Linux Server</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Windows_Active_Directory"><span class="tocnumber">4.1</span> <span class="toctext">Windows Active Directory</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Serveur_Linux"><span class="tocnumber">4.2</span> <span class="toctext">Serveur Linux</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Validation"><span class="tocnumber">5</span> <span class="toctext">Validation</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Navigateur_web"><span class="tocnumber">6</span> <span class="toctext">Navigateur web</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Internet_Explorer"><span class="tocnumber">6.1</span> <span class="toctext">Internet Explorer</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Firefox"><span class="tocnumber">6.2</span> <span class="toctext">Firefox</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#FAQ"><span class="tocnumber">7</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Nom_de_service_sur_plusieurs_comptes"><span class="tocnumber">7.1</span> <span class="toctext">Nom de service sur plusieurs comptes</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#Choix_du_nom_d.27utilisateur"><span class="tocnumber">7.2</span> <span class="toctext">Choix du nom d'utilisateur</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Logo_kerberos_consortium.gif.html" class="image" title="Kerberos"><img alt="Kerberos" src="images/4/4d/Logo_kerberos_consortium.gif" width="220" height="73" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>5</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Red Hat 6<br />Debian 6</td>
+   </tr><tr>
+      <th>Website</th>
+      <td></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>29/10/2012</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Le but de cet article est d'expliquer comment réaliser une authentification forte de type SSO 'Single Sign-On' d'une application Web hébergée en réseau local sur un serveur Linux avec Apache via un Kerberos sous Windows 2003/2008 Server. Les clients seront des machines Windows ou Linux participant au domaine AD (Active Directory) utilisant un navigateur internet.<sup id="cite_ref-1" class="reference"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#cite_note-1">[1]</a></sup>
+</p><p>On peut résumer le fonctionnement de la manière suivante&#160;: un utilisateur ouvre une session sur le domaine et navigue vers une page http protégée du réseau Intranet. Habituellement, on affiche une boite invitant l'utilisateur à saisir son nom d'utilisateur et mot de passe alors qu'il est déjà connu de l'AD, vu qu'il a saisi les mêmes informations pour se connecter à son compte Windows. Le but du Single Sign-On est d'authentifier l'utilisateur sans qu'il soit obligé de resaisir plusieurs fois les mêmes informations.
+</p><p>Kerberos fonctionne avec un système de jetons, qu'on appelera des 'tickets'. L'authentification se passe en plusieurs étapes&#160;:
+</p><p><a href="./File:Kerb_schema.png.html" class="image"><img alt="Kerb schema.png" src="images/a/a0/Kerb_schema.png" width="487" height="168" /></a>
+</p>
+<ol><li> le poste client demande un ticket au serveur Kerberos (ici le DC Win2003)</li>
+<li> le KDC retourne un ticket, vu que le client est déjà identifié sur le réseau</li>
+<li> le poste client formule la requête au serveur Web en incluant le ticket</li></ol>
+<p>Plusieurs avantages de cette méthode&#160;:
+</p>
+<ul><li> L'utilisateur s'identifie une seule fois et peut ensuite accéder de façon transparente aux différents services</li>
+<li> Le nom d'utilisateur et son mot de passe ne sont jamais transmis sur le réseau</li></ul>
+<h1><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2</span> Prérequis</span></h1>
+<p>Dans la suite de l'article, je vais supposer que vous avez les éléments suivants&#160;:
+</p>
+<ul><li> Un 2003 Server configuré en contrôleur de domaine avec le service DNS activé, et au moins un compte utilisateur (dc-1.local.domain)</li>
+<li> Un serveur Linux avec Apache configuré, capable de servir des pages (lx-1.local.domain)</li>
+<li> Un client XP ou 2003 enregistré sur le domaine, capable d'ouvrir une session avec un compte du domaine (pc-1.local.domain)</li></ul>
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>Kerberos étant particulièrement sensible aux noms des machines, il est important que toutes les machines apparaissent dans le serveur DNS et qu'elles aient toutes une entrée PTR (reverse DNS) égale au forward DNS (A).
+</td></tr></table><br />
+<p>En plus d'être sensible à la nomination, Kerberos est sensible à un quelconque décalage temporel entre les différentes machines. Pour palier à ce problème, je vous conseille donc d'utiliser un service NTP.
+</p><p>Pour finir, il faut choisir un realm Kerberos, par exemple LOCAL.DOMAIN. Notez que le realm s'écrit tout en majuscules.
+Il n'est pas obligatoirement le nom de domaine, et il peut avoir plusieurs realms sur un réseau ayant un seul domaine. Par contre, le realm s'écrit en majuscules, par exemple LOCAL.DOMAIN.
+</p>
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>Il est impératif que toutes vos machines soient à la bonne heure, donc connectez les toutes à un serveur NTP.
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Windows_Server"><span class="mw-headline-number">3.1</span> Windows Server</span></h2>
+<p>Installer les <a rel="nofollow" class="external text" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=96a35011-fd83-419d-939b-9a772ea2df90&amp;displaylang=en">support tools</a><sup id="cite_ref-2" class="reference"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#cite_note-2">[2]</a></sup>.
+</p>
+<h2><span class="mw-headline" id="Linux_Server"><span class="mw-headline-number">3.2</span> Linux Server</span></h2>
+<p>Nous allons installer les paquets suivants&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install krb5-clients krb5-config krb5-user libkrb53 libapache2-mod-auth-kerb</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Windows_Active_Directory"><span class="mw-headline-number">4.1</span> Windows Active Directory</span></h2>
+<p>Pour chaque service à Kerberosiser, les opération suivantes sont à prévoir pour générer un Service Principal&#160;:
+</p>
+<ul><li> Création d'un compte utilisateur pour chaque service. Je vous conseille de choisir un nom qui permette d'identifier le service concerné, par exemple intranet-1 dans l'Active Directory.</li></ul>
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>Ne pas choisir un nom d'utilisateur qui existe déjà comme nom de contrôleur de domaine ou comme nom d'ordinateur
+</td></tr></table><br />
+<ul><li> Génération d'un KeyTab. Ce fichier sert à authentifier le serveur Kerberosisé (ici le serveur Web) auprès du KDC&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ktpass</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">ktpass -princ HTTP/lx-1.local.domain@LOCAL.DOMAIN -crypto DES-CBC-MD5 -ptype KRB5_NT_PRINCIPAL -mapuser intranet-1 -pass azerty -out C:\temp\keytab.txt</pre></div></div>
+</td></tr></table><br />
+<p>Copiez le fichier généré sur le serveur Linux dans /etc/krb5.keytab.
+</p>
+<h2><span class="mw-headline" id="Serveur_Linux"><span class="mw-headline-number">4.2</span> Serveur Linux</span></h2>
+<p>Commencez par sécuriser le keytab copié précedemment&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">chown www-data:root /etc/krb5.keytab
+chmod 640 /etc/krb5.keytab</pre></div></div>
+</td></tr></table><br />
+<p>Configurez les DNS&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/resolv.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">search local.domain
+nameserver 192.168.22.1</pre></div></div>
+</td></tr></table><br />
+<p>Vérifiez que modauthkerb est activé&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> a2enmod</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">a2enmod auth_kerb</pre></div></div>
+</td></tr></table><br />
+<p>Créez un .htaccess ou éditez apache2.conf pour sécuriser le site&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> .htaccess</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;<span class="kw3">Files</span> <span class="st0">&quot;*&quot;</span>&gt;
+        &lt;<span class="kw3">Limit</span> GET POST&gt;
+                <span class="kw1">AuthName</span> <span class="st0">&quot;Kerberos Login&quot;</span>
+                <span class="kw1">AuthType</span> Kerberos
+                Krb5Keytab /etc/krb5.keytab
+                KrbAuthRealms LOCAL.DOMAIN
+                KrbMethodNegotiate <span class="kw2">On</span>
+                KrbMethodK5Passwd <span class="kw2">Off</span>
+                KrbVerifyKDC <span class="kw2">off</span>
+                <span class="kw1">Require</span> valid-<span class="kw1">user</span>
+        &lt;/<span class="kw3">Limit</span>&gt;
+&lt;/<span class="kw3">Files</span>&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Reloadez votre serveur Apache
+</p><p>Je rappelle que le realm s'écrit en majuscule. Dans cet exemple, on active le mode SSO via Negotiate et on désactive l'authentification par mot de passe&#160;; si l'authentification automatique est impossible une page d'erreur 401 Authorization Required s'affichera.
+</p><p>Le dernier fichier à configurer est /etc/krb5.conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/krb5.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[libdefaults]
+        ticket_lifetime = 24000
+        default_realm = LOCAL.DOMAIN
+        dns_lookup_realm = true
+        dns_lookup_kdc = false
+        default_keytab_name = FILE:/etc/krb5.keytab
+&#160;
+[realms]
+        LOCAL.DOMAIN = {
+                kdc = dc-1.local.domain
+                admin_server = dc-1.local.domain
+}
+&#160;
+[domain_realm]
+        .local.domain = LOCAL.DOMAIN
+        local.domain = LOCAL.DOMAIN
+&#160;
+[appdefaults]
+        pam = {
+                debug = false
+                ticket_lifetime = 36000
+                renew_lifetime = 36000
+                forwardable = true
+                krb4_convert = false
+        }</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Validation"><span class="mw-headline-number">5</span> Validation</span></h1>
+<p>A ce stage, vous avez normalement une configuration fonctionnelle. Nous allons cependant effectuer quelques vérifications parce qu'il existe beaucoup d'erreurs de configuration possibles.
+</p>
+<ul><li> Test de connexion&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> kinit</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">kinit &lt;username&gt;@LOCAL.DOMAIN</pre></div></div>
+</td></tr></table><br />
+<p>Saisissez le mot de passe de l'utilisateur, il ne doit pas avoir d'erreur.
+</p><p>La commande klist permet de vérifier l'état des tickets&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> klist</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; klist
+Ticket cache: FILE:/tmp/krb5cc_0
+Default principal: &lt;nom d'utilisateur&gt;@LOCAL.DOMAIN
+&#160;
+Valid starting     Expires            Service principal
+08/12/09 11:42:08 08/12/09 18:22:08 krbtgt/LOCAL.DOMAIN@LOCAL.DOMAIN
+&#160;
+&#160;
+Kerberos 4 ticket cache: /tmp/tkt0
+klist: You have no tickets cached</pre></div></div>
+</td></tr></table><br />
+<ul><li> Si tout va bien, vérifiez ensuite votre authentification de service&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> kvno</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; kvno HTTP/lx-1.local.domain@LOCAL.DOMAIN
+HTTP/lx-1.local.domain@LOCAL.DOMAIN: kvno = 28</pre></div></div>
+</td></tr></table><br />
+<p>Il ne doit pas avoir d'erreur non plus mais voici quelques messages d'erreurs classiques et leur signification&#160;:
+</p>
+<pre>kvno: No credentials cache found while getting client principal name
+</pre>
+<p>Vous n'avez pas de ticket valide&#160;: lancez la commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> kinit</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; kinit &lt;username&gt;
+kvno: Server not found in Kerberos database while getting credentials for HTTP/lx-1.local.domain@LOCAL.DOMAIN</pre></div></div>
+</td></tr></table><br />
+<p>Plusieurs possibilités ici&#160;:
+</p>
+<ul><li> Vous avez mal généré votre keytab&#160;; essayez de le regénérer</li>
+<li> Vous avez affecté le même SPN à plusieurs utilisateurs (voir les pièges)</li></ul>
+<p>Pour finir, ce test de keytab ne doit pas retourner d'erreur&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> kinit</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">kinit -k -t /etc/krb5.keytab HTTP/lx-1.local.domain@LOCAL.DOMAIN</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>Ne passez pas à la suite tant que les trois tests précédents génèrent des erreurs&#160;!
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Navigateur_web"><span class="mw-headline-number">6</span> Navigateur web</span></h1>
+<h2><span class="mw-headline" id="Internet_Explorer"><span class="mw-headline-number">6.1</span> Internet Explorer</span></h2>
+<ul><li> Dans les options avancées, vérifiez que l'Authentification Windows est activée&#160;: "Enable Integrated Windows Authentication"</li>
+<li> Ensuite ajoutez le site sécurisé dans la zone Local intranet&#160;: <a rel="nofollow" class="external free" href="http://lx-1.local.domain">http://lx-1.local.domain</a></li></ul>
+<p>Acceptez les changements, et naviguez sur <a rel="nofollow" class="external free" href="http://lx-1.local.domain">http://lx-1.local.domain</a>&#160;: le site s'affiche sans authentification par mot de passe.
+</p>
+<h2><span class="mw-headline" id="Firefox"><span class="mw-headline-number">6.2</span> Firefox</span></h2>
+<p>Lancez Firefox et tapez about:config dans la barre d'adresse, puis filtrez avec le mot auth. Modifiez network.negotiate-auth.trusted-uris et network.negotiate-auth.delegation-uris avec comme valeur le domaine "local.domain".
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">7</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Nom_de_service_sur_plusieurs_comptes"><span class="mw-headline-number">7.1</span> Nom de service sur plusieurs comptes</span></h2>
+<p>Si vous avez créé plusieurs comptes pour expérimenter, il n'est pas impossible qu'un même nom de service ou SPN se retrouve associé à plusieurs comptes, ce qui n'est pas possible. Un compte doit être unique pour chaque service Kerberosisé (intranet-1, intranet-2...) et un même nom de service (HTTP/lx-1.local.domain@LOCAL.DOMAIN) ne peut être associé à plusieurs comptes. Si vous avez utilisé ktpass pour associer le même SPN à plusieurs compte, utilisez setspn pour corriger&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> setspn</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">C:\Program Files\Support Tools&gt;setspn
+Usage: setspn [switches data] computername
+Where &quot;computername&quot; can be the name or domain\name
+&#160;
+Switches:
+-R = reset HOST ServicePrincipalName
+    Usage: setspn -R computername
+-A = add arbitrary SPN
+    Usage: setspn -A SPN computername
+-D = delete arbitrary SPN
+    Usage: setspn -D SPN computername
+-L = list registered SPNs
+    Usage: setspn [-L] computername
+Examples:
+setspn -R daserver1
+It will register SPN &quot;HOST/daserver1&quot; and &quot;HOST/{DNS of daserver1}&quot;
+setspn -A http/daserver daserver1
+It will register SPN &quot;http/daserver&quot; for computer &quot;daserver1&quot;
+setspn -D http/daserver daserver1
+It will delete SPN &quot;http/daserver&quot; for computer &quot;daserver1&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Pour lister les SPN associés a un utilisateur, utilisez l'option "-L", pour supprimer, utilisez l'option "-D", par exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> setspn</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">setspn -D HTTP/lx-1.local.domain lx-1</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Choix_du_nom_d.27utilisateur"><span class="mw-headline-number">7.2</span> Choix du nom d'utilisateur</span></h2>
+<p>Le nom d'utilisateur est libre, par contre, le nom ne doit pas déjà utilisé comme nom d'ordinateur ou comme contrôleur de domaine.
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">8</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="https://www.slashorg.net/index.php?act=read&amp;id=110&amp;lang=">https://www.slashorg.net/index.php?act=read&amp;id=110&amp;lang=</a></span>
+</li>
+<li id="cite_note-2"><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.microsoft.com/downloads/details.aspx?FamilyID=96a35011-fd83-419d-939b-9a772ea2df90&amp;displaylang=en">http://www.microsoft.com/downloads/details.aspx?FamilyID=96a35011-fd83-419d-939b-9a772ea2df90&amp;displaylang=en</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.060 seconds
+Real time usage: 0.061 seconds
+Preprocessor visited node count: 402/1000000
+Preprocessor generated node count: 1180/1000000
+Post‐expand include size: 4651/2097152 bytes
+Template argument size: 1437/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   20.108      1 - -total
+ 27.06%    5.442      3 - Template:Config
+ 26.56%    5.341     11 - Template:Command
+  9.64%    1.939      1 - Template:Infobox
+  5.48%    1.101      4 - Template:Warning
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3482-0!*!*!1!en!5!* and timestamp 20181111230653 and revision id 11778
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos&amp;oldid=11778">https://wiki.deimos.fr/index.php?title=Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos&amp;oldid=11778</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Authentification+SSO+depuis+Apache+sur+backend+AD+via+Kerberos" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos&amp;oldid=11778" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 29 October 2012, at 07:46.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

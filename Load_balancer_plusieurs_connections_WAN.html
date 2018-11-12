@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Load balancer plusieurs connections WAN - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Load_balancer_plusieurs_connections_WAN.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Load_balancer_plusieurs_connections_WAN","wgTitle":"Load balancer plusieurs connections WAN","wgCurRevisionId":10444,"wgRevisionId":10444,"wgArticleId":3323,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Load_balancer_plusieurs_connections_WAN","wgRelevantArticleId":3323,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Load_balancer_plusieurs_connections_WAN skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Load balancer plusieurs connections WAN</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Load_balancer_plusieurs_connections_WAN.html#mw-navigation">navigation</a>, 					<a href="Load_balancer_plusieurs_connections_WAN.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Load_balancer_plusieurs_connections_WAN.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Load_balancer_plusieurs_connections_WAN.html#Network_configuration"><span class="tocnumber">2</span> <span class="toctext">Network configuration</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Load_balancer_plusieurs_connections_WAN.html#Load_Balancing_configuration"><span class="tocnumber">3</span> <span class="toctext">Load Balancing configuration</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Load_balancer_plusieurs_connections_WAN.html#Automatic_failover"><span class="tocnumber">4</span> <span class="toctext">Automatic failover</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Load_balancer_plusieurs_connections_WAN.html#Ressources"><span class="tocnumber">5</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>If one ISP Provider bandwidth is not enough for your needs, you can have multiple lines and load balance between them on Linux.<br />
+This documentation has been done on Debian and works like a charm&#160;:-).
+</p><p><a href="./File:Load_balancer_linux.png.html" class="image"><img alt="Load balancer linux.png" src="images/9/97/Load_balancer_linux.png" width="670" height="210" /></a>
+</p><p>It contains 3 network interfaces&#160;:
+</p>
+<ol><li> Is plugged in a special DMZ VLAN (eth0)</li>
+<li> The second is plugged on a dedicated VLANS to ISP1 Provider (eth1)</li>
+<li> The third is plugged on a dedicated VLANS to ISP2 Provider (eth2)</li></ol>
+<p>Internet traffic is load balanced between the two Internet accesses. In the current configuration the weight assigned to ISP1 is 3 and ISP2 1 (it means that 3 times more traffic passes through ISP1 than ISP2).
+</p>
+<h1><span class="mw-headline" id="Network_configuration"><span class="mw-headline-number">2</span> Network configuration</span></h1>
+<p>To do this, we are using the following configuration&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/network/interfaces</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># The loopback network interface
+auto lo
+iface lo inet loopback
+&#160;
+# The primary network interface
+allow-hotplug eth0
+iface eth0 inet static
+    address 172.16.0.51
+    netmask 255.255.255.240
+    broadcast 172.16.0.63
+    post-up route add -net 192.168.0.0/16 gw 172.16.0.49
+    post-up route add -net 172.16.0.0/16 gw 172.16.0.49
+    post-up route add -net 10.0.0.0/8 gw 172.16.0.49
+&#160;
+# ISP1
+allow-hotplug eth1
+iface eth1 inet static
+    address 192.168.1.2
+    netmask 255.255.255.0
+    gateway 192.168.1.1
+&#160;
+# ISP2
+allow-hotplug eth2
+iface eth2 inet static
+    address 192.168.2.2
+    netmask 255.255.255.0</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Load_Balancing_configuration"><span class="mw-headline-number">3</span> Load Balancing configuration</span></h1>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/network/if-up.d/enable_balanced_routing</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+&#160;
+<span class="co0"># Enable load balancing between ISP1 &amp; ISP2</span>
+&#160;
+<span class="co0"># Enable routing on eth2 up</span>
+<span class="kw3">test</span> <span class="st0">&quot;<span class="es3">${IFACE}</span>&quot;</span> = <span class="st_h">'eth2'</span> <span class="sy0">||</span> <span class="kw3">exit</span> <span class="nu0">0</span>
+&#160;
+<span class="kw1">function</span> die<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;$@&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+    <span class="kw3">exit</span> <span class="nu0">1</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw2">which</span> <span class="kw2">ip</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span> <span class="sy0">||</span> die <span class="st0">&quot;Command not found, please install it&quot;</span>
+<span class="kw2">which</span> ipcalc <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span> <span class="sy0">||</span> die <span class="st0">&quot;Command not found, please install it&quot;</span>
+&#160;
+&#160;
+<span class="re2">LAN_IFACE</span>=<span class="st_h">'eth0'</span>
+<span class="re2">LAN_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${LAN_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">LAN_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${LAN_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+&#160;
+<span class="re2">INET1_IFACE</span>=<span class="st_h">'eth1'</span>
+<span class="re2">INET1_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET1_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET1_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET1_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET1_GW</span>=<span class="st_h">'192.168.1.1'</span>
+<span class="re2">INET1_WEIGHT</span>=<span class="nu0">1</span>
+&#160;
+<span class="re2">INET2_IFACE</span>=<span class="co1">${IFACE}</span>
+<span class="re2">INET2_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET2_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET2_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET2_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET2_GW</span>=<span class="st_h">'192.168.2.1'</span>
+<span class="re2">INET2_WEIGHT</span>=<span class="nu0">3</span>
+&#160;
+&#160;
+<span class="co0"># Create routes throught ours network in each tables</span>
+<span class="kw2">ip route</span> add <span class="co1">${LAN_NET_IP}</span> dev <span class="co1">${LAN_IFACE}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> add <span class="co1">${INET1_NET_IP}</span> dev <span class="co1">${INET1_IFACE}</span> src <span class="co1">${INET1_IFACE_IP}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> add <span class="co1">${INET2_NET_IP}</span> dev <span class="co1">${INET2_IFACE}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> add 127.0.0.0<span class="sy0">/</span><span class="nu0">8</span> dev lo table <span class="nu0">100</span>
+&#160;
+<span class="kw2">ip route</span> add <span class="co1">${LAN_NET_IP}</span> dev <span class="co1">${LAN_IFACE}</span> table <span class="nu0">200</span>
+<span class="kw2">ip route</span> add <span class="co1">${INET1_NET_IP}</span> dev <span class="co1">${INET1_IFACE}</span> table <span class="nu0">200</span>
+<span class="kw2">ip route</span> add <span class="co1">${INET2_NET_IP}</span> dev <span class="co1">${INET2_IFACE}</span> src <span class="co1">${INET2_IFACE_IP}</span> table <span class="nu0">200</span>
+<span class="kw2">ip route</span> add 127.0.0.0<span class="sy0">/</span><span class="nu0">8</span> dev lo table <span class="nu0">200</span>
+&#160;
+<span class="co0"># Create a default route per table</span>
+<span class="kw2">ip route</span> add default via <span class="co1">${INET1_GW}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> add default via <span class="co1">${INET2_GW}</span> table <span class="nu0">200</span>
+&#160;
+<span class="co0"># Assigning appropriate traffic from an interface to the corresponding table</span>
+<span class="kw2">ip rule</span> add from <span class="co1">${INET1_IFACE_IP}</span> table <span class="nu0">100</span>
+<span class="kw2">ip rule</span> add from <span class="co1">${INET2_IFACE_IP}</span> table <span class="nu0">200</span>
+&#160;
+&#160;
+<span class="co0"># Force some specific routes if needed</span>
+<span class="co0"># ip route add to x.x.x.x via ${INET1_GW} dev ${INET1_IFACE}</span>
+<span class="co0"># ip route add to x.x.x.x via ${INET1_GW} dev ${INET1_IFACE}</span>
+&#160;
+<span class="co0"># Replacing default route</span>
+<span class="kw2">ip route</span> del default
+<span class="kw2">ip route</span> add default scope global nexthop via <span class="co1">${INET1_GW}</span> dev <span class="co1">${INET1_IFACE}</span> weight <span class="co1">${INET1_WEIGHT}</span> nexthop via <span class="co1">${INET2_GW}</span> dev <span class="co1">${INET2_IFACE}</span> weight <span class="co1">${INET2_WEIGHT}</span>
+<span class="kw2">ip route</span> flush cached
+&#160;
+<span class="co0"># If you're using ntop, you should restart it for new changes to take effect</span>
+<span class="co0"># /etc/init.d/ntop restart &amp;</span></pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/network/if-down.d/disable_balanced_routing</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+&#160;
+<span class="co0"># Disable load balancing between ISP1 &amp; ISP2</span>
+&#160;
+<span class="co0"># Enable routing on eth2 down</span>
+<span class="kw3">test</span> <span class="st0">&quot;<span class="es3">${IFACE}</span>&quot;</span> = <span class="st_h">'eth2'</span> <span class="sy0">||</span> <span class="kw3">exit</span> <span class="nu0">0</span>
+&#160;
+<span class="kw2">which</span> <span class="kw2">ip</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span> <span class="sy0">||</span> die <span class="st0">&quot;Command not found, please install it&quot;</span>
+<span class="kw2">which</span> ipcalc <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span> <span class="sy0">||</span> die <span class="st0">&quot;Command not found, please install it&quot;</span>
+&#160;
+<span class="re2">LAN_IFACE</span>=<span class="st_h">'eth0'</span>
+<span class="re2">LAN_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${LAN_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">LAN_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${LAN_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+&#160;
+<span class="re2">INET1_IFACE</span>=<span class="st_h">'eth1'</span>
+<span class="re2">INET1_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET1_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET1_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET1_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET1_GW</span>=<span class="st_h">'192.168.1.1'</span>
+&#160;
+<span class="re2">INET2_IFACE</span>=<span class="co1">${IFACE}</span>
+<span class="re2">INET2_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET2_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET2_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET2_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET2_GW</span>=<span class="st_h">'192.168.2.1'</span>
+&#160;
+&#160;
+<span class="kw2">ip route</span> del default
+<span class="kw2">ip route</span> add default via <span class="co1">${INET1_GW}</span>
+<span class="kw2">ip route</span> flush cached
+&#160;
+<span class="co0"># Delete our network routes in each tables</span>
+<span class="kw2">ip route</span> del <span class="co1">${LAN_NET_IP}</span> dev <span class="co1">${LAN_IFACE}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> del <span class="co1">${INET1_NET_IP}</span> dev <span class="co1">${INET1_IFACE}</span> src <span class="co1">${INET1_IFACE_IP}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> del <span class="co1">${INET2_NET_IP}</span> dev <span class="co1">${INET2_IFACE}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> del 127.0.0.0<span class="sy0">/</span><span class="nu0">8</span> dev lo table <span class="nu0">100</span>
+<span class="kw2">ip route</span> del <span class="co1">${LAN_NET_IP}</span> dev <span class="co1">${LAN_IFACE}</span> table <span class="nu0">200</span>
+<span class="kw2">ip route</span> del <span class="co1">${INET1_NET_IP}</span> dev <span class="co1">${INET1_IFACE}</span> table <span class="nu0">200</span>
+<span class="kw2">ip route</span> del <span class="co1">${INET2_NET_IP}</span> dev <span class="co1">${INET2_IFACE}</span> src <span class="co1">${INET2_IFACE_IP}</span> table <span class="nu0">200</span>
+<span class="kw2">ip route</span> del 127.0.0.0<span class="sy0">/</span><span class="nu0">8</span> dev lo table <span class="nu0">200</span>
+&#160;
+<span class="co0"># Delete default routes in tables</span>
+<span class="kw2">ip route</span> del default via <span class="co1">${INET1_GW}</span> table <span class="nu0">100</span>
+<span class="kw2">ip route</span> del default via <span class="co1">${INET2_GW}</span> table <span class="nu0">200</span>
+&#160;
+<span class="co0"># Disable route traffic weight rules</span>
+<span class="kw2">ip rule</span> del from <span class="co1">${INET1_IFACE_IP}</span> table <span class="nu0">100</span>
+<span class="kw2">ip rule</span> del from <span class="co1">${INET2_IFACE_IP}</span> table <span class="nu0">200</span>
+&#160;
+<span class="co0"># Delete specific routes</span>
+<span class="co0"># ip route del to x.x.x.x via ${INET1_GW} dev ${INET1_IFACE}</span>
+<span class="co0"># ip route del to x.x.x.x via ${INET1_GW} dev ${INET1_IFACE}</span></pre></div></div>
+</td></tr></table><br />
+<p>Add execute rights&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">chmod ug+rx /etc/network/if-up.d/enable_balanced_routing /etc/network/if-down.d/disable_balanced_routing</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Automatic_failover"><span class="mw-headline-number">4</span> Automatic failover</span></h1>
+<p>Since the ISP2 Internet access is unstable, we are using a self-made script to check it, and disable traffic through this interface if needed.<br />
+This script runs in the background, and is launched by this init script&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /etc/init.d/check_isp_connectivity</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/sh -e</span>
+<span class="co0">### BEGIN INIT INFO</span>
+<span class="co0"># Provides:          check_isp_connectivity</span>
+<span class="co0"># Required-Start:    $network</span>
+<span class="co0"># Required-Stop:     $network</span>
+<span class="co0"># Default-Start:     3</span>
+<span class="co0"># Default-Stop:      0 1 6</span>
+<span class="co0"># Short-Description: Check freebox connectivity</span>
+<span class="co0"># Description:       Check freebox connectivity</span>
+<span class="co0">### END INIT INFO</span>
+&#160;
+<span class="re2">NAME</span>=<span class="st_h">'check_isp_connectivity'</span>
+<span class="re2">DAEMON</span>=<span class="st_h">'/usr/bin/check_isp_connectivity.sh'</span>
+<span class="re2">PATH</span>=<span class="st0">&quot;/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin&quot;</span>
+<span class="re2">PIDFILE</span>=<span class="st_h">'/var/run/check_isp_connectivity.pid'</span>
+&#160;
+<span class="br0">&#91;</span> <span class="re5">-x</span> <span class="st0">&quot;<span class="es3">${DAEMON}</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">||</span> <span class="kw3">exit</span> <span class="nu0">0</span>
+&#160;
+. <span class="sy0">/</span>lib<span class="sy0">/</span>lsb<span class="sy0">/</span>init-functions
+&#160;
+<span class="kw1">case</span> <span class="st0">&quot;$1&quot;</span> <span class="kw1">in</span>
+    start<span class="br0">&#41;</span>
+        <span class="kw3">echo</span> <span class="st0">&quot;Starting check_isp_connectivity&quot;</span>
+        start-stop-daemon <span class="re5">--start</span> <span class="re5">--background</span> <span class="re5">--quiet</span> <span class="re5">--exec</span> <span class="re1">$DAEMON</span>
+        <span class="sy0">;;</span>
+&#160;
+    stop<span class="br0">&#41;</span>
+        <span class="kw3">echo</span> <span class="st0">&quot;Stopping check_isp_connectivity&quot;</span>
+        start-stop-daemon <span class="re5">--stop</span> <span class="re5">--quiet</span> <span class="re5">--pidfile</span> <span class="co1">${PIDFILE}</span>
+        <span class="sy0">;;</span>
+&#160;
+    status<span class="br0">&#41;</span>
+        status_of_proc <span class="st0">&quot;<span class="es2">$DAEMON</span>&quot;</span> <span class="st0">&quot;<span class="es2">$NAME</span>&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">exit</span> <span class="nu0">0</span> <span class="sy0">||</span> <span class="kw3">exit</span> <span class="re4">$?</span>
+        <span class="sy0">;;</span>
+&#160;
+    <span class="sy0">*</span><span class="br0">&#41;</span>
+        <span class="kw3">echo</span> <span class="st0">&quot;Usage: /etc/init.d/check_isp_connectivity {start|stop}&quot;</span>
+        <span class="kw3">exit</span> <span class="nu0">1</span>
+        <span class="sy0">;;</span>
+<span class="kw1">esac</span></pre></div></div>
+</td></tr></table><br />
+<p>It needs to get a deamon that will check the connectivity&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /usr/bin/check_isp_connectivity.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+&#160;
+<span class="co0"># Check that the ISP2 works fine, and, if this is not the case, suppress balanced routing</span>
+<span class="co0"># TODO&#160;: avoid multiple variable declaration between /etc/network/if-up.d/enable_balanced_routing and this script</span>
+&#160;
+<span class="co0"># Interval to check connectivity on ISPs</span>
+<span class="re2">check_interval</span>=<span class="nu0">5</span>
+&#160;
+<span class="re2">IFACE</span>=<span class="st_h">'eth2'</span>
+<span class="re2">HOST</span>=<span class="st_h">'www.google.fr'</span>
+<span class="re2">LOGFILE</span>=<span class="st0">&quot;/var/log/<span class="es4">$(basename ${0/.sh/.log})</span>&quot;</span>
+<span class="re2">PIDFILE</span>=<span class="st0">&quot;/var/run/<span class="es4">$(basename ${0/.sh/.pid})</span>&quot;</span>
+&#160;
+<span class="re2">INET1_IFACE</span>=<span class="st_h">'eth1'</span>
+<span class="re2">INET1_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET1_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET1_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET1_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET1_GW</span>=<span class="st_h">'192.168.1.1'</span>
+<span class="re2">INET1_WEIGHT</span>=<span class="nu0">1</span>
+&#160;
+<span class="re2">INET2_IFACE</span>=<span class="co1">${IFACE}</span>
+<span class="re2">INET2_IFACE_IP</span>=$<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET2_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {gsub(&quot;/.*&quot;,&quot;&quot;, $2)&#160;; print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET2_NET_IP</span>=$<span class="br0">&#40;</span>ipcalc <span class="re5">-n</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> a s <span class="co1">${INET2_IFACE}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;inet&quot;) {print $2}'</span><span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($1==&quot;Network:&quot;) {print $2}'</span><span class="br0">&#41;</span>
+<span class="re2">INET2_GW</span>=<span class="st_h">'192.168.2.1'</span>
+<span class="re2">INET2_WEIGHT</span>=<span class="nu0">3</span>
+&#160;
+<span class="re2">DO_RUN</span>=<span class="kw2">true</span>
+&#160;
+<span class="co0"># We catch SIGTERM signal to end this script properly</span>
+<span class="kw3">trap</span> do_stop  <span class="nu0">15</span>
+&#160;
+<span class="kw1">function</span> die<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;<span class="es3">${@}</span>&quot;</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>
+    <span class="kw3">echo</span> <span class="st0">&quot;<span class="es4">$(LANG=C date &quot;+%h&#160;%d&#160;%H:%M:%S&quot;)</span>&#160;: <span class="es3">${@}</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="co1">${LOGFILE}</span>
+    <span class="kw3">exit</span> <span class="nu0">1</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> log<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+            <span class="kw3">echo</span> <span class="st0">&quot;<span class="es4">$(LANG=C date &quot;+%h&#160;%d&#160;%H:%M:%S&quot;)</span>&#160;: <span class="es3">${@}</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="co1">${LOGFILE}</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> test_interface<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">local</span> <span class="re2">test_ip</span>=$<span class="br0">&#40;</span>host <span class="re5">-t</span> A <span class="co1">${HOST}</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'($2==&quot;has&quot; &amp;&amp; $3==&quot;address&quot;) {print $4}'</span> <span class="sy0">|</span> <span class="kw2">head</span> <span class="re5">-n</span> <span class="nu0">1</span><span class="br0">&#41;</span>
+&#160;
+    <span class="co0"># if balanced routing is disabled</span>
+    <span class="kw1">if</span> <span class="sy0">!</span> $<span class="br0">&#40;</span><span class="kw2">ip</span> ro show <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-Eq</span> <span class="st0">&quot;nexthop via <span class="es3">${INET2_GW}</span>&quot;</span><span class="br0">&#41;</span>; <span class="kw1">then</span>
+        <span class="kw2">ip route</span> add to <span class="co1">${test_ip}</span> via <span class="co1">${INET2_GW}</span> dev <span class="co1">${INET2_IFACE}</span>
+        <span class="kw1">if</span> $<span class="br0">&#40;</span><span class="kw2">ping</span> <span class="re5">-W</span> <span class="nu0">1</span> <span class="re5">-q</span> <span class="re5">-c</span> <span class="nu0">3</span> <span class="re5">-I</span> <span class="co1">${IFACE}</span> <span class="co1">${test_ip}</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span><span class="br0">&#41;</span>; <span class="kw1">then</span>
+            enable_balanced_routing
+        <span class="kw1">else</span>
+            log <span class="st0">&quot;We cannot ping <span class="es3">${test_ip}</span> and balanced routing is already disabled&quot;</span>
+        <span class="kw1">fi</span>
+        <span class="kw2">ip route</span> del to <span class="co1">${test_ip}</span> via <span class="co1">${INET2_GW}</span> dev <span class="co1">${INET2_IFACE}</span>
+&#160;
+    <span class="co0"># if balanced routing is enabled, and we cannot ping our test IP</span>
+    <span class="kw1">elif</span> <span class="sy0">!</span> $<span class="br0">&#40;</span><span class="kw2">ping</span> <span class="re5">-W</span> <span class="nu0">1</span> <span class="re5">-q</span> <span class="re5">-c</span> <span class="nu0">3</span> <span class="re5">-I</span> <span class="co1">${IFACE}</span> <span class="co1">${test_ip}</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span><span class="br0">&#41;</span>; <span class="kw1">then</span>
+            log <span class="st0">&quot;We cannot ping <span class="es3">${test_ip}</span>. Doing a second check just to be sure ...&quot;</span>
+            <span class="co0"># We double check if we cannot join our test IP</span>
+            <span class="kw1">if</span> $<span class="br0">&#40;</span><span class="kw2">ping</span> <span class="re5">-W</span> <span class="nu0">1</span> <span class="re5">-q</span> <span class="re5">-c</span> <span class="nu0">3</span> <span class="re5">-I</span> <span class="co1">${IFACE}</span> <span class="co1">${test_ip}</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null <span class="nu0">2</span><span class="sy0">&gt;&amp;</span><span class="nu0">1</span><span class="br0">&#41;</span>; <span class="kw1">then</span>
+                log <span class="st0">&quot;It's okay, I can ping <span class="es3">${test_ip}</span> during the second test&quot;</span>
+            <span class="kw1">else</span>
+                disable_balanced_routing
+            <span class="kw1">fi</span>
+    <span class="kw1">fi</span>
+<span class="br0">&#125;</span>
+&#160;
+&#160;
+<span class="kw1">function</span> disable_balanced_routing<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    log <span class="st0">&quot;Disabling balanced routing&quot;</span>
+    <span class="kw2">ip route</span> del default
+    <span class="kw2">ip route</span> add default via <span class="co1">${INET1_GW}</span>
+    <span class="kw2">ip route</span> flush cached
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> enable_balanced_routing<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    log <span class="st0">&quot;Enabling balanced routing&quot;</span>
+    <span class="kw2">ip route</span> del default
+    <span class="kw2">ip route</span> add default scope global nexthop via <span class="co1">${INET1_GW}</span> dev <span class="co1">${INET1_IFACE}</span> weight <span class="co1">${INET1_WEIGHT}</span> nexthop via <span class="co1">${INET2_GW}</span> dev <span class="co1">${INET2_IFACE}</span> weight <span class="co1">${INET2_WEIGHT}</span>
+    <span class="kw2">ip route</span> flush cached
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> pid_managment<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">local</span> <span class="re2">my_pid</span>=<span class="re4">$$</span>
+    <span class="kw3">local</span> old_pid
+&#160;
+    <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-f</span> <span class="co1">${PIDFILE}</span> <span class="br0">&#93;</span>; <span class="kw1">then</span>
+        <span class="re2">old_pid</span>=$<span class="br0">&#40;</span><span class="sy0">&lt;</span><span class="co1">${PIDFILE}</span><span class="br0">&#41;</span>
+        <span class="kw2">ps</span> <span class="re5">--no-headers</span> <span class="re5">--pid</span> <span class="co1">${old_pid}</span> <span class="sy0">&gt;/</span>dev<span class="sy0">/</span>null <span class="sy0">&amp;&amp;</span> die <span class="st0">&quot;Deamon is already up and running&quot;</span>
+    <span class="kw1">fi</span>
+&#160;
+    <span class="kw3">echo</span> <span class="co1">${my_pid}</span> <span class="sy0">&gt;</span> <span class="co1">${PIDFILE}</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> do_stop<span class="br0">&#40;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    log <span class="st0">&quot;<span class="es3">${0}</span> is stopping...&quot;</span>
+    <span class="re2">DO_RUN</span>=<span class="kw2">false</span>
+<span class="br0">&#125;</span>
+&#160;
+log <span class="st0">&quot;<span class="es3">${0}</span> is starting...&quot;</span>
+pid_managment
+&#160;
+<span class="co0"># Launch check every x seconds</span>
+<span class="kw1">while</span> <span class="co1">${DO_RUN}</span>; <span class="kw1">do</span>
+    <span class="kw1">if</span> $<span class="br0">&#40;</span><span class="kw2">ip link</span> show <span class="co1">${IFACE}</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-q</span> UP<span class="br0">&#41;</span>; <span class="kw1">then</span>
+        test_interface
+    <span class="kw1">fi</span>
+&#160;
+    <span class="kw2">sleep</span> <span class="re1">$check_interval</span>
+<span class="kw1">done</span>
+&#160;
+log <span class="st0">&quot;<span class="es3">${0}</span> is stopped&quot;</span></pre></div></div>
+</td></tr></table><br />
+<p>Then we'll set good rights and auto start on boot&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> update-rc.d</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">chmod 754 /usr/bin/check_isp_connectivity.sh /etc/init.d/check_isp_connectivity
+update-rc.d defaults check_isp_connectivity</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">5</span> Ressources</span></h1>
+<p><a href="images/c/c3/Load_balancer_linux.txt" class="internal" title="Load balancer linux.txt">Load_balancer_linux.txt</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.068 seconds
+Real time usage: 0.069 seconds
+Preprocessor visited node count: 140/1000000
+Preprocessor generated node count: 412/1000000
+Post‐expand include size: 1578/2097152 bytes
+Template argument size: 562/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   46.082      1 - -total
+ 49.17%   22.658      4 - Template:Command
+ 48.73%   22.455      3 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3323-0!*!*!1!en!5!* and timestamp 20181111230643 and revision id 10444
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Load_balancer_plusieurs_connections_WAN&amp;oldid=10444">https://wiki.deimos.fr/index.php?title=Load_balancer_plusieurs_connections_WAN&amp;oldid=10444</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Load+balancer+plusieurs+connections+WAN" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Load_balancer_plusieurs_connections_WAN.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Load_balancer_plusieurs_connections_WAN.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Load_balancer_plusieurs_connections_WAN.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Load_balancer_plusieurs_connections_WAN&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Load_balancer_plusieurs_connections_WAN&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Load_balancer_plusieurs_connections_WAN.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Load_balancer_plusieurs_connections_WAN.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Load_balancer_plusieurs_connections_WAN" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Load_balancer_plusieurs_connections_WAN&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Load_balancer_plusieurs_connections_WAN&amp;oldid=10444" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Load_balancer_plusieurs_connections_WAN&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 20 February 2012, at 18:13.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":30});
+}</script>
+	</body>
+</html>
+	

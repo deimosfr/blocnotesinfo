@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>AutoFS : montage et démontage de partages - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./AutoFS_:_montage_et_démontage_de_partages.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"AutoFS_:_montage_et_démontage_de_partages","wgTitle":"AutoFS : montage et démontage de partages","wgCurRevisionId":12979,"wgRevisionId":12979,"wgArticleId":1716,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"AutoFS_:_montage_et_démontage_de_partages","wgRelevantArticleId":1716,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-AutoFS_montage_et_démontage_de_partages skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">AutoFS : montage et démontage de partages</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./AutoFS_:_montage_et_démontage_de_partages.html#mw-navigation">navigation</a>, 					<a href="./AutoFS_:_montage_et_démontage_de_partages.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#NFS"><span class="tocnumber">3.1</span> <span class="toctext">NFS</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Installation_2"><span class="tocnumber">3.1.1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Configuration_2"><span class="tocnumber">3.1.2</span> <span class="toctext">Configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#CIFS"><span class="tocnumber">3.2</span> <span class="toctext">CIFS</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Installation_3"><span class="tocnumber">3.2.1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Configuration_3"><span class="tocnumber">3.2.2</span> <span class="toctext">Configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#SSH"><span class="tocnumber">3.3</span> <span class="toctext">SSH</span></a>
+<ul>
+<li class="toclevel-3 tocsection-11"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Installation_4"><span class="tocnumber">3.3.1</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Configuration_4"><span class="tocnumber">3.3.2</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-4 tocsection-13"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Key_exchange"><span class="tocnumber">3.3.2.1</span> <span class="toctext">Key exchange</span></a></li>
+<li class="toclevel-4 tocsection-14"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Autofs_configuration"><span class="tocnumber">3.3.2.2</span> <span class="toctext">Autofs configuration</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-15"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#FTP"><span class="tocnumber">3.4</span> <span class="toctext">FTP</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Create_a_mountpoint_per_home_user"><span class="tocnumber">3.5</span> <span class="toctext">Create a mountpoint per home user</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Verify"><span class="tocnumber">4</span> <span class="toctext">Verify</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#My_NFS_connection_is_very_slow"><span class="tocnumber">5.1</span> <span class="toctext">My NFS connection is very slow</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#I_encounter_NFS_delay_problem"><span class="tocnumber">5.2</span> <span class="toctext">I encounter NFS delay problem</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#My_CIFS_doesn.27t_want_to_mount"><span class="tocnumber">5.3</span> <span class="toctext">My CIFS doesn't want to mount</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="./AutoFS_:_montage_et_démontage_de_partages.html#Why_autofs_volumes_are_hidden_when_not_mounted_.3F"><span class="tocnumber">5.4</span> <span class="toctext">Why autofs volumes are hidden when not mounted&#160;?</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>You already installed Linux on your networked desktop PC and now you want to work with files stored on some other PCs in your network. This is where autofs comes into play. This tutorial shows how to configure autofs to use CIFS to access Windows or Samba shares from Linux Desktop PCs. It also includes a tailored configuration file.
+</p><p>If autofs Version 4.0 or newer is already installed, you should find thoses files&#160;:
+</p>
+<pre>/etc/auto.master
+/etc/auto.smb
+</pre>
+<p>on your system. Otherwise start the package manager of your distribution (e.g. YaST on SuSE, synaptic on Debian or Ubuntu, ...) and install it. When you are at it, also install the Samba client package (look for smbclient), because we will also need this.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Just do&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install autofs
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="NFS"><span class="mw-headline-number">3.1</span> NFS</span></h2>
+<h3><span class="mw-headline" id="Installation_2"><span class="mw-headline-number">3.1.1</span> Installation</span></h3>
+<p>For NFS, it's not very hard, just be sure it works fine when you mount it manually. You also need to install portmap&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install portmap
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Configuration_2"><span class="mw-headline-number">3.1.2</span> Configuration</span></h3>
+<p>Now edit for example the auto.master file, and add a nfs file line&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.master</font>
+</td></tr>
+<tr>
+<td>
+<pre>/mnt    /etc/auto.nfs --timeout=600
+</pre>
+</td></tr></table><br />
+<p>This mean it will be mounted in /mnt and will be automatically umounted after 10 min. Now edit your new file&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.nfs</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">* -fstype=nfs,rw 192.168.0.187:/home</pre></div></div>
+</td></tr></table><br />
+<p>With some virtualized systems like OpenVZ, you'll need to add 'nolock' option in addition of fstype options&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.nfs</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">* -fstype=nfs,rw,nolock 192.168.0.187:/home</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="CIFS"><span class="mw-headline-number">3.2</span> CIFS</span></h2>
+<h3><span class="mw-headline" id="Installation_3"><span class="mw-headline-number">3.2.1</span> Installation</span></h3>
+<p>If autofs is already installed, it is probably still not configured and not working. Assuming your Linux Distribution contains a Linux 2.6.x kernel I recommend to use the common internet file system (cifs) module to access files on the network. You also nee smbfs to be isntalled&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install smbfs cifs-utils
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Configuration_3"><span class="mw-headline-number">3.2.2</span> Configuration</span></h3>
+<p>Please store the following file as
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.master</font>
+</td></tr>
+<tr>
+<td>
+<pre>/mnt     /etc/auto.cifs
+</pre>
+</td></tr></table><br />
+<p>on your computer. You need root (or sudo) to have the permissions to do this:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.cifs</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> share  -fstype=cifs,rw,noperm,credentials=/etc/auto.cred&#160;://server/share</pre></div></div>
+</td></tr></table><br />
+<p>This file must be executable to work (chmod 755)&#160;!
+</p><p>Just create a /etc/auto.cred file where credentials will be added. Then add those 2 lines&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.cred</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">username=le_login
+password=le_password</pre></div></div>
+</td></tr></table><br />
+<p>change the permissions&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>chmod 755 /etc/auto.cifs
+chmod a-x /etc/auto.cifs
+chmod 600 /etc/auto.cred
+</pre>
+</td></tr></table><br />
+<p>Restart service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/autofs restart
+</pre>
+</td></tr></table><br />
+<p>That's all.
+</p>
+<h2><span class="mw-headline" id="SSH"><span class="mw-headline-number">3.3</span> SSH</span></h2>
+<h3><span class="mw-headline" id="Installation_4"><span class="mw-headline-number">3.3.1</span> Installation</span></h3>
+<p>First we need to install sshfs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install sshfs fuse
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Configuration_4"><span class="mw-headline-number">3.3.2</span> Configuration</span></h3>
+<h4><span class="mw-headline" id="Key_exchange"><span class="mw-headline-number">3.3.2.1</span> Key exchange</span></h4>
+<p>You first need to do <a href="./OpenSSH_:_Export_/_Echange_de_clefs_SSH.html" title="OpenSSH : Export / Echange de clefs SSH">key exchange</a> from the root user on remote host.
+</p>
+<h4><span class="mw-headline" id="Autofs_configuration"><span class="mw-headline-number">3.3.2.2</span> Autofs configuration</span></h4>
+<p>Now edit the master file and add this line&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.master</font>
+</td></tr>
+<tr>
+<td>
+<pre>/mnt/remote_server   /etc/auto.sshfs  --timeout=360,--ghost
+</pre>
+</td></tr></table><br />
+<p>Now add this and adapt it for your needs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /etc/auto.sshfs</font>
+</td></tr>
+<tr>
+<td>
+<pre><b>myfolder</b> -fstype=fuse,port=22,rw,allow_other&#160;:sshfs\#<b>login</b>@remote_host<b>\:</b>/the/share
+</pre>
+</td></tr></table><br />
+<ul><li> myfolder&#160;: folder will be accessible in /mnt/remote_server/myfolder</li>
+<li> login&#160;: type your ssh login</li>
+<li> /the/share&#160;: set the remote share</li></ul>
+<p>Do not forget to create the folder on your client machine.
+</p><p>Now reload autofs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/autofs reload
+</pre>
+</td></tr></table><br />
+<p>Now access to /mnt/remote_server/myfolder it will be automatically mounted.
+</p>
+<h2><span class="mw-headline" id="FTP"><span class="mw-headline-number">3.4</span> FTP</span></h2>
+<p>You'll need to install this package&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install curlftpfs
+</pre>
+</td></tr></table><br />
+<p>Then add this line in /etc/auto.master&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.master</font>
+</td></tr>
+<tr>
+<td>
+<pre>/mnt/autofs    /etc/auto.ftp --timeout=600
+</pre>
+</td></tr></table><br />
+<p>Now we need to create this file and add a line like that (replace with your informations)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.ftp</font>
+</td></tr>
+<tr>
+<td>
+<pre>backups_ftp      -fstype=fuse,allow_other,user=<b>user</b>:<b>password</b>   &#160;:curlftpfs\<b>server</b>
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Create_a_mountpoint_per_home_user"><span class="mw-headline-number">3.5</span> Create a mountpoint per home user</span></h2>
+<p>To create a home mountpoint per connected user, you have to configure (NFS for example) like this&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.nfs</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">* -fstype=nfs,rw 192.168.0.187:/home/&amp;</pre></div></div>
+</td></tr></table><br />
+<p>&amp;&#160;: correspond to each users
+</p>
+<h1><span class="mw-headline" id="Verify"><span class="mw-headline-number">4</span> Verify</span></h1>
+<p>Use the command
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td>
+<pre>ls -als /cifs/FILESERVERNAME/SHARENAME
+</pre>
+<p>or
+</p>
+<pre>mount.cifs //server/share /test -o username=login,password=pass
+</pre>
+</td></tr></table><br />
+<p>to check, if it works. If not, consult the system logfiles (usually /var/log/messages or /var/log/syslog) for messages.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="My_NFS_connection_is_very_slow"><span class="mw-headline-number">5.1</span> My NFS connection is very slow</span></h2>
+<p>I can see this kind of of things in the syslogs&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /var/log/syslog</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+Jun  6 16:26:40 debusertest kernel: portmap: server localhost not responding, timed out
+Jun  6 16:26:40 debusertest kernel: RPC: failed to contact portmap (errno -5).</pre></div></div>
+</td></tr></table><br />
+<p>You just need to install the portmap package&#160;:-)
+</p>
+<h2><span class="mw-headline" id="I_encounter_NFS_delay_problem"><span class="mw-headline-number">5.2</span> I encounter NFS delay problem</span></h2>
+<p>If you have this kind of problem&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Jul  8 15:50:39 deb-devtest2 automount[8415]: mount(nfs): mkdir_path /mnt/share/drive failed: No such file or directory
+Jul  8 15:50:39 deb-devtest2 automount[8415]: failed to mount /mnt/share/drive</pre></div></div>
+<p>Grow your auto.nfs file, option timeo&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.nfs</font>
+</td></tr>
+<tr>
+<td>
+<pre>drive -fstype=nfs,rw,rsize=8192,wsize=8192,<b>timeo=60</b>,intr server:/700G/share/drive
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="My_CIFS_doesn.27t_want_to_mount"><span class="mw-headline-number">5.3</span> My CIFS doesn't want to mount</span></h2>
+<p>You may have a problem while automount a cifs share getting this errors in the logs&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Dec 27 11:36:07 pmavro-laptop automount[27824]: lookup(program): lookup for backups failed
+Dec 27 11:36:07 pmavro-laptop automount[27824]: failed to mount /mnt/backups/backups</pre></div></div>
+<p>As it's recommanded on this documentation, auto.cifs needs execute rights. But depending of the version of autofs you use, you may need to pull off those rights&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>chmod a-x /etc/auto.cifs
+</pre>
+</td></tr></table><br />
+<p>Then restart autofs daemon.
+</p>
+<h2><span class="mw-headline" id="Why_autofs_volumes_are_hidden_when_not_mounted_.3F"><span class="mw-headline-number">5.4</span> Why autofs volumes are hidden when not mounted&#160;?</span></h2>
+<p>It is possible to show wished volumes that are not mounted, this is easier to know which ones are available. Do to do it, simple add '--ghost' on a line on auto.master. Example&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/auto.master</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+/mnt/mount1      /etc/auto.sshfs --timeout=720,--ghost
+/mnt/mount2      /etc/auto.cifs --timeout=720,--ghost</pre></div></div>
+</td></tr></table><br />
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.052 seconds
+Real time usage: 0.054 seconds
+Preprocessor visited node count: 472/1000000
+Preprocessor generated node count: 1300/1000000
+Post‐expand include size: 5471/2097152 bytes
+Template argument size: 1936/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   11.243      1 - -total
+ 46.67%    5.247     13 - Template:Config
+ 22.32%    2.509     11 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1716-0!*!0!1!en!5!* and timestamp 20181111230638 and revision id 12979
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=AutoFS_:_montage_et_démontage_de_partages&amp;oldid=12979">https://wiki.deimos.fr/index.php?title=AutoFS_:_montage_et_démontage_de_partages&amp;oldid=12979</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=AutoFS+%3A+montage+et+d%C3%A9montage+de+partages" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./AutoFS_:_montage_et_démontage_de_partages.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./AutoFS_:_montage_et_démontage_de_partages.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./AutoFS_:_montage_et_démontage_de_partages.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=AutoFS_:_montage_et_d%C3%A9montage_de_partages&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=AutoFS_:_montage_et_d%C3%A9montage_de_partages&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./AutoFS_:_montage_et_démontage_de_partages.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/AutoFS_:_montage_et_démontage_de_partages.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/AutoFS_:_montage_et_d%C3%A9montage_de_partages" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=AutoFS_:_montage_et_d%C3%A9montage_de_partages&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=AutoFS_:_montage_et_d%C3%A9montage_de_partages&amp;oldid=12979" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=AutoFS_:_montage_et_d%C3%A9montage_de_partages&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 26 September 2013, at 07:53.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

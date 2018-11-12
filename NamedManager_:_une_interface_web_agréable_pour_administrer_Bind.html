@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>NamedManager : une interface web agréable pour administrer Bind - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"NamedManager_:_une_interface_web_agréable_pour_administrer_Bind","wgTitle":"NamedManager : une interface web agréable pour administrer Bind","wgCurRevisionId":12411,"wgRevisionId":12411,"wgArticleId":3582,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"NamedManager_:_une_interface_web_agréable_pour_administrer_Bind","wgRelevantArticleId":3582,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-mysql {line-height: normal;}
+.source-mysql li, .source-mysql pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for mysql
+ * CSS class: source-mysql, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.mysql.source-mysql .de1, .mysql.source-mysql .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.mysql.source-mysql  {font-family:monospace;}
+.mysql.source-mysql .imp {font-weight: bold; color: red;}
+.mysql.source-mysql li, .mysql.source-mysql .li1 {font-weight: normal; vertical-align:top;}
+.mysql.source-mysql .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.mysql.source-mysql .li2 {font-weight: bold; vertical-align:top;}
+.mysql.source-mysql .kw1 {color: #990099; font-weight: bold;}
+.mysql.source-mysql .kw2 {color: #990099; font-weight: bold;}
+.mysql.source-mysql .kw3 {color: #9900FF; font-weight: bold;}
+.mysql.source-mysql .kw4 {color: #999900; font-weight: bold;}
+.mysql.source-mysql .kw5 {color: #999900; font-weight: bold;}
+.mysql.source-mysql .kw6 {color: #FF9900; font-weight: bold;}
+.mysql.source-mysql .kw7 {color: #FF9900; font-weight: bold;}
+.mysql.source-mysql .kw8 {color: #9900FF; font-weight: bold;}
+.mysql.source-mysql .kw9 {color: #9900FF; font-weight: bold;}
+.mysql.source-mysql .kw10 {color: #CC0099; font-weight: bold;}
+.mysql.source-mysql .kw11 {color: #CC0099; font-weight: bold;}
+.mysql.source-mysql .kw12 {color: #009900;}
+.mysql.source-mysql .kw13 {color: #000099;}
+.mysql.source-mysql .kw14 {color: #000099;}
+.mysql.source-mysql .kw15 {color: #000099;}
+.mysql.source-mysql .kw16 {color: #000099;}
+.mysql.source-mysql .kw17 {color: #000099;}
+.mysql.source-mysql .kw18 {color: #000099;}
+.mysql.source-mysql .kw19 {color: #000099;}
+.mysql.source-mysql .kw20 {color: #000099;}
+.mysql.source-mysql .kw21 {color: #000099;}
+.mysql.source-mysql .kw22 {color: #000099;}
+.mysql.source-mysql .kw23 {color: #000099;}
+.mysql.source-mysql .kw24 {color: #000099;}
+.mysql.source-mysql .kw25 {color: #000099;}
+.mysql.source-mysql .kw26 {color: #000099;}
+.mysql.source-mysql .kw27 {color: #00CC00;}
+.mysql.source-mysql .coMULTI {color: #808000; font-style: italic;}
+.mysql.source-mysql .co1 {color: #808080; font-style: italic;}
+.mysql.source-mysql .co2 {color: #808080; font-style: italic;}
+.mysql.source-mysql .es0 {color: #004000; font-weight: bold;}
+.mysql.source-mysql .es1 {color: #008080; font-weight: bold;}
+.mysql.source-mysql .br0 {color: #FF00FF;}
+.mysql.source-mysql .sy1 {color: #CC0099;}
+.mysql.source-mysql .sy2 {color: #000033;}
+.mysql.source-mysql .st0 {color: #008000;}
+.mysql.source-mysql .nu0 {color: #008080;}
+.mysql.source-mysql .ln-xtra, .mysql.source-mysql li.ln-xtra, .mysql.source-mysql div.ln-xtra {background-color: #ffc;}
+.mysql.source-mysql span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li, .source-php pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.php.source-php .de1, .php.source-php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.php.source-php  {font-family:monospace;}
+.php.source-php .imp {font-weight: bold; color: red;}
+.php.source-php li, .php.source-php .li1 {font-weight: normal; vertical-align:top;}
+.php.source-php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.php.source-php .li2 {font-weight: bold; vertical-align:top;}
+.php.source-php .kw1 {color: #b1b100;}
+.php.source-php .kw2 {color: #000000; font-weight: bold;}
+.php.source-php .kw3 {color: #990000;}
+.php.source-php .kw4 {color: #009900; font-weight: bold;}
+.php.source-php .co1 {color: #666666; font-style: italic;}
+.php.source-php .co2 {color: #666666; font-style: italic;}
+.php.source-php .co3 {color: #0000cc; font-style: italic;}
+.php.source-php .co4 {color: #009933; font-style: italic;}
+.php.source-php .coMULTI {color: #666666; font-style: italic;}
+.php.source-php .es0 {color: #000099; font-weight: bold;}
+.php.source-php .es1 {color: #000099; font-weight: bold;}
+.php.source-php .es2 {color: #660099; font-weight: bold;}
+.php.source-php .es3 {color: #660099; font-weight: bold;}
+.php.source-php .es4 {color: #006699; font-weight: bold;}
+.php.source-php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php.source-php .es6 {color: #009933; font-weight: bold;}
+.php.source-php .es_h {color: #000099; font-weight: bold;}
+.php.source-php .br0 {color: #009900;}
+.php.source-php .sy0 {color: #339933;}
+.php.source-php .sy1 {color: #000000; font-weight: bold;}
+.php.source-php .st0 {color: #0000ff;}
+.php.source-php .st_h {color: #0000ff;}
+.php.source-php .nu0 {color: #cc66cc;}
+.php.source-php .nu8 {color: #208080;}
+.php.source-php .nu12 {color: #208080;}
+.php.source-php .nu19 {color:#800080;}
+.php.source-php .me1 {color: #004000;}
+.php.source-php .me2 {color: #004000;}
+.php.source-php .re0 {color: #000088;}
+.php.source-php .ln-xtra, .php.source-php li.ln-xtra, .php.source-php div.ln-xtra {background-color: #ffc;}
+.php.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-NamedManager_une_interface_web_agréable_pour_administrer_Bind skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">NamedManager : une interface web agréable pour administrer Bind</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#mw-navigation">navigation</a>, 					<a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Pr.C3.A9requis"><span class="tocnumber">2</span> <span class="toctext">Prérequis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Nginx"><span class="tocnumber">2.1</span> <span class="toctext">Nginx</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#SSL"><span class="tocnumber">2.1.1</span> <span class="toctext">SSL</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#PHP-FPM"><span class="tocnumber">2.2</span> <span class="toctext">PHP-FPM</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#MariaDB"><span class="tocnumber">2.3</span> <span class="toctext">MariaDB</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Base_de_donn.C3.A9es"><span class="tocnumber">4.1</span> <span class="toctext">Base de données</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Serveur_web"><span class="tocnumber">4.2</span> <span class="toctext">Serveur web</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Bind_et_cl.C3.A9_API"><span class="tocnumber">4.3</span> <span class="toctext">Bind et clé API</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Interface_web"><span class="tocnumber">4.4</span> <span class="toctext">Interface web</span></a>
+<ul>
+<li class="toclevel-3 tocsection-13"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Cr.C3.A9ation_d.27un_utilisateur"><span class="tocnumber">4.4.1</span> <span class="toctext">Création d'un utilisateur</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Cl.C3.A9_API"><span class="tocnumber">4.4.2</span> <span class="toctext">Clé API</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Finalisation_et_synchronisation"><span class="tocnumber">4.4.3</span> <span class="toctext">Finalisation et synchronisation</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#Pourquoi_mes_changements_ne_fonctionnent_pas_m.C3.AAme_apr.C3.A8s_un_reboot_de_bind_.3F"><span class="tocnumber">5.1</span> <span class="toctext">Pourquoi mes changements ne fonctionnent pas même après un reboot de bind&#160;?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Namedmanager-logo.png.html" class="image" title="NamedManager"><img alt="NamedManager" src="images/6/69/Namedmanager-logo.png" width="220" height="33" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>1.5.1</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="https://projects.jethrocarr.com/p/oss-namedmanager/">Namedmanager Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>14/04/2013</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="https://projects.jethrocarr.com">Namedmanager</a><sup id="cite_ref-1" class="reference"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#cite_note-1">[1]</a></sup> est une interface graphique pour gérer vos enregistrements DNS. Elle a été correctement pensée pour faciliter l'administration, comme par exemple l'ajout automatique d'un enregistrement PTR au renseignement d'un enregistrement A, par simple checkbox.
+</p><p>L'interface est également capable de gérer plusieurs serveurs DNS et centraliser les logs de ceux ci.
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2</span> Prérequis</span></h1>
+<p>Nous allons avoir besoin de plusieurs éléments. J'ai donc choisis&#160;:
+</p>
+<ul><li> Serveur web&#160;: Nginx avec SSL + PHP-FPM</li>
+<li> Base de données&#160;: MariaDB</li></ul>
+<h2><span class="mw-headline" id="Nginx"><span class="mw-headline-number">2.1</span> Nginx</span></h2>
+<p>Pour l'installation, on est sur Debian donc c'est toujours aussi simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install nginx
+</pre>
+</td></tr></table><br />
+<p>Puis on va le démarrer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/nginx start
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="SSL"><span class="mw-headline-number">2.1.1</span> SSL</span></h3>
+<p>Dans un premier temps, on va générer des clefs SSL&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir -p /etc/nginx/ssl
+cd /etc/nginx/ssl
+openssl req -new -x509 -nodes -out server.crt -keyout server.key
+</pre>
+</td></tr></table><br />
+<p>Puis nous allons modifier notre configuration Nginx (a vous d'adapter selon vos besoins)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nginx/sites-enabled/default</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">server {
+	listen   443;
+&#160;
+        ssl on;
+        ssl_certificate /etc/nginx/ssl/server.crt;
+        ssl_certificate_key /etc/nginx/ssl/server.key;
+        ssl_session_timeout 5m;
+        access_log  /var/log/nginx/dns.access.log;
+&#160;
+	root /usr/share/nginx/www;
+	index index.php;
+&#160;
+<span class="xtra ln-xtra">	server_name dns.deimos.fr;</span>&#160;
+	location / {
+		try_files $uri $uri/ /index.html;
+	}
+&#160;
+	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+	#
+	location ~ \.php$ {
+		fastcgi_pass unix:/var/run/php5-fpm.sock;
+		fastcgi_index index.php;
+		include fastcgi_params;
+	}
+}</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="PHP-FPM"><span class="mw-headline-number">2.2</span> PHP-FPM</span></h2>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install php5-fpm</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="MariaDB"><span class="mw-headline-number">2.3</span> MariaDB</span></h2>
+<p>To install MariaDB, it's unfortunately not embedded in Debian, so we'll add a repository. First of all, install a python tool to get aptkey&#160;: 
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install python-software-properties</pre></div></div>
+</td></tr></table><br />
+<p>Then let's add this repository (<a rel="nofollow" class="external free" href="https://downloads.mariadb.org/mariadb/repositories/">https://downloads.mariadb.org/mariadb/repositories/</a>)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">apt-key adv --recv-keys --keyserver keyserver.ubuntu.com 0xcbcb082a1bb943db
+add-apt-repository 'deb http://mirrors.linsrv.net/mariadb/repo/10.0/debian wheezy main'</pre></div></div>
+</td></tr></table><br />
+<p>We're now going to change apt pinning to prioritize MariaDB's repository&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/apt/preferences.d/mariadb</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Package: *
+Pin: release o=MariaDB
+Pin-Priority: 1000</pre></div></div>
+</td></tr></table><br />
+<p>Et on installe MariaDB&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude update
+aptitude install mariadb-server</pre></div></div>
+</td></tr></table><br />
+<p><br />
+Puis nous allons ajouter les derniers packages nécessaire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install php5-cli php5-mysql</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>Si votre serveur DNS se trouve sur la même machine que l'interface graphique, alors il faudra l'installer&#160;:
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install bind9</pre></div></div>
+</td></tr></table><br />
+</td></tr></table><br />
+<p>Nous allons avoir besoin de ces utilitaires pour faire fonctionner l'interface web&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install bind9utils php-soap</pre></div></div>
+</td></tr></table><br />
+<p>Nous allons récupérer la dernière version , puis la décompresser&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw3">cd</span> <span class="sy0">/</span>tmp
+<span class="kw2">wget</span> https:<span class="sy0">//</span>projects.jethrocarr.com<span class="sy0">/</span>p<span class="sy0">/</span>oss-namedmanager<span class="sy0">/</span>downloads<span class="sy0">/</span>get<span class="sy0">/</span>namedmanager-1.5.1.tar.bz2
+<span class="kw2">tar</span> <span class="re5">-xjf</span> namedmanager-1.5.1.tar.bz2
+<span class="kw3">cd</span> namedmanager-1.5.1</pre></div></div>
+</td></tr></table><br />
+<p>Nous allons mettre en place les outils permettant l'intégration avec bind&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">mkdir</span> <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>namedmanager
+<span class="kw2">cp</span> <span class="re5">-Rf</span> <span class="kw3">bind</span> <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>namedmanager
+<span class="kw2">cp</span> <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>namedmanager<span class="sy0">/</span>bind<span class="sy0">/</span>include<span class="sy0">/</span><span class="br0">&#123;</span>sample-config.php,config-settings.php<span class="br0">&#125;</span>
+<span class="kw2">mkdir</span> <span class="sy0">/</span>etc<span class="sy0">/</span>namedmanager
+<span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>namedmanager<span class="sy0">/</span>bind<span class="sy0">/</span>include<span class="sy0">/</span>config-settings.php <span class="sy0">/</span>etc<span class="sy0">/</span>namedmanager<span class="sy0">/</span>config-bind.php</pre></div></div>
+</td></tr></table><br />
+<p>Puis la crontab&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">cp</span> resources<span class="sy0">/</span>namedmanager-bind.cron <span class="sy0">/</span>etc<span class="sy0">/</span>cron.d<span class="sy0">/</span>namedmanager-bind</pre></div></div>
+</td></tr></table><br />
+<p>Nous allons également mettre en place un service de logpush qui nous permettra de centraliser les logs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">cp</span> resources<span class="sy0">/</span>namedmanager_logpush.rcsysinit <span class="sy0">/</span>etc<span class="sy0">/</span>init.d<span class="sy0">/</span>namedmanager_logpush
+update-rc.d <span class="re5">-f</span> namedmanager_logpush defaults</pre></div></div>
+</td></tr></table><br />
+<p>Pour finir, nous créons les fichiers nécessaire au bon fonctionnement de l'interface web en assignant les bons droits&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">touch /etc/bind/named.namedmanager.conf
+mkdir /etc/bind/zones
+chown www-data:bind /etc/bind/named.namedmanager.conf /etc/bind/zones
+chmod 775 /etc/bind/named.namedmanager.conf /etc/bind/zones</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Base_de_donn.C3.A9es"><span class="mw-headline-number">4.1</span> Base de données</span></h2>
+<p>Maintenant, nous allons initialiser la base de données&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mysql -uroot -p &lt; sql/version_20121208_install.sql</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="warning_array">
+<tr>
+<td class="warning_subarray"> <font size="-1"><a href="./File:Warning_file.png.html" class="image" title="Warning"><img alt="Warning" src="images/0/09/Warning_file.png" width="39" height="32" /></a> <b>WARNING</b></font>
+</td></tr>
+<tr>
+<td>Contrairement à des imports classiques, celui ci créer en même temps la base de données appelée 'namedmanager'
+</td></tr></table><br />
+<p>et mettre les bons droits (ajustez selon vos besoins)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="mysql source-mysql"><pre class="de1"><span class="kw1">GRANT</span> <span class="kw1">USAGE</span> <span class="kw1">ON</span> <span class="sy1">*</span> . <span class="sy1">*</span> <span class="kw1">TO</span> <span class="st0">'namedmanager'</span>@<span class="st0">'<span class="es1">%</span>'</span> IDENTIFIED BY <span class="st0">'password'</span><span class="sy2">;</span>
+<span class="kw1">GRANT</span> <span class="kw1">SELECT</span> <span class="sy2">,</span> <span class="kw2">INSERT</span> <span class="sy2">,</span> <span class="kw1">UPDATE</span> <span class="sy2">,</span> <span class="kw1">DELETE</span> <span class="sy2">,</span> <span class="kw1">CREATE</span> <span class="sy2">,</span> <span class="kw1">DROP</span> <span class="sy2">,</span> <span class="kw1">INDEX</span> <span class="sy2">,</span> <span class="kw1">ALTER</span> <span class="sy2">,</span> <span class="kw1">CREATE</span> <span class="kw1">TEMPORARY</span> <span class="kw1">TABLES</span><span class="sy2">,</span> <span class="kw1">LOCK</span> <span class="kw1">TABLES</span> <span class="kw1">ON</span> <span class="st0">`namedmanager`</span> . <span class="sy1">*</span> <span class="kw1">TO</span> <span class="st0">'namedmanager'</span>@<span class="st0">'<span class="es1">%</span>'</span><span class="sy2">;</span>
+flush <span class="kw1">privileges</span><span class="sy2">;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Serveur_web"><span class="mw-headline-number">4.2</span> Serveur web</span></h2>
+<p>Nous allons nous occuper de la partie web. Personnellement, j'ai une machine dédiée à gérer mes DNS sur laquelle je ne veux pas de virtualhosts. Donc je met tout à la racine de mon serveur, mais vous n'êtes pas obligé de faire comme moi non plus. Puis nous allons créer le fichier de configuration et le mettre dans /etc&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw2">cp</span> <span class="re5">-Rf</span> htdocs<span class="sy0">/*</span> <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>www<span class="sy0">/</span>
+<span class="kw2">chown</span> <span class="re5">-Rf</span> www-data. <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>www<span class="sy0">/</span>
+<span class="kw2">cp</span> htdocs<span class="sy0">/</span>include<span class="sy0">/</span>sample-config.php <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>www<span class="sy0">/</span>include<span class="sy0">/</span>config-settings.php
+<span class="kw2">ln</span> <span class="re5">-s</span> <span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nginx<span class="sy0">/</span>www<span class="sy0">/</span>include<span class="sy0">/</span>config-settings.php <span class="sy0">/</span>etc<span class="sy0">/</span>namedmanager<span class="sy0">/</span>config.php</pre></div></div>
+</td></tr></table><br />
+<p>Editez votre configuration pour qu'elle ai les bonnes informations sur la base de données&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/namedmanager/config.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1"><span class="br0">&#91;</span><span class="sy0">...</span><span class="br0">&#93;</span>
+<span class="coMULTI">/*
+    Database Configuration
+*/</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;db_host&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;localhost&quot;</span><span class="sy0">;</span>           <span class="co1">// hostname of the MySQL server</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;db_name&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;namedmanager&quot;</span><span class="sy0">;</span>        <span class="co1">// database name</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;db_user&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;namedmanager&quot;</span><span class="sy0">;</span>        <span class="co1">// MySQL user</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;db_pass&quot;</span><span class="br0">&#93;</span> <span class="sy0">=</span> <span class="st0">&quot;password&quot;</span><span class="sy0">;</span>            <span class="co1">// MySQL password (if any)</span>
+<span class="br0">&#91;</span><span class="sy0">...</span><span class="br0">&#93;</span></pre></div></div>
+</td></tr></table><br />
+<p>Avant de passer à la suite, il est temps de redémarrer tous les services qui ont été modifiés&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service php5-fpm restart
+service nginx restart
+service cron restart</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Bind_et_cl.C3.A9_API"><span class="mw-headline-number">4.3</span> Bind et clé API</span></h2>
+<p>Nous allons intégrer la configuration de NamedManager à Bind&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">// This is the primary configuration file for the BIND DNS server named.
+//
+// Please read /usr/share/doc/bind9/README.Debian.gz for information on the
+// structure of BIND configuration files in Debian, *BEFORE* you customize
+// this configuration file.
+//
+// If you are just adding zones, please do that in /etc/bind/named.conf.local
+&#160;
+include &quot;/etc/bind/named.conf.options&quot;;
+include &quot;/etc/bind/named.conf.local&quot;;
+include &quot;/etc/bind/named.conf.default-zones&quot;;
+<span class="xtra ln-xtra">include &quot;/etc/bind/named.namedmanager.conf&quot;;</span></pre></div></div>
+</td></tr></table><br />
+<p>Redémarrez ensuite Bind.
+</p><p>Générerons une clé API (vous pouvez utiliser la méthode que vous souhaitez ou faire comme moi)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> date</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; date +%s | sha256sum | base64 | head -c 32&#160;; echo
+YmI3ZGRlYWY3NTk4ZDAzMGJmYWE1NDdh</pre></div></div>
+</td></tr></table><br />
+<p>Éditons ensuite le fichier de configuration suivant et adaptez le selon vos besoins&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/namedmanager/config-bind.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1"><span class="kw2">&lt;?php</span>
+<span class="coMULTI">/*</span>
+<span class="coMULTI">&#160;   Sample Configuration File</span>
+<span class="coMULTI">&#160;   Copy this file to config-settings.php</span>
+<span class="coMULTI">&#160;   This file should be read-only to the user whom the bind configuration scripts are running as.</span>
+<span class="coMULTI">*/</span>
+&#160;
+<span class="coMULTI">/*</span>
+<span class="coMULTI">&#160;   API Configuration</span>
+<span class="coMULTI">*/</span>
+<span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;api_url&quot;</span><span class="br0">&#93;</span>          <span class="sy0">=</span> <span class="st0">&quot;https://dns.deimos.fr&quot;</span><span class="sy0">;</span>              <span class="co1">// Application Install Location</span></span><span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;api_server_name&quot;</span><span class="br0">&#93;</span>  <span class="sy0">=</span> <span class="st0">&quot;dns.deimos.fr&quot;</span><span class="sy0">;</span>                     <span class="co1">// Name of the DNS server (important: part of the authentication process)</span></span><span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;api_auth_key&quot;</span><span class="br0">&#93;</span>     <span class="sy0">=</span> <span class="st0">&quot;YmI3ZGRlYWY3NTk4ZDAzMGJmYWE1NDdh&quot;</span><span class="sy0">;</span>  <span class="co1">// API authentication key</span></span>&#160;
+&#160;
+<span class="coMULTI">/*</span>
+<span class="coMULTI">&#160;   Log file to find messages from Named. Note that:</span>
+<span class="coMULTI">&#160;   * File should be in syslog format</span>
+<span class="coMULTI">&#160;   * Named Manager uses tail -f to read it, this can break with logrotate - make sure that either &quot;copytruncate&quot; mode is used, or tail processes are killed</span>
+<span class="coMULTI">*/</span>
+<span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;log_file&quot;</span><span class="br0">&#93;</span>     <span class="sy0">=</span> <span class="st0">&quot;/var/log/syslog&quot;</span><span class="sy0">;</span></span>&#160;
+<span class="coMULTI">/*</span>
+<span class="coMULTI">&#160;   Lock File</span>
+<span class="coMULTI">&#160;   Used to prevent clashes when multiple instances are accidently run.</span>
+<span class="coMULTI">*/</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;lock_file&quot;</span><span class="br0">&#93;</span>        <span class="sy0">=</span> <span class="st0">&quot;/var/lock/namedmanager_lock&quot;</span><span class="sy0">;</span>
+&#160;
+<span class="coMULTI">/*</span>
+<span class="coMULTI">&#160;   Bind Configuration Files</span>
+&#160;
+<span class="coMULTI">&#160;   Theses files define what files that NamedManager will write to. By design, NamedManager does</span>
+<span class="coMULTI">&#160;   not write directly into the master named configuration file, but instead into a seporate file</span>
+<span class="coMULTI">&#160;   that gets included - which allows custom configuration and zones to be easily added without</span>
+<span class="coMULTI">&#160;   worries of them being over written by NamedManager.</span>
+<span class="coMULTI">*/</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;bind&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;version&quot;</span><span class="br0">&#93;</span>      <span class="sy0">=</span> <span class="st0">&quot;9&quot;</span><span class="sy0">;</span>                  <span class="co1">// version of bind (currently only 9 is supported, although others may work)</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;bind&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;reload&quot;</span><span class="br0">&#93;</span>       <span class="sy0">=</span> <span class="st0">&quot;/usr/sbin/rndc reload&quot;</span><span class="sy0">;</span>      <span class="co1">// command to reload bind config &amp; zonefiles</span>
+<span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;bind&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;config&quot;</span><span class="br0">&#93;</span>       <span class="sy0">=</span> <span class="st0">&quot;/etc/bind/named.namedmanager.conf&quot;</span><span class="sy0">;</span>   <span class="co1">// configuration file to write bind config too</span></span><span class="xtra ln-xtra"><span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;bind&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;zonefiledir&quot;</span><span class="br0">&#93;</span>      <span class="sy0">=</span> <span class="st0">&quot;/etc/bind/zones&quot;</span><span class="sy0">;</span>            <span class="co1">// directory to write zonefiles too</span></span>                                        <span class="co1">// note: if using chroot bind, will often be /var/named/chroot/var/named/</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;bind&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;verify_zone&quot;</span><span class="br0">&#93;</span>      <span class="sy0">=</span> <span class="st0">&quot;/usr/sbin/named-checkzone&quot;</span><span class="sy0">;</span>      <span class="co1">// Used to verify each generated zonefile as OK</span>
+<span class="re0">$config</span><span class="br0">&#91;</span><span class="st0">&quot;bind&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;verify_config&quot;</span><span class="br0">&#93;</span>    <span class="sy0">=</span> <span class="st0">&quot;/usr/sbin/named-checkconf&quot;</span><span class="sy0">;</span>      <span class="co1">// Used to verify generated NamedManager configuration</span>
+&#160;
+<span class="co1">// force debugging on for all users + scripts</span>
+<span class="co1">// (note: debugging can be enabled on a per-user basis by an admin via the web interface)</span>
+<span class="co1">//$_SESSION[&quot;user&quot;][&quot;debug&quot;] = &quot;on&quot;;</span>
+<span class="sy1">?&gt;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Interface_web"><span class="mw-headline-number">4.4</span> Interface web</span></h2>
+<p>Maintenant, vous pouvez accéder en https sur votre serveur (moi c'est&#160;: <a rel="nofollow" class="external free" href="https://dns.deimos.fr">https://dns.deimos.fr</a>) avec les identifiants suivants&#160;:
+</p>
+<ul><li> Login&#160;: setup</li>
+<li> Password&#160;: setup123</li></ul>
+<h3><span class="mw-headline" id="Cr.C3.A9ation_d.27un_utilisateur"><span class="mw-headline-number">4.4.1</span> Création d'un utilisateur</span></h3>
+<p>Allez dans la partie "User Managment", créez vous un nouveau compte en lui donnant les privilèges admin, testez le et supprimez le compte setup ou changez lui le mot de passe. Vous devriez ensuite voir apparaitre uniquement votre utilisateur&#160;:
+</p><p><a href="./File:Namedmanager_user_crate.png.html" class="image"><img alt="Namedmanager user crate.png" src="images/4/48/Namedmanager_user_crate.png" width="741" height="618" /></a>
+</p>
+<h3><span class="mw-headline" id="Cl.C3.A9_API"><span class="mw-headline-number">4.4.2</span> Clé API</span></h3>
+<p>Allez dans "Configuration" de l'interface pour mettre cette clé&#160;:
+</p><p><a href="./File:Namedmanager_api_key.png.html" class="image"><img alt="Namedmanager api key.png" src="images/8/8a/Namedmanager_api_key.png" width="737" height="805" /></a>
+</p>
+<ol><li> Mettez l'adresse email de contact</li>
+<li> Entrez la clé précédemment générée</li>
+<li> Sauvegardez les changements</li></ol>
+<h3><span class="mw-headline" id="Finalisation_et_synchronisation"><span class="mw-headline-number">4.4.3</span> Finalisation et synchronisation</span></h3>
+<p>Il est maintenant temps d'ajouter un serveur DNS depuis l'interface graphique&#160;! Faites le une fois en ajoutant la clef API etc...
+</p><p><a href="./File:Namedmanager_add_dns.png.html" class="image"><img alt="Namedmanager add dns.png" src="images/d/d4/Namedmanager_add_dns.png" width="1336" height="665" /></a>
+</p><p>Maintenant ajoutez un domaine&#160;:
+</p><p><a href="./File:Namedmanager_add_zone.png.html" class="image"><img alt="Namedmanager add zone.png" src="images/1/14/Namedmanager_add_zone.png" width="1319" height="699" /></a>
+</p><p>et synchronisez le tout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">php -q /usr/share/namedmanager/bind/namedmanager_bind_configwriter.php</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>Lancez la commande 5 fois de suite, j'ai rencontré quelques soucis la première fois
+</td></tr></table><br />
+<p>Tout est normalement fonctionnel maintenant&#160;:-), vous pouvez ajouter des enregistrements&#160;:
+</p><p><a href="./File:Namedmanager_add_record.png.html" class="image"><img alt="Namedmanager add record.png" src="images/6/63/Namedmanager_add_record.png" width="1486" height="721" /></a>
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Pourquoi_mes_changements_ne_fonctionnent_pas_m.C3.AAme_apr.C3.A8s_un_reboot_de_bind_.3F"><span class="mw-headline-number">5.1</span> Pourquoi mes changements ne fonctionnent pas même après un reboot de bind&#160;?</span></h2>
+<p>Regardez vos logs&#160;! Si vous avez des messages du type&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> tail</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; tail -50 /var/log/syslog
+Apr 14 23:10:01 ZG001187 named[6340]: zone 0.168.192.in-addr.arpa/IN: loading from master file 0.168.192.in-addr.arpa.zone failed: file not found
+Apr 14 23:10:01 ZG001187 named[6340]: zone 0.168.192.in-addr.arpa/IN: not loaded due to errors.
+Apr 14 23:10:01 ZG001187 named[6340]: zone 255.in-addr.arpa/IN: loaded serial 1
+Apr 14 23:10:01 ZG001187 named[6340]: zone deimos.fr/IN: loading from master file deimos.fr.zone failed: file not found
+Apr 14 23:10:01 ZG001187 named[6340]: zone deimos.fr/IN: not loaded due to errors.</pre></div></div>
+</td></tr></table><br />
+<p>Vérifiez votre fichier de configuration généré par NamedManager. A l'heure ou j'écris ces lignes j'ai soumis le patch et suis en attente d'intégration, je me suis trouvé avec cette erreur&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.namedmanager.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">//
+// NamedManager Configuration
+//
+// This file is automatically generated any manual changes will be lost.
+//
+zone &quot;deimos.fr&quot; IN {
+        type master;
+<span class="xtra ln-xtra">        file &quot;deimos.fr.zone&quot;;</span>        allow-update { none; };
+};</pre></div></div>
+</td></tr></table><br />
+<p>Il manque le path complet du fichier de zones pour que cela fonctionne correctement. Pour remédier à ce problème, modifiez la ligne 246 de ce fichier par ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /usr/share/namedmanager/bind/include/application/inc_bind.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1">                <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">domains</span><span class="br0">&#41;</span>
+                <span class="br0">&#123;</span>
+                        <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">$this</span><span class="sy0">-&gt;</span><span class="me1">domains</span> <span class="kw1">as</span> <span class="re0">$domain</span><span class="br0">&#41;</span>
+                        <span class="br0">&#123;</span>
+                                <span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$fh</span><span class="sy0">,</span> <span class="st0">&quot;zone <span class="es1">\&quot;</span>&quot;</span><span class="sy0">.</span> <span class="re0">$domain</span><span class="br0">&#91;</span><span class="st0">&quot;domain_name&quot;</span><span class="br0">&#93;</span> <span class="sy0">.</span><span class="st0">&quot;<span class="es1">\&quot;</span> IN {<span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                                <span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$fh</span><span class="sy0">,</span> <span class="st0">&quot;<span class="es1">\t</span>type master;<span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="xtra ln-xtra">                                <span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$fh</span><span class="sy0">,</span> <span class="st0">&quot;<span class="es1">\t</span>file <span class="es1">\&quot;</span>&quot;</span><span class="sy0">.</span> <span class="re0">$GLOBALS</span><span class="br0">&#91;</span><span class="st0">&quot;config&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;bind&quot;</span><span class="br0">&#93;</span><span class="br0">&#91;</span><span class="st0">&quot;zonefiledir&quot;</span><span class="br0">&#93;</span> <span class="sy0">.</span> <span class="re0">$domain</span><span class="br0">&#91;</span><span class="st0">&quot;domain_name&quot;</span><span class="br0">&#93;</span> <span class="sy0">.</span><span class="st0">&quot;.zone<span class="es1">\&quot;</span>;<span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span></span>                                <span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$fh</span><span class="sy0">,</span> <span class="st0">&quot;<span class="es1">\t</span>allow-update { none; };<span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                                <span class="kw3">fwrite</span><span class="br0">&#40;</span><span class="re0">$fh</span><span class="sy0">,</span> <span class="st0">&quot;};<span class="es1">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                        <span class="br0">&#125;</span>
+                <span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis sauvegardez via l'interface de nouveau vos domaines (même sans faire de modifications) et relancez la commande exécutée au cron&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">php -q /usr/share/namedmanager/bind/namedmanager_bind_configwriter.php</pre></div></div>
+</td></tr></table><br />
+<p>Maintenant le fichier /etc/bind/named.namedmanager.conf contient le full path et vous pouvez redémarrer bind avec vos zones correctement chargées.
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">6</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="https://projects.jethrocarr.com">https://projects.jethrocarr.com</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.184 seconds
+Real time usage: 0.188 seconds
+Preprocessor visited node count: 617/1000000
+Preprocessor generated node count: 1774/1000000
+Post‐expand include size: 9697/2097152 bytes
+Template argument size: 2532/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  126.002      1 - -total
+ 54.84%   69.100      7 - Template:Config
+ 32.99%   41.567     23 - Template:Command
+  1.77%    2.236      1 - Template:Nginx_install
+  1.76%    2.218      1 - Template:Infobox
+  1.73%    2.186      1 - Template:MariaDB_repository
+  1.13%    1.427      1 - Template:PHP-FPM_install
+  1.02%    1.291      2 - Template:Notes
+  0.91%    1.142      1 - Template:Nginx_ssl-gen
+  0.69%    0.872      1 - Template:Warning
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3582-0!*!*!1!en!5!* and timestamp 20181111230703 and revision id 12411
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=NamedManager_:_une_interface_web_agréable_pour_administrer_Bind&amp;oldid=12411">https://wiki.deimos.fr/index.php?title=NamedManager_:_une_interface_web_agréable_pour_administrer_Bind&amp;oldid=12411</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=NamedManager+%3A+une+interface+web+agr%C3%A9able+pour+administrer+Bind" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/NamedManager_:_une_interface_web_agréable_pour_administrer_Bind.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind&amp;oldid=12411" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 14 April 2013, at 22:03.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

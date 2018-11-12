@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Rebooter sa Freebox Server 6 en ligne de commande - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Rebooter_sa_Freebox_Server_6_en_ligne_de_commande","wgTitle":"Rebooter sa Freebox Server 6 en ligne de commande","wgCurRevisionId":10651,"wgRevisionId":10651,"wgArticleId":3344,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Rebooter_sa_Freebox_Server_6_en_ligne_de_commande","wgRelevantArticleId":3344,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Rebooter_sa_Freebox_Server_6_en_ligne_de_commande skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Rebooter sa Freebox Server 6 en ligne de commande</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#mw-navigation">navigation</a>, 					<a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#Pr.C3.A9requis"><span class="tocnumber">2.1</span> <span class="toctext">Prérequis</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#pkg_add"><span class="tocnumber">2.1.1</span> <span class="toctext">pkg_add</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#Manuellement"><span class="tocnumber">2.1.2</span> <span class="toctext">Manuellement</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#Script"><span class="tocnumber">2.2</span> <span class="toctext">Script</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#Utilisation"><span class="tocnumber">3</span> <span class="toctext">Utilisation</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#Ressources"><span class="tocnumber">4</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Depuis la version 6 de la Freebox, il y a une interface web (<a rel="nofollow" class="external free" href="http://mafreebox.freebox.fr">http://mafreebox.freebox.fr</a>) qui permet de controler plusieurs options de celle ci et notamment de la redémarrer. Nous allons donc utiliser cette possibilité pour la redémarrer via la ligne de commande. Pour faire ceci, j'utilise <a rel="nofollow" class="external text" href="http://www.admin-linux.fr/?p=5049">un script qui a été récupérer sur admin-linux.fr</a>. 
+</p><p>J'ai essayer sur une Debian, ça fonctionne nativement et sous pfSense 2.0.1 et je me suis heurté à quelques petits problèmes. C'est pourquoi je vais détailler comment j'ai pu les résoudre ici.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2.1</span> Prérequis</span></h2>
+<p>Il va vous falloir bash et wget pour faire fonctionner le script qui va suivre. Sur la plus part des distributions...pas de soucis c'est installé. Mais sur des versions pour de l'embarqué ou packagées au minimum, ça pose des soucis. Je vais détailler comment faire sous pfSense.
+</p>
+<h3><span class="mw-headline" id="pkg_add"><span class="mw-headline-number">2.1.1</span> pkg_add</span></h3>
+<p>Installez wget et bash&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkg_add</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pkg_add -vr wget
+pkg_add -vr bash</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Manuellement"><span class="mw-headline-number">2.1.2</span> Manuellement</span></h3>
+<p>Si vous rencontrez des problèmes car le repository n'existe plus, prenez celui qui se rapproche le plus de votre version et uploadez les sur votre machine (pfSense par exemple)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> wget</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">wget ftp://ftp.freebsd.org/pub/FreeBSD/ports/i386/packages-8.2-release/ftp/wget-1.12_2.tbz
+wget ftp://ftp.beastie.tdk.net/pub/FreeBSD/ports/i386/packages-8.2-release/shells/bash-4.1.9.tbz</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite nous allons décompresser tout ce petit monde&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd /
+tar -xzf wget-1.12_2.tbz
+tar -xzf bash-4.1.9.tbz</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Script"><span class="mw-headline-number">2.2</span> Script</span></h2>
+<p>Nous allons mettre ce script dans /bin/freebox par exemple&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /bin/freebox</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+&#160;
+<span class="co0"># Description&#160;: Script de redémarrage de la FreeBox</span>
+<span class="co0">#	depuis la ligne de commande.</span>
+<span class="co0"># Auteur&#160;: FHH &lt;fhh@admin-linux.fr&gt;</span>
+<span class="co0"># $Id: freebox,v 1.6 2011/08/28 22:59:56 fhh Exp $</span>
+&#160;
+<span class="co0"># Variables globales du script&#160;:</span>
+<span class="re2">USERNAME</span>=<span class="st0">&quot;freebox&quot;</span>&#160;;
+<span class="re2">URL</span>=<span class="st0">&quot;http://mafreebox.freebox.fr&quot;</span>&#160;;
+&#160;
+<span class="re2">WORKING_DIRECTORY</span>=<span class="st0">&quot;<span class="es3">${HOME}</span>/.freebox&quot;</span>&#160;;
+<span class="re2">CONFIG_FILE</span>=<span class="st0">&quot;<span class="es3">${WORKING_DIRECTORY}</span>/config&quot;</span>&#160;;
+<span class="re2">TMP_DIRECTORY</span>=<span class="st0">&quot;<span class="es3">${WORKING_DIRECTORY}</span>/tmp&quot;</span>&#160;;
+<span class="re2">COOKIES</span>=<span class="st0">&quot;cookies&quot;</span>&#160;;
+&#160;
+<span class="re2">FREE_LOGIN_SCRIPT</span>=<span class="st0">&quot;/login.php&quot;</span>&#160;;
+<span class="re2">FREE_REBOOT_CGI</span>=<span class="st0">&quot;/system.cgi&quot;</span>&#160;;
+<span class="re2">WGET_OPTS</span>=<span class="st0">&quot;-T1 -t1 -qO /dev/null&quot;</span>&#160;;
+&#160;
+<span class="co0"># usage&#160;: Affichage de l'aide</span>
+usage <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+	<span class="kw3">echo</span> <span class="re5">-e</span> <span class="st0">&quot;$0 &lt;options&gt; [commande]<span class="es1">\n</span>&quot;</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot;Options&quot;</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot; -h		: Affiche ce message d'aide.&quot;</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot; -p &lt;pass&gt;	: Spécifie le mot de passe FreeBox.&quot;</span>&#160;;
+	<span class="kw3">echo</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot;Commandes&quot;</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot; restart	: Redémarrage de la freebox.&quot;</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot; savepass	: Sauvegarde le mot de passe.&quot;</span>&#160;;
+	<span class="kw3">echo</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot;En cas de dysfonctionnement, vérifiez votre mot de &quot;</span>&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot;passe FreeBox et/ou le fichier <span class="es1">\&quot;</span>~/.freebox/config<span class="es1">\&quot;</span>.&quot;</span>&#160;;
+<span class="br0">&#125;</span>
+&#160;
+<span class="co0"># Fonction de sortie de script&#160;:</span>
+die<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="kw3">echo</span> $<span class="sy0">@</span> <span class="sy0">&gt;&amp;</span><span class="nu0">2</span>&#160;;
+        <span class="kw3">exit</span> <span class="nu0">1</span>&#160;;
+<span class="br0">&#125;</span>
+<span class="co0"># Fonction d'authentification sur la FreeBox</span>
+auth<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+<span class="co0">#       Authentification et enregistrement du cookie&#160;:</span>
+	<span class="kw2">wget</span> <span class="co1">${WGET_OPTS}</span> <span class="re5">--save-cookies</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>/<span class="es3">${COOKIES}</span>&quot;</span> <span class="re5">--post-data</span> <span class="st0">&quot;login=<span class="es3">${USERNAME}</span>&amp;passwd=<span class="es3">${password}</span>&quot;</span> <span class="st0">&quot;<span class="es3">${URL}</span>/<span class="es3">${FREE_LOGIN_SCRIPT}</span>&quot;</span>&#160;;
+<span class="co0">#	Si le cookie n'est pas redéscendu, l'authentification à échoué&#160;:</span>
+	<span class="br0">&#91;</span> <span class="re5">-e</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>/<span class="es3">${COOKIES}</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">||</span> die <span class="st0">&quot;&gt; Echec d'authentification. Vérifiez le mot de passe.&quot;</span>&#160;;
+	<span class="br0">&#91;</span> <span class="sy0">!</span> <span class="re5">-z</span> <span class="st0">&quot;<span class="es4">$(sed -e 's/[[:blank:]]//g' -e '/^#\|^$/d' &quot;${TMP_DIRECTORY}/${COOKIES}&quot;)</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">||</span> die <span class="st0">&quot;&gt; Authentification échouée. Vérifiez le mot de passe.&quot;</span>&#160;;
+<span class="br0">&#125;</span>
+&#160;
+<span class="co0"># Fonction de saisie du mot de passe</span>
+askpwd<span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+	<span class="re2">cpt</span>=<span class="nu0">0</span>&#160;;
+	<span class="kw1">while</span> <span class="br0">&#91;</span> <span class="re5">-z</span> <span class="st0">&quot;<span class="es3">${password}</span>&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">do</span>
+		<span class="br0">&#40;</span><span class="br0">&#40;</span> <span class="co1">${cpt}</span> <span class="sy0">&gt;</span>= <span class="nu0">3</span> <span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> die <span class="st0">&quot;&gt; Vous devez fournir votre mot de passe. Arrêt&#160;!&quot;</span>&#160;;
+		<span class="br0">&#40;</span><span class="br0">&#40;</span> cpt = cpt + <span class="nu0">1</span> <span class="br0">&#41;</span><span class="br0">&#41;</span>&#160;; 
+		<span class="kw2">read</span> <span class="re5">-sp</span> <span class="st0">&quot;Password: &quot;</span> password&#160;;
+		<span class="kw3">echo</span>&#160;;
+	<span class="kw1">done</span>
+<span class="br0">&#125;</span>
+&#160;
+init <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+	<span class="br0">&#91;</span> <span class="sy0">!</span> <span class="re5">-d</span> <span class="st0">&quot;<span class="es3">${WORKING_DIRECTORY}</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#123;</span> <span class="kw2">mkdir</span> <span class="st0">&quot;<span class="es3">${WORKING_DIRECTORY}</span>&quot;</span> <span class="sy0">||</span> die <span class="st0">&quot;&gt; Impossible de créer <span class="es1">\&quot;</span><span class="es3">${WORKING_DIRECTORY}</span><span class="es1">\&quot;</span>&quot;</span>&#160;; <span class="br0">&#125;</span>
+	<span class="br0">&#91;</span> <span class="sy0">!</span> <span class="re5">-d</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#123;</span> <span class="kw2">mkdir</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>&quot;</span> <span class="sy0">||</span> die <span class="st0">&quot;&gt; Impossible de créer <span class="es1">\&quot;</span><span class="es3">${TMP_DIRECTORY}</span><span class="es1">\&quot;</span>&quot;</span>&#160;; <span class="br0">&#125;</span>
+	<span class="br0">&#91;</span> <span class="re5">-e</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>/<span class="es3">${COOKIES}</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw2">rm</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>/<span class="es3">${COOKIES}</span>&quot;</span>&#160;;
+<span class="br0">&#125;</span>
+&#160;
+connection <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+	<span class="kw2">wget</span> <span class="co1">${WGET_OPTS}</span> <span class="co1">${URL}</span>&#160;;
+	<span class="kw1">case</span> <span class="re4">$?</span> <span class="kw1">in</span>
+		<span class="nu0">4</span><span class="br0">&#41;</span>
+			die <span class="st0">&quot;&gt; Problème d'accès à la Freebox. Essayez de vous connecter manuellement&quot;</span> <span class="sy0">;;</span>
+		<span class="nu0">5</span><span class="br0">&#41;</span>
+			die <span class="st0">&quot;&gt; Problème SSL. Essayez de vous connecter manuellement&quot;</span> <span class="sy0">;;</span>
+	<span class="kw1">esac</span>
+<span class="br0">&#125;</span>
+&#160;
+cleancook <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+<span class="co0">#       Nettoyage du cookie&#160;:</span>
+        <span class="br0">&#91;</span> <span class="re5">-e</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>/<span class="es3">${COOKIES}</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> <span class="kw2">rm</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>/<span class="es3">${COOKIES}</span>&quot;</span>&#160;;
+<span class="br0">&#125;</span>
+&#160;
+<span class="co0"># Fonction de redémarrage de la FreeBox</span>
+restart <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+	init&#160;;
+	<span class="br0">&#91;</span> <span class="re5">-z</span> <span class="st0">&quot;<span class="es3">${password}</span>&quot;</span> <span class="re5">-a</span> <span class="re5">-r</span> <span class="st0">&quot;<span class="es3">${CONFIG_FILE}</span>&quot;</span> <span class="br0">&#93;</span> <span class="sy0">&amp;&amp;</span> . <span class="co1">${CONFIG_FILE}</span>&#160;;
+	connection&#160;;
+	askpwd&#160;;
+	auth&#160;;
+<span class="co0">#	Redémarrage de la freebox&#160;:</span>
+	<span class="kw2">wget</span> <span class="co1">${WGET_OPTS}</span> <span class="re5">--load-cookies</span> <span class="st0">&quot;<span class="es3">${TMP_DIRECTORY}</span>/<span class="es3">${COOKIES}</span>&quot;</span> <span class="re5">--post-data</span> <span class="st_h">'method=system.reboot&amp;redirect_after=/reboot.php&amp;timeout=1'</span> <span class="re5">-p</span> <span class="st0">&quot;<span class="es3">${URL}</span>/<span class="es3">${FREE_REBOOT_CGI}</span>&quot;</span>&#160;;
+	cleancook&#160;;
+<span class="br0">&#125;</span>
+&#160;
+savepass <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+	init&#160;;
+	askpwd&#160;;
+	auth&#160;;
+	<span class="kw3">echo</span> <span class="st0">&quot;password=<span class="es3">${password}</span>&quot;</span> <span class="sy0">&gt;</span> <span class="st0">&quot;<span class="es3">${CONFIG_FILE}</span>&quot;</span>&#160;;
+	<span class="kw2">chmod</span> 0600 <span class="st0">&quot;<span class="es3">${CONFIG_FILE}</span>&quot;</span>
+	cleancook&#160;;
+<span class="br0">&#125;</span>
+&#160;
+<span class="co0"># Corps du programme&#160;:</span>
+<span class="br0">&#40;</span><span class="br0">&#40;</span> <span class="re4">$#</span> <span class="sy0">&gt;</span> <span class="nu0">0</span> <span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">||</span> <span class="br0">&#123;</span> usage&#160;; <span class="kw3">exit</span> <span class="nu0">0</span>; <span class="br0">&#125;</span>
+&#160;
+<span class="kw1">while</span> <span class="kw3">getopts</span> <span class="st0">&quot;:p:h&quot;</span> opt&#160;; <span class="kw1">do</span>
+	<span class="kw1">case</span> <span class="co1">${opt}</span> <span class="kw1">in</span>
+		p<span class="br0">&#41;</span>
+			<span class="re2">password</span>=<span class="co1">${OPTARG}</span> <span class="sy0">;;</span>
+		h<span class="br0">&#41;</span>
+			usage&#160;; 
+			<span class="kw3">exit</span> <span class="nu0">0</span> <span class="sy0">;;</span>
+		:<span class="br0">&#41;</span>
+			<span class="kw3">echo</span> <span class="re5">-e</span> <span class="st0">&quot;&gt; Option -<span class="es2">$OPTARG</span> requiert un argument.<span class="es1">\n</span>&quot;</span>&#160;;
+			usage&#160;;
+			<span class="kw3">exit</span> <span class="nu0">1</span> <span class="sy0">;;</span>
+		<span class="sy0">*</span><span class="br0">&#41;</span>
+			<span class="kw3">echo</span> <span class="re5">-e</span> <span class="st0">&quot;&gt; Invalide option <span class="es1">\&quot;</span>-<span class="es2">$OPTARG</span><span class="es1">\&quot;</span>.<span class="es1">\n</span>&quot;</span>&#160;; 
+			usage&#160;;
+			<span class="kw3">exit</span> <span class="nu0">1</span> <span class="sy0">;;</span>
+	<span class="kw1">esac</span>
+<span class="kw1">done</span>
+<span class="kw3">shift</span> $<span class="br0">&#40;</span><span class="br0">&#40;</span>OPTIND-<span class="nu0">1</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+&#160;
+<span class="br0">&#40;</span><span class="br0">&#40;</span> <span class="re4">$#</span> <span class="sy0">&gt;</span> <span class="nu0">1</span> <span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#123;</span> <span class="kw3">echo</span> <span class="re5">-e</span> <span class="st0">&quot;&gt; Une seule commande à la fois.<span class="es1">\n</span>&quot;</span>&#160;; usage&#160;; <span class="kw3">exit</span> <span class="nu0">1</span>&#160;; <span class="br0">&#125;</span>&#160;;
+<span class="br0">&#40;</span><span class="br0">&#40;</span> <span class="re4">$#</span> <span class="sy0">&lt;</span> <span class="nu0">1</span> <span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">&amp;&amp;</span> <span class="br0">&#123;</span> <span class="kw3">echo</span> <span class="re5">-e</span> <span class="st0">&quot;&gt; Aucune commande précisée.<span class="es1">\n</span>&quot;</span>&#160;; usage&#160;; <span class="kw3">exit</span> <span class="nu0">1</span>&#160;; <span class="br0">&#125;</span>&#160;;
+&#160;
+<span class="kw1">case</span> <span class="re4">$1</span> <span class="kw1">in</span>
+	restart<span class="br0">&#41;</span>
+		restart <span class="sy0">;;</span>
+	savepass<span class="br0">&#41;</span>
+		savepass <span class="sy0">;;</span>
+	<span class="sy0">*</span><span class="br0">&#41;</span>
+		<span class="kw3">echo</span> <span class="re5">-e</span> <span class="st0">&quot;&gt; $1&#160;: Commande inconnue&#160;!<span class="es1">\n</span>&quot;</span>&#160;;
+		usage&#160;;
+		<span class="kw3">exit</span> <span class="nu0">1</span> <span class="sy0">;;</span>
+<span class="kw1">esac</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis lui donner les bons droits&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">chmod 555 /bin/freebox</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">3</span> Utilisation</span></h1>
+<p>Nous allons sauvegarder le mot de passe de l'interface de la Freebox comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> freebox</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; freebox savepass
+Password:</pre></div></div>
+</td></tr></table><br />
+<p>Voici ensuite la méthode pour redémarrer la Freebox&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> freebox</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">freebox reboot</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">4</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.admin-linux.fr/?p=5049">http://www.admin-linux.fr/?p=5049</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.036 seconds
+Real time usage: 0.039 seconds
+Preprocessor visited node count: 150/1000000
+Preprocessor generated node count: 420/1000000
+Post‐expand include size: 1384/2097152 bytes
+Template argument size: 406/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   19.502      1 - -total
+ 76.05%   14.832      1 - Template:Config
+ 19.22%    3.748      6 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3344-0!*!*!1!en!5!* and timestamp 20181111230849 and revision id 10651
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Rebooter_sa_Freebox_Server_6_en_ligne_de_commande&amp;oldid=10651">https://wiki.deimos.fr/index.php?title=Rebooter_sa_Freebox_Server_6_en_ligne_de_commande&amp;oldid=10651</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Rebooter+sa+Freebox+Server+6+en+ligne+de+commande" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Rebooter_sa_Freebox_Server_6_en_ligne_de_commande&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Rebooter_sa_Freebox_Server_6_en_ligne_de_commande&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Rebooter_sa_Freebox_Server_6_en_ligne_de_commande&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Rebooter_sa_Freebox_Server_6_en_ligne_de_commande&amp;oldid=10651" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Rebooter_sa_Freebox_Server_6_en_ligne_de_commande&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 24 March 2012, at 23:25.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":74});
+}</script>
+	</body>
+</html>
+	

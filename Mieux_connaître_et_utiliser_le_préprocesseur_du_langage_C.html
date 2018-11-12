@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Mieux connaître et utiliser le préprocesseur du langage C - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C","wgTitle":"Mieux connaître et utiliser le préprocesseur du langage C","wgCurRevisionId":8386,"wgRevisionId":8386,"wgArticleId":3056,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C","wgRelevantArticleId":3056,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #b1b100;}
+.c.source-c .kw2 {color: #000000; font-weight: bold;}
+.c.source-c .kw3 {color: #000066;}
+.c.source-c .kw4 {color: #993333;}
+.c.source-c .co1 {color: #666666; font-style: italic;}
+.c.source-c .co2 {color: #339933;}
+.c.source-c .coMULTI {color: #808080; font-style: italic;}
+.c.source-c .es0 {color: #000099; font-weight: bold;}
+.c.source-c .es1 {color: #000099; font-weight: bold;}
+.c.source-c .es2 {color: #660099; font-weight: bold;}
+.c.source-c .es3 {color: #660099; font-weight: bold;}
+.c.source-c .es4 {color: #660099; font-weight: bold;}
+.c.source-c .es5 {color: #006699; font-weight: bold;}
+.c.source-c .br0 {color: #009900;}
+.c.source-c .sy0 {color: #339933;}
+.c.source-c .st0 {color: #ff0000;}
+.c.source-c .nu0 {color: #0000dd;}
+.c.source-c .nu6 {color: #208080;}
+.c.source-c .nu8 {color: #208080;}
+.c.source-c .nu12 {color: #208080;}
+.c.source-c .nu16 {color:#800080;}
+.c.source-c .nu17 {color:#800080;}
+.c.source-c .nu18 {color:#800080;}
+.c.source-c .nu19 {color:#800080;}
+.c.source-c .me1 {color: #202020;}
+.c.source-c .me2 {color: #202020;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Mieux connaître et utiliser le préprocesseur du langage C</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#mw-navigation">navigation</a>, 					<a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Une_d.C3.A9faillance_peu_connue_du_compilateur"><span class="tocnumber">2</span> <span class="toctext">Une défaillance peu connue du compilateur</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Terminaison_de_macro"><span class="tocnumber">3</span> <span class="toctext">Terminaison de macro</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Regrouper_les_instructions"><span class="tocnumber">4</span> <span class="toctext">Regrouper les instructions</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Parenth.C3.A9ser_les_param.C3.A8tres"><span class="tocnumber">5</span> <span class="toctext">Parenthéser les paramètres</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Parenth.C3.A9ser_les_expressions"><span class="tocnumber">6</span> <span class="toctext">Parenthéser les expressions</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#.C3.89viter_les_expressions_en_param.C3.A8tres"><span class="tocnumber">7</span> <span class="toctext">Éviter les expressions en paramètres</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Nombre_variable_d.E2.80.99arguments"><span class="tocnumber">8</span> <span class="toctext">Nombre variable d’arguments</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Les_macros_sp.C3.A9ciales"><span class="tocnumber">9</span> <span class="toctext">Les macros spéciales</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#GNUC"><span class="tocnumber">9.1</span> <span class="toctext">__GNUC__</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#LINE_.2C_FILE_et_FUNCTION"><span class="tocnumber">9.2</span> <span class="toctext">__LINE__, __FILE__ et __FUNCTION__</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#L.E2.80.99op.C3.A9rateur_.22.3F.23.3F.22"><span class="tocnumber">9.3</span> <span class="toctext">L’opérateur "?#?"</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#L.E2.80.99op.C3.A9rateur_.22.3F.23.23.3F.22"><span class="tocnumber">9.4</span> <span class="toctext">L’opérateur "?##?"</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Comment_.C3.A9liminer_les_attributs_de_GCC"><span class="tocnumber">10</span> <span class="toctext">Comment éliminer les attributs de GCC</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Inclusions_conditionnelles"><span class="tocnumber">11</span> <span class="toctext">Inclusions conditionnelles</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Conclusion"><span class="tocnumber">12</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#Ressources"><span class="tocnumber">13</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>En langage C, le "?preprocessing?" est l’étape préalable à la compilation. C’est un mécanisme puissant qui permet entre autres la compilation conditionnelle, l’inclusion de fichiers et la définition de macro-instructions. Bien que très simples au premier abord, ces facilités doivent être utilisées avec précautions pour éviter les erreurs de compilation ou, pire, les dysfonctionnements des programmes. De plus, le préprocesseur de GCC recèle des fonctionnalités supplémentaires qui peuvent s’avérer très utiles.
+</p>
+<h1><span class="mw-headline" id="Une_d.C3.A9faillance_peu_connue_du_compilateur"><span class="mw-headline-number">2</span> Une défaillance peu connue du compilateur</span></h1>
+<p>Grâce au macro processeur du langage C, il est possible de définir et d’utiliser des constantes de la manière suivante?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+&#160;
+<span class="co2">#define CONSTANTE_1  (0x3d+20)</span>
+<span class="co2">#define CONSTANTE_2  (0x3e+20)</span>
+<span class="co2">#define CONSTANTE_3  (0x3f+20)</span>
+&#160;
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">%</span>u\n”<span class="sy0">,</span> CONSTANTE_1<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">%</span>u\n”<span class="sy0">,</span> CONSTANTE_2<span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">%</span>u\n”<span class="sy0">,</span> CONSTANTE_3<span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>Si l’on compile ce programme, on obtient une erreur inattendue?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; gcc main.c
+main.c:10:18: erreur: suffixe " +20 " invalide pour une constante entière
+</pre>
+</td></tr></table><br />
+<p>Le compilateur détecte une erreur à la ligne 10, colonne 18, c’est-à-dire au niveau de la macro CONSTANTE_2. Cela est une défaillance du compilateur qui croit avoir à faire à une constante entière dénotée par "?0x3?" avec un exposant positif dénoté par "?e+20?"?: 0x3 élevé à la puissance 20. Ce n’est pas une notation légale en langage C, car les exposants ne sont autorisés que pour les type flottants. Pour se sortir de cette chausse-trappe, il faut réécrire CONSTANTE_2 en séparant "?e?" et "?+?" par un caractère espace?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#define CONSTANTE_2  (0x3e + 20)</span></pre></div></div>
+<p>Ainsi, la compilation et l’exécution peuvent se réaliser?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; gcc main.c
+&gt; ./a.out
+81
+82
+83</pre></div></div>
+</td></tr></table><br />
+<p>Il est intéressant de noter que ce problème existe dans les sources du noyau Linux en version PowerPC. Il suffit de consulter le fichier "?.../linux-source-2.6.22/include/asm-powerpc/irq.h?" pour voir la définition suivante qui ne compile pas lorsqu’on l’utilise?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#define    SIU_INT_PC1        ((uint)0x3e+CPM_IRQ_OFFSET)</span></pre></div></div>
+<p>Il est donc conseillé de systématiquement mettre une espace de part et d’autre des opérateurs "?+?" et "?–?" quand on définit une macro avec le chiffre hexadécimal "?e?".
+</p>
+<h1><span class="mw-headline" id="Terminaison_de_macro"><span class="mw-headline-number">3</span> Terminaison de macro</span></h1>
+<p>Il n’est pas recommandé de terminer une macro par un "?;?" comme dans l’exemple suivant?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"> <span class="co2">#define ADD(a, b)  a + b;</span>
+&#160;
+ <span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+ <span class="br0">&#123;</span>
+ <span class="kw4">int</span> r <span class="sy0">=</span> ac<span class="sy0">;</span>
+   <span class="kw1">if</span> <span class="br0">&#40;</span>r<span class="br0">&#41;</span>
+    r <span class="sy0">=</span> ADD<span class="br0">&#40;</span><span class="nu0">4</span><span class="sy0">,</span> <span class="nu0">5</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="kw1">else</span>
+    r <span class="sy0">=</span> ADD<span class="br0">&#40;</span><span class="nu0">5</span><span class="sy0">,</span> <span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>En effet, cela mène à une erreur de compilation?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; gcc main.c
+main.c: In function &quot;main”:
+main.c:9: erreur: expected expression before &quot;else&quot;</pre></div></div>
+</td></tr></table><br />
+<p>La ligne 9 contient deux instructions du fait de l’ajout du "?;?" derrière l’appel à ADD(). Le résultat du préprocesseur le montre bien?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> &gt; gcc -E main.c
+[...]
+  if (r)
+    r = 4 + 5;;
+  else
+    r = 5 + 6;;</pre></div></div>
+</td></tr></table><br />
+<p>L’instruction else se retrouve orpheline, car le if auquel elle est censée se rapporter contient plus d’une instruction qui ne sont pas regroupées par des accolades?: "?r = 4 + 5;?" et "?;?".
+</p>
+<h1><span class="mw-headline" id="Regrouper_les_instructions"><span class="mw-headline-number">4</span> Regrouper les instructions</span></h1>
+<p>Quand une macro contient plusieurs instructions comme?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#define ADD(a, b, c)                          \
+                    printf(&quot;%d +&#160;%d &quot;, a, b); \
+                    c = a + b;                \
+                    printf(“=&#160;%d\n”, c);</span></pre></div></div>
+<p>On peut se retrouver confronté à l’erreur de compilation évoquée au §?2 si elle est utilisée dans une instruction if, car l’utilisateur de la macro peut ne pas mettre d’accolades de part et d’autre de l’appel. Ou alors la macro pouvait ne contenir à l’origine qu’une seule instruction et était logiquement utilisée dans les instructions if sans être entourée d’accolades, mais une évolution du logiciel a rendu nécessaire l’ajout d’instructions supplémentaires dans celle-ci. Dans ce dernier cas, on risque d’introduire des dysfonctionnements sournois du logiciel si, par exemple, la macro est utilisée dans une instruction while sans accolades?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#define ADD(a, b, c)                            \
+                      printf(&quot;%d +&#160;%d &quot;, a, b); \
+                      c = a + b;                \
+                      printf(&quot;=&#160;%d\n&quot;, c);</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw4">int</span> i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="kw4">int</span> r <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span>
+  <span class="kw1">while</span> <span class="br0">&#40;</span>av<span class="br0">&#91;</span>i<span class="sy0">++</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+    ADD<span class="br0">&#40;</span>r<span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> r<span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>On s’attend à ce que toutes les instructions regroupées dans ADD() soient exécutées à chaque itération de la boucle. Malheureusement, le préprocesseur va générer une suite d’instructions sans accolades donc, à chaque itération, seule la première instruction "?printf("%d +&#160;%d ", a, b)?" sera exécutée. Pour éviter ce genre d’erreurs, il est conseillé de regrouper les instructions dans un "?do-while?" non suivi de "?;?" (règle du §?2), afin de faire apparaître la macro multi-instruction comme une seule instruction?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1">	<span class="co2">#define ADD(a, b, c)  do {                \
+                        printf(“%d +&#160;%d “, a, b); \
+                        c = a + b;                \
+                        printf(“=&#160;%d\n”, c);      \
+                      } while(0)</span></pre></div></div>
+<p>Le compilateur ne génèrera pas de boucle vu que la condition d’itération est toujours fausse?: while(0). Il ne faut surtout pas se contenter d’accolades, car on ferait apparaître le problème du §?2 si la macro était utilisée dans un "?if-else?" du fait du "?;?" qui risque de suivre l’appel dans le corps du if. Avec la boucle non suivie de "?;?", l’utilisateur est obligé de mettre un point virgule après l’appel à la macro sous peine d’erreur de compilation, mais il n’aura qu’une instruction?: la boucle "?do-while?".
+</p>
+<h1><span class="mw-headline" id="Parenth.C3.A9ser_les_param.C3.A8tres"><span class="mw-headline-number">5</span> Parenthéser les paramètres</span></h1>
+<p>Considérons le petit programme suivant qui définit et utilise une macro effectuant une division entière?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+&#160;
+<span class="co2">#define DIV(a, b, c)  do {                        \
+                        printf(“%d /&#160;%d “, a, b); \
+                        c = a / b;                \
+                        printf(“=&#160;%d\n”, c);      \
+                      } while(0)</span>
+&#160;
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw4">int</span> r <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span>
+<span class="kw4">int</span> v1 <span class="sy0">=</span> <span class="nu0">12</span><span class="sy0">;</span>
+<span class="kw4">int</span> v2 <span class="sy0">=</span> <span class="nu0">6</span><span class="sy0">;</span>
+  DIV<span class="br0">&#40;</span>v1<span class="sy0">,</span> v2<span class="sy0">,</span> r<span class="br0">&#41;</span><span class="sy0">;</span>
+  DIV<span class="br0">&#40;</span>v1 <span class="sy0">+</span> <span class="nu0">6</span><span class="sy0">,</span> v2<span class="sy0">,</span> r<span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>À l’exécution, on s’attend à l’affichage du résultat 2 pour la première division (12 / 6) et du résultat 3 pour la deuxième division ((12 + 6) / 6). Mais, on obtient le résultat erroné suivant?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ./a.out
+12 / 6 = 2
+18 / 6 = 13</pre></div></div>
+</td></tr></table><br />
+<p>Comme d’habitude, lorsque l’on a un doute avec les macros, il faut visualiser la sortie du préprocesseur?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw4">int</span> r <span class="sy0">=</span> <span class="nu0">5</span><span class="sy0">;</span>
+<span class="kw4">int</span> v1 <span class="sy0">=</span> <span class="nu0">12</span><span class="sy0">;</span>
+<span class="kw4">int</span> v2 <span class="sy0">=</span> <span class="nu0">6</span><span class="sy0">;</span>
+  <span class="kw1">do</span> <span class="br0">&#123;</span> <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">%</span>d <span class="sy0">/</span> <span class="sy0">%</span>d “<span class="sy0">,</span> v1<span class="sy0">,</span> v2<span class="br0">&#41;</span><span class="sy0">;</span>
+       r <span class="sy0">=</span> v1 <span class="sy0">/</span> v2<span class="sy0">;</span>
+       <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">=</span> <span class="sy0">%</span>d\n”<span class="sy0">,</span> r<span class="br0">&#41;</span><span class="sy0">;</span>
+     <span class="br0">&#125;</span> <span class="kw1">while</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="kw1">do</span> <span class="br0">&#123;</span> <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">%</span>d <span class="sy0">/</span> <span class="sy0">%</span>d “<span class="sy0">,</span> v1 <span class="sy0">+</span> <span class="nu0">6</span><span class="sy0">,</span> v2<span class="br0">&#41;</span><span class="sy0">;</span>
+       r <span class="sy0">=</span> v1 <span class="sy0">+</span> <span class="nu0">6</span> <span class="sy0">/</span> v2<span class="sy0">;</span>
+       <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">=</span> <span class="sy0">%</span>d\n”<span class="sy0">,</span> r<span class="br0">&#41;</span><span class="sy0">;</span>
+     <span class="br0">&#125;</span> <span class="kw1">while</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+  <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>On constate que l’on se retrouve confronté à un problème de priorité des opérateurs au niveau du deuxième appel à DIV(). En effet, dans l’expression "?r = v1 + 6 / v2?", l’opérateur "?/?" est plus prioritaire que l’opérateur "?+?". Le compilateur génère donc l’équivalent de l’opération mathématique "?r = v1 + ( 6 / v2 )?". D’où le résultat 13 quand v1 et v2 valent respectivement 12 et 6. La parade consiste à systématiquement "?parenthéser?" toutes les occurrences des paramètres dans une macro?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#define DIV(a, b, c)  do {                            \
+                        printf(&quot;%d /&#160;%d &quot;, (a), (b)); \
+                        (c) = (a) / (b);              \
+                        printf(“=&#160;%d\n”, (c));        \
+                      } while(0)</span></pre></div></div>
+<p>Le deuxième appel à DIV() dans le programme précédent donne maintenant le résultat correct en sortie du préprocesseur?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw1">do</span> <span class="br0">&#123;</span> <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d /&#160;%d &quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span>v1 <span class="sy0">+</span> <span class="nu0">6</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="br0">&#40;</span>v2<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+     <span class="br0">&#40;</span>r<span class="br0">&#41;</span> <span class="sy0">=</span> <span class="br0">&#40;</span>v1 <span class="sy0">+</span> <span class="nu0">6</span><span class="br0">&#41;</span> <span class="sy0">/</span> <span class="br0">&#40;</span>v2<span class="br0">&#41;</span><span class="sy0">;</span>
+     <span class="kw3">printf</span><span class="br0">&#40;</span>“<span class="sy0">=</span> <span class="sy0">%</span>d\n”<span class="sy0">,</span> <span class="br0">&#40;</span>r<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+   <span class="br0">&#125;</span> <span class="kw1">while</span><span class="br0">&#40;</span><span class="nu0">0</span><span class="br0">&#41;</span><span class="sy0">;</span></pre></div></div>
+<h1><span class="mw-headline" id="Parenth.C3.A9ser_les_expressions"><span class="mw-headline-number">6</span> Parenthéser les expressions</span></h1>
+<p>Considérons la constante définie sous la forme de la macro CONSTANTE et utilisée comme suit?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#define BASE       2000</span>
+<span class="co2">#define CONSTANTE  BASE + 2</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+  <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> CONSTANTE <span class="sy0">/</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>L’affichage espéré est le résultat de l’opération "?2002 / 2?", soit 1001. Et pourtant, on obtient 2001. La sortie du préprocesseur montre que le programme génère un problème de priorité des opérateurs comme on l’a vu au §?4?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> <span class="nu0">2000</span> <span class="sy0">+</span> <span class="nu0">2</span> <span class="sy0">/</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="sy0">;</span></pre></div></div>
+<p>D’une manière générale, si une macro consiste en une expression (constante, test, opérateur ternaire...), il est prudent de la parenthéser. D’où la correction de l’exemple?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#define BASE       (2000)</span>
+<span class="co2">#define CONSTANTE  (BASE + 2)</span></pre></div></div>
+<h1><span class="mw-headline" id=".C3.89viter_les_expressions_en_param.C3.A8tres"><span class="mw-headline-number">7</span> Éviter les expressions en paramètres</span></h1>
+<p>On a souvent tendance à utiliser une macro comme si c’était une fonction ou alors des évolutions de code peuvent mener au fait qu’une fonction devienne une macro pour des raisons de lisibilité ou d’optimisation. Voici un exemple de programme qui définit et utilise la macro IS_BLANK(c) qui retourne vrai si le paramètre est un caractère blanc (espace ou tabulation)?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#define IS_BLANK(c)  ((c) == ‘\t’ || (c) == ‘ ‘)</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw4">char</span> <span class="sy0">*</span>p <span class="sy0">=</span> av<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span>
+  <span class="kw1">while</span><span class="br0">&#40;</span><span class="sy0">*</span>p<span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>IS_BLANK<span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#40;</span>p<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+      <span class="kw3">printf</span><span class="br0">&#40;</span>“Blanc à l’indice <span class="sy0">%</span>d\n<span class="st0">&quot;, (p - 1) - av[0]);
+    }
+  }
+  return 0;
+}</span></pre></div></div>
+<p>Ce programme est censé afficher les indices des caractères blancs dans son nom. Pourtant, l’indice affiché est erroné ou certains blancs ne sont pas détectés?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; gcc main.c -o &quot;nom avec espaces&quot;
+&gt; ./nom\?avec\?espaces
+Blanc à l’indice 5</pre></div></div>
+</td></tr></table><br />
+<p>Le seul blanc détecté est indiqué à l’indice 5, alors que dans la chaîne de caractères "?./nom?avec?espaces?", il y a des blancs aux indices 5 et 10. Ceci est dû au fait que le paramètre c est évalué deux fois dans la macro IS_BLANK()?: la première fois pour être comparé à ‘\t’ et la seconde pour être comparé à ‘?‘. Or, le programme passe *(p++) à la macro. Ce qui donne en sortie du préprocesseur?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw1">if</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#40;</span>p<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">==</span> ‘\t’ <span class="sy0">||</span> <span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#40;</span>p<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#41;</span> <span class="sy0">==</span> ‘ ‘<span class="br0">&#41;</span><span class="br0">&#41;</span></pre></div></div>
+<p>En d’autres termes, la première comparaison se fait avec le caractère pointé par p, p étant ensuite incrémenté (post-incrémentation), la seconde comparaison se fait avec le caractère suivant. En retour de macro, p est de nouveau incrémenté. La bonne écriture pour le programme est donc d’éviter de passer une expression en paramètre de la macro?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#define IS_BLANK(c)  ((c) == ‘\t’ || (c) == ‘ ‘)</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw4">char</span> <span class="sy0">*</span>p <span class="sy0">=</span> av<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span>
+  <span class="kw1">while</span><span class="br0">&#40;</span><span class="sy0">*</span>p<span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>IS_BLANK<span class="br0">&#40;</span><span class="sy0">*</span>p<span class="br0">&#41;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+      <span class="kw3">printf</span><span class="br0">&#40;</span>“Blanc à l’indice <span class="sy0">%</span>d\n<span class="st0">&quot;, p - av[0]);
+    }
+    p ++;
+  }
+  return 0;
+}</span></pre></div></div>
+<p>Il n’est pas toujours évident de respecter cette règle surtout si IS_BLANK() était une fonction et qu’après évolution du code source, la fonction est devenue une macro. En effet, une telle modification implique qu’une revue complète du code soit faite. Ce n’est pas facile, voire impossible, si la macro est définie dans un fichier d’en-tête qui est déjà utilisé dans nombre de programmes à travers le monde.
+</p><p>Une extension spécifique à GCC, donc pas forcément conforme à l’ANSI C, offre l’opportunité de transformer des blocs d’instructions (instructions encadrées par des accolades) en expression (cf.?[1]). Comme il est par ailleurs possible de déclarer des variables locales à un bloc, la macro IS_BLANK() peut être réécrite comme suit?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#define IS_BLANK(c)  ({char _c = c; ((_c) == ‘\t’ || (_c) == ‘ ‘);})</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw4">char</span> <span class="sy0">*</span>p <span class="sy0">=</span> av<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="sy0">;</span>
+&#160;
+	  <span class="kw1">while</span><span class="br0">&#40;</span><span class="sy0">*</span>p<span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span>IS_BLANK<span class="br0">&#40;</span><span class="sy0">*</span><span class="br0">&#40;</span>p<span class="sy0">++</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+      <span class="kw3">printf</span><span class="br0">&#40;</span>“Blanc à l’indice <span class="sy0">%</span>d\n<span class="st0">&quot;, (p - 1) - av[0]);
+    }
+  }
+  return 0;
+}</span></pre></div></div>
+<p>La variable locale _c a été définie à l’intérieur du bloc de la macro pour stocker la valeur du paramètre. Ainsi, ce dernier n’est évalué plus qu’une seule fois?: au moment de l’affectation de la variable locale.
+</p>
+<h1><span class="mw-headline" id="Nombre_variable_d.E2.80.99arguments"><span class="mw-headline-number">8</span> Nombre variable d’arguments</span></h1>
+<p>La norme ISO C99 permet de définir des macros avec un nombre variable d’arguments. Il existe deux notations?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+&#160;
+<span class="co2">#define DEBUG(fmt, ...) \
+   fprintf(stderr, fmt „\n“, __LINE__, __VA_ARGS__)</span>
+&#160;
+<span class="co2">#define DEBUG2(fmt, args...) \
+  fprintf(stderr, fmt „\n“, __LINE__, args)</span>
+&#160;
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+  DEBUG<span class="br0">&#40;</span><span class="st0">&quot;Nom du programme =&#160;%s&quot;</span><span class="sy0">,</span> av<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  DEBUG<span class="br0">&#40;</span><span class="st0">&quot;Message sans arguments&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+  DEBUG2<span class="br0">&#40;</span><span class="st0">&quot;Nom du programme =&#160;%s&quot;</span><span class="sy0">,</span> av<span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  DEBUG2<span class="br0">&#40;</span><span class="st0">&quot;Message sans arguments&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+  <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>DEBUG() et DEBUG2() sont des surcharges de la fonction fprintf() pour afficher un message d’erreur formaté. Le paramètre fmt concaténé à des chaînes de caractères est le format passé en premier argument de la fonction d’affichage. Les notations __VA_ARGS__ ou "?args?" représentent tous les arguments en nombre variable avec les virgules qui les séparent. La seconde notation est souvent préférée à la première dans la mesure où elle permet de nommer les arguments (par exemple ici avec args) au lieu d’utiliser l’identifiant générique __VA_ARGS__. La seconde notation était d’ailleurs spécifique à GCC avant que les macros à nombre variable d’arguments ne soient normalisées. Sur d’anciennes versions de GCC, c’est donc la seule notation supportée.
+</p><p>Bien que très pratique, ces écritures présentent un inconvénient de taille?: elles n’autorisent pas l’appel sans arguments. Voici le résultat de la compilation suivi de la sortie du préprocesseur pour le programme précédent?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; gcc main.c
+main.c: In function &quot;main”:
+main.c:12: erreur: expected expression before &quot;)” token
+main.c:15: erreur: expected expression before &quot;)” token
+&gt; gcc -E main.c
+&#160;
+[...]
+int main(int ac, char *av[])
+{
+  fprintf(stderr, „Nom du programme =&#160;%s“ „\n“, 11, av[0]);
+  fprintf(stderr, &quot;Message sans arguments&quot; &quot;\n&quot;, 12, );
+  fprintf(stderr, &quot;Nom du programme =&#160;%s&quot; &quot;\n&quot;, 14, av[0]);
+  fprintf(stderr, &quot;Message sans arguments&quot; &quot;\n&quot;, 15, );
+  return 0;
+}</pre></div></div>
+</td></tr></table><br />
+<p>Les erreurs de compilation viennent de la virgule qui précède la liste vide des arguments variables au deuxième et quatrième appel à fprintf(). GCC propose une extension très utile à travers la notation "?##?" pour supprimer la virgule quand la liste des arguments qui la succède est vide. D’où la réécriture suivante des macros?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#define DEBUG(fmt, ...) \
+        fprintf(stderr, fmt &quot;\n&quot;, __LINE__, ## __VA_ARGS__)</span>
+<span class="co2">#define DEBUG2(fmt, args...) \
+        fprintf(stderr, fmt „\n“, __LINE__, ## args)</span></pre></div></div>
+<h1><span class="mw-headline" id="Les_macros_sp.C3.A9ciales"><span class="mw-headline-number">9</span> Les macros spéciales</span></h1>
+<p>Il existe de nombreuses macros et notations ayant un rôle particulier pour le préprocesseur. Dans ce paragraphe, seules sont cités les plus utiles ou tout au moins les plus usitées.
+</p>
+<h2><span class="mw-headline" id="GNUC"><span class="mw-headline-number">9.1</span> __GNUC__</span></h2>
+<p>La macro __GNUC__ est toujours définie lorsqu’on utilise la chaîne de compilation GCC. C’est donc conseillé pour faire de la compilation conditionnelle quand un programme utilise des extensions spécifiques à GCC, mais qui est susceptible d’être compilé par d’autre chaînes de compilation (cf. §?9 pour un exemple d’utilisation).
+</p>
+<h2><span class="mw-headline" id="LINE_.2C_FILE_et_FUNCTION"><span class="mw-headline-number">9.2</span> __LINE__, __FILE__ et __FUNCTION__</span></h2>
+<p>Les macros __LINE__, __FILE__ et __FUNCTION__ sont respectivement remplacées par le numéro de ligne, le nom de fichier et le nom de la fonction dans lesquelles elles apparaissent. Ces facilités sont, en général, utilisées pour la génération de traces et d’erreurs pour aider à la mise au point. Pour illustrer, voici un petit programme affichant ses arguments à l’aide de la macro DEBUG() dont la valeur ajoutée est d’imprimer le nom de fichier, le nom de la fonction et le numéro de ligne d’où elle est appelée?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#define DEBUG(fmt, args...)                          \
+                fprintf(stderr, „%s(%s)#%d&#160;: „ fmt , \
+                        __FILE__, __FUNCTION__, __LINE__, ## args)</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+<span class="kw4">int</span> i<span class="sy0">;</span>
+  <span class="kw1">for</span> <span class="br0">&#40;</span>i <span class="sy0">=</span> <span class="nu0">0</span><span class="sy0">;</span> i <span class="sy0">&lt;</span> ac<span class="sy0">;</span> i <span class="sy0">++</span><span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    DEBUG<span class="br0">&#40;</span><span class="st0">&quot;Param&#160;%d is&#160;:&#160;%s<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> i<span class="sy0">,</span> av<span class="br0">&#91;</span>i<span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+  <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+&gt; gcc debug.c
+&gt; ./a.out param1 param2
+debug.c(main)#14&#160;: Param 0 is&#160;: ./a.out
+debug.c(main)#14&#160;: Param 1 is&#160;: param1
+debug.c(main)#14&#160;: Param 2 is&#160;: param2</pre></div></div>
+</td></tr></table><br />
+<p>On notera que __FUNCTION__ est spécifique à GCC. Le standard C est arrivé après avec la définition __func__. Bien que donnant un résultat identique, ces deux notations avaient une différence de taille?: la première se développe en une chaîne de caractères constante tandis que l’autre se comportait comme si, en début de chaque fonction, un tableau local de nom "?__func__?" était défini et initialisé avec la chaîne de caractères constante qui contient le nom de la fonction. Donc, d’un coté, on avait une constante qui pouvait être concaténée au moment de la compilation à d’autres chaînes de caractères alors que, de l’autre, on avait une variable. Mais, depuis la version 3.4 du compilateur GCC, ces deux notations sont identiques et se comportent toutes deux comme des variables.
+</p>
+<h2><span class="mw-headline" id="L.E2.80.99op.C3.A9rateur_.22.3F.23.3F.22"><span class="mw-headline-number">9.3</span> L’opérateur "?#?"</span></h2>
+<p>La notation "?#?" permet de convertir un paramètre de macro en chaîne de caractères. Par exemple, voici une fonction qui affiche un numéro de signal Linux grâce à la macro CASE_SIG()?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#include &lt;signal.h&gt;</span>
+<span class="co2">#include &lt;stdlib.h&gt;</span>
+<span class="co2">#define CASE_SIG(s) case (s)&#160;: printf(&quot;%s\n&quot;, &quot;SIGNAL_&quot; #s); break</span>
+<span class="kw4">void</span> signum<span class="br0">&#40;</span><span class="kw4">int</span> sig<span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+  <span class="kw1">switch</span><span class="br0">&#40;</span>sig<span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    CASE_SIG<span class="br0">&#40;</span>SIGINT<span class="br0">&#41;</span><span class="sy0">;</span>
+    CASE_SIG<span class="br0">&#40;</span>SIGTERM<span class="br0">&#41;</span><span class="sy0">;</span>
+    CASE_SIG<span class="br0">&#40;</span>SIGKILL<span class="br0">&#41;</span><span class="sy0">;</span>
+    CASE_SIG<span class="br0">&#40;</span>SIGTRAP<span class="br0">&#41;</span><span class="sy0">;</span>
+    CASE_SIG<span class="br0">&#40;</span>SIGSEGV<span class="br0">&#41;</span><span class="sy0">;</span>
+    CASE_SIG<span class="br0">&#40;</span>SIGCHLD<span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#91;</span>...<span class="br0">&#93;</span>
+    <span class="kw1">default</span> <span class="sy0">:</span> <span class="kw3">printf</span><span class="br0">&#40;</span>„<span class="sy0">???</span>\n“<span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+  <span class="kw1">if</span> <span class="br0">&#40;</span>ac <span class="sy0">&gt;</span> <span class="nu0">1</span><span class="br0">&#41;</span>
+  <span class="br0">&#123;</span>
+    signum<span class="br0">&#40;</span><span class="kw3">atoi</span><span class="br0">&#40;</span>av<span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+&gt; gcc signal.c
+&gt;  ./a.out 5
+SIGNAL_SIGTRAP</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="L.E2.80.99op.C3.A9rateur_.22.3F.23.23.3F.22"><span class="mw-headline-number">9.4</span> L’opérateur "?##?"</span></h2>
+<p>On a déjà eu une forme d’utilisation de "?##?" dans le §?7. Mais, il existe une autre forme d’utilisation où cette directive concatène les éléments lexicaux qui l’entourent pour former une nouvelle unité lexicale. Dans l’exemple suivant, les mots CONSTA et NTE sont concaténés pour former le nom CONSTANTE qui s’avère être une macro définissant la constante 233?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#include &lt;stdio.h&gt;</span>
+<span class="co2">#define CONSTANTE      233</span>
+<span class="co2">#define CONCAT(a, b)   a##b</span>
+<span class="kw4">int</span> main<span class="br0">&#40;</span><span class="kw4">int</span> ac<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>av<span class="br0">&#91;</span><span class="br0">&#93;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+ <span class="kw3">printf</span><span class="br0">&#40;</span><span class="st0">&quot;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> CONCAT<span class="br0">&#40;</span>CONSTA<span class="sy0">,</span> NTE<span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+&gt; gcc concat.c
+&gt; ./a.out
+233</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Comment_.C3.A9liminer_les_attributs_de_GCC"><span class="mw-headline-number">10</span> Comment éliminer les attributs de GCC</span></h1>
+<p>Les attributs sont des extensions spécifiques à GCC pour augmenter les contrôles et contribuer à l’optimisation du code généré. Considérons l’exemple suivant où est décrit l’attribut "?format?" (pour de plus amples informations sur les attributs de GCC, cf.?[4]). funct() fait appel à deux fonctions effectuant de l’affichage formaté à la manière de printf()?: le premier paramètre contient une description du format d’une chaîne de caractères et la liste variable des paramètres qui suivent est utilisée pour construire la chaîne à afficher. À l’appel de ces fonctions d’affichage, il y a une erreur classique de programmation?: le format nécessite l’adresse d’une chaîne de caractères et un entier signé, mais la liste des arguments ne contient qu’un entier signé.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="kw2">extern</span> <span class="kw4">void</span> my_printf1 <span class="br0">&#40;</span><span class="kw4">const</span> <span class="kw4">char</span> <span class="sy0">*</span>fmt<span class="sy0">,</span> ...<span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="kw2">extern</span> <span class="kw4">void</span> my_printf2 <span class="br0">&#40;</span><span class="kw4">const</span> <span class="kw4">char</span> <span class="sy0">*</span>fmt<span class="sy0">,</span> ...<span class="br0">&#41;</span>
+           __attribute__ <span class="br0">&#40;</span><span class="br0">&#40;</span>format <span class="br0">&#40;</span><span class="kw3">printf</span><span class="sy0">,</span> <span class="nu0">1</span><span class="sy0">,</span> <span class="nu0">2</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+&#160;
+<span class="kw4">void</span> funct<span class="br0">&#40;</span><span class="kw4">void</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+  my_printf1<span class="br0">&#40;</span><span class="st0">&quot;Affichage de&#160;%s suivi de&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> <span class="nu0">46</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+  my_printf2<span class="br0">&#40;</span><span class="st0">&quot;Affichage de&#160;%s suivi de&#160;%d<span class="es1">\n</span>&quot;</span><span class="sy0">,</span> <span class="nu0">46</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+<p>La compilation de ce programme avec l’option -Wall va signaler l’erreur de programmation (sous la forme d’un "?warning?") pour la ligne 11, mais pas pour la ligne 9. En effet, en ligne 11, on utilise la fonction my_printf2() qui est définie avec l’attribut format pour indiquer que c’est une fonction "?printf-like?" qui utilise un format en argument 1 et que la liste variable des arguments commence au deuxième paramètre?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; gcc -c -Wall attribute.c
+attribute.c: In function &quot;funct”:
+attribute.c:11: attention&#160;: format &quot;%s” expects type &quot;char *”, but argument 2 has type &quot;int”
+attribute.c:11: attention&#160;: trop peu d’arguments dans le format</pre></div></div>
+</td></tr></table><br />
+<p>Si la notion d’attribut est pratique et puissante, elle peut poser problème lorsque le compilateur utilisé n’est pas GCC. Comme la directive __attribute__ est définie avec un seul paramètre (d’où le double parenthésage lorsqu’on lui passe plusieurs paramètres de sorte à ce qu’ils n’apparaissent que sous la forme d’un seul), il est possible d’utiliser le principe de la compilation conditionnelle pour redéfinir __attribute__ à rien lorsque le compilateur utilisé n’est pas GCC?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#ifndef __GNUC__</span>
+<span class="co2">#define __attribute__(p)   // Rien</span>
+<span class="co2">#endif // __GNUC__</span></pre></div></div>
+<p>Dans cet exemple, la condition de compilation utilise le drapeau __GNUC__ qui n’est défini par défaut que lorsque GCC est utilisé (cf. §?9.1).
+</p>
+<h1><span class="mw-headline" id="Inclusions_conditionnelles"><span class="mw-headline-number">11</span> Inclusions conditionnelles</span></h1>
+<p>Un fichier d’en-tête est inclus dans un fichier source à l’aide de la directive "?#include?". Ces fichiers contiennent la plupart du temps des déclarations externes de variables ou fonctions, des définitions de types et de macros. Un fichier d’en-tête peut lui-même inclure d’autres fichiers d’en-tête, car une règle de base en programmation C est de rendre un fichier d’en-tête indépendant. En d’autres termes, si un fichier d’en-tête utilise un type, une macro, une fonction ou une variable, il est recommandé que soit inclus, dans ce fichier, le fichier d’en-tête où se trouve la définition correspondante. Dans l’exemple de la figure?1, le fichier main.c inclut les fichiers d’en-tête str.h et fct.h qui définissent respectivement le type str_t et la fonction fonc(). Ces deux derniers incluent le fichier entier.h pour la définition du type ENTIER.
+</p><p><a href="./File:Gcc-fig-1.jpg.html" class="image"><img alt="Gcc-fig-1.jpg" src="images/e/e5/Gcc-fig-1.jpg" width="526" height="411" /></a>
+</p><p>La compilation de main.c donne les erreurs suivantes?:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gcc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; gcc -c main.c
+In file included from fct.h:1,
+                 from main.c:2:
+entier.h:1: erreur: redefinition of typedef &quot;ENTIER”
+entier.h:1: erreur: previous declaration of &quot;ENTIER” was here</pre></div></div>
+</td></tr></table><br />
+<p>Le compilateur remonte le fait que le type ENTIER est défini deux fois. La première définition provient du fichier str.h et la seconde du fichier fct.h qui incluent tous deux le fichier entier.h. Cela donne comme résultat que le fichier main.c inclut le fichier entier.h deux fois. Pour résoudre ce problème, on peut utiliser la compilation conditionnelle de sorte à inclure un fichier d’en-tête seulement si une définition qui lui est propre n’est pas déjà définie. Cette définition est généralement faite à partir du nom du fichier. Afin d’illustrer le propos, voici comment le fichier entier.h est modifié pour n’être inclus qu’à la condition que ENTIER_H ne soit pas déjà défini?:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#ifndef ENTIER_H</span>
+<span class="co2">#define ENTIER_H</span>
+<span class="kw4">typedef</span> <span class="kw4">int</span> ENTIER<span class="sy0">;</span>
+<span class="co2">#endif // ENTIER_H</span></pre></div></div>
+<p>Cela permet de compiler main.c, car ENTIER_H est défini par l’inclusion de entier.h dans str.h et cela va donc empêcher la deuxième inclusion de entier.h via fct.h. D’une manière générale, il est conseillé d’appliquer le principe de l’inclusion conditionnelle à tout fichier d’en-tête.
+</p><p><a href="./File:Gcc-fig-2.jpg.html" class="image"><img alt="Gcc-fig-2.jpg" src="images/7/72/Gcc-fig-2.jpg" width="529" height="385" /></a>
+</p>
+<h1><span class="mw-headline" id="Conclusion"><span class="mw-headline-number">12</span> Conclusion</span></h1>
+<p>Cet article a présenté de nombreuses règles et astuces pour tirer parti au mieux des facilités du préprocesseur C de sorte à contribuer à la robustesse, la portabilité et la facilité de mise au point des programmes. Ce ne sont là qu’un sous-ensemble des possibilités offertes. Le lecteur pourra consulter les liens et références de cet article pour aller plus loin.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">13</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.unixgarden.com/index.php/programmation/mieux-connaitre-et-utiliser-le-preprocesseur-du-langage-c">http://www.unixgarden.com/index.php/programmation/mieux-connaitre-et-utiliser-le-preprocesseur-du-langage-c</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.108 seconds
+Real time usage: 0.109 seconds
+Preprocessor visited node count: 498/1000000
+Preprocessor generated node count: 1206/1000000
+Post‐expand include size: 2343/2097152 bytes
+Template argument size: 699/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   64.100      1 - -total
+  8.41%    5.388     12 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3056-0!*!*!1!en!5!* and timestamp 20181111230727 and revision id 8386
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C&amp;oldid=8386">https://wiki.deimos.fr/index.php?title=Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C&amp;oldid=8386</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Mieux+conna%C3%AEtre+et+utiliser+le+pr%C3%A9processeur+du+langage+C" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Mieux_connaître_et_utiliser_le_préprocesseur_du_langage_C.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C&amp;oldid=8386" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 6 December 2009, at 15:40.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

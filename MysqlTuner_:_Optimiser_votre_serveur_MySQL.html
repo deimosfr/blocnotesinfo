@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>MysqlTuner : Optimiser votre serveur MySQL - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"MysqlTuner_:_Optimiser_votre_serveur_MySQL","wgTitle":"MysqlTuner : Optimiser votre serveur MySQL","wgCurRevisionId":12572,"wgRevisionId":12572,"wgArticleId":3098,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"MysqlTuner_:_Optimiser_votre_serveur_MySQL","wgRelevantArticleId":3098,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-sql {line-height: normal;}
+.source-sql li, .source-sql pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for sql
+ * CSS class: source-sql, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.sql.source-sql .de1, .sql.source-sql .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.sql.source-sql  {font-family:monospace;}
+.sql.source-sql .imp {font-weight: bold; color: red;}
+.sql.source-sql li, .sql.source-sql .li1 {font-weight: normal; vertical-align:top;}
+.sql.source-sql .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.sql.source-sql .li2 {font-weight: bold; vertical-align:top;}
+.sql.source-sql .kw1 {color: #993333; font-weight: bold;}
+.sql.source-sql .co1 {color: #808080; font-style: italic;}
+.sql.source-sql .coMULTI {color: #808080; font-style: italic;}
+.sql.source-sql .es0 {color: #000099; font-weight: bold;}
+.sql.source-sql .br0 {color: #66cc66;}
+.sql.source-sql .sy0 {color: #66cc66;}
+.sql.source-sql .st0 {color: #ff0000;}
+.sql.source-sql .nu0 {color: #cc66cc;}
+.sql.source-sql .ln-xtra, .sql.source-sql li.ln-xtra, .sql.source-sql div.ln-xtra {background-color: #ffc;}
+.sql.source-sql span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-perl {line-height: normal;}
+.source-perl li, .source-perl pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for perl
+ * CSS class: source-perl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.perl.source-perl .de1, .perl.source-perl .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.perl.source-perl  {font-family:monospace;}
+.perl.source-perl .imp {font-weight: bold; color: red;}
+.perl.source-perl li, .perl.source-perl .li1 {font-weight: normal; vertical-align:top;}
+.perl.source-perl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.perl.source-perl .li2 {font-weight: bold; vertical-align:top;}
+.perl.source-perl .kw1 {color: #b1b100;}
+.perl.source-perl .kw2 {color: #000000; font-weight: bold;}
+.perl.source-perl .kw3 {color: #000066;}
+.perl.source-perl .co1 {color: #666666; font-style: italic;}
+.perl.source-perl .co2 {color: #009966; font-style: italic;}
+.perl.source-perl .co3 {color: #0000ff;}
+.perl.source-perl .co4 {color: #cc0000; font-style: italic;}
+.perl.source-perl .co5 {color: #0000ff;}
+.perl.source-perl .coMULTI {color: #666666; font-style: italic;}
+.perl.source-perl .es0 {color: #000099; font-weight: bold;}
+.perl.source-perl .es_h {color: #000099; font-weight: bold;}
+.perl.source-perl .br0 {color: #009900;}
+.perl.source-perl .sy0 {color: #339933;}
+.perl.source-perl .st0 {color: #ff0000;}
+.perl.source-perl .st_h {color: #ff0000;}
+.perl.source-perl .nu0 {color: #cc66cc;}
+.perl.source-perl .me1 {color: #006600;}
+.perl.source-perl .me2 {color: #006600;}
+.perl.source-perl .re0 {color: #0000ff;}
+.perl.source-perl .re4 {color: #009999;}
+.perl.source-perl .ln-xtra, .perl.source-perl li.ln-xtra, .perl.source-perl div.ln-xtra {background-color: #ffc;}
+.perl.source-perl span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-diff {line-height: normal;}
+.source-diff li, .source-diff pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for diff
+ * CSS class: source-diff, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.diff.source-diff .de1, .diff.source-diff .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.diff.source-diff  {font-family:monospace;}
+.diff.source-diff .imp {font-weight: bold; color: red;}
+.diff.source-diff li, .diff.source-diff .li1 {font-weight: normal; vertical-align:top;}
+.diff.source-diff .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.diff.source-diff .li2 {font-weight: bold; vertical-align:top;}
+.diff.source-diff .kw1 {color: #aaaaaa; font-style: italic;}
+.diff.source-diff .re0 {color: #440088;}
+.diff.source-diff .re1 {color: #991111;}
+.diff.source-diff .re2 {color: #00b000;}
+.diff.source-diff .re3 {color: #888822;}
+.diff.source-diff .re4 {color: #888822;}
+.diff.source-diff .re5 {color: #0011dd;}
+.diff.source-diff .re6 {color: #440088;}
+.diff.source-diff .re7 {color: #991111;}
+.diff.source-diff .re8 {color: #00b000;}
+.diff.source-diff .re9 {color: #888822;}
+.diff.source-diff .ln-xtra, .diff.source-diff li.ln-xtra, .diff.source-diff div.ln-xtra {background-color: #ffc;}
+.diff.source-diff span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-MysqlTuner_Optimiser_votre_serveur_MySQL skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">MysqlTuner : Optimiser votre serveur MySQL</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#mw-navigation">navigation</a>, 					<a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Utilisation"><span class="tocnumber">3</span> <span class="toctext">Utilisation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Auditer_et_am.C3.A9liorer_les_performances"><span class="tocnumber">4</span> <span class="toctext">Auditer et améliorer les performances</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#V.C3.A9rification_du_global_status"><span class="tocnumber">4.1</span> <span class="toctext">Vérification du global status</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Activer_les_slow_query"><span class="tocnumber">4.2</span> <span class="toctext">Activer les slow_query</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Statut_g.C3.A9n.C3.A9rale"><span class="tocnumber">4.3</span> <span class="toctext">Statut générale</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Gestion_du_cache"><span class="tocnumber">4.4</span> <span class="toctext">Gestion du cache</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#D.C3.A9sactiver_le_Query_cache"><span class="tocnumber">4.4.1</span> <span class="toctext">Désactiver le Query cache</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Changer_la_taille_du_Query_cache"><span class="tocnumber">4.4.2</span> <span class="toctext">Changer la taille du Query cache</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Auditer_la_performance_d.27une_requ.C3.AAte"><span class="tocnumber">4.5</span> <span class="toctext">Auditer la performance d'une requête</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Am.C3.A9liorer_le_moteur_selon_l.27utilisation"><span class="tocnumber">4.6</span> <span class="toctext">Améliorer le moteur selon l'utilisation</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#V.C3.A9rifier_les_fichiers_ouverts"><span class="tocnumber">4.7</span> <span class="toctext">Vérifier les fichiers ouverts</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Reseter_les_statistiques"><span class="tocnumber">4.8</span> <span class="toctext">Reseter les statistiques</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Augmenter_les_performances_pour_les_acc.C3.A8s_fichiers_temporaires"><span class="tocnumber">4.9</span> <span class="toctext">Augmenter les performances pour les accès fichiers temporaires</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Analysez_les_colonnes"><span class="tocnumber">4.10</span> <span class="toctext">Analysez les colonnes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Optimisation_des_tables"><span class="tocnumber">5</span> <span class="toctext">Optimisation des tables</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Patch_mysqltuner"><span class="tocnumber">6</span> <span class="toctext">Patch mysqltuner</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<div class="thumb tright"><div class="thumbinner" style="width:130px;"><a href="./File:Mysql_logo.jpeg.html" class="image"><img alt="" src="images/e/e4/Mysql_logo.jpeg" width="128" height="130" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="./File:Mysql_logo.jpeg.html" class="internal" title="Enlarge"></a></div>MySQL Logo</div></div></div>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>MySQL est très utilisé en entreprise mais peut être également très complexe quand on a des bases faisant une taille assez conséquente. De plus, il nous faut vérifier le cache, la taille mémoire occupée, voir si on peut pas optimiser à droite ou a gauche.
+</p><p>Bref cette petite documentation ne va pas traiter que de MysqlTuner, mais également de comment optimiser votre serveur MySQL.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Pour l'installation de MysqlTuner, c'est assez simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install mysqltuner
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">3</span> Utilisation</span></h1>
+<p>Lancez simplement mysqltuner avec les bons droits de connexion à votre base de données&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqltuner</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> &gt;&gt;  MySQLTuner 1.0.1 - Major Hayden &lt;major@mhtx.net&gt;
+ &gt;&gt;  Bug reports, feature requests, and downloads at http://mysqltuner.com/
+ &gt;&gt;  Run with '--help' for additional options and output filtering
+Please enter your MySQL administrative login: root
+Please enter your MySQL administrative password: 
+&#160;
+-------- General Statistics --------------------------------------------------
+[--] Skipped version check for MySQLTuner script
+[OK] Currently running supported MySQL version 5.1.39-log
+[OK] Operating on 64-bit architecture
+&#160;
+-------- Storage Engine Statistics -------------------------------------------
+[--] Status: -Archive -BDB -Federated +InnoDB -ISAM -NDBCluster 
+[--] Data in MyISAM tables: 2G (Tables: 35)
+[--] Data in InnoDB tables: 7M (Tables: 41)
+[!!] Total fragmented tables: 43
+&#160;
+-------- Performance Metrics -------------------------------------------------
+[--] Up for: 16h 38m 24s (5K q [0.089 qps], 22 conn, TX: 20M, RX: 3M)
+[--] Reads / Writes: 65% / 35%
+[--] Total buffers: 812.0M global + 1.2M per thread (151 max threads)
+[OK] Maximum possible memory usage: 991.3M (1% of installed RAM)
+[!!] Slow queries: 29% (1K/5K)
+[OK] Highest usage of available connections: 1% (3/151)
+[OK] Key buffer size / total MyISAM indexes: 128.0M/167.5M
+[OK] Key buffer hit rate: 99.1% (59K cached / 557 reads)
+[!!] Query cache efficiency: 0.1% (4 cached / 3K selects)
+[OK] Query cache prunes per day: 0
+[OK] Sorts requiring temporary tables: 0% (0 temp sorts / 6 sorts)
+[OK] Temporary tables created on disk: 9% (8 on disk / 87 total)
+[OK] Thread cache hit rate: 86% (3 created / 22 connections)
+[!!] Table cache hit rate: 17% (64 open / 376 opened)
+[OK] Open file limit used: 16% (121/755)
+[OK] Table locks acquired immediately: 100% (4K immediate / 4K locks)
+[!!] Connections aborted: 13%
+[OK] InnoDB data size / buffer pool: 7.9M/512.0M
+&#160;
+-------- Recommendations -----------------------------------------------------
+General recommendations:
+    Run OPTIMIZE TABLE to defragment tables for better performance
+    MySQL started within last 24 hours - recommendations may be inaccurate
+    Increase table_cache gradually to avoid file descriptor limits
+    Your applications are not closing MySQL connections properly
+Variables to adjust:
+    query_cache_limit (&gt; 1M, or use smaller result sets)
+    table_cache (&gt; 64)</pre></div></div>
+</td></tr></table><br />
+<p>Nous voyons ici des recommandations.
+</p>
+<h1><span class="mw-headline" id="Auditer_et_am.C3.A9liorer_les_performances"><span class="mw-headline-number">4</span> Auditer et améliorer les performances</span></h1>
+<h2><span class="mw-headline" id="V.C3.A9rification_du_global_status"><span class="mw-headline-number">4.1</span> Vérification du global status</span></h2>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global status</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">STATUS</span>;
+<span class="sy0">|</span> Binlog_cache_disk_use             <span class="sy0">|</span> <span class="nu0">0</span>         <span class="sy0">|</span>
+<span class="sy0">|</span> Binlog_cache_use                  <span class="sy0">|</span> <span class="nu0">16</span>        <span class="sy0">|</span></pre></div></div>
+</td></tr></table><br />
+<ul><li> Le cache disk use doit rester à 0 pour être performant (pas d'écriture directe sur disque, on passe d'abord par le cache)</li>
+<li> Utilisation du cache Binlog_cache_use pour les logs binaires. C'est bien quand ce numéro n'est pas à 0.</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global status</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1"><span class="sy0">|</span> Created_tmp_disk_tables           <span class="sy0">|</span> <span class="nu0">8</span>         <span class="sy0">|</span>
+<span class="sy0">|</span> Created_tmp_files                 <span class="sy0">|</span> <span class="nu0">5</span>         <span class="sy0">|</span>
+<span class="sy0">|</span> Created_tmp_tables                <span class="sy0">|</span> <span class="nu0">54</span>        <span class="sy0">|</span></pre></div></div>
+</td></tr></table><br />
+<ul><li> Created_tmp_disk_tables&#160;: devrait être à 0 le plus souvent possible (sauf si on a des champs de type blob ou texte, on ne pourra pas faire grand chose).</li>
+<li> Created_tmp_files&#160;: quand Created_tmp_disk_tables n'est pas suffisant et qu'il faut en plus aller créer d'autres fichiers sur le disque.</li>
+<li> Created_tmp_tables&#160;: nombre de fois que des tables temporaires ont été crées.</li></ul>
+<p>Ici, je souhaiterais améliorer un peu ceci, bien que ce ne soit pas vraiment nécessaire vu le peu de disks table créées. Nous allons donc consulter la taille actuelle maximum autorisée&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global variables like 'tmp_table_size';</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">VARIABLES</span> <span class="kw1">LIKE</span> <span class="st0">'tmp_table_size'</span>;
+<span class="sy0">+</span><span class="co1">----------------+----------+</span>
+<span class="sy0">|</span> Variable_name  <span class="sy0">|</span> <span class="kw1">VALUE</span>    <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">----------------+----------+</span>
+<span class="sy0">|</span> tmp_table_size <span class="sy0">|</span> <span class="nu0">16777216</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">----------------+----------+</span>
+<span class="nu0">1</span> <span class="kw1">ROW</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>La taille maximum d'une table temporaire en mémoire est donc de 16Mo. Pour le passer à 32 Mo à la volée&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> set global tmp_table_size</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SET</span> global tmp_table_size<span class="sy0">=</span><span class="nu0">32</span><span class="sy0">*</span><span class="nu0">1024</span><span class="sy0">*</span><span class="nu0">1024</span>;</pre></div></div>
+</td></tr></table><br />
+<p>Et ne pas oublier de le mettre dans le fichier de conf pour que ce soit permanent&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/mysql.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+tmp_table_size = 32M
+...
+</pre>
+</td></tr></table><br />
+<p>Ensuite, pour que ca prenne également effet, il va falloir augmenter la taille de la max_heap_table_size. D'abord, regardons la taille actuelle&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> set global tmp_table_size</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">VARIABLES</span> <span class="kw1">LIKE</span> <span class="st0">'max_heap_table_size'</span>;
+<span class="sy0">+</span><span class="co1">---------------------+----------+</span>
+<span class="sy0">|</span> Variable_name       <span class="sy0">|</span> <span class="kw1">VALUE</span>    <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">---------------------+----------+</span>
+<span class="sy0">|</span> max_heap_table_size <span class="sy0">|</span> <span class="nu0">16777216</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">---------------------+----------+</span>
+<span class="nu0">1</span> <span class="kw1">ROW</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Et augmenter le max_heap_table_size à au moins la taille du tmp_table_size (allouer plus de mémoire en cas d'utilisation de tables du type memorytable). Pareil, pour augmenter cette taille à la volée&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> set global max_heap_table_size</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SET</span> global max_heap_table_size<span class="sy0">=</span><span class="nu0">32</span><span class="sy0">*</span><span class="nu0">1024</span><span class="sy0">*</span><span class="nu0">1024</span>;</pre></div></div>
+</td></tr></table><br />
+<p>Et pour finir et le rendre ceci permanent, on rajoute ceci dans la config&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/mysql.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+max_heap_table_size = 32M
+...
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Activer_les_slow_query"><span class="mw-headline-number">4.2</span> Activer les slow_query</span></h2>
+<p>Pour monitorer les requêtes lentes, il faut activer les slow_query et mettre une valeur maximum avant que les requêtes soient loguées (ici 1 seconde). Pour le moment, nous allons voir si c'est activé ou non&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">VARIABLES</span> <span class="kw1">LIKE</span> <span class="st0">'%log%'</span>;
+<span class="sy0">+</span><span class="co1">---------------------------------+------------+</span>
+<span class="sy0">|</span> Variable_name                   <span class="sy0">|</span> <span class="kw1">VALUE</span>      <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">---------------------------------+------------+</span>
+<span class="sy0">...</span>
+<span class="sy0">|</span> log_slow_queries                <span class="sy0">|</span> OFF        <span class="sy0">|</span> 
+<span class="sy0">...</span>
+<span class="sy0">+</span><span class="co1">---------------------------------+------------+</span>
+<span class="nu0">26</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Nous voyons ici que c'est désactivé. A partir de la version 5.1 de MySQL, on peut les activer a chaud, voici la procédure à suivre&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> set global </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SET</span> global slow_query_log<span class="sy0">=</span><span class="nu0">1</span>;
+Query OK<span class="sy0">,</span> <span class="nu0">0</span> <span class="kw1">ROWS</span> affected <span class="br0">&#40;</span><span class="nu0">0.02</span> sec<span class="br0">&#41;</span>
+&#160;
+mysql<span class="sy0">&gt;</span> <span class="kw1">SET</span> global long_query_time<span class="sy0">=</span><span class="nu0">1</span>;
+Query OK<span class="sy0">,</span> <span class="nu0">0</span> <span class="kw1">ROWS</span> affected <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Et ensuite rendre ceci persistant&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+slow_query_log=1
+long_query_time=1
+...</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Statut_g.C3.A9n.C3.A9rale"><span class="mw-headline-number">4.3</span> Statut générale</span></h2>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqladmin</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; mysqladmin -uroot -p status
+Enter password: 
+Uptime: 57774  Threads: 3  Questions: 5029  Slow queries: 1411  Opens: 373  Flush tables: 1  Open tables: 63  Queries per second avg: 0.87</pre></div></div>
+</td></tr></table><br />
+<ul><li> Questions&#160;: nombre de requêtes</li>
+<li> Slow queries&#160;: requêtes lentes</li>
+<li> Opens&#160;: ouvertures de fichers</li>
+<li> Queries per second avg&#160;: requêtes par secondes (moyenne depuis le démarrage du serveur)</li></ul>
+<h2><span class="mw-headline" id="Gestion_du_cache"><span class="mw-headline-number">4.4</span> Gestion du cache</span></h2>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global status like 'Qc%';</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">STATUS</span> <span class="kw1">LIKE</span> <span class="st0">'Qc%'</span>;
+<span class="sy0">+</span><span class="co1">-------------------------+-----------+</span>
+<span class="sy0">|</span> Variable_name           <span class="sy0">|</span> <span class="kw1">VALUE</span>     <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">-------------------------+-----------+</span>
+<span class="sy0">|</span> Qcache_free_blocks      <span class="sy0">|</span> <span class="nu0">1</span>         <span class="sy0">|</span>
+<span class="sy0">|</span> Qcache_free_memory      <span class="sy0">|</span> <span class="nu0">134208784</span> <span class="sy0">|</span>
+<span class="sy0">|</span> Qcache_hits             <span class="sy0">|</span> <span class="nu0">0</span>         <span class="sy0">|</span>
+<span class="sy0">|</span> Qcache_inserts          <span class="sy0">|</span> <span class="nu0">207</span>       <span class="sy0">|</span>
+<span class="sy0">|</span> Qcache_lowmem_prunes    <span class="sy0">|</span> <span class="nu0">0</span>         <span class="sy0">|</span>
+<span class="sy0">|</span> Qcache_not_cached       <span class="sy0">|</span> <span class="nu0">2825</span>      <span class="sy0">|</span>
+<span class="sy0">|</span> Qcache_queries_in_cache <span class="sy0">|</span> <span class="nu0">0</span>         <span class="sy0">|</span>
+<span class="sy0">|</span> Qcache_total_blocks     <span class="sy0">|</span> <span class="nu0">1</span>         <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">-------------------------+-----------+</span>
+<span class="nu0">8</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<ul><li> Qcache_free_memory&#160;: Mémoire libre pour ajouter des requêtes dans le query cache (enregistrement de la requête + résultat (130 Mo ici)).</li>
+<li> Qcache_hits&#160;: le nombre de fois que le cache a été atteint</li>
+<li> Qcache_inserts&#160;: il faut que le Qcache_hits soit suppérieur au Qcache_inserts pour un bon fonctionnement du cache (ici vu qu'il n'y a pas beaucoup de traffic, ceci n'augmente pas).</li></ul>
+<p>Pour gagner en performances, on doit voir s'il est nécessaire de garder ou non le query cache. Donc si&#160;:
+</p>
+<ul><li> Qcache_hits &lt; Qcache_inserts&#160;: on désactive le cache.</li>
+<li> Qcache_not_cached &lt; ( Qcache_hits + Qcache_inserts )&#160;: On va essayer d'augmenter la taille du cache et la limite de la taille d'une requête en cache. Si Qcache_not_cached ne cesse d'augmenter, alors on désactive le cache.</li>
+<li> Qcache_lowmem_prunes&#160;: si plus de place dans le cache, alors les anciennes requêtes seront remplacées par des nouvelles. Augmentez le cache si vous en avez trop de Qcache_lowmem_prunes.</li></ul>
+<h3><span class="mw-headline" id="D.C3.A9sactiver_le_Query_cache"><span class="mw-headline-number">4.4.1</span> Désactiver le Query cache</span></h3>
+<p>Pour désactiver le Query cache&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> set global</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1"> <span class="kw1">SET</span> global query_cache_type <span class="sy0">=</span> <span class="nu0">0</span></pre></div></div>
+</td></tr></table><br />
+<p>Et comme d'habitude, pour le mettre en permanent, on va mettre ceci dans le fichier de conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/my.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>query_cache_type = 0
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Changer_la_taille_du_Query_cache"><span class="mw-headline-number">4.4.2</span> Changer la taille du Query cache</span></h3>
+<p>On va récupérer la taille actuelle du cache pour une requête et son résultat&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">VARIABLES</span> <span class="kw1">LIKE</span> <span class="st0">'query%'</span>;
+<span class="sy0">+</span><span class="co1">------------------------------+----------+</span>
+<span class="sy0">|</span> Variable_name                <span class="sy0">|</span> <span class="kw1">VALUE</span>    <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">------------------------------+----------+</span>
+<span class="sy0">|</span> query_alloc_block_size       <span class="sy0">|</span> <span class="nu0">8192</span>     <span class="sy0">|</span> 
+<span class="sy0">|</span> query_cache_limit            <span class="sy0">|</span> <span class="nu0">1048576</span>  <span class="sy0">|</span> 
+<span class="sy0">|</span> query_cache_min_res_unit     <span class="sy0">|</span> <span class="nu0">4096</span>     <span class="sy0">|</span> 
+<span class="sy0">|</span> query_cache_size             <span class="sy0">|</span> <span class="nu0">16777216</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> query_cache_type             <span class="sy0">|</span> <span class="kw1">ON</span>       <span class="sy0">|</span> 
+<span class="sy0">|</span> query_cache_wlock_invalidate <span class="sy0">|</span> OFF      <span class="sy0">|</span> 
+<span class="sy0">|</span> query_prealloc_size          <span class="sy0">|</span> <span class="nu0">8192</span>     <span class="sy0">|</span> 
+<span class="sy0">+</span><span class="co1">------------------------------+----------+</span>
+<span class="nu0">7</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Ici, la taille maximum pour une requête du cache est de 1 Mo, on peut l'augmenter à 2Mo&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> set global</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1"> <span class="kw1">SET</span> global query_cache_limit<span class="sy0">=</span><span class="nu0">2</span><span class="sy0">*</span><span class="nu0">1024</span><span class="sy0">*</span><span class="nu0">1024</span>;</pre></div></div>
+</td></tr></table><br />
+<p>On change également la taille complète du cache. Exemple, on le passe à 32 Mo&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> set global</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1"> <span class="kw1">SET</span> global query_cache_size <span class="sy0">=</span> <span class="nu0">32</span><span class="sy0">*</span><span class="nu0">1024</span><span class="sy0">*</span><span class="nu0">1024</span>;</pre></div></div>
+</td></tr></table><br />
+<p>Et pour finir, on va tout écrire dans la conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> query_cache_limit = 2M
+ query_cache_size = 32M</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Auditer_la_performance_d.27une_requ.C3.AAte"><span class="mw-headline-number">4.5</span> Auditer la performance d'une requête</span></h2>
+<p>On va déjà prendre une requête qui passe et qui est intéressante&#160;:
+</p><p>Pour voir le temps d'exécution d'une requête&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SET</span> profiling <span class="sy0">=</span><span class="nu0">1</span>;
+mysql<span class="sy0">&gt;</span> <span class="kw1">SELECT</span>  <span class="sy0">*</span> <span class="kw1">FROM</span> ma_table;                                                                                                          
+<span class="sy0">+</span><span class="co1">---+-------------------------------------------+</span>
+<span class="sy0">|</span> a <span class="sy0">|</span> b                                         <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">---+-------------------------------------------+</span>
+<span class="sy0">|</span> <span class="nu0">1</span> <span class="sy0">|</span> <span class="sy0">*</span>0F105C1BB64CDADBA3E0AB29141550D4EDBDADCD <span class="sy0">|</span>
+<span class="sy0">|</span> <span class="nu0">2</span> <span class="sy0">|</span> <span class="sy0">*</span>B552D2C3751A26A345932AA1196C0D04BC9DC909 <span class="sy0">|</span>
+<span class="sy0">|</span> <span class="nu0">3</span> <span class="sy0">|</span> <span class="sy0">*</span>6F23566A5409E9809512C079C8D4EC7EF82AB8A1 <span class="sy0">|</span>
+<span class="sy0">|</span> <span class="nu0">4</span> <span class="sy0">|</span> <span class="sy0">*</span>65109C8FC01571CB9897AD479FF605F73DCD4752 <span class="sy0">|</span>
+<span class="sy0">|</span> <span class="nu0">5</span> <span class="sy0">|</span> <span class="sy0">*</span>7B9EBEED26AA52ED10C0F549FA863F13C39E0209 <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">---+-------------------------------------------+</span>
+<span class="nu0">5</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Lorsque le query cache est utilisé (tres bon&#160;:)
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> profile;                                                                                                                                                                      
+<span class="sy0">+</span><span class="co1">--------------------------------+----------+</span>
+<span class="sy0">|</span> <span class="kw1">STATUS</span>                         <span class="sy0">|</span> Duration <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">--------------------------------+----------+</span>
+<span class="sy0">|</span> starting                       <span class="sy0">|</span> <span class="nu0">0.000035</span> <span class="sy0">|</span>
+<span class="sy0">|</span> checking query cache <span class="kw1">FOR</span> query <span class="sy0">|</span> <span class="nu0">0.000008</span> <span class="sy0">|</span>
+<span class="sy0">|</span> checking privileges <span class="kw1">ON</span> cached  <span class="sy0">|</span> <span class="nu0">0.000006</span> <span class="sy0">|</span>
+<span class="sy0">|</span> sending cached <span class="kw1">RESULT</span> <span class="kw1">TO</span> clien <span class="sy0">|</span> <span class="nu0">0.000028</span> <span class="sy0">|</span>
+<span class="sy0">|</span> logging slow query             <span class="sy0">|</span> <span class="nu0">0.000003</span> <span class="sy0">|</span>
+<span class="sy0">|</span> cleaning up                    <span class="sy0">|</span> <span class="nu0">0.000003</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">--------------------------------+----------+</span>
+<span class="nu0">6</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.01</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Lorsqu'il n'est pas utilisé&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> profile;               
+<span class="sy0">+</span><span class="co1">--------------------+----------+</span>
+<span class="sy0">|</span> <span class="kw1">STATUS</span>             <span class="sy0">|</span> Duration <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">--------------------+----------+</span>
+<span class="sy0">|</span> starting           <span class="sy0">|</span> <span class="nu0">0.000084</span> <span class="sy0">|</span>
+<span class="sy0">|</span> Opening <span class="kw1">TABLES</span>     <span class="sy0">|</span> <span class="nu0">0.000015</span> <span class="sy0">|</span>
+<span class="sy0">|</span> System <span class="kw1">LOCK</span>        <span class="sy0">|</span> <span class="nu0">0.000006</span> <span class="sy0">|</span>
+<span class="sy0">|</span> <span class="kw1">TABLE</span> <span class="kw1">LOCK</span>         <span class="sy0">|</span> <span class="nu0">0.000010</span> <span class="sy0">|</span>
+<span class="sy0">|</span> init               <span class="sy0">|</span> <span class="nu0">0.000019</span> <span class="sy0">|</span>
+<span class="sy0">|</span> optimizing         <span class="sy0">|</span> <span class="nu0">0.000006</span> <span class="sy0">|</span>
+<span class="sy0">|</span> statistics         <span class="sy0">|</span> <span class="nu0">0.000015</span> <span class="sy0">|</span>
+<span class="sy0">|</span> preparing          <span class="sy0">|</span> <span class="nu0">0.000010</span> <span class="sy0">|</span>
+<span class="sy0">|</span> executing          <span class="sy0">|</span> <span class="nu0">0.000004</span> <span class="sy0">|</span>
+<span class="sy0">|</span> Sending <span class="kw1">DATA</span>       <span class="sy0">|</span> <span class="nu0">0.000067</span> <span class="sy0">|</span>
+<span class="sy0">|</span> <span class="kw1">END</span>                <span class="sy0">|</span> <span class="nu0">0.000005</span> <span class="sy0">|</span>
+<span class="sy0">|</span> query <span class="kw1">END</span>          <span class="sy0">|</span> <span class="nu0">0.000003</span> <span class="sy0">|</span>
+<span class="sy0">|</span> freeing items      <span class="sy0">|</span> <span class="nu0">0.000026</span> <span class="sy0">|</span>
+<span class="sy0">|</span> logging slow query <span class="sy0">|</span> <span class="nu0">0.000003</span> <span class="sy0">|</span>
+<span class="sy0">|</span> cleaning up        <span class="sy0">|</span> <span class="nu0">0.000003</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">--------------------+----------+</span>
+<span class="nu0">15</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Différence de temps d'execution&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> profiles;
+<span class="sy0">+</span><span class="co1">----------+------------+---------------------------------------------------+</span>
+<span class="sy0">|</span> Query_ID <span class="sy0">|</span> Duration   <span class="sy0">|</span> Query                                             <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">----------+------------+---------------------------------------------------+</span>
+<span class="br0">&#40;</span><span class="sy0">...</span><span class="br0">&#41;</span>
+<span class="sy0">|</span>       <span class="nu0">27</span> <span class="sy0">|</span> <span class="nu0">0.00008200</span> <span class="sy0">|</span> <span class="kw1">SELECT</span>  <span class="sy0">*</span> <span class="kw1">FROM</span> query_cache                        <span class="sy0">|</span>
+<span class="sy0">|</span>       <span class="nu0">28</span> <span class="sy0">|</span> <span class="nu0">0.00027475</span> <span class="sy0">|</span> <span class="kw1">SELECT</span> SQL_NO_CACHE <span class="sy0">*</span> <span class="kw1">FROM</span> query_cache            <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">----------+------------+---------------------------------------------------+</span></pre></div></div>
+</td></tr></table><br />
+<p>Pour voir le nombre de fois que les requetes ont du attendre qu'une autre se termine avant de s'exécuter&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">STATUS</span> <span class="kw1">LIKE</span> <span class="st0">'Table%'</span>;
+<span class="sy0">+</span><span class="co1">-----------------------+-------+</span>
+<span class="sy0">|</span> Variable_name         <span class="sy0">|</span> <span class="kw1">VALUE</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">-----------------------+-------+</span>
+<span class="sy0">|</span> Table_locks_immediate <span class="sy0">|</span> <span class="nu0">4549</span>  <span class="sy0">|</span>
+<span class="sy0">|</span> Table_locks_waited    <span class="sy0">|</span> <span class="nu0">0</span>     <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">-----------------------+-------+</span>
+<span class="nu0">2</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Ici Table_locks_waited est à 0, c'est parfait. Ce nombre augmente généralement lorsque l'on a une forte charge et que l'on utilises pas la bon moteur associé (typiquement utilisation de MyISAm à la place d'InnoDB)
+</p>
+<h2><span class="mw-headline" id="Am.C3.A9liorer_le_moteur_selon_l.27utilisation"><span class="mw-headline-number">4.6</span> Améliorer le moteur selon l'utilisation</span></h2>
+<p>Nous allons déjà regarder ce que nous possédons&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> select</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SELECT</span> TABLE_SCHEMA<span class="sy0">,</span>ENGINE<span class="sy0">,</span><span class="kw1">SUM</span><span class="br0">&#40;</span>TABLE_ROWS<span class="br0">&#41;</span><span class="sy0">,</span>ENGINE<span class="sy0">,</span><span class="kw1">SUM</span><span class="br0">&#40;</span>DATA_LENGTH<span class="br0">&#41;</span><span class="sy0">,</span><span class="kw1">SUM</span><span class="br0">&#40;</span>INDEX_LENGTH<span class="br0">&#41;</span> <span class="kw1">FROM</span> INFORMATION_SCHEMA<span class="sy0">.</span><span class="kw1">TABLES</span> <span class="kw1">GROUP</span> <span class="kw1">BY</span> ENGINE<span class="sy0">,</span>TABLE_SCHEMA <span class="kw1">ORDER</span> <span class="kw1">BY</span> TABLE_SCHEMA;
+<span class="sy0">+</span><span class="co1">--------------------+--------+-----------------+--------+------------------+-------------------+</span>
+<span class="sy0">|</span> TABLE_SCHEMA       <span class="sy0">|</span> ENGINE <span class="sy0">|</span> <span class="kw1">SUM</span><span class="br0">&#40;</span>TABLE_ROWS<span class="br0">&#41;</span> <span class="sy0">|</span> ENGINE <span class="sy0">|</span> <span class="kw1">SUM</span><span class="br0">&#40;</span>DATA_LENGTH<span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw1">SUM</span><span class="br0">&#40;</span>INDEX_LENGTH<span class="br0">&#41;</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">--------------------+--------+-----------------+--------+------------------+-------------------+</span>
+<span class="sy0">|</span> information_schema <span class="sy0">|</span> MEMORY <span class="sy0">|</span>            <span class="kw1">NULL</span> <span class="sy0">|</span> MEMORY <span class="sy0">|</span>                <span class="nu0">0</span> <span class="sy0">|</span>                 <span class="nu0">0</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> information_schema <span class="sy0">|</span> MyISAM <span class="sy0">|</span>            <span class="kw1">NULL</span> <span class="sy0">|</span> MyISAM <span class="sy0">|</span>                <span class="nu0">0</span> <span class="sy0">|</span>              <span class="nu0">4096</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> jahia              <span class="sy0">|</span> InnoDB <span class="sy0">|</span>              <span class="nu0">10</span> <span class="sy0">|</span> InnoDB <span class="sy0">|</span>           <span class="nu0">311296</span> <span class="sy0">|</span>             <span class="nu0">98304</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> jahia              <span class="sy0">|</span> MyISAM <span class="sy0">|</span>            <span class="nu0">4268</span> <span class="sy0">|</span> MyISAM <span class="sy0">|</span>           <span class="nu0">661004</span> <span class="sy0">|</span>            <span class="nu0">661504</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> jira               <span class="sy0">|</span> MyISAM <span class="sy0">|</span>         <span class="nu0">1726671</span> <span class="sy0">|</span> MyISAM <span class="sy0">|</span>        <span class="nu0">167178929</span> <span class="sy0">|</span>          <span class="nu0">73067520</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> mysql              <span class="sy0">|</span> MyISAM <span class="sy0">|</span>            <span class="nu0">1774</span> <span class="sy0">|</span> MyISAM <span class="sy0">|</span>           <span class="nu0">465108</span> <span class="sy0">|</span>             <span class="nu0">68608</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> sugarcrm           <span class="sy0">|</span> MyISAM <span class="sy0">|</span>               <span class="nu0">4</span> <span class="sy0">|</span> MyISAM <span class="sy0">|</span>              <span class="nu0">719</span> <span class="sy0">|</span>              <span class="nu0">7168</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> sugarcrm           <span class="sy0">|</span> InnoDB <span class="sy0">|</span>          <span class="nu0">351405</span> <span class="sy0">|</span> InnoDB <span class="sy0">|</span>         <span class="nu0">89718784</span> <span class="sy0">|</span>         <span class="nu0">131317760</span> <span class="sy0">|</span> 
+<span class="sy0">+</span><span class="co1">--------------------+--------+-----------------+--------+------------------+-------------------+</span>
+<span class="nu0">8</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">2.60</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Nous voyons ici principalement des tables en MyISA et InnoDB.
+</p><p>Pour vérifier la taille du cache des index pour MyISAM&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">STATUS</span> <span class="kw1">LIKE</span> <span class="st0">'KEY%'</span>;
+<span class="sy0">+</span><span class="co1">------------------------+---------+</span>
+<span class="sy0">|</span> Variable_name          <span class="sy0">|</span> <span class="kw1">VALUE</span>   <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">------------------------+---------+</span>
+<span class="sy0">|</span> Key_blocks_not_flushed <span class="sy0">|</span> <span class="nu0">0</span>       <span class="sy0">|</span> 
+<span class="sy0">|</span> Key_blocks_unused      <span class="sy0">|</span> <span class="nu0">14497</span>   <span class="sy0">|</span> 
+<span class="sy0">|</span> Key_blocks_used        <span class="sy0">|</span> <span class="nu0">12268</span>   <span class="sy0">|</span> 
+<span class="sy0">|</span> Key_read_requests      <span class="sy0">|</span> <span class="nu0">2413795</span> <span class="sy0">|</span> 
+<span class="sy0">|</span> Key_reads              <span class="sy0">|</span> <span class="nu0">67366</span>   <span class="sy0">|</span> 
+<span class="sy0">|</span> Key_write_requests     <span class="sy0">|</span> <span class="nu0">106173</span>  <span class="sy0">|</span> 
+<span class="sy0">|</span> Key_writes             <span class="sy0">|</span> <span class="nu0">104947</span>  <span class="sy0">|</span> 
+<span class="sy0">+</span><span class="co1">------------------------+---------+</span>
+<span class="nu0">7</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Il reste de la place (en Ko) pour Key_blocks_unused correspondant à l'espace inutilisé.
+</p><p>Pour vérifier la taille du cache des index pour InnoDB&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> select</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> engine innodb <span class="kw1">STATUS</span>\G;
+<span class="sy0">...</span>
+<span class="co1">----------------------</span>
+BUFFER POOL <span class="kw1">AND</span> MEMORY
+<span class="co1">----------------------</span>
+Total memory allocated <span class="nu0">18804332</span>; <span class="kw1">IN</span> additional pool allocated <span class="nu0">1048576</span>
+Buffer pool <span class="kw1">SIZE</span>   <span class="nu0">512</span>
+Free buffers       <span class="nu0">0</span>
+<span class="kw1">DATABASE</span> pages     <span class="nu0">511</span>
+Modified db pages  <span class="nu0">33</span>
+Pending reads <span class="nu0">0</span>
+Pending writes: LRU <span class="nu0">0</span><span class="sy0">,</span> <span class="kw1">FLUSH</span> list <span class="nu0">0</span><span class="sy0">,</span> single page <span class="nu0">0</span>
+Pages <span class="kw1">READ</span> <span class="nu0">41821</span><span class="sy0">,</span> created <span class="nu0">371</span><span class="sy0">,</span> written <span class="nu0">102582</span>
+<span class="nu0">0.18</span> reads<span class="sy0">/</span>s<span class="sy0">,</span> <span class="nu0">0.00</span> creates<span class="sy0">/</span>s<span class="sy0">,</span> <span class="nu0">0.00</span> writes<span class="sy0">/</span>s
+Buffer pool hit rate <span class="nu0">1000</span> <span class="sy0">/</span> <span class="nu0">1000</span>
+<span class="sy0">...</span></pre></div></div>
+</td></tr></table><br />
+<p>Ici le buffer est à (512*16) 8Mo et il n'y a plus de place libre (Free buffers). Donc pour remédier au problème, il va falloir augmenter le buffer pool. Rappel&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> select</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SELECT</span> TABLE_SCHEMA<span class="sy0">,</span>ENGINE<span class="sy0">,</span><span class="kw1">SUM</span><span class="br0">&#40;</span>TABLE_ROWS<span class="br0">&#41;</span><span class="sy0">,</span>ENGINE<span class="sy0">,</span><span class="kw1">SUM</span><span class="br0">&#40;</span>DATA_LENGTH<span class="br0">&#41;</span><span class="sy0">,</span><span class="kw1">SUM</span><span class="br0">&#40;</span>INDEX_LENGTH<span class="br0">&#41;</span> <span class="kw1">FROM</span> INFORMATION_SCHEMA<span class="sy0">.</span><span class="kw1">TABLES</span> <span class="kw1">GROUP</span> <span class="kw1">BY</span> ENGINE<span class="sy0">,</span>TABLE_SCHEMA <span class="kw1">ORDER</span> <span class="kw1">BY</span> TABLE_SCHEMA;
+<span class="sy0">+</span><span class="co1">--------------------+--------+-----------------+--------+------------------+-------------------+</span>
+<span class="sy0">|</span> TABLE_SCHEMA       <span class="sy0">|</span> ENGINE <span class="sy0">|</span> <span class="kw1">SUM</span><span class="br0">&#40;</span>TABLE_ROWS<span class="br0">&#41;</span> <span class="sy0">|</span> ENGINE <span class="sy0">|</span> <span class="kw1">SUM</span><span class="br0">&#40;</span>DATA_LENGTH<span class="br0">&#41;</span> <span class="sy0">|</span> <span class="kw1">SUM</span><span class="br0">&#40;</span>INDEX_LENGTH<span class="br0">&#41;</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">--------------------+--------+-----------------+--------+------------------+-------------------+</span>
+<span class="sy0">...</span>
+<span class="sy0">|</span> sugarcrm           <span class="sy0">|</span> InnoDB <span class="sy0">|</span>          <span class="nu0">351405</span> <span class="sy0">|</span> InnoDB <span class="sy0">|</span>         <span class="nu0">89718784</span> <span class="sy0">|</span>         <span class="nu0">131317760</span> <span class="sy0">|</span> 
+<span class="sy0">...</span></pre></div></div>
+</td></tr></table><br />
+<ul><li> SUM(DATA_LENGTH)&#160;: Taille des données sans les index</li>
+<li> SUM(INDEX_LENGTH)&#160;: Taille des index sans les données</li></ul>
+<p>Soit&#160;: ( 89718784 + 131317760 ) =~ 100Mo<br />
+Donc nous allons passer le buffer du pool à 128Mo (prévoir plus que nécessaire)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> ...
+ innodb_buffer_pool_size = 128M
+ ..</pre></div></div>
+</td></tr></table><br />
+<p>On en profite pour changer les paramétrer par défaut avec les bonnes pratiques. Attention au changement de la taille des logs, il va falloir faire quelques modifications avant de redémarrer. Modifiez votre configuration MySQL comme ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+default-storage-engine = innodb
+innodb_buffer_pool_size = 128M
+innodb_data_file_path=ibdata1:10M:autoextend
+innodb_additional_mem_pool_size = 20M
+innodb_file_per_table
+# Warning&#160;: changing this needs stop of mysql, removal (backup of ib_log* files), and mysql startup
+innodb_log_file_size = 256M
+innodb_log_buffer_size = 8M
+innodb_flush_log_at_trx_commit = 1
+...</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite, la marche à suivre doit ressembler à ceci&#160;:
+</p>
+<ul><li> Faites un backup des fichiers '<b>ib_log*'</b></li>
+<li> Arrêtez le serveur MySQL</li>
+<li> Supprimez les fichiers 'ib_logs*'</li>
+<li> Relancer le serveur</li></ul>
+<p>Note&#160;: sur Debian, il se peut que vous tapiez le timeout du service, mais peut importe il va quand même se lancer (un petit pgrep -f mysql permettra de voir ou il en est, ainsi que les logs)
+</p>
+<h2><span class="mw-headline" id="V.C3.A9rifier_les_fichiers_ouverts"><span class="mw-headline-number">4.7</span> Vérifier les fichiers ouverts</span></h2>
+<p>Il peut être important de voir les tables qui ne peuvent pas être cachées (et donc des fichiers sur le disque)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">STATUS</span> <span class="kw1">LIKE</span> <span class="st0">'Open%'</span>;
+<span class="sy0">+</span><span class="co1">---------------+-------+</span>
+<span class="sy0">|</span> Variable_name <span class="sy0">|</span> <span class="kw1">VALUE</span> <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">---------------+-------+</span>
+<span class="sy0">|</span> Open_files    <span class="sy0">|</span> <span class="nu0">130</span>   <span class="sy0">|</span> 
+<span class="sy0">|</span> Open_streams  <span class="sy0">|</span> <span class="nu0">0</span>     <span class="sy0">|</span> 
+<span class="sy0">|</span> Open_tables   <span class="sy0">|</span> <span class="nu0">64</span>    <span class="sy0">|</span> 
+<span class="sy0">|</span> Opened_tables <span class="sy0">|</span> <span class="nu0">14581</span> <span class="sy0">|</span> 
+<span class="sy0">+</span><span class="co1">---------------+-------+</span>
+<span class="nu0">4</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Ici on voit que j'ai quelques tables ouvertes et un paquet de tables qui ont été ouverte.
+</p><p>Pour remédier à ce problème, on va changer la taille du cache des tables qui est actuellement à 64Mo&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1">mysql<span class="sy0">&gt;</span> <span class="kw1">SHOW</span> global <span class="kw1">VARIABLES</span> <span class="kw1">LIKE</span> <span class="st0">'table%'</span>;
+<span class="sy0">+</span><span class="co1">-------------------------+--------+</span>
+<span class="sy0">|</span> Variable_name           <span class="sy0">|</span> <span class="kw1">VALUE</span>  <span class="sy0">|</span>
+<span class="sy0">+</span><span class="co1">-------------------------+--------+</span>
+<span class="sy0">|</span> table_cache             <span class="sy0">|</span> <span class="nu0">64</span>     <span class="sy0">|</span> 
+<span class="sy0">|</span> table_lock_wait_timeout <span class="sy0">|</span> <span class="nu0">50</span>     <span class="sy0">|</span> 
+<span class="sy0">|</span> table_type              <span class="sy0">|</span> MyISAM <span class="sy0">|</span> 
+<span class="sy0">+</span><span class="co1">-------------------------+--------+</span>
+<span class="nu0">3</span> <span class="kw1">ROWS</span> <span class="kw1">IN</span> <span class="kw1">SET</span> <span class="br0">&#40;</span><span class="nu0">0.00</span> sec<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Et on va le passer à 128 Mo. Parcontre, nous n'allons pas le faire à la volée (effets de bords quasi garanti) et il n'est pas du tout recommandé de dépasser 4Go (ici on a de quoi voir venir).
+</p><p>Nous allons donc modifier la configuration&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/mysql/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1"> <span class="sy0">...</span>
+ table_cache <span class="sy0">=</span> 128M
+ <span class="sy0">...</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Reseter_les_statistiques"><span class="mw-headline-number">4.8</span> Reseter les statistiques</span></h2>
+<p>To reset global status, you need to launch this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>flush status;
+</pre>
+</td></tr></table><br />
+<p>Now you can see it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>show global status;
+</pre>
+</td></tr></table><br />
+<p>If you restart your mysql server, it does the same thing.
+</p>
+<h2><span class="mw-headline" id="Augmenter_les_performances_pour_les_acc.C3.A8s_fichiers_temporaires"><span class="mw-headline-number">4.9</span> Augmenter les performances pour les accès fichiers temporaires</span></h2>
+<p>L'idée est de faire pointer les fichiers temporaires sur un filesystem en RAM pour y stocker les fichiers temporaires. Ca va augmenter sensiblement les performances. Tout d'abord, construisez votre filesystem temporaire&#160;:
+</p>
+<ul><li> <a href="./Tmpfs_:_un_filesystem_en_ram_ou_comment_écrire_en_ram.html" title="Tmpfs : un filesystem en ram ou comment écrire en ram">Documentation pour Linux</a></li>
+<li> <a href="./Tmpfs_:_monter_un_filesystem_en_RAM_sous_Solaris.html" title="Tmpfs : monter un filesystem en RAM sous Solaris">Documentation pour Solaris</a></li></ul>
+<p>Ensuite, vous devez modifier dans votre fichier de configuration de MySQL, la variable tmpdir et la faire pointer sur votre nouvel espace temporaire&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+# The MySQL server
+[mysqld]
+<span class="xtra ln-xtra">tmpdir = /mnt/mysql_tmpfs</span>...</pre></div></div>
+</td></tr></table><br />
+<p>Relancez MySQL et vérifiez que le nouveau paramètre est bien pris en compte&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mysql&gt; show variables like 'tmpdir';
++---------------+------------------+
+| Variable_name | Value            |
++---------------+------------------+
+<span class="xtra ln-xtra">| tmpdir        | /mnt/mysql_tmpfs |</span>+---------------+------------------+
+1 row in set (0.00 sec)</pre></div></div>
+</td></tr></table><br />
+<p>Et voilà, maintenant...ça trace&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Analysez_les_colonnes"><span class="mw-headline-number">4.10</span> Analysez les colonnes</span></h2>
+<p>Il est important de pouvoir savoir ce qu'il est possible d'optimiser sur sa structure de table pour toutes les tables de la base de données. Pour cela, il existe une commande permettant de faire l'analyse d'une base de données et de donner des indications d'optimisation par colonne&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1"><span class="kw1">SELECT</span> <span class="sy0">*</span> <span class="kw1">FROM</span> my_table <span class="kw1">PROCEDURE</span> ANALYSE<span class="br0">&#40;</span><span class="br0">&#41;</span>;</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez ensuite comparer avec la structure actuelle de la table&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="sql source-sql"><pre class="de1"><span class="kw1">DESCRIBE</span> my_table;</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Optimisation_des_tables"><span class="mw-headline-number">5</span> Optimisation des tables</span></h1>
+<p>J'ai créer un petit script perl qui permet d'automatiser l'optimisation de bases de données. Pour l'utiliser, rien de plus simple, il suffit d'utiliser un utilisateur qui a les droits select et insert sur toutes les bases de données. Vous pouvez également exclure certaines bases de données. Si vous souhaitez être sur d'avoir la dernière version de ce script, je vous laisse le soin d'<a rel="nofollow" class="external text" href="http://www.deimos.fr/gitweb/?p=git_deimosfr.git;a=tree">aller sur mon git</a>. Je vous laisse le soin de regarder le début du code&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> optimizer.pl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="co1">#!/usr/bin/perl </span>
+<span class="co1">#===============================================================================</span>
+<span class="co1">#</span>
+<span class="co1">#         FILE:  optimizer.pl</span>
+<span class="co1">#</span>
+<span class="co1">#        USAGE:  ./optimizer.pl  </span>
+<span class="co1">#</span>
+<span class="co1">#  DESCRIPTION:  MySQL Automatic Tables Optimizer</span>
+<span class="co1">#</span>
+<span class="co1">#      OPTIONS:  ---</span>
+<span class="co1"># REQUIREMENTS:  ---</span>
+<span class="co1">#         BUGS:  ---</span>
+<span class="co1">#        NOTES:  ---</span>
+<span class="co1">#       AUTHOR:  Pierre Mavro (), pierre@mavro.fr</span>
+<span class="co1">#      COMPANY:  </span>
+<span class="co1">#      VERSION:  0.1</span>
+<span class="co1">#      CREATED:  08/04/2010 17:50:23</span>
+<span class="co1">#     REVISION:  ---</span>
+<span class="co1">#===============================================================================</span>
+&#160;
+<span class="kw2">use</span> strict<span class="sy0">;</span>
+<span class="kw2">use</span> warnings<span class="sy0">;</span>
+<span class="kw2">use</span> DBI<span class="sy0">;</span>
+&#160;
+<span class="co1"># MySQL configuration</span>
+<span class="co1"># This user should have insert and select rights</span>
+<span class="kw1">my</span> <span class="re0">$host</span> <span class="sy0">=</span> <span class="st_h">'localhost'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$database</span> <span class="sy0">=</span> <span class="st_h">'mysql'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$user</span> <span class="sy0">=</span> <span class="st_h">'optimizer'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$pw</span> <span class="sy0">=</span> <span class="st_h">'optimizer'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">@exclude_databases</span> <span class="sy0">=</span> <span class="co2">qw/information_schema database1 database2/</span><span class="sy0">;</span>
+&#160;
+<span class="co1">########## DO NOT TOUCH NOW ##########</span>
+&#160;
+<span class="co1"># Vars</span>
+<span class="kw1">my</span> <span class="br0">&#40;</span><span class="re0">@all_databases</span><span class="sy0">,</span><span class="re0">@all_tables</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="br0">&#40;</span><span class="re0">$aref</span><span class="sy0">,</span> <span class="re0">$cur_database</span><span class="sy0">,</span> <span class="re0">$cur_table</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Connect to the BDD</span>
+<span class="kw1">my</span> <span class="re0">$dbdetails</span> <span class="sy0">=</span> <span class="st0">&quot;DBI:mysql:$database;host=$host&quot;</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$dbh</span> <span class="sy0">=</span> DBI<span class="sy0">-&gt;</span><span class="kw3">connect</span><span class="br0">&#40;</span><span class="re0">$dbdetails</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pw</span><span class="br0">&#41;</span> <span class="kw1">or</span> <span class="kw3">die</span> <span class="st0">&quot;Could not connect to database: $DBI::errstr<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Get all databases</span>
+<span class="kw1">my</span> <span class="re0">$sth</span><span class="sy0">=</span><span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">prepare</span><span class="br0">&#40;</span><span class="kw3">q</span><span class="br0">&#123;</span>SHOW DATABASES<span class="br0">&#125;</span><span class="br0">&#41;</span> <span class="kw1">or</span> <span class="kw3">die</span> <span class="st0">&quot;Unable to prepare show databases: &quot;</span><span class="sy0">.</span> <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">errstr</span><span class="sy0">.</span><span class="st0">&quot;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="re0">$sth</span><span class="sy0">-&gt;</span><span class="me1">execute</span> <span class="kw1">or</span> <span class="kw3">die</span> <span class="st0">&quot;Unable to exec show databases: &quot;</span><span class="sy0">.</span> <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">errstr</span><span class="sy0">.</span><span class="st0">&quot;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw1">while</span> <span class="br0">&#40;</span><span class="re0">$aref</span> <span class="sy0">=</span> <span class="re0">$sth</span><span class="sy0">-&gt;</span><span class="me1">fetchrow_arrayref</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">push</span><span class="br0">&#40;</span><span class="re0">@all_databases</span><span class="sy0">,</span><span class="re0">$aref</span><span class="sy0">-&gt;</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span> 
+<span class="re0">$sth</span><span class="sy0">-&gt;</span><span class="me1">finish</span><span class="sy0">;</span>
+<span class="co1"># Disconnect the BDD</span>
+<span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">disconnect</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Optimize all tables of all databases</span>
+<span class="kw1">my</span> <span class="re0">$unwanted_found</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span>
+<span class="kw1">foreach</span> <span class="re0">$cur_database</span> <span class="br0">&#40;</span><span class="re0">@all_databases</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="co1"># Exclude optimization on unwanted databases</span>
+    <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">@exclude_databases</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$cur_database</span> <span class="kw1">eq</span> <span class="co5">$_</span><span class="br0">&#41;</span>
+        <span class="br0">&#123;</span>
+            <span class="re0">$unwanted_found</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span>
+            <span class="kw1">last</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$unwanted_found</span> <span class="sy0">==</span> <span class="nu0">1</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        <span class="re0">$unwanted_found</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span>
+        <span class="kw1">next</span><span class="sy0">;</span>
+    <span class="br0">&#125;</span>
+    <span class="co1"># Connect on database</span>
+    <span class="kw1">my</span> <span class="re0">$dbdetails</span> <span class="sy0">=</span> <span class="st0">&quot;DBI:mysql:$cur_database;host=$host&quot;</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$dbh</span> <span class="sy0">=</span> DBI<span class="sy0">-&gt;</span><span class="kw3">connect</span><span class="br0">&#40;</span><span class="re0">$dbdetails</span><span class="sy0">,</span> <span class="re0">$user</span><span class="sy0">,</span> <span class="re0">$pw</span><span class="br0">&#41;</span> <span class="kw1">or</span> <span class="kw3">die</span> <span class="st0">&quot;Could not connect to database: $DBI::errstr<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+    <span class="co1"># Get the List of tables</span>
+    <span class="re0">@all_tables</span> <span class="sy0">=</span> <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">tables</span><span class="sy0">;</span>
+    <span class="co1"># Optimize all tables</span>
+    <span class="kw1">foreach</span> <span class="re0">$cur_table</span> <span class="br0">&#40;</span><span class="re0">@all_tables</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="kw1">do</span><span class="br0">&#40;</span><span class="st0">&quot;optimize table $cur_table&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="br0">&#125;</span>
+    <span class="re0">$dbh</span><span class="sy0">-&gt;</span><span class="me1">disconnect</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Patch_mysqltuner"><span class="mw-headline-number">6</span> Patch mysqltuner</span></h1>
+<p>Voici un petit patch que j'ai écrit permettant de régler un bug lorsque l'on essaye de se connecter sur un port différent que celui par défaut&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> mysqltuner.pl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="diff source-diff"><pre class="de1"><span class="re9">*** mysqltuner.pl.old   mar. avr  10 09:26:01 2012</span>
+<span class="re3">--- mysqltuner.pl       mar. avr  10 09:28:14 2012</span>
+***************
+<span class="re9">*** 274,280 ****</span>
+        <span class="br0">&#125;</span>
+        # Did we already get a username and password passed on the command line?
+        if <span class="br0">&#40;</span>$opt<span class="br0">&#123;</span>user<span class="br0">&#125;</span> ne <span class="nu0">0</span> and $opt<span class="br0">&#123;</span>pass<span class="br0">&#125;</span> ne <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+<span class="re5">!               $mysqllogin = &quot;-u $opt<span class="br0">&#123;</span>user<span class="br0">&#125;</span> -p'$opt<span class="br0">&#123;</span>pass<span class="br0">&#125;</span>'&quot;.$remotestring;</span>
+                my $loginstatus = `mysqladmin ping $mysqllogin <span class="nu0">2</span>&gt;&amp;<span class="nu0">1</span>`;
+                if <span class="br0">&#40;</span>$loginstatus =~ /mysqld is alive/<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                        goodprint &quot;Logged in using credentials passed on the command line\n&quot;;
+<span class="re3">--- 274,280 ----</span>
+        <span class="br0">&#125;</span>
+        # Did we already get a username and password passed on the command line?
+        if <span class="br0">&#40;</span>$opt<span class="br0">&#123;</span>user<span class="br0">&#125;</span> ne <span class="nu0">0</span> and $opt<span class="br0">&#123;</span>pass<span class="br0">&#125;</span> ne <span class="nu0">0</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+<span class="re5">!               $mysqllogin = &quot;-u $opt<span class="br0">&#123;</span>user<span class="br0">&#125;</span> -p'$opt<span class="br0">&#123;</span>pass<span class="br0">&#125;</span>' -P $opt<span class="br0">&#123;</span>port<span class="br0">&#125;</span>&quot;.$remotestring;</span>
+                my $loginstatus = `mysqladmin ping $mysqllogin <span class="nu0">2</span>&gt;&amp;<span class="nu0">1</span>`;
+                if <span class="br0">&#40;</span>$loginstatus =~ /mysqld is alive/<span class="br0">&#41;</span> <span class="br0">&#123;</span>
+                        goodprint &quot;Logged in using credentials passed on the command line\n&quot;;</pre></div></div>
+</td></tr></table><br />
+<p>Je l'ai soumit, mais vu qu'il n'y a plus de mainteneur...
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://dev.mysql.com/doc/refman/5.0/en/temporary-files.html">http://dev.mysql.com/doc/refman/5.0/en/temporary-files.html</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.148 seconds
+Real time usage: 0.151 seconds
+Preprocessor visited node count: 786/1000000
+Preprocessor generated node count: 2278/1000000
+Post‐expand include size: 8817/2097152 bytes
+Template argument size: 2717/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   76.736      1 - -total
+ 76.44%   58.657     32 - Template:Command
+ 16.31%   12.519     11 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3098-0!*!0!1!en!5!* and timestamp 20181111230657 and revision id 12572
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=MysqlTuner_:_Optimiser_votre_serveur_MySQL&amp;oldid=12572">https://wiki.deimos.fr/index.php?title=MysqlTuner_:_Optimiser_votre_serveur_MySQL&amp;oldid=12572</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=MysqlTuner+%3A+Optimiser+votre+serveur+MySQL" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=MysqlTuner_:_Optimiser_votre_serveur_MySQL&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=MysqlTuner_:_Optimiser_votre_serveur_MySQL&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./MysqlTuner_:_Optimiser_votre_serveur_MySQL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/MysqlTuner_:_Optimiser_votre_serveur_MySQL.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/MysqlTuner_:_Optimiser_votre_serveur_MySQL" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=MysqlTuner_:_Optimiser_votre_serveur_MySQL&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=MysqlTuner_:_Optimiser_votre_serveur_MySQL&amp;oldid=12572" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=MysqlTuner_:_Optimiser_votre_serveur_MySQL&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 6 June 2013, at 09:19.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":33});
+}</script>
+	</body>
+</html>
+	

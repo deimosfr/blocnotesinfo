@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>OpenSSH : Tunneling VPN - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./OpenSSH_:_Tunneling_VPN.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"OpenSSH_:_Tunneling_VPN","wgTitle":"OpenSSH : Tunneling VPN","wgCurRevisionId":8982,"wgRevisionId":8982,"wgArticleId":1026,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"OpenSSH_:_Tunneling_VPN","wgRelevantArticleId":1026,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-OpenSSH_Tunneling_VPN skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">OpenSSH : Tunneling VPN</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./OpenSSH_:_Tunneling_VPN.html#mw-navigation">navigation</a>, 					<a href="./OpenSSH_:_Tunneling_VPN.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./OpenSSH_:_Tunneling_VPN.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./OpenSSH_:_Tunneling_VPN.html#Configuration"><span class="tocnumber">2</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./OpenSSH_:_Tunneling_VPN.html#Serveur"><span class="tocnumber">2.1</span> <span class="toctext">Serveur</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="./OpenSSH_:_Tunneling_VPN.html#OpenBSD"><span class="tocnumber">2.1.1</span> <span class="toctext">OpenBSD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="./OpenSSH_:_Tunneling_VPN.html#Client"><span class="tocnumber">2.2</span> <span class="toctext">Client</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./OpenSSH_:_Tunneling_VPN.html#FAQ"><span class="tocnumber">3</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./OpenSSH_:_Tunneling_VPN.html#Connection_closed_by_..."><span class="tocnumber">3.1</span> <span class="toctext">Connection closed by ...</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./OpenSSH_:_Tunneling_VPN.html#Cannot_fork_into_background_without_a_command_to_execute"><span class="tocnumber">3.2</span> <span class="toctext">Cannot fork into background without a command to execute</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="./OpenSSH_:_Tunneling_VPN.html#Ressources"><span class="tocnumber">4</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Depuis la version 4.3 de OpenSSH, l'option pour faire des tunnels IP a été ajoutée.
+</p><p>Avant tout, il faut vérifier la version d'OpenSSH sur le serveur et le client.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ssh</font>
+</td></tr>
+<tr>
+<td>
+<pre>ssh -v
+</pre>
+</td></tr></table><br />
+<p>Tout d'abord, il faut les droits root sur les 2 machines. En effet, il y a quelques opérations à faire, aussi bien au niveau de la configuration que du réseau.
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">2</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Serveur"><span class="mw-headline-number">2.1</span> Serveur</span></h2>
+<h3><span class="mw-headline" id="OpenBSD"><span class="mw-headline-number">2.1.1</span> OpenBSD</span></h3>
+<p>La première chose à faire est de dire à OpenSSH d'autoriser les tunnels, en rajoutant cette directive&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/ssh/sshd_config</font>
+</td></tr>
+<tr>
+<td>
+<pre># Enable layer-3 tunneling. Change the value to 'ethernet' for layer-2 tunneling
+PermitTunnel point-to-point
+</pre>
+</td></tr></table><br />
+<p>Nous devons nous assurer que le forwarding est activé&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sysctl</font>
+</td></tr>
+<tr>
+<td>
+<pre>sysctl net.inet.ip.forwarding=1
+</pre>
+</td></tr></table><br />
+<p>Et sera activé au reboot&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /etc/sysctl.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>net.inet.ip.forwarding=1
+</pre>
+</td></tr></table><br />
+<p>On va créer une interface tun&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>ifconfig tun0 create
+ifconfig tun0 10.0.0.1 10.0.0.2 netmask 0xfffffffc
+</pre>
+</td></tr></table><br />
+<p>Et encore une fois, rendre la configuration permanente&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/hostname.tun0</font>
+</td></tr>
+<tr>
+<td>
+<pre>10.0.0.1 10.0.0.2 netmask 0xfffffffc
+</pre>
+</td></tr></table><br />
+<p>Nous allons maintenant pouvoir relancer SSH&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>pkill -HUP sshd&#160;; /usr/sbin/sshd
+</pre>
+</td></tr></table><br />
+<p>Il faut aussi retirer la séparation des privilèges, ou jouer sur les permissions de /dev/tun . J'ai pris la facilité pour le moment, j'ai rajouté
+</p>
+<pre>UsePrivilegeSeparation no
+</pre>
+<p>Une autre solution est de donner les permissions en lecture écriture à un groupe particulier sur /dev/tun, ce qui est bien plus simple et sûr.
+</p>
+<pre>chmod&#160;:mongroupe /dev/tun
+</pre>
+<p>et bien sur, être dans le groupe en question.
+</p><p>Il faut ensuite charger le module tun&#160;:
+</p>
+<pre>modprobe tun
+</pre>
+<p>et le rajouter dans /etc/modprobe.preload
+</p>
+<pre>echo tun &gt;&gt; /etc/modprobe.preload
+</pre>
+<p>pour le charger au prochain démarrage.
+</p>
+<h2><span class="mw-headline" id="Client"><span class="mw-headline-number">2.2</span> Client</span></h2>
+<p>Au niveau du client, nous devons également ajouter cette directive mais dans le fichier /etc/ssh/ssh_config&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/ssh/ssh_config</font>
+</td></tr>
+<tr>
+<td>
+<pre># Enable layer-3 tunneling. Change the value to 'ethernet' for layer-2 tunneling
+PermitTunnel point-to-point
+</pre>
+</td></tr></table><br />
+<p>Editez le fichier /etc/network/interfaces et rajoutez cette interface&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/network/interfaces</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">      iface tun0 inet static
+      pre-up ssh -S /var/run/ssh-myvpn-tunnel-control -M -f -w 0:0 5.6.7.8 true
+      pre-up sleep 5
+      address 10.254.254.2
+      pointopoint 10.254.254.1
+      netmask 255.255.255.252
+      up route add -net 10.99.99.0 netmask 255.255.255.0 gw 10.254.254.1 tun0
+      post-down ssh -S /var/run/ssh-myvpn-tunnel-control -O exit 5.6.7.8</pre></div></div>
+</td></tr></table><br />
+<p><br />
+Il faut simplement les droits sur /dev/tun, donc soit tourner en root, ou avoir la permission d'écrire sur /dev/tun, comme plus haut, puis faire ( client etant le serveur )&#160;:
+</p>
+<pre>ssh -w any:any client
+</pre>
+<p>Vous pouvez jeter une oeil sur les options -f et -N pour ne pas lancer de shell sur la machine distante. Et bien sur, les options habituelles marchent encore ( clé, tunnel, master/slave ).
+</p><p>Puis, en root, vous pourrez changer l'ip de la nouvelle interface tun0 sur le serveur
+</p>
+<pre>ifconfig tun0 10.0.0.1
+</pre>
+<p>sous FreeBSD:
+</p>
+<pre>ifconfig tun100 inet 10.0.0.1 10.0.0.2 netmask 255.255.255.255
+</pre>
+<p>et faire pareil sur le client&#160;:
+</p>
+<pre>ifconfig tun0 10.0.0.2
+</pre>
+<p>ou
+</p><p>ifconfig tun100 inet 10.0.0.2 10.0.0.1 netmask 255.255.255.255
+</p><p>Et finalement, vous pouvez maintenant tester le ping depuis le client&#160;:
+</p>
+<pre>ping 10.0.0.1
+</pre>
+<p>Le reste, c'est de la configuration normale pour les interfaces. Vous pouvez rajouter des routes, un firewall, n'importe quoi.
+</p><p>Néanmoins, il faut savoir que les connexions tcp par dessus tcp ( comme c'est le cas avec ssh ) sont déconseillées, de par la nature de tcp.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">3</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Connection_closed_by_..."><span class="mw-headline-number">3.1</span> Connection closed by ...</span></h2>
+<p>Ceci est généralement du au serveur qui galère. Vérifier qu'il a bien les bons DNS et que dans la config (/etc/ssh/sshd_config) la valeur LoginGraceTime est assez élevée.
+</p>
+<h2><span class="mw-headline" id="Cannot_fork_into_background_without_a_command_to_execute"><span class="mw-headline-number">3.2</span> Cannot fork into background without a command to execute</span></h2>
+<p>Vous avez peut être ce message d'erreur&#160;:
+</p>
+<pre>Cannot fork into background without a command to execute
+Failed to bring up tun1.
+</pre>
+<p>Pour palier ce problème, rajoutez l'option -N à la commande ssh.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">4</span> Ressources</span></h1>
+<p><a href="./File:Tunnelling_VPN_SSH.pdf.html" title="File:Tunnelling VPN SSH.pdf">Documentation sur le VPN SSH</a><br />
+<a rel="nofollow" class="external free" href="http://www.kernel-panic.it/openbsd/vpn/vpn5.html">http://www.kernel-panic.it/openbsd/vpn/vpn5.html</a><br />
+<a rel="nofollow" class="external free" href="http://www.debian-administration.org/article/Setting_up_a_Layer_3_tunneling_VPN_with_using_OpenSSH">http://www.debian-administration.org/article/Setting_up_a_Layer_3_tunneling_VPN_with_using_OpenSSH</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.028 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 148/1000000
+Preprocessor generated node count: 412/1000000
+Post‐expand include size: 1993/2097152 bytes
+Template argument size: 684/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.653      1 - -total
+ 43.45%    2.022      4 - Template:Config
+ 36.19%    1.684      5 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1026-0!*!*!1!en!5!* and timestamp 20181111230721 and revision id 8982
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Tunneling_VPN&amp;oldid=8982">https://wiki.deimos.fr/index.php?title=OpenSSH_:_Tunneling_VPN&amp;oldid=8982</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=OpenSSH+%3A+Tunneling+VPN" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./OpenSSH_:_Tunneling_VPN.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./OpenSSH_:_Tunneling_VPN.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./OpenSSH_:_Tunneling_VPN.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Tunneling_VPN&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Tunneling_VPN&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./OpenSSH_:_Tunneling_VPN.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/OpenSSH_:_Tunneling_VPN.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/OpenSSH_:_Tunneling_VPN" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Tunneling_VPN&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Tunneling_VPN&amp;oldid=8982" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=OpenSSH_:_Tunneling_VPN&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 14 May 2010, at 22:46.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

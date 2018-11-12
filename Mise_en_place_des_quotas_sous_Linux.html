@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Mise en place des quotas sous Linux - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Mise_en_place_des_quotas_sous_Linux.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Mise_en_place_des_quotas_sous_Linux","wgTitle":"Mise en place des quotas sous Linux","wgCurRevisionId":6083,"wgRevisionId":6083,"wgArticleId":2552,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Mise_en_place_des_quotas_sous_Linux","wgRelevantArticleId":2552,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Mise_en_place_des_quotas_sous_Linux skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Mise en place des quotas sous Linux</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Mise_en_place_des_quotas_sous_Linux.html#mw-navigation">navigation</a>, 					<a href="Mise_en_place_des_quotas_sous_Linux.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Mise_en_place_des_quotas_sous_Linux.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Mise_en_place_des_quotas_sous_Linux.html#Pr.C3.A9requis"><span class="tocnumber">2</span> <span class="toctext">Prérequis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Mise_en_place_des_quotas_sous_Linux.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Mise_en_place_des_quotas_sous_Linux.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Mise_en_place_des_quotas_sous_Linux.html#.2Fetc.2Ffstab"><span class="tocnumber">4.1</span> <span class="toctext">/etc/fstab</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Mise_en_place_des_quotas_sous_Linux.html#Cr.C3.A9ation_des_structures_n.C3.A9cessaires_au_fonctionnement_des_quotas"><span class="tocnumber">4.2</span> <span class="toctext">Création des structures nécessaires au fonctionnement des quotas</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="Mise_en_place_des_quotas_sous_Linux.html#Attribution_et_v.C3.A9rification_des_quotas"><span class="tocnumber">5</span> <span class="toctext">Attribution et vérification des quotas</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Mise_en_place_des_quotas_sous_Linux.html#Fixer_des_quotas"><span class="tocnumber">5.1</span> <span class="toctext">Fixer des quotas</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Mise_en_place_des_quotas_sous_Linux.html#Fixer_un_d.C3.A9lai"><span class="tocnumber">5.2</span> <span class="toctext">Fixer un délai</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Mise_en_place_des_quotas_sous_Linux.html#D.C3.A9passement_de_quotas_:_que_se_passe-t-il"><span class="tocnumber">5.3</span> <span class="toctext">Dépassement de quotas&#160;: que se passe-t-il</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Mise_en_place_des_quotas_sous_Linux.html#V.C3.A9rification_et_affichage_des_quotas"><span class="tocnumber">6</span> <span class="toctext">Vérification et affichage des quotas</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Mise_en_place_des_quotas_sous_Linux.html#Edition_des_informations_relatives_aux_quotas"><span class="tocnumber">6.1</span> <span class="toctext">Edition des informations relatives aux quotas</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Mise_en_place_des_quotas_sous_Linux.html#V.C3.A9rifications_et_synchronisation_des_fichiers_de_quotas"><span class="tocnumber">6.2</span> <span class="toctext">Vérifications et synchronisation des fichiers de quotas</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Mise_en_place_des_quotas_sous_Linux.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>L'attribution de quotas dans un système de fichiers est un outil qui permet de maîtriser l'utilisation de l'espace disque. Les quotas consistent à fixer une limite d'espace pour un utilisateur ou un groupe d'utilisateurs.
+</p><p>Pour la création de ces quotas, on définit <b>2 types de limites</b>&#160;:
+</p>
+<ul><li> <b>La limite soft</b>&#160;: indique la quantité maximale d'espace qu'un utilisateur peut occuper sur le système de fichiers. Si cette limite est atteinte, l'utilisateur reçoit des messages d'avertissement quant au dépassement du quota qui lui a été attribué. Si son utilisation est combinée avec les délais (ou grace period), lorsque l'utilisateur continue à dépasser la soft limite après que se soit écoulé le délai de grâce, alors il se retrouve dans le même cas que dans l'atteinte d'une limite dure.</li>
+<li> <b>La limite hard</b>&#160;: définie une limite absolue pour l'utilisation de l'espace. L'utilisateur ne peut pas dépasser cette limite. Passée cette limite, l'écriture sur ce système de fichiers lui est interdite. </li></ul>
+<p>De plus ces limites sont exprimées en blocs et en inodes. On a vu que le bloc étant une unité d'espace. Les quotas exprimés en nombre de blocs représentent donc une limite d'espace à ne pas dépasser. En ce qui concerne les quotas exprimés en nombre d'inodes, ils représentent le nombre maximum de fichiers et répertoires que l'utilisateur pourra créer.
+</p><p>Pour mémoire, les délais (ou grace period) fixent une période de temps avant que la limite douce ne se transforme en limite dure. Elle est fixée dans les unités suivantes&#160;: second, minute, hour, day, week.
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2</span> Prérequis</span></h1>
+<p>Nous devons vérifier la présence des quotas au niveau du kernel (mettez le fichier de configuration de votre kernel actuel)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> grep</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ grep QUOTA &lt; /boot/<b>config-2.6.18-6-amd64</b>
+CONFIG_QUOTA=y
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<p>Pour installer sur Debian les quotas&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install quota
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id=".2Fetc.2Ffstab"><span class="mw-headline-number">4.1</span> /etc/fstab</span></h2>
+<p>Les quotas sont activés au démarrage grâce à la commande quotaon. Les quotas sont désactivés à l'arrêt du système par la commande quotaoff.
+</p><p>Pour fixer les quotas sur un système de fichiers, il faut mettre à jour le fichier /etc/fstab. On va pour cela ajouter les options de montage pour le ou les systèmes de fichiers concernés. Deux options peuvent être utilisées (et combinées bien sûr)&#160;:
+</p>
+<ul><li> usrquota&#160;: active les quotas utilisateurs</li>
+<li> grpquota&#160;: active les quotas groupes </li></ul>
+<p>Exemple&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/fstab</font>
+</td></tr>
+<tr>
+<td>
+<pre>/dev/hdc1 /home ext3 defaults,usrquota 1 1
+/dev/hdc2 /tmp ext3 defaults,grpquota 1 1
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Cr.C3.A9ation_des_structures_n.C3.A9cessaires_au_fonctionnement_des_quotas"><span class="mw-headline-number">4.2</span> Création des structures nécessaires au fonctionnement des quotas</span></h2>
+<p><b>Un ou deux fichiers doivent être créés pour l'utilisation des quotas&#160;: aquota.user et aquota.group</b>. C'est dans ces fichiers que l'on configurera les quotas attribués aux utilisateurs et/ou aux groupes. Ces fichiers doivent être créés à la racine des systèmes de fichiers qui comportent ces quotas. Exemples&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> touch</font>
+</td></tr>
+<tr>
+<td>
+<pre>touch /home/aquota.user
+touch /tmp/aquota.group
+</pre>
+</td></tr></table><br />
+<p><b>Attention&#160;: ne pas oublier de modifier les droits sur ces fichiers&#160;! Ils doivent comporter les droits en écriture et lecture pour root uniquement.</b>
+Exemples&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>chmod 600 /home/aquota.user
+chmod 600 /tmp/aquota.group
+</pre>
+</td></tr></table><br />
+<p>Remonter le ou les systèmes de fichiers concernés pour prendre en compte l'utilisation de quotas pour ce système de fichiers&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mount</font>
+</td></tr>
+<tr>
+<td>
+<pre>mount -o remount /home
+mount -o remount /tmp
+</pre>
+</td></tr></table><br />
+<p>Après création de ces fichiers, il faut initialiser la base des quotas en exécutant la commande suivante&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> quotacheck</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ quotacheck -auvg
+edquota: Quota file not found or has wrong format.
+No filesystems with quota detected.
+</pre>
+</td></tr></table><br />
+<p>Voici ce qui se passe si cela ne fonctionne pas. Activer les quotas&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> quotaon</font>
+</td></tr>
+<tr>
+<td>
+<pre>quotaon -a
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Attribution_et_v.C3.A9rification_des_quotas"><span class="mw-headline-number">5</span> Attribution et vérification des quotas</span></h1>
+<h2><span class="mw-headline" id="Fixer_des_quotas"><span class="mw-headline-number">5.1</span> Fixer des quotas</span></h2>
+<p>L'attribution des quotas se fait grâce à la commande edquota, utilisable quelque soit le type de quota (utilisateur ou groupe). La commande ouvre un éditeur (vi ou emacs selon le contenu de votre variable EDITOR), qui vous permet de modifier directement les fichiers aquota.user ou aquota.group.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> edquota</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Syntaxe&#160;: edquota [-u user] [-g group] [-t]
+&#160;
+    * -u user définit les quotas pour un ou plusieurs utilisateurs
+    * -g group définit les quotas pour un ou plusieurs groupes
+    * -t définit les délais</pre></div></div>
+</td></tr></table><br />
+<p>Exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> edquota</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ edquota -u citrouille
+Disk quotas for user anne (uid 500):
+  Filesystem         blocks       soft       hard     inodes     soft     hard
+  /dev/hdc1           0       9000       10000         0     90000      10000</pre></div></div>
+</td></tr></table><br />
+<p>Le fichier se compose de 6 colonnes&#160;:
+</p>
+<ul><li> Filesystem&#160;: système de fichiers concerné par les quotas</li>
+<li> blocks&#160;: nombre de blocs occupés par l'utilisateur dans le système de fichiers. Ici aucun fichier n'a encore été créé.</li>
+<li> soft&#160;: limite soft en nombre de blocs. Ici elle est fixée à 9 000 blocs soit environ 9 Mo</li>
+<li> hard&#160;: limite hard en nombre de blocs (environ 10 Mo)</li>
+<li> inodes&#160;: nombre d'[#rappels inodes ]occupées par l'utilisateur dans le système de fichiers</li>
+<li> soft&#160;: limite soft en nombre d'inodes</li>
+<li> hard&#160;: limite hard en nombre d'inodes </li></ul>
+<p>On procédera de la même façon pour l'attribution de quotas à un groupe. (Ne tentez pas d'éditer directement ces fichiers; ils ne sont pas en format texte.)
+</p>
+<h2><span class="mw-headline" id="Fixer_un_d.C3.A9lai"><span class="mw-headline-number">5.2</span> Fixer un délai</span></h2>
+<p>On a vu également qu'on pouvait moduler le délai fixé entre le moment où l'utilisateur atteint la limite soft et celui où on va lui interdire toute occupation supplémentaire dans le système de fichiers. On va donc fixer la durée de ce délai. Elle sera la même quelque soit l'utilisateur et/ou le groupe.
+</p><p>Exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> edquota</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ edquota -t
+Grace period before enforcing soft limits for users:
+Time units may be: days, hours, minutes, or seconds
+  Filesystem             Block grace period     Inode grace period
+  /dev/hdc1                    7days                  7days</pre></div></div>
+</td></tr></table><br />
+<p>Il suffit donc de remplacer les valeurs par vos valeurs dans l'unité qui vous convient&#160;: second, minute, hour, day, week.
+</p>
+<h2><span class="mw-headline" id="D.C3.A9passement_de_quotas_:_que_se_passe-t-il"><span class="mw-headline-number">5.3</span> Dépassement de quotas&#160;: que se passe-t-il</span></h2>
+<p>Une fois n'est pas coutume, on se place du côté utilisateur. Nous allons décrire les principaux cas de figure de dépassement de quotas et les messages envoyés à l'utilisateur.
+</p><p>Prenons l'exemple suivant&#160;: l'utilisateur Anne dispose de 9Mo en limite douce et 10 Mo en limite dure. Son délai de grâce est de 7 minutes. Ci-dessous le contenu du système de fichiers faisant l'objet de ces quotas&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ ls -l /home/anne
+total 1842
+-rw-------    1 root     root         7168 fév 28 23:50 aquota.user
+-rw-r--r--    1 anne     anne      1857516 mar  1 12:19 fic1
+drwx------    2 root     root        12288 nov 28 12:59 lost+found</pre></div></div>
+</td></tr></table><br />
+<p>Nous sommes largement en-dessous des quotas. Nous allons maintenant copier 4 fois le fichier fic1. Les 3 premières copies se passent bien et nous avons fic2, fic3 et fic4. Ci-dessous, la dernière copie avec l'utilisateur anne&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>$ cp fic1 fic5
+ide1(22,10): warning, user block quota exceeded.
+
+$ ls -l
+total 9134
+-rw-------    1 root     root         7168 fév 28 23:50 aquota.user
+-rw-r--r--    1 anne     anne      1857516 mar  1 12:19 fic1
+-rw-r--r--    1 anne     anne      1857516 mar  1 13:18 fic2
+-rw-r--r--    1 anne     anne      1857516 mar  1 13:18 fic3
+-rw-r--r--    1 anne     anne      1857516 mar  1 13:18 fic4
+-rw-r--r--    1 anne     anne      1857516 mar  1 13:18 fic5
+drwx------    2 root     root        12288 nov 28 12:59 lost+found
+</pre>
+</td></tr></table><br />
+<p>La limite douce est dépassée. L'utilisateur reçoit un message mais l'écriture est réalisée car nous n'avons pas dépassé la limite dure.
+</p><p>2 cas de figures peuvent alors se présenter si l'utilisateur ne contacte pas l'administrateur ou s'il ne libère pas de l'espace pour repasser en-dessous de la limite douce&#160;:
+</p>
+<ul><li> 1er cas&#160;: l'utilisateur tente d'écrire dans le système de fichiers ce qui l'amène à dépasser la limite dure. </li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ cp fic1 fic6
+ide1(22,10): write failed, user block limit reached.
+cp: écriture de `fic6': Débordement du quota d'espace disqueL'opération échoue. Une partie du fichier seulement a été copiée. l'utilisateur de pourra plus écrire dans le système de fichiers.</pre></div></div>
+</td></tr></table><br />
+<ul><li> 2ème cas&#160;: l'utilisateur laisse s'écouler le délai de grâce de 7 minutes fixé par l'administrateur. Il tente alors de copier le contenu du fichier /etc/passwd par exemple. Le total de l'espace occupé reste toutefois inférieur à la limite dure.<br /></li></ul>
+<p>La sanction sera identique que dans le 1er cas. L'opération échoue&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ cp /etc/passwd .
+ide1(22,10): write failed, user block quota exceeded too long.
+cp: écriture de `./passwd': Débordement du quota d'espace disque L'opération a échoué comme en témoigne le listage ci-dessous&#160;:
+&#160;
+anne@pingu$ ls -l passwd
+        -rw-r--r--    1 anne     anne            0 mar  1 14:48 passwd</pre></div></div>
+</td></tr></table><br />
+<p>De même si vous essayez d'écrire dans le fichier passwd, vous obtiendrez le message suivant dans votre éditeur au moment de l'enregistrement&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&quot;passwd&quot; erreur d'écriture (système de fichiers plein&#160;?) Appuyez sur ENTRÉE ou tapez une commande pour continuer
+Il vous est impossible d'écrire.</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="V.C3.A9rification_et_affichage_des_quotas"><span class="mw-headline-number">6</span> Vérification et affichage des quotas</span></h1>
+<p>Les commandes suivantes vont vous permettre d'une part de vérifier les quotas affectés à chaque groupe et/ou utilisateur et éventuellement de synchroniser les informations nécessaires au système pour le suivi de ces quotas.
+</p>
+<h2><span class="mw-headline" id="Edition_des_informations_relatives_aux_quotas"><span class="mw-headline-number">6.1</span> Edition des informations relatives aux quotas</span></h2>
+<p>La commande repquota permet d'afficher un résumé de l'utilisation des quotas et délais de grâce.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Syntaxe&#160;: repquota [ -vug ] -a | filesystem
+&#160;
+    * -v&#160;: mode verbeux, affiche des infos supplémentaires
+    * -u&#160;: affiche des informations sur les quotas utilisateurs
+    * -g&#160;: affiche des informations sur les quotas groupes
+    * -a&#160;: affiche des informations sur tous les systèmes de fichiers disposant de quotas
+    * filesystem&#160;: affiche des informations sur les quotas du système de fichiers spécifié</pre></div></div>
+<p>Pour l'exemple, j'ai ajouté un utilisateur Bob.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> repquota</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ repquota -avug
+ *** Report for user quotas on device /dev/hdc10
+ Block grace time: 00:07; Inode grace time: 00:07
+                         Block limits                File limits
+ User            used    soft    hard  grace    used  soft  hard  grace
+ ----------------------------------------------------------------------
+ root      --      19       0       0              2     0     0
+ anne      --    7293    9000   10000              5  9000 10000
+ bob       +-    9000    8000    9000  00:07       5  8000  9000
+ +         --      19       0       0              2     0     0
+&#160;
+ Statistics:
+ Total blocks: 7
+ Data blocks: 1
+ Entries: 3
+ Used average: 3,000000</pre></div></div>
+</td></tr></table><br />
+<p>On trouve ici les informations relatives au quota imposé aux utilisateurs. On trouvera autant de lignes que d'utilisateurs, groupes et systèmes de fichiers concernés.
+</p><p>Sont rappelés les quotas fixés en nombre de blocs et d'inodes. On trouve également le nombre de blocs et le nombre d'inodes utilisés. Quand un horodatage apparaît dans la colonne grace, comme par exemple pour Bob, cela signifie que l'utilisateur (ou le groupe) a dépassé la limite douce. Le délai de grâce est donc décompté.
+</p><p>Vous pouvez également utiliser la commande quota suivie du nom d'un utilisateur ou d'un groupe. Là encore vous obtiendrez toutes les informations relatives aux quotas et à l'utilisation de l'espace attribué.
+</p><p>Exemple&#160;: pour obtenir les informations liées aux quotas concernant Anne&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> quota</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ quota anne
+Disk quotas for user anne (uid 500):
+     Filesystem  blocks   quota   limit   grace   files   quota   limit   grace
+     /dev/hdc10    7293    9000   10000               5    9000   10000</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="V.C3.A9rifications_et_synchronisation_des_fichiers_de_quotas"><span class="mw-headline-number">6.2</span> Vérifications et synchronisation des fichiers de quotas</span></h2>
+<p>Il peut arriver que les fichiers de quotas deviennent incohérents. La gestion de ceux-ci devient alors impossible. D'autre part, lorsque vous ajoutez un nouvel utilisateur ou un nouveau groupe à l'aide de la commande edquota, il faut là encore synchroniser les fichiers pour la prise en compte de ces nouvelles informations.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Syntaxe&#160;: quotacheck [ -vug ] -a | filesystem
+&#160;
+    * -v&#160;: mode verbeux, affiche des infos supplémentaires
+    * -u&#160;: vérifie uniquement les fichiers de quotas utilisateurs
+    * -g&#160;: vérifie uniquement les fichiers de quotas groupes
+    * -a&#160;: vérifie les fichiers de quotas de tous les systèmes de fichiers en disposant
+    * filesystem&#160;: vérifie les fichiers de quotas du système de fichiers spécifié</pre></div></div>
+<p>Exemple&#160;: vérifier tous les fichiers de quotas, quelque soit le système de fichiers concerné&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ quotaoff -a
+$ quotacheck -auvg
+quotacheck: Scanning /dev/hdc10 [/home/anne/quota] done
+quotacheck: Checked 2 directories and 10 files</pre></div></div>
+</td></tr></table><br />
+<p>Voilà pour ce tutorial concernant les quotas. Pour plus d'informations, consulter le man des commandes&#160;: repquota, quotaon, quotaoff, quotacheck, edquota.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.lea-linux.org/cached/index/Admin-admin_fs-quotas.html">http://www.lea-linux.org/cached/index/Admin-admin_fs-quotas.html</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.052 seconds
+Real time usage: 0.051 seconds
+Preprocessor visited node count: 341/1000000
+Preprocessor generated node count: 950/1000000
+Post‐expand include size: 4268/2097152 bytes
+Template argument size: 1646/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   11.248      1 - -total
+ 63.83%    7.180     18 - Template:Command
+  8.21%    0.923      1 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2552-0!*!*!1!en!5!* and timestamp 20181111230637 and revision id 6083
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Mise_en_place_des_quotas_sous_Linux&amp;oldid=6083">https://wiki.deimos.fr/index.php?title=Mise_en_place_des_quotas_sous_Linux&amp;oldid=6083</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Mise+en+place+des+quotas+sous+Linux" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Mise_en_place_des_quotas_sous_Linux.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Mise_en_place_des_quotas_sous_Linux.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Mise_en_place_des_quotas_sous_Linux.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_des_quotas_sous_Linux&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_des_quotas_sous_Linux&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Mise_en_place_des_quotas_sous_Linux.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Mise_en_place_des_quotas_sous_Linux.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Mise_en_place_des_quotas_sous_Linux" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_des_quotas_sous_Linux&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_des_quotas_sous_Linux&amp;oldid=6083" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Mise_en_place_des_quotas_sous_Linux&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 23 May 2008, at 14:43.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

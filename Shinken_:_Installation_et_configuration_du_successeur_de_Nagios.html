@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Shinken : Installation et configuration du successeur de Nagios - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Shinken_:_Installation_et_configuration_du_successeur_de_Nagios","wgTitle":"Shinken : Installation et configuration du successeur de Nagios","wgCurRevisionId":12055,"wgRevisionId":12055,"wgArticleId":3534,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Shinken_:_Installation_et_configuration_du_successeur_de_Nagios","wgRelevantArticleId":3534,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Shinken_Installation_et_configuration_du_successeur_de_Nagios skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Shinken : Installation et configuration du successeur de Nagios</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#mw-navigation">navigation</a>, 					<a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#Plugins"><span class="tocnumber">2.1</span> <span class="toctext">Plugins</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#FAQ"><span class="tocnumber">4</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#Opening_the_log_file_.27arbiterd.log.27_failed_with_.27.5BErrno_13.5D_Permission_denied"><span class="tocnumber">4.1</span> <span class="toctext">Opening the log file 'arbiterd.log' failed with '[Errno 13] Permission denied</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Shinken_logo.png.html" class="image" title="Shinken"><img alt="Shinken" src="images/6/6f/Shinken_logo.png" width="220" height="59" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>1.2.2</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://www.shinken-monitoring.org">Shinken Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>03/01/2013</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Shinken<sup id="cite_ref-1" class="reference"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#cite_note-1">[1]</a></sup> est une application permettant la surveillance système et réseau. Elle surveille les hôtes et services spécifiés, alertant lorsque les systèmes vont mal et quand ils vont mieux. C'est un logiciel libre sous licence GNU AGPL. Elle est complètement compatible avec le logiciel Nagios et elle a pour but d'apporter une supervision distribuée et hautement disponible facile à mettre en place. Démarrée comme une preuve de concept pour Nagios sur les architectures distribuée, le programme a rapidement démontré des performances et une flexibilité bien plus importantes que son ainé Nagios.
+</p><p>Suite à un refus en décembre 2009 des développeurs de Nagios de voir Shinken devenir la nouvelle branche de développement de Nagios dans le futur, Shinken peut désormais être considéré comme un projet indépendant de système de surveillance système et réseau.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Nous pourrions choisir d'installer Shinken depuis les dépôts officiels de Debian, malheureusement c'est une vieille version car le projet évolue très vite. Il existe un installeur officiel qui va nous permettre d'obtenir la dernière version, ainsi que les dépendances nécessaires. Tout d'abord, nous allons installer curl&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install curl</pre></div></div>
+</td></tr></table><br />
+<p>Puis nous lançons l'installation&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; curl -L http://install.shinken-monitoring.org | /bin/bash
+ &#160;% Total   &#160;% Received&#160;% Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  1533  100  1533    0     0   9919      0 --:--:-- --:--:-- --:--:--  9919
+&#160;
+Preparing the temporary directory  /tmp/shinken-install-MDZFhh6
+######################################################################## 100.0%
+&#160;
+Unziping the Shinken package shinken-1.2.2.tar.gz
++--------------------------------------------------------------------------------
+| Verifying compatible distros
++--------------------------------------------------------------------------------
+ &gt; Found DEBIAN (Debian 7 x86_64)
+ &gt; Version checking for Debian is not needed
++--------------------------------------------------------------------------------
+| Checking for existing installation
++--------------------------------------------------------------------------------
++--------------------------------------------------------------------------------
+| Checking prerequisites
++--------------------------------------------------------------------------------
+ &gt; Checking for wget: OK
+ &gt; Checking for sed: OK
+ &gt; Checking for awk: OK
+ &gt; Checking for grep: OK
+ &gt; Checking for python: OK
+ &gt; Checking for bash: OK
+ &gt; Installing build-essential 
+ &gt; Installing libperl-dev 
+ &gt; Installing python-setuptools 
+ &gt; Installing libsqlite3-dev 
+ &gt; Installing python-dev 
+ &gt; Installing pyro 
+ &gt; Installing sqlite3 
+ &gt; Installing nmap 
+ &gt; Installing unzip 
+ &gt; Installing libmysqlclient-dev 
+ &gt; Installing python-ldap 
+ &gt; Installing libevent-dev 
+ &gt; Module paramiko (paramiko) not found. Installing...
+ &gt; Module netifaces (netifaces) not found. Installing...
+ &gt; Module simplejson (simplejson) not found. Installing...
+ &gt; Module pysqlite found.
+ &gt; Module MySQL_python (MySQLdb) not found. Installing...
+ &gt; Module pymongo (pymongo) not found. Installing...
+ &gt; Module kombu (kombu) not found. Installing...
++--------------------------------------------------------------------------------
+| Creating user
++--------------------------------------------------------------------------------
++--------------------------------------------------------------------------------
+| Relocate source tree to /usr/local/shinken
++--------------------------------------------------------------------------------
+ &gt; relocating macro /usr/local/shinken/install.d/tools/macros/enable_log_mongo.macro
+ &gt; relocating macro /usr/local/shinken/install.d/tools/macros/enable_retention_mongo.macro
+ &gt; relocating macro /usr/local/shinken/install.d/tools/macros/disable_npcd.macro
+ &gt; relocating macro /usr/local/shinken/install.d/tools/macros/set_webui_ouptput_length.macro
+ &gt; relocating macro /usr/local/shinken/install.d/tools/macros/enable_npcd.macro
+ &gt; relocating macro /usr/local/shinken/install.d/tools/macros/control_satelites.macro
+ &gt; relocating macro /usr/local/shinken/install.d/tools/macros/enable_retention.macro
+ &gt; relocate nagios plugin path
+ &gt; Processing ./FOR_DEV
+ &gt; Processing ./FROM_NAGIOS_TO_SHINKEN
+ &gt; Processing ./README
+ &gt; Processing ./README.rst
+ &gt; Processing ./contrib/nconf/deployment.ini
+ &gt; Processing ./etc/resource.cfg
+ &gt; Processing ./etc/shinken-specific.cfg
+ &gt; Processing ./etc/shinken-specific.cfg.orig
+ &gt; Processing ./external_commands/ACKNOWLEDGE_HOST_PROBLEM.sh
+ &gt; Processing ./external_commands/ADD_POLLER.sh
+ &gt; Processing ./external_commands/CHANGE_CONTACT_HOST_NOTIFICATION_TIMEPERIOD.sh
+ &gt; Processing ./external_commands/PROCESS_HOST_CHECK_RESULT.sh
+ &gt; Processing ./install
+ &gt; Processing ./install.d/config.nconf/deployment.ini
+ &gt; Processing ./install.d/config.nconf/nconf.php
+ &gt; Processing ./install.d/shinken.conf
+ &gt; Processing ./install.d/tools/macros/control_satelites.macro
+ &gt; Processing ./install.d/tools/macros/disable_npcd.macro
+ &gt; Processing ./install.d/tools/macros/enable_log_mongo.macro
+ &gt; Processing ./install.d/tools/macros/enable_npcd.macro
+ &gt; Processing ./install.d/tools/macros/enable_retention.macro
+ &gt; Processing ./install.d/tools/macros/enable_retention_mongo.macro
+ &gt; Processing ./install.d/tools/macros/set_webui_ouptput_length.macro
+ &gt; Processing ./libexec/SAN_discover_runner.py
+ &gt; Processing ./libexec/eue/glpi.ini
+ &gt; Processing ./libexec/eue/glpi.ini.in
+ &gt; Processing ./libexec/fs_discovery_runner.py
+ &gt; Processing ./libexec/vmware_discovery_runner.py
+ &gt; Processing ./shinken/modules/npcdmod_broker.py
+ &gt; Processing ./shinken/objects/config.py
+ &gt; Processing ./shinken/webui/plugins/eue/eue.py
++--------------------------------------------------------------------------------
+| Set some configuration directives
++--------------------------------------------------------------------------------
+ &gt; Processing /usr/local/shinken/etc/brokerd.ini
+ &gt; Going to /usr/local/shinken
+ &gt; Setting workdir to /usr/local/shinken/var in /usr/local/shinken/etc/brokerd.ini
+ &gt; Setting user to shinken in /usr/local/shinken/etc/brokerd.ini
+ &gt; Setting group to shinken in /usr/local/shinken/etc/brokerd.ini
+ &gt; Processing /usr/local/shinken/etc/pollerd.ini
+ &gt; Going to /usr/local/shinken
+ &gt; Setting workdir to /usr/local/shinken/var in /usr/local/shinken/etc/pollerd.ini
+ &gt; Setting user to shinken in /usr/local/shinken/etc/pollerd.ini
+ &gt; Setting group to shinken in /usr/local/shinken/etc/pollerd.ini
+ &gt; Processing /usr/local/shinken/etc/reactionnerd.ini
+ &gt; Going to /usr/local/shinken
+ &gt; Setting workdir to /usr/local/shinken/var in /usr/local/shinken/etc/reactionnerd.ini
+ &gt; Setting user to shinken in /usr/local/shinken/etc/reactionnerd.ini
+ &gt; Setting group to shinken in /usr/local/shinken/etc/reactionnerd.ini
+ &gt; Processing /usr/local/shinken/etc/receiverd.ini
+ &gt; Going to /usr/local/shinken
+ &gt; Setting workdir to /usr/local/shinken/var in /usr/local/shinken/etc/receiverd.ini
+ &gt; Setting user to shinken in /usr/local/shinken/etc/receiverd.ini
+ &gt; Setting group to shinken in /usr/local/shinken/etc/receiverd.ini
+ &gt; Processing /usr/local/shinken/etc/schedulerd.ini
+ &gt; Going to /usr/local/shinken
+ &gt; Setting workdir to /usr/local/shinken/var in /usr/local/shinken/etc/schedulerd.ini
+ &gt; Setting user to shinken in /usr/local/shinken/etc/schedulerd.ini
+ &gt; Setting group to shinken in /usr/local/shinken/etc/schedulerd.ini
+ &gt; Enable retention for broker scheduler and arbiter
+ &gt; Installing startup scripts
+ &gt; Enabling Debian startup script
++--------------------------------------------------------------------------------
+| Install mongodb server
++--------------------------------------------------------------------------------
+ &gt; repository configuration not found. Adding 10 gen repository
+ &gt; Installing mongodb server
++--------------------------------------------------------------------------------
+| Applying various fixes
++--------------------------------------------------------------------------------
+ &gt; Starting shinken
+<span class="xtra ln-xtra">+------------------------------------------------------------------------------</span><span class="xtra ln-xtra">| Shinken is now installed on your server </span><span class="xtra ln-xtra">| The install location is: /usr/local/shinken</span><span class="xtra ln-xtra">| The configuration folder is: /usr/local/shinken/etc</span><span class="xtra ln-xtra">| </span><span class="xtra ln-xtra">| The Web Interface is available at: http://localhost:7767</span><span class="xtra ln-xtra">| The default credentials for the webui are admin/admin</span><span class="xtra ln-xtra">| </span><span class="xtra ln-xtra">| You can now learn how to configure shinken at: http://www.shinken-monitoring.org/wiki</span><span class="xtra ln-xtra">+------------------------------------------------------------------------------</span> &gt; updated configuration of module[3] passwd=/usr/local/shinken/etc/htpasswd.users updated configuration of module[3] passwd=/usr/local/shinken/etc/htpasswd.users
+ &gt; Found installation parameters
+ --&gt; ETC=/usr/local/shinken/etc
+ --&gt; VAR=/usr/local/shinken/var
+ --&gt; LIBEXEC=/usr/local/shinken/libexec
+ --&gt; TARGET=/usr/local/shinken
+ &gt; checking if shinken is installed in /usr/local/shinken
++--------------------------------------------------------------------------------
+| Install nagios plugins
++--------------------------------------------------------------------------------
+ &gt; Installing prerequisites
+ &gt; Getting nagios-plugins archive
+ &gt; Extract archive content 
+ &gt; Configure source tree
+ &gt; Building ....
+ &gt; Installing
+ &gt; Found installation parameters
+ --&gt; ETC=/usr/local/shinken/etc
+ --&gt; VAR=/usr/local/shinken/var
+ --&gt; LIBEXEC=/usr/local/shinken/libexec
+ --&gt; TARGET=/usr/local/shinken
+ &gt; checking if shinken is installed in /usr/local/shinken
++--------------------------------------------------------------------------------
+| Install check_mem
++--------------------------------------------------------------------------------
+ &gt; Downloading check_mem
+ &gt; Extracting archive 
+ &gt; Installing plugin
+ &gt; Found installation parameters
+ --&gt; ETC=/usr/local/shinken/etc
+ --&gt; VAR=/usr/local/shinken/var
+ --&gt; LIBEXEC=/usr/local/shinken/libexec
+ --&gt; TARGET=/usr/local/shinken
+ &gt; checking if shinken is installed in /usr/local/shinken
++--------------------------------------------------------------------------------
+| Install manubulon plugins
++--------------------------------------------------------------------------------
+ &gt; Installing prerequisites
+ &gt; Getting manubulon archive
+ &gt; Extract archive content 
+ &gt; Relocate libs
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_boostedge.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_boostedge.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_cpfw.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_cpfw.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_css.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_css.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_css_main.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_css_main.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_env.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_env.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_int.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_int.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_linkproof_nhr.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_linkproof_nhr.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_load.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_load.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_mem.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_mem.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_nsbox.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_nsbox.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_process.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_process.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_storage.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_storage.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_vrrp.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_vrrp.pl
+ =&gt; Processing /tmp/nagios_plugins/check_snmp_win.pl
+ =&gt; Installing /tmp/nagios_plugins/check_snmp_win.pl
+ &gt; Found installation parameters
+ --&gt; ETC=/usr/local/shinken/etc
+ --&gt; VAR=/usr/local/shinken/var
+ --&gt; LIBEXEC=/usr/local/shinken/libexec
+ --&gt; TARGET=/usr/local/shinken
+ &gt; checking if shinken is installed in /usr/local/shinken
++--------------------------------------------------------------------------------
+| Install pnp4nagios addon
++--------------------------------------------------------------------------------
+ &gt; Found installation parameters
+ --&gt; ETC=/usr/local/shinken/etc
+ --&gt; VAR=/usr/local/shinken/var
+ --&gt; LIBEXEC=/usr/local/shinken/libexec
+ --&gt; TARGET=/usr/local/shinken
+ &gt; Installing prerequisites
+ &gt; Getting pnp4nagios archive
+ &gt; Extracting archive
+ &gt; Configuring source tree
+ &gt; Building ....
+ &gt; Installing
+ &gt; Fix htpasswd.users path
+ &gt; Enable npcdmod
+ &gt; using ip address: x.x.x.x
+ &gt; Starting npcd
+Exiting</pre></div></div>
+</td></tr></table><br />
+<p>Voilà, il est installé avec ses dépendances&#160;:-). Nous pouvons maintenant le relancer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/shinken restart
+</pre>
+<p>ou
+</p>
+<pre>service shinken restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Plugins"><span class="mw-headline-number">2.1</span> Plugins</span></h2>
+<p>Nous pouvons également installer des plugins supplémentaires tel que les Nagios plugins&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /usr/local/shinken/install</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/usr/local/shinken/install -p nagios-plugins</pre></div></div>
+</td></tr></table><br />
+<p>Une fois installés, les plugins sont installés dans /usr/local/shinken/libexec.
+</p><p>Si vous souhaitez avoir la liste des plugins Shinken disponibles&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; /usr/local/shinken/install -h
+[...]
+    -p | --plugin           Install plugins. Argument should be one of the following:
+                               check_esx3
+                               nagios-plugins
+                               check_oracle_health
+                               check_mysql_health
+                               capture_plugin
+                               check_wmi_plus
+                               check_mongodb
+                               check_emc_clariion
+                               check_nwc_health
+                               manubulon (snmp plugins)
+                               check_hpasm
+                               check_netapp2
+                               check_mem (local enhanced memory check plugin)
+                               check_snmp_bandwidth (check bandwidth usage with snmp)
+                               check_netint (enhanced version of check_snmp_int plugins)
+                               check_IBM
+                               check_IBM_DS
+                               check_rsync
+[...]</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">4</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Opening_the_log_file_.27arbiterd.log.27_failed_with_.27.5BErrno_13.5D_Permission_denied"><span class="mw-headline-number">4.1</span> Opening the log file 'arbiterd.log' failed with '[Errno 13] Permission denied</span></h2>
+<p>Si vous avez ce genre de message, c'est simplement dû à un problème de droits que l'installeur a oublié&#160;:
+</p>
+<pre>FAILED: [1357199441] Error&#160;: Opening the log file 'arbiterd.log' failed with '[Errno 13] Permission denied: u'/usr/local/shinken/var/arbiterd.log<i> (full output is in /tmp/bad_start_for_arbiter) ... failed!</i>
+</pre>
+<p>Vous pouvez corriger le problème en réatribuant les droits&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service shinken stop
+chown -R shinken:shinken /usr/local/shinken
+service shinken start</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">5</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://fr.wikipedia.org/wiki/Shinken_%28logiciel%29">http://fr.wikipedia.org/wiki/Shinken_%28logiciel%29</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.036 seconds
+Real time usage: 0.033 seconds
+Preprocessor visited node count: 171/1000000
+Preprocessor generated node count: 532/1000000
+Post‐expand include size: 1905/2097152 bytes
+Template argument size: 460/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   12.519      1 - -total
+ 55.63%    6.964      6 - Template:Command
+ 15.57%    1.950      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3534-0!*!*!1!en!5!* and timestamp 20181111230715 and revision id 12055
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Shinken_:_Installation_et_configuration_du_successeur_de_Nagios&amp;oldid=12055">https://wiki.deimos.fr/index.php?title=Shinken_:_Installation_et_configuration_du_successeur_de_Nagios&amp;oldid=12055</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Shinken+%3A+Installation+et+configuration+du+successeur+de+Nagios" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Shinken_:_Installation_et_configuration_du_successeur_de_Nagios&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Shinken_:_Installation_et_configuration_du_successeur_de_Nagios&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Shinken_:_Installation_et_configuration_du_successeur_de_Nagios&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Shinken_:_Installation_et_configuration_du_successeur_de_Nagios&amp;oldid=12055" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Shinken_:_Installation_et_configuration_du_successeur_de_Nagios&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 3 January 2013, at 07:56.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

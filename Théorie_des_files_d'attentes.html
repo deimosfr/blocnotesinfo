@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Théorie des files d'attentes - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Théorie_des_files_d'attentes.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Théorie_des_files_d'attentes","wgTitle":"Théorie des files d'attentes","wgCurRevisionId":12745,"wgRevisionId":12745,"wgArticleId":3258,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Théorie_des_files_d'attentes","wgRelevantArticleId":3258,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Théorie_des_files_d_attentes skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Théorie des files d'attentes</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Théorie_des_files_d'attentes.html#mw-navigation">navigation</a>, 					<a href="Théorie_des_files_d'attentes.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Théorie_des_files_d'attentes.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Théorie_des_files_d'attentes.html#La_loi_de_Little"><span class="tocnumber">2</span> <span class="toctext">La loi de Little</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Théorie_des_files_d'attentes.html#Taille_de_la_file_d.27attente"><span class="tocnumber">3</span> <span class="toctext">Taille de la file d'attente</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Théorie_des_files_d'attentes.html#Taille_de_la_file_d.27attente_et_temps_d.27attente"><span class="tocnumber">4</span> <span class="toctext">Taille de la file d'attente et temps d'attente</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Théorie_des_files_d'attentes.html#Temps_d.27attente"><span class="tocnumber">5</span> <span class="toctext">Temps d'attente</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Théorie_des_files_d'attentes.html#Algorithmes_de_temps_utilisateurs"><span class="tocnumber">6</span> <span class="toctext">Algorithmes de temps utilisateurs</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Théorie_des_files_d'attentes.html#Profiling_avec_la_commande_time"><span class="tocnumber">7</span> <span class="toctext">Profiling avec la commande time</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="Théorie_des_files_d'attentes.html#Taux_d.27ach.C3.A8vement"><span class="tocnumber">8</span> <span class="toctext">Taux d'achèvement</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Théorie_des_files_d'attentes.html#Taux_d.27arriv.C3.A9e_et_taux_d.27ach.C3.A8vement"><span class="tocnumber">9</span> <span class="toctext">Taux d'arrivée et taux d'achèvement</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Théorie_des_files_d'attentes.html#Trouver_le_meilleur_temps_d.27observation"><span class="tocnumber">10</span> <span class="toctext">Trouver le meilleur temps d'observation</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Théorie_des_files_d'attentes.html#Pr.C3.A9dire_les_limites_d.27un_syst.C3.A8me"><span class="tocnumber">11</span> <span class="toctext">Prédire les limites d'un système</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Th%C3%A9orie_des_files_d%27attente">La théorie des files d'attente</a> est une théorie mathématique relevant du domaine des probabilités, qui étudie les solutions optimales de gestion des files d’attente, ou queues. Une queue est nécessaire et se créera d'elle même si ce n'est pas anticipé, dans tous les cas où l'offre est inférieure à la demande, même temporairement. Elle peut s’appliquer à différentes situations&#160;: gestion des avions au décollage ou à l’atterrissage, attente des clients et des administrés aux guichets, ou bien encore stockage des programmes informatiques avant leur traitement. Ce domaine de recherches, né en 1917, des travaux de l’ingénieur danois Erlang sur la gestion des réseaux téléphoniques de Copenhague entre 1909 et 1920, étudie notamment les systèmes d’arrivée dans une queue, les différentes priorités de chaque nouvel arrivant, ainsi que la modélisation statistique des temps d’exécution. C'est grâce aux apports des mathématiciens Khintchine, Palm, Kendall, Pollaczek et Kolmogorov que la théorie s'est vraiment développée.
+</p>
+<h1><span class="mw-headline" id="La_loi_de_Little"><span class="mw-headline-number">2</span> La loi de Little</span></h1>
+<p>Little a démontré mathématiquement ce que Erlang avait dit des années auparavant. Voici la loi&#160;:
+</p>
+<dl><dd>L = A x W</dd></dl>
+<ul><li> L&#160;: La longueur de la file d'attente qui correspond à une moyenne de requêtes en attente du système</li>
+<li> A&#160;: C'est le taux d'entrée de requêtes dans le système (x/seconde)</li>
+<li> W&#160;: Moyenne de temps pour satisfaire une requête</li></ul>
+<h1><span class="mw-headline" id="Taille_de_la_file_d.27attente"><span class="mw-headline-number">3</span> Taille de la file d'attente</span></h1>
+<p>Les requêtes sont stockées en mémoire. Donc L peut être un cache de lecture/écriture tunable ou de lecture seulement pour des mesures. Il existe des algorithmes pour gérer les priorités de file d'attente&#160;:
+</p>
+<ul><li> Deux files d'attentes (1 pour les requêtes urgentes, 1 pour les requêtes normale). Les requêtes sont traitées selon l'urgence de celles ci.</li>
+<li> Une seule file d'attente qui va traiter les requêtes urgentes en priorité. Les requêtes normales ne seront traitées que si il n'y a plus d'urgentes.</li></ul>
+<h1><span class="mw-headline" id="Taille_de_la_file_d.27attente_et_temps_d.27attente"><span class="mw-headline-number">4</span> Taille de la file d'attente et temps d'attente</span></h1>
+<p>L a tendance à varier directement avec W. Exemple bête&#160;:
+</p>
+<dl><dd><b>100</b> requêtes = <b>100</b> requêtes/seconde * <b>1s</b></dd>
+<dd><b>200</b> requêtes = <b>100</b> requêtes/seconde * <b>2s</b></dd>
+<dd><b>800</b> requêtes = <b>100</b> requêtes/seconde * <b>8s</b></dd></dl>
+<p>On peut donc prédire le rendement du temps d'attente en restreignant la taille de la file d'attente.<br />
+De même, on peut restreindre le temps d'attente pour optimiser la taille de la file d'attente (en mémoire).
+</p>
+<h1><span class="mw-headline" id="Temps_d.27attente"><span class="mw-headline-number">5</span> Temps d'attente</span></h1>
+<p>Le temps d'attente comprends
+</p>
+<dl><dd>(W = Q + S)</dd></dl>
+<ul><li> Temps de file d'attente&#160;: temps d'attente pour qu'une ressource devienne disponible</li>
+<li> Temps de service&#160;: temps pour une ressource à exécuter une requête</li></ul>
+<p>Le but est de réduire le temps de la file d'attente et le temps de service. Pour exemple, un temps d'attente correspond à une page web qui se charge. Son temps d'exécution peut mettre un certain temps qui peut être multiplié en fonction du nombre de requêtes parallèles.
+</p><p>Si nous regardons d'un côté plus accès système&#160;:
+</p>
+<dl><dd>W = Q + (T(système) + T(user))<br /></dd></dl>
+<ul><li> Temps système&#160;: temps pour une tâche kernel</li>
+<li> Temps utilisateur&#160;: temps pour une tâche utilisateur</li></ul>
+<p>Vous pouvez obtenir plus d'informations dans le man de la commande time ou bien top. Le but est donc&#160;:
+</p>
+<ul><li> De réduire le temps système (mais va bloquer les opérations pour les utilisateurs)</li>
+<li> Passer autant de temps que nécessaire à des tâches utilisateur (mais pas plus)</li></ul>
+<p>Le temps de service correspond au temps qu'un processus prends pour exécuter une tache insérée dans la queue jusqu'à la fin de son exécution. Ce type de service peut être calculé sous la forme utilisation / débit.<br />
+Le temps moyen d'un service est définit par la quantité d'occupation d'une ressource par requête&#160;: S = Temps d'occupation / achèvement par seconde
+</p>
+<h1><span class="mw-headline" id="Algorithmes_de_temps_utilisateurs"><span class="mw-headline-number">6</span> Algorithmes de temps utilisateurs</span></h1>
+<p>Il existe des complexité asymptotic qui permettent de se rendre compte quel est le temps utilisateur nécessaire pour exécuter x requêtes&#160;:
+</p>
+<ul><li> Intractable&#160;: O(2^n)</li>
+<li> Polynominal&#160;: O(n^2)</li>
+<li> Linear&#160;: O(50n)</li>
+<li> Constant&#160;: O(1)</li>
+<li> Logarithmic&#160;: O(500 log n)</li></ul>
+<p>Note&#160;: O décrit l'ordre du taux de croissance dans un moment de l'exécution ou l'utilisation de la mémoire d'un algorithme quand ses entrées croîent.
+</p><p>Lorsque l'on change d'algorithme, on peut améliorer les performances en réduisant le temps d'attente et augmentant le débit (nombre d'actions).
+</p>
+<h1><span class="mw-headline" id="Profiling_avec_la_commande_time"><span class="mw-headline-number">7</span> Profiling avec la commande time</span></h1>
+<p>La commande time permet de connaitre le temps d'exécution d'une commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> time</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; export TIME=&quot;\n%e&#160;%S&#160;%U&quot;
+&gt; time tar -czf deimos.tgz /home/deimos
+real    0m0.017s
+user    0m0.001s
+sys     0m0.001s</pre></div></div>
+</td></tr></table><br />
+<ul><li> real&#160;: c'est le temps réel que l'application met pour s'exécuter</li>
+<li> user&#160;: c'est le temps CPU nécessaire pour exécuter ses instructions</li>
+<li> sys&#160;: c'est le temps que le CPU met pour les appels kernel ou en attente d'I/O</li></ul>
+<p>Pour obtenir le temps de la file d'attente&#160;: Q = W - (Tsys + Tuser)
+</p>
+<h1><span class="mw-headline" id="Taux_d.27ach.C3.A8vement"><span class="mw-headline-number">8</span> Taux d'achèvement</span></h1>
+<p>La bande passante (théorique) correspond à une taille de données <b>qui peuvent</b> être transférées en un certain nombre de temps.<br />
+La bande passante (réelle) correspond à une taille de données <b>qui sont</b> transférées en un certain nombre de temps.<br />
+Le débit quant à lui, correspond à une taille de <b>données utilisable qui sont</b> transférées en un certain nombre de temps.<br />
+L'overhead est la différence entre la bande passante réelle et le débit. C'est le surplus des données réelles transférées.<br />
+Pour des données transférées à une certaine bande passante, le débit sera toujours inférieure à la bande passante.
+</p><p>Le taux d'achèvement est le taux auquel le travail est effectué à un certain débit ou une certaine bande passante&#160;:
+</p>
+<dl><dd>x = travaux effectués / temps d'observation</dd></dl>
+<p>La bande passante est généralement prédictible, mais on peut réduire l'overhead pour accélérer le temps de traitement. Par exemple sur un réseau à 100Mb/s, on peut mesurer 80Mb/s de données au niveau de la couche application (OSI). Car dans les faits, nous avons 20Mb/s d'overhead (20 + 80 = 100).<br />
+Si nous réduisons l'overhead à 10, on pourra augmenter le débit à 90Mb/s.
+</p>
+<dl><dd>B (bandwith) = X (transferts) + O (overhead) </dd></dl>
+<p>Il faut cependant savoir que réduire l'overhead peut infliger des comportement indésirable. Par exemple si nous décidons de réduire l'overhead en choisissant l'UDP au lieu de TCP sur une application (du fait que l'UDP a moins d'overhead que le TCP). Si sur le réseaux, nous avons de la perte de paquets, l'application risque de redemander la retransmission de la requête. Du coup, l'application risque de faire plus d'overhead qu'avec des sessions UDP.<br />
+Suivant les application, les données n'ont pas forcément besoin d'être retransmise (tel que les sites de musique en ligne). Au bout d'un certains nombre de paquets non transmit, le client peut donner un message d'erreur pour mauvaise transmission des données.
+</p>
+<h1><span class="mw-headline" id="Taux_d.27arriv.C3.A9e_et_taux_d.27ach.C3.A8vement"><span class="mw-headline-number">9</span> Taux d'arrivée et taux d'achèvement</span></h1>
+<p>Le taux d'achèvement est le taux auquel le travail est effectué et est lié au débit, ainsi qu'à la bande passante (en fonction du contexte).
+</p>
+<dl><dd>A (nombre d'arrivées) = C (nombre d'achèvement) / T (temps d'observation)</dd></dl>
+<ul><li> T&#160;: le temps d’observation correspond au temps de imparti pour l'exécution d'évènements dans un temps donné (ex: en secondes)</li>
+<li> A&#160;: Le nombre d'arrivées observées durant la période d'observation (ex: paquets/s)</li></ul>
+<p>Le nombre d'arrivées (A) qui ont été faites pendant un temps d'observation (T) sont référencées comme achevées (C).<br />
+Le temps d'occupation est le temps d'observation * le temps d'utilisation.
+</p>
+<h1><span class="mw-headline" id="Trouver_le_meilleur_temps_d.27observation"><span class="mw-headline-number">10</span> Trouver le meilleur temps d'observation</span></h1>
+<p>Il est important d'utiliser ce genre d'outils pendant des temps de charge non nulle. Faire une observation pendant un temps trop court ne permettra pas d'avoir des résultats satisfaisant. Il est conseiller donc de mesurer le temps d'observation de la manière suivante&#160;:
+</p>
+<ul><li> Collecter les données le plus fréquemment possible (idéalement 1 seconde)</li>
+<li> Comparer les valeurs de mesure selon la loi de Little</li>
+<li> Est-ce que la comparaison est bonne&#160;?
+<ul><li> oui&#160;: le temps d'observation es valide et L = C x W</li>
+<li> non&#160;: refaire la capture avec un intervalle de temps plus long</li></ul></li></ul>
+<p>Nous allons maintenant calculer la longueur de la queue et la comparer aux données collectées.<br />
+Voici un exemple de capture&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; dd if=/dev/zero of=/tmp/bigfile bs=1M count=1024 oflag=direct &amp; sar -d -p 1 5 &gt; sar_result&#160;; pkill dd &amp;&amp; rm -f /tmp/bigfile&#160;; cat sar_result 
+23:45:05          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+<span class="xtra ln-xtra">23:45:06          sda    227,00   9872,00  16288,00    115,24      6,85     28,58      4,39     99,60</span>23:45:06     dev254-0      1,00      0,00      8,00      8,00      2,23   2836,00    284,00     28,40
+23:45:06     dev254-1      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+23:45:06     dev254-2    206,00  10056,00    424,00     50,87      7,17     34,00      4,82     99,20
+23:45:06     dev254-3   2541,00     40,00  20288,00      8,00    100,64     33,19      0,12     30,00
+&#160;
+23:45:06          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+<span class="xtra ln-xtra">23:45:07          sda    114,85   2811,88  12110,89    129,93      9,98     89,90      8,62     99,01</span>23:45:07     dev254-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+23:45:07     dev254-1      0,99      0,00      7,92      8,00      0,07     68,00     68,00      6,73
+23:45:07     dev254-2     84,16   2471,29      0,00     29,36      3,86     47,25     11,76     99,01
+23:45:07     dev254-3     21,78    253,47    166,34     19,27     16,84   1514,73     37,09     80,79
+&#160;
+23:45:07          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+<span class="xtra ln-xtra">23:45:08          sda    207,00   4672,00   1304,00     28,87      6,09     29,72      4,83    100,00</span>23:45:08     dev254-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+23:45:08     dev254-1    162,00      0,00   1296,00      8,00     59,80    369,14      4,02     65,20
+23:45:08     dev254-2    185,00   4216,00      0,00     22,79      5,07     27,70      5,38     99,60
+23:45:08     dev254-3      5,00    288,00      0,00     57,60      0,18     36,00     36,00     18,00
+&#160;
+23:45:08          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+<span class="xtra ln-xtra">23:45:09          sda    173,00   3208,00      0,00     18,54      3,54     19,93      5,78    100,00</span>23:45:09     dev254-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+23:45:09     dev254-1      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+23:45:09     dev254-2    171,00   2744,00      0,00     16,05      3,30     18,76      5,85    100,00
+23:45:09     dev254-3      3,00    520,00      0,00    173,33      0,16     54,67     54,67     16,40
+&#160;
+23:45:09          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+<span class="xtra ln-xtra">23:45:10          sda    155,56   3797,98   1470,71     33,87      3,29     21,71      6,36     98,99</span>23:45:10     dev254-0      1,01      8,08      0,00      8,00      0,06     60,00     60,00      6,06
+23:45:10     dev254-1     84,85      0,00    678,79      8,00      5,16     60,86      2,81     23,84
+23:45:10     dev254-2    242,42   3498,99    791,92     17,70      6,40     26,77      4,02     97,37
+23:45:10     dev254-3      1,01    242,42      0,00    240,00      0,08     76,00     76,00      7,68
+&#160;
+23:45:10          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+<span class="xtra ln-xtra">23:45:11          sda     74,75   1252,53  13292,93    194,59      0,95     12,81      5,35     40,00</span>23:45:11     dev254-0     43,43      8,08    339,39      8,00      0,40      9,12      3,44     14,95
+23:45:11     dev254-1     90,91      0,00    727,27      8,00      3,03     33,29      0,93      8,48
+23:45:11     dev254-2     27,27   1204,04      0,00     44,15      0,28     10,81      8,30     22,63
+23:45:11     dev254-3   1530,30      8,08  12234,34      8,00     25,25     16,36      0,16     25,05
+...</pre></div></div>
+</td></tr></table><br />
+<p>Par rapport aux colonnes que nous donne sar, voici la formule&#160;:
+</p>
+<dl><dd>(rd_sec/s + wr_sec/s) * await / 1000 = requêtes/s</dd></dl>
+<p>Donc si on reprends les informations ci dessus, on peut aisément calculer comme ceci (sur sda ici)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> awk</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"><span class="xtra ln-xtra">&gt; grep sda sar_result | awk '{ printf(&quot;%s%s%s%s&quot;, &quot;(&quot;$4&quot; + &quot;, $5&quot;) * &quot;, $8&quot; / 1000) = &quot;, (($4+$5)*$8)/1000&quot;\n&quot;) }'</span>(9872,00 + 16288,00) * 28,58 / 1000) = 732.48
+(2811,88 + 12110,89) * 89,90 / 1000) = 1327.97
+(4672,00 + 1304,00) * 29,72 / 1000) = 173.304
+(3208,00 + 0,00) * 19,93 / 1000) = 60.952
+(3797,98 + 1470,71) * 21,71 / 1000) = 110.607
+(1252,53 + 13292,93) * 12,81 / 1000) = 174.528
+(1837,62 + 1900,99) * 13,89 / 1000) = 48.581
+(2407,92 + 22922,77) * 42,17 / 1000) = 1063.82
+(290,91 + 371,72) * 4,00 / 1000) = 2.644
+(1096,00 + 96,00) * 7,64 / 1000) = 8.344
+(118,10 + 3126,40) * 3,74 / 1000) = 9.732</pre></div></div>
+</td></tr></table><br />
+<p>Il est intéressant de laisser tourner ce genre d'outils un moment pour profiler une application sur un serveur par exemple et se rendre compte pendant une forte période de charge le nombre de requêtes disponibles.
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9dire_les_limites_d.27un_syst.C3.A8me"><span class="mw-headline-number">11</span> Prédire les limites d'un système</span></h1>
+<p>Il faut déjà savoir qu'une ressource saturée est le goulet d'étranglement pour tout le système assuré&#160;! Il faut donc veiller à ce qu'il n'y ai pas d'effet entonnoir sur vos ressources.
+</p><p>Réduire le nombre d'accès ou améliorer la bande passante permet de résoudre le problème, que ce soit pour n'importe quoi, CPU, RAM, Réseaux...
+</p><p>Il est donc important de bien connaitre le taux d'arrivé ainsi que la bande passante nécessaire pour paramétrer correctement votre matériel.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.021 seconds
+Preprocessor visited node count: 105/1000000
+Preprocessor generated node count: 236/1000000
+Post‐expand include size: 576/2097152 bytes
+Template argument size: 165/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.089      1 - -total
+ 92.40%    3.778      3 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3258-0!*!*!1!en!5!* and timestamp 20181111230645 and revision id 12745
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Théorie_des_files_d%27attentes&amp;oldid=12745">https://wiki.deimos.fr/index.php?title=Théorie_des_files_d%27attentes&amp;oldid=12745</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Th%C3%A9orie+des+files+d%27attentes" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Théorie_des_files_d'attentes.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Théorie_des_files_d'attentes.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Théorie_des_files_d'attentes.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Th%C3%A9orie_des_files_d%27attentes&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Th%C3%A9orie_des_files_d%27attentes&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Théorie_des_files_d'attentes.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Théorie_des_files_d'attentes.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Th%C3%A9orie_des_files_d%27attentes" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Th%C3%A9orie_des_files_d%27attentes&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Th%C3%A9orie_des_files_d%27attentes&amp;oldid=12745" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Th%C3%A9orie_des_files_d%27attentes&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 26 July 2013, at 13:59.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

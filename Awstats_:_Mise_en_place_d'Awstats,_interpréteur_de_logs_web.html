@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Awstats : Mise en place d'Awstats, interpréteur de logs web - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web","wgTitle":"Awstats : Mise en place d'Awstats, interpréteur de logs web","wgCurRevisionId":8890,"wgRevisionId":8890,"wgArticleId":992,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web","wgRelevantArticleId":992,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-perl {line-height: normal;}
+.source-perl li, .source-perl pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for perl
+ * CSS class: source-perl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.perl.source-perl .de1, .perl.source-perl .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.perl.source-perl  {font-family:monospace;}
+.perl.source-perl .imp {font-weight: bold; color: red;}
+.perl.source-perl li, .perl.source-perl .li1 {font-weight: normal; vertical-align:top;}
+.perl.source-perl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.perl.source-perl .li2 {font-weight: bold; vertical-align:top;}
+.perl.source-perl .kw1 {color: #b1b100;}
+.perl.source-perl .kw2 {color: #000000; font-weight: bold;}
+.perl.source-perl .kw3 {color: #000066;}
+.perl.source-perl .co1 {color: #666666; font-style: italic;}
+.perl.source-perl .co2 {color: #009966; font-style: italic;}
+.perl.source-perl .co3 {color: #0000ff;}
+.perl.source-perl .co4 {color: #cc0000; font-style: italic;}
+.perl.source-perl .co5 {color: #0000ff;}
+.perl.source-perl .coMULTI {color: #666666; font-style: italic;}
+.perl.source-perl .es0 {color: #000099; font-weight: bold;}
+.perl.source-perl .es_h {color: #000099; font-weight: bold;}
+.perl.source-perl .br0 {color: #009900;}
+.perl.source-perl .sy0 {color: #339933;}
+.perl.source-perl .st0 {color: #ff0000;}
+.perl.source-perl .st_h {color: #ff0000;}
+.perl.source-perl .nu0 {color: #cc66cc;}
+.perl.source-perl .me1 {color: #006600;}
+.perl.source-perl .me2 {color: #006600;}
+.perl.source-perl .re0 {color: #0000ff;}
+.perl.source-perl .re4 {color: #009999;}
+.perl.source-perl .ln-xtra, .perl.source-perl li.ln-xtra, .perl.source-perl div.ln-xtra {background-color: #ffc;}
+.perl.source-perl span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Awstats_Mise_en_place_d_Awstats_interpréteur_de_logs_web skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Awstats : Mise en place d'Awstats, interpréteur de logs web</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#mw-navigation">navigation</a>, 					<a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#Apache"><span class="tocnumber">3.1</span> <span class="toctext">Apache</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#Lighttpd"><span class="tocnumber">3.2</span> <span class="toctext">Lighttpd</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#Crontab_et_Multi-domaines"><span class="tocnumber">3.3</span> <span class="toctext">Crontab et Multi-domaines</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#Protection_d.27Awstats"><span class="tocnumber">3.4</span> <span class="toctext">Protection d'Awstats</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#htaccess_sous_Apache"><span class="tocnumber">3.4.1</span> <span class="toctext">htaccess sous Apache</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#htdigest_sous_Lighttpd"><span class="tocnumber">3.4.2</span> <span class="toctext">htdigest sous Lighttpd</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>AWStats est un analyseur de log web (mais aussi FTP, Streaming et mail) offrant des vues graphiques statiques mais aussi dynamiques des statistiques d'accès à vos serveurs web.<br />
+Il permet d'afficher le nombre de visites, de visiteurs uniques, de pages, de hits, de transfert, par domaine/pays, hôte, heure, navigateur, OS, ... Il peut être lancé grâce à des scripts CGI ou en ligne de commande.<br />
+AWStats est un logiciel libre sous licence GPL.
+</p><p>L’installation d’Awstats est simple&#160;: ce logiciel interprète les logs d’Apache (toutes les commandes auxquelles le serveur à répondu) pour vous fournir des graphiques et tableaux compréhensibles sous forme de page internet.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Installez Awstats à l’aide de la commande
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install awstats
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Apache"><span class="mw-headline-number">3.1</span> Apache</span></h2>
+<p>Dans la configuration, je viens modifier ces lignes si je suis sous Apache:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/awstats/awstats.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>LogFile="/var/log/apache2/access.log"
+SiteDomain="deimos.fr"
+</pre>
+</td></tr></table><br />
+<p>L’affichage de la page web interprétant les logs nécessitera des images&#160;: vous avez deux solutions pour que l'adresse <a rel="nofollow" class="external free" href="http://votre_adresse/awstats-icon">http://votre_adresse/awstats-icon</a> renvoie aux images awstats&#160;: utiliser un alias Apache ou créer un dossier awstats-icon dans votre espace Apache et y mettre les images de awstats, pour cette dernière solution, tapez&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir /var/www/awstats-icon
+cp -r /usr/share/awstats/icon/* /var/www/awstats-icon
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Lighttpd"><span class="mw-headline-number">3.2</span> Lighttpd</span></h2>
+<p>Prenez cette configuration si vous êtes sous Lighttpd&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/awstats/awstats.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>LogFile="/var/log/lighttpd/access.log"
+SiteDomain="deimos.fr"
+LogFormat=1
+</pre>
+</td></tr></table><br />
+<p>Nous allons avoir besoin de configurer également lighttpd&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/conf-available/50-awstats.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1">alias<span class="sy0">.</span>url <span class="sy0">=</span> <span class="br0">&#40;</span>
+                <span class="st0">&quot;/awstats-icon&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/share/awstats/icon/&quot;</span><span class="sy0">,</span>
+                <span class="st0">&quot;/awstats/&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/lib/cgi-bin/&quot;</span><span class="sy0">,</span>
+                <span class="st0">&quot;/icon/&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/share/awstats/icon/&quot;</span>
+              <span class="br0">&#41;</span>
+<span class="co1"># provide awstats cgi-bin access</span>
+<span class="re0">$HTTP</span><span class="br0">&#91;</span><span class="st0">&quot;url&quot;</span><span class="br0">&#93;</span> <span class="sy0">=~</span> <span class="st0">&quot;/awstats/&quot;</span> <span class="br0">&#123;</span>
+      cgi<span class="sy0">.</span>assign <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;.pl&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/bin/perl&quot;</span> <span class="br0">&#41;</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis nous allons activer cette configuration&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ln</font>
+</td></tr>
+<tr>
+<td>
+<pre>cd /etc/lighttpd/conf-enabled &amp;&amp; ln -s /etc/lighttpd/conf-available/50-awstats.conf .
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Crontab_et_Multi-domaines"><span class="mw-headline-number">3.3</span> Crontab et Multi-domaines</span></h2>
+<p>Il existe par défaut, une ligne dans la crontab qui fait bien son taf. Mais <b>si vous êtes en multi domaines</b> et donc plusieurs fichiers de configuration dans /etc/awstats/, il va falloir ruser un peu. Je vous conseil donc de commenter la ligne courante dans ce fichier de cron&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cron.d/awstats</font>
+</td></tr>
+<tr>
+<td>
+<pre>#0,10,20,30,40,50 * * * * www-data [ -x /usr/lib/cgi-bin/awstats.pl -a -f /etc/awstats/awstats.conf -a -r /var/log/apache/access.log ] &amp;&amp; /usr/lib/cgi-bin/awstats.pl -config=awstats -update &gt;/dev/null
+</pre>
+</td></tr></table><br />
+<p>Et soit de rajouter des lignes du type&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cron.d/awstats</font>
+</td></tr>
+<tr>
+<td>
+<pre>0,10,20,30,40,50 * * * * www-data /usr/lib/cgi-bin/awstats.pl <b>-config=deimos.fr</b>
+0,10,20,30,40,50 * * * * www-data /usr/lib/cgi-bin/awstats.pl <b>-config=mavro.fr</b>
+</pre>
+</td></tr></table><br />
+<p>Pour différencier vos domaines (ici deimos.fr et mavro.fr), ou bien de créer un petit script comme ceci et de le mettre à la place dans la cron&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> awstats_update_domains.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+<span class="co0"># path to cgi-bin</span>
+<span class="re2">AWS</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>lib<span class="sy0">/</span>cgi-bin<span class="sy0">/</span>awstats.pl
+&#160;
+<span class="co0"># append your domain</span>
+<span class="re2">DOMAINS</span>=<span class="st0">&quot;deimos.fr mavro.fr&quot;</span>
+&#160;
+<span class="co0"># loop through all domains</span>
+<span class="kw1">for</span> d <span class="kw1">in</span> <span class="co1">${DOMAINS}</span>
+<span class="kw1">do</span>
+   <span class="co1">${AWS}</span> <span class="re5">-update</span> <span class="re5">-config</span>=<span class="co1">${d}</span>
+<span class="kw1">done</span></pre></div></div>
+</td></tr></table><br />
+<p>Un petit coup de chmod pour les droits d'exécution et c'est bon.
+</p>
+<h2><span class="mw-headline" id="Protection_d.27Awstats"><span class="mw-headline-number">3.4</span> Protection d'Awstats</span></h2>
+<p>Vous n'avez certainement pas envie que vos statistiques soient accessibles depuis n'importe ou et donc vous allez pouvoir vous protéger avec un htacess ou autre chose.
+</p>
+<h3><span class="mw-headline" id="htaccess_sous_Apache"><span class="mw-headline-number">3.4.1</span> htaccess sous Apache</span></h3>
+<p>This documentation is on how to protect a directory by htaccess (login + password).
+</p><p>Insert thos lines and adapt to your configuration (/etc/apache2/sites-enabled/000-default)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/apache2/sites-enabled/000-default</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">        &lt;<span class="kw3">Directory</span> /var/www/myhtaccess&gt;
+                <span class="kw1">AllowOverride</span> AuthConfig
+                <span class="kw1">Order</span> <span class="kw1">allow</span>,<span class="kw1">deny</span>
+                <span class="kw1">allow</span> from <span class="kw2">all</span>
+        &lt;/<span class="kw3">Directory</span>&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Then create a file .htaccess in <b>/var/www/myhtaccess</b> and put this&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /var/www/myhtaccess</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1"><span class="kw1">AuthType</span> Basic
+<span class="kw1">AuthName</span> <span class="st0">&quot;Acces Prive&quot;</span>
+<span class="kw1">AuthGroupFile</span> /dev/null
+<span class="kw1">AuthUserFile</span> /etc/apache2/htaccesspassword
+&#160;
+&lt;<span class="kw3">Limit</span> GET POST&gt;
+        <span class="kw1">Require</span> valid-<span class="kw1">user</span>
+&lt;/<span class="kw3">Limit</span>&gt;
+&#160;
+<span class="kw1">php_value</span> magic_quotes_runtime <span class="nu0">1</span>
+<span class="kw1">php_value</span> magic_quotes_gpc <span class="nu0">1</span></pre></div></div>
+</td></tr></table><br />
+<p>Then create your access file with the user (/etc/apache2/htaccesspassword)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htpasswd</font>
+</td></tr>
+<tr>
+<td>
+<pre>htpasswd -c /etc/apache2/htaccesspassword username
+</pre>
+</td></tr></table><br />
+<p>For the next time, to add users, just get off "-c" like that&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htpasswd</font>
+</td></tr>
+<tr>
+<td>
+<pre>htpasswd /etc/apache2/htaccesspassword username
+</pre>
+</td></tr></table><br />
+<p>Don't forget to restart apache&#160;:-)
+</p><p>For a good documentation, follow this&#160;:
+<a href="./File:Htaccess.pdf.html" title="File:Htaccess.pdf">Documentation on Htaccess</a>
+</p>
+<h3><span class="mw-headline" id="htdigest_sous_Lighttpd"><span class="mw-headline-number">3.4.2</span> htdigest sous Lighttpd</span></h3>
+<p>Les htaccess n'existent pas sous Lighttpd, mais il y a un équivalent de taille. Vérifiez avant de commencer que le module mod_auth est bien chargé.<br />
+Nous allons dans un premier temps générer (avec -c pour la première fois, comme un htaccess) un fichier contenant les identifiants pour être autoriser à consulter tel ou tel site&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htdigest</font>
+</td></tr>
+<tr>
+<td>
+<pre>htdigest -c /etc/lighttpd/.passwd 'Authorized users only' deimos
+</pre>
+</td></tr></table><br />
+<p>Je créer ici l'utilisateur deimos. Le realm (ici 'Authorized users only') va nous permettre de différencier les différents fichiers de login/mot de passe que nous allons pouvoir avoir car nous ne pouvons en spécifier qu'un seul pour tout le serveur.
+</p><p>Ensuite on rajoute ces lignes dans la configuration global de lighttpd&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1">auth<span class="sy0">.</span>backend <span class="sy0">=</span> <span class="st0">&quot;htdigest&quot;</span>
+auth<span class="sy0">.</span>backend<span class="sy0">.</span>htdigest<span class="sy0">.</span>userfile <span class="sy0">=</span> <span class="st0">&quot;/etc/lighttpd/.passwd&quot;</span>
+auth<span class="sy0">.</span>debug <span class="sy0">=</span> <span class="nu0">2</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis je rajoute à l'endroit qui m'intéresse la protection&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/lighttpd.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1">auth<span class="sy0">.</span><span class="kw3">require</span> <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;/docs/&quot;</span> <span class="sy0">=&gt;</span>
+   <span class="br0">&#40;</span>
+      <span class="st0">&quot;method&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;digest&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;realm&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;Authorized users only&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;require&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;valid-user&quot;</span>
+   <span class="br0">&#41;</span>
+<span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>On redémarre lighty et c'est bon.
+L'exemple ci dessus montre comment ajouter la restriction à l'endroit qui nous intéresse, nous allons donc le faire en modifiant notre conf d'awstats&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/conf-available/50-awstats.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1">alias<span class="sy0">.</span>url <span class="sy0">=</span> <span class="br0">&#40;</span>
+                <span class="st0">&quot;/awstats-icon&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/share/awstats/icon/&quot;</span><span class="sy0">,</span>
+                <span class="st0">&quot;/awstats/&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/lib/cgi-bin/&quot;</span><span class="sy0">,</span>
+                <span class="st0">&quot;/icon/&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/share/awstats/icon/&quot;</span>
+              <span class="br0">&#41;</span>
+<span class="co1"># provide awstats cgi-bin access</span>
+<span class="re0">$HTTP</span><span class="br0">&#91;</span><span class="st0">&quot;url&quot;</span><span class="br0">&#93;</span> <span class="sy0">=~</span> <span class="st0">&quot;/awstats/&quot;</span> <span class="br0">&#123;</span>
+    cgi<span class="sy0">.</span>assign <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;.pl&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;/usr/bin/perl&quot;</span> <span class="br0">&#41;</span>
+    auth<span class="sy0">.</span><span class="kw3">require</span> <span class="sy0">=</span> <span class="br0">&#40;</span> <span class="st0">&quot;/awstats/&quot;</span> <span class="sy0">=&gt;</span>
+        <span class="br0">&#40;</span>
+        <span class="st0">&quot;method&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;digest&quot;</span><span class="sy0">,</span>
+        <span class="st0">&quot;realm&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;Trusted users only&quot;</span><span class="sy0">,</span>
+        <span class="st0">&quot;require&quot;</span> <span class="sy0">=&gt;</span> <span class="st0">&quot;valid-user&quot;</span>
+        <span class="br0">&#41;</span>
+    <span class="br0">&#41;</span>   
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.060 seconds
+Real time usage: 0.061 seconds
+Preprocessor visited node count: 283/1000000
+Preprocessor generated node count: 792/1000000
+Post‐expand include size: 7308/2097152 bytes
+Template argument size: 1929/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   29.907      1 - -total
+ 82.61%   24.705     11 - Template:Config
+ 26.71%    7.987      1 - Template:Apache_htaccess
+ 17.28%    5.167      1 - Template:Lighttpd_htdigest
+  5.65%    1.690      6 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:992-0!*!*!1!en!5!* and timestamp 20181111230824 and revision id 8890
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Awstats_:_Mise_en_place_d%27Awstats,_interpréteur_de_logs_web&amp;oldid=8890">https://wiki.deimos.fr/index.php?title=Awstats_:_Mise_en_place_d%27Awstats,_interpréteur_de_logs_web&amp;oldid=8890</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Awstats+%3A+Mise+en+place+d%27Awstats%2C+interpr%C3%A9teur+de+logs+web" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Awstats_:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web&amp;oldid=8890" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 April 2010, at 15:51.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":98});
+}</script>
+	</body>
+</html>
+	

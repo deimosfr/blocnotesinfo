@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Réparer des bases MyISAM et InnoDB - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Réparer_des_bases_MyISAM_et_InnoDB.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Réparer_des_bases_MyISAM_et_InnoDB","wgTitle":"Réparer des bases MyISAM et InnoDB","wgCurRevisionId":7251,"wgRevisionId":7251,"wgArticleId":2843,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Bases de données","Serveur","MySQL"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Réparer_des_bases_MyISAM_et_InnoDB","wgRelevantArticleId":2843,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Réparer_des_bases_MyISAM_et_InnoDB skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Réparer des bases MyISAM et InnoDB</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Réparer_des_bases_MyISAM_et_InnoDB.html#mw-navigation">navigation</a>, 					<a href="Réparer_des_bases_MyISAM_et_InnoDB.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Solutions"><span class="tocnumber">2</span> <span class="toctext">Solutions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Corrupt_MyISAM_tables"><span class="tocnumber">2.1</span> <span class="toctext">Corrupt MyISAM tables</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Multiple_instances_of_MySQL"><span class="tocnumber">2.2</span> <span class="toctext">Multiple instances of MySQL</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Changed_InnoDB_log_settings"><span class="tocnumber">2.3</span> <span class="toctext">Changed InnoDB log settings</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Disappearing_MySQL_host_tables"><span class="tocnumber">2.4</span> <span class="toctext">Disappearing MySQL host tables</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#MyISAM_bad_auto_increment"><span class="tocnumber">2.5</span> <span class="toctext">MyISAM bad auto_increment</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Too_many_connections"><span class="tocnumber">2.6</span> <span class="toctext">Too many connections</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Corrupt_InnoDB_tables"><span class="tocnumber">2.7</span> <span class="toctext">Corrupt InnoDB tables</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#InnoDB_Corruption"><span class="tocnumber">2.8</span> <span class="toctext">InnoDB Corruption</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#Ressources"><span class="tocnumber">3</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>So... your shiny MySQL database is no longer running and you want to fix it?
+</p><p>You've come to the right place!
+</p><p>I've assembled a list of 7 ways to fix your MySQL database when a simple restart doesn't do the trick, or when you have corrupt tables.
+</p><p>Simple MySQL restart:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/mysql/bin/mysqladmin -u<b>USERNAME</b> -p<b>PASSWORD</b> shutdown
+/usr/local/mysql/bin/mysqld_safe &amp;
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Solutions"><span class="mw-headline-number">2</span> Solutions</span></h1>
+<h2><span class="mw-headline" id="Corrupt_MyISAM_tables"><span class="mw-headline-number">2.1</span> Corrupt MyISAM tables</span></h2>
+<p>MySQL database allows you to define a different MySQL storage engine for different tables. The storage engine is the engine used to store and retrieve data. Most popular storage engines are MyISAM and InnoDB.
+</p><p>MyISAM tables -will- get corrupted eventually. This is a fact of life.
+</p><p>Luckily, in most cases, MyISAM table corruption is easy to fix.
+</p><p>To fix a single table, connect to your MySQL database and issue a:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> repair</font>
+</td></tr>
+<tr>
+<td>
+<pre>repair TABLENAME
+</pre>
+</td></tr></table><br />
+<p>To fix everything, go with:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqlcheck</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/mysql/bin/mysqlcheck --all-databases -uUSERNAME -pPASSWORD -r
+</pre>
+</td></tr></table><br />
+<p>A lot of times, MyISAM tables will get corrupt and you won't even know about it unless you review the log files.
+</p><p>I highly suggest you add this line to your /etc/my.cnf config file. It will automatically fix MyISAM tables as soon as they become corrupt&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/my.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+[mysqld]
+<b>myisam-recover=backup,force</b>
+...
+</pre>
+</td></tr></table><br />
+<p>If this doesn't help, there are a few additional tricks you can try.
+</p>
+<h2><span class="mw-headline" id="Multiple_instances_of_MySQL"><span class="mw-headline-number">2.2</span> Multiple instances of MySQL</span></h2>
+<p>This is pretty common. You restart MySQL and the process immediately dies.
+</p><p>Reviewing the log files will tell you another instance of MySQL may be running.
+</p><p>To stop all instances of MySQL&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/mysql/bin/mysqladmin -uUSERNAME -pPASSWORD shutdown
+killall mysql
+killall mysqld
+</pre>
+</td></tr></table><br />
+<p>Now you can restart the database and you will have a single running instance
+</p>
+<h2><span class="mw-headline" id="Changed_InnoDB_log_settings"><span class="mw-headline-number">2.3</span> Changed InnoDB log settings</span></h2>
+<p>Once you have a running InnoDB MySQL database, you should never ever change these lines in your /etc/my.cnf file:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">datadir = /usr/local/mysql/data
+innodb_data_home_dir = /usr/local/mysql/data
+innodb_data_file_path = ibdata1:10M:autoextend
+innodb_log_group_home_dir = /usr/local/mysql/data
+innodb_log_files_in_group = 2
+innodb_log_file_size = 5242880</pre></div></div>
+</td></tr></table><br />
+<p>InnoDB log file size cannot be changed once it has been established. If you change it, the database will refuse to start.
+</p>
+<h2><span class="mw-headline" id="Disappearing_MySQL_host_tables"><span class="mw-headline-number">2.4</span> Disappearing MySQL host tables</span></h2>
+<p>I've seen this happen a few times. Probably some kind of freakish MyISAM bug.
+</p><p>Easily fixed with&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql_install_db</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/bin/mysql_install_db
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="MyISAM_bad_auto_increment"><span class="mw-headline-number">2.5</span> MyISAM bad auto_increment</span></h2>
+<p>If the auto_increment count goes haywire on a MyISAM table, you will no longer be able to INSERT new records into that table.
+</p><p>You can typically tell the auto_increment counter is malfunctioning, by seeing an auto_increment of -1 assigned to the last inserted record.
+</p><p>To fix - find the last valid auto_increment id by issuing something like&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> SELECT</font>
+</td></tr>
+<tr>
+<td>
+<pre>SELECT max(id) from <b>tablename</b>
+</pre>
+</td></tr></table><br />
+<p>And then update the auto_increment counter for that table
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ALTER</font>
+</td></tr>
+<tr>
+<td>
+<pre>ALTER TABLE <b>tablename</b> AUTO_INCREMENT <b>= id+1</b>
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Too_many_connections"><span class="mw-headline-number">2.6</span> Too many connections</span></h2>
+<p>Your database is getting hit with more connections than it can handle and now you cannot even connect to the database yourself.
+</p><p>First, stop the database&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqladmin</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/mysql/bin/mysqladmin -u<b>USERNAME</b> -p<b>PASSWORD</b> shutdown
+</pre>
+</td></tr></table><br />
+<p>If that doesn't help you can try "killall mysql" and "killall mysqld"
+</p><p>Once the database stopped, edit your /etc/my.cnf file and increase the number of connections. Don't go crazy with this number or you'll bring your entire machine down.
+</p><p>On a dedicated database machine we typically use:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">max_connections = 200
+wait_timeout = 100</pre></div></div>
+</td></tr></table><br />
+<p>Try restarting the database and see if that helps.
+</p><p>If you're getting bombarded with queries and you need to be able to connect to the database to make some table changes, set a different port number in your /etc/my.cnf file, start the database, make any changes, then update the port back to normal (master-port = 3306) and restart.
+</p>
+<h2><span class="mw-headline" id="Corrupt_InnoDB_tables"><span class="mw-headline-number">2.7</span> Corrupt InnoDB tables</span></h2>
+<p>InnoDB tables are my favorite. Transactional, reliable and unlike MyISAM, InnoDB supports concurrent writes into the same table.
+</p><p>InnoDB's internal recovery mechanism is pretty good. If the database crashes, InnoDB will attempt to fix everything by running the log file from the last timestamp. In most cases it will succeed and the entire process is transparent.
+</p><p>Unfortunately if InnoDB fails to repair itself, the -entire- database will not start. MySQL will exit with an error message and your entire database will be offline. You can try to restart the database again and again, but if the repair process fails - the database will refuse to start.
+</p><p>This is one reason why you should always run a master/master setup when using InnoDB - have a redundant master if one fails to start.
+</p><p>Before you go any further, review MySQL log file and confirm the database is not starting due to InnoDB corruption.
+</p><p>There are tricks to update InnoDB's internal log counter so that it skips the queries causing the crash, but in our experience this is not a good idea. You lose data consistency and will often break replication.
+</p><p>Once you have corrupt InnoDB tables that are preventing your database from starting, you should follow this five step process:
+</p>
+<ul><li> Add this line to your /etc/my.cnf configuration file:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/my.cnf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> ...
+ [mysqld]
+ innodb_force_recovery = 4
+ ...</pre></div></div>
+</td></tr></table><br />
+<ul><li> Restart MySQL. Your database will now start, but with innodb_force_recovery, all INSERTs and UPDATEs will be ignored.</li>
+<li> Dump all tables</li>
+<li> Shutdown database and delete the data directory. Run mysql_install_db to create MySQL default tables</li>
+<li> Remove the innodb_force_recovery line from your /etc/my.cnf file and restart the database. (It should start normally now)</li>
+<li> Restore everything from your backup</li></ul>
+<h2><span class="mw-headline" id="InnoDB_Corruption"><span class="mw-headline-number">2.8</span> InnoDB Corruption</span></h2>
+<p>Recently I was faced with the daunting task of reparing an InnoDB database gone bad. The database would not start due to corruption.
+</p><p>First step was turning-on InnoDB force-recovery mode, where InnoDB starts but ignores all UPDATEs and INSERTs.
+</p><p>Add this line to /etc/my.cnf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/my.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>innodb_force_recovery = 2
+</pre>
+</td></tr></table><br />
+<p>Now we can restart the database:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqld_safe</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/bin/mysqld_safe &amp;
+</pre>
+</td></tr></table><br />
+<p>(Note: If MySQL doesn't restart, keep increasing the innodb_force_recovery number until you get to innodb_force_recovery = 8)
+</p><p>Save all data into a temporary alldb.sql (this next command can take a while to finish):
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqldump</font>
+</td></tr>
+<tr>
+<td>
+<pre>mysqldump --force --compress --triggers --routines --create-options -uUSERNAME -pPASSWORD --all-databases &gt; /usr/alldb.sql
+</pre>
+</td></tr></table><br />
+<p>Shutdown the database again:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqladmin</font>
+</td></tr>
+<tr>
+<td>
+<pre>mysqladmin -uUSERNAME -pPASSWORD shutdown
+</pre>
+</td></tr></table><br />
+<p>Delete the database directory. (Note: In my case the data was under /usr/local/var. Your setup may be different. Make sure you're deleting the correct directory)
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rm</font>
+</td></tr>
+<tr>
+<td>
+<pre>rm -Rfd /usr/local/var
+</pre>
+</td></tr></table><br />
+<p>Recreate the database directory and install MySQL basic tables
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir /usr/local/var
+chown -R mysql:mysql /usr/local/var
+/usr/local/bin/mysql_install_db
+chown -R mysql:mysql /usr/local/var
+</pre>
+</td></tr></table><br />
+<p>Remove innodb_force_recovery from /etc/my.cnf and restart database:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqld_safe</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/bin/mysqld_safe &amp;
+</pre>
+</td></tr></table><br />
+<p>Import all the data back (this next command can take a while to finish):
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqld</font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql -uroot --compress &lt; /usr/alldb.sql
+</pre>
+</td></tr></table><br />
+<p>And finally - flush MySQL privileges (because we're also updating the MySQL table)
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqladmin</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/bin/mysqladmin -uroot flush-privileges
+</pre>
+</td></tr></table><br />
+<p>Note&#160;: For best results, add port=8819 (or any other random number) to /etc/my.cnf before restarting MySQL and then add --port=8819 to the mysqldump command. This way you avoid the MySQL database getting hit with queries while the repair is in progress.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">3</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.softwareprojects.com/resources/programming/t-how-to-fix-mysql-database-myisam-innodb-1634.html">http://www.softwareprojects.com/resources/programming/t-how-to-fix-mysql-database-myisam-innodb-1634.html</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.044 seconds
+Real time usage: 0.045 seconds
+Preprocessor visited node count: 295/1000000
+Preprocessor generated node count: 860/1000000
+Post‐expand include size: 4487/2097152 bytes
+Template argument size: 1515/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    7.959      1 - -total
+ 35.96%    2.862     16 - Template:Command
+ 34.79%    2.769      5 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2843-0!*!*!1!en!5!* and timestamp 20181111230657 and revision id 7251
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Réparer_des_bases_MyISAM_et_InnoDB&amp;oldid=7251">https://wiki.deimos.fr/index.php?title=Réparer_des_bases_MyISAM_et_InnoDB&amp;oldid=7251</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://wiki.deimos.fr/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://wiki.deimos.fr/index.php?title=Category:Bases_de_donn%C3%A9es&amp;action=edit&amp;redlink=1" class="new" title="Category:Bases de données (page does not exist)">Bases de données</a></li><li><a href="https://wiki.deimos.fr/index.php?title=Category:Serveur&amp;action=edit&amp;redlink=1" class="new" title="Category:Serveur (page does not exist)">Serveur</a></li><li><a href="https://wiki.deimos.fr/index.php?title=Category:MySQL&amp;action=edit&amp;redlink=1" class="new" title="Category:MySQL (page does not exist)">MySQL</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=R%C3%A9parer+des+bases+MyISAM+et+InnoDB" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Réparer_des_bases_MyISAM_et_InnoDB.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Réparer_des_bases_MyISAM_et_InnoDB.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=R%C3%A9parer_des_bases_MyISAM_et_InnoDB&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=R%C3%A9parer_des_bases_MyISAM_et_InnoDB&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Réparer_des_bases_MyISAM_et_InnoDB.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Réparer_des_bases_MyISAM_et_InnoDB.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/R%C3%A9parer_des_bases_MyISAM_et_InnoDB" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=R%C3%A9parer_des_bases_MyISAM_et_InnoDB&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=R%C3%A9parer_des_bases_MyISAM_et_InnoDB&amp;oldid=7251" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=R%C3%A9parer_des_bases_MyISAM_et_InnoDB&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 28 January 2009, at 02:43.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":34});
+}</script>
+	</body>
+</html>
+	

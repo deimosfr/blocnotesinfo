@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration du SUN Cluster - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_du_SUN_Cluster.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_du_SUN_Cluster","wgTitle":"Installation et configuration du SUN Cluster","wgCurRevisionId":9909,"wgRevisionId":9909,"wgArticleId":2807,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Solaris","Cluster"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_du_SUN_Cluster","wgRelevantArticleId":2807,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_du_SUN_Cluster skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration du SUN Cluster</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Installation_et_configuration_du_SUN_Cluster.html#mw-navigation">navigation</a>, 					<a href="Installation_et_configuration_du_SUN_Cluster.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Installation_et_configuration_du_SUN_Cluster.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Installation_et_configuration_du_SUN_Cluster.html#Requierements"><span class="tocnumber">2</span> <span class="toctext">Requierements</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Installation_et_configuration_du_SUN_Cluster.html#Hardware"><span class="tocnumber">2.1</span> <span class="toctext">Hardware</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Installation_et_configuration_du_SUN_Cluster.html#Partitionning"><span class="tocnumber">2.2</span> <span class="toctext">Partitionning</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Installation_et_configuration_du_SUN_Cluster.html#Hostname_Configuration"><span class="tocnumber">2.3</span> <span class="toctext">Hostname Configuration</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Installation_et_configuration_du_SUN_Cluster.html#Patchs"><span class="tocnumber">2.4</span> <span class="toctext">Patchs</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Installation_et_configuration_du_SUN_Cluster.html#IPMP_Configuration"><span class="tocnumber">2.5</span> <span class="toctext">IPMP Configuration</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Installation_et_configuration_du_SUN_Cluster.html#Activate_all_network_cards"><span class="tocnumber">2.6</span> <span class="toctext">Activate all network cards</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Installation_et_configuration_du_SUN_Cluster.html#Remove_RPC_and_Webconsole_binding"><span class="tocnumber">2.7</span> <span class="toctext">Remove RPC and Webconsole binding</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Installation_et_configuration_du_SUN_Cluster.html#Profile"><span class="tocnumber">2.8</span> <span class="toctext">Profile</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Installation_et_configuration_du_SUN_Cluster.html#Ending"><span class="tocnumber">2.9</span> <span class="toctext">Ending</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Installation_et_configuration_du_SUN_Cluster.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="Installation_et_configuration_du_SUN_Cluster.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="Installation_et_configuration_du_SUN_Cluster.html#Wizard_configuration"><span class="tocnumber">4.1</span> <span class="toctext">Wizard configuration</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Installation_et_configuration_du_SUN_Cluster.html#Manual_configuration"><span class="tocnumber">4.2</span> <span class="toctext">Manual configuration</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="Installation_et_configuration_du_SUN_Cluster.html#Quorum"><span class="tocnumber">4.3</span> <span class="toctext">Quorum</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Installation_et_configuration_du_SUN_Cluster.html#Network"><span class="tocnumber">4.4</span> <span class="toctext">Network</span></a>
+<ul>
+<li class="toclevel-3 tocsection-18"><a href="Installation_et_configuration_du_SUN_Cluster.html#Cluster_connections"><span class="tocnumber">4.4.1</span> <span class="toctext">Cluster connections</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="Installation_et_configuration_du_SUN_Cluster.html#Check_network_interconnect_interfaces"><span class="tocnumber">4.4.2</span> <span class="toctext">Check network interconnect interfaces</span></a></li>
+<li class="toclevel-3 tocsection-20"><a href="Installation_et_configuration_du_SUN_Cluster.html#Check_traffic"><span class="tocnumber">4.4.3</span> <span class="toctext">Check traffic</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Installation_et_configuration_du_SUN_Cluster.html#Get_Fiber_Channel_WWN"><span class="tocnumber">4.4.4</span> <span class="toctext">Get Fiber Channel WWN</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Installation_et_configuration_du_SUN_Cluster.html#Manage"><span class="tocnumber">5</span> <span class="toctext">Manage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-23"><a href="Installation_et_configuration_du_SUN_Cluster.html#Get_cluster_state"><span class="tocnumber">5.1</span> <span class="toctext">Get cluster state</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Installation_et_configuration_du_SUN_Cluster.html#Registering_Ressources"><span class="tocnumber">5.2</span> <span class="toctext">Registering Ressources</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="Installation_et_configuration_du_SUN_Cluster.html#Creating_Ressource_Group"><span class="tocnumber">5.3</span> <span class="toctext">Creating Ressource Group</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Installation_et_configuration_du_SUN_Cluster.html#Creating_Logical_Host_.28VIP.29_Ressource"><span class="tocnumber">5.4</span> <span class="toctext">Creating Logical Host (VIP) Ressource</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="Installation_et_configuration_du_SUN_Cluster.html#Creating_FileSystem_Ressource"><span class="tocnumber">5.5</span> <span class="toctext">Creating FileSystem Ressource</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="Installation_et_configuration_du_SUN_Cluster.html#Creating_a_GDS_Ressource"><span class="tocnumber">5.6</span> <span class="toctext">Creating a GDS Ressource</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="Installation_et_configuration_du_SUN_Cluster.html#Modify_.2F_view_ressource_properties"><span class="tocnumber">5.7</span> <span class="toctext">Modify / view ressource properties</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="Installation_et_configuration_du_SUN_Cluster.html#Activating_Ressource_Group"><span class="tocnumber">5.8</span> <span class="toctext">Activating Ressource Group</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="Installation_et_configuration_du_SUN_Cluster.html#Maintenance"><span class="tocnumber">6</span> <span class="toctext">Maintenance</span></a>
+<ul>
+<li class="toclevel-2 tocsection-32"><a href="Installation_et_configuration_du_SUN_Cluster.html#Boot_in_non_cluster_mode"><span class="tocnumber">6.1</span> <span class="toctext">Boot in non cluster mode</span></a>
+<ul>
+<li class="toclevel-3 tocsection-33"><a href="Installation_et_configuration_du_SUN_Cluster.html#Reboot_with_command_line"><span class="tocnumber">6.1.1</span> <span class="toctext">Reboot with command line</span></a></li>
+<li class="toclevel-3 tocsection-34"><a href="Installation_et_configuration_du_SUN_Cluster.html#Boot_from_grub"><span class="tocnumber">6.1.2</span> <span class="toctext">Boot from grub</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-35"><a href="Installation_et_configuration_du_SUN_Cluster.html#Remove_node_from_cluster"><span class="tocnumber">6.2</span> <span class="toctext">Remove node from cluster</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-36"><a href="Installation_et_configuration_du_SUN_Cluster.html#FAQ"><span class="tocnumber">7</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-37"><a href="Installation_et_configuration_du_SUN_Cluster.html#Can.27t_integrate_cluster"><span class="tocnumber">7.1</span> <span class="toctext">Can't integrate cluster</span></a>
+<ul>
+<li class="toclevel-3 tocsection-38"><a href="Installation_et_configuration_du_SUN_Cluster.html#Solution_1"><span class="tocnumber">7.1.1</span> <span class="toctext">Solution 1</span></a></li>
+<li class="toclevel-3 tocsection-39"><a href="Installation_et_configuration_du_SUN_Cluster.html#Solution_2"><span class="tocnumber">7.1.2</span> <span class="toctext">Solution 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-40"><a href="Installation_et_configuration_du_SUN_Cluster.html#The_cluster_is_in_installation_mode"><span class="tocnumber">7.2</span> <span class="toctext">The cluster is in installation mode</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="Installation_et_configuration_du_SUN_Cluster.html#How_to_change_Private_Interconnect_IP_for_cluster_.3F"><span class="tocnumber">7.3</span> <span class="toctext">How to change Private Interconnect IP for cluster&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="Installation_et_configuration_du_SUN_Cluster.html#Some_commands_cannot_be_executed_on_a_cluster_in_Install_mode"><span class="tocnumber">7.4</span> <span class="toctext">Some commands cannot be executed on a cluster in Install mode</span></a></li>
+<li class="toclevel-2 tocsection-43"><a href="Installation_et_configuration_du_SUN_Cluster.html#Disk_path_offline"><span class="tocnumber">7.5</span> <span class="toctext">Disk path offline</span></a>
+<ul>
+<li class="toclevel-3 tocsection-44"><a href="Installation_et_configuration_du_SUN_Cluster.html#Method_1"><span class="tocnumber">7.5.1</span> <span class="toctext">Method 1</span></a></li>
+<li class="toclevel-3 tocsection-45"><a href="Installation_et_configuration_du_SUN_Cluster.html#Method_2"><span class="tocnumber">7.5.2</span> <span class="toctext">Method 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-46"><a href="Installation_et_configuration_du_SUN_Cluster.html#Force_uninstall"><span class="tocnumber">7.6</span> <span class="toctext">Force uninstall</span></a></li>
+<li class="toclevel-2 tocsection-47"><a href="Installation_et_configuration_du_SUN_Cluster.html#How_to_Change_Sun_Cluster_Node_Names"><span class="tocnumber">7.7</span> <span class="toctext">How to Change Sun Cluster Node Names</span></a></li>
+<li class="toclevel-2 tocsection-48"><a href="Installation_et_configuration_du_SUN_Cluster.html#Can.27t_switch_an_RG_from_one_node_to_another"><span class="tocnumber">7.8</span> <span class="toctext">Can't switch an RG from one node to another</span></a></li>
+<li class="toclevel-2 tocsection-49"><a href="Installation_et_configuration_du_SUN_Cluster.html#Cluster_is_unavailable_when_a_node_crash_on_a_2_nodes_cluster"><span class="tocnumber">7.9</span> <span class="toctext">Cluster is unavailable when a node crash on a 2 nodes cluster</span></a>
+<ul>
+<li class="toclevel-3 tocsection-50"><a href="Installation_et_configuration_du_SUN_Cluster.html#Recovering_from_amnesia"><span class="tocnumber">7.9.1</span> <span class="toctext">Recovering from amnesia</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-51"><a href="Installation_et_configuration_du_SUN_Cluster.html#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Solaris Cluster (sometimes Sun Cluster or SunCluster) is a high-availability cluster software product for the Solaris Operating System, created by Sun Microsystems.
+</p><p>It is used to improve the availability of software services such as databases, file sharing on a network, electronic commerce websites, or other applications. Sun Cluster operates by having redundant computers or nodes where one or more computers continue to provide service if another fails. Nodes may be located in the same data center or on different continents.
+</p><p>This Documentation has been released with&#160;:
+</p>
+<ul><li> Sun Solaris update 7</li>
+<li> Sun Cluster 3.2u2</li></ul>
+<h1><span class="mw-headline" id="Requierements"><span class="mw-headline-number">2</span> Requierements</span></h1>
+<p>All thoses things are requiered before installing Sun Cluster. Follow all this steps before installing.
+</p>
+<h2><span class="mw-headline" id="Hardware"><span class="mw-headline-number">2.1</span> Hardware</span></h2>
+<p>To make a real cluster, you need here is the requiered hardware lsit&#160;:
+</p>
+<ul><li> 2 nodes
+<ul><li> sun-node1</li>
+<li> sun-node2</li></ul></li>
+<li> 4 network cards
+<ul><li> 2 for Public interface (with IPMP on it)</li>
+<li> 2 for Private interface (for cluster&#160;: heartbeat &amp; nodes informations exchange)</li></ul></li>
+<li> 1 disks array with 1 spare disk</li></ul>
+<h2><span class="mw-headline" id="Partitionning"><span class="mw-headline-number">2.2</span> Partitionning</span></h2>
+<p>While you install Solaris, you should make a slice called /globaldevices containing at least 512Mo. This slice should be in UFS (ZFS not work as global device for the moment).
+</p><p>If you didn't do this slice during Solaris installation, you can&#160;:
+</p>
+<ul><li> Use the format command to create a new slice</li>
+<li> Use newfs command to format filesystem as UFS</li>
+<li> Mount this filesystem with global option in /globaldevices</li>
+<li> Add it in /etc/vfstab, for example&#160;:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/vfstab</font>
+</td></tr>
+<tr>
+<td>
+<pre>/dev/did/dsk/d6s3 /dev/did/rdsk/d6s3 /global/.devices/node@2 ufs 2 no global
+</pre>
+</td></tr></table><br />
+<p>Note&#160;: Since Sun Cluster 3.2 update 2, you needn't /globaldevices anymore and use ZFS as default root system.
+</p>
+<h2><span class="mw-headline" id="Hostname_Configuration"><span class="mw-headline-number">2.3</span> Hostname Configuration</span></h2>
+<p>Change the hostname to assume the cluster nomenclature you which&#160;:<br />
+<a href="Changer_le_hostname_de_sa_solaris.html" title="Changer le hostname de sa solaris">Changing Solaris hostname</a>
+</p><p><b>Do not forget to apply the same /etc/hosts file to all cluster nodes&#160;!!! And when you made change, change it on every nodes&#160;!</b>
+</p>
+<h2><span class="mw-headline" id="Patchs"><span class="mw-headline-number">2.4</span> Patchs</span></h2>
+<p><b>Use Sun Update Manager if you have a graphical interface to update all the available packages. If you don't have graphical interfaces, please install all available patchs to avoid installation problems.</b>
+</p>
+<h2><span class="mw-headline" id="IPMP_Configuration"><span class="mw-headline-number">2.5</span> IPMP Configuration</span></h2>
+<p>You need to configure at least 2 interfaces for your public network. Follow this documentation&#160;:<br />
+<a href="Configuration_de_l'IPMP.html" title="Configuration de l'IPMP">IPMP Configuration</a>
+</p><p>You don't have to do it for your private network because it will be automatically done by the cluster during installation.
+</p>
+<h2><span class="mw-headline" id="Activate_all_network_cards"><span class="mw-headline-number">2.6</span> Activate all network cards</span></h2>
+<p>With your 4 network cards, you could activate all your cards to be easilly reconnized during installation. In the first step, ifonfig -a to know if all your cards are plumbed. If not touch them&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> touch</font>
+</td></tr>
+<tr>
+<td>
+<pre>touch /etc/hostname.e1000g2
+touch /etc/hostname.e1000g3
+ifconfig e1000g2 plumb
+ifconfig e1000g3 plumb
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Remove_RPC_and_Webconsole_binding"><span class="mw-headline-number">2.7</span> Remove RPC and Webconsole binding</span></h2>
+<p>If you have installed the lastest Solaris version, you may encounter Node integration problem due to RPC binding. This is new SUN security features. As we need to allow communication between nodes, we need to disable binding on RPC protocol (and could do it for the webconsole as well). <b>You should do this operation on each nodes.</b>
+</p>
+<ul><li> Ensure that the local_only property of rpcbind is set to false:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> svcprop</font>
+</td></tr>
+<tr>
+<td>
+<pre>svcprop network/rpc/bind:default 
+</pre>
+</td></tr></table><br />
+<p>If local_only is set to true, run those commands and refresh service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> svcfg</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ svccfg
+svc:&gt; select network/rpc/bind
+svc:/network/rpc/bind&gt; setprop config/local_only=false
+svc:/network/rpc/bind&gt; quit
+svcadm refresh network/rpc/bind:default
+</pre>
+</td></tr></table><br />
+<p>Now communication between nodes works.
+</p>
+<ul><li> Ensure that the tcp_listen property of webconsole is set to true:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> svcprop</font>
+</td></tr>
+<tr>
+<td>
+<pre>svcprop /system/webconsole:console 
+</pre>
+</td></tr></table><br />
+<p>If tcp_listen is not true, run those commands and restart service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> svccfg</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ svccfg
+svc:&gt; select system/webconsole
+svc:/system/webconsole&gt; setprop options/tcp_listen=true
+svc:/system/webconsole&gt; quit
+/usr/sbin/smcwebserver restart
+</pre>
+</td></tr></table><br />
+<p>It is needed for Sun Cluster Manager communication. To verify if the port is listen to *.6789 you can execute
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> netstat</font>
+</td></tr>
+<tr>
+<td>
+<pre>netstat -a 
+</pre>
+</td></tr></table><br />
+<p>If you want a faster solution to do those 2 things faster, use those commands&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>svccfg -s network/rpc/bind setprop config/local_only=false
+svcadm refresh network/rpc/bind:default
+svccfg -s system/webconsole setprop options/tcp_listen=true
+/usr/sbin/smcwebserver restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Profile"><span class="mw-headline-number">2.8</span> Profile</span></h2>
+<p>Configure the root profile (~/.profile) or for all users(/etc/profile) by adding those lines&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.profile</font>
+</td></tr>
+<tr>
+<td>
+<pre>PATH=$PATH:/usr/cluster/bin/
+</pre>
+</td></tr></table><br />
+<p>Now refresh your configuration&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> source</font>
+</td></tr>
+<tr>
+<td>
+<pre>source ~/.profile
+</pre>
+<p>or
+</p>
+<pre>source /etc/profile
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Ending"><span class="mw-headline-number">2.9</span> Ending</span></h2>
+<p>Restart all your nodes when all is finished.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<p>First of all, download the <a rel="nofollow" class="external text" href="http://www.sun.com">Sun Cluster package</a> (normally in zip) and uncompress it on all nodes. You should have a "Solaris_x86" folder.
+</p><p>Now launch the installer on all the nodes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>cd /Solaris_x86
+./installer
+</pre>
+</td></tr></table><br />
+<p>We'll need to install Sun Cluster Core and Quorum (if we want to add more than 2 nodes now or later).
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Wizard_configuration"><span class="mw-headline-number">4.1</span> Wizard configuration</span></h2>
+<p>Before launching installation, you should know there is 2 way to configure all the nodes&#160;:
+</p>
+<ul><li> One by one</li>
+<li> All in one shot</li></ul>
+<p>If you want to do all in one shot, you should have to exchange all root ssh public keys between all nodes.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scinstall</font>
+</td></tr>
+<tr>
+<td>
+<pre>scinstall
+</pre>
+</td></tr></table><br />
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  *** Main Menu ***
+&#160;
+    Please select from one of the following (*) options:
+&#160;
+      * 1) Create a new cluster or add a cluster node
+        2) Configure a cluster to be JumpStarted from this install server
+        3) Manage a dual-partition upgrade
+        4) Upgrade this cluster node
+        5) Print release information for this cluster node
+&#160;
+      *&#160;?) Help with menu options
+      * q) Quit
+&#160;
+    Option:</pre></div></div>
+<p>Answer&#160;: 1
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  *** New Cluster and Cluster Node Menu ***
+&#160;
+    Please select from any one of the following options:
+&#160;
+        1) Create a new cluster
+        2) Create just the first node of a new cluster on this machine
+        3) Add this machine as a node in an existing cluster
+&#160;
+       &#160;?) Help with menu options
+        q) Return to the Main Menu
+&#160;
+    Option:</pre></div></div>
+<p>Answer&#160;: 1
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  *** Create a New Cluster ***
+&#160;
+&#160;
+    This option creates and configures a new cluster.
+&#160;
+    You must use the Java Enterprise System (JES) installer to install the
+    Sun Cluster framework software on each machine in the new cluster 
+    before you select this option.
+&#160;
+    If the &quot;remote configuration&quot; option is unselected from the JES 
+    installer when you install the Sun Cluster framework on any of the new
+    nodes, then you must configure either the remote shell (see rsh(1)) or
+    the secure shell (see ssh(1)) before you select this option. If rsh or
+    ssh is used, you must enable root access to all of the new member 
+    nodes from this node.
+&#160;
+    Press Control-d at any time to return to the Main Menu.
+&#160;
+&#160;
+    Do you want to continue (yes/no)</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Typical or Custom Mode &lt;&lt;&lt;
+&#160;
+    This tool supports two modes of operation, Typical mode and Custom. 
+    For most clusters, you can use Typical mode. However, you might need 
+    to select the Custom mode option if not all of the Typical defaults 
+    can be applied to your cluster.
+&#160;
+    For more information about the differences between Typical and Custom 
+    modes, select the Help option from the menu.
+&#160;
+    Please select from one of the following options:
+&#160;
+        1) Typical
+        2) Custom
+&#160;
+       &#160;?) Help
+        q) Return to the Main Menu
+&#160;
+    Option [1]:</pre></div></div>
+<p>Answer&#160;: 2
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Cluster Name &lt;&lt;&lt;
+&#160;
+    Each cluster has a name assigned to it. The name can be made up of any
+    characters other than whitespace. Each cluster name should be unique 
+    within the namespace of your enterprise.
+&#160;
+    What is the name of the cluster you want to establish&#160;?</pre></div></div>
+<p>Answer&#160;: sun-cluster
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Cluster Nodes &lt;&lt;&lt;
+&#160;
+    This Sun Cluster release supports a total of up to 16 nodes.
+&#160;
+    Please list the names of the other nodes planned for the initial 
+    cluster configuration. List one node name per line. When finished, 
+    type Control-D:
+&#160;
+    Node name:  sun-node1
+    Node name:  sun-node2
+    Node name (Control-D to finish):  ^D</pre></div></div>
+<p>Enter the 2 nodes name and finish with Ctrl+D.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    This is the complete list of nodes:
+&#160;
+        sun-node1
+        sun-node2
+&#160;
+    Is it correct (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    Attempting to contact &quot;sun-node2&quot; ... done
+&#160;
+    Searching for a remote configuration method ... done
+&#160;
+    The secure shell (see ssh(1)) will be used for remote execution.
+&#160;
+&#160;
+Press Enter to continue:</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Authenticating Requests to Add Nodes &lt;&lt;&lt;
+&#160;
+    Once the first node establishes itself as a single node cluster, other
+    nodes attempting to add themselves to the cluster configuration must 
+    be found on the list of nodes you just provided. You can modify this 
+    list by using claccess(1CL) or other tools once the cluster has been 
+    established.
+&#160;
+    By default, nodes are not securely authenticated as they attempt to 
+    add themselves to the cluster configuration. This is generally 
+    considered adequate, since nodes which are not physically connected to
+    the private cluster interconnect will never be able to actually join 
+    the cluster. However, DES authentication is available. If DES 
+    authentication is selected, you must configure all necessary 
+    encryption keys before any node will be allowed to join the cluster 
+    (see keyserv(1M), publickey(4)).
+&#160;
+    Do you need to use DES authentication (yes/no) [no]?</pre></div></div>
+<p>Answer&#160;: no
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Network Address for the Cluster Transport &lt;&lt;&lt;
+&#160;
+    The cluster transport uses a default network address of 172.16.0.0. If
+    this IP address is already in use elsewhere within your enterprise, 
+    specify another address from the range of recommended private 
+    addresses (see RFC 1918 for details).
+&#160;
+    The default netmask is 255.255.248.0. You can select another netmask, 
+    as long as it minimally masks all bits that are given in the network 
+    address.
+&#160;
+    The default private netmask and network address result in an IP 
+    address range that supports a cluster with a maximum of 64 nodes and 
+    10 private networks.
+&#160;
+    Is it okay to accept the default network address (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    Is it okay to accept the default netmask (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Minimum Number of Private Networks &lt;&lt;&lt;
+&#160;
+    Each cluster is typically configured with at least two private 
+    networks. Configuring a cluster with just one private interconnect 
+    provides less availability and will require the cluster to spend more 
+    time in automatic recovery if that private interconnect fails.
+&#160;
+    Should this cluster use at least two private networks (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Point-to-Point Cables &lt;&lt;&lt;
+&#160;
+    The two nodes of a two-node cluster may use a directly-connected 
+    interconnect. That is, no cluster switches are configured. However, 
+    when there are greater than two nodes, this interactive form of 
+    scinstall assumes that there will be exactly one switch for each 
+    private network.
+&#160;
+    Does this two-node cluster use switches (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: no
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Cluster Transport Adapters and Cables &lt;&lt;&lt;
+&#160;
+    You must configure the cluster transport adapters for each node in the
+    cluster. These are the adapters which attach to the private cluster 
+    interconnect.
+&#160;
+    Select the first cluster transport adapter for &quot;sun-node1&quot;:
+&#160;
+        1) e1000g1
+        2) e1000g2
+        3) e1000g3
+        4) Other
+&#160;
+    Option:</pre></div></div>
+<p>Answer&#160;: 3
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    Adapter &quot;e1000g3&quot; is an Ethernet adapter.
+&#160;
+    Searching for any unexpected network traffic on &quot;e1000g3&quot; ... done
+    Verification completed. No traffic was detected over a 10 second 
+    sample period.
+&#160;
+    The &quot;dlpi&quot; transport type will be set for this cluster.
+&#160;
+    Name of adapter on &quot;sun-node2&quot; to which &quot;e1000g3&quot; is connected?  e1000g3
+&#160;
+    Select the second cluster transport adapter for &quot;sun-node1&quot;:
+&#160;
+        1) e1000g1
+        2) e1000g2
+        3) e1000g3
+        4) Other
+&#160;
+    Option:</pre></div></div>
+<p>Answer&#160;: 2
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    Adapter &quot;e1000g2&quot; is an Ethernet adapter.
+&#160;
+    Searching for any unexpected network traffic on &quot;e1000g2&quot; ... done
+    Verification completed. No traffic was detected over a 10 second 
+    sample period.
+&#160;
+    Name of adapter on &quot;sun-node2&quot; to which &quot;e1000g2&quot; is connected?</pre></div></div>
+<p>Answer&#160;: e1000g2
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Quorum Configuration &lt;&lt;&lt;
+&#160;
+    Every two-node cluster requires at least one quorum device. By 
+    default, scinstall will select and configure a shared SCSI quorum disk
+    device for you.
+&#160;
+    This screen allows you to disable the automatic selection and 
+    configuration of a quorum device.
+&#160;
+    The only time that you must disable this feature is when ANY of the 
+    shared storage in your cluster is not qualified for use as a Sun 
+    Cluster quorum device. If your storage was purchased with your 
+    cluster, it is qualified. Otherwise, check with your storage vendor to
+    determine whether your storage device is supported as Sun Cluster 
+    quorum device.
+&#160;
+    If you disable automatic quorum device selection now, or if you intend
+    to use a quorum device that is not a shared SCSI disk, you must 
+    instead use clsetup(1M) to manually configure quorum once both nodes 
+    have joined the cluster for the first time.
+&#160;
+    Do you want to disable automatic quorum device selection (yes/no) [no]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Global Devices File System &lt;&lt;&lt;
+&#160;
+    Each node in the cluster must have a local file system mounted on 
+    /global/.devices/node@&lt;nodeID&gt; before it can successfully participate 
+    as a cluster member. Since the &quot;nodeID&quot; is not assigned until 
+    scinstall is run, scinstall will set this up for you.
+&#160;
+    You must supply the name of either an already-mounted file system or 
+    raw disk partition which scinstall can use to create the global 
+    devices file system. This file system or partition should be at least 
+    512 MB in size.
+&#160;
+    If an already-mounted file system is used, the file system must be 
+    empty. If a raw disk partition is used, a new file system will be 
+    created for you.
+&#160;
+    The default is to use /globaldevices.
+&#160;
+    Is it okay to use this default (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    Testing for &quot;/globaldevices&quot; on &quot;sun-node1&quot; ... done
+&#160;
+    For node &quot;sun-node2&quot;,
+       Is it okay to use this default (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    Is it okay to create the new cluster (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">  &gt;&gt;&gt; Automatic Reboot &lt;&lt;&lt;
+&#160;
+    Once scinstall has successfully initialized the Sun Cluster software 
+    for this machine, the machine must be rebooted. After the reboot, this
+    machine will be established as the first node in the new cluster.
+&#160;
+    Do you want scinstall to reboot for you (yes/no) [yes]?</pre></div></div>
+<p>Answer&#160;: yes
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    During the cluster creation process, sccheck is run on each of the new
+    cluster nodes. If sccheck detects problems, you can either interrupt 
+    the process or check the log files after the cluster has been 
+    established.
+&#160;
+    Interrupt cluster creation for sccheck errors (yes/no) [no]?</pre></div></div>
+<p>Answer&#160;: no
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    The Sun Cluster software is installed on &quot;sun-node2&quot;.
+&#160;
+    Started sccheck on &quot;sun-node1&quot;.
+    Started sccheck on &quot;sun-node2&quot;.
+&#160;
+    sccheck completed with no errors or warnings for &quot;sun-node1&quot;.
+    sccheck completed with no errors or warnings for &quot;sun-node2&quot;.
+&#160;
+&#160;
+    Configuring &quot;sun-node2&quot; ... done
+    Rebooting &quot;sun-node2&quot; ... 
+&#160;
+    Waiting for &quot;sun-node2&quot; to become a cluster member ...</pre></div></div>
+<h2><span class="mw-headline" id="Manual_configuration"><span class="mw-headline-number">4.2</span> Manual configuration</span></h2>
+<p>Here is an example of the first node and allowing an other node&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scinstall</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">scinstall -i \
+-C PA-TLH-CLU-UAT-1 \
+-F \
+-T node=PA-TLH-SRV-UAT-1,node=PA-TLH-SRV-UAT-2,authtype=sys \
+-w netaddr=10.255.255.0,netmask=255.255.255.0,maxnodes=16,maxprivatenets=2,numvirtualclusters=1 \
+-A trtype=dlpi,name=nge2 -A trtype=dlpi,name=nge3 \
+-B type=switch,name=PA-TLH-SWI-IN-1 -B type=switch,name=PA-TLH-SWI-IN-2 \
+-m endpoint=:nge2,endpoint=PA-TLH-SWI-IN-1 \
+-m endpoint=:nge3,endpoint=PA-TLH-SWI-IN-2 \
+-P task=quorum,state=INIT</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Quorum"><span class="mw-headline-number">4.3</span> Quorum</span></h2>
+<p>If you've made the installation with a quorum, you'll need to set it up with the webremote or with those commands. First, you need to list all LUN with DID format&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> didadm -l</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">1        LD-TLH-SRV-UAT-1:/dev/rdsk/c0t0d0 /dev/did/rdsk/d1     
+2        LD-TLH-SRV-UAT-1:/dev/rdsk/c1t0d0 /dev/did/rdsk/d2     
+5        LD-TLH-SRV-UAT-1:/dev/rdsk/c2t201500A0B856312Cd31 /dev/did/rdsk/d5     
+5        LD-TLH-SRV-UAT-1:/dev/rdsk/c2t201400A0B856312Cd31 /dev/did/rdsk/d5     
+5        LD-TLH-SRV-UAT-1:/dev/rdsk/c3t202400A0B856312Cd31 /dev/did/rdsk/d5     
+5        LD-TLH-SRV-UAT-1:/dev/rdsk/c3t202500A0B856312Cd31 /dev/did/rdsk/d5     
+6        LD-TLH-SRV-UAT-1:/dev/rdsk/c5t600A0B800056312C000009CB4AAA2A14d0 /dev/did/rdsk/d6     
+7        LD-TLH-SRV-UAT-1:/dev/rdsk/c5t600A0B800056381A00000E0A4AAA2A14d0 /dev/did/rdsk/d7</pre></div></div>
+</td></tr></table><br />
+<p>Choose the LUN you wish have for your quorum&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clquorum</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/cluster/bin/clquorum add /dev/did/rdsk/d6
+</pre>
+</td></tr></table><br />
+<p>Then, activate it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clquorum</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/cluster/bin/clquorum enable /dev/did/rdsk/d6
+</pre>
+</td></tr></table><br />
+<p>To finish, you need to reset it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clquorum</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/cluster/bin/clquorum reset
+</pre>
+</td></tr></table><br />
+<p>Now you're able to configure you cluster
+</p>
+<h2><span class="mw-headline" id="Network"><span class="mw-headline-number">4.4</span> Network</span></h2>
+<h3><span class="mw-headline" id="Cluster_connections"><span class="mw-headline-number">4.4.1</span> Cluster connections</span></h3>
+<p>To check cluster interconnect, please use this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clinterconnect</font>
+</td></tr>
+<tr>
+<td>
+<pre>clinterconnect status
+</pre>
+</td></tr></table><br />
+<p>To enable a network card interconnection&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clinterconnect</font>
+</td></tr>
+<tr>
+<td>
+<pre>clinterconnect enable <b>hostname</b>:<b>card</b>
+</pre>
+<p>example&#160;:
+</p>
+<pre>clinterconnect enable localhost:e1000g0
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Check_network_interconnect_interfaces"><span class="mw-headline-number">4.4.2</span> Check network interconnect interfaces</span></h3>
+<p>To check if all interfaces are running, configure IPs on each of private (cluster) IPs. Then broadcast a ping&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ping</font>
+</td></tr>
+<tr>
+<td>
+<pre>ping -s <b>10.255.255.255</b>
+</pre>
+</td></tr></table><br />
+<p>You can change this kind of private IPs with your (defaults are 172.16.0.255)
+</p><p><br />
+</p>
+<h3><span class="mw-headline" id="Check_traffic"><span class="mw-headline-number">4.4.3</span> Check traffic</span></h3>
+<p>Use snoop command to see traffic upcomming for example&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> snoop</font>
+</td></tr>
+<tr>
+<td>
+<pre>snoop -d <b>&lt;interface&gt; &lt;ip&gt;</b>
+</pre>
+<p>example&#160;:
+</p>
+<pre>snoop -d nge0 192.168.76.2
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Get_Fiber_Channel_WWN"><span class="mw-headline-number">4.4.4</span> Get Fiber Channel WWN</span></h3>
+<p>To get Fiber Channel identifiers, launch this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> fcinfo hba-port</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">HBA Port WWN: 2100001b32892934
+        OS Device Name: /dev/cfg/c2
+        Manufacturer: QLogic Corp.
+        Model: 375-3356-02
+        Firmware Version: 4.04.01
+        FCode/BIOS Version:  BIOS: 1.24; fcode: 1.24; EFI: 1.8;
+        Serial Number: 0402R00-0906696990
+        Driver Name: qlc
+        Driver Version: 20081115-2.29
+        Type: N-port
+        State: online
+        Supported Speeds: 1Gb 2Gb 4Gb 
+        Current Speed: 4Gb 
+        Node WWN: 2000001b32892934
+HBA Port WWN: 2101001b32a92934
+        OS Device Name: /dev/cfg/c3
+        Manufacturer: QLogic Corp.
+        Model: 375-3356-02
+        Firmware Version: 4.04.01
+        FCode/BIOS Version:  BIOS: 1.24; fcode: 1.24; EFI: 1.8;
+        Serial Number: 0402R00-0906696990
+        Driver Name: qlc
+        Driver Version: 20081115-2.29
+        Type: N-port
+        State: online
+        Supported Speeds: 1Gb 2Gb 4Gb 
+        Current Speed: 4Gb 
+        Node WWN: 2001001b32a92934</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Manage"><span class="mw-headline-number">5</span> Manage</span></h1>
+<h2><span class="mw-headline" id="Get_cluster_state"><span class="mw-headline-number">5.1</span> Get cluster state</span></h2>
+<p>To get cluster state, simply launch scstat command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scstat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">------------------------------------------------------------------
+&#160;
+-- Cluster Nodes --
+&#160;
+                    Node name           Status
+                    ---------           ------
+  Cluster node:     PA-TLH-SRV-PRD-1    Online
+  Cluster node:     PA-TLH-SRV-PRD-2    Online
+  Cluster node:     PA-TLH-SRV-PRD-3    Online
+  Cluster node:     PA-TLH-SRV-PRD-6    Online
+  Cluster node:     PA-TLH-SRV-PRD-4    Online
+  Cluster node:     PA-TLH-SRV-PRD-5    Online
+&#160;
+------------------------------------------------------------------
+&#160;
+-- Cluster Transport Paths --
+&#160;
+                    Endpoint               Endpoint               Status
+                    --------               --------               ------
+  Transport path:   PA-TLH-SRV-PRD-1:nge3  PA-TLH-SRV-PRD-6:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge2  PA-TLH-SRV-PRD-6:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge3  PA-TLH-SRV-PRD-2:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge3  PA-TLH-SRV-PRD-5:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge2  PA-TLH-SRV-PRD-2:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge2  PA-TLH-SRV-PRD-5:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge3  PA-TLH-SRV-PRD-4:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge2  PA-TLH-SRV-PRD-4:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge3  PA-TLH-SRV-PRD-3:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-1:nge2  PA-TLH-SRV-PRD-3:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge2  PA-TLH-SRV-PRD-5:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge3  PA-TLH-SRV-PRD-3:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge2  PA-TLH-SRV-PRD-4:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge3  PA-TLH-SRV-PRD-6:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge2  PA-TLH-SRV-PRD-3:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge3  PA-TLH-SRV-PRD-5:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge2  PA-TLH-SRV-PRD-6:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-2:nge3  PA-TLH-SRV-PRD-4:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-3:nge2  PA-TLH-SRV-PRD-5:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-3:nge3  PA-TLH-SRV-PRD-6:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-3:nge2  PA-TLH-SRV-PRD-4:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-3:nge3  PA-TLH-SRV-PRD-5:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-3:nge3  PA-TLH-SRV-PRD-4:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-3:nge2  PA-TLH-SRV-PRD-6:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-6:nge3  PA-TLH-SRV-PRD-5:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-6:nge2  PA-TLH-SRV-PRD-5:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-6:nge3  PA-TLH-SRV-PRD-4:nge3  Path online
+  Transport path:   PA-TLH-SRV-PRD-6:nge2  PA-TLH-SRV-PRD-4:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-4:nge2  PA-TLH-SRV-PRD-5:nge2  Path online
+  Transport path:   PA-TLH-SRV-PRD-4:nge3  PA-TLH-SRV-PRD-5:nge3  Path online
+&#160;
+------------------------------------------------------------------
+&#160;
+-- Quorum Summary from latest node reconfiguration --
+&#160;
+  Quorum votes possible:      11
+  Quorum votes needed:        6
+  Quorum votes present:       11
+&#160;
+&#160;
+-- Quorum Votes by Node (current status) --
+&#160;
+                    Node Name           Present Possible Status
+                    ---------           ------- -------- ------
+  Node votes:       PA-TLH-SRV-PRD-1    1        1       Online
+  Node votes:       PA-TLH-SRV-PRD-2    1        1       Online
+  Node votes:       PA-TLH-SRV-PRD-3    1        1       Online
+  Node votes:       PA-TLH-SRV-PRD-6    1        1       Online
+  Node votes:       PA-TLH-SRV-PRD-4    1        1       Online
+  Node votes:       PA-TLH-SRV-PRD-5    1        1       Online
+&#160;
+&#160;
+-- Quorum Votes by Device (current status) --
+&#160;
+                    Device Name         Present Possible Status
+                    -----------         ------- -------- ------
+  Device votes:     /dev/did/rdsk/d28s2 5        5       Online
+&#160;
+------------------------------------------------------------------
+&#160;
+-- Device Group Servers --
+&#160;
+                         Device Group        Primary             Secondary
+                         ------------        -------             ---------
+&#160;
+&#160;
+-- Device Group Status --
+&#160;
+                              Device Group        Status              
+                              ------------        ------              
+&#160;
+&#160;
+-- Multi-owner Device Groups --
+&#160;
+                              Device Group        Online Status
+                              ------------        -------------
+&#160;
+------------------------------------------------------------------
+------------------------------------------------------------------
+&#160;
+-- IPMP Groups --
+&#160;
+              Node Name           Group   Status         Adapter   Status
+              ---------           -----   ------         -------   ------
+------------------------------------------------------------------</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Registering_Ressources"><span class="mw-headline-number">5.2</span> Registering Ressources</span></h2>
+<p>You can look at the available ressources&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrt</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ clrt list
+SUNW.LogicalHostname:2
+SUNW.SharedAddress:2
+</pre>
+</td></tr></table><br />
+<p>Here we need to use more ressources like HA Storage (HAStoragePlus) and GDS&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrt</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrt register SUNW.HAStoragePlus
+clrt register SUNW.gds
+</pre>
+</td></tr></table><br />
+<p>Now we can verify&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrt</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ clrt list
+SUNW.LogicalHostname:2
+SUNW.SharedAddress:2
+SUNW.HAStoragePlus:6
+SUNW.gds:6
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Creating_Ressource_Group"><span class="mw-headline-number">5.3</span> Creating Ressource Group</span></h2>
+<p>A RG (Ressource Group) is a containing for example a VIP (Virtual IP or Logical Host)
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrg</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrg create sun-rg
+</pre>
+</td></tr></table><br />
+<p>You can also specify a rg on a specific node&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrg</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrg create -n sun-node1 sun-rg
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Creating_Logical_Host_.28VIP.29_Ressource"><span class="mw-headline-number">5.4</span> Creating Logical Host (VIP) Ressource</span></h2>
+<p>All your requested VIP should be in /etc/hosts file <b>on each nodes</b>, ex&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/hosts</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#
+# Internet host table
+#
+::1             localhost
+127.0.0.1       localhost
+192.168.0.72       sun-node1
+192.168.0.77       sun-node2
+192.168.0.79       my_app1_vip
+192.168.0.80       my_app2_vip</pre></div></div>
+</td></tr></table><br />
+<p>Now, activate it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrslh</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrslh create -g sun-rg -h my_app1_vip my_app1_vip
+</pre>
+</td></tr></table><br />
+<ul><li> sun-rg&#160;: Ressource group (created before)</li>
+<li> my_app1_vip&#160;: name of the vip in the hosts files</li>
+<li> my_app1_vip&#160;: name of the vip ressource in cluster</li></ul>
+<p>To specify on only one node&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrslh</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrslh create -g sun-rg -h lh -N ipmp0sun-node1 my_app1_vip
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Creating_FileSystem_Ressource"><span class="mw-headline-number">5.5</span> Creating FileSystem Ressource</span></h2>
+<p>Once your LUNs has been created, be sure you can see all available dids on all nodes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> didadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>didadm -l
+</pre>
+</td></tr></table><br />
+<p>and compare to the 'format' command. Everythings should looks like similar. If not, please run those commands on all nodes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> didadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>didadm -C
+didadm -r
+</pre>
+</td></tr></table><br />
+<p>This will clear all deleted LUN and add all new created LUN in cluster did configuration.
+</p><p>Now create for example a zpool for each of your services. Once done, use them as filesystem ressource&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrs</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrs create -g sun-rg -t SUNW.HAStoragePlus -p zpools=my_app1 my_app1-fs
+</pre>
+</td></tr></table><br />
+<ul><li> sun-rg&#160;: name of the ressource group</li>
+<li> my_app1&#160;: zpool name</li>
+<li> my_app1-fs&#160;: filesystem cluster ressource name</li></ul>
+<h2><span class="mw-headline" id="Creating_a_GDS_Ressource"><span class="mw-headline-number">5.6</span> Creating a GDS Ressource</span></h2>
+<p>A GDS is used to use custom script for starting, stoppping or probbing (status) an application. To integrate a GDS in a RG&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrs</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrs create -g sun-rg -t SUNW.gds -p Start_command=&quot;/bin/myscript.sh start&quot; -p Stop_command=&quot;/bin/myscript.sh stop&quot; -p Probe_command=&quot;/bin/myscript.sh status&quot; -p resource_dependencies=my_app-fs -p Network_aware=false my_app1-script
+</pre>
+</td></tr></table><br />
+<p>This will create a GDS with your Zpool as dependancie. This mean it should be up before the start of the GDS.
+</p><p>Note&#160;: You needn't to put the VIP as resource dependencies because Sun cluster do it for you by default.
+</p><p><br />
+</p>
+<h2><span class="mw-headline" id="Modify_.2F_view_ressource_properties"><span class="mw-headline-number">5.7</span> Modify / view ressource properties</span></h2>
+<p>You may need to change some properties or get informations from. Let's see how to do it. If you want to show&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrs</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrs show -v <b>my_ressource</b>
+</pre>
+</td></tr></table><br />
+<p>And choose the ressource you want to set&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrs</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrs set -p <b>my_property</b>=<b>value</b> <b>my_ressource</b>
+</pre>
+<p>ex&#160;:
+</p>
+<pre>clrs set -p START_TIMEOUT=60 ressource_gds
+clrs set -p Probe_command="/mnt/test/bin/service_cluster.pl status my_rg" ressource_gds
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Activating_Ressource_Group"><span class="mw-headline-number">5.8</span> Activating Ressource Group</span></h2>
+<p>To activate the RG&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrg</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrg manage sun-rg
+</pre>
+</td></tr></table><br />
+<p>Now if you want ot use it (this will activate all the resources in the RG)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrg</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrg online sun-rg
+</pre>
+</td></tr></table><br />
+<p>You also can specify a node by adding -n&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrg</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrg online -n node1 sun-rg
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Maintenance"><span class="mw-headline-number">6</span> Maintenance</span></h1>
+<h2><span class="mw-headline" id="Boot_in_non_cluster_mode"><span class="mw-headline-number">6.1</span> Boot in non cluster mode</span></h2>
+<h3><span class="mw-headline" id="Reboot_with_command_line"><span class="mw-headline-number">6.1.1</span> Reboot with command line</span></h3>
+<p>If you need to enter in non cluster mode, please use this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> reboot</font>
+</td></tr>
+<tr>
+<td>
+<pre>reboot -- -x
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Boot_from_grub"><span class="mw-headline-number">6.1.2</span> Boot from grub</span></h3>
+<p>Simply edit this line by adding -x at the end during server boot&#160;:
+</p>
+<pre>kernel /platform/i86pc/multiboot <b>-x</b>
+</pre>
+<h2><span class="mw-headline" id="Remove_node_from_cluster"><span class="mw-headline-number">6.2</span> Remove node from cluster</span></h2>
+<p>Simply run this command 
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clnode</font>
+</td></tr>
+<tr>
+<td>
+<pre>clnode remove
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">7</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Can.27t_integrate_cluster"><span class="mw-headline-number">7.1</span> Can't integrate cluster</span></h2>
+<h3><span class="mw-headline" id="Solution_1"><span class="mw-headline-number">7.1.1</span> Solution 1</span></h3>
+<p>During installation, if you get this kind of problems&#160;:
+</p>
+<pre>Waiting for "sun-node2" to become a cluster member ...
+</pre>
+<p>Please follow this step&#160;:<br />
+<a href="Installation_et_configuration_du_SUN_Cluster.html#Remove_RPC_and_Webconsole_binding" title="Installation et configuration du SUN Cluster">Remove RPC and Webconsole binding</a>
+</p>
+<h3><span class="mw-headline" id="Solution_2"><span class="mw-headline-number">7.1.2</span> Solution 2</span></h3>
+<p><a href="Installation_et_configuration_du_SUN_Cluster.html#Remove_node_from_cluster" title="Installation et configuration du SUN Cluster">Remove node configuration</a> and retry.
+</p>
+<h2><span class="mw-headline" id="The_cluster_is_in_installation_mode"><span class="mw-headline-number">7.2</span> The cluster is in installation mode</span></h2>
+<p>If at the end of the installation you encounter this kind of problem (a message like "The cluster is in installation mode" or "Le cluster est en mode installation") this mean you need to configure something before configuring your RG or RS.
+</p><p>If you have the WebUI (<a rel="nofollow" class="external free" href="http://127.0.0.1:6789">http://127.0.0.1:6789</a> for example), you certainly could resolve your problem with it. But in this case, if may have installed the Quorum. <a href="Installation_et_configuration_du_SUN_Cluster.html#Quorum" title="Installation et configuration du SUN Cluster">So you need to configure it as well</a>.
+</p>
+<h2><span class="mw-headline" id="How_to_change_Private_Interconnect_IP_for_cluster_.3F"><span class="mw-headline-number">7.3</span> How to change Private Interconnect IP for cluster&#160;?</span></h2>
+<p>The cluster install wanted to use a .0.0 as the private interconnect and when installed one of the private interconnects ended up on 172.16.0 and one ended up on 172.16.1 and consequently one private interconnect faulted. I found an article that indicated you could edit the cluster configuration by first booting each machine in non-cluster mode (boot-x, I actually did a reboot and then a stop A on the reboot and then a boot -x)
+</p><p>in /etc/cluster/ccr/infrastructure and then incorporate your changes using
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ccradm</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/cluster/lib/sc/ccradm -o -i /etc/cluster/ccr/infrastructure
+</pre>
+</td></tr></table><br />
+<p>After I modified the file to change both private interconnects to be on the 172.16.0 subnet the second private interconnect came on-line. Once the second private interconnect came up I was able to run scsetup, select an additional quorum drive and then set the cluster out of install mode.
+</p>
+<h2><span class="mw-headline" id="Some_commands_cannot_be_executed_on_a_cluster_in_Install_mode"><span class="mw-headline-number">7.4</span> Some commands cannot be executed on a cluster in Install mode</span></h2>
+<p>This is generally the case in a 2 nodes cluster when Quorum is not alredy set. Like described in the man&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">   Specify the installation-mode setting for the cluster. You can
+   specify either enabled or disabled for the installmode property.
+&#160;
+   While the installmode property is enabled, nodes do not attempt to
+   reset their quorum configurations at boot time. Also, while in this
+   mode, many administrative functions are blocked. When you first
+   install a cluster, the installmode property is enabled.
+&#160;
+   After all nodes have joined the cluster for the first time, and
+   shared quorum devices have been added to the configuration, you must
+   explicitly disable the installmode property. When you disable the
+   installmode property, the quorum vote counts are set to default
+   values. If quorum is automatically configured during cluster
+   creation, the installmode property is disabled as well after quorum
+   has been configured.</pre></div></div>
+<p>Anyway, if you don't want to add a quorum or would like to use it now, simply run this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cluster</font>
+</td></tr>
+<tr>
+<td>
+<pre>cluster set -p installmode=disabled
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Disk_path_offline"><span class="mw-headline-number">7.5</span> Disk path offline</span></h2>
+<p>The did number 3 is corresponding and reserved to the disks array management and may be seen by the cluster. As it cannot be written (because disks array show it in read only) by the cluster, it shows errors. Anyway, it's not errors and you can carefully use your cluster.
+</p>
+<h3><span class="mw-headline" id="Method_1"><span class="mw-headline-number">7.5.1</span> Method 1</span></h3>
+<p>To recover as clean as possible your did, run this command on all the cluster nodes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> devfsadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>devfsadm
+</pre>
+</td></tr></table><br />
+<p>Then <b>if it's the same on all the nodes and only if it's like that</b>, you can safetly run this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>scgdevs
+</pre>
+</td></tr></table><br />
+<p>If you get this kind of errors, please use Method 2&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scgdevs</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ scgdevs
+Configuring DID devices
+/usr/cluster/bin/scdidadm: Could not open &quot;/dev/rdsk/c0t0d0s2&quot; to verfiy device ID - Device busy.
+/usr/cluster/bin/scdidadm: Could not stat &quot;../../devices/scsi_vhci/disk@g600a0b80005634b400005a334accd4d9:c,raw&quot; - No such file or directory.
+Warning: Path node loaded - &quot;../../devices/scsi_vhci/disk@g600a0b80005634b400005a334accd4d9:c,raw&quot;.
+Configuring the /dev/global directory (global devices)
+obtaining access to all attached disks</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Method_2"><span class="mw-headline-number">7.5.2</span> Method 2</span></h3>
+<p>This second method is the manual one. You can see it as a format WWN <b>command finishing by 31</b>, ex&#160;:
+</p>
+<pre>3       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B800048A9B6000008304AC37A31d0 /dev/did/rdsk/d3
+</pre>
+<p>If you really want to disable this kind of messages, connect on all nodes integrated in the cluster and run this command&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scdidadm</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ scdidadm -C
+scdidadm:  Unable to remove driver instance "3" - No such device or address.
+Updating shared devices on node 1
+Updating shared devices on node 2
+Updating shared devices on node 3
+Updating shared devices on node 4
+Updating shared devices on node 5
+Updating shared devices on node 6
+</pre>
+</td></tr></table><br />
+<p>Now we can verify everythings is ok&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scdidadm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ scdidadm -l
+1        PA-TLH-SRV-PRD-1:/dev/rdsk/c0t0d0 /dev/did/rdsk/d1     
+2        PA-TLH-SRV-PRD-1:/dev/rdsk/c1t0d0 /dev/did/rdsk/d2     
+14       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B800048A9B6000008304AC37AA3d0 /dev/did/rdsk/d14    
+15       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B40000594B4AC37A8Fd0 /dev/did/rdsk/d15    
+16       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B800048A9B60000082E4AC37A6Ad0 /dev/did/rdsk/d16    
+17       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000059494AC37A5Dd0 /dev/did/rdsk/d17    
+18       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B800048A9B60000082C4AC37A3Dd0 /dev/did/rdsk/d18    
+19       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000059474AC37A2Bd0 /dev/did/rdsk/d19    
+20       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B800048A9B60000082A4AC37A07d0 /dev/did/rdsk/d20    
+21       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000059454AC379F8d0 /dev/did/rdsk/d21    
+22       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B800048A9B6000008284AC379B4d0 /dev/did/rdsk/d22    
+23       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000059434AC3799Ad0 /dev/did/rdsk/d23    
+24       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000058BF4AC1DF47d0 /dev/did/rdsk/d24    
+25       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000058BD4AC1DF32d0 /dev/did/rdsk/d25    
+26       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000058BB4AC1DF20d0 /dev/did/rdsk/d26    
+27       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000058B94AC1DF0Dd0 /dev/did/rdsk/d27    
+28       PA-TLH-SRV-PRD-1:/dev/rdsk/c4t600A0B80005634B4000007104A9D6B81d0 /dev/did/rdsk/d28</pre></div></div>
+</td></tr></table><br />
+<p>DID 3 is not present anymore. If you want to reactualize everythings&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scdidadm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ scdidadm -r
+Warning: DID instance &quot;3&quot; has been detected to support SCSI2 Reserve/Release protocol only. Adding path &quot;PA-TLH-SRV-PRD-3:/dev/rdsk/c3t202300A0B85634B4d31&quot; creates more than 2 paths to this device and can lead to unexpected node panics.
+DID subpath &quot;/dev/rdsk/c3t202300A0B85634B4d31s2&quot; created for instance &quot;3&quot;.
+Warning: DID instance &quot;3&quot; has been detected to support SCSI2 Reserve/Release protocol only. Adding path &quot;PA-TLH-SRV-PRD-3:/dev/rdsk/c2t201200A0B85634B4d31&quot; creates more than 2 paths to this device and can lead to unexpected node panics.
+DID subpath &quot;/dev/rdsk/c2t201200A0B85634B4d31s2&quot; created for instance &quot;3&quot;.
+Warning: DID instance &quot;3&quot; has been detected to support SCSI2 Reserve/Release protocol only. Adding path &quot;PA-TLH-SRV-PRD-3:/dev/rdsk/c3t202200A0B85634B4d31&quot; creates more than 2 paths to this device and can lead to unexpected node panics.
+DID subpath &quot;/dev/rdsk/c3t202200A0B85634B4d31s2&quot; created for instance &quot;3&quot;.
+Warning: DID instance &quot;3&quot; has been detected to support SCSI2 Reserve/Release protocol only. Adding path &quot;PA-TLH-SRV-PRD-3:/dev/rdsk/c2t201300A0B85634B4d31&quot; creates more than 2 paths to this device and can lead to unexpected node panics.
+DID subpath &quot;/dev/rdsk/c2t201300A0B85634B4d31s2&quot; created for instance &quot;3&quot;.</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Force_uninstall"><span class="mw-headline-number">7.6</span> Force uninstall</span></h2>
+<p>This is not recommanded, but if you can't uninstall and want to force it, here is the procedure&#160;:
+</p>
+<ul><li> Stop all cluster nodes (scshutdown -y -g 0) and start them again <a href="Installation_et_configuration_du_SUN_Cluster.html#Boot_in_non_cluster_mode">in the non cluster mode</a></li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>ok boot -x
+</pre>
+</td></tr></table><br />
+<ul><li> Remove the Sun Cluster packages</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkgrm</font>
+</td></tr>
+<tr>
+<td>
+<pre>pkgrm SUNWscu SUNWscr SUNWscdev SUNWscvm SUNWscsam SUNWscman SUNWscsal SUNWmdm
+</pre>
+</td></tr></table><br />
+<ul><li> Remove the configurations</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>rm -r /var/cluster /usr/cluster /etc/cluster
+rm /etc/inet/ntp.conf
+rm -r /dev/did
+rm -r /devices/pseudo/did*
+rm /etc/path_to_inst (make sure you have backup copy of this file)
+</pre>
+</td></tr></table><br />
+<p>ATTENTION: If you create a new path_to_inst at boottime with 'boot -ra' you should be on the physical bootdevice. Maybe it's not possible to write a path_to_inst on a bootmirror (SVM or VxVM).
+</p>
+<ul><li> Edit configuration files
+<ul><li> edit /etc/vfstab to remove did and global entries</li>
+<li> edit /etc/nsswitch.conf to remove cluster references</li></ul></li></ul>
+<ul><li> Reboot the node with -a option (is necessary to write a new path_to_inst file)</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>reboot -- -rav
+</pre>
+</td></tr></table><br />
+<p>reply "y" to "do you want to rebuild path_to_inst?"
+</p>
+<ul><li> In case of reinstalling, then ...</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir /globaldevices; rmdir /global
+</pre>
+</td></tr></table><br />
+<ul><li> Uncomment /globaldevices entry from /etc/vfstab</li>
+<li> newfs /dev/rdsk/c?t?d?s? (wherever /globaldevices was mounted)</li>
+<li> mount /globaldevices</li>
+<li> scinstall</li></ul>
+<h2><span class="mw-headline" id="How_to_Change_Sun_Cluster_Node_Names"><span class="mw-headline-number">7.7</span> How to Change Sun Cluster Node Names</span></h2>
+<p>Make a copy of /etc/cluster/ccr/infrastructure:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td>
+<pre>cp /etc/cluster/ccr/infrastructure /etc/cluster/ccr/infrastructure.old 
+</pre>
+</td></tr></table><br />
+<p>Edit /etc/cluster/ccr/infrastructure and change node names as you want. For example, change srv01 to server01 and srv02 to server02.
+</p><p>If necessary, change the Solaris node name:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td>
+<pre>echo server01 &gt; /etc/nodename 
+</pre>
+</td></tr></table><br />
+<p>Regenerate the checksum for the infrastructure file:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ccradm</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/cluster/lib/sc/ccradm -i /etc/cluster/ccr/infrastructure -o 
+</pre>
+</td></tr></table><br />
+<p>Shut down Sun Cluster and boot both nodes:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cluster</font>
+</td></tr>
+<tr>
+<td>
+<pre>cluster shutdown -g 0 -y ok boot 
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Can.27t_switch_an_RG_from_one_node_to_another"><span class="mw-headline-number">7.8</span> Can't switch an RG from one node to another</span></h2>
+<p>I had a problem switching a RG on a Solaris 10u7 with Sun Cluster 3.2u2 (installed patches&#160;: 126107-33, 137104-02, 142293-01, 141445-09) because. In fact the Zpool ressource didn't want to mount on another node. When I loeked at the logs, I saw&#160;: 
+</p><p>le volume ZFS ne voulait pas se monter. dans le fichier <i><b>"/var/adm/messages"</b></i> je voyais ce message lors d'un montage de RG&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /var/adm/messages</font>
+</td></tr>
+<tr>
+<td>
+<pre>Dec 16 15:34:30 LD-TLH-SRV-PRD-3 zfs: [ID 427000 kern.warning] WARNING: pool 'ulprod-ld_mysql' could not be loaded as it was last accessed by another system (host: LD-TLH-SRV-PRD-2 hostid: 0x27812152). See: <a rel="nofollow" class="external free" href="http://www.sun.com/msg/ZFS-8000-EY">http://www.sun.com/msg/ZFS-8000-EY</a>
+</pre>
+</td></tr></table><br />
+<p>In fact, it's a bug and it could be bypassed by putting the RG offline&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrg</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrg offline &lt;RG_name&gt;
+</pre>
+</td></tr></table><br />
+<p>Then manually mount and umount the zpool&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> zpool</font>
+</td></tr>
+<tr>
+<td>
+<pre>zpool import &lt;zpool_name&gt;
+zpool export &lt;zpool_name&gt;
+</pre>
+</td></tr></table><br />
+<p>Now put the RG online&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> clrg</font>
+</td></tr>
+<tr>
+<td>
+<pre>clrg online -n &lt;node_name&gt; &lt;rg_name&gt;
+</pre>
+</td></tr></table><br />
+<p>If the problem still occur, look in the logs files and if there is somethings like this&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /var/adm/messages</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Aug 17 22:23:28 minipardus SC[,SUNW.HAStoragePlus:8,clstorage,zfspool,hastorageplus_prenet_start]: [ID 148650 daemon.notice] Started searching for devices in '/dev/dsk' to find the importable pools.
+Aug 17 22:23:35 minipardus SC[,SUNW.HAStoragePlus:8,clstorage,zfspool,hastorageplus_prenet_start]: [ID 547433 daemon.notice] Completed searching the devices in '/dev/dsk' to find the importable pools.
+Aug 17 22:23:35 minipardus SC[,SUNW.HAStoragePlus:8,clstorage,zfspool,hastorageplus_prenet_start]: [ID 471757 daemon.error] cannot import pool 'qnap'&#160;: ''''/var/cluster/run/HAStoragePlus/zfs' is not a valid directory'''
+Aug 17 22:23:35 minipardus SC[,SUNW.HAStoragePlus:8,clstorage,zfspool,hastorageplus_prenet_start]: [ID 117328 daemon.error] The pool 'qnap' failed to import and populate cachefile.
+Aug 17 22:23:35 minipardus SC[,SUNW.HAStoragePlus:8,clstorage,zfspool,hastorageplus_prenet_start]: [ID 292307 daemon.error] Failed to import:qnap</pre></div></div>
+</td></tr></table><br />
+<p>If it's the case, it's apparently corrected with sun cluster 3.2u3.
+</p><p>To avoid installing this update create this folder '/var/cluster/run/HAStoragePlus/zfs'&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mkdir</font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir -p /var/cluster/run/HAStoragePlus/zfs
+</pre>
+</td></tr></table><br />
+<p>Check if file "/etc/cluster/eventlog/eventlog.conf" contain line "EC_zfs - - - /usr/cluster/lib/sc/events/zpool_cachefile_plugin.so".
+</p><p>If it's not the case, the content should looks like&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cluster/eventlog/eventlog.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&#160;
+# Class         Subclass        Vendor  Publisher       Plugin location                         Plugin parameters
+&#160;
+EC_Cluster      -               -       -               /usr/cluster/lib/sc/events/default_plugin.so
+EC_Cluster      -               -       gds             /usr/cluster/lib/sc/events/gds_plugin.so
+EC_Cluster      -               -       -               /usr/cluster/lib/sc/events/commandlog_plugin.so
+EC_zfs          -               -       -               /usr/cluster/lib/sc/events/zpool_cachefile_plugin.so</pre></div></div>
+</td></tr></table><br />
+<p>Now mount the RG where you want, it should works.
+</p>
+<h2><span class="mw-headline" id="Cluster_is_unavailable_when_a_node_crash_on_a_2_nodes_cluster"><span class="mw-headline-number">7.9</span> Cluster is unavailable when a node crash on a 2 nodes cluster</span></h2>
+<p>Two types of problems can arise from cluster partitions: <b>split brain and amnesia</b>. Split brain occurs when the cluster interconnect between Solaris hosts is lost and the cluster becomes partitioned into subclusters, and each subcluster believes that it is the only partition. A subcluster that is not aware of the other subclusters could cause a conflict in shared resources, such as duplicate network addresses and data corruption.
+</p><p>Amnesia occurs if all the nodes leave the cluster in staggered groups. An example is a two-node cluster with nodes A and B. If node A goes down, the configuration data in the CCR is updated on node B only, and not node A. If node B goes down at a later time, and if node A is rebooted, node A will be running with old contents of the CCR. This state is called amnesia and might lead to running a cluster with stale configuration information.
+</p><p>You can avoid split brain and amnesia by giving each node one vote and mandating a majority of votes for an operational cluster. A partition with the majority of votes has a quorum and is enabled to operate. This majority vote mechanism works well if more than two nodes are in the cluster. In a two-node cluster, a majority is two. If such a cluster becomes partitioned, an external vote enables a partition to gain quorum. This external vote is provided by a quorum device. A quorum device can be any disk that is shared between the two nodes.
+</p>
+<h3><span class="mw-headline" id="Recovering_from_amnesia"><span class="mw-headline-number">7.9.1</span> Recovering from amnesia</span></h3>
+<p>Scenario: Two node cluster (nodes A and B) with one Quorum Device, nodeA has gone bad, and amnesia protection is preventing nodeB from booting up.
+</p><p>Amnesia occurs if all the nodes leave the cluster in staggered groups. An example is a two-node cluster with nodes A and B. If node A goes down, the configuration data in the CCR is updated on node B only, and not node A. If node B goes down at a later time, and if node A is rebooted, node A will be running with old contents of the CCR. This state is called amnesia and might lead to running a cluster with stale configuration information.
+</p><p><b>Warning&#160;: this is a dangerous operation</b>
+</p>
+<ul><li> Boot nodeB in non-cluster mode&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>reboot -- -x
+</pre>
+</td></tr></table><br />
+<ul><li> Edit nodeB's file /etc/cluster/ccr/global/infrastructure as follows&#160;:
+<ul><li> Change the value of "cluster.properties.installmode" from "disabled" to "enabled"</li>
+<li> Change the number of votes for nodeA from "1" to "0", in the following property line "cluster.nodes.&lt;NodeA's id&gt;.properties.quorum_vote".</li>
+<li> Delete all lines with "cluster.quorum_devices" to remove knowledge of the quorum device.</li></ul></li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cluster/ccr/global/infrastructure</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+cluster.properties.installmode  enabled
+...
+cluster.nodes.1.properties.quorum_vote  1
+...
+</pre>
+</td></tr></table><br />
+<ul><li> On the first node (the master one, the first to boot) launch&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ccradm</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/cluster/lib/sc/ccradm -i /etc/cluster/ccr/infrastructure -o
+</pre>
+<p>or (depending on version)
+</p>
+<pre>/usr/cluster/lib/sc/ccradm recover -o /etc/cluster/ccr/global/infrastructure
+</pre>
+</td></tr></table><br />
+<ul><li> Reboot nodeB in cluster mode&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> reboot</font>
+</td></tr>
+<tr>
+<td>
+<pre>reboot
+</pre>
+</td></tr></table><br />
+<p>If you have more than 2 nodes, do the same command but without "-o"&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ccradm</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/cluster/lib/sc/ccradm recover /etc/cluster/ccr/global/infrastructure
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">8</span> References</span></h1>
+<p><a href="Installation_of_Sun_Cluster_(old).html" title="Installation of Sun Cluster (old)">Installation of Sun Cluster (old)</a><br />
+<a rel="nofollow" class="external free" href="http://en.wikipedia.org/wiki/Solaris_Cluster">http://en.wikipedia.org/wiki/Solaris_Cluster</a><br />
+<a rel="nofollow" class="external free" href="http://opensolaris.org/os/community/ha-clusters/translations/french/relnote_fr/">http://opensolaris.org/os/community/ha-clusters/translations/french/relnote_fr/</a><br />
+<a rel="nofollow" class="external text" href="http://docs.sun.com/app/docs/doc/819-2974/6n57pdk2o?a=view#indexterm-535">Ressources Properties</a><br />
+<a rel="nofollow" class="external free" href="http://docs.sun.com/app/docs/doc/819-0177/cbbbgfij?l=ja&amp;a=view">http://docs.sun.com/app/docs/doc/819-0177/cbbbgfij?l=ja&amp;a=view</a><br />
+<a rel="nofollow" class="external free" href="http://www.vigilanttechnologycorp.com/genasys/weblogRender.jsp?LogName=Sun%20Cluster">http://www.vigilanttechnologycorp.com/genasys/weblogRender.jsp?LogName=Sun%20Cluster</a><br />
+<a rel="nofollow" class="external free" href="http://docs.sun.com/app/docs/doc/820-2558/gdrna?l=fr&amp;a=view">http://docs.sun.com/app/docs/doc/820-2558/gdrna?l=fr&amp;a=view</a><br />
+<a rel="nofollow" class="external free" href="http://wikis.sun.com/display/SunCluster/%28English%29+Sun+Cluster+3.2+1-09+Release+Notes#%28English%29SunCluster3.21-09ReleaseNotes-optgdfsinfo">http://wikis.sun.com/display/SunCluster/%28English%29+Sun+Cluster+3.2+1-09+Release+Notes#%28English%29SunCluster3.21-09ReleaseNotes-optgdfsinfo</a> (Mine d'Or)<br />
+<a href="images/1/16/Deploying_highly_available_zones_with_Solaris_Cluster_3.2.pdf" class="internal" title="Deploying highly available zones with Solaris Cluster 3.2.pdf">Deploying highly available zones with Solaris Cluster 3.2</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.156 seconds
+Real time usage: 0.154 seconds
+Preprocessor visited node count: 1287/1000000
+Preprocessor generated node count: 3452/1000000
+Post‐expand include size: 15180/2097152 bytes
+Template argument size: 5320/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   35.171      1 - -total
+ 40.52%   14.252     64 - Template:Command
+  8.33%    2.930      7 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2807-0!*!0!1!en!5!* and timestamp 20181111230710 and revision id 9909
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_du_SUN_Cluster&amp;oldid=9909">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_du_SUN_Cluster&amp;oldid=9909</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://wiki.deimos.fr/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="./Category:Solaris.html" title="Category:Solaris">Solaris</a></li><li><a href="./Category:Cluster.html" title="Category:Cluster">Cluster</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+du+SUN+Cluster" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_du_SUN_Cluster.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Installation_et_configuration_du_SUN_Cluster.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_du_SUN_Cluster.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_du_SUN_Cluster&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_du_SUN_Cluster&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Installation_et_configuration_du_SUN_Cluster.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_du_SUN_Cluster.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_du_SUN_Cluster" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_du_SUN_Cluster&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_du_SUN_Cluster&amp;oldid=9909" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_du_SUN_Cluster&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 3 November 2011, at 00:24.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":34});
+}</script>
+	</body>
+</html>
+	

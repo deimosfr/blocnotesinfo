@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Management des disques sous Solaris - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Management_des_disques_sous_Solaris.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Management_des_disques_sous_Solaris","wgTitle":"Management des disques sous Solaris","wgCurRevisionId":10268,"wgRevisionId":10268,"wgArticleId":1721,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Management_des_disques_sous_Solaris","wgRelevantArticleId":1721,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Management_des_disques_sous_Solaris skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Management des disques sous Solaris</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Management_des_disques_sous_Solaris.html#mw-navigation">navigation</a>, 					<a href="Management_des_disques_sous_Solaris.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Management_des_disques_sous_Solaris.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Management_des_disques_sous_Solaris.html#Fonctionnement_physique"><span class="tocnumber">2</span> <span class="toctext">Fonctionnement physique</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Management_des_disques_sous_Solaris.html#Fichiers.2C_Inodes_et_Blocks"><span class="tocnumber">2.1</span> <span class="toctext">Fichiers, Inodes et Blocks</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Management_des_disques_sous_Solaris.html#Reconnaissance_hardware"><span class="tocnumber">2.2</span> <span class="toctext">Reconnaissance hardware</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="Management_des_disques_sous_Solaris.html#SCSI"><span class="tocnumber">2.2.1</span> <span class="toctext">SCSI</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="Management_des_disques_sous_Solaris.html#IDE"><span class="tocnumber">2.2.2</span> <span class="toctext">IDE</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="Management_des_disques_sous_Solaris.html#Slices"><span class="tocnumber">2.3</span> <span class="toctext">Slices</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Management_des_disques_sous_Solaris.html#Et_sur_ma_machine_.3F"><span class="tocnumber">3</span> <span class="toctext">Et sur ma machine&#160;?</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="Management_des_disques_sous_Solaris.html#path_to_inst"><span class="tocnumber">3.1</span> <span class="toctext">path_to_inst</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Management_des_disques_sous_Solaris.html#Prtconf"><span class="tocnumber">3.2</span> <span class="toctext">Prtconf</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Management_des_disques_sous_Solaris.html#Format"><span class="tocnumber">3.3</span> <span class="toctext">Format</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Management_des_disques_sous_Solaris.html#Ajout_d.27un_p.C3.A9riph.C3.A9rique"><span class="tocnumber">4</span> <span class="toctext">Ajout d'un périphérique</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Management_des_disques_sous_Solaris.html#Avec_Reboot"><span class="tocnumber">4.1</span> <span class="toctext">Avec Reboot</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Management_des_disques_sous_Solaris.html#Sans_Reboot"><span class="tocnumber">4.2</span> <span class="toctext">Sans Reboot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Management_des_disques_sous_Solaris.html#Partitionnements"><span class="tocnumber">5</span> <span class="toctext">Partitionnements</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="Management_des_disques_sous_Solaris.html#Gaspillage"><span class="tocnumber">5.1</span> <span class="toctext">Gaspillage</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Management_des_disques_sous_Solaris.html#Overlapping"><span class="tocnumber">5.2</span> <span class="toctext">Overlapping</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Management_des_disques_sous_Solaris.html#D.C3.A9finition_des_partitions"><span class="tocnumber">5.3</span> <span class="toctext">Définition des partitions</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Management_des_disques_sous_Solaris.html#V.C3.A9rification_des_labels"><span class="tocnumber">5.4</span> <span class="toctext">Vérification des labels</span></a>
+<ul>
+<li class="toclevel-3 tocsection-20"><a href="Management_des_disques_sous_Solaris.html#Lecture_du_VTOC_avec_Format"><span class="tocnumber">5.4.1</span> <span class="toctext">Lecture du VTOC avec Format</span></a></li>
+<li class="toclevel-3 tocsection-21"><a href="Management_des_disques_sous_Solaris.html#Lecture_du_VTOC_avec_Prtvtoc"><span class="tocnumber">5.4.2</span> <span class="toctext">Lecture du VTOC avec Prtvtoc</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Management_des_disques_sous_Solaris.html#En_cas_de_probl.C3.A8mes"><span class="tocnumber">6</span> <span class="toctext">En cas de problèmes</span></a>
+<ul>
+<li class="toclevel-2 tocsection-23"><a href="Management_des_disques_sous_Solaris.html#Relabeller_les_disques"><span class="tocnumber">6.1</span> <span class="toctext">Relabeller les disques</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="Management_des_disques_sous_Solaris.html#Les_FileSystems"><span class="tocnumber">7</span> <span class="toctext">Les FileSystems</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="Management_des_disques_sous_Solaris.html#Cr.C3.A9ation_du_FileSystem"><span class="tocnumber">7.1</span> <span class="toctext">Création du FileSystem</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="Management_des_disques_sous_Solaris.html#V.C3.A9rification_de_l.27.C3.A9tat_des_disques"><span class="tocnumber">7.2</span> <span class="toctext">Vérification de l'état des disques</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-27"><a href="Management_des_disques_sous_Solaris.html#Vfstab"><span class="tocnumber">8</span> <span class="toctext">Vfstab</span></a>
+<ul>
+<li class="toclevel-2 tocsection-28"><a href="Management_des_disques_sous_Solaris.html#mtab"><span class="tocnumber">8.1</span> <span class="toctext">mtab</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-29"><a href="Management_des_disques_sous_Solaris.html#Monter_les_partitions"><span class="tocnumber">9</span> <span class="toctext">Monter les partitions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-30"><a href="Management_des_disques_sous_Solaris.html#D.C3.A9trminer_le_type_de_montage"><span class="tocnumber">9.1</span> <span class="toctext">Détrminer le type de montage</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-31"><a href="Management_des_disques_sous_Solaris.html#Que_se_passe_t.27il_sur_ma_partition_.3F"><span class="tocnumber">10</span> <span class="toctext">Que se passe t'il sur ma partition&#160;?</span></a></li>
+<li class="toclevel-1 tocsection-32"><a href="Management_des_disques_sous_Solaris.html#Probl.C3.A8mes_avec_ma_partiton_root"><span class="tocnumber">11</span> <span class="toctext">Problèmes avec ma partiton root</span></a></li>
+<li class="toclevel-1 tocsection-33"><a href="Management_des_disques_sous_Solaris.html#Acc.C3.A8s_aux_devices_amovibles"><span class="tocnumber">12</span> <span class="toctext">Accès aux devices amovibles</span></a>
+<ul>
+<li class="toclevel-2 tocsection-34"><a href="Management_des_disques_sous_Solaris.html#Avec_Vold"><span class="tocnumber">12.1</span> <span class="toctext">Avec Vold</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="Management_des_disques_sous_Solaris.html#Sans_Vold"><span class="tocnumber">12.2</span> <span class="toctext">Sans Vold</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Comparé à Linux, Solaris est assez ressemblant sauf sur certains points dont je vais éclairsir ici tous soupsons. Il n'y aura pas que du Solaris mais également des infos concernant l'architechture disques / filesystems en générale.
+</p><p><br />
+</p>
+<h1><span class="mw-headline" id="Fonctionnement_physique"><span class="mw-headline-number">2</span> Fonctionnement physique</span></h1>
+<h2><span class="mw-headline" id="Fichiers.2C_Inodes_et_Blocks"><span class="mw-headline-number">2.1</span> Fichiers, Inodes et Blocks</span></h2>
+<p>Sur votre disque dur, là ou vous mettez vos données, il y a sous forme hiérarchique:<br />
+</p>
+<ul><li> Les dossiers et fichiers<br /></li>
+<li> Les inodes<br /></li>
+<li> Les blocks</li></ul>
+<p>Ce sont les inodes qui savent ou exactement sont situés tel ou tel dossier/fichier. Lorsque vous faites une création ou appel d'un fichier par exemple, il pointe vers un inode. Cet inode est ensuite capable de dire à quel Data block il appartient (tranche binaire). Voici une petite explication en image&#160;:
+</p><p><a href="./File:Hdd_fonction.gif.html" class="image"><img alt="Hdd fonction.gif" src="images/a/a5/Hdd_fonction.gif" width="442" height="160" /></a>
+</p>
+<h2><span class="mw-headline" id="Reconnaissance_hardware"><span class="mw-headline-number">2.2</span> Reconnaissance hardware</span></h2>
+<p>Pour reconnaitre ou se situe tel ou tel device sur notre système, voici une petite explication&#160;:<br />
+Admettons que dans le /dev, j'ai un fichier du type&#160;: c0t0d0s0. Cela signifie que&#160;:<br />
+</p>
+<ul><li> c0&#160;: Sur le <b>C</b>ontroleur <b>0</b></li>
+<li> t0&#160;: Du <b>T</b>arget SCSI <b>0</b></li>
+<li> d0&#160;: J'ai un <b>D</b>isk <b>0</b></li>
+<li> s0&#160;: Et je suis positionné sur la <b>S</b>lice <b>0</b></li></ul>
+<p>Voici quelques exemples&#160;:
+</p>
+<h3><span class="mw-headline" id="SCSI"><span class="mw-headline-number">2.2.1</span> SCSI</span></h3>
+<p><a href="./File:Sun_hdd_scsi.jpg.html" class="image"><img alt="Sun hdd scsi.jpg" src="images/f/f6/Sun_hdd_scsi.jpg" width="539" height="291" /></a>
+</p>
+<h3><span class="mw-headline" id="IDE"><span class="mw-headline-number">2.2.2</span> IDE</span></h3>
+<p><a href="./File:Sun_hdd_ide.jpg.html" class="image"><img alt="Sun hdd ide.jpg" src="images/7/74/Sun_hdd_ide.jpg" width="504" height="317" /></a>
+</p>
+<h2><span class="mw-headline" id="Slices"><span class="mw-headline-number">2.3</span> Slices</span></h2>
+<p>Ensuite, les slices (appellés également partitions) sont définies de la sorte pour une meilleure optimisation des performances&#160;:
+</p><p><a href="./File:Sun_slice.jpg.html" class="image"><img alt="Sun slice.jpg" src="images/e/eb/Sun_slice.jpg" width="458" height="351" /></a>
+</p>
+<h1><span class="mw-headline" id="Et_sur_ma_machine_.3F"><span class="mw-headline-number">3</span> Et sur ma machine&#160;?</span></h1>
+<p>Pour commencer, il faudrait savoir ce qu'il y a sur sa machine. Pour celà, 3 solutions&#160;:
+</p>
+<h2><span class="mw-headline" id="path_to_inst"><span class="mw-headline-number">3.1</span> path_to_inst</span></h2>
+<pre>cat /etc/path_to_inst
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#
+#       Caution! This file contains critical kernel state
+#
+&quot;/pseudo&quot; 0 &quot;pseudo&quot;
+&quot;/options&quot; 0 &quot;options&quot;
+&quot;/xsvc&quot; 0 &quot;xsvc&quot;
+&quot;/objmgr&quot; 0 &quot;objmgr&quot;
+&quot;/scsi_vhci&quot; 0 &quot;scsi_vhci&quot;
+&quot;/isa&quot; 0 &quot;isa&quot;
+&quot;/isa/i8042@1,60&quot; 0 &quot;i8042&quot;
+&quot;/isa/i8042@1,60/keyboard@0&quot; 0 &quot;kb8042&quot;
+&quot;/isa/i8042@1,60/mouse@1&quot; 0 &quot;mouse8042&quot;
+&quot;/isa/lp@1,378&quot; 0 &quot;ecpp&quot;
+&quot;/isa/asy@1,3f8&quot; 0 &quot;asy&quot;
+&quot;/isa/asy@1,2f8&quot; 1 &quot;asy&quot;
+&quot;/isa/fdc@1,3f0&quot; 0 &quot;fdc&quot;
+&quot;/isa/fdc@1,3f0/fd@0,0&quot; 0 &quot;fd&quot;
+&quot;/ramdisk&quot; 0 &quot;ramdisk&quot;
+&quot;/pci@0,0&quot; 0 &quot;pci&quot;
+&quot;/pci@0,0/display@f&quot; 0 &quot;vgatext&quot;
+&quot;/pci@0,0/pci8086,7191@1&quot; 0 &quot;pci_pci&quot;
+&quot;/pci@0,0/pci-ide@7,1&quot; 0 &quot;pci-ide&quot;
+&quot;/pci@0,0/pci-ide@7,1/ide@0&quot; 0 &quot;ata&quot;
+&quot;/pci@0,0/pci-ide@7,1/ide@0/cmdk@0,0&quot; 0 &quot;cmdk&quot;
+&quot;/pci@0,0/pci-ide@7,1/ide@1&quot; 1 &quot;ata&quot;
+&quot;/pci@0,0/pci-ide@7,1/ide@1/sd@0,0&quot; 16 &quot;sd&quot;
+&quot;/pci@0,0/pci1000,30@10&quot; 0 &quot;mpt&quot;
+&quot;/pci@0,0/pci1022,2000@11&quot; 0 &quot;pcn&quot;
+&quot;/iscsi&quot; 0 &quot;iscsi&quot;</pre></div></div>
+<h2><span class="mw-headline" id="Prtconf"><span class="mw-headline-number">3.2</span> Prtconf</span></h2>
+<pre>prtconf | grep -v not
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">System Configuration:  Sun Microsystems  i86pc
+Memory size: 512 Megabytes
+System Peripherals (Software Nodes):
+&#160;
+i86pc
+    scsi_vhci, instance #0
+    isa, instance #0
+        i8042, instance #0
+            keyboard, instance #0
+            mouse, instance #0
+        fdc, instance #0
+    pci, instance #0
+        pci8086,7191, instance #0
+        pci-ide, instance #0
+            ide, instance #0
+                cmdk, instance #0
+            ide, instance #1
+                sd, instance #16
+        display, instance #0
+        pci1000,30, instance #0
+        pci1022,2000, instance #0
+    iscsi, instance #0
+    pseudo, instance #0
+    options, instance #0
+    xsvc, instance #0
+    objmgr, instance #0</pre></div></div>
+<h2><span class="mw-headline" id="Format"><span class="mw-headline-number">3.3</span> Format</span></h2>
+<pre>format
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Searching for disks...done
+&#160;
+&#160;
+AVAILABLE DISK SELECTIONS:
+       0. c0d0 &lt;DEFAULT cyl 4174 alt 2 hd 255 sec 63&gt;
+          /pci@0,0/pci-ide@7,1/ide@0/cmdk@0,0</pre></div></div>
+<h1><span class="mw-headline" id="Ajout_d.27un_p.C3.A9riph.C3.A9rique"><span class="mw-headline-number">4</span> Ajout d'un périphérique</span></h1>
+<h2><span class="mw-headline" id="Avec_Reboot"><span class="mw-headline-number">4.1</span> Avec Reboot</span></h2>
+<p>Pour que notre disque soit détecté au démarrage, il faut créer un fichier /reconfigure&#160;:
+</p>
+<pre>touch /reconfigure
+</pre>
+<p>Ensuite, il suffit de brancher son périphérique et de redémarrer sa machine. Une fois fait, configurez les slices.
+</p>
+<h2><span class="mw-headline" id="Sans_Reboot"><span class="mw-headline-number">4.2</span> Sans Reboot</span></h2>
+<p>Si c'est une machine "critique", il vous faut alors exécuter la commande "devfsadm". Cette commande va essayer de matcher les drivers loadés du kernel avec les devices dans /devices (quelle belle invention de verbes&#160;:-p).
+</p><p>Voici quelques exemples d'utilisation&#160;:
+</p>
+<ul><li> Définition de périphériques tel que disk, tape, port, audio ou pseudo&#160;:</li></ul>
+<pre>devfsadm -c disk -c tape -c audio
+</pre>
+<ul><li> Configurer seulement un périphérique en fonction du driver&#160;:</li></ul>
+<pre>devfsadm -i driver_name
+</pre>
+<ul><li> Configurer les disques seulement supportés par certains controleurs (dad, st ou sd)</li></ul>
+<pre>devfsadm -i dad
+</pre>
+<ul><li> Pour le mode verbeux</li></ul>
+<pre>devfsadm -v
+</pre>
+<ul><li> Pour flusher (clear) les liens symboliques qui pointent sur des devices inexistants&#160;:</li></ul>
+<pre>devfsadm -c
+</pre>
+<h1><span class="mw-headline" id="Partitionnements"><span class="mw-headline-number">5</span> Partitionnements</span></h1>
+<p>Le partitionnement du disque est fait de Slices qui sont délimités par des cylindres. En effet un Slice occupe une tranche de cylindres (ex&#160;: 1 à 2850). Puis le slice d'après ira de 2850 à 5000.
+</p><p>Les partitions sont donc déterminées à partir du premier cylindre de chaque slice&#160;:<br />
+</p>
+<ul><li> Slice 1&#160;: Cylindre 0 à 2850<br /></li>
+<li> Slice 2&#160;: Cylindre 2850 à 5000<br /></li></ul>
+<p>...
+</p>
+<h2><span class="mw-headline" id="Gaspillage"><span class="mw-headline-number">5.1</span> Gaspillage</span></h2>
+<p>Le gaspillage de cylindres entraine un slice potentiellement vide. Vous pouvez l'utiliser plus tard. Cependant, en cas de secteurs défectueux, il est possible que la partition rétrecisse due aux cylindres perdues.
+</p>
+<h2><span class="mw-headline" id="Overlapping"><span class="mw-headline-number">5.2</span> Overlapping</span></h2>
+<p>L'overlapping arrive quand plusieurs slices accèdent au même cylindre (généralement empiètement d'un slice sur un autre). Pour corrigé ce problème, lorsque vous éditez votre partition, utilisez la commande "modify"&#160;:
+</p>
+<pre>modify
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">        Select partitioning base:
+                0. Current partition table (unnamed)
+                1. All Free Hog
+        Choose base (enter number) [0]? 0
+        Warning: Overlapping partition (1) in table.
+        Warning: Fix, or select a different partition table.</pre></div></div>
+<h2><span class="mw-headline" id="D.C3.A9finition_des_partitions"><span class="mw-headline-number">5.3</span> Définition des partitions</span></h2>
+<p>La commande format fait automatiquement le partitionnement par rapport aux données inscrites dans /etc/format.dat. L'avantage c'est que c'est super rapide et facile lors de l'ajout de disque. Maintenant, de manière manuelle, voici comment faire&#160;:
+</p>
+<pre>format
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Searching for disks...done
+&#160;
+AVAILABLE DISK SELECTIONS:
+       0. c0t0d0 &lt;ST38410A cyl 16706 alt 2 hd 16 sec 63&gt;
+          /pci@1f,0/pci@1,1/ide@3/dad@0,0
+       1. c1t3d0 &lt;SUN9.0G cyl 4924 alt 2 hd 27 sec 133&gt;
+          /pci@1f,0/pci@1/scsi@1/sd@3,0
+Specify disk (enter its number):</pre></div></div>
+<p>Nous avons maintenant la liste des disques détectés. Nous allons choisir le deuxième disque et continuer&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Specify disk (enter its number): 1
+selecting c1t3d0
+[disk formatted]
+&#160;
+FORMAT MENU:
+        disk       - select a disk
+        type       - select (define) a disk type
+        partition  - select (define) a partition table
+        current    - describe the current disk
+        format     - format and analyze the disk
+        repair     - repair a defective sector
+        label      - write label to the disk
+        analyze    - surface analysis
+        defect     - defect list management
+        backup     - search for backup labels
+        verify     - read and display labels
+        save       - save new disk/partition definitions
+        inquiry    - show vendor, product and revision
+        scsi       - independent SCSI mode selects
+        cache      - enable, disable or query SCSI disk cache
+        volname    - set 8-character volume name
+       &#160;!&lt;cmd&gt;     - execute &lt;cmd&gt;, then return
+        quit
+format&gt;</pre></div></div>
+<p>Dans les menus que l'on peut voir, changer ou confirmer des choix des partitions, nous avons&#160;:
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Eléments
+</th>
+<th>Fonctions
+</th></tr>
+<tr>
+<td>partition
+</td>
+<td>Affiche le menu des partitions
+</td></tr>
+<tr>
+<td>label
+</td>
+<td>Ecris la liste des noms des partitions en cours sur le disque
+</td></tr>
+<tr>
+<td>verify
+</td>
+<td>Lis et affiche le nom des disques
+</td></tr>
+<tr>
+<td>quit
+</td>
+<td>Quitter l'utilitaire format
+</td></tr></table>
+<p>Tapez ensuite <b>partition</b> pour voir le menu&#160;:
+</p>
+<pre>format&gt; partition
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">PARTITION MENU:
+        0      - change '0' partition
+        1      - change '1' partition
+        2      - change '2' partition
+        3      - change '3' partition
+        4      - change '4' partition
+        5      - change '5' partition
+        6      - change '6' partition
+        7      - change '7' partition
+        select - select a predefined table
+        modify - modify a predefined partition table
+        name   - name the current table
+        print  - display the current table
+        label  - write partition map and label to the disk
+       &#160;!&lt;cmd&gt; - execute &lt;cmd&gt;, then return
+        quit</pre></div></div>
+<p>Voici les options proposées&#160;:
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Eléments
+</th>
+<th>Fonctions
+</th></tr>
+<tr>
+<td>0-7
+</td>
+<td>Spécifier la taille de la partition et l'offset
+</td></tr>
+<tr>
+<td>select
+</td>
+<td>Choisir un slice prédéfinit dans /etc/format.dat
+</td></tr>
+<tr>
+<td>modify
+</td>
+<td>Change la partition en cours dans la table
+</td></tr>
+<tr>
+<td>quit
+</td>
+<td>Sert à identifier la table des paritions dans /etc/format.dat
+</td></tr>
+<tr>
+<td>print
+</td>
+<td>Affiche la table des partitions en cours
+</td></tr>
+<tr>
+<td>label
+</td>
+<td>Ecrit la table des partitions en cours
+</td></tr>
+<tr>
+<td>!&lt;cmd&gt;
+</td>
+<td>Exécute une commande externe au niveau du shell
+</td></tr></table>
+<p>Pour afficher la nouvelle table des partitions, tapez <b>print</b>&#160;:
+</p>
+<pre>partition&gt; print
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Current partition table (original):
+Total disk cylinders available: 4924 + 2 (reserved cylinders)
+&#160;
+Part      Tag    Flag   Cylinders     Size            Blocks
+  0 unassigned    wm     0            0         (0/0/0)           0
+  1 unassigned    wm     0            0         (0/0/0)           0
+  2     backup    ru     0 - 4923     8.43GB    (4924/0/0) 17682084
+  3 unassigned    wu     0            0         (0/0/0)           0
+  4 unassigned    wm     0            0         (0/0/0)           0
+  5 unassigned    wm     0            0         (0/0/0)           0
+  6 unassigned    wu     0            0         (0/0/0)           0
+  7 unassigned    wm     0            0         (0/0/0)           0</pre></div></div>
+<p>Voici la signification des colonnes&#160;:
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Nom des colonnes
+</th>
+<th>Descriptions
+</th></tr>
+<tr>
+<td>Part
+</td>
+<td>Numéro de Slice du disque
+</td></tr>
+<tr>
+<td>Tag
+</td>
+<td>Tag prédéfini (optionnel)
+</td></tr>
+<tr>
+<td>Flag
+</td>
+<td>Flag prédéfini (optionnel)
+</td></tr>
+<tr>
+<td>Cylinders
+</td>
+<td>Cylindre de début et de fin du slice
+</td></tr>
+<tr>
+<td>Size
+</td>
+<td>Taille du slice en blocks (b), cylindres (c), Mbytes (MB), ou Gbytes (GB)
+</td></tr>
+<tr>
+<td>Blocks
+</td>
+<td>Nombre total de cylindres et secteurs par slices
+</td></tr></table>
+<p>Pour commencez le disque, tapez <b>0</b>&#160;:
+</p>
+<pre>partition&gt; 0
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Part      Tag    Flag  Cylinders    Size        Blocks
+  0 unassigned    wm    0           0     (0/0/0)           0</pre></div></div>
+<p>Tapez <b>?</b> pour avoir la liste des choix possible&#160;:
+</p>
+<pre>Enter partition id tag[unassigned]:&#160;?
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Expecting one of the following: (abbreviations ok):
+        unassigned    boot          root          swap
+        usr           backup        stand         var
+        home          alternates    reserved
+Enter partition id tag[unassigned]:</pre></div></div>
+<p>Tapez <b>alternates</b>&#160;:
+</p>
+<pre>Enter partition id tag[unassigned]: alternates
+</pre>
+<p>Tapez <b>?</b> pour avoir la liste des choix possible&#160;:
+</p>
+<pre>Enter partition permission flags[wm]:&#160;?
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Expecting one of the following: (abbreviations ok):
+        wm    - read-write, mountable
+        wu    - read-write, unmountable
+        rm    - read-only, mountable
+        ru    - read-only, unmountable
+&#160;
+Enter partition permission flags[wm]:</pre></div></div>
+<p>Tappez sur la touche "Entrée"&#160;:
+</p>
+<pre>Enter partition permission flags[wm]:
+</pre>
+<p>Encore une fois "Entrée" pour accepter le cylindre 0 pour début&#160;:
+</p>
+<pre>Enter new starting cyl[0]:
+</pre>
+<p>Entrez la taille de la partition (ici 980mb)&#160;:
+</p>
+<pre>Enter partition size[0b, 0c, 0e, 0.00mb, 0.00gb]: 980mb
+</pre>
+<p>Vérifions&#160;:
+</p>
+<pre>partition&gt; print
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Current partition table (unnamed):
+Total disk cylinders available: 1965 + 2 (reserved cylinders)
+&#160;
+Part      Tag    Flag   Cylinders     Size            Blocks
+  0 alternates    wm     0 -  558   980.16MB    (559/0/0)   200736
+  1 unassigned    wm     0            0         (0/0/0)          0
+  2     backup    ru     0 - 4923     8.43GB    (4924/0/0) 17682084
+  3 unassigned    wm     0            0         (0/0/0)          0
+  4 unassigned    wm     0            0         (0/0/0)          0
+  5 unassigned    wm     0            0         (0/0/0)          0
+  6 unassigned    wu     0            0         (0/0/0)          0
+  7 unassigned    wm     0            0         (0/0/0)          0</pre></div></div>
+<p>Nous ponvons voir les changements. Ajustons le cylindre de début de slice 1&#160;:
+</p>
+<pre>partition&gt;  1
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Part      Tag    Flag   Cylinders    Size        Blocks
+  1 unassigned    wm     0           0     (0/0/0)          0</pre></div></div>
+<p>Entrez "<b>swap</b>"&#160;:
+</p>
+<pre>Enter partition id tag[unassigned]: swap
+</pre>
+<p>Tapez "<b>wu</b>"&#160;:
+</p>
+<pre>Enter partition permission flags[wm]: wu
+</pre>
+<p>Entrez le cylindre de début de slice 1&#160;:
+</p>
+<pre>Enter new starting cyl[0]: 559
+</pre>
+<p>Entrez la nouvelle taille de la partition&#160;:
+</p>
+<pre>Enter partition size[0b, 0c, 603e, 0.00mb, 0.00gb]: 512mb
+</pre>
+<p>Vérifions&#160;:
+</p>
+<pre>partition&gt; print
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Current partition table (unnamed):
+Total disk cylinders available: 1965 + 2 (reserved cylinders)
+&#160;
+Part      Tag    Flag   Cylinders     Size          Blocks
+  0 alternates    wm     0 -  558   980.16MB  (559/0/0)   2007369
+  1       swap    wu   559 -  851   513.75MB  (293/0/0)   1052163
+  2     backup    ru     0 - 4923     8.43GB  (4924/0/0) 17682084
+  3 unassigned    wm     0            0       (0/0/0)          0
+  4 unassigned    wm     0            0       (0/0/0)          0
+  5 unassigned    wm     0            0       (0/0/0)          0
+  6 unassigned    wu     0            0       (0/0/0)          0
+  7 unassigned    wm     0            0       (0/0/0)          0</pre></div></div>
+<p>Faisons la même chose pour le slice 7&#160;:
+</p>
+<pre>partition&gt; 7
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Part      Tag    Flag     Cylinders        Size            Blocks
+  7 unassigned    wm       0               0         (0/0/0) 0</pre></div></div>
+<p>Tapez "<b>home</b>"&#160;:
+</p>
+<pre>Enter partition id tag[unassigned]: home
+</pre>
+<p>Tapez sur la touche "Entrée"&#160;:
+</p>
+<pre>Enter partition permission flags[wm]:
+</pre>
+<p>Entrez le cylindre de début&#160;:
+</p>
+<pre>Enter new starting cyl[0]: 852
+</pre>
+<p>Entrez la valeur "<b>$</b>" pour occuper tout l'espace libre disponible à cette partition&#160;:
+</p>
+<pre>Enter partition size[0b, 0c, 694e, 0.00mb, 0.00gb]: $
+</pre>
+<p>Vérifions&#160;:
+</p>
+<pre>partition&gt; print
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Current partition table (unnamed):
+Total disk cylinders available: 1965 + 2 (reserved cylinders)
+&#160;
+Part      Tag    Flag   Cylinders      Size            Blocks
+  0 alternates    wm     0 -  558    980.16MB    (559/0/0)   2007369
+  1       swap    wu   559 -  851    513.75MB    (293/0/0)   1052163
+  2     backup    ru     0 - 4923      8.43GB    (4924/0/0) 17682084
+  3 unassigned    wm     0             0         (0/0/0)          0
+  4 unassigned    wm     0             0         (0/0/0)          0
+  5 unassigned    wm     0             0         (0/0/0)          0
+  6 unassigned    wu     0             0         (0/0/0)          0
+  7       home    wm   852 - 4923      6.97GB    (4072/0/0) 14622552</pre></div></div>
+<p>Après avoir vérifié qu'il n'y a pas d'erreurs, tapez <b>label</b>&#160;:
+</p>
+<pre>partition&gt; label
+Ready to label disk, continue? y
+</pre>
+<h2><span class="mw-headline" id="V.C3.A9rification_des_labels"><span class="mw-headline-number">5.4</span> Vérification des labels</span></h2>
+<p>Pour vérifier les labels (appellé également VTOC), il y a 2 solutions&#160;:
+</p>
+<ul><li> Utiliser <b>verify</b> dans l'utilitaire <b>format</b></li>
+<li> utiliser la commande <b>prtvtoc</b></li></ul>
+<h3><span class="mw-headline" id="Lecture_du_VTOC_avec_Format"><span class="mw-headline-number">5.4.1</span> Lecture du VTOC avec Format</span></h3>
+<p>Ouvrez l'utilitaire format, puis tapez verify&#160;:
+</p>
+<pre>format&gt; verify
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Primary label contents:
+&#160;
+Volume name = &lt;        &gt;
+ascii name  = &lt;SUN9.0G cyl 4924 alt 2 hd 27 sec 133&gt;
+pcyl        = 4926
+ncyl        = 4924
+acyl        =    2
+nhead       =   27
+nsect       =  133
+Part      Tag    Flag     Cylinders        Size            Blocks
+  0 alternates    wm       0 -  558      980.16MB    (559/0/0)   2007369
+  1       swap    wu     559 -  851      513.75MB    (293/0/0)   1052163
+  2     backup    ru       0 - 4923        8.43GB    (4924/0/0) 17682084
+  3 unassigned    wu       0               0         (0/0/0)           0
+  4 unassigned    wm       0               0         (0/0/0)           0
+  5 unassigned    wm       0               0         (0/0/0)           0
+  6 unassigned    wu       0               0         (0/0/0)           0
+  7       home    wm     852 - 4923        6.97GB    (4072/0/0) 14622552</pre></div></div>
+<p>Pour quittez tapez <b>q</b>.
+</p>
+<h3><span class="mw-headline" id="Lecture_du_VTOC_avec_Prtvtoc"><span class="mw-headline-number">5.4.2</span> Lecture du VTOC avec Prtvtoc</span></h3>
+<p>Lancez la commande sur un disque&#160;:
+</p>
+<pre>prtvtoc /dev/dsk/c1t3d0s0
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">* /dev/dsk/c1t3d0s0 partition map
+*
+* Dimensions:
+*     512 bytes/sector
+*     133 sectors/track
+*      27 tracks/cylinder
+*    3591 sectors/cylinder
+*    4926 cylinders
+*    4924 accessible cylinders
+*
+* Flags:
+*   1: unmountable
+*  10: read-only
+*
+*                          First     Sector    Last
+* Partition  Tag  Flags    Sector     Count    Sector  Mount Directory
+       0      9    00          0   2007369   2007368
+       1      3    01    2007369   1052163   3059531
+       2      5    11          0  17682084  17682083
+       7      8    00    3059532  14622552  17682083</pre></div></div>
+<p>Voici quelques explications&#160;:
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Champs
+</th>
+<th>Descriptions
+</th></tr>
+<tr>
+<td>Dimensions
+</td>
+<td>Décrit les dimentions logiques du disque
+</td></tr>
+<tr>
+<td>Flags
+</td>
+<td>Décrit les flags listés dans la table des partitions
+</td></tr>
+<tr>
+<td>Partition
+</td>
+<td>Le numéro du slice décrit plus tard dans la table des partitions
+</td></tr>
+<tr>
+<td>Tag
+</td>
+<td>Valeur utilisée pour dire comment le disque va être utilisé, décrit plus tard dans la table des partitions
+</td></tr>
+<tr>
+<td>Flags
+</td>
+<td>Le flag 00 est pour "read/write, mountable"; 01 est "read/write, unmountable"; et 10 est "read only"
+</td></tr>
+<tr>
+<td>First Sector
+</td>
+<td>Définit le premier secteur pour le slice
+</td></tr>
+<tr>
+<td>Sector Count
+</td>
+<td>Définit le nombre total de secteurs dans le slice
+</td></tr>
+<tr>
+<td>Last Sector
+</td>
+<td>Définit le dernier secteur dans le slice
+</td></tr>
+<tr>
+<td>Mount Directory
+</td>
+<td>Si ce champs est vide, aucunes entrée sera définit dans "/etc/vfstab" et le slice ne sera pas monté au démarrage
+</td></tr></table>
+<h1><span class="mw-headline" id="En_cas_de_probl.C3.A8mes"><span class="mw-headline-number">6</span> En cas de problèmes</span></h1>
+<h2><span class="mw-headline" id="Relabeller_les_disques"><span class="mw-headline-number">6.1</span> Relabeller les disques</span></h2>
+<p>La commande fmthard permet de relabeller les disques. Tout d'abord, sauvegardons le VTOC actuel dans un fichier&#160;:
+</p>
+<pre>prtvtoc /dev/dsk/c1t3d0s0 &gt; /var/tmp/c1t3d0.vtoc
+</pre>
+<p>Nous pouvons sauvegarder le VTOC d'un autre disque dans un fichier pour le relabeller sur un nouveau disque&#160;:
+</p>
+<pre>fmthard -s datafile /dev/rdsk/c#t#d#s2
+</pre>
+<p>Ouvrir format, sélectionnez le disque et lui donner le nom voulu. Ensuite réinjecter le VTOC sauvegardé&#160;:
+</p>
+<pre>mthard -s /var/tmp/c1t3d0.vtoc /dev/rdsk/c1t3d0s2
+</pre>
+<p>Enfin, pour initialiser le disque&#160;:
+</p>
+<pre>fmthard -s /dev/null /dev/rdsk/c1t3d0s2
+</pre>
+<h1><span class="mw-headline" id="Les_FileSystems"><span class="mw-headline-number">7</span> Les FileSystems</span></h1>
+<p>Il existe sous Solaris 4 types de FileSystems&#160;:
+</p>
+<ul><li> ufs&#160;: FileSystem le plus utilisé sous Solaris. Il peux aller facilement jusqu'a des Terabits, est basé sur le système Berkeley</li>
+<li> hsfs&#160;: System Sierra un peu particulier</li>
+<li> pcfs&#160;: Pour le FAT32 et le DOS</li>
+<li> udfs&#160;: Universal Disk File System, ceci est pour les medias CD/DVD...</li></ul>
+<p>Voici une description de l'UFS&#160;:<br />
+<a href="./File:Sun_ufs.jpg.html" class="image"><img alt="Sun ufs.jpg" src="images/1/18/Sun_ufs.jpg" width="612" height="420" /></a>
+</p><p>Ainsi que le fonctionnement des inodes&#160;:<br />
+<a href="./File:Sun_ufs_inodes.jpg.html" class="image"><img alt="Sun ufs inodes.jpg" src="images/e/e4/Sun_ufs_inodes.jpg" width="735" height="505" /></a>
+</p>
+<h2><span class="mw-headline" id="Cr.C3.A9ation_du_FileSystem"><span class="mw-headline-number">7.1</span> Création du FileSystem</span></h2>
+<p>La commande <b>newfs</b> permet de faire celà&#160;:
+</p>
+<pre>newfs /dev/rdsk/c1t3d0s7
+</pre>
+<p>Répondez <b>y</b> à cette confirmation&#160;:
+</p>
+<pre>newfs: construct a new file system /dev/rdsk/c1t3d0s7: (y/n)?
+</pre>
+<p>Il nous affiche maintenant les informations sur la création du filesystem&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/dev/rdsk/c1t3d0s7: 6295022 sectors in 1753 cylinders of 27 tracks, 
+133 sectors 3073.7MB in 110 cyl groups (16 c/g, 28.05MB/g, 3392 i/g)
+super-block backups (for fsck -F ufs -o b=#) at:
+ 32, 57632, 115232, 172832, 230432, 288032, 345632, 403232, 460832,
+ 518432, 5746208, 5803808, 5861408, 5919008, 5976608, 6034208, 6091808,
+ 6149408, 6207008, 6264608,</pre></div></div>
+<p>On affiche l'espace libre
+</p>
+<pre>fstyp -v /dev/dsk/c0t1d0s6 |head
+</pre>
+<pre>(output omitted for brevity)
+minfree 10%     maxbpg  2048    optim   time
+</pre>
+<p>L'option -m définit le pourcentage d'espace disque que nous voulons utiliser&#160;:
+</p>
+<pre>newfs -m 2 /dev/dsk/c0t1d0s6
+</pre>
+<pre>newfs: construct a new file system /dev/rdsk/c0t1d0s6: (y/n)? y
+(output omitted for brevity)
+</pre>
+<p>Voilà le résultat&#160;:
+</p>
+<pre>fstyp -v /dev/dsk/c0t1d0s6 |head
+</pre>
+<pre>(output omitted for brevity
+minfree 2%      maxbpg  2048    optim   time
+</pre>
+<p>Vérification&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">fstyp -v /dev/rdsk/c0t0d0s0 | head
+ufs
+magic   11954   format  dynamic time    Fri Oct 22 10:09:11 2004
+sblkno  16      cblkno  24      iblkno  32      dblkno  456
+sbsize  5120    cgsize  5120    cgoffset 72     cgmask  0xffffffe0
+ncg     110     size    3147511 blocks  3099093
+bsize   8192    shift   13      mask    0xffffe000
+fsize   1024    shift   10      mask    0xfffffc00
+frag    8       shift   3       fsbtodb 1
+minfree 2%      maxbpg  2048    optim   time
+maxcontig 128   rotdelay 0ms    rps     120</pre></div></div>
+<p>Pour changer l'espace dispo&#160;:
+</p>
+<pre>tunefs -m 1 /dev/rdsk/c0t0d0s0
+</pre>
+<pre>minimum percentage of free space changes from 10% to 1%
+</pre>
+<h2><span class="mw-headline" id="V.C3.A9rification_de_l.27.C3.A9tat_des_disques"><span class="mw-headline-number">7.2</span> Vérification de l'état des disques</span></h2>
+<p>La commande fsck comme sous linux permet de vérifier l'intégralité du filesystem afin de réparer les éventuels inodes orphelins (<b>n'oubliez pas de démonter la partition avant d'effectuer cette manipulation</b>):
+</p>
+<pre>fsck /dev/rdsk/c0t0d0s7
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">** /dev/rdsk/c0t0d0s7
+** Last Mounted on /export/home
+** Phase 1 - Check Blocks and Sizes
+INCORRECT BLOCK COUNT I=743 (5 should be 2)
+CORRECT?</pre></div></div>
+<p>Si il y a des fichiers qui sont récupérables, vous les retrouverez dans "lost+found". Vérifiez si ils sont correct avec la commande "file". On estime que si "file" peut trouver quel type de fichier c'est, alors c'est correcte.
+</p>
+<h1><span class="mw-headline" id="Vfstab"><span class="mw-headline-number">8</span> Vfstab</span></h1>
+<p>Le fichier /etc/vfstab est l'équivalent de /etc/fstab sous linux. C'est lui qui liste toutes les partitions et leurs points de montage.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#device         device          mount           FS      fsck    mount   mount
+#to mount       to fsck         point           type    pass    at boot options
+#
+fd      -       /dev/fd fd      -       no      -
+/proc   -       /proc   proc    -       no      -
+/dev/dsk/c0t0d0s1       -       -       swap    -       no      -
+/dev/dsk/c0t0d0s0   /dev/rdsk/c0t0d0s0   /      ufs     1       no      -
+/dev/dsk/c0t0d0s6   /dev/rdsk/c0t0d0s6   /usr   ufs     1       no      -
+/dev/dsk/c0t0d0s3   /dev/rdsk/c0t0d0s3   /var   ufs     1       no      -
+/dev/dsk/c0t0d0s7   /dev/rdsk/c0t0d0s7   /export/home  ufs   2  yes     -
+/devices        -   /devices        devfs   -       no      -
+ctfs    -       /system/contract        ctfs    -       no      -
+objfs   -       /system/object  objfs   -       no      -
+swap    -       /tmp    tmpfs   -       yes -</pre></div></div>
+<h2><span class="mw-headline" id="mtab"><span class="mw-headline-number">8.1</span> mtab</span></h2>
+<p>Le fichier /etc/mtab quand à lui nou informe des montages par rapport au kernel&#160;:
+</p>
+<pre>more /etc/mnttab
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/dev/dsk/c0t0d0s0    /    ufs     rw,intr,largefiles,logging,xattr,onerror=panic,dev=2200008  1098604644
+/devices        /devices        devfs   dev=4a80000     1098604620
+ctfs    /system/contract        ctfs    dev=4ac0001     1098604620
+proc    /proc   proc    dev=4b00000     1098604620
+mnttab  /etc/mnttab     mntfs   dev=4b40001     1098604620
+swap    /etc/svc/volatile       tmpfs   xattr,dev=4b80001       1098604620
+objfs   /system/object  objfs   dev=4bc0001     1098604620
+/dev/dsk/c0t0d0s6       /usr    ufs     rw,intr,largefiles,logging,xattr,onerror=panic,dev=220000e  1098604645
+fd      /dev/fd fd      rw,dev=4d40001  1098604645
+/dev/dsk/c0t0d0s3       /var    ufs     rw,intr,largefiles,logging,xattr,onerror=panic,dev=220000b  1098604647
+swap    /var/run        tmpfs   xattr,dev=4b80002       1098604647
+swap    /tmp    tmpfs   xattr,dev=4b80003       1098604647
+/dev/dsk/c0t0d0s7       /export/home    ufs     rw,intr,largefiles,logging,xattr,onerror=panic,dev=220000f   1098604661
+-hosts  /net    autofs  nosuid,indirect,ignore,nobrowse,dev=4dc0001     1098604678
+auto_home       /home   autofs  indirect,ignore,nobrowse,dev=4dc0002    1098604678
+sys-01:vold(pid491)     /vol    nfs     ignore,noquota,dev=4e00001      1098604701</pre></div></div>
+<pre>mount
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/ on /dev/dsk/c0t0d0s0 read/write/setuid/devices/intr/largefiles/logging/xattr/onerror=panic/dev=2200008 on Sun Oct 24 08:57:24 2004
+/devices on /devices read/write/setuid/devices/dev=4a80000 on Sun Oct 24 08:57:00 2004
+/system/contract on ctfs read/write/setuid/devices/dev=4ac0001 on Sun Oct 24 08:57:00 2004
+/proc on proc read/write/setuid/devices/dev=4b00000 on Sun Oct 24 08:57:00 2004
+/etc/mnttab on mnttab read/write/setuid/devices/dev=4b40001 on Sun Oct 24 08:57:00 2004
+/etc/svc/volatile on swap read/write/setuid/devices/xattr/dev=4b80001 on Sun Oct 24 08:57:00 2004
+/system/object on objfs read/write/setuid/devices/dev=4bc0001 on Sun Oct 24 08:57:00 2004
+/usr on /dev/dsk/c0t0d0s6 read/write/setuid/devices/intr/largefiles/logging/xattr/onerror=panic/dev=220000e on Sun Oct 24 08:57:25 2004
+/dev/fd on fd read/write/setuid/devices/dev=4d40001 on Sun Oct 24 08:57:25 2004
+/var on /dev/dsk/c0t0d0s3 read/write/setuid/devices/intr/largefiles/logging/xattr/onerror=panic/dev=220000b on Sun Oct 24 08:57:27 2004
+/var/run on swap read/write/setuid/devices/xattr/dev=4b80002 on Sun Oct 24 08:57:27 2004
+/tmp on swap read/write/setuid/devices/xattr/dev=4b80003 on Sun Oct 24 08:57:27 2004
+/export/home on /dev/dsk/c0t0d0s7 read/write/setuid/devices/intr/largefiles/logging/xattr/onerror=panic/dev=220000f on Sun Oct 24 08:57:41 2004</pre></div></div>
+<h1><span class="mw-headline" id="Monter_les_partitions"><span class="mw-headline-number">9</span> Monter les partitions</span></h1>
+<p>Pour monter les partitions à la main, il existe la commande mount. Voici quelques exemples&#160;:
+</p><p>Monte le filesystem en lecture seule&#160;:
+</p>
+<pre>mount -o ro /dev/dsk/c0t0d0s7 /export/home
+</pre>
+<p>Met des sticky bits sur toute la partition&#160;:
+</p>
+<pre>mount -o ro,nosuid /dev/dsk/c0t0d0s7 /export/home
+</pre>
+<p>Supprime les dates d'accès à chaques fichiers, ce qui optimise les temps d'accès
+</p>
+<pre>mount -o noatime /dev/dsk/c0t0d0s7 /export/home
+</pre>
+<p>Si cette partition ne contient que des petits fichiers, utilisez cette option&#160;:
+</p>
+<pre>mount -o nolargefiles /dev/dsk/c0t0d0s7 /export/home
+</pre>
+<p>Pour monter tout le contenu de votre fichier /etc/vfstab utilisez cette commande&#160;:
+</p>
+<pre>mountall
+</pre>
+<p>Pour ne monter que ce qui se trouve en local&#160;:
+</p>
+<pre>mountall -l
+</pre>
+<h2><span class="mw-headline" id="D.C3.A9trminer_le_type_de_montage"><span class="mw-headline-number">9.1</span> Détrminer le type de montage</span></h2>
+<p>Afin de savoir quelles options il faut passer, voici des fichiers intéressants&#160;:<br />
+</p>
+<ul><li> /etc/vfstab pour FS</li>
+<li> /etc/default/fs pour un système de fichiers en local</li>
+<li> /etc/dfs/fstypes pour un système de fichiers distants</li></ul>
+<p>Pour connaitre les caractéristiques d'une partition&#160;:
+</p>
+<pre>fstyp /dev/rdsk/c0t0d0s7
+</pre>
+<pre>ufs
+</pre>
+<p>Vous pouvez lors du montage d'une partition spécifier si c'est du hsfs ou pcfs&#160;:
+</p>
+<pre>mount -F <b>hsfs</b> -o ro /dev/dsk/c0t6d0s0 /cdrom
+</pre>
+<p>Pour démonter une partition, ca se passe comme cela&#160;:
+</p>
+<pre>umount <b>mount_point</b>
+</pre>
+<p>Et pour forcer, utilisez l'option -f&#160;:
+</p>
+<pre>umount -f <b>mount_point</b>
+</pre>
+<h1><span class="mw-headline" id="Que_se_passe_t.27il_sur_ma_partition_.3F"><span class="mw-headline-number">10</span> Que se passe t'il sur ma partition&#160;?</span></h1>
+<p>fuser est ce qui permet sous Solaris de savoir qu'est-ce qui se passe sur la partition. Sous linux, c'est lsof. Pour lister tous les process en cours sur cette partition&#160;:
+</p>
+<pre>fuser -cu <b>mount_point</b>
+</pre>
+<p>Pour tuer tous les process&#160;:
+</p>
+<pre>fuser -ck <b>mount_point</b>
+</pre>
+<p>Vérifier qu'aucuns process n'est sur la partition&#160;:
+</p>
+<pre>fuser -c <b>mount_point</b>
+</pre>
+<h1><span class="mw-headline" id="Probl.C3.A8mes_avec_ma_partiton_root"><span class="mw-headline-number">11</span> Problèmes avec ma partiton root</span></h1>
+<p>Si vous voulez faire un fsck de la partition root, insérez le CD/DVD Sun puis tapez ceci&#160;:
+</p>
+<pre>ok <b>boot cdrom -s</b>
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Boot device: /pci@1f,0/pci@1,1/ide@3/cdrom@2,0:f File and args -s
+SunOS Release 5.10 Generic 64 bit 
+Copyright 1983-2004 by Sun Microsystems, Inc. All rights reserved.
+Booting to milestone &quot;milestone/single-user:default&quot;
+Configuring /dev and /devices
+Use is subject to license terms
+Using RPC Bootparams for network configuration information.
+Skipping interface hme0
+-
+INIT: SINGLE USER MODE</pre></div></div>
+<p>Lancez le fsck sur votre partition root (racine)&#160;:
+</p>
+<pre>fsck <b>/dev/rdsk/c0t0d0s0</b>
+</pre>
+<p>Si tout à bien fonctionné, vous devez pouvoir tout monter&#160;:
+</p>
+<pre>mount /dev/dsk/c0t0d0s0 /a
+</pre>
+<p>Dans le cas contraire, il faut afiner /etc/vfstab&#160;:
+</p>
+<pre>TERM=sun
+export TERM
+vi /a/etc/vfstab
+</pre>
+<p>Ensuite on quitte et on redémarre&#160;:
+</p>
+<pre>cd /
+umount /a
+</pre>
+<h1><span class="mw-headline" id="Acc.C3.A8s_aux_devices_amovibles"><span class="mw-headline-number">12</span> Accès aux devices amovibles</span></h1>
+<h2><span class="mw-headline" id="Avec_Vold"><span class="mw-headline-number">12.1</span> Avec Vold</span></h2>
+<p>Ou trouver les périphériques&#160;:
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Media
+</th>
+<th>Accès filesystem
+</th>
+<th>Accès monté
+</th></tr>
+<tr>
+<td>diskette
+</td>
+<td>/floppy/floppy0
+</td>
+<td>/vol/dev/aliases/floppy0
+</td></tr>
+<tr>
+<td>CD-ROM
+</td>
+<td>/cdrom/cdrom0
+</td>
+<td>/vol/dev/aliases/cdrom0
+</td></tr>
+<tr>
+<td>Jaz
+</td>
+<td>/rmdisk/jaz0
+</td>
+<td>/vol/dev/aliases/jaz0
+</td></tr>
+<tr>
+<td>Zip
+</td>
+<td>/rmdrive/zip0
+</td>
+<td>/vol/dev/aliases/zip0
+</td></tr>
+<tr>
+<td>PCMCIA
+</td>
+<td>/pcmem0
+</td>
+<td>/vol/dev/aliases/pcmem0
+</td></tr></table>
+<p>Il existe 2 fichiers qui permettent de gérer les actions lors des injections/ejections de media&#160;:
+</p>
+<ul><li> /etc/vold.conf</li>
+<li> /etc/rmmount.conf</li></ul>
+<p>Vold est un service (start, stop...)&#160;:
+</p>
+<pre>/etc/init.d/volmgt restart
+</pre>
+<p>Si vraiment il ne veut pas quitter&#160;:
+</p>
+<pre>pkill -9 vold
+</pre>
+<h2><span class="mw-headline" id="Sans_Vold"><span class="mw-headline-number">12.2</span> Sans Vold</span></h2>
+<p>Evidement il faut là tout faire à la main&#160;:
+</p>
+<pre>mount -F hsfs -o ro /dev/dsk/c0t6d0s0 /cdrom
+mount -F pcfs /dev/diskette /pcfs
+</pre>
+<!-- 
+NewPP limit report
+CPU time usage: 0.040 seconds
+Real time usage: 0.040 seconds
+Preprocessor visited node count: 373/1000000
+Preprocessor generated node count: 664/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1721-0!*!*!1!en!5!* and timestamp 20181111230616 and revision id 10268
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Management_des_disques_sous_Solaris&amp;oldid=10268">https://wiki.deimos.fr/index.php?title=Management_des_disques_sous_Solaris&amp;oldid=10268</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Management+des+disques+sous+Solaris" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Management_des_disques_sous_Solaris.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Management_des_disques_sous_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Management_des_disques_sous_Solaris.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Management_des_disques_sous_Solaris&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Management_des_disques_sous_Solaris&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Management_des_disques_sous_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Management_des_disques_sous_Solaris.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Management_des_disques_sous_Solaris" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Management_des_disques_sous_Solaris&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Management_des_disques_sous_Solaris&amp;oldid=10268" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Management_des_disques_sous_Solaris&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 30 January 2012, at 11:07.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

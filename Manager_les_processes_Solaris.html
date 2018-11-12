@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Manager les processes Solaris - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Manager_les_processes_Solaris.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Manager_les_processes_Solaris","wgTitle":"Manager les processes Solaris","wgCurRevisionId":8901,"wgRevisionId":8901,"wgArticleId":1752,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Manager_les_processes_Solaris","wgRelevantArticleId":1752,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Manager_les_processes_Solaris skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Manager les processes Solaris</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Manager_les_processes_Solaris.html#mw-navigation">navigation</a>, 					<a href="Manager_les_processes_Solaris.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Manager_les_processes_Solaris.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Manager_les_processes_Solaris.html#prstat"><span class="tocnumber">2</span> <span class="toctext">prstat</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Manager_les_processes_Solaris.html#Kill_Frozen_Process"><span class="tocnumber">3</span> <span class="toctext">Kill Frozen Process</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Manager_les_processes_Solaris.html#Killer_les_process_Zombies"><span class="tocnumber">4</span> <span class="toctext">Killer les process Zombies</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>A process is any program that is running on the system. All processes are assigned a unique process identification (PID) number, which is used by the kernel to track and manage the process. The PID numbers are used by the root and regular users to identify and control their processes.
+</p>
+<h1><span class="mw-headline" id="prstat"><span class="mw-headline-number">2</span> prstat</span></h1>
+<p>The prstat command examines and displays information about active processes on the system.
+</p><p>This command enables you to view information by specific processes, user identification (UID) numbers, central processing unit (CPU) IDs, or processor sets. By default, the prstat command displays information about all processes sorted by CPU usage. To use the prstat command, perform the command:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> prstat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># prstat
+   PID USERNAME  SIZE   RSS STATE  PRI NICE      TIME  CPU PROCESS/NLWP       
+  1641 root     4864K 4520K cpu0    59    0   0:00:00 0.5% prstat/1
+  1635 root     1504K 1168K sleep   59    0   0:00:00 0.3% ksh/1
+     9 root     6096K 4072K sleep   59    0   0:00:29 0.1% svc.configd/11
+   566 root       82M   30M sleep   29   10   0:00:36 0.1% java/14
+  1633 root     2232K 1520K sleep   59    0   0:00:00 0.1% in.rlogind/1
+   531 root     8200K 2928K sleep   59    0   0:00:12 0.1% dtgreet/1
+   474 root       21M 7168K sleep   59    0   0:00:11 0.1% Xsun/1
+   236 root     4768K 2184K sleep   59    0   0:00:03 0.0% inetd/4
+    86 root     3504K 1848K sleep   59    0   0:00:01 0.0% nscd/24
+     7 root     5544K 1744K sleep   59    0   0:00:06 0.0% svc.startd/12
+   154 root     2280K  824K sleep   59    0   0:00:01 0.0% in.routed/1
+   509 root     6888K 2592K sleep   59    0   0:00:02 0.0% httpd/1
+   240 root     5888K 1256K sleep   59    0   0:00:01 0.0% sendmail/1
+   145 root     2944K  816K sleep   59    0   0:00:01 0.0% httpd/1
+   347 daemon   2608K  776K sleep   59    0   0:00:00 0.0% nfsmapid/3
+   206 root     1288K  600K sleep   59    0   0:00:00 0.0% utmpd/1
+   344 daemon   2272K 1248K sleep   60  -20   0:00:00 0.0% nfsd/2
+   241 smmsp    5792K  960K sleep   59    0   0:00:00 0.0% sendmail/1
+   107 root     2584K  784K sleep   59    0   0:00:00 0.0% syseventd/14
+   123 root     3064K  880K sleep   59    0   0:00:00 0.0% picld/4
+   146 lp       2976K  448K sleep   59    0   0:00:00 0.0% httpd/1
+Total: 53 processes, 171 lwps, load averages: 0.02, 0.04, 0.07</pre></div></div>
+</td></tr></table><br />
+<p>To quit the prstat command, type q.
+</p><p>The table shows the column headings and their meanings in a prstat report.
+Column Headings for the prstat Report.
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Default Column Heading
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>PID
+</td>
+<td>The PID number of the process.
+</td></tr>
+<tr>
+<td>USERNAME
+</td>
+<td>The login name or UID of the owner of the process.
+</td></tr>
+<tr>
+<td>SIZE
+</td>
+<td>The total virtual memory size of the process.
+</td></tr>
+<tr>
+<td>RSS
+</td>
+<td>The resident set size of the process in kilobytes, megabytes, or gigabytes.
+</td></tr>
+<tr>
+<td>STATE
+</td>
+<td>The state of the process:<br />* cpu - The process is running on the CPU.<br />* sleep - The process is waiting for an event to complete.<br />* run - The process is in the run queue.<br />* zombie - The process terminated, and the parent is not waiting.<br />* stop - The process is stopped.
+</td></tr>
+<tr>
+<td>PRI
+</td>
+<td>The priority of the process.
+</td></tr>
+<tr>
+<td>NICE
+</td>
+<td>The value used in priority computation.
+</td></tr>
+<tr>
+<td>TIME
+</td>
+<td>The cumulative execution time for the process.
+</td></tr>
+<tr>
+<td>CPU
+</td>
+<td>The percentage of recent CPU time used by the process.
+</td></tr>
+<tr>
+<td>PROCESS/NLWP
+</td>
+<td>The name of the process/the number of lightweight processes (LWPs) in the process.
+</td></tr></table>
+<p><i>Note:</i> The kernel and many applications are now multithreaded. A thread is a logical sequence of program instructions written to accomplish a particular task. Each application thread is independently scheduled to run on an LWP, which functions as a virtual CPU. LWPs in turn, are attached to kernel threads, which are scheduled to run on actual CPUs.
+</p><p><i>Note:</i> Use the priocntl(1) command to assign processes to a priority class and to manage process priorities. The nice(1) command is only supported for backward compatibility to previous Solaris OS releases. The priocntl command provides more flexibility in managing processes.
+</p><p>The table shows the options for the prstat command.
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Option
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>-a
+</td>
+<td>Displays separate reports about processes and users at the same time.
+</td></tr>
+<tr>
+<td>-c
+</td>
+<td>Continuously prints new reports below previous reports.
+</td></tr>
+<tr>
+<td>-n nproc
+</td>
+<td>Restricts the number of output lines.
+</td></tr>
+<tr>
+<td>-p pidlist
+</td>
+<td>Reports only on processes that have a PID in the given list.
+</td></tr>
+<tr>
+<td>-s key
+</td>
+<td>Sorts output lines by key in descending order. The five possible keys include: cpu, time, size, rss, and pri. You can use only one key at a time.
+</td></tr>
+<tr>
+<td>-S key
+</td>
+<td>Sorts output lines by key in ascending order.
+</td></tr>
+<tr>
+<td>-t
+</td>
+<td>Reports total usage summary for each user.
+</td></tr>
+<tr>
+<td>-u euidlist
+</td>
+<td>Reports only processes that have an effective user ID (EUID) in the given list.
+</td></tr>
+<tr>
+<td>-U uidlist
+</td>
+<td>Reports only processes that have a real UID in the given list.
+</td></tr></table>
+<h1><span class="mw-headline" id="Kill_Frozen_Process"><span class="mw-headline-number">3</span> Kill Frozen Process</span></h1>
+<p>You use the kill or pkill commands to terminate one or more processes.
+</p><p>The format for the kill command is:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>kill -signal PID
+</pre>
+</td></tr></table><br />
+<p>To show all of the available signals used with the kill command:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>kill -l
+</pre>
+</td></tr></table><br />
+<p>The format for the pkill command is:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>pkill -signal Process
+</pre>
+</td></tr></table><br />
+<p>Before you can terminate a process, you must know its name or PID. Use either the ps or pgrep command to locate the PID for the process.
+</p><p>The following examples uses the pgrep command to locate the PID for the mail processes.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># pgrep -l mail
+  241 sendmail
+  240 sendmail
+# pkill sendmail</pre></div></div>
+</td></tr></table><br />
+<p>The following examples use the ps and pkill commands to locate and terminate the sendmail process.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># ps -e | grep sendmail
+   241&#160;?           0:00 sendmail
+   240&#160;?           0:02 sendmail
+# kill 241</pre></div></div>
+</td></tr></table><br />
+<p>To terminate more than one process at the same time, use the following syntax:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> kill -signal PID PID PID PID
+ pkill signal process process</pre></div></div>
+</td></tr></table><br />
+<p>You use the kill command without a signal on the command line to send the default Signal 15 to the process. This signal usually causes the process to terminate.
+</p><p>The table shows some signals and names.
+</p>
+<table border="1" width="100%">
+<tr>
+<th>Signal Number
+</th>
+<th>Signal Name
+</th>
+<th>Event
+</th>
+<th>Default Action
+</th></tr>
+<tr>
+<td>1
+</td>
+<td>SIGHUP
+</td>
+<td>Hangup
+</td>
+<td>Exit
+</td></tr>
+<tr>
+<td>2
+</td>
+<td>SIGINT
+</td>
+<td>Interrupt
+</td>
+<td>Exit
+</td></tr>
+<tr>
+<td>9
+</td>
+<td>SIGKILL
+</td>
+<td>Kill
+</td>
+<td>Exit
+</td></tr>
+<tr>
+<td>15
+</td>
+<td>SIGTERM
+</td>
+<td>Terminate
+</td>
+<td>Exit
+</td></tr></table>
+<ul><li> 1, SIGHUP - A hangup signal to cause a telephone line or terminal connection to be dropped. For certain daemons, such as inetd and in.named, a hangup signal will cause the daemon to reread its configuration file.</li>
+<li> 2, SIGINT - An interrupt signal from your keyboard--usually from a Control-C key combination.</li>
+<li> 9, SIGKILL - A signal to kill a process. A process cannot ignore this signal.</li>
+<li> 15, SIGTERM - A signal to terminate a process in an orderly manner. Some processes ignore this signal.</li></ul>
+<p>A complete list of signals that the kill command can send can be found by executing the command kill -l, or by referring to the man page for signal:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>man -s3head signal
+</pre>
+</td></tr></table><br />
+<p>Some processes can be written to ignore Signal 15. Processes that do not respond to a Signal 15 can be terminated by force by using Signal 9 with the kill or pkill commands. You use the following syntax:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>kill -9 PID
+pkill -9 process
+</pre>
+</td></tr></table><br />
+<p>Caution: Use the kill -9 or pkill -9 command as a last resort to terminate a process. Using the -9 signal on a process that controls a database application or a program that updates files can be disastrous. The process is terminated instantly with no opportunity to perform an orderly shutdown.
+</p><p>When a workstation is not responding to your keyboard or mouse input, the CDE might be frozen. In such cases, you may be able to remotely access your workstation by using the rlogin command or by using the telnet command from another system.
+Killing the Process for a Frozen Login
+</p><p>After you are connected remotely to your system, you can invoke the pkill command to terminate the corrupted session on your workstation.
+</p><p>In the following examples, the rlogin command is used to log in to sys42, from which you can issue a pkill or a kill command.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># rlogin sys-02
+Password: 
+Last login: Sun Oct 24 13:44:51 from sys-01
+Sun Microsystems Inc.   SunOS 5.10      s10_68  Sep. 20, 2004
+# pkill -9 Xsun</pre></div></div>
+</td></tr></table><br />
+<p>or
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># ps -e | grep Xsun
+   442&#160;?           0:01 Xsun
+# kill -9 442</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Killer_les_process_Zombies"><span class="mw-headline-number">4</span> Killer les process Zombies</span></h1>
+<p>On rencontre de temps en temps des processus appelés zombis. Rien à voir avec un film de Georges A. Romero, il s'agit d'un phénomène beaucoup plus prosaïque. Quand un processus se termine, pratiquement toutes les ressources associées sont libérées, à l'exception de l'entrée correspondante dans la table des processus de l'OS. La raison en est simple&#160;: le processus parent doit pouvoir récupérer le code de retour de son processus fils, on ne peut donc pas tout effacer brutalement.
+</p><p>Typiquement, la suppression de l'entrée dans la table des processus se fait donc au moment où le parent récupère ce code retour, c'est ce qu'on appelle le reaping (the Reaper étant notre Grande Faucheuse). Si le processus parent, pour une raison où pour une autre, ne lit pas ce code, l'entrée reste présente dans la table des processus. Voyons donc à quoi ces zombis ressemblent, et comment s'en débarrasser.
+</p><p>En soit, c'est généralement peu gênant, puisqu'à part l'entrée dans la table des processus, il n'y a plus rien&#160;: ni mémoire consommée, ni CPU utilisé. J'y vois cependant deux inconvénients&#160;:
+</p>
+<ul><li> la table des processus a une table limitée (30000 entrées par défaut), et chaque zombi occupe une place, donc si on en génère beaucoup, cela peut devenir problématique sur un système chargé</li>
+<li> le zombi est vraiment, vraiment laid (et en plus il ne sent pas bon)</li></ul>
+<p>Fort heureusement, il est possible de se substituer au parent négligent et de permettre enfin à ces zombis de trouver le repos éternel. Voyons déjà comment apparaît un zombi sur le système&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ps</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ ps -edf 
+</pre>
+</td></tr></table><br />
+<p>Ou encore&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ps</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ ps -ecl 
+</pre>
+</td></tr></table><br />
+<p>Pour les supprimer, on va utiliser la commande preap&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> preap</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ preap 7450
+7450: exited with status 0
+$ preap 7542
+7542: exited with status 0
+$ preap 7544
+7544: exited with status 0
+$ preap 7546
+7546: exited with status 0
+$ ps -edf | grep defunct</pre></div></div>
+</td></tr></table><br />
+<p>Et voilà, bigrement plus efficace que le héros de Brain Dead! A noter, si vous souhaitez créer manuellement un zombi pour vos tests, vous pouvez utiliser la commande suivante, fournie par l'excellent c0t0d0s0.org&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> nohup</font>
+</td></tr>
+<tr>
+<td>
+<pre>nohup perl -e "if (fork()&gt;0) {while (1) {sleep 100*100;};};"
+</pre>
+</td></tr></table><br />
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.040 seconds
+Real time usage: 0.038 seconds
+Preprocessor visited node count: 287/1000000
+Preprocessor generated node count: 858/1000000
+Post‐expand include size: 2641/2097152 bytes
+Template argument size: 586/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    7.675      1 - -total
+ 71.39%    5.479     15 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1752-0!*!*!1!en!5!* and timestamp 20181111230614 and revision id 8901
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Manager_les_processes_Solaris&amp;oldid=8901">https://wiki.deimos.fr/index.php?title=Manager_les_processes_Solaris&amp;oldid=8901</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Manager+les+processes+Solaris" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Manager_les_processes_Solaris.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Manager_les_processes_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Manager_les_processes_Solaris.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Manager_les_processes_Solaris&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Manager_les_processes_Solaris&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Manager_les_processes_Solaris.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Manager_les_processes_Solaris.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Manager_les_processes_Solaris" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Manager_les_processes_Solaris&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Manager_les_processes_Solaris&amp;oldid=8901" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Manager_les_processes_Solaris&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 12 April 2010, at 09:52.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":30});
+}</script>
+	</body>
+</html>
+	

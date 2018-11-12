@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration de Samba en mode "User" - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_de_Samba_en_mode_\"User\"","wgTitle":"Installation et configuration de Samba en mode \"User\"","wgCurRevisionId":9899,"wgRevisionId":9899,"wgArticleId":1818,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_de_Samba_en_mode_\"User\"","wgRelevantArticleId":1818,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_de_Samba_en_mode_User skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration de Samba en mode "User"</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#mw-navigation">navigation</a>, 					<a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Debian"><span class="tocnumber">2.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#FreebSD"><span class="tocnumber">2.2</span> <span class="toctext">FreebSD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Connection"><span class="tocnumber">4</span> <span class="toctext">Connection</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Windows"><span class="tocnumber">4.1</span> <span class="toctext">Windows</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Unix_.28Linux.2FMac....29"><span class="tocnumber">4.2</span> <span class="toctext">Unix (Linux/Mac...)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Test_sa_configuration"><span class="tocnumber">5.1</span> <span class="toctext">Test sa configuration</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Unable_to_connect_to_CUPS_server_localhost:631_-_Connection_refused"><span class="tocnumber">5.2</span> <span class="toctext">Unable to connect to CUPS server localhost:631 - Connection refused</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Migrer_son_fichier_smbpasswd_vers_tdbsam"><span class="tocnumber">5.3</span> <span class="toctext">Migrer son fichier smbpasswd vers tdbsam</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Samba est un logiciel libre sous licence GPL supportant le protocole SMB/CIFS. Ce protocole est employé par Microsoft pour le partage de diverses ressources (fichiers, imprimantes, etc.) entre ordinateurs équipés de Windows. Samba permet aux systèmes Unix d'accéder aux ressources de ces systèmes et vice-versa.
+</p><p>Auparavant, les PC, équipés de DOS et des premières versions de Windows, devaient parfois installer une pile TCP/IP, et un ensemble de logiciels d'origine Unix&#160;: un client NFS, FTP, telnet, lpr, etc. Cela était lourd et pénalisant pour les PC de l'époque, et il obligeait par ailleurs leurs utilisateurs à contracter un double jeu d'habitudes, ajoutant celles d'UNIX à celles de Windows. Samba adopte donc la démarche inverse.
+</p><p>Son nom provient du protocole de partage et d'impression de fichiers d'IBM et réutilisé par Microsoft nommé SMB (Server message block), auquel ont été ajoutées les deux voyelles a&#160;: «&#160;SaMBa&#160;».
+</p><p>Samba a été développé à l'origine par Andrew Tridgell,dès 1991 , et reçoit aujourd'hui les contributions d'une vingtaine de développeurs originaires du monde entier sous sa coordination. Celui-ci lui donna ce nom, en choisissant un nom voisin de SMB en interrogeant un dictionnaire Unix, par la commande grep&#160;: grep "^s.*m.*b" /usr/dict/words
+</p><p>Lorsque les deux systèmes de partage de fichiers (NFS, Samba) sont installés pour comparaison, Samba se révèle moins performant que NFS au niveau des taux de transferts.
+</p><p>Néanmoins, une étude a montré que Samba 3 était jusqu'à 2,5 fois plus rapide que l'implémentation SMB de Windows serveur 2003 Voir l'information sur LinuxFr
+</p><p>Toutefois, samba n'est pas compatible avec IPv6
+</p><p><b>Le mode "User" permet de partager de façon simple par utilisateur des dossiers. Vous avez alors besoin d'un login et un de mot de passe. C'est une solution suffisament sécurisée pour les petites entreprises.</b>
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Debian"><span class="mw-headline-number">2.1</span> Debian</span></h2>
+<p>Pour installer samba&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install samba
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="FreebSD"><span class="mw-headline-number">2.2</span> FreebSD</span></h2>
+<p>Pour FreeBSD&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkg_add</font>
+</td></tr>
+<tr>
+<td>
+<pre>pkg_add -r samba34
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Pour configurer samba, éditez le fichier /etc/samba/smb.conf (/usr/local/etc/smb.conf sous FreeBSD)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/samba/smb.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#======================= Global Settings =====================================
+[global]
+        # Nom du serveur Samba
+        server string = Samba
+        # Optimisation du socket
+        socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+        # Nom du groupe de travail
+        workgroup = workgroup
+        # Niveau du serveur Samba
+        os level = 20
+&#160;
+        ## Restrictions ##
+        # On interdit tout le monde
+        hosts deny = ALL
+        # On autorise seulement les demande venant de ces IP
+        hosts allow = 192.168.0.0/255.255.255.0 127.0.0.1 10.8.0.0/255.255.255.0
+        bind interfaces only = yes
+        # On autorise seulement les demandes venant de cette interface réseau
+        interfaces = eth0
+&#160;
+        ## Encoding ## Affichage Europeen avec accents
+        dos charset = 850
+        display charset = UTF8
+&#160;
+        ## Name resolution ## Resolutions des noms
+        dns proxy = no
+        wins support = no
+        name resolve order = lmhosts host wins bcast
+&#160;
+        ## Logs ##
+        max log size = 50
+        log file = /var/log/samba/%m.log
+        syslog only = no
+        syslog = 0
+        panic action = /usr/share/samba/panic-action&#160;%d
+&#160;
+        ## Passwords ##
+        # Mode user
+        security = user
+        encrypt passwords = true
+        unix password sync = no
+        passwd program = /usr/bin/passwd&#160;%u
+        passwd chat = *Enter\snew\sUNIX\spassword:*&#160;%n\n *Retype\snew\sUNIX\spassword:*&#160;%n\n .
+        # Ne pas autoriser ces utilisateurs.
+        invalid users = root
+&#160;
+        ## Restrictions ##
+        # Cacher les fichiers spéciaux
+        hide special files = no
+        # Cacher les fichiers non lisible
+        hide unreadable = no
+        # Cacher les fichiers cachés (commencant par un &quot;.&quot;)
+        hide dot files = no
+&#160;
+        ## Resolve office save problems ##
+        # Résoud des problèmes de compatibilité avec les version &gt; MS Office 2002
+        oplocks = no
+&#160;
+#======================= Shares ==============================================
+&#160;
+[Homes]
+        comment = Home Directories
+        browseable = yes # Permet de parcourir une arborescence
+        read only = no # Pas de lecture seule
+        writable = yes # Autorise l'écriture
+        create mask = 0700 # Droits sur la création de fichiers
+        directory mask = 0700 # Droits sur la création de dossiers
+        veto files = /.DS_Store/.fuse_*/ # Ne pas affichier les objets&#160;: &quot;.DS_Store&quot; et &quot;.fuse_*&quot;
+&#160;
+[Sauvegardes]
+        comment = Sauvegardes
+        path = /saves # Dossier de partage
+        browseable = yes
+        writable = yes
+        validusers = deimos, @smbusers # Utilisateurs ayants droits. Pour définir un groupe, commencez par un &quot;@&quot;
+        veto files = /.DS_Store/.fuse_*/
+&#160;
+[Share2]
+        comment = Sauvegardes
+        path = /share
+        # J'autorise que les accès authentifiés
+        guest ok = no
+        # Tout le monde peut lire
+        read only = yes
+        # Mais seul mon groupe smbusers peut écrire
+        write list = @smbusers</pre></div></div>
+</td></tr></table><br />
+<p>Quelques explications&#160;:
+</p>
+<ul><li> Configurez d'abord les données dans Global</li>
+<li> Définissez bien l'OS level &lt; à 20 sauf si il agit en tant que contrôleur de domaine, alors &gt; 50</li></ul>
+<p>Adaptez tout ceci pour votre configuration. Ensuite redémarrez Samba&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/samba restart
+</pre>
+</td></tr></table><br />
+<p>ou comme ceci sous FreeBSD&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/etc/rc.d/samba restart
+</pre>
+</td></tr></table><br />
+<p>Maintenant, il faut rajouter des utilisateurs&#160;! C'est assez simple, mais c'est le genre de trucs que l'on oublie souvent&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> smbpasswd</font>
+</td></tr>
+<tr>
+<td>
+<pre>smbpasswd -a deimos
+</pre>
+</td></tr></table><br />
+<p>Ceci va ajouter mon utilisateur deimos. Et voici la liste des options possible&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> smbpaswd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">smbpasswd --help
+&#160;
+When run by root:
+    smbpasswd [options] [username]
+otherwise:
+    smbpasswd [options]
+&#160;
+options:
+  -L                   local mode (must be first option)
+  -h                   print this usage message
+  -s                   use stdin for password prompt
+  -c smb.conf file     Use the given path to the smb.conf file
+  -D LEVEL             debug level
+  -r MACHINE           remote machine
+  -U USER              remote username extra options when run by root or in local mode:
+  -a                   add user
+  -d                   disable user
+  -e                   enable user
+  -i                   interdomain trust account
+  -m                   machine trust account
+  -n                   set no password
+  -W                   use stdin ldap admin password
+  -w PASSWORD          ldap admin password
+  -x                   delete user
+  -R ORDER             name resolve order</pre></div></div>
+</td></tr></table><br />
+<p>Sous FreeBSD, vous pourrez trouver le fichier contenant la liste des utilisateurs autorisés dans /usr/local/etc/samba34.
+</p><p>Pour FreeBSD toujours, si vous souhaitez que Samba démarre automatiquement au boot&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td>
+<pre>echo 'samba_enable="YES"' &gt;&gt; /etc/rc.conf.local
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Connection"><span class="mw-headline-number">4</span> Connection</span></h1>
+<h2><span class="mw-headline" id="Windows"><span class="mw-headline-number">4.1</span> Windows</span></h2>
+<p>Pour vous connectez depuis windows, dans une fenetre de liens, tapez ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>\\<b>IP_du_serveur_samba</b>\<b>Nom_du_partage</b>
+</pre>
+</td></tr></table><br />
+<p>Vous accéderez directement au partage
+</p>
+<h2><span class="mw-headline" id="Unix_.28Linux.2FMac....29"><span class="mw-headline-number">4.2</span> Unix (Linux/Mac...)</span></h2>
+<p>Vous devez avoir smbfs d'installer avant de continuer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install smbfs
+</pre>
+</td></tr></table><br />
+<p>Ensuite, il suffit de créer un dossier et de monter le partage dedans&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir saves
+mount -t cifs -o username=<b>user</b>,password=<b>mot_de_passe</b> //192.168.0.1/saves ./saves
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Test_sa_configuration"><span class="mw-headline-number">5.1</span> Test sa configuration</span></h2>
+<p>Si vous avez quelques problèmes, voici un moyen de vérifier sa configuration (FreeBSD)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> testparm</font>
+</td></tr>
+<tr>
+<td>
+<pre>/usr/local/bin/testparm -s
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Unable_to_connect_to_CUPS_server_localhost:631_-_Connection_refused"><span class="mw-headline-number">5.2</span> Unable to connect to CUPS server localhost:631 - Connection refused</span></h2>
+<p>Si vous n'utilisez pas de serveur d'impression CUPS, alors faites les modifications suivante pour le désactiver et permettre à Samba de démarrer&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/samba/smb.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">        # Disable printers
+        load printers = no
+        show add printer wizard = no
+        printing = none
+        printcap name = /dev/null
+        disable spoolss = yes</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Migrer_son_fichier_smbpasswd_vers_tdbsam"><span class="mw-headline-number">5.3</span> Migrer son fichier smbpasswd vers tdbsam</span></h2>
+<p>Il est possible qu'en mettant à jour votre Samba, votre fichier smbpasswd ne fonctionne plus et doive être remplacé par un tdbsam. Tous vos utilisateurs ne fonctionneront alors plus. Le moyen le plus simple est de convertir tous vos anciens comptes vers ce nouveau format&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>cd /etc/samba
+pdbedit -i smbpasswd -e tdbsam
+</pre>
+</td></tr></table><br />
+<p>Il est possible que vous ayez à modifier votre fichier de configuration samba pour y rajouter ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/samba/smb.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>passdb backend = tdbsam:/var/lib/samba/passdb.tdb
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p>Si vous souhaitez pousser les droits sur les dossiers, regardez la documentation sur les <a href="./ACL_:_Implémentation_des_droits_de_type_NT.html" title="ACL : Implémentation des droits de type NT">ACL</a>.
+</p><p><a href="Serveurs.html#Samba" title="Serveurs">Autres documentations sur Samba</a><br />
+<a href="./File:CIFS_Solaris_Workgroup.pdf.html" title="File:CIFS Solaris Workgroup.pdf">CIFS Solaris Workgroup</a><br />
+<a rel="nofollow" class="external free" href="http://www.csua.berkeley.edu/~ranga/notes/freebsd_samba.html+samba+freebsd&amp;cd=6&amp;hl=fr&amp;ct=clnk&amp;client=ubuntu">http://www.csua.berkeley.edu/~ranga/notes/freebsd_samba.html+samba+freebsd&amp;cd=6&amp;hl=fr&amp;ct=clnk&amp;client=ubuntu</a><br />
+<a rel="nofollow" class="external free" href="http://www.tobanet.de/dokuwiki/samba:upgrade">http://www.tobanet.de/dokuwiki/samba:upgrade</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.036 seconds
+Real time usage: 0.038 seconds
+Preprocessor visited node count: 252/1000000
+Preprocessor generated node count: 702/1000000
+Post‐expand include size: 3037/2097152 bytes
+Template argument size: 925/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    7.725      1 - -total
+ 39.22%    3.030      3 - Template:Config
+ 39.15%    3.025     12 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1818-0!*!0!1!en!5!* and timestamp 20181111230719 and revision id 9899
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_Samba_en_mode_%22User%22&amp;oldid=9899">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_Samba_en_mode_%22User%22&amp;oldid=9899</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+de+Samba+en+mode+%22User%22" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_Samba_en_mode_%22User%22&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_Samba_en_mode_%22User%22&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_de_Samba_en_mode_&quot;User&quot;.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_de_Samba_en_mode_%22User%22" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_Samba_en_mode_%22User%22&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_Samba_en_mode_%22User%22&amp;oldid=9899" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_de_Samba_en_mode_%22User%22&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 6 October 2011, at 12:53.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

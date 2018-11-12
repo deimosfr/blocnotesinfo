@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Tester le load sur ses serveurs et applications web - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Tester_le_load_sur_ses_serveurs_et_applications_web.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Tester_le_load_sur_ses_serveurs_et_applications_web","wgTitle":"Tester le load sur ses serveurs et applications web","wgCurRevisionId":6578,"wgRevisionId":6578,"wgArticleId":2690,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Tester_le_load_sur_ses_serveurs_et_applications_web","wgRelevantArticleId":2690,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Tester_le_load_sur_ses_serveurs_et_applications_web skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Tester le load sur ses serveurs et applications web</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#mw-navigation">navigation</a>, 					<a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#curl-loader"><span class="tocnumber">2</span> <span class="toctext">curl-loader</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#httperf"><span class="tocnumber">3</span> <span class="toctext">httperf</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#Siege"><span class="tocnumber">4</span> <span class="toctext">Siege</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#Tsung"><span class="tocnumber">5</span> <span class="toctext">Tsung</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#Conclusion"><span class="tocnumber">6</span> <span class="toctext">Conclusion</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>A good way to see how your Web applications and server will behave under high load is by testing them with a simulated load. We tested several free software tools that do such testing to see which work best for what kinds of sites.
+</p><p>If you leave out the load-testing packages that are no longer maintained, non-free, or fail the installation process in some obscure way, you are left with five candidates: curl-loader, httperf, Siege, Tsung, and Apache JMeter.
+</p>
+<h1><span class="mw-headline" id="curl-loader"><span class="mw-headline-number">2</span> curl-loader</span></h1>
+<p>The purpose of <a rel="nofollow" class="external text" href="http://curl-loader.sourceforge.net/">curl-loader</a> is to "deliver a powerful and flexible open source testing solution as a real alternative to Spirent Avalanche and IXIA IxLoad." It relies on the mature and flexible <a rel="nofollow" class="external text" href="http://curl.haxx.se/">cURL</a> library to manage requests, authentication, and sessions.
+</p><p>Building the application is straightforward: download, untar, and make the code inside its directory. I had to add an #include &lt;limits.h&gt; to the file ip_secondary.c to make it build, probably due to some recent changes in the glibc headers. You also need to install the OpenSSL libraries and headers to compile and run curl-loader.
+</p><p>Getting started takes a bit more effort. curl-loader's configuration interface is split into two parts. The first part is a configuration file that contains the parameters for a specific scenario. Its simple format consists of newline-delimited variable assignments of the form VAR=VALUE. You can find a bunch of self-explanatory examples in the directory conf-examples in the curl-loader source tree. Because curl-loader can use multiple IP addresses to realistically simulate requests from different clients, you need to adjust the values for INTERFACE, CLIENTS_NUM_MAX, NETMASK, IP_ADDR_MIN, and IP_ADDR_MAX to suit your network environment. The number of maximum parallel clients must of course be supported by the IP address range you specify.
+</p><p>The second part is the command-line interface of the curl-loader binary. It offers one essential parameter, -f, to which you're expected to pass the location of the scenario file you wish to use. The other arguments let you fine-tune the test run. For example, by default curl-loader will issue its requests from a single thread. While this helps conserve system resources and increase performance, it's advisable to use the -t option to add one thread per additional CPU core you wish to utilize.
+</p><p>A screen-oriented result display shows a synopsis of the test results, updated at regular intervals, and more detailed results are available in the log files curl-loader generates. The file with the .log extension contains information about any errors, while the .ctx file shows per-client statistics and the .txt file shows statistics over time.
+</p><p>If you're looking for a utility similar to curl-loader but written in Python, check out <a rel="nofollow" class="external text" href="http://www.pylot.org/">Pylot</a>. It comes with a GUI and uses XML as its configuration format.
+</p>
+<h1><span class="mw-headline" id="httperf"><span class="mw-headline-number">3</span> httperf</span></h1>
+<p><a rel="nofollow" class="external text" href="http://www.hpl.hp.com/research/linux/httperf/">httperf</a> is a command-line single-thread load tester developed by Hewlett-Packard Labs.
+</p><p>You set the bulk of httperf's configuration via command-line parameters. Configuration files play an auxiliary role if you wish to specify a session scenario.
+</p><p>A sample invocation for a total of 5,000 connections, each one of which should try to issue 50 requests, looks like this:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> httperf</font>
+</td></tr>
+<tr>
+<td>
+<pre>httperf --server=localhost --uri=/ --num-conns=5000 --num-calls=50
+</pre>
+</td></tr></table><br />
+<p>The first line of output will show arguments that have been assigned their defaults because you haven't specified them:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> httperf</font>
+</td></tr>
+<tr>
+<td>
+<pre>httperf --client=0/1 --server=localhost --port=80 --uri=/ \ --send-buffer=4096 --recv-buffer=16384 \ --num-conns=5000 --num-calls=50
+</pre>
+</td></tr></table><br />
+<p>Unlike curl-loader, httperf doesn't keep you updated about the status of the test run, nor does it write detailed log files. It only shows a summary of the test results at the end of the test run. There's a debugging switch that helps you see what it's currently doing, but it has to be enabled at compile time.
+</p><p>I like the fact that httperf lets you specify all parameters on the command line. This lets you prototype your load test quickly and then put the finished invocation into a shell script. Running different tests sequentially or in parallel is also a no-brainer.
+</p><p>httperf could be a little smarter in its interpretation of its command-line arguments, though. For example, the separation of the target URI into server and path parts seems unnecessary, plus the latter one is specified by the --uri option, which is a misnomer, as valid URIs may contain the server name as well.
+</p><p>Try <a rel="nofollow" class="external text" href="http://www.acme.com/software/http_load/">http_load</a> if you want a simpler tool in the style of httperf.
+</p>
+<h1><span class="mw-headline" id="Siege"><span class="mw-headline-number">4</span> Siege</span></h1>
+<p><a rel="nofollow" class="external text" href="http://www.joedog.org/JoeDog/Siege">Siege</a> is similar to httperf in that it can be configured almost fully with command-line arguments. But Siege uses multiple concurrent threads to send its requests, has fewer low-level options than httperf, and is built to work with a list of URLs. It's also easier to use than httperf because its options are named in a more straightforward way.
+</p><p>A Siege run with default parameters can be as simple as
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> siege</font>
+</td></tr>
+<tr>
+<td>
+<pre>siege localhost
+</pre>
+</td></tr></table><br />
+<p>However, this doesn't access the full power of Siege, which is to test a list of URLs in a largely unpredictable way like a real user would. To gather URLs, Siege's author offers the auxiliary program Sproxy. After installing, run it like this:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> siege</font>
+</td></tr>
+<tr>
+<td>
+<pre>sproxy -v -o urls.txt
+</pre>
+</td></tr></table><br />
+<p>Sproxy will keep the terminal open and list all recorded URLs, plus write them to the file urls.txt for Siege.
+</p><p>Configure your browser to use localhost:9001 as an HTTP proxy. Then it's time to start browsing your site, thereby letting Sproxy record information about the URLs for Siege.
+</p><p>When you have gathered some URLs you would like to test, start the next test run like this:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> siege</font>
+</td></tr>
+<tr>
+<td>
+<pre>siege -v --internet --file=urls.txt
+</pre>
+</td></tr></table><br />
+<p>The --internet argument instructs Siege to hit the URLs in a random fashion, like a horde of surfers would.
+</p>
+<h1><span class="mw-headline" id="Tsung"><span class="mw-headline-number">5</span> Tsung</span></h1>
+<p><a rel="nofollow" class="external text" href="http://tsung.erlang-projects.org/">Tsung</a> works in a way similar to using Siege with an URL file, but it offers more elaborate features, such as random user agents, session simulation, and dynamic data feedback. It also performs better by using Erlang's Green Threads.
+</p><p>This comes at a price, though: Tsung doesn't offer the ad-hoc command-line invocation we know from Siege, curl-loader, and httperf. You must either manually create a scenario file in ~/.tsung/tsung.xml or use the recording mode of Tsung, which works like Siege's Sproxy:
+</p>
+<ul><li> Start the Tsung recording proxy with tsung recorder, then visit the target URLs with localhost:8090 as proxy server.</li>
+<li> Open the newly created session record in ~/.tsung and <a rel="nofollow" class="external text" href="http://tsung.erlang-projects.org/user_manual.html#htoc28">edit the details of your scenario</a>.</li>
+<li> Save it as ~/.tsung/tsung.xml.</li>
+<li> Use tsung start to start the test.</li></ul>
+<p>Step two, the crafting of the configuration file, is the most difficult part. If you want to use the advanced features of Tsung you will definitely need to get acquainted with its format.
+</p><p>As an additional bonus, Tsung can also put PostgreSQL and Jabber servers under load.
+</p>
+<h1><span class="mw-headline" id="Conclusion"><span class="mw-headline-number">6</span> Conclusion</span></h1>
+<p>Each of these tools has its advantages and disadvantages. All are documented well, offer a painless installation, and run reliably.
+</p><p>Here's a possible decision path to find the right tool for your particular job: start out simple with Siege and see if you can get away with its simple performance and feature set. After that, try httperf, which has a slightly expanded feature set and runs faster. If you need to set up more complex scenarios, move on to curl-loader and Tsung, which have the largest feature sets and best performance, but especially Tsung takes time to get used to.
+</p><p>Apache JMeter is the only GUI-based application in the crowd. Its feature set is pretty impressive, offering some unique things like content pre- and postprocessors. You should give it a try if you prefer GUI apps.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.020 seconds
+Preprocessor visited node count: 94/1000000
+Preprocessor generated node count: 258/1000000
+Post‐expand include size: 894/2097152 bytes
+Template argument size: 209/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    2.254      1 - -total
+ 79.45%    1.791      5 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2690-0!*!*!1!en!5!* and timestamp 20181111230820 and revision id 6578
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Tester_le_load_sur_ses_serveurs_et_applications_web&amp;oldid=6578">https://wiki.deimos.fr/index.php?title=Tester_le_load_sur_ses_serveurs_et_applications_web&amp;oldid=6578</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Tester+le+load+sur+ses+serveurs+et+applications+web" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Tester_le_load_sur_ses_serveurs_et_applications_web&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Tester_le_load_sur_ses_serveurs_et_applications_web&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Tester_le_load_sur_ses_serveurs_et_applications_web.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Tester_le_load_sur_ses_serveurs_et_applications_web.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Tester_le_load_sur_ses_serveurs_et_applications_web" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Tester_le_load_sur_ses_serveurs_et_applications_web&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Tester_le_load_sur_ses_serveurs_et_applications_web&amp;oldid=6578" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Tester_le_load_sur_ses_serveurs_et_applications_web&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 10 September 2008, at 15:57.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":55});
+}</script>
+	</body>
+</html>
+	

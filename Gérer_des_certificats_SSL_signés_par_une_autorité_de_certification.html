@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Gérer des certificats SSL signés par une autorité de certification - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification","wgTitle":"Gérer des certificats SSL signés par une autorité de certification","wgCurRevisionId":13448,"wgRevisionId":13448,"wgArticleId":3143,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification","wgRelevantArticleId":3143,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Gérer des certificats SSL signés par une autorité de certification</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#mw-navigation">navigation</a>, 					<a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#G.C3.A9n.C3.A9ration_des_certificats"><span class="tocnumber">2</span> <span class="toctext">Génération des certificats</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Lighttpd"><span class="tocnumber">2.1</span> <span class="toctext">Lighttpd</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Nginx"><span class="tocnumber">2.2</span> <span class="toctext">Nginx</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Signature_du_certificat"><span class="tocnumber">2.3</span> <span class="toctext">Signature du certificat</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Lighttpd_2"><span class="tocnumber">3.1</span> <span class="toctext">Lighttpd</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Nginx_2"><span class="tocnumber">3.2</span> <span class="toctext">Nginx</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#Ressources"><span class="tocnumber">4</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<p>Startssl_logo.png
+</p>
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Startssl_logo.png.html" class="image" title="StartSSL Logo"><img alt="StartSSL Logo" src="images/2/23/Startssl_logo.png" width="187" height="51" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td></td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://www.startssl.com">StartSSL Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>17/02/2015</td>
+   </tr><tr>
+      <th>Others</th>
+      <td>Nginx 1.2.1<br />Lighttpd 1.4.31</td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Vous avez besoin pour votre société ou pour vos besoins personnels d'avoir du SSL sur votre site web. L'inconvénient c'est que si vous les générez vous même et vous les auto signez, la première fois que vous irez dessus, vous aurez un message d'avertissement.
+</p><p>Pour ne pas avoir ce message et un beau petit cadenas sur votre navigateur qui dit que vous êtes protégés, il faut payer à une autorité de certification un paquet de fric pour avoir un certificat SSL valide.
+</p><p>Seulement voilà il existe de gentilles sociétés qui gratuitement ou pour quelques dizaines d'euros vous offrent un certificat pour votre nom de domaine signé&#160;:-). C'est ce que nous allons voir ici avec <a rel="nofollow" class="external text" href="http://www.startcom.org/">StartCom</a>.
+</p>
+<h1><span class="mw-headline" id="G.C3.A9n.C3.A9ration_des_certificats"><span class="mw-headline-number">2</span> Génération des certificats</span></h1>
+<p>Avant de commencer, créez votre compte et allez jusqu'à l'étape de la clef privée sur <a rel="nofollow" class="external text" href="http://www.startcom.org/">StartCom</a>.
+</p><p>Ici, je vais présenter plusieurs serveurs&#160;:
+</p>
+<ol><li> Lighttpd&#160;: Génération d'une clef en classe 1<sup id="cite_ref-1" class="reference"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#cite_note-1">[1]</a></sup></li>
+<li> Nginx&#160;: Génération d'une clef wildcard en classe 2<sup id="cite_ref-2" class="reference"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#cite_note-2">[2]</a></sup></li></ol>
+<p>Je vous laisse adapter à votre configuration si vous avez besoin d'inverser.
+</p>
+<h2><span class="mw-headline" id="Lighttpd"><span class="mw-headline-number">2.1</span> Lighttpd</span></h2>
+<p>Nous allons voir ici comment faire avec Lighttpd. Tout d'abord, créons l'essentiel&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>cd /etc/lighttpd
+mkdir ssl
+cd ssl
+</pre>
+</td></tr></table><br />
+<p>Ensuite, nous allons générer la clef RSA privée et on sécurise le tout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> openssl</font>
+</td></tr>
+<tr>
+<td>
+<pre>openssl genrsa -out server.key 4096
+chmod 400 server.key
+</pre>
+</td></tr></table><br />
+<p>Copiez le contenu de cette clef dans le site afin qu'il vous génère la suite. Puis nous allons créer le CSR&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> openssl</font>
+</td></tr>
+<tr>
+<td>
+<pre>openssl req -new -nodes -key server.key -out server.csr
+</pre>
+</td></tr></table><br />
+<p>Pour la partie common name, entrez votre site par défaut (ex&#160;: www.deimos.fr).
+</p><p>Récupérez ensuite les certificats de StartCom&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> wget</font>
+</td></tr>
+<tr>
+<td>
+<pre>wget <a rel="nofollow" class="external free" href="http://www.startssl.com/certs/ca.pem">http://www.startssl.com/certs/ca.pem</a>
+wget <a rel="nofollow" class="external free" href="http://www.startssl.com/certs/sub.class1.server.ca.crt">http://www.startssl.com/certs/sub.class1.server.ca.crt</a>
+wget <a rel="nofollow" class="external free" href="http://www.startssl.com/certs/sub.class1.server.ca.pem">http://www.startssl.com/certs/sub.class1.server.ca.pem</a>
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Nginx"><span class="mw-headline-number">2.2</span> Nginx</span></h2>
+<p>Nous allons voir ici comment faire avec Nginx. Tout d'abord, créons l'essentiel&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>cd /etc/nginx
+mkdir ssl
+cd ssl
+</pre>
+</td></tr></table><br />
+<p>Ensuite, nous allons générer la clef RSA privée et on sécurise le tout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> openssl</font>
+</td></tr>
+<tr>
+<td>
+<pre>openssl genrsa -out server.key 4096
+chmod 400 server.key
+</pre>
+</td></tr></table><br />
+<p>Copiez le contenu de cette clef dans le site afin qu'il vous génère la suite. Puis nous allons créer le CSR&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> openssl</font>
+</td></tr>
+<tr>
+<td>
+<pre>openssl req -new -nodes -key server.key -out server.csr
+</pre>
+</td></tr></table><br />
+<p>Pour la partie common name, entrez votre site par défaut (ex&#160;: www.deimos.fr).
+</p><p>Récupérez ensuite les certificats de StartCom&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> wget</font>
+</td></tr>
+<tr>
+<td>
+<pre>wget <a rel="nofollow" class="external free" href="http://www.startssl.com/certs/ca.pem">http://www.startssl.com/certs/ca.pem</a>
+wget <a rel="nofollow" class="external free" href="http://www.startssl.com/certs/sub.class2.server.ca.crt">http://www.startssl.com/certs/sub.class2.server.ca.crt</a>
+wget <a rel="nofollow" class="external free" href="http://www.startssl.com/certs/sub.class2.server.ca.pem">http://www.startssl.com/certs/sub.class2.server.ca.pem</a>
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Signature_du_certificat"><span class="mw-headline-number">2.3</span> Signature du certificat</span></h2>
+<p>Maintenant on va générer un certificat sur le site web StartSSL. Pour commencer, créez votre domaine avec le Validation Wizzard&#160;:
+</p><p><a href="./File:Startssl3.png.html" class="image"><img alt="Startssl3.png" src="images/0/09/Startssl3.png" width="314" height="72" /></a>
+</p><p>Choisissez Domain Name Validation&#160;:
+</p><p><a href="./File:Startssl1.png.html" class="image"><img alt="Startssl1.png" src="images/1/16/Startssl1.png" width="453" height="90" /></a>
+</p><p>Puis créez le domaine que vous souhaitez&#160;:
+</p><p><a href="./File:Startssl2.png.html" class="image"><img alt="Startssl2.png" src="images/8/89/Startssl2.png" width="445" height="90" /></a>
+</p><p>Finissez la création du domaine et cliquez sur Certificates Wizzard&#160;:
+</p><p><a href="./File:Startssl3.png.html" class="image"><img alt="Startssl3.png" src="images/0/09/Startssl3.png" width="314" height="72" /></a>
+</p><p>Ensuite sélectionnez la partie "Web Server SSL/TLS Certificate" car c'est ça qui nous intéresse&#160;:
+</p><p><a href="./File:Startssl4.png.html" class="image"><img alt="Startssl4.png" src="images/3/3c/Startssl4.png" width="456" height="88" /></a>
+</p><p>Ensuite on skip cette partie car nous avons générer notre propre certificat
+</p><p><a href="./File:Startssl5.png.html" class="image"><img alt="Startssl5.png" src="images/9/94/Startssl5.png" width="781" height="210" /></a>
+</p><p>Et on colle le contenu du fichier server.csr dans la zone de texte&#160;:
+</p><p><a href="./File:Startssl6.png.html" class="image"><img alt="Startssl6.png" src="images/8/82/Startssl6.png" width="596" height="283" /></a>
+</p><p>Finissez, puis créer un fichier <b>server.crt</b> avec le contenu qui nous sera donné comme certificat SSL.
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Lighttpd_2"><span class="mw-headline-number">3.1</span> Lighttpd</span></h2>
+<p>Ensuite, nous créons un certificat pem depuis ceux que nous avons générer ainsi qu'un crt&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cp</font>
+</td></tr>
+<tr>
+<td>
+<pre>cat server.key server.crt &gt; server.pem
+cat ca.pem sub.class1.server.ca.pem &gt; ca-certs.crt
+</pre>
+</td></tr></table><br />
+<p>Ensuite nous allons configurer notre serveur lighttpd afin qu'il prenne nos nouvelles clefs&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/lighttpd/conf-enabled/10-ssl.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">## lighttpd support for SSLv2 and SSLv3
+## 
+## Documentation: /usr/share/doc/lighttpd-doc/ssl.txt
+##  http://www.lighttpd.net/documentation/ssl.html 
+&#160;
+#### SSL engine
+$SERVER[&quot;socket&quot;] == &quot;0.0.0.0:443&quot; {
+                  ssl.engine                  = &quot;enable&quot;
+                  ssl.pemfile                 = &quot;/etc/lighttpd/ssl/server.pem&quot;
+                  ssl.ca-file                 = &quot;/etc/lighttpd/ssl/ca-certs.crt&quot;
+}</pre></div></div>
+</td></tr></table><br />
+<p>N'oubliez pas de redémarrer votre serveur Lighttpd pour que les paramètres soient pris en compte&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Nginx_2"><span class="mw-headline-number">3.2</span> Nginx</span></h2>
+<p>Pour Nginx, c'est un peu différent de Lighttpd. Nous allons créer le certificat unifié comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cat ssl.crt sub.class2.server.ca.pem ca.pem &gt; /etc/nginx/ssl/server-unified.crt</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nginx/sites-enabled/www.deimos.fr</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+ssl on;
+ssl_certificate /etc/nginx/ssl/server-unified.crt;
+ssl_certificate_key /etc/nginx/ssl/server.key;
+[...]</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite, redémarrez Nginx pour que les certificats fonctionnent.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">4</span> Ressources</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://forum.startcom.org/viewtopic.php?t=719">http://forum.startcom.org/viewtopic.php?t=719</a></span>
+</li>
+<li id="cite_note-2"><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.startssl.com/?app=42">http://www.startssl.com/?app=42</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.044 seconds
+Real time usage: 0.049 seconds
+Preprocessor visited node count: 232/1000000
+Preprocessor generated node count: 708/1000000
+Post‐expand include size: 4383/2097152 bytes
+Template argument size: 998/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   12.159      1 - -total
+ 16.44%    1.999      8 - Template:Command
+ 16.12%    1.960      1 - Template:Infobox
+ 15.54%    1.890      2 - Template:Config
+ 13.16%    1.600      2 - Template:Ssl_gen_ssl
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3143-0!*!*!1!en!5!* and timestamp 20181111230820 and revision id 13448
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification&amp;oldid=13448">https://wiki.deimos.fr/index.php?title=Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification&amp;oldid=13448</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=G%C3%A9rer+des+certificats+SSL+sign%C3%A9s+par+une+autorit%C3%A9+de+certification" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Gérer_des_certificats_SSL_signés_par_une_autorité_de_certification.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification&amp;oldid=13448" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 17 February 2015, at 03:58.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":86});
+}</script>
+	</body>
+</html>
+	

@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Latence des process et kernel timing - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Latence_des_process_et_kernel_timing.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Latence_des_process_et_kernel_timing","wgTitle":"Latence des process et kernel timing","wgCurRevisionId":13143,"wgRevisionId":13143,"wgArticleId":3457,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Latence_des_process_et_kernel_timing","wgRelevantArticleId":3457,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Latence_des_process_et_kernel_timing skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Latence des process et kernel timing</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Latence_des_process_et_kernel_timing.html#mw-navigation">navigation</a>, 					<a href="Latence_des_process_et_kernel_timing.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Latence_des_process_et_kernel_timing.html#Les_horloges"><span class="tocnumber">1</span> <span class="toctext">Les horloges</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Latence_des_process_et_kernel_timing.html#G.C3.A9rer_la_vitesse_CPU"><span class="tocnumber">2</span> <span class="toctext">Gérer la vitesse CPU</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Latence_des_process_et_kernel_timing.html#Le_balancing_IRQ"><span class="tocnumber">3</span> <span class="toctext">Le balancing IRQ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Latence_des_process_et_kernel_timing.html#Activer.2FD.C3.A9sactiver_des_CPU_.C3.A0_chaud"><span class="tocnumber">4</span> <span class="toctext">Activer/Désactiver des CPU à chaud</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Latence_des_process_et_kernel_timing.html#Egaliser_l.27utilisation_des_CPUs"><span class="tocnumber">5</span> <span class="toctext">Egaliser l'utilisation des CPUs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="Latence_des_process_et_kernel_timing.html#taskset"><span class="tocnumber">5.1</span> <span class="toctext">taskset</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Latence_des_process_et_kernel_timing.html#cpuset.2Fcgroup"><span class="tocnumber">5.2</span> <span class="toctext">cpuset/cgroup</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="Latence_des_process_et_kernel_timing.html#Pr.C3.A9requis"><span class="tocnumber">5.2.1</span> <span class="toctext">Prérequis</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="Latence_des_process_et_kernel_timing.html#Cr.C3.A9ation"><span class="tocnumber">5.2.2</span> <span class="toctext">Création</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="Latence_des_process_et_kernel_timing.html#Assigner_un_cpu_et_sa_m.C3.A9moire_.C3.A0_un_cgroup"><span class="tocnumber">5.2.3</span> <span class="toctext">Assigner un cpu et sa mémoire à un cgroup</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="Latence_des_process_et_kernel_timing.html#D.C3.A9dier_un_CPU_.C3.A0_un_cgroup"><span class="tocnumber">5.2.4</span> <span class="toctext">Dédier un CPU à un cgroup</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="Latence_des_process_et_kernel_timing.html#Ajouter_un_processus_.C3.A0_un_cgroup"><span class="tocnumber">5.2.5</span> <span class="toctext">Ajouter un processus à un cgroup</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="Latence_des_process_et_kernel_timing.html#D.C3.A9tacher_un_processus_d.27un_cgroup"><span class="tocnumber">5.2.6</span> <span class="toctext">Détacher un processus d'un cgroup</span></a></li>
+<li class="toclevel-3 tocsection-14"><a href="Latence_des_process_et_kernel_timing.html#Supprimer_un_cgroup"><span class="tocnumber">5.2.7</span> <span class="toctext">Supprimer un cgroup</span></a></li>
+<li class="toclevel-3 tocsection-15"><a href="Latence_des_process_et_kernel_timing.html#Monitorer_la_pression_sur_un_cpuset"><span class="tocnumber">5.2.8</span> <span class="toctext">Monitorer la pression sur un cpuset</span></a></li>
+<li class="toclevel-3 tocsection-16"><a href="Latence_des_process_et_kernel_timing.html#Divers"><span class="tocnumber">5.2.9</span> <span class="toctext">Divers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-17"><a href="Latence_des_process_et_kernel_timing.html#Cgroups_with_cgconfig"><span class="tocnumber">5.3</span> <span class="toctext">Cgroups with cgconfig</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="Latence_des_process_et_kernel_timing.html#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Poweredbylinux.jpg.html" class="image" title="Linux"><img alt="Linux" src="images/2/2f/Poweredbylinux.jpg" width="100" height="150" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>Kernel 2.6.32+</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Red Hat 6.3<br />Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://www.kernel.org">Kernel Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>05/01/2014</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Les_horloges"><span class="mw-headline-number">1</span> Les horloges</span></h1>
+<p>Il existe plusieurs horloges qui permettent d'obtenir ou de manipuler des opérations de temps&#160;:
+</p>
+<ul><li> RTC (Real Time Clock)&#160;: c'est la pile du BIOS qui permet de maintenir la date et l'heure sur une machine lorsque celle ci est éteint. Vous pouvez récupérer des informations sur celle ici dans le fichier /proc/driver/rtc.</li>
+<li> TSC (Time Stamp Counter)&#160;: c'est un compteur qui est mis à la même fréquence que celle du CPU, même si celui ci oscille. Le kernel utilise le TSC avec le RTC pour calculer la date et l'heure</li>
+<li> PIC (Programmable Interrupt Counter)&#160;: aussi connu sous le nom de PIT (Programmable Interval Timer) qui permet d'envoyer des interruptions au kernel après un certain temps passé. Il est généralement utilisé pour les process schedule.</li>
+<li> APIC (Advanced Programmable Interrupt Controller)&#160;: Il se cale également sur l'horloge CPU et permet de tracer les process en cours d'exécution et envoie les interruptions locales à ce processeur.</li></ul>
+<p>Sur un kernel 2.6, la fréquence du PIC est de 1MHz ou d'1 tick/ms (appelé aussi jiffy). Cet interval peut être ajusté lors de la compilation kernel ou bien en paramètre de boot (pour certaines distributions). Une valeur de tick plus courte donnera des temps de résolution meilleurs, cependant, les applications risquent de tourner de façon légèrement plus ralenti.
+</p><p>Le paramètre de boot est&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/grub</font>
+</td></tr>
+<tr>
+<td>
+<pre>GRUB_CMDLINE_LINUX_DEFAULT="quiet <b>tick_divider=&lt;value&gt;</b>"
+</pre>
+</td></tr></table><br />
+<p>Les valeurs intéressantes sont&#160;:
+</p>
+<ul><li> 2 = 500 Hz</li>
+<li> 4 = 250 Hz</li>
+<li> 5 = 200 Hz</li>
+<li> 8 = 125 Hz</li>
+<li> 10 = 100 Hz</li></ul>
+<p>L'avantage est la réduction d'Overhead CPU, mais le scheduler est moins fair avec les processus interactifs.
+</p>
+<h1><span class="mw-headline" id="G.C3.A9rer_la_vitesse_CPU"><span class="mw-headline-number">2</span> Gérer la vitesse CPU</span></h1>
+<p>Il existe sous Red Hat un outil permettant de controler la vitesse de l'horloge CPU. Pour cela il faut installer le démon "cpuspeed" et le configurer dans /etc/sysconfig/cpuspeed&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /etc/sysconfig/cpuspeed</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># /etc/sysconfig/cpuspeed
+#
+# This configuration file controls the behavior of both the
+# cpuspeed daemon and various cpufreq modules.
+# For the vast majority of users, there shouldn't be any need to
+# alter the contents of this file at all. By and large, frequency
+# scaling should Just Work(tm) with the defaults.
+&#160;
+### DRIVER ###
+# Your CPUFreq driver module
+# Note that many drivers are now built-in, rather than built as modules,
+# so its usually best not to specify one.
+# default value: empty (try to auto-detect/use built-in)
+DRIVER=
+&#160;
+### GOVERNOR ###
+# Which scaling governor to use
+# Details on scaling governors for your cpu(s) can be found in
+# cpu-freq/governors.txt, part of the kernel-doc package
+# NOTES:
+# - The GOVERNOR parameter is only valid on centrino, powernow-k8 (amd64)
+#   and acpi-cpufreq platforms, other platforms that support frequency
+#   scaling always use the 'userspace' governor.
+# - Using the 'userspace' governor will trigger the cpuspeed daemon to run,
+#   which provides said user-space frequency scaling.
+# default value: empty (defaults to ondemand on centrino, powernow-k8,
+#                       and acpi-cpufreq systems, userspace on others)
+GOVERNOR=
+&#160;
+### FREQUENCIES ###
+# NOTE: valid max/min frequencies for your cpu(s) can be found in
+# /sys/devices/system/cpu/cpu*/cpufreq/scaling_available_frequencies
+# on systems that support frequency scaling (though only after the
+# appropriate drivers have been loaded via the cpuspeed initscript).
+# maximum speed to scale up to
+# default value: empty (use cpu reported maximum)
+MAX_SPEED=
+# minimum speed to scale down to
+# default value: empty (use cpu reported minimum)
+MIN_SPEED=
+&#160;
+### SCALING THRESHOLDS ###
+# Busy percentage threshold over which to scale up to max frequency
+# default value: empty (use governor default)
+UP_THRESHOLD=
+# Busy percentage threshold under which to scale frequency down
+# default value: empty (use governor default)
+DOWN_THRESHOLD=
+&#160;
+### NICE PROCESS HANDLING ###
+# Let background (nice) processes speed up the cpu
+# default value: 0 (background process usage can speed up cpu)
+# alternate value: 1 (background processes will be ignored)
+IGNORE_NICE=0
+&#160;
+&#160;
+#####################################################
+########## HISTORICAL CPUSPEED CONFIG BITS ##########
+#####################################################
+VMAJOR=1
+VMINOR=1
+&#160;
+# Add your favorite options here
+#OPTS=&quot;$OPTS -s 0 -i 10 -r&quot;
+&#160;
+# uncomment and modify this to check the state of the AC adapter
+#OPTS=&quot;$OPTS -a /proc/acpi/ac_adapter/*/state&quot;
+&#160;
+# uncomment and modify this to check the system temperature
+#OPTS=&quot;$OPTS -t /proc/acpi/thermal_zone/*/temperature 75&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez récupérer les informations actuelles comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cpuspeed</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cpuspeed ---help 2&gt;&amp;1 | more</pre></div></div>
+</td></tr></table><br />
+<p>Il est possible de voir les valeurs assignables possible&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies 
+3166000 2667000 2333000 2000000</pre></div></div>
+</td></tr></table><br />
+<p>Donc 3.16Ghz, 2.66Ghz, 2.33Ghz ou 2Ghz.
+</p><p>Et enfin le gouvernor permet de voir l'algorithme utilisé. Par exemple ici c'est le "on demand", ce qui modifie a la volée la vitesse du processeur en fonction de la demande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_available_governors   
+ondemand performance</pre></div></div>
+</td></tr></table><br />
+<p>Si vous souhaitez les meilleures performances, désactivez ce démon. L'inconvénient est biensure la consommation électrique (pensez à l'environnement).<br />
+Sachez que si vous avez besoin de très faibles latences, il est fortement conseillé de désactiver ce démon.
+</p>
+<h1><span class="mw-headline" id="Le_balancing_IRQ"><span class="mw-headline-number">3</span> Le balancing IRQ</span></h1>
+<p>Assurez vous que ces informations sont bien compilées dans le kernel&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> grep</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; grep -e VOLUNTARY -e BKL /boot/config-2.6.32-279.2.1.el6.x86_64 | grep -v '#'
+CONFIG_PREEMPT_VOLUNTARY=y
+CONFIG_BKL=y</pre></div></div>
+</td></tr></table><br />
+<p>Ces options sont faites pour que le kernel puisse préempter et planifier certains process. Le gain se fera sentir au niveau de la latence (surtout réseaux). Par exemple, le kernel peut gérer des opérations IO disque et recevoir en même temps des interruptions de la part de la carte réseau. Le handler qui fait les IO disques peut être préempté en faveur de l'interruption de la carte réseau ce qui améliorerait la latence réseau.
+</p><p>Il est néanmoins possible de désactiver l'IRQ balancing via un paramètre de boot&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/grub</font>
+</td></tr>
+<tr>
+<td>
+<pre>GRUB_CMDLINE_LINUX_DEFAULT="quiet <b>noapic</b>"
+</pre>
+</td></tr></table><br />
+<p>Si les IRQ sont inégalement réparties sur le CPU, le résultat peut être un incohérence des performances lorsque les gestionnaires d'interruption feront préempter les processus qui sont sur le CPU.
+</p><p>Pour voir les interruptions sur les interruptions&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; cat /proc/interrupts 
+           CPU0       CPU1       
+  0:        121         38   IO-APIC-edge      timer
+  1:          3          0   IO-APIC-edge      i8042
+  7:          0          0   IO-APIC-edge      parport0
+  8:          1          0   IO-APIC-edge      rtc0
+  9:          0          0   IO-APIC-fasteoi   acpi
+ 12:          2          2   IO-APIC-edge      i8042
+ 16:       9138       9221   IO-APIC-fasteoi   uhci_hcd:usb2
+ 17:     119477     120478   IO-APIC-fasteoi   uhci_hcd:usb4, uhci_hcd:usb7
+ 18:     235767     237579   IO-APIC-fasteoi   ata_generic, ata_piix, ata_piix, uhci_hcd:usb8
+ 22:     627101     627432   IO-APIC-fasteoi   ehci_hcd:usb1, uhci_hcd:usb5
+ 23:          0          0   IO-APIC-fasteoi   ehci_hcd:usb3, uhci_hcd:usb6
+ 40:    4752698          0  HPET_MSI-edge      hpet2
+ 41:          0    4481502  HPET_MSI-edge      hpet3
+ 47:     704766     717489   PCI-MSI-edge      eth0
+ 48:        722        764   PCI-MSI-edge      snd_hda_intel
+ 49:    1462373    1492905   PCI-MSI-edge      i915
+NMI:       3001       2977   Non-maskable interrupts
+LOC:        754        731   Local timer interrupts
+SPU:          0          0   Spurious interrupts
+PMI:       3001       2977   Performance monitoring interrupts
+IWI:          0          0   IRQ work interrupts
+RES:    9186852    9208409   Rescheduling interrupts
+CAL:        607        596   Function call interrupts
+TLB:     447954     362994   TLB shootdowns
+TRM:          0          0   Thermal event interrupts
+THR:          0          0   Threshold APIC interrupts
+MCE:          0          0   Machine check exceptions
+MCP:         82         82   Machine check polls
+ERR:          0
+MIS:          0</pre></div></div>
+</td></tr></table><br />
+<p>Les interceptions permettent d'exploiter l'affinité des caches pour CPU et l'égalisation du nombre de visites CPU. Pour donner une affinité IRQ à un CPU afin d'améliorer les performances en exploitant au mieux l'affinité du cache, il faut spécifier le bitmap d'un core en hexadécimal. Par exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &lt;cpu_mask&gt; &gt; /proc/irq/&lt;interrupt_number&gt;/smp_affinity</pre></div></div>
+</td></tr></table><br />
+<p>Cela permettra de placer cet IRQ en tête de l'active queue et de préserver certains CPU d'être utiliser pour les assignations IRQ. Il est possible de configurer sur Red Hat de façon permanente dans /etc/sysconfig/irqbalance. Pour ceux qui le souhaites, il est possible de désactiver l'IRQ balancing&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chkconfig</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">chkconfig irqbalance off</pre></div></div>
+</td></tr></table><br />
+<p>Pour plus d'infos sur les affinités IRQ&#160;: <a rel="nofollow" class="external free" href="http://kernel.org/doc/Documentation/IRQ-affinity.txt">http://kernel.org/doc/Documentation/IRQ-affinity.txt</a><sup id="cite_ref-1" class="reference"><a href="Latence_des_process_et_kernel_timing.html#cite_note-1">[1]</a></sup>
+</p>
+<h1><span class="mw-headline" id="Activer.2FD.C3.A9sactiver_des_CPU_.C3.A0_chaud"><span class="mw-headline-number">4</span> Activer/Désactiver des CPU à chaud</span></h1>
+<p>Il est possible d'activer ou désactiver des CPU à chaud&#160;! C'est d'ailleurs très facile. Vérifiez dans un premier temps que votre kernel permet ce genre de choses&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> /boot/config-`uname -r`</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">CONFIG_HOTPLUG
+CONFIG_SMP
+CONFIG_HOTPLUG_CPU
+CONFIG_ACPI_HOTPLUG_CPU</pre></div></div>
+</td></tr></table><br />
+<p>Récupérez la liste des processeurs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> grep</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; grep processor /proc/cpuinfo 
+processor	: 0
+processor	: 1</pre></div></div>
+</td></tr></table><br />
+<p>Vérifiez ensuite vos interruptions&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; cat /proc/interrupts 
+           CPU0       CPU1       
+  0:        109         36   IO-APIC-edge      timer
+  1:          3          0   IO-APIC-edge      i8042
+  7:          0          0   IO-APIC-edge      parport0
+  8:          1          0   IO-APIC-edge      rtc0
+  9:          0          0   IO-APIC-fasteoi   acpi
+ 12:          1          3   IO-APIC-edge      i8042
+ 16:      13500      13486   IO-APIC-fasteoi   uhci_hcd:usb3
+ 17:     122633     122322   IO-APIC-fasteoi   uhci_hcd:usb4, uhci_hcd:usb7
+ 18:     157011     157338   IO-APIC-fasteoi   ata_piix, ata_piix, uhci_hcd:usb8, ata_generic
+ 22:     365980     365602   IO-APIC-fasteoi   ehci_hcd:usb1, uhci_hcd:usb5
+ 23:          0          0   IO-APIC-fasteoi   ehci_hcd:usb2, uhci_hcd:usb6
+ 40:    3995517          0  HPET_MSI-edge      hpet2
+ 41:          0    4003499  HPET_MSI-edge      hpet3
+ 47:     188227     196024   PCI-MSI-edge      eth0
+ 48:        472        468   PCI-MSI-edge      snd_hda_intel
+ 49:    1079730    1075353   PCI-MSI-edge      i915
+NMI:       2169       2188   Non-maskable interrupts
+LOC:        756        733   Local timer interrupts
+SPU:          0          0   Spurious interrupts
+PMI:       2169       2188   Performance monitoring interrupts
+IWI:          0          0   IRQ work interrupts
+RES:    7945496    7982861   Rescheduling interrupts
+CAL:        586        482   Function call interrupts
+TLB:     397248     414104   TLB shootdowns
+TRM:          0          0   Thermal event interrupts
+THR:          0          0   Threshold APIC interrupts
+MCE:          0          0   Machine check exceptions
+MCP:         68         68   Machine check polls
+ERR:          0
+MIS:          0</pre></div></div>
+</td></tr></table><br />
+<p>Pour désactiver le CPU 1&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo 0 &gt; /sys/devices/system/cpu/cpu1/online</pre></div></div>
+</td></tr></table><br />
+<p>On peut voir qu'il n'y a plus que le CPU 0&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; cat /proc/interrupts                        
+           CPU0       
+  0:        109   IO-APIC-edge      timer
+  1:          3   IO-APIC-edge      i8042
+  7:          0   IO-APIC-edge      parport0
+  8:          1   IO-APIC-edge      rtc0
+  9:          0   IO-APIC-fasteoi   acpi
+ 12:          1   IO-APIC-edge      i8042
+ 16:      13606   IO-APIC-fasteoi   uhci_hcd:usb3
+ 17:     123361   IO-APIC-fasteoi   uhci_hcd:usb4, uhci_hcd:usb7
+ 18:     157302   IO-APIC-fasteoi   ata_piix, ata_piix, uhci_hcd:usb8, ata_generic
+ 22:     366042   IO-APIC-fasteoi   ehci_hcd:usb1, uhci_hcd:usb5
+ 23:          0   IO-APIC-fasteoi   ehci_hcd:usb2, uhci_hcd:usb6
+ 40:    4010597  HPET_MSI-edge      hpet2
+ 41:          1  HPET_MSI-edge    
+ 47:     188715   PCI-MSI-edge      eth0
+ 48:        472   PCI-MSI-edge      snd_hda_intel
+ 49:    1085415   PCI-MSI-edge      i915
+NMI:       2177   Non-maskable interrupts
+LOC:        756   Local timer interrupts
+SPU:          0   Spurious interrupts
+PMI:       2177   Performance monitoring interrupts
+IWI:          0   IRQ work interrupts
+RES:    7981178   Rescheduling interrupts
+CAL:        587   Function call interrupts
+TLB:     397336   TLB shootdowns
+TRM:          0   Thermal event interrupts
+THR:          0   Threshold APIC interrupts
+MCE:          0   Machine check exceptions
+MCP:         68   Machine check polls
+ERR:          0
+MIS:          0</pre></div></div>
+</td></tr></table><br />
+<p>On réactive ensuite le CPU 1&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo 1 &gt; /sys/devices/system/cpu/cpu1/online</pre></div></div>
+</td></tr></table><br />
+<p>Et tout le monde se replace correctement&#160;:-). Il faut savoir que certains CPU ne peuvent pas être désactivé comme le CPU de boot.
+</p>
+<h1><span class="mw-headline" id="Egaliser_l.27utilisation_des_CPUs"><span class="mw-headline-number">5</span> Egaliser l'utilisation des CPUs</span></h1>
+<p>Chaque core a sa propre run queue. Pour les processeurs HyperThreadés, le processeur logique utilise la même run queue que le core physique. Par défaut, il existe une certaine affinité et les tâches qui se produisent sur un CPU reviennent dessus plus ou moins automatiquement si d'autres associées se trouvaient à aller voir un autre CPU. Sachant que chaque CPU a son propre cache, c'est mieux comme cela. Cependant, si un core est plus chargé qu'un autre, le scheduleur regarde les run queues toutes les 100ms (ou 1ms sur le core ne fait rien) et décide de rééquilibrer la charge . Le problème se situe dans le cas ou ce système de balancing se fait trop souvent, on peut se prendre de la latence pour éviter des caches miss (tout dépends des applicatifs)&#160;! Il faut alors choisir ce que l'on souhaites le plus. Pour voir la liste des programmes ainsi que leur core associés&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ps</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ps axo comm,psr
+COMMAND         PSR
+init              1
+kthreadd          0
+ksoftirqd/0       0
+migration/0       0
+watchdog/0        0
+migration/1       1
+ksoftirqd/1       1
+watchdog/1        1
+cpuset            0
+khelper           1
+kdevtmpfs         1
+netns             1
+sync_supers       1
+bdi-default       0
+kintegrityd       0
+kblockd           1
+khungtaskd        1
+kswapd0           0</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez voir également un processus se balader d'un core à un autre&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> watch</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">watch -n2 'ps axo comm,pid,psr | grep &lt;process&gt;'</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="taskset"><span class="mw-headline-number">5.1</span> taskset</span></h2>
+<p>Si l'on souhaites assigner à certains process des CPU en particulier, c'est possible&#160;! La première étape est de connaitre le bitmap CPU. Pour vous donner une idée de comment les récupérer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; awk '/processor/{printf(&quot;CPU&#160;%s address&#160;: 0x0000000%s\n&quot;), $3, $3}' /proc/cpuinfo&#160;; echo 'All CPU      &#160;: xXFFFFFFFF'
+CPU 0 address&#160;: 0x00000000
+CPU 1 address&#160;: 0x00000001
+CPU 2 address&#160;: 0x00000002
+CPU 3 address&#160;: 0x00000003
+All CPU      &#160;: xXFFFFFFFF</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite nous utiliserons la commande taskset pour assigner à un CPU en particulier un PID&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> taskset</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">taskset -p 0x00000001 &lt;PID&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Il faut savoir que les processeurs Numa ont la mémoire RAM directement mappées avec les CPU pour augmenter les performances. Cela ne change en rien que les autres processeurs peuvent utiliser de la mémoire qui ne leur est pas associée. Voici un petit aperçu de Numa&#160;:
+</p><p><a href="./File:Numa.png.html" class="image"><img alt="Numa.png" src="images/8/87/Numa.png" width="385" height="238" /></a><sup id="cite_ref-2" class="reference"><a href="Latence_des_process_et_kernel_timing.html#cite_note-2">[2]</a></sup>
+</p><p>Vous pouvez également spécifier les paramètres au niveau du grub pour isoler des CPU (isolcpus)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/grub.conf </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># grub.conf generated by anaconda
+#
+# Note that you do not have to rerun grub after making changes to this file
+# NOTICE:  You have a /boot partition.  This means that
+#          all kernel and initrd paths are relative to /boot/, eg.
+#          root (hd0,0)
+#          kernel /vmlinuz-version ro root=/dev/mapper/vgos-root
+#          initrd /initrd-[generic-]version.img
+#boot=/dev/sda
+default=0
+timeout=5
+splashimage=(hd0,0)/grub/splash.xpm.gz
+hiddenmenu
+title Red Hat Enterprise Linux Server (2.6.32-279.2.1.el6.x86_64)
+	root (hd0,0)
+<span class="xtra ln-xtra">	kernel /vmlinuz-2.6.32-279.2.1.el6.x86_64 ro root=/dev/mapper/vgos-root rd_NO_LUKS  KEYBOARDTYPE=pc KEYTABLE=fr LANG=en_US.UTF-8 rd_LVM_LV=vgos/root rd_NO_MD rd_LVM_LV=vgos/swap SYSFONT=latarcyrheb-sun16 crashkernel=128M biosdevname=0 rd_NO_DM isolcpus=0</span>	initrd /initramfs-2.6.32-279.2.1.el6.x86_64.img</pre></div></div>
+</td></tr></table><br />
+<p>Il est maintenant possible de faire du CPU pinning sur ce CPU. On aura donc une run queue plus petite et des temps de réponses améliorés pour les taches assignées à ce CPU.
+</p><p>Pour plus d'informations&#160;: <a rel="nofollow" class="external free" href="http://kernel.org/doc/Documentation/kernel-parameters.txt">http://kernel.org/doc/Documentation/kernel-parameters.txt</a><sup id="cite_ref-3" class="reference"><a href="Latence_des_process_et_kernel_timing.html#cite_note-3">[3]</a></sup>
+</p>
+<h2><span class="mw-headline" id="cpuset.2Fcgroup"><span class="mw-headline-number">5.2</span> cpuset/cgroup</span></h2>
+<p>cpuset est une version plus avancée de taskset qui permet d'avoir une méthode plus élégante, flexible et évolutive pour controler les runqueues ainsi que la latence sur les taches. Un cpuset est un groupe de CPU (scheduler domain/cgroups) sur lequel nous allons pouvoir y balanm
+cer des taches&#160;:
+</p><p><a href="./File:Cpuset.gif.html" class="image"><img alt="Cpuset.gif" src="images/9/93/Cpuset.gif" width="550" height="548" /></a><sup id="cite_ref-4" class="reference"><a href="Latence_des_process_et_kernel_timing.html#cite_note-4">[4]</a></sup>
+</p><p>Pour s'assurer que ces fonctionnalités sont bien présentes dans le kernel&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> grep</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; grep -i cpuset /proc/filesystems /boot/config-`uname -r`    
+/proc/filesystems:nodev	cpuset
+/boot/config-3.2.0-3-amd64:CONFIG_CPUSETS=y
+/boot/config-3.2.0-3-amd64:CONFIG_PROC_PID_CPUSET=y</pre></div></div>
+</td></tr></table><br />
+<p>L'implémentation de cpuset dans le kernel est toute petite et n'a pas d'impacts sur le scheduler de process. Ca utilise un nouveau VFS qui n'introduit pas les nouveaux appels systèmes. Ce VFS cpuset peut être monté n'importe ou sur le système. Nous allons par exemple monter ceci dans /mnt/cpuserts. Il suffit de créer des dossier pour faire des assignations à d'autres CPU. Un CPU peut appartenir à plusieurs cpusets. 
+</p>
+<h3><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">5.2.1</span> Prérequis</span></h3>
+<p>Mettre le montage des cgroups au boot&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/fstab</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cgroup  /sys/fs/cgroup  cgroup  defaults  0   0</pre></div></div>
+</td></tr></table><br />
+<p>Afin d'avoir toutes les options activés, il faut également modifier les options de Grub&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/grub</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet cgroup_enable=memory swapaccount=1&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Puis mettre à jour Grub&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> update-grub</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">update-grub</pre></div></div>
+</td></tr></table><br />
+<p>Rebootez ensuite.
+</p>
+<h3><span class="mw-headline" id="Cr.C3.A9ation"><span class="mw-headline-number">5.2.2</span> Création</span></h3>
+<p>Pour créer un cgroup c'est très simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mkdir</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir /sys/fs/cgroup/mycgroup1</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Assigner_un_cpu_et_sa_m.C3.A9moire_.C3.A0_un_cgroup"><span class="mw-headline-number">5.2.3</span> Assigner un cpu et sa mémoire à un cgroup</span></h3>
+<p>Nous allons assigner un CPU et sa mémoire à notre nouveau cgroup (ici, le CPU 0)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo 0 &gt; /sys/fs/cgroup/mycgroup1/cpuset.cpus
+echo 0 &gt; /sys/fs/cgroup/mycgroup1/cpuset.mems</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez envoyer plusieurs processeurs en les séparant par des virgules, le tout encadré par des quotes.
+</p>
+<h3><span class="mw-headline" id="D.C3.A9dier_un_CPU_.C3.A0_un_cgroup"><span class="mw-headline-number">5.2.4</span> Dédier un CPU à un cgroup</span></h3>
+<p>Pour dédier un CPU uniquement à certains processus&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo 0 &gt; /sys/fs/cgroup/mycgroup1/cpuset.cpus</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Ajouter_un_processus_.C3.A0_un_cgroup"><span class="mw-headline-number">5.2.5</span> Ajouter un processus à un cgroup</span></h3>
+<p>Pour ajouter un processus, c'est très simple, il suffit d'envoyer son PID dans le fichier tasks&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &lt;PID&gt; &gt; /sys/fs/cgroup/mycgroup1/cpuset.tasks</pre></div></div>
+</td></tr></table><br />
+<p>Ou si vous avez plusieurs processus du même nom&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="kw1">for</span> pid <span class="kw1">in</span> $<span class="br0">&#40;</span><span class="kw2">pidof</span> apache2<span class="br0">&#41;</span>; <span class="kw1">do</span>
+    <span class="kw3">echo</span> <span class="re1">$pid</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>sys<span class="sy0">/</span>fs<span class="sy0">/</span>cgroup<span class="sy0">/</span>mycgroup1<span class="sy0">/</span>cpuset.tasks
+<span class="kw1">done</span></pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="D.C3.A9tacher_un_processus_d.27un_cgroup"><span class="mw-headline-number">5.2.6</span> Détacher un processus d'un cgroup</span></h3>
+<p>Il est possible de faire un détachement en rattachant un processus à un autre cgroup ou celui de la machine&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &lt;PID&gt; &gt; /sys/fs/cgroup/tasks</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Supprimer_un_cgroup"><span class="mw-headline-number">5.2.7</span> Supprimer un cgroup</span></h3>
+<p>Pour supprimer un cgroup c'est très simple, supprimez simplement le dossier en question&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rm</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rm -Rf /sys/fs/cgroup/mycgroup1/cpuset.</pre></div></div>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Monitorer_la_pression_sur_un_cpuset"><span class="mw-headline-number">5.2.8</span> Monitorer la pression sur un cpuset</span></h3>
+<p>Il est possible de monitorer la pression sur les cpusets en activant comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo 1 &gt; /sys/fs/cgroup/memory_pressure_enabled</pre></div></div>
+</td></tr></table><br />
+<p>Avec cette option, le kernel commencera à traquer l'utilisation mémoire des cpusets. Vous pourrez ensuite récupérer les statistiques dans chaque cgroup&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>cat<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cat /sys/fs/cgroup/&lt;cgroup&gt;/memory_pressure</pre></div></div>
+</td></tr></table><br />
+<p>Vous retrouverez une moyenne d'exécution ou la vitesse a laquelle les pages frames se libères.
+</p>
+<h3><span class="mw-headline" id="Divers"><span class="mw-headline-number">5.2.9</span> Divers</span></h3>
+<p>Voici divers astuces&#160;:
+</p>
+<ul><li> Pour connaitre a quel cgroup le PID est attaché&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cat /proc/&lt;pid&gt;/cpuset</pre></div></div>
+</td></tr></table><br />
+<ul><li> Pour savoir a quelle ressource un PID peut être planifié&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cat /proc/&lt;pid&gt;/status | grep allowed</pre></div></div>
+</td></tr></table><br />
+<ul><li> Pour savoir si un CPU peut appartenir à plusieurs cgroups&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; cat /sys/fs/cgroup/cpu_exclusive 
+1</pre></div></div>
+</td></tr></table><br />
+<ul><li> Suppression automatique du cgroup lorsque aucune tache n'est active dessus&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo 1 &gt; /sys/fs/cgroup/mycgroup1/cpuset.notify_on_release</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Cgroups_with_cgconfig"><span class="mw-headline-number">5.3</span> Cgroups with cgconfig</span></h2>
+<p>To have cgroups working with cgconfig, be sure you've enabled cgroups <a href="Latence_des_process_et_kernel_timing.html#Pr.C3.A9requis">in your fstab</a>. Then install the daemon&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install cgroup-bin daemon</pre></div></div>
+</td></tr></table><br />
+<p>It will checks all new running process and affect them to a correct cgroup if a rule exist.
+</p><p>Unfortunately, it's not well packaged yet on Debian so we need to adjust some things&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd /etc/init.d
+cp skeleton cgconfig
+cp skeleton cgred
+chmod 755 cgconfig cgred
+sed -i 's/skeleton/cgconfig/' cgconfig
+sed -i 's/skeleton/cgred/' cgred
+update-rc.d cgconfig defaults
+update-rc.d cgred defaults
+cd /usr/share/doc/cgroup-bin/examples/
+cp cgred.conf /etc/default/
+cp cgconfig.conf cgrules.conf /etc/
+gzip -d cgconfig.gz
+cp cgconfig cgred /etc/init.d/
+cd /etc/init.d/
+sed -i 's/sysconfig/defaults/' cgred cgconfig
+sed -i 's/\/etc\/rc.d\/init.d\/functions/\/lib\/init\/vars.sh/' cgred
+sed -i 's/--check/--name/' cgred
+sed -i 's/killproc.*/kill $(cat $pidfile)/' cgred
+sed -i 's/touch &quot;$lockfile&quot;/test -d \/var\/lock\/subsys || mkdir \/var\/lock\/subsys\n\t&amp;/' cgconfig
+chmod 755 cgconfig cgred</pre></div></div>
+</td></tr></table><br />
+<p>You now have your configuration files and all services installed correctly. Edit the configuration file&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cgconfig.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#
+#  Copyright IBM Corporation. 2007
+#
+#  Authors:     Balbir Singh &lt;balbir@linux.vnet.ibm.com&gt;
+#  This program is free software; you can redistribute it and/or modify it
+#  under the terms of version 2.1 of the GNU Lesser General Public License
+#  as published by the Free Software Foundation.
+#
+#  This program is distributed in the hope that it would be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
+group mariadb_cgroup {
+    perm {
+        admin {
+            uid = tomcat;
+        }
+        task {
+            uid = tomcat;
+        }
+    }
+&#160;
+        cpuset {
+                cpuset.mems = 0;
+                cpuset.cpus = &quot;1,2&quot;;
+                cpuset.cpu_exclusive = 1;
+        }
+}</pre></div></div>
+</td></tr></table><br />
+<p>Here is an example for tomcat user, where I want to have 2 dedicated CPU. Then you need to change the cgrules config&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cgrules.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">tomcat          cpu           tomcat_cgroup/</pre></div></div>
+</td></tr></table><br />
+<p>This indicates that tomcat user will change cpu settings and the cgroup folder is tomcat_cgroup (/sys/fs/cgroup/tomcat_cgroup). Now restart it&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/etc/init.d/cgred stop 
+/etc/init.d/cgconfig stop 
+umount /sys/fs/cgroup 2&gt;/dev/null 
+rmdir /sys/fs/cgroup/* /sys/fs/cgroup 2&gt;/dev/null 
+mount /sys/fs/cgroup 
+/etc/init.d/cgconfig start 
+/etc/init.d/cgred start</pre></div></div>
+</td></tr></table><br />
+<p>Restart your tomcat service and it will automatically be placed in the cgroup&#160;:-)
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">6</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="Latence_des_process_et_kernel_timing.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://kernel.org/doc/Documentation/IRQ-affinity.txt">http://kernel.org/doc/Documentation/IRQ-affinity.txt</a></span>
+</li>
+<li id="cite_note-2"><a href="Latence_des_process_et_kernel_timing.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://en.wikipedia.org/wiki/Non-Uniform_Memory_Access">http://en.wikipedia.org/wiki/Non-Uniform_Memory_Access</a></span>
+</li>
+<li id="cite_note-3"><a href="Latence_des_process_et_kernel_timing.html#cite_ref-3">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://kernel.org/doc/Documentation/kernel-parameters.txt">http://kernel.org/doc/Documentation/kernel-parameters.txt</a></span>
+</li>
+<li id="cite_note-4"><a href="Latence_des_process_et_kernel_timing.html#cite_ref-4">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://menehune.opt.wfu.edu/Kokua/SGI/007-3700-015/sgi_html/ch04.html">http://menehune.opt.wfu.edu/Kokua/SGI/007-3700-015/sgi_html/ch04.html</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.112 seconds
+Real time usage: 0.114 seconds
+Preprocessor visited node count: 917/1000000
+Preprocessor generated node count: 2764/1000000
+Post‐expand include size: 9416/2097152 bytes
+Template argument size: 2769/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   38.439      1 - -total
+ 57.85%   22.237     36 - Template:Command
+  9.16%    3.520      7 - Template:Config
+  4.97%    1.911      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3457-0!*!*!1!en!5!* and timestamp 20181111230639 and revision id 13143
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Latence_des_process_et_kernel_timing&amp;oldid=13143">https://wiki.deimos.fr/index.php?title=Latence_des_process_et_kernel_timing&amp;oldid=13143</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Latence+des+process+et+kernel+timing" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Latence_des_process_et_kernel_timing.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Latence_des_process_et_kernel_timing.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Latence_des_process_et_kernel_timing.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Latence_des_process_et_kernel_timing&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Latence_des_process_et_kernel_timing&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Latence_des_process_et_kernel_timing.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Latence_des_process_et_kernel_timing.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Latence_des_process_et_kernel_timing" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Latence_des_process_et_kernel_timing&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Latence_des_process_et_kernel_timing&amp;oldid=13143" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Latence_des_process_et_kernel_timing&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 5 January 2014, at 04:42.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

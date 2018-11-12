@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration d'un serveur Bind9 secondaire (Slave) - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave)","wgTitle":"Installation et configuration d'un serveur Bind9 secondaire (Slave)","wgCurRevisionId":8062,"wgRevisionId":8062,"wgArticleId":1967,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave)","wgRelevantArticleId":1967,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_d_un_serveur_Bind9_secondaire_Slave skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration d'un serveur Bind9 secondaire (Slave)</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#mw-navigation">navigation</a>, 					<a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#Configuration_des_droits"><span class="tocnumber">3.1</span> <span class="toctext">Configuration des droits</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#host.conf"><span class="tocnumber">3.2</span> <span class="toctext">host.conf</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#named.conf"><span class="tocnumber">3.3</span> <span class="toctext">named.conf</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#named.conf.options"><span class="tocnumber">3.4</span> <span class="toctext">named.conf.options</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#rndc.conf"><span class="tocnumber">3.5</span> <span class="toctext">rndc.conf</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#V.C3.A9rification"><span class="tocnumber">4</span> <span class="toctext">Vérification</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#Aucuns_fichiers_n.27apparait_et_dans_les_logs_.C3.A7a_dit_qu.27il_n.27y_a_pas_les_droits"><span class="tocnumber">5.1</span> <span class="toctext">Aucuns fichiers n'apparait et dans les logs ça dit qu'il n'y a pas les droits</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#Pourquoi_j.27ai_ce_message_dans_mes_logs_:_refused_notify_from_non-master"><span class="tocnumber">5.2</span> <span class="toctext">Pourquoi j'ai ce message dans mes logs&#160;: refused notify from non-master</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#refresh:_failure_trying_master_53_.28source_0.0.0.0.230.29:_operation_canceled"><span class="tocnumber">5.3</span> <span class="toctext">refresh: failure trying master 53 (source 0.0.0.0#0): operation canceled</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#could_not_open_entropy_source_.2Fdev.2Frandom:_file_not_found"><span class="tocnumber">5.4</span> <span class="toctext">could not open entropy source /dev/random: file not found</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Lorsque vous voulez vous monter vous même votre serveur DNS, vous devez obligatoirement posséder un serveur secondaire. Si vous n'avez pas d'autres machines, utilisez Gandi, sinon suivez cette doc&#160;;-).
+</p><p><b>N'oubliez pas de rensigner sur le serveur primaire le serveur secondaire.</b>
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Sur le serveur secondaire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install bind9
+</pre>
+</td></tr></table><br />
+<p>Pour OpenBSD, rien à faire, c'est installé de base.
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Avant de commencer, <b>déclarez dans vos enregistrements de vos noms de domaine les seveurs secondaires (resignez les champs NS + ACL named.conf)</b>, sinon les notifications ne se feront pas.
+</p>
+<h2><span class="mw-headline" id="Configuration_des_droits"><span class="mw-headline-number">3.1</span> Configuration des droits</span></h2>
+<p>Si vous voulez un environnement chrooté, procédez comme ceci, sinon passez cette étape&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir -p /var/lib/named/etc
+mkdir /var/lib/named/dev
+mkdir -p /var/lib/named/var/cache/bind
+mkdir -p /var/lib/named/var/run/bind/run
+mv /etc/bind /var/lib/named/etc
+ln -s /var/lib/named/etc/bind /etc/bind
+mknod /var/lib/named/dev/null c 1 3
+mknod /var/lib/named/dev/random c 1 8
+chmod 666 /var/lib/named/dev/null /var/lib/named/dev/random
+chown -R bind:bind /var/lib/named/var/*
+chown -R bind:bind /var/lib/named/etc/bind</pre></div></div>
+</td></tr></table><br />
+<p>Editez ensuite le fichier /etc/default/bind9 afin de lui indiquer de chrooter au boot du service&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/bind9</font>
+</td></tr>
+<tr>
+<td>
+<pre>OPTIONS="-u bind <b>-t /var/lib/named</b>"
+...
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="host.conf"><span class="mw-headline-number">3.2</span> host.conf</span></h2>
+<p>Voici comment configurer le fichier /etc/host.conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/host.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>order hosts,bind
+multi on
+</pre>
+</td></tr></table><br />
+<p>Nous venons donc dire ici qu'il faut d'abord regarder dans le fichier host et ensuite dans Bind quand des requêtes son effectuées depuis le serveur.
+</p>
+<h2><span class="mw-headline" id="named.conf"><span class="mw-headline-number">3.3</span> named.conf</span></h2>
+<p>Ce fichier doit contenir les mêmes informations au niveau RNDC et au niveau zone externe (à répliquer)&#160;:
+</p>
+<pre>include "/etc/bind/named.conf.options";
+
+// be authoritative for the localhost forward and reverse zones, and for
+// broadcast zones as per <a class="external mw-magiclink-rfc" rel="nofollow" href="https://tools.ietf.org/html/rfc1912">RFC 1912</a>
+
+// TSIG Security | RNDC Key
+
+key "rndc-key" {
+      algorithm hmac-md5;
+      secret "<b>a4fGtm0fB4zO+4KfqH/zNZ3nPq+ThM5yUCEE7AqzEVI=</b>";
+};
+
+controls {
+      inet 127.0.0.1 port 953
+              allow { 127.0.0.1; } keys { "rndc-key"; };
+};
+
+zone "127.in-addr.arpa" {
+        type master;
+        notify no;
+        file "/etc/bind/db.127";
+};
+
+// Starting secondary transfert zones
+view "externe" {
+        match-clients {
+                any;
+        };
+        // Recursion not permited for World Wide Web
+        recursion no;
+
+        zone "deimos.fr" {
+                type slave;
+                file "/etc/bind/db.deimos.fr";
+                notify yes;
+                masters {
+                        88.162.130.192;
+                };
+        };
+
+        zone "mavro.fr" {
+                type slave;
+                file "/etc/bind/db.mavro.fr";
+                notify yes;
+                masters {
+                      88.162.130.192;
+                };
+        };
+
+        zone "0.168.192.in-addr.arpa" {
+                type slave;
+                file "/etc/bind/db.0.168.192.inv.local";
+                notify yes;
+                masters {
+                        88.162.130.192;
+                };
+        };
+};
+</pre>
+<h2><span class="mw-headline" id="named.conf.options"><span class="mw-headline-number">3.4</span> named.conf.options</span></h2>
+<p>Même fichier que pour le serveur primaire&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">options {
+        directory &quot;/var/cache/bind&quot;;
+        pid-file &quot;/var/run/bind/run/named.pid&quot;;
+&#160;
+        // If there is a firewall between you and nameservers you want
+        // to talk to, you might need to uncomment the query-source
+        // directive below.  Previous versions of BIND always asked
+        // questions using port 53, but BIND 8.1 and later use an unprivileged
+        // port by default.
+&#160;
+        query-source address * port 53;
+&#160;
+        // If your ISP provided one or more IP addresses for stable 
+        // nameservers, you probably want to use them as forwarders.  
+        // Uncomment the following block, and insert the addresses replacing 
+        // the all-0's placeholder.
+&#160;
+        // forwarders {
+        //      0.0.0.0;
+        // };
+&#160;
+        // For dial up connections
+        dialup yes;
+&#160;
+        allow-query {
+                any;
+        };  
+&#160;
+        // Security version
+        version &quot;Microsoft 2000 DNS Server&quot;;
+&#160;
+        auth-nxdomain no;    # conform to RFC1035
+};</pre></div></div>
+<h2><span class="mw-headline" id="rndc.conf"><span class="mw-headline-number">3.5</span> rndc.conf</span></h2>
+<p>On reprends exactement le même fichier encore une fois que le serveur primaire&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> key &quot;rndc-key&quot; {
+         algorithm hmac-md5;
+         secret &quot;a4fGtm0fB4zO+4KfqH/zNZ3nPq+ThM5yUCEE7AqzEVI=&quot;;
+ };
+&#160;
+ options {
+         default-key &quot;rndc-key&quot;;
+         default-server 127.0.0.1;
+         default-port 953;
+ };</pre></div></div>
+<p>Et n'oubliez pas de copier la clef <b>rndc.key</b> du serveur primaire dans le dossier <b>/etc/bind</b> et de lui affecter les bons droits.
+</p>
+<h1><span class="mw-headline" id="V.C3.A9rification"><span class="mw-headline-number">4</span> Vérification</span></h1>
+<p>Il ne reste plus qu'à redémarrer le serveur bind et les fichiers de configuration des noms de domaines apparaitrons automatiquement dans /etc/bind&#160;:
+</p>
+<pre>/etc/init.d/bind9 restart
+</pre>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Aucuns_fichiers_n.27apparait_et_dans_les_logs_.C3.A7a_dit_qu.27il_n.27y_a_pas_les_droits"><span class="mw-headline-number">5.1</span> Aucuns fichiers n'apparait et dans les logs ça dit qu'il n'y a pas les droits</span></h2>
+<p>La solution est simple&#160;:
+</p>
+<pre>chown -Rf root:bind /etc/bind
+</pre>
+<h2><span class="mw-headline" id="Pourquoi_j.27ai_ce_message_dans_mes_logs_:_refused_notify_from_non-master"><span class="mw-headline-number">5.2</span> Pourquoi j'ai ce message dans mes logs&#160;: refused notify from non-master</span></h2>
+<p>Voici le genre de messages sur lequel on peut tomber quand on a pas de chance&#160;:
+</p>
+<pre>Oct  2 16:43:50 tasmania named[7978]: zone deimos.local/IN/internalview: refused notify from non-master: 192.168.0.27#37097
+</pre>
+<p>Ceci est due à une mise à jour de Bind (9.3). Il faut donc simplement autoriser dans son named.conf le serveur à se notifier lui même en rajoutant allow-notify&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+        zone "deimos.local" {
+               type slave;
+               file "/etc/bind/db.deimos.local";
+               notify yes;
+               masters { 192.168.0.69; };
+               <b>allow-notify { 192.168.0.27; };</b>
+       };
+...
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="refresh:_failure_trying_master_53_.28source_0.0.0.0.230.29:_operation_canceled"><span class="mw-headline-number">5.3</span> refresh: failure trying master 53 (source 0.0.0.0#0): operation canceled</span></h2>
+<p>Ceci est certainement du à un problème de firewalling, vérifiez bien que voter port 53 est ouvert en TCP et UDP des 2 côtés.
+</p>
+<h2><span class="mw-headline" id="could_not_open_entropy_source_.2Fdev.2Frandom:_file_not_found"><span class="mw-headline-number">5.4</span> could not open entropy source /dev/random: file not found</span></h2>
+<p>Si vous rencontrez ce problème, c'est que vous travaillez certainement dans un vserver. Pour palier au problème, ajoutez une bcapabilities&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td>
+<pre>echo CAP_MKNOD &gt;&gt; /etc/vservers/ed/bcapabilities
+</pre>
+</td></tr></table><br />
+<p>Ce qui vous évitera les problèmes comme ceux ci dans les logs&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">24530 Oct  4 21:12:27 ed named[8642]: could not open entropy source /dev/random: file not found
+24531 Oct  4 21:12:27 ed named[8642]: using pre-chroot entropy source /dev/random</pre></div></div>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://fr.wikibooks.org/wiki/Linux_VServer">http://fr.wikibooks.org/wiki/Linux_VServer</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.024 seconds
+Real time usage: 0.025 seconds
+Preprocessor visited node count: 159/1000000
+Preprocessor generated node count: 376/1000000
+Post‐expand include size: 1442/2097152 bytes
+Template argument size: 563/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    4.917      1 - -total
+ 42.16%    2.073      3 - Template:Command
+ 24.51%    1.205      3 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1967-0!*!*!1!en!5!* and timestamp 20181111230703 and revision id 8062
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)&amp;oldid=8062">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)&amp;oldid=8062</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+d%27un+serveur+Bind9+secondaire+%28Slave%29" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave).html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)&amp;oldid=8062" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_secondaire_(Slave)&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 4 October 2009, at 19:25.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

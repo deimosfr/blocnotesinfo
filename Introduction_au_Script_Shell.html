@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Introduction au Script Shell - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Introduction_au_Script_Shell.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Introduction_au_Script_Shell","wgTitle":"Introduction au Script Shell","wgCurRevisionId":9645,"wgRevisionId":9645,"wgArticleId":1937,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Introduction_au_Script_Shell","wgRelevantArticleId":1937,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Introduction_au_Script_Shell skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Introduction au Script Shell</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Introduction_au_Script_Shell.html#mw-navigation">navigation</a>, 					<a href="Introduction_au_Script_Shell.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Introduction_au_Script_Shell.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Introduction_au_Script_Shell.html#Cr.C3.A9er_un_script_shell"><span class="tocnumber">2</span> <span class="toctext">Créer un script shell</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Introduction_au_Script_Shell.html#Les_flux_de_donn.C3.A9es"><span class="tocnumber">3</span> <span class="toctext">Les flux de données</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Introduction_au_Script_Shell.html#Entr.C3.A9e_standard"><span class="tocnumber">3.1</span> <span class="toctext">Entrée standard</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Introduction_au_Script_Shell.html#Sortie_standard"><span class="tocnumber">3.2</span> <span class="toctext">Sortie standard</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Introduction_au_Script_Shell.html#Sortie_d.27erreur_standard"><span class="tocnumber">3.3</span> <span class="toctext">Sortie d'erreur standard</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Introduction_au_Script_Shell.html#Redirections"><span class="tocnumber">3.4</span> <span class="toctext">Redirections</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Introduction_au_Script_Shell.html#Caract.C3.A8res_sp.C3.A9ciaux"><span class="tocnumber">4</span> <span class="toctext">Caractères spéciaux</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="Introduction_au_Script_Shell.html#Les_variables_du_Shell"><span class="tocnumber">5</span> <span class="toctext">Les variables du Shell</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Introduction_au_Script_Shell.html#Les_variables_d.27environnement"><span class="tocnumber">5.1</span> <span class="toctext">Les variables d'environnement</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Introduction_au_Script_Shell.html#Autres_variables"><span class="tocnumber">5.2</span> <span class="toctext">Autres variables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Introduction_au_Script_Shell.html#D.C3.A9claration"><span class="tocnumber">6</span> <span class="toctext">Déclaration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Introduction_au_Script_Shell.html#Autres_exemples"><span class="tocnumber">6.1</span> <span class="toctext">Autres exemples</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Introduction_au_Script_Shell.html#Param.C3.A8tres"><span class="tocnumber">6.2</span> <span class="toctext">Paramètres</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Introduction_au_Script_Shell.html#Cr.C3.A9er_des_variables_.C3.A0_la_vol.C3.A9e"><span class="tocnumber">7</span> <span class="toctext">Créer des variables à la volée</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="Introduction_au_Script_Shell.html#Lire_un_fichier_ligne_par_ligne"><span class="tocnumber">8</span> <span class="toctext">Lire un fichier ligne par ligne</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="Introduction_au_Script_Shell.html#R.C3.A9cup.C3.A9rer_les_signaux"><span class="tocnumber">9</span> <span class="toctext">Récupérer les signaux</span></a></li>
+<li class="toclevel-1 tocsection-18"><a href="Introduction_au_Script_Shell.html#Cacher_un_mot_de_passe_.C3.A0_la_saisie_au_clavier"><span class="tocnumber">10</span> <span class="toctext">Cacher un mot de passe à la saisie au clavier</span></a></li>
+<li class="toclevel-1 tocsection-19"><a href="Introduction_au_Script_Shell.html#R.C3.A9f.C3.A9rences"><span class="tocnumber">11</span> <span class="toctext">Références</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Bourne-again shell, est l'interprète de commandes libre du projet GNU. Son nom est un jeu de mots (Bourne again / born again, «&#160;né de nouveau&#160;» ou encore «&#160;réincarné&#160;») sur le shell historique d'Unix, le Bourne shell. Basé sur ce dernier, il apporte de nombreuses améliorations, provenant notamment du Korn shell et du C shell.
+</p><p>Son auteur original est Brian Fox de la Free Software Foundation, relayé plus tard par Chet Ramey. Le Bourne shell original fut écrit par Steve Bourne.
+</p><p>Bash est un logiciel libre publié sous licence GPL. Il est l'interprète par défaut sur de nombreux Unix libres, notamment sur les systèmes GNU/Linux. C'est aussi le shell par défaut de Mac OS X et il a été porté sous Windows par le projet Cygwin.
+</p><p>Bash utilise la bibliothèque readline ce qui lui permet, comme le C shell, de compléter automatiquement les noms de commandes et de fichiers lors d'une frappe sur la touche TAB, ce qui accélère considérablement le travail. Les touches UP et DOWN permettent de naviguer avec facilité dans l'historique des commandes.
+</p>
+<h1><span class="mw-headline" id="Cr.C3.A9er_un_script_shell"><span class="mw-headline-number">2</span> Créer un script shell</span></h1>
+<p>Pour créer un script c'est très simple, il suffit de créer un fichier et de le rendre exécutable&#160;:
+</p>
+<pre>touch test.sh &amp;&amp; chmod 700 test.sh
+</pre>
+<h1><span class="mw-headline" id="Les_flux_de_donn.C3.A9es"><span class="mw-headline-number">3</span> Les flux de données</span></h1>
+<p>Les flux de données du Shell sont transportés par trois voies différentes&#160;:
+</p>
+<ul><li> l'entrée standard</li>
+<li> la sortie standard</li>
+<li> la sortie d'erreur standard </li></ul>
+<h2><span class="mw-headline" id="Entr.C3.A9e_standard"><span class="mw-headline-number">3.1</span> Entrée standard</span></h2>
+<p>L'entrée standard est le canal d'entrée des données qui est utilisé par le système. Par défaut c'est le clavier.
+</p><p>Ainsi, les commandes du Shell prennent leur paramètres sur l'entrée standard.
+</p>
+<h2><span class="mw-headline" id="Sortie_standard"><span class="mw-headline-number">3.2</span> Sortie standard</span></h2>
+<p>La sortie standard est le canal de sorties des données. C'est par ce canal que transitent les données résultant de l'exécution d'une commande. C'est en général un terminal, c'est-à-dire l'écran.
+</p><p>Ainsi, les commandes du Shell écrivent très souvent des résultats sur la sortie standard.
+</p>
+<h2><span class="mw-headline" id="Sortie_d.27erreur_standard"><span class="mw-headline-number">3.3</span> Sortie d'erreur standard</span></h2>
+<p>La sortie d'erreur standard est le canal par lequel les messages d'erreurs transitent, c'est en général l'écran. Il arrive quelque fois qu'une fenêtre soit spécialement dédiée à ce canal.
+</p><p>Dès qu'un code d'erreur est généré par une commande, il est envoyé un message sur ce canal.
+</p>
+<h2><span class="mw-headline" id="Redirections"><span class="mw-headline-number">3.4</span> Redirections</span></h2>
+<p>Il est possible de changer temporairement les entrées et sorties standard lors de l'exécution d'une commande.
+</p><p>Par exemple on souhaite écrire dans un fichier la liste des fichiers d'un répertoire. La commande ls permet de lister les fichiers d'un répertoire. Cette commande envoie le résultat de sa recherche sur la sortie standard (écran).
+</p>
+<ul><li> Exemple&#160;:</li></ul>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ ls
+amoi.c           montage.jpg     tp3.c
+lettre.doc       tp1.c           zizitop.mp3
+monprog.c        tp2.c</pre></div></div>
+<p>Pour rediriger la sortie standard sur un fichier, on utilise le caractère spécial &gt;.
+</p>
+<ul><li> Exemple&#160;:</li></ul>
+<pre>$ ls &gt; liste.txt
+</pre>
+<p>Si on affiche à l'écran le contenu du fichier, on vera qu'il contient ce que la commande aurait du afficher à l'écran.
+</p>
+<ul><li> Exemple&#160;:</li></ul>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ cat liste.txt
+amoi.c           montage.jpg     tp3.c
+lettre.doc       tp1.c           zizitop.mp3
+monprog.c        tp2.c</pre></div></div>
+<p>Le caractère &gt; permet de créer le fichier si celui-ci n'existe pas lors de l'exécution de la commande. Si le fichier existe déjà, sont contenu est écrasé.
+</p><p>Pour conserver le contenu du fichier intact et écrire à sa suite, on utilise le caractère spécial &gt;&gt;.
+</p>
+<ul><li> Exemple&#160;:</li></ul>
+<pre>echo "Liste de mon répertoire" &gt;&gt; liste.txt
+</pre>
+<p>La commande echo permet d'afficher du texte sur la sortie standard qui est ici redirigée vers le fichier liste.txt à la suite duquel on écrit la chaîne de caractères passée en argument.
+</p>
+<ul><li> Exemple&#160;:</li></ul>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ cat liste.txt
+amoi.c           montage.jpg     tp3.c
+lettre.doc       tp1.c           zizitop.mp3
+monprog.c        tp2.c</pre></div></div>
+<p>Liste de mon répertoire
+</p><p>On voit que le contenu du fichier n'a pas été écrasé et qu'il contient une phrase en plus.
+</p><p>Le tableau suivant récapitule les caractères spéciaux de redirection.
+</p>
+<table border="1" width="100%">
+
+<tr>
+<th>Caractère
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>&gt;
+</td>
+<td>Redirige la sortie standard.
+</td></tr>
+<tr>
+<td>&gt;&gt;
+</td>
+<td>Redirige la sortie standard sans écrasement.
+</td></tr>
+<tr>
+<td>&lt;
+</td>
+<td>Redirige l'entrée standard.
+</td></tr>
+<tr>
+<td>2&gt;
+</td>
+<td>Redirige la sortie d'erreur standard.
+</td></tr>
+<tr>
+<td>2&gt;&gt;
+</td>
+<td>Redirige la sortie d'erreur standard sans écrasement.
+</td></tr></table>
+<h1><span class="mw-headline" id="Caract.C3.A8res_sp.C3.A9ciaux"><span class="mw-headline-number">4</span> Caractères spéciaux</span></h1>
+<p>En plus des caractères de redirection des flux standards de données, le Shell possèdent des caractères dont la signification est très... spéciale, les voici regroupés dans le tableau suivant.
+</p>
+<table border="1" width="100%">
+
+<tr>
+<th>Caractère
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>*
+</td>
+<td>Métacaractère qui remplace n'importe quelle chaîne de caractères (même vide).<br />
+<p>Exemple&#160;: cp * DATA copie tous les fichiers dans le répertoire DATA.<br />
+</p>
+</td></tr>
+<tr>
+<td>?
+</td>
+<td>Métacaractère qui remplace un caractère quelconque.
+</td></tr>
+<tr>
+<td>;
+</td>
+<td>Permet de séparer plusieurs commandes écrites sur une même ligne.<br />
+<p>Exemple&#160;:<br />
+cp *.c DATA; tar cvf data.tar DATA copie tous les fichiers d'extention .c<br />
+dans le répertoire DATA et les archive dans le fichier data.tar.
+</p>
+</td></tr>
+<tr>
+<td>( )
+</td>
+<td>Regroupe des commandes.<br />
+<p>Exemple&#160;:<br />
+(echo "Liste&#160;:"; ls ) &gt; liste.txt<br />
+écrit la chaîne Liste&#160;: et la liste des fichiers du répertoire courant dans le fichier liste.txt.
+</p>
+</td></tr>
+<tr>
+<td>&amp;
+</td>
+<td>Permet le lancement d'un processus en arrière plan. Cela permet d'exécuter d'autres commandes pendant qu'un processus est en marche.
+<p>Exemple&#160;: netscape&amp;.<br />
+</p>
+</td></tr>
+<tr>
+<td>
+</td>
+<td>Permet la communication par tube entre deux commandes.<br />
+<p>Exemple&#160;: ls -1 | file la commande de listage des fichiers du répertoire (ls) envoie chacun d'eux à la commande qui permet de connaître le type d'un fichier (file).
+</p>
+</td></tr>
+<tr>
+<td>#
+</td>
+<td>Introduit un commentaire. Donc tout ce qui suit ce caractère dans une ligne est ignoré par le Shell.<br />
+<p>Exemple&#160;: # ceci est un commentaire.
+</p>
+</td></tr>
+<tr>
+<td>\
+</td>
+<td>Déspécialise le caractère qui suit. C'est-à-dire que si le caractère qui suit celui là est un caractère spécial alors le Shell l'ignorera.<br />
+<p>Exemple&#160;: echo Bon\*jour affiche bon*jour à l'écran.
+</p>
+</td></tr>
+<tr>
+<td>'...'
+</td>
+<td>Défini une chaîne de caractères qui ne sera pas évaluée par le Shell.<br />
+<p>Exemple&#160;: echo '*?&amp;' affiche sur la sortie standard les caractères spéciaux *?&amp; sans les interpréter.
+</p>
+</td></tr>
+<tr>
+<td>"..."
+</td>
+<td>Défini une chaîne de caractères dont les variables seront évaluées par le Shell.<br />
+<p>Exemple&#160;: echo "Vous êtes $USER." affiche Vous êtes + la valeur de la variable $USER.
+</p>
+</td></tr>
+<tr>
+<td>`...`
+</td>
+<td>Défini une chaîne de caractères qui sera interprétée comme une commande et remplacée par la chaîne qui serait renvoyée sur la sortie standard à l'exécution de la dite commande.<br />
+<p>Exemple&#160;: echo `pwd` &gt;&gt; liste.txt écrit à la fin du fichier le chemin et le nom du répertoire courant. Le caractère spécial utilisé s'obtient par la combinaison de touche&#160;: AltGr + 7 (c'est l'accent grave).
+</p>
+</td></tr></table>
+<h1><span class="mw-headline" id="Les_variables_du_Shell"><span class="mw-headline-number">5</span> Les variables du Shell</span></h1>
+<h2><span class="mw-headline" id="Les_variables_d.27environnement"><span class="mw-headline-number">5.1</span> Les variables d'environnement</span></h2>
+<p>Le Shell possède comme MS-DOS des variables d'environnement qui permettent de garder en mémoire des informations importantes telles que le login de l'utilisateur (stocké dans la variable $USER) ainsi que son répertoire de connexion ($HOME), la liste des répertoires dans lequels aller chercher les exécutables des commandes externes ($PATH), et bien d'autres encore...
+</p><p>La commande env affiche la liste de toutes les variables d'environnement du Shell avec leurs valeurs.
+</p><p>Vous pouvez afficher les variables disponibles avec la commande env.
+</p>
+<h2><span class="mw-headline" id="Autres_variables"><span class="mw-headline-number">5.2</span> Autres variables</span></h2>
+<table border="1" width="100%">
+
+<tr>
+<th>Variable
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>$$
+</td>
+<td>PID du processus Shell en cours.
+</td></tr>
+<tr>
+<td>$!
+</td>
+<td>PID du dernier processu lancé en background.
+</td></tr>
+<tr>
+<td>$?
+</td>
+<td>Code erreur de retour de la dernière commande (0:vrai; sinon faux).
+</td></tr></table>
+<h1><span class="mw-headline" id="D.C3.A9claration"><span class="mw-headline-number">6</span> Déclaration</span></h1>
+<p>L'utilisateur peut déclarer facilement de nouvelles variables par l'affectation directe d'une valeur.
+</p><p>Syntaxe&#160;: nom=valeur
+</p><p>La valeur de la variable peut être numérique ou être une chaîne de caractère, sont format n'a pas d'importance.
+</p><p>Exemple&#160;: EMAIL=deimos@deimos.fr Manipulation
+</p><p>Une variable peut être utilisée dans n'importe quelle circonstance du moment que c'est dans le Shell. Son nom doit être précédé du signe dollard ($) et être entre accolades ({}) si un autre mot lui est contigu.
+</p><p>Exemples&#160;:
+</p>
+<pre>$ echo $EMAIL
+deimos@deimos.fr
+</pre>
+<pre>$ echo "Mon mail&#160;: $EMAIL"
+Mon mail&#160;: deimos@deimos.fr
+</pre>
+<pre>$ echo 'Mon mail&#160;: $EMAIL'
+Mon mail&#160;: $EMAIL
+</pre>
+<p>Dans le premier exemple, la variable EMAIL est passé directement en paramètre à la commande echo qui l'affiche après que le Shell en ait évalué la valeur.
+</p><p>Dans le second exemple, une chaîne contenant la même variable est passée en paramètre à echo. Les doubles quotes sont des caractères spéciaux ("...")qui obligent le Shell a évaluer la valeur des variables que contient la chaîne entre double quote. La commande echo affiche donc la chaîne à l'écran.
+</p><p>Et enfin, cette fois les simples quotes interdisent au Shell d'évaluer la valeur de la variable. Donc echo affiche la chaîne brute.
+</p>
+<h2><span class="mw-headline" id="Autres_exemples"><span class="mw-headline-number">6.1</span> Autres exemples</span></h2>
+<pre>$ moi=deimos; echo $moi
+deimos
+</pre>
+<pre>$ phrase="Bonjour $moi"; echo $phrase
+Bonjour deimos
+</pre>
+<pre>$ rep=`pwd`; echo $rep
+/home/deimos/data
+</pre>
+<p>Dans le second exemple, la variable est entre accolades afin que le Shell la distingue des caractères qui suivent.
+</p><p>Dans le dernier exemple, la variable rep contient une chaîne entre accents graves, ce qui oblige le Shell à l'interpréter comme une commande et à la remplacer par la chaîne qui serait renvoyée sur la sortie standard à l'exécution de la dite commande.
+Fichiers de commandes
+</p><p>Les fichiers de commandes (scripts) sont des fichiers textes qui contiennent des commandes du Shell ordonnées par des structures de contrôle.
+Exécution
+</p><p>Pour exécuter un script, plusieurs solutions&#160;:
+</p>
+<ul><li> Syntaxe&#160;: sh script</li></ul>
+<p>Cette syntaxe lance un nouveau processus Shell qui lit ses commandes dans le fichier script. Ce fichier doit être accessible en lecture.
+</p>
+<ul><li> Syntaxe&#160;: . script</li></ul>
+<p>Le terminal est momentanément remplacé par le fichier script accessible en lecture (pas de nouveau processus créé).
+</p>
+<ul><li> Syntaxe&#160;: script</li></ul>
+<p>Lance un nouveau processus Shell qui lit ses commandes dans le fichier qui doit être accessible en lecture et en exécution.
+</p>
+<ul><li> Syntaxe&#160;: exec script</li></ul>
+<p>Le Shell courant est remplacé par un processus Shell qui lit ses commandes dans le fichier qui doit être accessible en lecture et en exécution. 
+</p>
+<h2><span class="mw-headline" id="Param.C3.A8tres"><span class="mw-headline-number">6.2</span> Paramètres</span></h2>
+<p>Il est possible d'exécuter un script en lui passant des arguments comme pour n'importe quelle autre commande.
+</p><p>Le tableau suivant résume les variables accessibles à un script&#160;:
+</p>
+<table border="1" width="100%">
+
+<tr>
+<th>Variable
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>$#
+</td>
+<td>Nombre d'arguments.
+</td></tr>
+<tr>
+<td>$*
+</td>
+<td>Liste des arguments.
+</td></tr>
+<tr>
+<td>$0
+</td>
+<td>Nom de la commande.
+</td></tr>
+<tr>
+<td>$1
+</td>
+<td>Valeur du premier paramètre.
+</td></tr>
+<tr>
+<td>$i
+</td>
+<td>Valeur du ième paramètre si i compris entre 1 et 9.
+</td></tr>
+<tr>
+<td>$9
+</td>
+<td>Valeur du neuvième paramètre.
+</td></tr></table>
+<h1><span class="mw-headline" id="Cr.C3.A9er_des_variables_.C3.A0_la_vol.C3.A9e"><span class="mw-headline-number">7</span> Créer des variables à la volée</span></h1>
+<p>Vu que bash n'est pas un vrai language de programmation, il y a pas mal de choses qu'il devient difficile à faire quand on pousse pépère dans ses derniers retranchements. Bref, si vous avez besoin de déclarer des variables à la volée, voici un exemple&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="re2">f</span>=<span class="nu0">0</span>
+<span class="kw1">for</span> j <span class="kw1">in</span> <span class="sy0">`</span><span class="kw3">echo</span> <span class="re1">$nodes</span><span class="sy0">`</span>&#160;; <span class="kw1">do</span>
+   <span class="re2">f</span>=<span class="sy0">`</span><span class="kw2">expr</span> <span class="re1">$f</span> + <span class="nu0">1</span><span class="sy0">`</span>
+   <span class="kw3">local</span> porttest_node<span class="re1">$f</span>=<span class="sy0">`</span><span class="kw2">ssh</span> root<span class="sy0">@</span><span class="re1">$node1</span> <span class="kw2">netstat</span> <span class="re5">-auntp</span> <span class="sy0">|</span> <span class="kw2">grep</span>&#160;:<span class="re1">$clientport</span> <span class="sy0">|</span> <span class="kw2">grep</span> <span class="re5">-c</span> <span class="st0">&quot;LISTEN&quot;</span><span class="sy0">`</span>
+<span class="kw1">done</span></pre></div></div>
+<h1><span class="mw-headline" id="Lire_un_fichier_ligne_par_ligne"><span class="mw-headline-number">8</span> Lire un fichier ligne par ligne</span></h1>
+<p>Si vous avez besoin de lire ligne par ligne un fichier, comme on peut le faire dans certains langages plus avancés, voici ex ememple&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1">  <span class="kw1">while</span> <span class="kw2">read</span> line; <span class="kw1">do</span> <span class="kw3">echo</span> <span class="st0">&quot;<span class="es4">$(date)</span>,<span class="es4">$(hostname)</span>,<span class="es2">$line</span>&quot;</span>; <span class="kw1">done</span> <span class="sy0">&lt;</span> somefile.txt</pre></div></div>
+<h1><span class="mw-headline" id="R.C3.A9cup.C3.A9rer_les_signaux"><span class="mw-headline-number">9</span> Récupérer les signaux</span></h1>
+<p>Récupérer les signaux, c'est tellement pratique. Pour ceux qui ne comprennent pas ou n'ont aucunes notions sur ces méchanismes, c'est assez simple. Lors d'un SIGHUP et autres fermetures de programmes, vous pouvez effectuer des actions diverses et variées a l'aide de la commande trap&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> trap</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"> <span class="kw3">trap</span> <span class="st0">&quot;echo <span class="es1">\&quot;</span>$0 process $$ killed on <span class="es4">$(date)</span>.<span class="es1">\&quot;</span>; exit &quot;</span> HUP INT QUIT ABRT TERM STOP</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Cacher_un_mot_de_passe_.C3.A0_la_saisie_au_clavier"><span class="mw-headline-number">10</span> Cacher un mot de passe à la saisie au clavier</span></h1>
+<p>Il peut être pratique lorsqu'un utilisateur saisie quelque chose au clavier de devoir le cacher à l'écran. Cela se traduit de la façon suivante en shell script&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> trap</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"> <span class="re2">save_state</span>=$<span class="br0">&#40;</span><span class="kw2">stty</span> -g<span class="br0">&#41;</span>
+ <span class="kw3">echo</span> <span class="re5">-n</span> <span class="st0">&quot;Password: &quot;</span>
+ <span class="kw2">stty</span> <span class="re5">-echo</span>
+ <span class="kw2">read</span> password
+ <span class="kw2">stty</span> <span class="st0">&quot;<span class="es2">$save_state</span>&quot;</span>
+ <span class="kw3">echo</span> <span class="st0">&quot;&quot;</span>
+ <span class="kw3">echo</span> <span class="st0">&quot;You inserted <span class="es2">$password</span> as password&quot;</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="R.C3.A9f.C3.A9rences"><span class="mw-headline-number">11</span> Références</span></h1>
+<p><a href="./File:Unix-initiation-shell.pdf.html" title="File:Unix-initiation-shell.pdf">Documentation sur l'initiation Unix et les scripts shell</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.044 seconds
+Real time usage: 0.047 seconds
+Preprocessor visited node count: 168/1000000
+Preprocessor generated node count: 324/1000000
+Post‐expand include size: 386/2097152 bytes
+Template argument size: 112/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   13.461      1 - -total
+ 98.41%   13.247      2 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1937-0!*!*!1!en!5!* and timestamp 20181111230839 and revision id 9645
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Introduction_au_Script_Shell&amp;oldid=9645">https://wiki.deimos.fr/index.php?title=Introduction_au_Script_Shell&amp;oldid=9645</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Introduction+au+Script+Shell" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Introduction_au_Script_Shell.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Introduction_au_Script_Shell.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Introduction_au_Script_Shell.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Introduction_au_Script_Shell&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Introduction_au_Script_Shell&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Introduction_au_Script_Shell.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Introduction_au_Script_Shell.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Introduction_au_Script_Shell" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Introduction_au_Script_Shell&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Introduction_au_Script_Shell&amp;oldid=9645" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Introduction_au_Script_Shell&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 3 May 2011, at 11:53.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":83});
+}</script>
+	</body>
+</html>
+	

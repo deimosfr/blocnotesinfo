@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Syslog-ng : Installation et configuration de Syslog-ng (Syslog New Generation) - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)","wgTitle":"Syslog-ng : Installation et configuration de Syslog-ng (Syslog New Generation)","wgCurRevisionId":9926,"wgRevisionId":9926,"wgArticleId":2584,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)","wgRelevantArticleId":2584,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Syslog-ng_Installation_et_configuration_de_Syslog-ng_Syslog_New_Generation skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Syslog-ng : Installation et configuration de Syslog-ng (Syslog New Generation)</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#mw-navigation">navigation</a>, 					<a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Debian"><span class="tocnumber">2.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Despuis_les_sources"><span class="tocnumber">2.2</span> <span class="toctext">Despuis les sources</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#La_section_options"><span class="tocnumber">3.1</span> <span class="toctext">La section options</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#La_section_source"><span class="tocnumber">3.2</span> <span class="toctext">La section source</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#La_section_destination"><span class="tocnumber">3.3</span> <span class="toctext">La section destination</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#La_section_filter"><span class="tocnumber">3.4</span> <span class="toctext">La section filter</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#La_section_log"><span class="tocnumber">3.5</span> <span class="toctext">La section log</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Exemple_de_fichier_de_configuration"><span class="tocnumber">3.6</span> <span class="toctext">Exemple de fichier de configuration</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#MySQL"><span class="tocnumber">4</span> <span class="toctext">MySQL</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Clients"><span class="tocnumber">5</span> <span class="toctext">Clients</span></a>
+<ul>
+<li class="toclevel-2 tocsection-14"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Linux_avec_Syslog"><span class="tocnumber">5.1</span> <span class="toctext">Linux avec Syslog</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Linux_avec_Syslogng"><span class="tocnumber">5.2</span> <span class="toctext">Linux avec Syslogng</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-17"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#I.2FO_error_occurred_while_writing.3B_fd.3D.276.27.2C_error.3D.27Broken_pipe_.2832.29.27"><span class="tocnumber">6.1</span> <span class="toctext">I/O error occurred while writing; fd='6', error='Broken pipe (32)'</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://www.balabit.com/network-security/syslog-ng/opensource-logging-system/">Syslog-ng</a> est un gestionnaire de journaux système de nouvelle génération. Il permet de centraliser les logs des machines d'un parc informatique avec une facilité déconcertante, et de les trier tout aussi simplement. Ce daemon est donc tout à fait indispensable pour les administrateurs réseau soucieux des performances de leurs machines.
+</p><p>Gratuit et fonctionnant sur de nombreux systèmes tels que Linux, FreeBSD, HP-UX, Solaris ou bien encore AIX, Syslog-Ng remplace efficacement le daemon de base syslogd. Il permet ainsi de pallier à ses nombreux manques&#160;:
+</p>
+<ul><li> Une portabilité reconnue</li>
+<li> Configuration de base très avancée</li>
+<li> Possibilité de "chrooter" son environnement</li>
+<li> Export des logs reçus vers un serveur mySQL</li>
+<li> Utilisation de macros possible pour le nom des logs</li>
+<li> Possibilité de chiffrer les logs envoyés via la technologie SSL</li>
+<li> Utilisation des protocoles UDP et TCP lors du transports des logs</li>
+<li> Possibilité de trier les logs suivant les contenus, leur provenance ou bien encore leur facilité, et ce en pouvant utiliser les expressions régulières</li></ul>
+<p>Grâce à lui, vous pourrez donc retrouver très simplement les logs d'une machine donnée, suivant vos propre critères, et ce avec une sécurité accrue lors de leurs transmissions grâce à la puissance du chiffrage SSL. Permettant un traitement des plus avancés des logs dès leur reception, il vous évitera de passer par des scripts Bash ou Perl de traitement de fichiers plats, comme cela pouvait être le cas en utilisant syslogd.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Debian"><span class="mw-headline-number">2.1</span> Debian</span></h2>
+<p>Pour l'install sur Debian&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install syslog-ng
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Despuis_les_sources"><span class="mw-headline-number">2.2</span> Despuis les sources</span></h2>
+<p>Remarque&#160;: les commandes commençant par # doivent être exécutées en mode root.
+</p><p>Avant tout, nous devons télécharger les archives permettant de faire tourner Syslog-NG, soit sa propre archive ainsi que la librairie "libol".
+</p><p>Téléchargement des packages syslog-ng et libol avec Wget:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> wget</font>
+</td></tr>
+<tr>
+<td>
+<pre>wget <a rel="nofollow" class="external free" href="http://www.balabit.com/downloads/libol/0.3/libol-0.3.16.tar.gz">http://www.balabit.com/downloads/libol/0.3/libol-0.3.16.tar.gz</a> <a rel="nofollow" class="external free" href="http://www.balabit.com/downloads/syslog-ng/1.6/src/syslog-ng-1.6.8.tar.gz">http://www.balabit.com/downloads/syslog-ng/1.6/src/syslog-ng-1.6.8.tar.gz</a>
+</pre>
+</td></tr></table><br />
+<p>Décompactage&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> gzip</font>
+</td></tr>
+<tr>
+<td>
+<p>$ gzip -dc syslog-ng-1.6.8.tar.gz 
+</p>
+</td></tr></table><br />
+<p>Compilation des packages décompressés&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ cd /usr/local/src/libol-0.3.16
+$ ./configure
+# make &amp;&amp; make install
+&#160;
+$ cd /usr/local/src/syslog-ng-1.6.8
+$ ./configure
+&#160;
+# make &amp;&amp; make install</pre></div></div>
+</td></tr></table><br />
+<p>Voila, votre système est équipé de Syslog-ng. Il faut à présent lancer syslog-ng au démarrage, sous forme de tâche de fond, ainsi que le script syslog_mysql.sh, que nous étudierons dans les prochaines pages. Pour cela, il suffit de créer un service lui correspondant.
+</p><p>Script de démarrage /etc/init.d/syslog-ng&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/init.d/syslog-ng</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#! /bin/sh
+&#160;
+# /etc/init.d/syslog-ng
+&#160;
+# Description: Syslog-ng est le système qui 
+# va servir à la machine à  monitorer les 
+# logs de l'ensemble du parc
+&#160;
+NAME=syslog-ng
+DAEMON=/usr/local/sbin/syslog-ng
+PIDFILE=/var/run/$NAME.pid
+case &quot;$1&quot; in
+&#160;
+start)
+ echo &quot;Lancement de $NAME...&quot;
+ start-stop-daemon --start --pidfile $PIDFILE \
+ --exec $DAEMON 
+ PID=`more /var/run/syslog-ng.pid`
+ echo &quot;Système de synchro $NAME mySQL...&quot;  
+ /scripts/syslog_mysql.sh $PID &amp;
+ ;;
+&#160;
+stop) 
+ echo &quot;Arret de    $NAME&quot;
+ start-stop-daemon --stop --pidfile $PIDFILE \
+ --oknodo --exec $DAEMON
+ rm –f /var/log/mysql.pipe
+ ;;
+&#160;
+*)    
+ echo &quot;Appel de syslog-Ng autre que start et stop&quot;
+ exit 1
+&#160;
+ esac
+ exit 1</pre></div></div>
+</td></tr></table><br />
+<p>Vous devez ensuite faire le lien entre ce script et le Run Level habituel de votre système.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ln</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ ln -s /etc/init.d/syslog-ng /etc/rc2.d/S99syslog-ng
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Syslog-ng charge lors de son lancement un fichier de configuration, se trouvant dans etc/syslog-ng/syslog-ng.conf. Vous pouvez néanmoins utiliser un autre fichier de configuration en utilisant l'option -f. Le fichier est divisé suivant 5 grandes sections&#160;:
+</p>
+<ul><li> Options, permettant de définir les paramètres généraux du serveurs de logs</li>
+<li> Sources, permettant de définir les différentes sources possibles</li>
+<li> Destination, permettant de définir l'endroit où le log sera stocké</li>
+<li> Filter, permettant de définir les filtres s'opérant sur les logs (contenu, facilité, etc...).</li>
+<li> Log, permettant de définir les actions et la prise en charge des logs</li></ul>
+<p>On traite les logs suivant leurs sources, leurs destinations et leurs formes (filtres). On peut ainsi tout à fait ignorer une bonne partie des logs que l’on reçoit en fixant des règles de filtres restrictives lorsque l’on traite les logs.
+</p>
+<h2><span class="mw-headline" id="La_section_options"><span class="mw-headline-number">3.1</span> La section options</span></h2>
+<p>Voici la liste des paramètres possibles, permettant de personnaliser le fonctionnement du Daemon&#160;:
+</p>
+<ul><li> log_msg_size()&#160;: Taille maximale en octet d’un message</li>
+<li> sync()&#160;: Nombre d'évènement avant d'écrire dans les journaux</li>
+<li> log_fifo_size()&#160;: La pile de traitement des évènements, permet de stocker en mémoire x lignes</li></ul>
+<ul><li> time_reap()&#160;: Ferme un fichier de journalisation après x secondes</li>
+<li> time_reopen()&#160;: Nombre de secondes que l'on attend si la connexion est tombée</li></ul>
+<ul><li> create_dirs()&#160;: Créer les répertoires de logs si nécessaire (Yes ou No)</li>
+<li> perm() et dir_perm()&#160;: Permissions des fichiers de logs et du répertoire de logs</li>
+<li> group() et dir_group()&#160;: Groupe propriétaire des logs et des répertoires de logs</li>
+<li> owner() et dir_owner()&#160;: Utilisateur propriétaire des logs et des répertoires de logs</li></ul>
+<ul><li> use_dns()&#160;: Utilisation des serveurs DNS pour résoudre les noms</li>
+<li> long_hostnames()&#160;: Utilisation de noms longs DNS (On ou Off)</li>
+<li> check_hostname()&#160;: Vérifie que le nom des clients DNS est valide (Yes ou No)</li>
+<li> use_fqdn()&#160;: Utilisation des FQDN dans les noms de logs (Yes ou No)</li>
+<li> keep_hostname()&#160;: Spécifie si l'on dois faire "confiance" au hostname (Yes or No)</li>
+<li> dns_cache(), dns_cache_size(), dns_cache_expire()&#160;: Activation du cache DNS pour x Hosts pendant X Secondes</li></ul>
+<ul><li> use_time_recvd()&#160;: Utiliser l'heure locale au lieu de l'horodatage (Yes ou No)</li>
+<li> gc_busy_threshold()&#160;: Lancement du Garbage Collector au bout de X évènements quand syslog-ng est actif</li>
+<li> gc_idle_threshold ()&#160;: Lancement du Garbage Collector au bout de X évènements quand syslog-ng est inactif</li></ul>
+<h2><span class="mw-headline" id="La_section_source"><span class="mw-headline-number">3.2</span> La section source</span></h2>
+<p>On définit les différentes sources possibles des logs, on peut en définir plusieurs d'un coup, afin de regrouper plusieurs "sources" en une seule "virtuelle".
+</p><p>Exemple permettant de récupérer les logs arrivant de 10.0.1.5 en TCP&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">source ip780 {
+   tcp (ip (&quot;10.0.1.5&quot;) );
+};</pre></div></div>
+</td></tr></table><br />
+<ul><li> Les sources possibles&#160;:
+<ul><li> file() = ouvre un fichier donné et le lit</li>
+<li> internal() = les messages internes de syslog-ng</li>
+<li> pipe(), fifo() = ouvre un fichier fifo donné et le lit</li>
+<li> udp() , tcp() = écoute sur le port udp ou tcp spécifié</li>
+<li> sun-stream(), sun-streams() = écoute les systèmes Solaris</li>
+<li> unix-dgram() = lit les sockets UNIX en mode SOCK_DGRAM (BSD)</li>
+<li> unix-stream() = lit les sockets UNIX en mode SOCK_STREAM (Linux)</li></ul></li></ul>
+<p>Si vous ne voulez pas vous prendre la tête, et accepter toutes les requêtes en tcp et udp&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">source s_all {
+   ...
+   udp();
+   tcp();
+};</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="La_section_destination"><span class="mw-headline-number">3.3</span> La section destination</span></h2>
+<p>On définit les différentes destinations possibles des logs, on peut en définir plusieurs d'un coup, afin d'envoyer les logs sur plusieurs fichiers par exemple.
+</p><p>Exemple permettant d'envoyer le message via un programe, ici un script perl, et vers un fichier&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">destination mailfile {
+   program(&quot;perl /scripts/log_mailsend.pl $MSG &quot;);
+   file (&quot;/var/log/syslog-ng/$YEAR.$MONTH.$DAY/$HOST/logfile.log&quot;);
+};</pre></div></div>
+</td></tr></table><br />
+<p>Il est à noter que les noms de fichiers supportent les Macros. C'est un des aspects les plus intéressants de syslog-ng&#160;: vous pouvez en effet facilement trier vos fichiers de logs grâce à des noms facilement reconnaissables et personnalisables. Ainsi, les macros permettent de nommer le nom du fichier de logs suivant la machine, son IP, la date, etc...<br />
+Dans notre exemple, le fichier pourra par exemple s'appeller /var/log/syslog-ng/2005.10.04/MACHINE/logfile.log.
+</p>
+<ul><li> Les destinations possibles&#160;:
+<ul><li> file() = écrit sur un fichier donné</li>
+<li> usertty() = envoie le log sur un tty donné</li>
+<li> fifo(), pipe() = écrit sur un fichier fifo donné</li>
+<li> udp(),tcp() = envoie le message sur le port spécifié</li>
+<li> program() = lance un programme donné et lui envoie le message</li>
+<li> unix-dgram() = envoie un message contenant le log en SOCK_DGRAM</li>
+<li> unix-stream() = envoie un message contenant le log en SOCK_STREAM</li></ul></li></ul>
+<ul><li> Les Macros utilisables&#160;:
+<ul><li> FACILITY&#160;: facilité du log</li>
+<li> LEVEL ou PRIORITY&#160;: niveau du log</li>
+<li> DATE&#160;: la date durant laquelle le log a été</li>
+<li> DAY&#160;: le jour durant lequel le log a été envoyé</li>
+<li> HOST&#160;: le nom de la machine ayant envoyé le log</li>
+<li> YEAR&#160;: l'année durant laquelle le log a été envoyé</li>
+<li> HOUR&#160;: l'heure durant laquelle le log a été envoyé</li>
+<li> MIN&#160;: la minute durant laquelle le log a été envoyé</li>
+<li> MONTH&#160;: le mois durant lequel le log a été envoyé</li>
+<li> SEC&#160;: la seconde durant laquelle le log a été envoyé</li>
+<li> PROGRAM&#160;: le nom du programme ayant envoyé le log</li>
+<li> FULLDATE&#160;: la date entière du log&#160;: avec l'heure, minute et seconde</li>
+<li> WEEKDAY&#160;: les trois premières lettres du jour durant lequel le log a été envoyé (exemple&#160;: "Wed")</li></ul></li></ul>
+<h2><span class="mw-headline" id="La_section_filter"><span class="mw-headline-number">3.4</span> La section filter</span></h2>
+<p>On définit les filtres permettant de limiter les logs pris en compte. Partie primordiale du serveur syslog-ng, car permettant de traiter directement les logs, dès leur arrivée, sans avoir à les parser ou les traiter après réception. C'est sur cette section que vous devrez principalement vous concentrer.
+</p><p>Exemple permettant de récupérer les erreurs d'authentification&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>filter auth_errors { level(error) and facility(auth); };
+</pre>
+</td></tr></table><br />
+<p>A noter la possibilité de les inverser avec NOT et d'utiliser les opérandes AND et OR
+</p>
+<ul><li> Les filtres possibles&#160;:
+<ul><li> facility() = le facility du log</li>
+<li> level(), priority() = le niveau du log</li>
+<li> filter() = évalue le log suivant un autre filtre</li>
+<li> netmask() = vérifie le masque de sous réseau</li>
+<li> match() = modèle du message (supporte les Regex)</li>
+<li> host() = la machine présentant le log (supporte les Regex)</li>
+<li> program() = le programme qui a généré le log (supporte les Regex)</li></ul></li></ul>
+<p>Attention, les développeurs de Syslog-ng préconisent d'utiliser le moins possible les expressions régulières afin de ne pas trop surcharger le CPU des machines exécutant le daemon. Il est ainsi préférable d'utiliser plusieurs filtres "match", couplés avec des opérandes "AND", plutôt que d'utiliser un seul filtre "match" utilisant les Regex. Réfléchissez donc beaucoup avant de les utiliser!
+</p>
+<h2><span class="mw-headline" id="La_section_log"><span class="mw-headline-number">3.5</span> La section log</span></h2>
+<p>Cette dernière partie permet tout simplement de "construire" vos captures de logs à partir des sections que nous avons définies auparavant. Vous pouvez donc complètement configurer l'application suivant vos besoins.
+</p><p>Exemple de section log&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">log exemple {
+   source(ip780);
+   destination(mailfile);
+   filter(auth_errors);
+};</pre></div></div>
+</td></tr></table><br />
+<p>Cet exemple permet ainsi de récupérer les erreurs d'authentification (filter auth_errors) venant de la machine 10.0.1.5 (source ip780) et de les envoyer sur le fichier défini dans la destination (mailfile).
+</p>
+<h2><span class="mw-headline" id="Exemple_de_fichier_de_configuration"><span class="mw-headline-number">3.6</span> Exemple de fichier de configuration</span></h2>
+<p>Afin de mieux comprendre le système général de Syslog-ng, voici un exemple de fichier de configuration basique commenté&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#
+# Configuration file for syslog-ng under Debian
+#
+# attempts at reproducing default syslog behavior
+&#160;
+# the standard syslog levels are (in descending order of priority):
+# emerg alert crit err warning notice info debug
+# the aliases &quot;error&quot;, &quot;panic&quot;, and &quot;warn&quot; are deprecated
+# the &quot;none&quot; priority found in the original syslogd configuration is
+# only used in internal messages created by syslogd
+&#160;
+&#160;
+######
+# options
+&#160;
+options {
+        # disable the chained hostname format in logs
+        # (default is enabled)
+        chain_hostnames(0);
+&#160;
+        # the time to wait before a died connection is re-established
+        # (default is 60)
+        time_reopen(10);
+&#160;
+        # the time to wait before an idle destination file is closed
+        # (default is 60)
+        time_reap(360);
+&#160;
+        # the number of lines buffered before written to file
+        # you might want to increase this if your disk isn't catching with
+        # all the log messages you get or if you want less disk activity
+        # (say on a laptop)
+        # (default is 0)
+        #sync(0);
+&#160;
+        # the number of lines fitting in the output queue
+        log_fifo_size(2048);
+&#160;
+        # enable or disable directory creation for destination files
+        create_dirs(yes);
+&#160;
+        # default owner, group, and permissions for log files
+        # (defaults are 0, 0, 0600)
+        #owner(root);
+        group(adm);
+        perm(0640);
+&#160;
+        # default owner, group, and permissions for created directories
+        # (defaults are 0, 0, 0700)
+        #dir_owner(root);
+        #dir_group(root);
+        dir_perm(0755);
+&#160;
+        # enable or disable DNS usage
+        # syslog-ng blocks on DNS queries, so enabling DNS may lead to
+        # a Denial of Service attack
+        # (default is yes)
+        use_dns(yes);
+&#160;
+        # maximum length of message in bytes
+        # this is only limited by the program listening on the /dev/log Unix
+        # socket, glibc can handle arbitrary length log messages, but -- for
+        # example -- syslogd accepts only 1024 bytes
+        # (default is 2048)
+        #log_msg_size(2048);
+&#160;
+        #Disable statistic log messages.
+        stats_freq(0);
+};
+&#160;
+# Les différentes sources possibles
+&#160;
+# Evènements locaux
+source s_localhost 
+{
+    pipe (&quot;/proc/kmsg&quot; log_prefix(&quot;kernel: &quot;));
+    unix-stream (&quot;/dev/log&quot;);
+    internal();
+};
+&#160;
+&#160;
+# Tous les logs Réseaux udp
+source s_network { udp( port(514) ); };
+&#160;
+# Les destinations possibles
+# Pour tous les logs locaux
+destination d_localhost {
+file (&quot;/var/log/syslogng/$YEAR.$MONTH.$DAY/localhost/$FACILITY.log&quot;);
+};          
+&#160;
+# Pour tous les logs Réseaux
+destination d_network {
+# Possibilité d’utiliser mySQL via un fifo file
+&#160;
+pipe (&quot;/tmp/mysql.pipe&quot; template (&quot;INSERT INTO logs(host, \
+       facility, priority, level, tag, datetime, program,\
+       msg) VALUES ('$HOST', '$FACILITY', '$PRIORITY', \
+       '$LEVEL', '$TAG', '$YEAR-$MONTH-$DAY $HOUR:$MIN:$SEC', \
+       '$PROGRAM',  '$MSG');\n&quot;) template-escape(yes) );
+&#160;
+file (&quot;/var/log/syslog-ng/$YEAR.$MONTH.$DAY/$HOST/reseau.log&quot;);          
+&#160;
+};
+&#160;
+&#160;
+# Filtres 
+filter f_local6 { facility(user); };
+&#160;
+&#160;
+# Traitements des logs à proprement parlé
+log {
+    source(s_localhost);
+    destination(d_localhost);
+};
+&#160;
+&#160;
+log {
+    source(s_network);
+    filter(f_local6);
+    destination(d_network);
+};</pre></div></div>
+</td></tr></table><br />
+<p>La configuration du serveur est à présent terminée. Mais cela ne suffit évidemment pas, il faut à présent spécifier aux machines cibles qu'elles doivent transmettre leurs trames syslog à ce serveur. Nous allons donc expliquer le fonctionnement du démon de base syslogd, et le configurer afin qu'il redirige convenablement ses trames.
+</p>
+<h1><span class="mw-headline" id="MySQL"><span class="mw-headline-number">4</span> MySQL</span></h1>
+<p>Pour une intégration des logs dans MySQL, voici un exemple de destination à rajouter dans le fichier de conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>destination <b>d_mysql</b> {
+       program(
+               "mysql <b>-usyslogng -psyslogng syslogng</b> -B &gt; /dev/null"
+               template("INSERT INTO <b>logs</b> (host, facility, priority,
+                       level, tag, date, time, program, msg) VALUES ( '$HOST', '$FACILITY', '$PRIORITY', '$LEVEL',
+                       '$TAG', '$YEAR-$MONTH-$DAY $HOUR:$MIN:$SEC', '$PROGRAM', '$MSG' );\n")
+               template-escape(yes)
+       );  
+};
+</pre>
+</td></tr></table><br />
+<ul><li> Le nom de la destination est ici d_mysql.</li>
+<li> -u&#160;: pour le nom de l'utilisateur mysql.</li>
+<li> -p&#160;: le mot de passe mysql.</li>
+<li> sysloggn&#160;: c'est le nom de la base de donnée ici.</li>
+<li> logs&#160;: le nom de la table qui va récupérer les logs.</li></ul>
+<p>Rajoutez également l'enregistrement de la table logs dans la base de donnée syslogng&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ mysql -u<b>root</b> -p
+create database syslogng;
+use syslogng;
+create table <b>logs</b> (
+host varchar(32) default NULL,
+facility varchar(10) default NULL,
+priority varchar(10) default NULL,
+level varchar(10) default NULL, 
+tag varchar(10) default NULL,
+datetime time default NULL,
+program varchar(15) default NULL,
+msg text, seq int(10) unsigned NOT NULL auto_increment,
+PRIMARY kEY (seq))
+TYPE=MyISAM;
+</pre>
+</td></tr></table><br />
+<p>Maintenant, nous allons retourner dans le fichier de configuration afin d'y configurer au moins un log&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>log {
+       source(s_all);
+       filter(f_daemon);
+       <b>destination(d_mysql);</b>
+       destination(df_daemon);
+};
+</pre>
+</td></tr></table><br />
+<p>J'ai rajouté ici ma ligne de destination. Ce qui signifie qu'en plus d'écrire dans un fichier se trouvant dans /var/log je vais envoyer les logs dans mysql. Vous n'avez peut être pas besoin des 2 lignes. A vous de voir.
+</p><p>Pour une bonne lecture et interprétation des logs, je vous invites à suivre l'article expliquant la <a href="./Php-syslog-ng_:_Interprétation_des_logs_Syslog-ng_dans_une_interfaçe_web.html" title="Php-syslog-ng : Interprétation des logs Syslog-ng dans une interfaçe web">mise en place de php-syslog-ng</a>.
+</p><p>Pour tester le bon fonctionnement, je vous conseil de procéder comme ceci&#160;:
+</p>
+<ul><li> Redémarrer sur la machine cliente le service ssh</li>
+<li> Regarder votre fichier de log /var/log/auth.log sur le serveur. Vous devriez voir les logs de la machine distante arriver.</li>
+<li> Dans le cas ou vous utilisez la résolution de nom et que le serveur DNS ne résoud pas, insérez votre machine dans /etc/hosts (ceci arrive si vous ne voyez pas votre table sql s'incrémenter)</li></ul>
+<h1><span class="mw-headline" id="Clients"><span class="mw-headline-number">5</span> Clients</span></h1>
+<p>Pour les clients, il existe plusieurs syslogs et plusieurs OS. Nous verrons donc comment arriver faire avec un peu tout.
+</p>
+<h2><span class="mw-headline" id="Linux_avec_Syslog"><span class="mw-headline-number">5.1</span> Linux avec Syslog</span></h2>
+<p>Sur Linux et la plus part des distributions, Syslog est le serveur de logs installé par défaut. C'est pourquoi nous allons voir comment envoyer depuis syslog vers syslog-ng les logs qui nous intéressent. Editez le fichier /etc/syslog.conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre><b>auth,authpriv.*                 @192.168.0.193</b>
+auth,authpriv.*                 /var/log/auth.log
+<b>*.*;auth,authpriv.none          @192.168.0.193</b>
+*.*;auth,authpriv.none          -/var/log/syslog
+#cron.*                         /var/log/cron.log
+<b>daemon.*                        @192.168.0.193</b>
+daemon.*                        -/var/log/daemon.log
+<b>kern.*                          @192.168.0.193</b>
+kern.*                          -/var/log/kern.log
+<b>lpr.*                           @192.168.0.193</b>
+lpr.*                           -/var/log/lpr.log
+<b>mail.*                          @192.168.0.193</b>
+mail.*                          -/var/log/mail.log
+<b>user.*                          @192.168.0.193</b>
+user.*                          -/var/log/user.log
+<b>uucp.*                          @192.168.0.193</b>
+uucp.*                          /var/log/uucp.log
+</pre>
+</td></tr></table><br />
+<p>Ici mon serveur Syslogng possède l'adresse IP&#160;: 192.168.0.193. Je spécifie un "@" pour indiqué la redirection suivit de l'IP. J'ai rajouté des lignes pour le serveur, car je veux que les logs soient en local et sur le serveur Syslogng. Si vous ne les voulez pas en local, supprimez les lignes qui ne sont pas en gras ci dessus. Si vous ne souhaitez pas faire de détailet tout envoyer, mettez cette ligne&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>*.*            @ip_server_syslog
+</pre>
+</td></tr></table><br />
+<p>Le signe "-" devant les fichiers de log signifie que l'on veut enregistrer les logs de façon asynchrone, cela évite les goulets d'étranglements.
+</p><p>Ensuite on redémarre le service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/sysklogd restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Linux_avec_Syslogng"><span class="mw-headline-number">5.2</span> Linux avec Syslogng</span></h2>
+<p>Pour un client Linux muni d'un serveur Syslog-ng, il suffit de définir une autre destination&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>destination dtcp_syslog_server { <b>tcp("192.168.0.193" port(514));</b> };
+</pre>
+</td></tr></table><br />
+<p>Ici, j'ai choisi d'envoyer en tcp sur le serveur 192.168.0.193 et le port 514 mes logs. Cependant, c'est juste la destination, je n'envoie rien pour le moment. C'est pourquoi il va falloir configurer les logs&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/syslog-ng/syslog-ng.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+log {
+       source(s_all);
+       filter(f_auth);
+       destination(df_auth);
+       <b>destination(dtcp_syslog_server);</b>
+};
+
+# *.*;auth,authpriv.none          -/var/log/syslog
+log {
+        source(s_all);
+        filter(f_syslog);
+        destination(df_syslog);
+        <b>destination(dtcp_syslog_server);</b>
+};
+
+# daemon.*                        -/var/log/daemon.log
+log {
+       source(s_all);
+       filter(f_daemon);
+       destination(df_daemon);
+       <b>destination(dtcp_syslog_server);</b>
+};
+
+# kern.*                          -/var/log/kern.log
+log {
+       source(s_all);
+       filter(f_kern);
+       destination(df_kern);
+       <b>destination(dtcp_syslog_server);</b>
+};
+...
+</pre>
+</td></tr></table><br />
+<p>Comme vous pouvez le voir dans l'exemple ci dessus, il suffit juste de rajouter dans log les destinations récédement configurer. Il ne reste plus qu'a redémarrer le service et c'est bon&#160;:-)
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="I.2FO_error_occurred_while_writing.3B_fd.3D.276.27.2C_error.3D.27Broken_pipe_.2832.29.27"><span class="mw-headline-number">6.1</span> I/O error occurred while writing; fd='6', error='Broken pipe (32)'</span></h2>
+<p>Ceci est certainement dû à un problème de connexion à la base de donnée. Vérifiez donc vos droits ainsi que les identifiants utilisés dans le fichier de conf.
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.supinfo-projects.com/fr/2005/syslogng_2005/1/">http://www.supinfo-projects.com/fr/2005/syslogng_2005/1/</a><br />
+<a href="./File:Installer_un_serveur_Syslog.pdf.html" title="File:Installer un serveur Syslog.pdf">Installer un serveur Syslog</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.052 seconds
+Real time usage: 0.052 seconds
+Preprocessor visited node count: 328/1000000
+Preprocessor generated node count: 920/1000000
+Post‐expand include size: 6823/2097152 bytes
+Template argument size: 3836/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   10.547      1 - -total
+ 50.91%    5.370     13 - Template:Config
+ 26.98%    2.846      7 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2584-0!*!0!1!en!5!* and timestamp 20181111230718 and revision id 9926
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)&amp;oldid=9926">https://wiki.deimos.fr/index.php?title=Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)&amp;oldid=9926</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Syslog-ng+%3A+Installation+et+configuration+de+Syslog-ng+%28Syslog+New+Generation%29" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation).html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)&amp;oldid=9926" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Syslog-ng_:_Installation_et_configuration_de_Syslog-ng_(Syslog_New_Generation)&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 12 December 2011, at 20:18.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

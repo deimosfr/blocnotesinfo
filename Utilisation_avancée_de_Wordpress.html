@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Utilisation avancée de Wordpress - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Utilisation_avancée_de_Wordpress.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Utilisation_avancée_de_Wordpress","wgTitle":"Utilisation avancée de Wordpress","wgCurRevisionId":12464,"wgRevisionId":12464,"wgArticleId":2951,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Utilisation_avancée_de_Wordpress","wgRelevantArticleId":2951,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.javascript.source-javascript .de1, .javascript.source-javascript .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.javascript.source-javascript  {font-family:monospace;}
+.javascript.source-javascript .imp {font-weight: bold; color: red;}
+.javascript.source-javascript li, .javascript.source-javascript .li1 {font-weight: normal; vertical-align:top;}
+.javascript.source-javascript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.javascript.source-javascript .li2 {font-weight: bold; vertical-align:top;}
+.javascript.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.javascript.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.javascript.source-javascript .kw3 {color: #000066;}
+.javascript.source-javascript .kw5 {color: #FF0000;}
+.javascript.source-javascript .co1 {color: #006600; font-style: italic;}
+.javascript.source-javascript .co2 {color: #009966; font-style: italic;}
+.javascript.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.javascript.source-javascript .es0 {color: #000099; font-weight: bold;}
+.javascript.source-javascript .br0 {color: #009900;}
+.javascript.source-javascript .sy0 {color: #339933;}
+.javascript.source-javascript .st0 {color: #3366CC;}
+.javascript.source-javascript .nu0 {color: #CC0000;}
+.javascript.source-javascript .me1 {color: #660066;}
+.javascript.source-javascript .ln-xtra, .javascript.source-javascript li.ln-xtra, .javascript.source-javascript div.ln-xtra {background-color: #ffc;}
+.javascript.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li, .source-php pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.php.source-php .de1, .php.source-php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.php.source-php  {font-family:monospace;}
+.php.source-php .imp {font-weight: bold; color: red;}
+.php.source-php li, .php.source-php .li1 {font-weight: normal; vertical-align:top;}
+.php.source-php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.php.source-php .li2 {font-weight: bold; vertical-align:top;}
+.php.source-php .kw1 {color: #b1b100;}
+.php.source-php .kw2 {color: #000000; font-weight: bold;}
+.php.source-php .kw3 {color: #990000;}
+.php.source-php .kw4 {color: #009900; font-weight: bold;}
+.php.source-php .co1 {color: #666666; font-style: italic;}
+.php.source-php .co2 {color: #666666; font-style: italic;}
+.php.source-php .co3 {color: #0000cc; font-style: italic;}
+.php.source-php .co4 {color: #009933; font-style: italic;}
+.php.source-php .coMULTI {color: #666666; font-style: italic;}
+.php.source-php .es0 {color: #000099; font-weight: bold;}
+.php.source-php .es1 {color: #000099; font-weight: bold;}
+.php.source-php .es2 {color: #660099; font-weight: bold;}
+.php.source-php .es3 {color: #660099; font-weight: bold;}
+.php.source-php .es4 {color: #006699; font-weight: bold;}
+.php.source-php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php.source-php .es6 {color: #009933; font-weight: bold;}
+.php.source-php .es_h {color: #000099; font-weight: bold;}
+.php.source-php .br0 {color: #009900;}
+.php.source-php .sy0 {color: #339933;}
+.php.source-php .sy1 {color: #000000; font-weight: bold;}
+.php.source-php .st0 {color: #0000ff;}
+.php.source-php .st_h {color: #0000ff;}
+.php.source-php .nu0 {color: #cc66cc;}
+.php.source-php .nu8 {color: #208080;}
+.php.source-php .nu12 {color: #208080;}
+.php.source-php .nu19 {color:#800080;}
+.php.source-php .me1 {color: #004000;}
+.php.source-php .me2 {color: #004000;}
+.php.source-php .re0 {color: #000088;}
+.php.source-php .ln-xtra, .php.source-php li.ln-xtra, .php.source-php div.ln-xtra {background-color: #ffc;}
+.php.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Utilisation_avancée_de_Wordpress skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Utilisation avancée de Wordpress</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Utilisation_avancée_de_Wordpress.html#mw-navigation">navigation</a>, 					<a href="Utilisation_avancée_de_Wordpress.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Utilisation_avancée_de_Wordpress.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Utilisation_avancée_de_Wordpress.html#Configuration_Nginx"><span class="tocnumber">2</span> <span class="toctext">Configuration Nginx</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Utilisation_avancée_de_Wordpress.html#Utilisation_d.27un_javascript_dans_un_post"><span class="tocnumber">3</span> <span class="toctext">Utilisation d'un javascript dans un post</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Utilisation_avancée_de_Wordpress.html#Ajouter_des_extensions_non_support.C3.A9es"><span class="tocnumber">4</span> <span class="toctext">Ajouter des extensions non supportées</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Utilisation_avancée_de_Wordpress.html#Supprimer_automatiquement_les_commentaires_dans_la_corbeille"><span class="tocnumber">5</span> <span class="toctext">Supprimer automatiquement les commentaires dans la corbeille</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Utilisation_avancée_de_Wordpress.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Utilisation_avancée_de_Wordpress.html#Failed_to_write_file_to_disk"><span class="tocnumber">6.1</span> <span class="toctext">Failed to write file to disk</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="Utilisation_avancée_de_Wordpress.html#Ressources"><span class="tocnumber">7</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Wordpress c'est génial, mais on y trouves également des limitations qui peuvent devenir vite génantes. Il existe également des moyens de les contourner, c'est ce que je vais expliquer ici.
+</p>
+<h1><span class="mw-headline" id="Configuration_Nginx"><span class="mw-headline-number">2</span> Configuration Nginx</span></h1>
+<p>Pour la configuration de Wordpress sous Nginx, voici un exemple&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nginx/sites-available/blog.deimos.fr</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">server {
+    include listen_port.conf;
+    listen 443 ssl;
+&#160;
+    ssl_certificate /etc/nginx/ssl/deimos.fr/server-unified.crt;
+    ssl_certificate_key /etc/nginx/ssl/deimos.fr/server.key;
+    ssl_session_timeout 5m;
+&#160;
+    server_name blog.deimos.fr;
+    root /usr/share/nginx/www/deimos.fr/blog;
+    index index.php;
+&#160;
+    access_log /var/log/nginx/blog.deimos.fr_access.log;
+    error_log /var/log/nginx/blog.deimos.fr_error.log;
+&#160;
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+&#160;
+    location ~ \.php$ {
+        fastcgi_cache mycache;
+        fastcgi_cache_key $request_method$host$request_uri;
+        fastcgi_cache_valid any 1h;
+        include fastcgi_params;
+        fastcgi_pass unix:/var/run/php5-fpm.sock;
+        fastcgi_intercept_errors on;
+    }
+&#160;
+    # Drop config
+    include drop.conf;
+&#160;
+    # BEGIN W3TC Browser Cache
+    gzip on;
+    gzip_types text/css application/x-javascript text/x-component text/richtext image/svg+xml text/plain text/xsd text/xsl text/xml image/x-icon;
+    location ~ \.(css|js|htc)$ {
+        expires 31536000s;
+        add_header Pragma &quot;public&quot;;
+        add_header Cache-Control &quot;public, must-revalidate, proxy-revalidate&quot;;
+        add_header X-Powered-By &quot;W3 Total Cache/0.9.2.4&quot;;
+    }
+&#160;
+    location ~ \.(html|htm|rtf|rtx|svg|svgz|txt|xsd|xsl|xml)$ {
+        expires 3600s;
+        add_header Pragma &quot;public&quot;;
+        add_header Cache-Control &quot;public, must-revalidate, proxy-revalidate&quot;;
+        add_header X-Powered-By &quot;W3 Total Cache/0.9.2.4&quot;;
+    }
+&#160;
+    location ~ \.(asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$ {
+        expires 31536000s;
+        add_header Pragma &quot;public&quot;;
+        add_header Cache-Control &quot;public, must-revalidate, proxy-revalidate&quot;;
+        add_header X-Powered-By &quot;W3 Total Cache/0.9.2.4&quot;;
+    }
+    # END W3TC Browser Cache
+&#160;
+    # BEGIN W3TC Minify core
+    rewrite ^/wp-content/w3tc/min/w3tc_rewrite_test$ /wp-content/w3tc/min/index.php?w3tc_rewrite_test=1 last;
+    rewrite ^/wp-content/w3tc/min/(.+\.(css|js))$ /wp-content/w3tc/min/index.php?file=$1 last;
+    # END W3TC Minify core
+}
+}</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation_d.27un_javascript_dans_un_post"><span class="mw-headline-number">3</span> Utilisation d'un javascript dans un post</span></h1>
+<p>Je souhaites ici utiliser un javascript pour éviter que mon adresse mail soit prise en compte par les robots de spammeurs. Nous devons d'abord insérer ceci dans un post&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1">&lt;script type=&quot;text/javascript&quot; src=&quot;/scripts/updatepage.js&quot;&gt;&lt;/script&gt;<span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span>
+<span class="sy0">&lt;!--</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis notre code javascript&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1">emailE<span class="sy0">=</span><span class="br0">&#40;</span><span class="st0">'deimos@'</span> <span class="sy0">+</span> <span class="st0">'deimos.fr'</span><span class="br0">&#41;</span>
+document.<span class="me1">write</span><span class="br0">&#40;</span><span class="st0">'&lt;A href=&quot;mailto:'</span> <span class="sy0">+</span> emailE <span class="sy0">+</span> <span class="st0">'&quot;&gt;'</span> <span class="sy0">+</span> <span class="st0">&quot;cliquer ici&quot;</span> <span class="sy0">+</span> <span class="st0">'&lt;/a&gt;'</span><span class="br0">&#41;</span></pre></div></div>
+</td></tr></table><br />
+<p>Et pour finir, on appelle notre fonction&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1">updatepage<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="co1">//--&gt;&lt;/script&gt;</span></pre></div></div>
+</td></tr></table><br />
+<p>Ce qui nous donne au final avec la totalité du système antispam&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1">&lt;script type=&quot;text/javascript&quot; src=&quot;/scripts/updatepage.js&quot;&gt;&lt;/script&gt;<span class="sy0">&lt;</span>script type<span class="sy0">=</span><span class="st0">&quot;text/javascript&quot;</span><span class="sy0">&gt;</span>
+<span class="sy0">&lt;!--</span>
+emailE<span class="sy0">=</span><span class="br0">&#40;</span><span class="st0">'deimos'</span> <span class="sy0">+</span> <span class="st0">'deimos.fr'</span><span class="br0">&#41;</span>
+document.<span class="me1">write</span><span class="br0">&#40;</span><span class="st0">'&lt;A href=&quot;mailto:'</span> <span class="sy0">+</span> emailE <span class="sy0">+</span> <span class="st0">'&quot;&gt;'</span> <span class="sy0">+</span> <span class="st0">&quot;cliquer ici&quot;</span> <span class="sy0">+</span> <span class="st0">'&lt;/a&gt;'</span><span class="br0">&#41;</span>
+updatepage<span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="co1">//--&gt;&lt;/script&gt;</span>
+&#160;
+&lt;span&gt;&lt;NOSCRIPT&gt;
+    &lt;em&gt;Email address protected by JavaScript.&lt;BR&gt;
+    Please enable JavaScript to contact me.&lt;/em&gt;
+&lt;/NOSCRIPT&gt;&lt;/span&gt;</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ajouter_des_extensions_non_support.C3.A9es"><span class="mw-headline-number">4</span> Ajouter des extensions non supportées</span></h1>
+<p>J'ai par exemple envie d'activer le format ogv pour mon blog. Et il va me falloir pour ça modifier le fichier wp-includes/functions.php et ajouter ces lignes&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> usb_locker.avi</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1"><span class="sy0">...</span>
+<span class="kw2">function</span> wp_ext2type<span class="br0">&#40;</span> <span class="re0">$ext</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+    <span class="re0">$ext2type</span> <span class="sy0">=</span> apply_filters<span class="br0">&#40;</span><span class="st_h">'ext2type'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span>
+        <span class="st_h">'audio'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'aac'</span><span class="sy0">,</span><span class="st_h">'ac3'</span><span class="sy0">,</span><span class="st_h">'aif'</span><span class="sy0">,</span><span class="st_h">'aiff'</span><span class="sy0">,</span><span class="st_h">'mp1'</span><span class="sy0">,</span><span class="st_h">'mp2'</span><span class="sy0">,</span><span class="st_h">'mp3'</span><span class="sy0">,</span><span class="st_h">'m3a'</span><span class="sy0">,</span><span class="st_h">'m4a'</span><span class="sy0">,</span><span class="st_h">'m4b'</span><span class="sy0">,</span><span class="st_h">'ogg'</span><span class="sy0">,</span><span class="st_h">'ram'</span><span class="sy0">,</span><span class="st_h">'wav'</span><span class="sy0">,</span><span class="st_h">'wma'</span><span class="br0">&#41;</span><span class="sy0">,</span>
+        <span class="st_h">'video'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'asf'</span><span class="sy0">,</span><span class="st_h">'avi'</span><span class="sy0">,</span><span class="st_h">'divx'</span><span class="sy0">,</span><span class="st_h">'dv'</span><span class="sy0">,</span><span class="st_h">'mov'</span><span class="sy0">,</span><span class="st_h">'mpg'</span><span class="sy0">,</span><span class="st_h">'mpeg'</span><span class="sy0">,</span><span class="st_h">'mp4'</span><span class="sy0">,</span><span class="st_h">'mpv'</span><span class="sy0">,</span><span class="st_h">'ogm'</span><span class="sy0">,</span><span class="st_h">'qt'</span><span class="sy0">,</span><span class="st_h">'rm'</span><span class="sy0">,</span><span class="st_h">'vob'</span><span class="sy0">,</span><span class="st_h">'wmv'</span><span class="sy0">,</span> <span class="st_h">'m4v'</span><span class="sy0">,</span><span class="st_h">'ogv'</span><span class="br0">&#41;</span><span class="sy0">,</span>
+        <span class="st_h">'document'</span> <span class="sy0">=&gt;</span> <span class="kw3">array</span><span class="br0">&#40;</span><span class="st_h">'doc'</span><span class="sy0">,</span><span class="st_h">'docx'</span><span class="sy0">,</span><span class="st_h">'pages'</span><span class="sy0">,</span><span class="st_h">'odt'</span><span class="sy0">,</span><span class="st_h">'rtf'</span><span class="sy0">,</span><span class="st_h">'pdf'</span><span class="br0">&#41;</span><span class="sy0">,</span>
+<span class="sy0">...</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span> <span class="sy0">!</span><span class="re0">$mimes</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span>
+        <span class="co1">// Accepted MIME types are set here as PCRE unless provided.</span>
+        <span class="re0">$mimes</span> <span class="sy0">=</span> apply_filters<span class="br0">&#40;</span> <span class="st_h">'upload_mimes'</span><span class="sy0">,</span> <span class="kw3">array</span><span class="br0">&#40;</span>
+        <span class="st_h">'jpg|jpeg|jpe'</span> <span class="sy0">=&gt;</span> <span class="st_h">'image/jpeg'</span><span class="sy0">,</span>
+        <span class="st_h">'gif'</span> <span class="sy0">=&gt;</span> <span class="st_h">'image/gif'</span><span class="sy0">,</span>
+        <span class="st_h">'png'</span> <span class="sy0">=&gt;</span> <span class="st_h">'image/png'</span><span class="sy0">,</span>
+        <span class="st_h">'bmp'</span> <span class="sy0">=&gt;</span> <span class="st_h">'image/bmp'</span><span class="sy0">,</span>
+        <span class="st_h">'tif|tiff'</span> <span class="sy0">=&gt;</span> <span class="st_h">'image/tiff'</span><span class="sy0">,</span>
+        <span class="st_h">'ico'</span> <span class="sy0">=&gt;</span> <span class="st_h">'image/x-icon'</span><span class="sy0">,</span>
+        <span class="st_h">'asf|asx|wax|wmv|wmx'</span> <span class="sy0">=&gt;</span> <span class="st_h">'video/asf'</span><span class="sy0">,</span>
+        <span class="st_h">'avi'</span> <span class="sy0">=&gt;</span> <span class="st_h">'video/avi'</span><span class="sy0">,</span>
+        <span class="st_h">'divx'</span> <span class="sy0">=&gt;</span> <span class="st_h">'video/divx'</span><span class="sy0">,</span>
+        <span class="st_h">'flv'</span> <span class="sy0">=&gt;</span> <span class="st_h">'video/x-flv'</span><span class="sy0">,</span>
+        <span class="st_h">'ogv'</span> <span class="sy0">=&gt;</span> <span class="st_h">'video/ogg'</span><span class="sy0">,</span>
+        <span class="st_h">'mov|qt'</span> <span class="sy0">=&gt;</span> <span class="st_h">'video/quicktime'</span><span class="sy0">,</span>
+<span class="sy0">...</span></pre></div></div>
+</td></tr></table><br />
+<p>Il y a donc 2 endroits à modifier&#160;: la fonction wp_ext2type et la fonction get_allowed_mime_types.
+</p>
+<h1><span class="mw-headline" id="Supprimer_automatiquement_les_commentaires_dans_la_corbeille"><span class="mw-headline-number">5</span> Supprimer automatiquement les commentaires dans la corbeille</span></h1>
+<p>Il est possible de supprimer automatiquement après un certain nombre de jours défini, les commentaires présents dans la corbeille. Editez votre configuration Wordpress et ajoutez ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> wp-config.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1"><span class="br0">&#91;</span><span class="sy0">...</span><span class="br0">&#93;</span>
+<span class="coMULTI">/* Vider la corbeille */</span>
+<span class="kw3">define</span><span class="br0">&#40;</span><span class="st_h">'EMPTY_TRASH_DAYS'</span><span class="sy0">,</span> <span class="nu0">2</span> <span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#91;</span><span class="sy0">...</span><span class="br0">&#93;</span></pre></div></div>
+</td></tr></table><br />
+<p>Ici, j'ai indiqué que je souhaitais que la corbeille se vide d'elle même tous les 2 jours.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Failed_to_write_file_to_disk"><span class="mw-headline-number">6.1</span> Failed to write file to disk</span></h2>
+<p>J'ai eu ce petit problème lorsque j'ai voulu uploader des fichiers un peu trop volumineux. Voici les différentes solutions pour régler le problème&#160;:
+</p>
+<ul><li> Vérifier les droits du propriétaire et d'écriture sur le dossier upload</li>
+<li> Regarder dans le fichier /etc/php5/cgi/php.ini et ajuster la taille qui vous convient&#160;:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/php5/cgi/php.ini</font>
+</td></tr>
+<tr>
+<td>
+<pre>post_max_size = 50M
+upload_max_filesize = 50M
+</pre>
+</td></tr></table><br />
+<ul><li> Regarder la taille du /tmp sur votre serveur (par exemple mes vservers sont de base à 16M ce qui me posait problème puisque c'est le lieu temporaire ou wordpress stocke ses fichiers)</li></ul>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">7</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://codex.wordpress.org/Using_Javascript">http://codex.wordpress.org/Using_Javascript</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.072 seconds
+Real time usage: 0.073 seconds
+Preprocessor visited node count: 172/1000000
+Preprocessor generated node count: 468/1000000
+Post‐expand include size: 2149/2097152 bytes
+Template argument size: 586/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   53.138      1 - -total
+ 95.94%   50.981      8 - Template:Config
+  6.33%    3.361      1 - Template:Nginx_wordpress
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2951-0!*!*!1!en!5!* and timestamp 20181111230826 and revision id 12464
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Utilisation_avancée_de_Wordpress&amp;oldid=12464">https://wiki.deimos.fr/index.php?title=Utilisation_avancée_de_Wordpress&amp;oldid=12464</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Utilisation+avanc%C3%A9e+de+Wordpress" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Utilisation_avancée_de_Wordpress.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Utilisation_avancée_de_Wordpress.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Utilisation_avancée_de_Wordpress.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Utilisation_avanc%C3%A9e_de_Wordpress&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Utilisation_avanc%C3%A9e_de_Wordpress&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Utilisation_avancée_de_Wordpress.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Utilisation_avancée_de_Wordpress.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Utilisation_avanc%C3%A9e_de_Wordpress" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Utilisation_avanc%C3%A9e_de_Wordpress&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Utilisation_avanc%C3%A9e_de_Wordpress&amp;oldid=12464" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Utilisation_avanc%C3%A9e_de_Wordpress&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 7 May 2013, at 07:28.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":109});
+}</script>
+	</body>
+</html>
+	

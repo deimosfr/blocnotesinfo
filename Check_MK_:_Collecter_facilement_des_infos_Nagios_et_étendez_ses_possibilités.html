@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Check MK : Collecter facilement des infos Nagios et étendez ses possibilités - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités","wgTitle":"Check MK : Collecter facilement des infos Nagios et étendez ses possibilités","wgCurRevisionId":10925,"wgRevisionId":10925,"wgArticleId":3352,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités","wgRelevantArticleId":3352,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Check_MK_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Check MK : Collecter facilement des infos Nagios et étendez ses possibilités</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#mw-navigation">navigation</a>, 					<a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Check_mk_logo.png.html" class="image" title="Check MK"><img alt="Check MK" src="images/d/df/Check_mk_logo.png" width="200" height="113" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>1.1.12p7</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 6</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://mathias-kettner.de">Check MK Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>25/05/2012</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Pr.C3.A9requis"><span class="tocnumber">2</span> <span class="toctext">Prérequis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Check_MK"><span class="tocnumber">3.1</span> <span class="toctext">Check MK</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Xinetd"><span class="tocnumber">3.2</span> <span class="toctext">Xinetd</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Apache"><span class="tocnumber">3.3</span> <span class="toctext">Apache</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Nagios"><span class="tocnumber">3.4</span> <span class="toctext">Nagios</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Utilisation"><span class="tocnumber">4</span> <span class="toctext">Utilisation</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#Ressources"><span class="tocnumber">5</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Nagios c'est super, ça manque juste de fonctionnalités quelque fois. Alors voici un super addon de la mort qui permet d'extraire des données rapidement et de booster les possibilités (multisites, cluster...).
+</p><p>Nous allons essayer d'aborder ici certaines d'entre elle avec Check MK (alias MK Live Status).
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9requis"><span class="mw-headline-number">2</span> Prérequis</span></h1>
+<p>Voici les packages nécessaire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install xinetd gcc g++ libc6-dev libstdc++6-dev libapache2-mod-python</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Check_MK"><span class="mw-headline-number">3.1</span> Check MK</span></h2>
+<p>On va télécharger la dernière version de check_mk et de l'agent&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> wget</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">wget http://mathias-kettner.de/download/check_mk-1.1.12p7.tar.gz
+wget http://mathias-kettner.de/download/check-mk-agent_1.1.12p7-2_all.deb
+tar -xzf check_mk-1.1.12p7.tar.gz
+cd check_mk-1.1.12p7</pre></div></div>
+</td></tr></table><br />
+<p>Et on lance l'installeur (en gros c'est enter enter enter tout le temps à la windows&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ./setup.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; ./setup.sh 
+&#160;
+               ____ _               _        __  __ _  __               
+              / ___| |__   ___  ___| | __   |  \/  | |/ /               
+             | |   | '_ \ / _ \/ __| |/ /   | |\/| | ' /                
+             | |___| | | |  __/ (__|   &lt;    | |  | | . \                
+              \____|_| |_|\___|\___|_|\_\___|_|  |_|_|\_\               
+                                       |_____|                          
+&#160;
+   Check_MK setup                                 Version: 1.1.12p7     
+&#160;
+&#160;
+Welcome to Check_MK. This setup will install Check_MK into user defined
+directories. If you run this script as root, installation paths below
+/usr will be suggested. If you run this script as non-root user paths
+in your home directory will be suggested. You may override the default
+values or just hit enter to accept them. 
+&#160;
+Your answers will be saved to /root/.check_mk_setup.conf and will be 
+reused when you run the setup of this or a later version again. Please
+delete that file if you want to delete your previous answers.
+&#160;
+ * Found running Nagios process, autodetected 17 settings.               
+&#160;
+&#160;
+  1) Installation directories of check_mk                                
+&#160;
+&#160;
+Executable programs
+Directory where to install executable programs such as check_mk itself.
+This directory should be in your search path ($PATH). Otherwise you
+always have to specify the installation path when calling check_mk:
+( default  --&gt; /usr/bin): 
+&#160;
+Check_MK configuration
+Directory where check_mk looks for its main configuration file main.mk. 
+An example configuration file will be installed there if no main.mk is 
+present from a previous version.:
+( default  --&gt; /etc/check_mk): 
+&#160;
+check_mk checks
+check_mk's different checks are implemented as small Python scriptlets 
+that parse and interpret the various output sections of the agents. Where 
+shall those be installed:
+( default  --&gt; /usr/share/check_mk/checks): 
+&#160;
+check_mk modules
+Directory for main componentents of check_mk itself. The setup will
+also create a file 'defaults' in that directory that reflects all settings
+you are doing right now:
+( default  --&gt; /usr/share/check_mk/modules): 
+&#160;
+Check_MK Multisite GUI
+Directory where Check_mk's Multisite GUI should be installed. Multisite is
+an optional replacement for the Nagios GUI, but is also needed for the 
+logwatch extension.  That directory should not be
+in your WWW document root. A separate apache configuration file will be
+installed that maps the directory into your URL schema:
+( default  --&gt; /usr/share/check_mk/web): 
+&#160;
+Localization dir
+Base directory for gettext localization files. Multisite comes prepared for localzation
+but does not ship any language per default.:
+( default  --&gt; /usr/share/check_mk/locale): 
+&#160;
+documentation
+Some documentation about check_mk will be installed here. Please note,
+however, that most of check_mk's documentation is available only online at
+http://mathias-kettner.de/check_mk.html:
+( default  --&gt; /usr/share/doc/check_mk): 
+&#160;
+check manuals
+Directory for manuals for the various checks. The manuals can be viewed 
+with check_mk -M &lt;CHECKNAME&gt;:
+( default  --&gt; /usr/share/doc/check_mk/checks): 
+&#160;
+working directory of check_mk
+check_mk will create caches files, automatically created checks and
+other files into this directory. The setup will create several subdirectories
+and makes them writable by the Nagios process:
+( default  --&gt; /var/lib/check_mk): 
+&#160;
+agents for operating systems
+Agents for various operating systems will be installed here for your 
+conveniance. Take them and install them onto your target hosts:
+( default  --&gt; /usr/share/check_mk/agents): 
+&#160;
+&#160;
+&#160;
+  2) Configuration of Linux/UNIX Agents                                  
+&#160;
+&#160;
+extensions for agents
+This directory will not be created on the server. It will be hardcoded 
+into the Linux and UNIX agents. The agent will look for extensions in the 
+subdirectories plugins/ and local/ of that directory:
+( default  --&gt; /usr/lib/check_mk_agent): 
+&#160;
+configuration dir for agents
+This directory will not be created on the server. It will be hardcoded
+into the Linux and UNIX agents. The agent will look for its configuration
+files here (currently only the logwatch extension needs a configuration file):
+( default  --&gt; /etc/check_mk): 
+&#160;
+&#160;
+&#160;
+  3) Integration with Nagios                                             
+&#160;
+&#160;
+Name of Nagios user
+The working directory for check_mk contains several subdirectories
+that need to be writable by the Nagios user (which is running check_mk 
+in check mode). Please specify the user that should own those 
+directories:
+( autodetected  --&gt; nagios): 
+&#160;
+User of Apache process
+Check_MK WATO (Web Administration Tool) needs a sudo configuration,
+such that Apache can run certain commands as root. If you specify
+the correct user of the apache process here, then we can create a valid
+sudo configuration for you later::
+( autodetected  --&gt; www-data): 
+&#160;
+Common group of Nagios+Apache
+Check_mk creates files and directories while running as nagios. 
+Some of those need to be writable by the user that is running the webserver.
+Therefore a group is needed in which both Nagios and the webserver are
+members (every valid Nagios installation uses such a group to allow
+the web server access to Nagios' command pipe)::
+( default  --&gt; nagios): 
+&#160;
+Nagios binary
+The complete path to the Nagios executable. This is needed by the
+option -R/--restart in order to do a configuration check.:
+( autodetected  --&gt; /usr/sbin/nagios3): 
+&#160;
+Nagios main configuration file
+Path to the main configuration file of Nagios. That file is always 
+named 'nagios.cfg'. The default path when compiling Nagios yourself
+is /usr/local/nagios/etc/nagios.cfg. The path to this file is needed
+for the check_mk option -R/--restart:
+( autodetected  --&gt; /etc/nagios3/nagios.cfg): 
+&#160;
+Nagios object directory
+Nagios' object definitions for hosts, services and contacts are
+usually stored in various files with the extension .cfg. These files
+are located in a directory that is configured in nagios.cfg with the
+directive 'cfg_dir'. Please specify the path to that directory 
+(If the autodetection can find your configuration
+file but does not find at least one cfg_dir directive, then it will
+add one to your configuration file for your conveniance):
+( autodetected  --&gt; /etc/nagios3/conf.d): 
+&#160;
+Nagios startskript
+The complete path to the Nagios startskript is used by the option
+-R/--restart to restart Nagios.:
+( autodetected  --&gt; /etc/init.d/nagios3): 
+&#160;
+Nagios command pipe
+Complete path to the Nagios command pipe. check_mk needs write access
+to this pipe in order to operate:
+( default  --&gt; /var/log/nagios/rw/nagios.cmd): 
+&#160;
+Check results directory
+Complete path to the directory where Nagios stores its check results.
+Using that directory instead of the command pipe is faster.:
+( autodetected  --&gt; /var/lib/nagios3/spool/checkresults): 
+&#160;
+Nagios status file
+The web pages of check_mk need to read the file 'status.dat', which is
+regularily created by Nagios. The path to that status file is usually
+configured in nagios.cfg with the parameter 'status_file'. If
+that parameter is missing, a compiled-in default value is used. On
+FHS-conforming installations, that file usually is in /var/lib/nagios
+or /var/log/nagios. If you've compiled Nagios yourself, that file
+might be found below /usr/local/nagios:
+( autodetected  --&gt; /var/cache/nagios3/status.dat): 
+&#160;
+Path to check_icmp
+check_mk ships a Nagios configuration file with several host and
+service templates. Some host templates need check_icmp as host check.
+That check plugin is contained in the standard Nagios plugins.
+Please specify the complete path (dir + filename) of check_icmp:
+( autodetected  --&gt; /usr/lib/nagios/plugins/check_icmp): 
+&#160;
+&#160;
+&#160;
+  4) Integration with Apache                                             
+&#160;
+&#160;
+URL Prefix for Web addons
+Usually the Multisite GUI is available at /check_mk/ and PNP4Nagios
+is located at /pnp4nagios/. In some cases you might want to define some
+prefix in order to be able to run more instances of Nagios on one host.
+If you say /test/ here, for example, then Multisite will be located
+at /test/check_mk/. Please do not forget the trailing slash.:
+( default  --&gt; /): /check_mk
+&#160;
+Apache config dir
+Check_mk ships several web pages implemented in Python with Apache
+mod_python. That module needs an apache configuration section which
+will be installed by this setup. Please specify the path to a directory
+where Apache reads in configuration files.:
+( autodetected  --&gt; /etc/apache2/conf.d): 
+&#160;
+HTTP authentication file
+Check_mk's web pages should be secured from unauthorized access via
+HTTP authenticaion - just as Nagios. The configuration file for Apache
+that will be installed contains a valid configuration for HTTP basic
+auth. The most conveniant way for you is to use the same user file as
+for Nagios. Please enter your htpasswd file to use here:
+( default  --&gt; /etc/nagios/htpasswd.users): 
+&#160;
+HTTP AuthName
+Check_mk's Apache configuration file will need an AuthName. That
+string will be displayed to the user when asking for the password.
+You should use the same AuthName as for Nagios. Otherwise the user will 
+have to log in twice:
+( autodetected  --&gt; Nagios Access): 
+&#160;
+&#160;
+&#160;
+  5) Integration with PNP4Nagios 0.6                                     
+&#160;
+&#160;
+PNP4Nagios templates
+Check_MK ships templates for PNP4Nagios for most of its checks.
+Those templates make the history graphs look nice. PNP4Nagios
+expects such templates in the directory pnp/templates in your
+document root for static web pages:
+( autodetected  --&gt; /usr/share/pnp4nagios/html/templates): 
+&#160;
+RRA config for PNP4Nagios
+Check_MK ships RRA configuration files for its checks that 
+can be used by PNP when creating the RRDs. Per default, PNP 
+creates RRD such that for each variable the minimum, maximum
+and average value is stored. Most checks need only one or two
+of these aggregations. If you install the Check_MK's RRA config
+files into the configuration directory of PNP, PNP will create
+RRDs with the minimum of required aggregation and thus save
+substantial amount of disk I/O (and space) for RRDs. The default
+is to install the configuration into a separate directory but
+does not enable them:
+( default  --&gt; /usr/share/check_mk/pnp-rraconf): 
+&#160;
+&#160;
+&#160;
+  6) Check_MK Livestatus Module                                          
+&#160;
+&#160;
+compile livestatus module
+This version of Check_mk ships a completely new and experimental
+Nagios event broker module that provides direct access to Nagios
+internal data structures. This module is called the Check_MK Livestatus
+Module. It aims to supersede status.dat and also NDO. Currenty it
+is completely experimental and might even crash your Nagios process.
+Nevertheless - The Livestatus Module does not only allow extremely
+fast access to the status of your services and hosts, it does also
+provide live data (which status.dat does not). Also - unlike NDO - 
+Livestatus does not cost you even measurable CPU performance, does
+not need any disk space and also needs no configuration. 
+&#160;
+Please answer 'yes', if you want to compile and integrate the
+Livestatus module into your Nagios. You need 'make' and the GNU
+C++ compiler installed in order to do this:
+( default  --&gt; yes): 
+&#160;
+check_mk's binary modules
+Directory for architecture dependent binary libraries and plugins
+of check_mk:
+( default  --&gt; /usr/lib/check_mk): 
+&#160;
+Unix socket for Livestatus
+The Livestatus Module provides Nagios status data via a unix
+socket. This is similar to the Nagios command pipe, but allows
+bidirectional communication. Please enter the path to that pipe.
+It is recommended to put it into the same directory as Nagios'
+command pipe:
+( default  --&gt; /var/log/nagios/rw/live): 
+&#160;
+Backends for other systems
+Directory where to put backends and configuration examples for
+other systems. Currently this is only Nagvis, but other might follow
+later.:
+( default  --&gt; /usr/share/check_mk/livestatus): 
+&#160;
+&#160;
+----------------------------------------------------------------------
+&#160;
+You have chosen the following directories: 
+&#160;
+ Executable programs             /usr/bin                                
+ Check_MK configuration          /etc/check_mk                           
+ check_mk checks                 /usr/share/check_mk/checks              
+ check_mk modules                /usr/share/check_mk/modules             
+ Check_MK Multisite GUI          /usr/share/check_mk/web                 
+ Localization dir                /usr/share/check_mk/locale              
+ documentation                   /usr/share/doc/check_mk                 
+ check manuals                   /usr/share/doc/check_mk/checks          
+ working directory of check_mk   /var/lib/check_mk                       
+ agents for operating systems    /usr/share/check_mk/agents              
+ extensions for agents           /usr/lib/check_mk_agent                 
+ configuration dir for agents    /etc/check_mk                           
+ Name of Nagios user             nagios                                  
+ User of Apache process          www-data                                
+ Common group of Nagios+Apache   nagios                                  
+ Nagios binary                   /usr/sbin/nagios3                       
+ Nagios main configuration file  /etc/nagios3/nagios.cfg                 
+ Nagios object directory         /etc/nagios3/conf.d                     
+ Nagios startskript              /etc/init.d/nagios3                     
+ Nagios command pipe             /var/log/nagios/rw/nagios.cmd           
+ Check results directory         /var/lib/nagios3/spool/checkresults     
+ Nagios status file              /var/cache/nagios3/status.dat           
+ Path to check_icmp              /usr/lib/nagios/plugins/check_icmp      
+ URL Prefix for Web addons       /check_mk                               
+ Apache config dir               /etc/apache2/conf.d                     
+ HTTP authentication file        /etc/nagios/htpasswd.users              
+ HTTP AuthName                   Nagios Access                           
+ PNP4Nagios templates            /usr/share/pnp4nagios/html/templates    
+ RRA config for PNP4Nagios       /usr/share/check_mk/pnp-rraconf         
+ compile livestatus module       yes                                     
+ check_mk's binary modules       /usr/lib/check_mk                       
+ Unix socket for Livestatus      /var/log/nagios/rw/live                 
+ Backends for other systems      /usr/share/check_mk/livestatus          
+&#160;
+&#160;
+Proceed with installation (y/n)? y
+(Compiling MK Livestatus.......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................)
+Installation completed successfully.
+Please restart Nagios and Apache in order to update/active check_mk's web pages.
+&#160;
+You can access the new Multisite GUI at http://localhost/check_mkcheck_mk/</pre></div></div>
+</td></tr></table><br />
+<p>On va installer le package agent&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dpkg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dpkg -i check-mk-agent_1.1.12p7-2_all.deb</pre></div></div>
+</td></tr></table><br />
+<p>Nous allons créer le dossier du socket et lui attribuer les droits&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir -p /var/lib/nagios3/rw/
+touch /var/lib/nagios3/rw/live
+chown -Rf nagios. /var/lib/nagios3</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Xinetd"><span class="mw-headline-number">3.2</span> Xinetd</span></h2>
+<p>Configurez xinetd&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/xinetd.d/livestatus</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">service livestatus
+{
+    type = UNLISTED
+    port = 6557
+    socket_type = stream
+    protocol = tcp
+    wait = no
+    cps = 100 3
+    instances = 500
+    per_source = 250
+    flags = NODELAY
+    user = nagios
+    server = /usr/bin/unixcat
+    server_args = /var/lib/nagios3/rw/live
+    only_from = 127.0.0.1 # modify this to only allow specific hosts to connect, currenly localhost only
+    disable = no
+}</pre></div></div>
+</td></tr></table><br />
+<p>Et redémarrez&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">/etc/init.d/xinetd restart</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Apache"><span class="mw-headline-number">3.3</span> Apache</span></h2>
+<p>Nous allons pour commencer créer un fichier htpasswd qui contiendra le user authoriser à se connecter. Libre à vous de le faire se connecter sur un LDAP ou autre plus tard&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htpasswd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; htpasswd -c /etc/nagios/htpasswd.users nagiosadmin
+New password: 
+Re-type new password: 
+Adding password for user nagiosadmin</pre></div></div>
+</td></tr></table><br />
+<p>Nous allons donner des droits supplémentaires à Apache pour la partie interface graphique, afin qu'il puisse l'afficher&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">usermod -G nagios -a www-data
+mkdir /var/lib/check_mk/web/nagiosadmin
+chown nagios:www-data /var/lib/check_mk/web/
+chmod ug+rwx /var/lib/check_mk/web/</pre></div></div>
+</td></tr></table><br />
+<p>Redémarrez Apache si besoin car vous avez peut être des nouveaux modules (comme mod_python) qui viennent juste d'être installé.
+</p>
+<h2><span class="mw-headline" id="Nagios"><span class="mw-headline-number">3.4</span> Nagios</span></h2>
+<p>Vérifiez que vos lignes de configuration de Nagios ressemble à ceci (normalement ces lignes ont été ajoutées automatiquement à la fin de votre fichier de configuration)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/nagios.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+# Load Livestatus Module
+event_broker_options=-1
+<span class="xtra ln-xtra">broker_module=/usr/lib/check_mk/livestatus.o /var/lib/nagios3/rw/live</span>[...]</pre></div></div>
+</td></tr></table><br />
+<p>Vérifiez néanmoins que la fin de la ligne correspond bien car dans le setup, nous n'avons pas spécifier celui ci.
+</p><p>Et pour finir redémarrez Nagios. Dans vos logs (syslog), vous devriez voir ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /var/log/syslog</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+Apr  4 11:28:36 nagios nagios3: Nagios 3.2.1 starting... (PID=17414)
+Apr  4 11:28:36 nagios nagios3: Local time is mer. avril 04 11:28:36 CEST 2012 
+Apr  4 11:28:36 nagios nagios3: LOG VERSION: 2.0
+Apr  4 11:28:36 nagios nagios3: livestatus: Livestatus 1.1.12p7 by Mathias Kettner. Socket: '/var/log/nagios/rw/live'
+Apr  4 11:28:36 nagios nagios3: livestatus: Please visit us at http://mathias-kettner.de/
+Apr  4 11:28:36 nagios nagios3: livestatus: Hint: please try out OMD - the Open Monitoring Distribution
+Apr  4 11:28:36 nagios nagios3: livestatus: Please visit OMD at http://omdistro.org
+Apr  4 11:28:36 nagios nagios3: livestatus: Finished initialization. Further log messages go to /var/log/nagios3/livestatus.log
+<span class="xtra ln-xtra">Apr  4 11:28:36 nagios nagios3: Event broker module '/usr/lib/check_mk/livestatus.o' initialized successfully.</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">4</span> Utilisation</span></h1>
+<p>Pour l'utiliser c'est très simple, voici quelques exemples pour récupérer des infos&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> echo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo 'GET services' | unixcat /var/lib/nagios3/rw/live
+echo 'GET hosts' | unixcat /var/lib/nagios3/rw/live</pre></div></div>
+</td></tr></table><br />
+<p>Pour plus d'informations&#160;: <a rel="nofollow" class="external free" href="http://mathias-kettner.de/checkmk_livestatus.html">http://mathias-kettner.de/checkmk_livestatus.html</a>
+</p><p>Et vous pouvez utilisez l'interface web ici&#160;: <a rel="nofollow" class="external free" href="http://nagios/check_mkcheck_mk">http://nagios/check_mkcheck_mk</a>
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">5</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://syslog.tv/2011/10/13/nagios3-mk-livestatus-xinetd/">http://syslog.tv/2011/10/13/nagios3-mk-livestatus-xinetd/</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.044 seconds
+Real time usage: 0.044 seconds
+Preprocessor visited node count: 264/1000000
+Preprocessor generated node count: 794/1000000
+Post‐expand include size: 3144/2097152 bytes
+Template argument size: 820/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   15.465      1 - -total
+ 62.99%    9.741      9 - Template:Command
+ 13.88%    2.146      3 - Template:Config
+ 13.18%    2.038      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3352-0!*!*!1!en!5!* and timestamp 20181111230718 and revision id 10925
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités&amp;oldid=10925">https://wiki.deimos.fr/index.php?title=Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités&amp;oldid=10925</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Check+MK+%3A+Collecter+facilement+des+infos+Nagios+et+%C3%A9tendez+ses+possibilit%C3%A9s" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Check_MK_:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s&amp;oldid=10925" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 25 May 2012, at 07:42.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

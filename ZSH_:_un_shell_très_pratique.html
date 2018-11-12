@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>ZSH : un shell très pratique - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./ZSH_:_un_shell_très_pratique.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"ZSH_:_un_shell_très_pratique","wgTitle":"ZSH : un shell très pratique","wgCurRevisionId":8419,"wgRevisionId":8419,"wgArticleId":2987,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"ZSH_:_un_shell_très_pratique","wgRelevantArticleId":2987,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-ZSH_un_shell_très_pratique skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">ZSH : un shell très pratique</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./ZSH_:_un_shell_très_pratique.html#mw-navigation">navigation</a>, 					<a href="./ZSH_:_un_shell_très_pratique.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./ZSH_:_un_shell_très_pratique.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./ZSH_:_un_shell_très_pratique.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./ZSH_:_un_shell_très_pratique.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./ZSH_:_un_shell_très_pratique.html#.7E.2F.zshrc"><span class="tocnumber">3.1</span> <span class="toctext">~/.zshrc</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./ZSH_:_un_shell_très_pratique.html#.7E.2F.zsh.2Falias"><span class="tocnumber">3.2</span> <span class="toctext">~/.zsh/alias</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./ZSH_:_un_shell_très_pratique.html#.7E.2F.zsh.2Fcomplet"><span class="tocnumber">3.3</span> <span class="toctext">~/.zsh/complet</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./ZSH_:_un_shell_très_pratique.html#.7E.2F.zsh.2Fenv"><span class="tocnumber">3.4</span> <span class="toctext">~/.zsh/env</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./ZSH_:_un_shell_très_pratique.html#.7E.2F.zsh.2Ffonctions"><span class="tocnumber">3.5</span> <span class="toctext">~/.zsh/fonctions</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./ZSH_:_un_shell_très_pratique.html#.7E.2F.zsh.2Fpath"><span class="tocnumber">3.6</span> <span class="toctext">~/.zsh/path</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./ZSH_:_un_shell_très_pratique.html#.7E.2F.zsh.2Fterm"><span class="tocnumber">3.7</span> <span class="toctext">~/.zsh/term</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="./ZSH_:_un_shell_très_pratique.html#Utilisation"><span class="tocnumber">4</span> <span class="toctext">Utilisation</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Ca faisait un moment que j'y pensais, mais j'attendais d'avoir une conf zsh suffisamment sympas pour la publier et puis avec ma galère d'aujourd'hui (rm -Rf * dans le /), je me suis dis qu'il fallait se motiver un peu pour finir rapidement. Donc voici ma conf qui peut être optimiser, mais qui pour le moment est tout de même très bien à l'utilisation&#160;:-).
+</p><p>Elle fonctionne sur Linux, Mac, BSD et Windows (Cygwin).
+</p><p>Le contenu des fichiers ci dessous n'est pas forcément à jour. Si vous voulez ma dernière configuration ZSH, voici l'adresse de mon git&#160;: <a rel="nofollow" class="external free" href="http://www.deimos.fr/gitweb">http://www.deimos.fr/gitweb</a>
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Si vous n'avez pas zsh, installez le le plus simplement possible. Sur Debian par exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install zsh
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Nous allons configurer le compte courant dans un premier temps et vous verrez si cela vous convient ou non.
+</p>
+<h2><span class="mw-headline" id=".7E.2F.zshrc"><span class="mw-headline-number">3.1</span> ~/.zshrc</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zshrc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/zsh</span>
+&#160;
+<span class="co0"># Version detection</span>
+<span class="re2">ZSH_VERSION_TYPE</span>=old
+&#160;
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re1">$ZSH_VERSION</span> == <span class="nu0">3.1</span>.<span class="sy0">&lt;</span><span class="nu0">6</span>-<span class="sy0">&gt;*</span> <span class="sy0">||</span> <span class="re1">$ZSH_VERSION</span> == <span class="nu0">3.2</span>.<span class="sy0">&lt;</span>-<span class="sy0">&gt;*</span> <span class="sy0">||</span> <span class="re1">$ZSH_VERSION</span> == <span class="nu0">4</span>.<span class="sy0">&lt;</span>-<span class="sy0">&gt;*</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    <span class="kw1">if</span> <span class="kw2">which</span> zstyle <span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null&#160;; <span class="kw1">then</span>
+    <span class="re2">ZSH_VERSION_TYPE</span>=new
+    <span class="kw1">fi</span>  
+<span class="kw1">fi</span>
+&#160;
+<span class="co0"># Uname system</span>
+<span class="kw3">export</span> <span class="re2">MYSYSTEM</span>=<span class="sy0">`</span><span class="kw2">uname</span><span class="sy0">`</span>
+&#160;
+<span class="co0"># If you don't want history enter 1</span>
+<span class="co0"># Do not forget to delete ~/.zshhistory</span>
+<span class="kw3">export</span> <span class="re2">NOHIST</span>=<span class="st0">&quot;0&quot;</span>
+&#160;
+<span class="co0"># Using environnement files</span>
+<span class="kw1">for</span> envfile <span class="kw1">in</span> ~<span class="sy0">/</span>.zsh<span class="sy0">/*</span>&#160;; <span class="kw1">do</span>
+    <span class="kw3">test</span> <span class="re5">-f</span> <span class="re1">$envfile</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">source</span> <span class="re1">$envfile</span>
+<span class="kw1">done</span>
+&#160;
+<span class="co0"># Default Umask</span>
+<span class="kw3">umask</span> 022 
+&#160;
+<span class="co0"># Make default color</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-z</span> <span class="st0">&quot;<span class="es2">$nocolor</span>&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+     c6 <span class="sy0">&amp;&amp;</span> c2; 
+<span class="kw1">else</span> <span class="re2">PS1</span>=<span class="st0">&quot;%n@%m&#160;%~&#160;%% &quot;</span>
+     <span class="kw3">export</span> PS1 
+<span class="kw1">fi</span></pre></div></div>
+</td></tr></table><br />
+<p>Puis créez le dossier .zsh&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mkdir</font>
+</td></tr>
+<tr>
+<td>
+<pre>mkdir .zsh
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id=".7E.2F.zsh.2Falias"><span class="mw-headline-number">3.2</span> ~/.zsh/alias</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zsh/alias</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/zsh</span>
+&#160;
+<span class="co0"># Usefull alias</span>
+<span class="kw3">alias</span> <span class="re2">utar</span>=<span class="st0">&quot;tar -xvzf&quot;</span>
+<span class="kw3">alias</span> ..=<span class="st_h">'cd ..'</span>
+<span class="kw3">alias</span> ...=<span class="st_h">'cd ../..'</span>
+<span class="kw3">alias</span> <span class="re2">uu</span>=<span class="st_h">'source ~/.zshrc &amp;&gt; /dev/null'</span>
+&#160;
+<span class="co0"># ls</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$MYSYSTEM</span> = <span class="st0">&quot;Linux&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+        <span class="kw3">alias</span> <span class="re2">ls</span>=<span class="st_h">'ls --color=auto'</span>
+        <span class="kw3">alias</span> <span class="re2">l</span>=<span class="st_h">'ls --color=auto -lg'</span>
+        <span class="kw3">alias</span> <span class="re2">ll</span>=<span class="st_h">'ls --color=auto -lag | $PAGER'</span>
+<span class="kw1">fi</span>
+&#160;
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$MYSYSTEM</span> = <span class="st0">&quot;OpenBSD&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+        <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-x</span> <span class="sy0">/</span>usr<span class="sy0">/</span>local<span class="sy0">/</span>bin<span class="sy0">/</span>gls <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+                <span class="kw3">alias</span> <span class="re2">ls</span>=<span class="st_h">'gls --color=auto'</span>
+                <span class="kw3">alias</span> <span class="re2">l</span>=<span class="st_h">'gls --color=auto -lg'</span>
+                <span class="kw3">alias</span> <span class="re2">ll</span>=<span class="st_h">'gls --color=auto -lag | $PAGER'</span>
+        <span class="kw1">else</span>
+                <span class="kw3">alias</span> <span class="re2">ls</span>=<span class="st_h">'ls'</span>
+                <span class="kw3">alias</span> <span class="re2">l</span>=<span class="st_h">'ls -lg'</span>
+                <span class="kw3">alias</span> <span class="re2">ll</span>=<span class="st_h">'ls -lag | $PAGER'</span>
+        <span class="kw1">fi</span>  
+<span class="kw1">fi</span>
+&#160;
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$MYSYSTEM</span> = <span class="st0">&quot;Darwin&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+        <span class="kw3">alias</span> <span class="re2">ls</span>=<span class="st_h">'ls -G'</span>
+        <span class="kw3">alias</span> <span class="re2">l</span>=<span class="st_h">'ls -lGg'</span>
+        <span class="kw3">alias</span> <span class="re2">ll</span>=<span class="st_h">'ls -lGag | $PAGER'</span>
+<span class="kw1">fi</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id=".7E.2F.zsh.2Fcomplet"><span class="mw-headline-number">3.3</span> ~/.zsh/complet</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zsh/complet</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/zsh</span>
+&#160;
+autoload <span class="re5">-U</span> compinit
+autoload <span class="re5">-U</span> colors
+&#160;
+<span class="co0">## Check if we are using Cygwin ##</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="sy0">`</span><span class="kw2">uname</span><span class="sy0">`</span> = <span class="st0">&quot;CYGWIN*&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    compinit <span class="re5">-u</span>
+<span class="kw1">else</span>
+    compinit
+<span class="kw1">fi</span>
+&#160;
+zstyle <span class="st_h">':completion:*:*:cd:*'</span> tag-order local-directories path-directories
+zstyle <span class="st_h">':completion:*'</span> menu <span class="re2">select</span>=<span class="nu0">2</span>
+zstyle <span class="st_h">':completion:*'</span> select-prompt <span class="sy0">%</span>SScrolling active: current selection at <span class="sy0">%</span>p<span class="sy0">%</span>s
+zstyle <span class="st_h">':completion:*:rm:*'</span> ignore-line <span class="kw2">yes</span> 
+zstyle <span class="st_h">':completion:*:mv:*'</span> ignore-line <span class="kw2">yes</span> 
+zstyle <span class="st_h">':completion:*:cp:*'</span> ignore-line <span class="kw2">yes</span> 
+&#160;
+zstyle <span class="st_h">':completion:*'</span> verbose <span class="kw2">yes</span> 
+zstyle <span class="st_h">':completion:*:descriptions'</span> format <span class="st_h">'--==[&#160;%B%d%b ]==--'</span>
+zstyle <span class="st_h">':completion:*:messages'</span> format <span class="st_h">'--==[&#160;%d ]==--'</span>
+zstyle <span class="st_h">':completion:*:warnings'</span> format <span class="st_h">'No matches for:&#160;%d'</span>
+zstyle <span class="st_h">':completion:*:corrections'</span> format <span class="st_h">'%B%d (errors:&#160;%e)%b'</span>
+zstyle <span class="st_h">':completion:*'</span> group-name <span class="st_h">''</span>
+&#160;
+<span class="co0"># Color completion</span>
+zstyle <span class="st_h">':completion:*'</span> list-colors <span class="st_h">''</span>
+zstyle <span class="st_h">':completion:*:*: kill&#160;:*:processes'</span> list-colors <span class="st_h">'=( #b) #([0-9]#)*=0=01;34'</span>
+zstyle <span class="st_h">':completion:*'</span> list-colors <span class="st_h">'di=01;34'</span>
+&#160;
+<span class="kw3">local</span> _myhosts
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-d</span> ~<span class="sy0">/</span>.ssh <span class="br0">&#93;</span>; <span class="kw1">then</span>
+  <span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re5">-f</span> ~<span class="sy0">/</span>.ssh<span class="sy0">/</span>known_hosts <span class="br0">&#93;</span>;<span class="kw1">then</span>
+    <span class="re2">_myhosts</span>=<span class="br0">&#40;</span><span class="co1">${=${${(f)&quot;$(&lt;$HOME/.ssh/known_hosts)&quot;}</span><span class="sy0">%%</span><span class="br0">&#91;</span><span class="co0"># ]*}//,/ })</span>
+   <span class="kw1">fi</span>  
+<span class="kw1">fi</span>
+zstyle <span class="st_h">':completion:*'</span> hosts <span class="re1">$_myhosts</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id=".7E.2F.zsh.2Fenv"><span class="mw-headline-number">3.4</span> ~/.zsh/env</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zsh/env</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/zsh</span>
+&#160;
+<span class="co0">## Check if we are using Cygwin ##</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="sy0">`</span><span class="kw2">uname</span><span class="sy0">`</span> = <span class="st0">&quot;CYGWIN*&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    <span class="kw3">export</span> <span class="re2">TERM</span>=cygwin
+<span class="kw1">else</span>
+    <span class="kw3">export</span> <span class="re2">TERM</span>=xterm-color
+<span class="kw1">fi</span>
+&#160;
+<span class="re2">usernames</span>=<span class="br0">&#40;</span> $<span class="br0">&#40;</span><span class="kw2">cut</span> -d: <span class="re5">-f1</span> <span class="sy0">/</span>etc<span class="sy0">/</span><span class="kw2">passwd</span><span class="br0">&#41;</span> <span class="br0">&#41;</span>
+<span class="re2">groups</span>=<span class="br0">&#40;</span> $<span class="br0">&#40;</span><span class="kw2">cut</span> -d: <span class="re5">-f1</span> <span class="sy0">/</span>etc<span class="sy0">/</span>group<span class="br0">&#41;</span> <span class="br0">&#41;</span>
+&#160;
+<span class="kw1">case</span> <span class="st0">&quot;<span class="es2">$TERM</span>&quot;</span> <span class="kw1">in</span>
+    xterm<span class="sy0">*|</span>rxvt<span class="sy0">|</span>linux<span class="sy0">|</span>cygwin<span class="br0">&#41;</span>
+    <span class="sy0">;;</span>  
+    <span class="sy0">*</span><span class="br0">&#41;</span>  
+    <span class="re2">nocolor</span>=<span class="kw2">yes</span>
+    <span class="sy0">;;</span>  
+<span class="kw1">esac</span>
+&#160;
+<span class="co0"># Set locales</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$MYSYSTEM</span> = <span class="st0">&quot;SunOS&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    <span class="kw3">export</span> <span class="re2">LANGUAGE</span>=fr_FR.ISO8859-<span class="nu0">15</span>
+    <span class="kw3">export</span> <span class="re2">LC_ALL</span>=fr_FR.ISO8859-<span class="nu0">15</span>
+    <span class="kw3">export</span> <span class="re2">LANG</span>=fr_FR.ISO8859-<span class="nu0">15</span>
+<span class="kw1">else</span>
+    <span class="kw3">export</span> <span class="re2">LANGUAGE</span>=fr_FR.UTF8
+    <span class="kw3">export</span> <span class="re2">LC_ALL</span>=fr_FR.UTF8
+    <span class="kw3">export</span> <span class="re2">LANG</span>=fr_FR.UTF8
+<span class="kw1">fi</span>
+&#160;
+<span class="kw3">export</span> <span class="re2">LESSCHARSET</span>=latin9
+<span class="kw3">export</span> <span class="re2">MINICOM</span>=<span class="st0">&quot;-c on&quot;</span>
+<span class="kw3">export</span> <span class="re2">LESS</span>=<span class="st0">&quot;-S -g&quot;</span>
+<span class="kw3">export</span> <span class="re2">JAVA_HOME</span>=<span class="st0">&quot;/usr/lib/jvm/cacao/&quot;</span>
+<span class="re2">LOGCHECK</span>=<span class="nu0">60</span>
+<span class="re2">WATCHFMT</span>=<span class="st0">&quot;%n has&#160;%a&#160;%l from&#160;%M&quot;</span>
+&#160;
+&#160;
+<span class="co0"># CVS</span>
+<span class="kw3">export</span> <span class="re2">CVS_RSH</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">ssh</span>
+<span class="kw3">export</span> <span class="re2">CVSROOT</span>=:ext:user<span class="sy0">@</span>host:<span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span><span class="kw2">cvs</span>
+&#160;
+<span class="co0"># History</span>
+<span class="kw3">export</span> <span class="re2">HISTSIZE</span>=<span class="nu0">5000</span>
+<span class="kw3">export</span> <span class="re2">HISTFILE</span>=<span class="re1">$HOME</span><span class="sy0">/</span>.zshhistory
+<span class="kw1">if</span> <span class="br0">&#91;</span> <span class="re1">$NOHIST</span> = <span class="st0">&quot;1&quot;</span> <span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    <span class="kw3">export</span> <span class="re2">SAVEHIST</span>=<span class="nu0">0</span>
+<span class="kw1">else</span>
+    <span class="kw3">export</span> <span class="re2">SAVEHIST</span>=<span class="re1">$HISTSIZE</span>
+<span class="kw1">fi</span>
+&#160;
+<span class="co0"># Defaut editor</span>
+<span class="kw3">export</span> <span class="re2">EDITOR</span>=<span class="kw2">vim</span>
+&#160;
+<span class="kw3">export</span> <span class="re2">LISTMAX</span>=<span class="nu0">0</span>
+&#160;
+<span class="co0"># Use most if possible</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re5">-x</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>most <span class="sy0">||</span> <span class="re5">-x</span> <span class="sy0">/</span>opt<span class="sy0">/</span>local<span class="sy0">/</span>bin<span class="sy0">/</span>most <span class="br0">&#93;</span><span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    <span class="kw3">export</span> <span class="re2">PAGER</span>=most
+<span class="kw1">else</span>
+    <span class="kw3">export</span> <span class="re2">PAGER</span>=<span class="kw2">more</span>
+<span class="kw1">fi</span>
+&#160;
+<span class="kw3">export</span> <span class="re2">BLOCK_SIZE</span>=human-readable
+<span class="kw3">export</span> <span class="re2">LS_COLORS</span>=<span class="st_h">'no=00:fi=00:di=0;34:ln=01;36:pi=40;33:so=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arj=01;31:*.taz=01;31:*.lzh=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.gz=01;31:*.bz2=01;31:*.rar=01,31:*.par2=01,31:*.deb=01;31:*.rpm=01;31:*.jpg=01;35:*.gif=01;35:*.bmp=01;35:*.pgm=01;35:*.pbm=01;35:*.ppm=01;35:*.tga=01;35:*.png=01;35:*.GIF=01;35:*.JPG=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.mpg=01;37:*.avi=00;35:*.gl=01;37:*.dl=01;37:*.mly=01;37:*.mll=01;37:*.mli=01;37:*.ml=01;37:*.cpp=01;37:*.cc=01;37:*.c=01;37:*.hh=01;37:*.h=01;37:*Makefile=4;32:*.pl=4;32:*.sh=4;32:*.ps=01;34:*.pdf=01;34:*TODO=01;37:*TOGO=01;37:*README=01;37:*LINKS=01;37:*.y=01;37:*.l=01;37:*.algo=01;37'</span>
+&#160;
+limit core <span class="nu0">0</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id=".7E.2F.zsh.2Ffonctions"><span class="mw-headline-number">3.5</span> ~/.zsh/fonctions</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zsh/fonctions</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/zsh</span>
+&#160;
+<span class="co0"># Prompt definition</span>
+<span class="kw1">function</span> setprompt <span class="br0">&#123;</span> <span class="co0">#</span>
+    <span class="kw3">export</span> <span class="re2">PROMPT</span>=<span class="st0">&quot;%{<span class="es2">$COLOR2</span>%}[%{<span class="es2">$COLOR2</span>%}%D{%H:%M:%S}%{<span class="es2">$COLOR2</span>%}]&#160;%{<span class="es2">$COLOR4</span>%}-&#160;%{<span class="es2">$COLOR3</span>%}[%~%{<span class="es2">$COLOR3</span>%}]%{<span class="es2">$COLOR4</span>%}
+%{<span class="es2">$COLOR4</span>%}%n%{<span class="es2">$COLOR1</span>%}@%{<span class="es2">$COLOR4</span>%}%m%{<span class="es2">$COLOR3</span>%}%{<span class="es2">$COLOR1</span>%}&#160;%{<span class="es2">$COLOR1</span>%}&gt;%{<span class="es2">$COLOR1</span>%}%{<span class="es2">$COLOR1</span>%} &quot;</span>
+    <span class="kw3">export</span> <span class="re2">RPROMPT</span>=<span class="st0">&quot;%{^[[A%}%{<span class="es2">$COLOR3</span>%}[%{<span class="es2">$COLOR6</span>%}%D{%d-%m-%Y}%{<span class="es2">$COLOR3</span>%}]%{<span class="es2">$COLOR5</span>%}%{^[[B%}&quot;</span>
+    <span class="kw3">export</span> <span class="re2">PROMPT2</span>=<span class="st0">&quot;%{<span class="es2">$COLOR3</span>%}[%{<span class="es2">$COLOR1</span>%}%(#.#.$)%{<span class="es2">$COLOR3</span>%}]%{<span class="es2">$COLOR4</span>%} &quot;</span>
+    <span class="kw3">export</span> <span class="re2">SPROMPT</span>=<span class="st0">&quot;%{<span class="es2">$COLOR3</span>%}[%{<span class="es2">$COLOR1</span>%}correct%{<span class="es2">$COLOR3</span>%}[%{<span class="es2">$COLOR1</span>%}'%R'%{<span class="es2">$COLOR3</span>%}]%{<span class="es2">$COLOR1</span>%}-&gt;%{<span class="es2">$COLOR3</span>%}[%{<span class="es2">$COLOR1</span>%}'%r'%{<span class="es2">$COLOR3</span>%}]] [%{<span class="es2">$COLOR1</span>%}n%{<span class="es2">$COLOR3</span>%}/%{<span class="es2">$COLOR1</span>%}y%{<span class="es2">$COLOR3</span>%}/%{<span class="es2">$COLOR1</span>%}a%{<span class="es2">$COLOR3</span>%}/%{<span class="es2">$COLOR1</span>%}e%{<span class="es2">$COLOR3</span>%}]%{<span class="es2">$COLOR4</span>%} &quot;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> c1 <span class="br0">&#123;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR1</span>=<span class="st0">&quot;^[[0;31m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR2</span>=<span class="st0">&quot;^[[1;31m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR3</span>=<span class="st0">&quot;^[[1;30m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR4</span>=<span class="st0">&quot;^[[0;31m&quot;</span>
+    setprompt
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> c2 <span class="br0">&#123;</span>
+    <span class="co0"># Rouge</span>
+    <span class="kw3">export</span> <span class="re2">COLOR1</span>=<span class="st0">&quot;^[[1;31m&quot;</span>
+    <span class="co0"># Vert</span>
+    <span class="kw3">export</span> <span class="re2">COLOR2</span>=<span class="st0">&quot;^[[1;32m&quot;</span>
+    <span class="co0"># Blanc</span>
+    <span class="kw3">export</span> <span class="re2">COLOR3</span>=<span class="st0">&quot;^[[1;33m&quot;</span>
+    <span class="co0"># Bleu</span>
+    <span class="kw3">export</span> <span class="re2">COLOR4</span>=<span class="st0">&quot;^[[1;34m&quot;</span>
+    <span class="co0"># Gris</span>
+    <span class="kw3">export</span> <span class="re2">COLOR5</span>=<span class="st0">&quot;^[[0;37m&quot;</span>
+    <span class="co0"># Violet</span>
+    <span class="kw3">export</span> <span class="re2">COLOR6</span>=<span class="st0">&quot;^[[1;35m&quot;</span>
+    setprompt
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> c3 <span class="br0">&#123;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR1</span>=<span class="st0">&quot;^[[0;33m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR2</span>=<span class="st0">&quot;^[[1;33m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR3</span>=<span class="st0">&quot;^[[1;30m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR4</span>=<span class="st0">&quot;^[[0;33m&quot;</span>
+    setprompt
+<span class="br0">&#125;</span>
+<span class="kw1">function</span> c4 <span class="br0">&#123;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR1</span>=<span class="st0">&quot;^[[0;34m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR2</span>=<span class="st0">&quot;^[[1;34m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR3</span>=<span class="st0">&quot;^[[1;30m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR4</span>=<span class="st0">&quot;^[[0;34m&quot;</span>
+    setprompt
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> c5 <span class="br0">&#123;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR1</span>=<span class="st0">&quot;^[[0;35m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR2</span>=<span class="st0">&quot;^[[1;35m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR3</span>=<span class="st0">&quot;^[[1;30m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR4</span>=<span class="st0">&quot;^[[0;35m&quot;</span>
+    setprompt
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> c6 <span class="br0">&#123;</span>
+    <span class="kw3">export</span> <span class="re2">STATUS_WR</span>=<span class="st0">&quot;^[[4;37m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">STATUS_COLOR</span>=<span class="st0">&quot;^[[1;33m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">LOGIN_COLOR</span>=<span class="st0">&quot;^[[0;40m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">HOST_COLOR</span>=<span class="st0">&quot;^[[1;37m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR1</span>=<span class="st0">&quot;^[[0;37m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR2</span>=<span class="st0">&quot;^[[0;33m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR3</span>=<span class="st0">&quot;^[[0;31m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR4</span>=<span class="st0">&quot;^[[0;0m&quot;</span>
+    setprompt
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw1">function</span> c7 <span class="br0">&#123;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR1</span>=<span class="st0">&quot;^[[0;37m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR2</span>=<span class="st0">&quot;^[[1;37m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR3</span>=<span class="st0">&quot;^[[1;30m&quot;</span>
+    <span class="kw3">export</span> <span class="re2">COLOR4</span>=<span class="st0">&quot;^[[0;0m&quot;</span>
+    setprompt
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id=".7E.2F.zsh.2Fpath"><span class="mw-headline-number">3.6</span> ~/.zsh/path</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zsh/path</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/sh</span>
+&#160;
+<span class="co0"># OpenBSD Respository</span>
+<span class="kw3">test</span> <span class="re1">$MYSYSTEM</span> = <span class="st0">&quot;OpenBSD&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="kw3">export</span> <span class="re2">PKG_PATH</span>=ftp:<span class="sy0">//</span>ftp.arcane-networks.fr<span class="sy0">/</span>pub<span class="sy0">/</span>OpenBSD<span class="sy0">/`</span><span class="kw2">uname</span> -r<span class="sy0">`/</span>packages<span class="sy0">/`</span>machine -a<span class="sy0">`/</span>
+&#160;
+<span class="co0"># DarwinPorts Mac OS X</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re1">$MYSYSTEM</span> = <span class="st0">&quot;Darwin&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re5">-d</span> <span class="sy0">/</span>opt<span class="sy0">/</span>local<span class="sy0">/</span>bin <span class="br0">&#93;</span><span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    <span class="re2">PATH</span>=<span class="st0">&quot;<span class="es2">$PATH</span>:/opt/local/bin:/opt/local/sbin&quot;</span>
+<span class="kw1">fi</span>
+&#160;
+<span class="co0"># Solaris</span>
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="re1">$MYSYSTEM</span> = <span class="st0">&quot;SunOS&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re5">-d</span> <span class="sy0">/</span>usr<span class="sy0">/</span>openwin<span class="sy0">/</span>bin<span class="sy0">/</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>&#160;; <span class="kw1">then</span>
+    <span class="re2">PATH</span>=<span class="st0">&quot;<span class="es2">$PATH</span>:/usr/openwin/bin/:/usr/X11/bin:/opt/csw/bin&quot;</span>
+<span class="kw1">fi</span>
+&#160;
+<span class="co0"># Define scripts</span>
+<span class="kw3">test</span> <span class="re5">-d</span> <span class="st0">&quot;<span class="es2">$HOME</span>/.scripts&quot;</span> <span class="sy0">&amp;&amp;</span> <span class="re2">PATH</span>=<span class="st0">&quot;<span class="es2">$PATH</span>:<span class="es2">$HOME</span>/.scripts&quot;</span>
+&#160;
+<span class="co0"># Define Path</span>
+<span class="re2">PATH</span>=<span class="st0">&quot;<span class="es2">$PATH</span>:/usr/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/bin&quot;</span>
+<span class="kw3">export</span> PATH</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id=".7E.2F.zsh.2Fterm"><span class="mw-headline-number">3.7</span> ~/.zsh/term</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zsh/term</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/zsh</span>
+&#160;
+<span class="kw1">set</span> convert-meta off <span class="co0"># Don't strip high bit when reading or displaying. </span>
+<span class="kw1">set</span> input-meta on  
+<span class="kw1">set</span> output-meta on
+<span class="kw1">set</span> append <span class="kw3">history</span> <span class="co0"># multiple parallel zsh sessions will all have their history lists added to the history</span>
+&#160;
+<span class="co0"># No bips</span>
+unsetopt beep
+unsetopt hist_beep
+unsetopt list_beep
+&#160;
+unsetopt ignore_eof <span class="co0"># Logout Ctrl+D</span>
+setopt chase_links <span class="co0"># Traite les liens symboliques comme il faut</span>
+setopt hist_verify <span class="co0"># Ne lance pas la commande quand on chercher dans l'historique avec&#160;!</span>
+setopt auto_list
+setopt auto_cd <span class="co0"># Si la commande est invalide mais correspond au nom d'un sous-répertoire exécuter 'cd sous-répertoire'</span>
+setopt auto_remove_slash <span class="co0"># Quand le dernier caractère d'une complétion est '/' et que l'on tape 'espace' après, le '/' est effaçé</span>
+&#160;
+<span class="kw1">function</span> common_terms <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#123;</span> 
+    bindkey <span class="st0">&quot;\e[2~&quot;</span> quoted-insert 
+    bindkey <span class="st0">&quot;\e[3~&quot;</span> delete-char 
+    bindkey <span class="st0">&quot;\e[5~&quot;</span> beginning-of-history 
+    bindkey <span class="st0">&quot;\e[6~&quot;</span> end-of-history 
+<span class="br0">&#125;</span> <span class="co0"># Make the Home, End, and Delete keys work on common terminals. </span>
+<span class="kw1">if</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$TERM</span>&quot;</span> == <span class="st0">&quot;linux&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>&#160;; <span class="kw1">then</span> 
+    common_terms 
+    bindkey <span class="st0">&quot;\e[1~&quot;</span> beginning-of-line 
+    bindkey <span class="st0">&quot;\e[4~&quot;</span> end-of-line 
+<span class="kw1">elif</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$TERM</span>&quot;</span> == <span class="st0">&quot;rxvt&quot;</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>&#160;; <span class="kw1">then</span> 
+    common_terms 
+    bindkey <span class="st0">&quot;\e[7~&quot;</span> beginning-of-line 
+    bindkey <span class="st0">&quot;\e[8~&quot;</span> end-of-line 
+<span class="kw1">elif</span> <span class="br0">&#91;</span><span class="br0">&#91;</span> <span class="st0">&quot;<span class="es2">$TERM</span>&quot;</span> == xterm<span class="sy0">*</span> <span class="br0">&#93;</span><span class="br0">&#93;</span>&#160;; <span class="kw1">then</span> 
+    common_terms 
+    bindkey <span class="st0">&quot;\e[1~&quot;</span> beginning-of-line
+    bindkey <span class="st0">&quot;\e[4~&quot;</span> end-of-line 
+<span class="kw1">fi</span>
+&#160;
+bindkey <span class="re5">-s</span> <span class="st_h">'^X^Z'</span> <span class="st_h">'%-^M'</span>
+bindkey <span class="st_h">'^[e'</span> expand-cmd-path
+bindkey <span class="re5">-s</span> <span class="st_h">'^X?'</span> <span class="st_h">'\eb=\ef\C-x*'</span>
+bindkey <span class="st_h">'^[^I'</span> reverse-menu-complete
+bindkey <span class="st_h">'^[p'</span> history-beginning-search-backward 
+bindkey <span class="st_h">'^[n'</span> history-beginning-search-forward 
+bindkey <span class="st_h">'^W'</span> <span class="kw2">kill</span> <span class="re5">-region</span> bindkey <span class="st_h">'^I'</span> expand-or-complete-prefix 
+bindkey <span class="re5">-s</span> <span class="st_h">'^[[Z'</span> <span class="st_h">'\t'</span> 
+bindkey  <span class="st_h">'^?'</span> backward-delete-char
+<span class="kw1">if</span> <span class="kw2">which</span> <span class="kw2">setterm</span> <span class="sy0">&gt;</span> <span class="sy0">/</span>dev<span class="sy0">/</span>null&#160;; <span class="kw1">then</span>
+    <span class="kw2">setterm</span> <span class="re5">-hbcolor</span> bright white
+    <span class="kw2">setterm</span> <span class="re5">-ulcolor</span> cyan
+<span class="kw1">fi</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">4</span> Utilisation</span></h1>
+<p>Pour l'utilisation, voici quelques trucs de base ou que j'ai implémenté&#160;:
+</p>
+<ul><li> uu&#160;: permet de rafraichir son shell (lors de modifications ou d'ajouts de nouveaux softs)</li>
+<li> utar&#160;: équivalent à tar -xzvf</li>
+<li> ..&#160;: revient à faire cd ..</li>
+<li> ...&#160;: reviens à faire cd ../..</li></ul>
+<p>Pour le reste, je vous laisse regarder les contenus des fichiers, j'essaye de commenter suffisamment.
+</p><p>Et pour un résultat, on obtient quelquechose comme ceci&#160;:
+</p>
+<pre><b><font color="green">[20:07:45]<font color="blue"><font color="blue"> - </font><font color="yellow">[~]                                                   [</font><font color="pink">01-10-2009</font><font color="yellow">]</font>
+<font color="blue">pmavro</font><font color="red">@</font><font color="blue">pm-laptop<font color="blue"> <font color="red">&gt;</font></font>
+</pre>
+<p></font>
+</font>
+</font>
+</b>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.088 seconds
+Real time usage: 0.089 seconds
+Preprocessor visited node count: 193/1000000
+Preprocessor generated node count: 518/1000000
+Post‐expand include size: 1859/2097152 bytes
+Template argument size: 493/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   62.753      1 - -total
+ 96.00%   60.244      7 - Template:Config
+  1.90%    1.192      2 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2987-0!*!*!1!en!5!* and timestamp 20181111230628 and revision id 8419
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=ZSH_:_un_shell_très_pratique&amp;oldid=8419">https://wiki.deimos.fr/index.php?title=ZSH_:_un_shell_très_pratique&amp;oldid=8419</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=ZSH+%3A+un+shell+tr%C3%A8s+pratique" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./ZSH_:_un_shell_très_pratique.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./ZSH_:_un_shell_très_pratique.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./ZSH_:_un_shell_très_pratique.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=ZSH_:_un_shell_tr%C3%A8s_pratique&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=ZSH_:_un_shell_tr%C3%A8s_pratique&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./ZSH_:_un_shell_très_pratique.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/ZSH_:_un_shell_très_pratique.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/ZSH_:_un_shell_tr%C3%A8s_pratique" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=ZSH_:_un_shell_tr%C3%A8s_pratique&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=ZSH_:_un_shell_tr%C3%A8s_pratique&amp;oldid=8419" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=ZSH_:_un_shell_tr%C3%A8s_pratique&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 December 2009, at 21:11.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Slony-I : Réplication de bases pour PostgresSQL - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Slony-I_:_Réplication_de_bases_pour_PostgresSQL","wgTitle":"Slony-I : Réplication de bases pour PostgresSQL","wgCurRevisionId":4588,"wgRevisionId":4588,"wgArticleId":2095,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Slony-I_:_Réplication_de_bases_pour_PostgresSQL","wgRelevantArticleId":2095,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Slony-I_Réplication_de_bases_pour_PostgresSQL skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Slony-I : Réplication de bases pour PostgresSQL</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#mw-navigation">navigation</a>, 					<a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Pr.C3.A9paration"><span class="tocnumber">3</span> <span class="toctext">Préparation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Environnement"><span class="tocnumber">3.1</span> <span class="toctext">Environnement</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Utilisateurs"><span class="tocnumber">3.2</span> <span class="toctext">Utilisateurs</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Cr.C3.A9ation_des_bases"><span class="tocnumber">3.3</span> <span class="toctext">Création des bases</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Remplissage_pour_test"><span class="tocnumber">3.4</span> <span class="toctext">Remplissage pour test</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Script_de_configuration"><span class="tocnumber">4.1</span> <span class="toctext">Script de configuration</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#altperl_scripts"><span class="tocnumber">4.2</span> <span class="toctext">altperl scripts</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Synchronisation"><span class="tocnumber">4.3</span> <span class="toctext">Synchronisation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#R.C3.A9plication"><span class="tocnumber">5</span> <span class="toctext">Réplication</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#V.C3.A9rification"><span class="tocnumber">6</span> <span class="toctext">Vérification</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Ajouter_un_nouveau_noeud"><span class="tocnumber">7</span> <span class="toctext">Ajouter un nouveau noeud</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Haute_Disponibilit.C3.A9"><span class="tocnumber">8</span> <span class="toctext">Haute Disponibilité</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Promouvoir_une_r.C3.A9plicat"><span class="tocnumber">8.1</span> <span class="toctext">Promouvoir une réplicat</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Changement_de_Master"><span class="tocnumber">8.2</span> <span class="toctext">Changement de Master</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Failover"><span class="tocnumber">8.3</span> <span class="toctext">Failover</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#Reference"><span class="tocnumber">9</span> <span class="toctext">Reference</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Slony-I permet de faire de la réplication de bases de données assez poussée. L'inconvénient, c'est que la première fois, ce n'est pas simple à mettre en place. Les personnes ayant déjà mis en place des réplications de DB en place, auront des facilitées à réussir.
+</p><p>D'après la documentation du site de Slony, il est déconseillé de faire de la réplication à travers le WAN, car slon (le démon réplicateur) est très fragile et peut laisser en zombie une base, et ne mourra pas avant 2 heures.
+</p><p><a href="./File:Slony_work.png.html" class="image"><img alt="Slony work.png" src="images/2/2b/Slony_work.png" width="430" height="360" /></a>
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Voici comment installer Slony-I pour la version 8.2 de PostgreSQL&#160;:
+</p>
+<pre>apt-get install postgresql-8.2-slony1 slony1-bin postgresql-contrib-8.2
+</pre>
+<p>Editez votre fichier host sur vos noeuds et entrez les&#160;:
+</p>
+<pre>192.168.0.87    deb-node1
+192.168.0.88    deb-node2
+</pre>
+<p>Nous avons donc mis l'adresse IP en premier puis, les noms associés aux IPs.
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9paration"><span class="mw-headline-number">3</span> Préparation</span></h1>
+<h2><span class="mw-headline" id="Environnement"><span class="mw-headline-number">3.1</span> Environnement</span></h2>
+<p>Vous devez posséder quelques variables d'environnement au préalable pour votre user postgres. Insérez les dans votre fichier de configuration de shell (ex: ~/.profile)&#160;:
+</p>
+<pre>export CLUSTERNAME=slony_example
+export MASTERDBNAME=pgbench
+export SLAVEDBNAME=pgbenchslave
+export MASTERHOST=localhost
+export SLAVEHOST=localhost
+export REPLICATIONUSER=pgsql
+export PGBENCHUSER=pgbench
+PATH=$PATH:/usr/lib/postgresql/8.2/bin/
+</pre>
+<h2><span class="mw-headline" id="Utilisateurs"><span class="mw-headline-number">3.2</span> Utilisateurs</span></h2>
+<p>Pour des raisons de souplesse et non de sécurité, nous allons créer un "replicationuser" qui aura des droits super-users. Créez donc cet utilisateur sur tous vos serveurs PostgreSQL&#160;:
+</p>
+<pre>createuser -A -D $PGBENCHUSER
+createuser -A -D $PGBENCHUSER -h $SLAVEHOST
+createuser -s $REPLICATIONUSER
+createuser -s $REPLICATIONUSER -h $SLAVEHOST
+</pre>
+<p>Dans le cas où il ne vous demande pas de changer les mots de passe, n'hésitez pas à le faire pour les users concernés&#160;:
+</p>
+<pre>psql -d template1 -c "alter user $PGBENCHUSER with password '<b>motdepasse'</b>"
+psql -d template1 -c "alter user $PGBENCHUSER with password '<b>motdepasse'</b>" -h $SLAVEHOST
+psql -d template1 -c "alter user $REPLICATIONUSER with password '<b>motdepasse'</b>"
+psql -d template1 -c "alter user $REPLICATIONUSER with password '<b>motdepasse'</b>" -h $SLAVEHOST
+</pre>
+<h2><span class="mw-headline" id="Cr.C3.A9ation_des_bases"><span class="mw-headline-number">3.3</span> Création des bases</span></h2>
+<p>A partir de maintenant, si vous rencontrez des problèmes de mot de passe, rajoutez à la suite de vos commandes&#160;:
+</p>
+<pre>-P <b>motdepasse</b>
+</pre>
+<p>Ensuite, nous allons préparer les bases&#160;:
+</p>
+<pre>createdb -O $PGBENCHUSER -h $MASTERHOST $MASTERDBNAME
+createdb -O $PGBENCHUSER -h $SLAVEHOST $SLAVEDBNAME
+</pre>
+<p>Création des bases pour Slony&#160;:
+</p>
+<pre>pgbench -i -s 1 -U $PGBENCHUSER -h $MASTERHOST $MASTERDBNAME
+</pre>
+<p>Si il y a des lignes qui ne passent pas, vérifiez vos droits (/etc/postgresql/8.2/main/pg_hba.conf) et que PostgreSQL n'est pas bindé sur localhost.
+</p><p>Il faut le pl/pgSQL procedural language d'installé, puis&#160;:
+</p>
+<pre>createlang -h $MASTERHOST plpgsql $MASTERDBNAME
+</pre>
+<p>Slony, n'importe pas les bases de données automatiquement lorsqu'un slave entre dans le cluster. Nous devons donc lui importer les bases&#160;:
+</p>
+<pre>pg_dump -s -U $REPLICATIONUSER -h $MASTERHOST $MASTERDBNAME | psql -U $REPLICATIONUSER -h $SLAVEHOST $SLAVEDBNAME
+</pre>
+<h2><span class="mw-headline" id="Remplissage_pour_test"><span class="mw-headline-number">3.4</span> Remplissage pour test</span></h2>
+<p>Pour illustrer comment Slony-I fait ses réplications à la volée, nous allons lancer pgbench (à lancer dans une fenêtre séparée)&#160;:
+</p>
+<pre>pgbench -s 1 -c 5 -t 1000 -U $PGBENCHUSER -h $MASTERHOST $MASTERDBNAME
+</pre>
+<p>Cette commande lancera pgbench 5 fois créant 1000 transactions sur la base avec $PGBENCHUSER.
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<p>Slonik est un utilitaire qui permet de scripter afin de faciliter l'administration de Slony. Vous pouvez créer des tables, enregistrer des procédures...
+</p>
+<h2><span class="mw-headline" id="Script_de_configuration"><span class="mw-headline-number">4.1</span> Script de configuration</span></h2>
+<p><a href="./File:Slony_db_schema.jpg.html" class="image"><img alt="Slony db schema.jpg" src="images/b/b1/Slony_db_schema.jpg" width="461" height="444" /></a>
+</p><p>Voici un script (script-initilization.sh) qui va créer la connexion initiale. Editez le selon vos besoins (rajouter les pass ci besoin)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+&#160;
+slonik &lt;&lt;_EOF_
+	#--
+	# define the namespace the replication system uses in our example it is
+	# slony_example
+	#--
+	cluster name = $CLUSTERNAME;
+&#160;
+	#--
+	# admin conninfo's are used by slonik to connect to the nodes one for each
+	# node on each side of the cluster, the syntax is that of PQconnectdb in
+	# the C-API
+	# --
+	node 1 admin conninfo = 'dbname=$MASTERDBNAME host=$MASTERHOST user=$REPLICATIONUSER';
+	node 2 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVEHOST user=$REPLICATIONUSER';
+&#160;
+	#--
+	# init the first node.  Its id MUST be 1.  This creates the schema
+	# _$CLUSTERNAME containing all replication system specific database
+	# objects.
+&#160;
+	#--
+	init cluster ( id=1, comment = 'Master Node');
+&#160;
+	#--
+	# Because the history table does not have a primary key or other unique
+	# constraint that could be used to identify a row, we need to add one.
+	# The following command adds a bigint column named
+	# _Slony-I_$CLUSTERNAME_rowID to the table.  It will have a default value
+	# of nextval('_$CLUSTERNAME.s1_rowid_seq'), and have UNIQUE and NOT NULL
+	# constraints applied.  All existing rows will be initialized with a
+	# number
+	#--
+	table add key (node id = 1, fully qualified name = 'public.history');
+&#160;
+	#--
+	# Slony-I organizes tables into sets.  The smallest unit a node can
+	# subscribe is a set.  The following commands create one set containing
+	# all 4 pgbench tables.  The master or origin of the set is node 1.
+	#--
+	create set (id=1, origin=1, comment='All pgbench tables');
+	set add table (set id=1, origin=1, id=1, fully qualified name = 'public.accounts', comment='accounts table');
+	set add table (set id=1, origin=1, id=2, fully qualified name = 'public.branches', comment='branches table');
+	set add table (set id=1, origin=1, id=3, fully qualified name = 'public.tellers', comment='tellers table');
+	set add table (set id=1, origin=1, id=4, fully qualified name = 'public.history', comment='history table', key = serial);
+&#160;
+	#--
+	# Create the second node (the slave) tell the 2 nodes how to connect to
+	# each other and how they should listen for events.
+	#--
+&#160;
+	store node (id=2, comment = 'Slave node');
+	store path (server = 1, client = 2, conninfo='dbname=$MASTERDBNAME host=$MASTERHOST user=$REPLICATIONUSER');
+	store path (server = 2, client = 1, conninfo='dbname=$SLAVEDBNAME host=$SLAVEHOST user=$REPLICATIONUSER');
+	store listen (origin=1, provider = 1, receiver =2);
+	store listen (origin=2, provider = 2, receiver =1);
+_EOF_</pre></div></div>
+<p>Rendez le exécutable et exécutez le&#160;:
+</p>
+<pre>chmod 755 script-initilization.sh
+./script-initilization.sh
+</pre>
+<h2><span class="mw-headline" id="altperl_scripts"><span class="mw-headline-number">4.2</span> altperl scripts</span></h2>
+<p>On va maintenant se copier le fichier de configuration de Slony&#160;:
+</p>
+<pre>cd /usr/share/doc/slony1-bin/examples/
+gzip -d slon_tools.conf-sample.gz
+cp slon_tools.conf-sample /etc/slony1/slon_tools.conf
+</pre>
+<p>Ensuite modifiez selon vos besoin ce fichier. Ensuite, initialisez le cluster&#160;:
+</p>
+<pre>slonik_init_cluster | slonik
+</pre>
+<p>Démarrez sur les 2 noeuds slon&#160;:
+</p>
+<pre>slon_start 1 # Sur le noeud 1
+slon_start 2 # Sur le noeud 2
+</pre>
+<p>Creez des sets&#160;:
+</p>
+<pre>slonik_create_set 1
+</pre>
+<p>Enregistrez le second noeud (1= set ID, 2= node ID)&#160;:
+</p>
+<pre>slonik_subscribe_set 2 | slonik
+</pre>
+<h2><span class="mw-headline" id="Synchronisation"><span class="mw-headline-number">4.3</span> Synchronisation</span></h2>
+<p>Pour lancer la synchronisation (pas la réplication des bases pour le moment) lancez ces commandes sur les bons noeuds&#160;:
+</p>
+<pre>slon $CLUSTERNAME "dbname=$MASTERDBNAME user=$REPLICATIONUSER host=$MASTERHOST" &amp; # A lancer sur le master
+slon $CLUSTERNAME "dbname=$SLAVEDBNAME user=$REPLICATIONUSER host=$SLAVEHOST" &amp; # A lancer sur le slave
+</pre>
+<p>Rajoutez password=<b>motdepasse</b> dans les guillemets si jamais vous avez une erreur de mot de passe (ex&#160;: slon $CLUSTERNAME "dbname=$MASTERDBNAME user=$REPLICATIONUSER host=$MASTERHOST password=<b>motdepasse</b>").
+</p><p>Vous devriez donc avoir maintenant pleins de messages de diagnostique. Vous voyez donc la synchronisation entre les noeuds.
+</p>
+<h1><span class="mw-headline" id="R.C3.A9plication"><span class="mw-headline-number">5</span> Réplication</span></h1>
+<p>Répliquons maintenant les tables à partir du noeud 1 vers le noeud 2&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+slonik &lt;&lt;_EOF_
+	 # ----
+	 # This defines which namespace the replication system uses
+	 # ----
+	 cluster name = $CLUSTERNAME;
+&#160;
+	 # ----
+	 # Admin conninfo's are used by the slonik program to connect
+	 # to the node databases.  So these are the PQconnectdb arguments
+	 # that connect from the administrators workstation (where
+	 # slonik is executed).
+	 # ----
+	 node 1 admin conninfo = 'dbname=$MASTERDBNAME host=$MASTERHOST user=$REPLICATIONUSER';
+	 node 2 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVEHOST user=$REPLICATIONUSER';
+&#160;
+	 # ----
+	 # Node 2 subscribes set 1
+	 # ----
+	 subscribe set ( id = 1, provider = 1, receiver = 2, forward = no);
+_EOF_</pre></div></div>
+<p>Pareil que le script plus haut, mettez les droits et démarrez le.
+</p><p>Une première réplication aura lieu à un instant t (lancement du script). A la fin de la première réplication, il y aura analyse des logs pour vérifier les modifications éventuels entre t et la fin de la réplication afin de rattraper le retard. Puis, ça sera mis à jour également. Ensuite, les analyses pour réplication ont lieu environ 1 fois toutes les 10 sec (suivant la charge des machines).
+</p><p>Nous avons donc bien nos 2 bases identiques maintenant&#160;:-)
+</p>
+<h1><span class="mw-headline" id="V.C3.A9rification"><span class="mw-headline-number">6</span> Vérification</span></h1>
+<p>Nous pouvons vérifier à l'aide de ce script. Il va dumper les 2 bases puis les comparer&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+echo -n &quot;**** comparing sample1 ... &quot;
+psql -U $REPLICATIONUSER -h $MASTERHOST $MASTERDBNAME &gt;dump.tmp.1.$$ &lt;&lt;_EOF_
+	 select 'accounts:'::text, aid, bid, abalance, filler
+		  from accounts order by aid;
+	 select 'branches:'::text, bid, bbalance, filler
+		  from branches order by bid;
+	 select 'tellers:'::text, tid, bid, tbalance, filler
+		  from tellers order by tid;
+	 select 'history:'::text, tid, bid, aid, delta, mtime, filler,
+		  &quot;_Slony-I_${CLUSTERNAME}_rowID&quot;
+		  from history order by &quot;_Slony-I_${CLUSTERNAME}_rowID&quot;;
+_EOF_
+psql -U $REPLICATIONUSER -h $SLAVEHOST $SLAVEDBNAME &gt;dump.tmp.2.$$ &lt;&lt;_EOF_
+	 select 'accounts:'::text, aid, bid, abalance, filler
+		  from accounts order by aid;
+	 select 'branches:'::text, bid, bbalance, filler
+		  from branches order by bid;
+	 select 'tellers:'::text, tid, bid, tbalance, filler
+		  from tellers order by tid;
+	 select 'history:'::text, tid, bid, aid, delta, mtime, filler,
+		  &quot;_Slony-I_${CLUSTERNAME}_rowID&quot;
+		  from history order by &quot;_Slony-I_${CLUSTERNAME}_rowID&quot;;
+_EOF_
+&#160;
+if diff dump.tmp.1.$$ dump.tmp.2.$$ &gt;$CLUSTERNAME.diff&#160;; then
+	 echo &quot;success - databases are equal.&quot;
+	 rm dump.tmp.?.$$
+	 rm $CLUSTERNAME.diff
+else
+	 echo &quot;FAILED - see $CLUSTERNAME.diff for database differences&quot;
+fi</pre></div></div>
+<h1><span class="mw-headline" id="Ajouter_un_nouveau_noeud"><span class="mw-headline-number">7</span> Ajouter un nouveau noeud</span></h1>
+<table border="0">
+
+<tr>
+<th><a href="./File:Slony2nodes.jpg.html" class="image"><img alt="Slony2nodes.jpg" src="images/a/a1/Slony2nodes.jpg" width="335" height="220" /></a>
+</th>
+<th>--&gt;
+</th>
+<th><a href="./File:Slony3nodes.jpg.html" class="image"><img alt="Slony3nodes.jpg" src="images/4/4b/Slony3nodes.jpg" width="335" height="220" /></a>
+</th></tr>
+</table>
+<p>Voici un exemple du .profile pour le 3ème noeud à ajouter&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">export CLUSTERNAME=slony_example
+export MASTERDBNAME=pgbench
+export SLAVEDBNAME=pgbenchslave
+export MASTERHOST=localhost
+export SLAVEHOST=localhost
+export SLAVE2HOST=localhost
+export REPLICATIONUSER=pgsql
+export PGBENCHUSER=pgbench
+PATH=$PATH:/usr/lib/postgresql/8.2/bin/</pre></div></div>
+<p>Répliquez votre fichier de configuration de slony&#160;:
+</p>
+<pre>scp /etc/slony1/slon_tools.conf deb-node3:/etc/slony1/slon_tools.conf
+</pre>
+<p>Nous allons (comme plus haut) créer le nécessaire&#160;:
+</p>
+<pre>createuser -A -D $PGBENCHUSER -h $SLAVE2HOST
+createuser -s $REPLICATIONUSER -h $SLAVE2HOST
+psql -d template1 -c "alter user $PGBENCHUSER with password '<b>motdepasse'</b>" -h $SLAVE2HOST
+psql -d template1 -c "alter user $REPLICATIONUSER with password '<b>motdepasse'</b>" -h $SLAVE2HOST
+createdb -O $PGBENCHUSER -h $SLAVE2HOST $SLAVEDBNAME
+pg_dump -s -U $REPLICATIONUSER -h $MASTERHOST $MASTERDBNAME | psql -U $REPLICATIONUSER -h $SLAVE2HOST $SLAVEDBNAME
+</pre>
+<p>Puis créez et exécutez ce script (en l'adaptant bien évidemment à vos besoins)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+slonik &lt;&lt; _END_
+#
+# Define cluster namespace and node connection information
+#
+cluster name = $CLUSTERNAME;
+node 1 admin conninfo = 'dbname=$MASTERDBNAME host=$MASTERHOST port=5434 user=$REPLICATIONUSER';
+node 2 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVEHOST port=5430 user=$REPLICATIONUSER';
+node 3 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER';
+echo 'Cluster defined, nodes identified';
+&#160;
+#
+# Initialize the cluster and create the second node
+#
+store node (id=3, comment='Slave2 Node');
+&#160;
+#
+# create paths
+#
+store path (server=1, client=3, conninfo='dbname=$MASTERDBNAME host=$MASTERHOST port=5434 user=$REPLICATIONUSER');
+store path (server=2, client=3, conninfo='dbname=$MASTERDBNAME host=$SLAVEHOST port=5430 user=$REPLICATIONUSER');
+store path (server=3, client=1, conninfo='dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER');
+store path (server=3, client=2, conninfo='dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER');
+&#160;
+#
+# Enable listening along each path
+#
+store listen (origin=1, receiver=3, provider=1);
+store listen (origin=3, receiver=1, provider=3);
+store listen (origin=2, receiver=3, provider=1);
+store listen (origin=3, receiver=2, provider=1);
+&#160;
+_END_</pre></div></div>
+<p>Maintenant, nous allons pouvoir démarrer la synchronisation de Slon&#160;:
+</p>
+<pre>slon $CLUSTERNAME "dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER" &amp; # A lancer sur le 3eme noeud
+</pre>
+<p>La réplication doit maintenant opérer. Créez de nouveau un script&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+slonik &lt;&lt; _END_
+#
+# Define cluster namespace and node connection information
+#
+cluster name = $CLUSTERNAME;
+node 1 admin conninfo = 'dbname=$MASTERDBNAME host=$MASTERHOST port=5434 user=$REPLICATIONUSER';
+node 2 admin conninfo = 'dbname=$MASTERDBNAME host=$SLAVEHOST port=5430 user=$REPLICATIONUSER';
+node 3 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER';
+&#160;
+subscribe set (id=1, provider=1, receiver=3, forward=yes);
+&#160;
+_END_</pre></div></div>
+<p>La vérification des données est réasurée à ce niveau là&#160;!
+</p>
+<h1><span class="mw-headline" id="Haute_Disponibilit.C3.A9"><span class="mw-headline-number">8</span> Haute Disponibilité</span></h1>
+<h2><span class="mw-headline" id="Promouvoir_une_r.C3.A9plicat"><span class="mw-headline-number">8.1</span> Promouvoir une réplicat</span></h2>
+<p><a href="./File:Slony_swapping.jpg.html" class="image"><img alt="Slony swapping.jpg" src="images/d/d5/Slony_swapping.jpg" width="335" height="220" /></a>
+</p><p>La promotion du réplicat est pratique lorsque vous avez plusieurs noeuds en vue d'effectuer par exemple une maintenance sur le Master.
+</p><p>Dans cet exemple, le noeud 1 à l'origine du set 1, envoie les informations du set 1 sur le noeud 2. Quand vous ajoutez le 3ème noeud, vous l'enregistrez à la table set 1. La table set est alors envoyée aux 2 autres noeuds.
+</p><p>Maintenant le but est de changer le master. <b>Donc que le noeud 3 récupère les infos du noeud 2 et non du 1</b>.
+</p><p>Le noeud 3 doit évidement avoir le noeud 1 et 2 en tant que master dans le set d'informations. Le noeud 2 passe alors master, car vous avez souscrit le noeud 2 à la table set 1, vous l'avez également activé en tant que forwarder de la table set 1.
+</p><p>Heureusement, il y a un lien direct entre le noeud 2 et 3 pour les réplications. Une fois que le noeud 1 est pret à la réintégration, <b>il faut changer l'enregistrement du noeud 1 en tant que slave et non master</b>.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#! /bin/bash
+#
+# varlena Slony Initialization
+# ==============================
+slonik &lt;&lt; _END_
+&#160;
+cluster name =$CLUSTERNAME;
+&#160;
+node 1 admin conninfo = 'dbname=$MASTERDBNAME host=$MASTERHOST port=5434 user=$REPLICATIONUSER';
+node 2 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVEHOST port=5430 user=$REPLICATIONUSER';
+node 3 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER';
+# ==============================
+&#160;
+store listen (origin=3, receiver=2, provider=3); 
+store listen (origin=2, receiver=3, provider=2);
+&#160;
+subscribe set ( id=1, provider=2, receiver=3, forward=yes);
+&#160;
+_END_</pre></div></div>
+<h2><span class="mw-headline" id="Changement_de_Master"><span class="mw-headline-number">8.2</span> Changement de Master</span></h2>
+<p>Ici, nous allons par exemple upgrader la version de postgreSQL de notre master. Nous allons donc devoir basculer notre master sur un autre noeud en utilisant la méthode "fast upgrade using master promotion".
+</p><p><b>Avant de décider de basculer le master, vous devez au préalable avoir établi un plan pour le switch de vos applications. Car vous devrez certainement à ce moment là changer l'adresse de votre base postgreSQL, sauf si vous utilisez une IP virtuelles dans un environnement cluster.</b>
+</p><p><b>Une autre précaution à prendre, travaillez sur des copies de bases en test avant de passer sur les réelles. Car rappellez vous que les réplicats ne sont accessibles qu'en lecture seule&#160;! Et encore une dernière chose, faites un backup de vos bases avant toute opération majeures&#160;!!!</b>
+</p><p><b>Chaque états dans une réplication de Slony arrive car il y a un nouvel élément. Les évènements importants sont les SYNC et ils sont syncronisés à chaque noeuds qui a été enregistré. Les logs sont égalements transmits aux noeuds qui acceptent le forwarding afin de resynchroniser l'ancien master si besoin.</b>
+</p><p><b>Pour changer le set d'un master, il faut être sur qu'ils peuvent bien être répliquer depuis le nouveau master. Mais avant de switcher, les set doivent être locker de toutes modifications. Ensuite vous pouvez déplacer le set. Au finale le nouveau master doit s'enregistrer au niveau du set.</b>
+</p><p><b>ATTENTION&#160;: Avant de lancer le script, soyez sur que les droits d'écriture sur la base master sont désactivés&#160;!!!</b>
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+&#160;
+slonik &lt;&lt; _EOF_
+&#160;
+cluster name = $CLUSTERNAME;
+node 1 admin conninfo = 'dbname=$MASTERDBNAME host=$MASTERHOST port=5434 user=$REPLICATIONUSER';
+node 2 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVEHOST port=5430 user=$REPLICATIONUSER';
+node 3 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER';
+&#160;
+# add listener paths if required
+&#160;
+#
+# lock and move set
+#
+lock set (id=1, origin=1);
+move set (id=1, old origin=1, new origin=2);
+&#160;
+# subscribe set if required
+subscribe set (id=1, provider=2, receiver=1, forward=yes);
+&#160;
+_END_</pre></div></div>
+<h2><span class="mw-headline" id="Failover"><span class="mw-headline-number">8.3</span> Failover</span></h2>
+<p>La partie Failover ne peut être faites avec Slony uniquement. Il faut un <a href="Serveurs.html#Clustering" title="Serveurs">Cluster</a> qui va gérer les IP virtuels tel que <a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html" title="Installation et configuration d'un cluster Heartbeat V1">heartbeat 1</a> ou <a href="Installation_et_configuration_d'un_cluster_Heartbeat_V2.html" title="Installation et configuration d'un cluster Heartbeat V2">heartbeat 2</a> pour les plus courageux.
+</p><p><a href="./File:Slony_failover.png.html" class="image"><img alt="Slony failover.png" src="images/9/9d/Slony_failover.png" width="470" height="360" /></a>
+</p><p>Lorsque vous configurez le cluster, adressez donc une IP virtuelle ainsi que le script init. Voici ce qu'il faut pour promouvoir un slave en master&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#!/bin/sh
+&#160;
+ slonik &lt;&lt;_EOF_
+&#160;
+ cluster name = $CLUSTERNAME;
+ node 1 admin conninfo = 'dbname=$MASTERDBNAME host=$MASTERHOST port=5434 user=$REPLICATIONUSER';
+ node 2 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVEHOST port=5430 user=$REPLICATIONUSER';
+ node 3 admin conninfo = 'dbname=$SLAVEDBNAME host=$SLAVE2HOST port=5430 user=$REPLICATIONUSER';
+&#160;
+ failover (id=2, backup node = 1);
+&#160;
+ _EOF_</pre></div></div>
+<h1><span class="mw-headline" id="Reference"><span class="mw-headline-number">9</span> Reference</span></h1>
+<p><a href="./File:Build_conf_slony.pdf.html" title="File:Build conf slony.pdf">Documentation Building and configuration of Slony</a><br />
+<a href="./File:Introduction_slony.pdf.html" title="File:Introduction slony.pdf">Documentation Introducing Slony</a><br />
+<a href="./File:Postgres_slony_rep.pdf.html" title="File:Postgres slony rep.pdf">Documentation on integration of Slony with PostgreSQL</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.028 seconds
+Real time usage: 0.031 seconds
+Preprocessor visited node count: 158/1000000
+Preprocessor generated node count: 264/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2095-0!*!0!1!en!5!* and timestamp 20181111230658 and revision id 4588
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Slony-I_:_Réplication_de_bases_pour_PostgresSQL&amp;oldid=4588">https://wiki.deimos.fr/index.php?title=Slony-I_:_Réplication_de_bases_pour_PostgresSQL&amp;oldid=4588</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Slony-I+%3A+R%C3%A9plication+de+bases+pour+PostgresSQL" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Slony-I_:_Réplication_de_bases_pour_PostgresSQL.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL&amp;oldid=4588" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 30 August 2007, at 13:47.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

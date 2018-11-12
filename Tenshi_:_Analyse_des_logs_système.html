@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Tenshi : Analyse des logs système - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Tenshi_:_Analyse_des_logs_système.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Tenshi_:_Analyse_des_logs_système","wgTitle":"Tenshi : Analyse des logs système","wgCurRevisionId":5999,"wgRevisionId":5999,"wgArticleId":2532,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Tenshi_:_Analyse_des_logs_système","wgRelevantArticleId":2532,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Tenshi_Analyse_des_logs_système skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Tenshi : Analyse des logs système</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Tenshi_:_Analyse_des_logs_système.html#mw-navigation">navigation</a>, 					<a href="./Tenshi_:_Analyse_des_logs_système.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Tenshi_:_Analyse_des_logs_système.html#Introduction_et_installation"><span class="tocnumber">1</span> <span class="toctext">Introduction et installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="./Tenshi_:_Analyse_des_logs_système.html#Debian"><span class="tocnumber">1.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="./Tenshi_:_Analyse_des_logs_système.html#Sources"><span class="tocnumber">1.2</span> <span class="toctext">Sources</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-4"><a href="./Tenshi_:_Analyse_des_logs_système.html#Configuration"><span class="tocnumber">2</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="./Tenshi_:_Analyse_des_logs_système.html#Utilisation"><span class="tocnumber">3</span> <span class="toctext">Utilisation</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="./Tenshi_:_Analyse_des_logs_système.html#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction_et_installation"><span class="mw-headline-number">1</span> Introduction et installation</span></h1>
+<p>L'analyse des fichiers de logs est un bon compromis à l'absence régulière de considération dans les entreprises pour ces fichiers qui contiennent de nombreuses informations vitales en vue de protéger les systèmes vis à vis des intrusions réalisées par les pirates à l'intérieur même des réseaux.
+</p><p><i>NDLR&#160;: ce document a été rédigé en 2006, certaines versions ainsi que certaines configurations des logiciels utilisés selon ces versions peuvent être différentes de celles qui sont mentionnées&#160;; merci de vous reporter vers les sites officiels des projets en question en cas de problème.</i>
+</p><p>Dédier une personne à cette analyse n'étant pas chose facilement réalisable économiquement dans bon nombre d'entreprises, la mise en place de logiciels qui automatisent au mieux ce traitement est un moindre mal à condition bien sûr que le nombre d'informations reportées reste dans les limites du raisonnable tout en gardant l'aspect qualitatif des alertes qui seront remontées&#160;; ce qui nécessite une configuration fine et donc souvent complexe à mettre en oeuvre.
+</p><p><a rel="nofollow" class="external text" href="http://www.logwatch.org/">LogWatch</a>, <a rel="nofollow" class="external text" href="http://sourceforge.net/projects/sentrytools">Logsentry</a>, <a rel="nofollow" class="external text" href="http://logcheck.org/">Logcheck</a> et <a rel="nofollow" class="external text" href="http://swatch.sourceforge.net/">Swatch</a> sont les plus connues de ces solutions dans le monde du libre&#160;; nous vous proposons à travers ce document de découvrir <a rel="nofollow" class="external text" href="http://dev.inversepath.com/trac/tenshi">Tenshi</a>, un analyseur de ce type anciennement connu sous le nom de Wasabi.
+</p><p>Tenshi offre de multiples fonctionnalités&#160;: rapports par email, capacité de traitement importante, utilisation d'expressions régulières (regexp perl), mise en place d'exception et de filtrage.
+</p><p>Ces fonctionnalités sont alliées à une installation des plus simples et une souplesse de configuration qui ravira les plus rétissants à ce genre d'applicatifs&#160;: fichier unique basé sur un concept d'objets ou de groupe d'objets, syntaxe intuitive et «&#160;crontab&#160;» interne.
+</p><p>A noter également le peu de ressources nécessaires à cette analyse d'où la possibilité de traiter de multiples fichiers présentant un grand nombre d'enregistrements.
+</p><p>D'un point de vue technique, il est tout d'abord nécessaire de récupérer l'archive de la dernière version stable disponible sur le site de <a rel="nofollow" class="external text" href="http://www.gentoo.org/~lcars/tenshi/tenshi-latest.tar.gz">gentoo</a>; lors de la rédaction de ce document cette version était la 0.4. Les autres versions sont également mises en téléchargement <a rel="nofollow" class="external text" href="http://dev.inversepath.com/tenshi">depuis le site officiel</a>. Sinon, si vous êtes sous Debian, ne vous prenez pas la tête&#160;;-).
+</p>
+<h2><span class="mw-headline" id="Debian"><span class="mw-headline-number">1.1</span> Debian</span></h2>
+<p>Avec Debian, Tenshi s'installe de la manière suivante&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install tenshi
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Sources"><span class="mw-headline-number">1.2</span> Sources</span></h2>
+<p>Pour faire l'installation depuis les sources&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~ # wget http://www.gentoo.org/~lcars/tenshi/tenshi-latest.tar.gz
+--01:03:14-- http://www.gentoo.org/~lcars/tenshi/tenshi-latest.tar.gz
+=&gt; `tenshi-latest.tar.gz'
+Résolution de www.gentoo.org... 38.99.64.201, 66.219.59.46, 66.241.137.77
+Connexion vers www.gentoo.org[38.99.64.201]:80...connect
+requête HTTP transmise, en attente de la réponse...302 Found
+Emplacement: http://www.gentoo.org/~lcars/tenshi/tenshi-latest.tar.gz
+--01:03:16-- http://www.gentoo.org/~lcars/tenshi/tenshi-latest.tar.gz
+=&gt; `tenshi-latest.tar.gz'
+Résolution de dev.gentoo.org... 140.211.166.183
+Connexion vers dev.gentoo.org[140.211.166.183]:80...connect
+requête HTTP transmise, en attente de la réponse...200 OK
+Longueur: 19,220 [application/x-gzip]
+&#160;
+100%[==========&gt;] 19,220 71.91K/s
+&#160;
+01:03:17 (71.66 KB/s) - tenshi-latest.tar.gz sauvegardé [19220/19220]</pre></div></div>
+</td></tr></table><br />
+<p>Tenshi est un programme reposant sur le langage PERL&#160;; pour l'envoi des rapports par email, il nécessite l'installation préalable du module additionnel «&#160;Net::SMTP&#160;».
+</p><p>Ce module fournit une API au protocole SMTP en ce sens&#160;; son installation peut être réalisée via un autre module qui permet d'accéder à l'archive CPAN (Comprehensive PERL Archive Network) regroupant l'ensemble des modules homologués PERL ainsi que leurs différentes documentations.
+</p><p>Pour lancer la connexion à CPAN&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> perl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # perl -e shell -MCPAN
+&#160;
+cpan shell -- CPAN exploration and modules installation (v1.7601)
+ReadLine support available (try 'install Bundle::CPAN')</pre></div></div>
+</td></tr></table><br />
+<p>Pour les néophytes à l'utilisation du module CPAN, vous pouvez récupérer et consulter, si vous le souhaitez, des informations relatives au module «&#160;Net::SMTP&#160;» grâce à la commande suivante&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cpan&gt; i Net::SMTP
+CPAN: Storable loaded ok
+Going to read /root/.cpan/Metadata
+Database was generated on Tue, 20 Sep 2005 01:59:21 GMT
+CPAN: LWP::UserAgent loaded ok
+Fetching with LWP:
+ftp://ftp.pasteur.fr/pub/computing/CPAN/authors/01mailrc.txt.gz
+Going to read /root/.cpan/sources/authors/01mailrc.txt.gz
+CPAN: Compress::Zlib loaded ok
+&#160;
+Fetching with LWP:
+ftp://ftp.pasteur.fr/pub/computing/CPAN/modules/03modlist.data.gz
+Going to read /root/.cpan/sources/modules/03modlist.data.gz
+Going to write /root/.cpan/Metadata
+Strange distribution name [Net::SMTP]
+Module id = Net::SMTP
+DESCRIPTION Interface to Simple Mail Transfer Protocol
+CPAN_USERID GBARR (Graham Barr )
+CPAN_VERSION 2.29
+CPAN_FILE G/GB/GBARR/libnet-1.19.tar.gz
+DSLI_STATUS adpf (alpha,developer,perl,functions)
+MANPAGE Net::SMTP - Simple Mail Transfer Protocol Client
+INST_FILE /usr/share/perl/5.8/Net/SMTP.pm
+INST_VERSION 2.26</pre></div></div>
+</td></tr></table><br />
+<p>L'installation du module est à réaliser de la manière suivante&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cpan&gt; install Net::SMTP
+Running install for module Net::SMTP
+.........
+/usr/bin/make install -- OK</pre></div></div>
+</td></tr></table><br />
+<p>On peut constater que l'installation a été correctement effectuée&#160;; on peut maintenant se déconnecter de CPAN&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<p>cpan&gt; exit
+</p>
+</td></tr></table><br />
+<p>Intéressons-nous à l'archive de Tenshi que nous avons précédemment récupérée&#160;; en premier lieu décompressez la tout en réalisant son désarchivage&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> tar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~ # tar -zxvf tenshi-latest.tar.gz
+tenshi-0.4/
+tenshi-0.4/tenshi.debian-init
+tenshi-0.4/Makefile
+tenshi-0.4/LICENSE
+tenshi-0.4/README
+tenshi-0.4/tenshi.conf
+tenshi-0.4/tenshi.8
+tenshi-0.4/tenshi
+tenshi-0.4/tenshi.gentoo-init
+tenshi-0.4/INSTALL
+tenshi-0.4/tenshi.ebuild
+tenshi-0.4/Changelog
+tenshi-0.4/COPYING
+tenshi-0.4/tenshi.solaris-init
+tenshi-0.4/CREDITS</pre></div></div>
+</td></tr></table><br />
+<p>Accédez ensuite au répertoire ainsi récemment créé et contenant les fichiers nécessaires à l'installation de l'application&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<p>root@ns30074:~ # cd tenshi-0.4/
+</p>
+</td></tr></table><br />
+<p>Listez le répertoire pour prendre connaissance de son arborescence&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # ls
+&#160;
+Changelog CREDITS LICENSE README tenshi.8 tenshi.debian-init tenshi.gentoo-init
+COPYING INSTALL Makefile tenshi tenshi.conf tenshi.ebuild tenshi.solaris-init</pre></div></div>
+</td></tr></table><br />
+<p>Les deux opérations suivantes consistent à créer un utilisateur «&#160;tenshi&#160;» et un groupe du même nom qui régiront l'exécution de Tenshi sur votre système&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<p>root@ns30074:~/tenshi-0.4 # useradd tenshi<br />
+root@ns30074:~/tenshi-0.4 # groupadd tenshi
+</p>
+</td></tr></table><br />
+<p>Avant de procéder à l'installation proprement dite, il est nécessaire, suivant le système d'exploitation et la distribution qui y sont présents, d'ajuster la configuration du fichier «&#160;Makefile&#160;»&#160;; il a été pour ma part nécessaire de changer le chemin d'installation des pages de manuel en modifiant la ligne numéro 9 du fichier sur une «&#160;debian-like&#160;»&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~ # updatedb | locate &quot;man8/&quot; | more
+/usr/share/man/man8/update-passwd.8.gz
+&#160;
+root@ns30074:~/tenshi-0.4 # vi Makefile</pre></div></div>
+</td></tr></table><br />
+<p>Remplacer «&#160;mandir = /usr/man&#160;» par «&#160;mandir = /usr/share/man/&#160;».
+</p><p>Vous pouvez maintenant installer Tenshi sur le système&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # make install
+install -D tenshi /usr/sbin/tenshi
+[ -f /etc/tenshi/tenshi.conf ] || \
+install -g root -m 0644 -D tenshi.conf /etc/tenshi/tenshi.conf
+install -d /usr/share/doc/tenshi-0.4
+install -m 0644 README INSTALL CREDITS LICENSE COPYING Changelog /usr/share/doc/tenshi-0.4/
+install -g root -m 0644 tenshi.8 /usr/share/man//man8/
+install -g root -m 755 -d /var/lib/tenshi</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">2</span> Configuration</span></h1>
+<p>Dissection du fichier de configuration partie par partie afin de comprendre les tenants et les aboutissants du fonctionnement de Tenshi, ce qui nous permettra également de faire la connaissance des mécanismes qui régissent l'analyse des logs.
+</p><p>Une fois l'installation réalisée, nous pouvons passer à l'étape suivante, à savoir la configuration&#160;: celle-ci s'opère par l'intermédiaire d'un fichier unique dénommé «&#160;tenshi.conf&#160;» et présent sous le chemin «&#160;/etc/ tenshi/tenshi.conf&#160;»
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> vi</font>
+</td></tr>
+<tr>
+<td>
+<p>root@ns30074:~/tenshi-0.4 # vi /etc/tenshi/tenshi.conf
+</p>
+</td></tr></table><br />
+<p>On retrouve en début de fichier les configurations dites «&#160;génériques&#160;» avec notamment le positionnement de l'utilisateur «&#160;tenshi&#160;» et du groupe «&#160;tenshi&#160;» précédemment évoqués, créés sur le système et qui seront les propriétaires des processus liés au lancement ultérieur de Tenshi&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">##
+## tenshi 0.4 sample conf
+##
+&#160;
+# general settings
+&#160;
+set uid tenshi
+set gid tenshi
+&lt;syntaxhighlight lang=text&gt;}}
+&#160;
+La ligne de configuration suivante nécessite quelques ajustements, par défaut on trouve «&#160;set pidfile /var/run/tenshi.pid&#160;», or les fichiers régissant les PID sont localisés dans le répertoire «&#160;/var/run/&#160;» qui appartient par défaut à l'utilisateur «&#160;root&#160;»&#160;:
+{{command|ls|&lt;syntaxhighlight lang=text&gt;
+ls -l /var/ | grep run
+drwxr-xr-x 17 root root 4096 2006-06-16 07:57 run</pre></div></div>
+</td></tr></table><br />
+<p>Les opérations suivantes sont alors à réaliser pour résoudre ce problème&#160;:
+</p>
+<ul><li> création d'un répertoire spécifique au PID de Tenshi,</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mkdir</font>
+</td></tr>
+<tr>
+<td>
+<p>root@ns30074:~/tenshi-0.4 # mkdir /var/run/tenshi
+</p>
+</td></tr></table><br />
+<ul><li> positionnement des droits nécessaires à la création future des fichiers PID dans ce répertoire lors du lancement de Tenshi,</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chown</font>
+</td></tr>
+<tr>
+<td>
+<p>root@ns30074:~/tenshi-0.4 # chown tenshi:root /var/run/tenshi/
+</p>
+</td></tr></table><br />
+<ul><li> vérification de la bonne tenue de l'opération précédente&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # ls -l /var/run/ | grep tenshi
+drwxr-xr-x 2 tenshi root 4096 2006-06-16 01:49 tenshi</pre></div></div>
+</td></tr></table><br />
+<p>Il ne reste plus ensuite qu'à remplacer, dans le fichier de configuration, la ligne «&#160;set pidfile /var/run/tenshi.pid&#160;» par «&#160;set pidfile /var/run/tenshi/tenshi.pid&#160;» afin d'éviter les avertissements relatifs au problème évoqué lors des prochains lancements de Tenshi.
+</p><p>La suite de la configuration permet de définir les fichiers de logs qui vont être surveillés et dont les alertes vont vous être reportées&#160;; par défaut on retrouve les deux lignes suivantes&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">set logfile /var/log/messages
+set logfile /var/log/mail.log</pre></div></div>
+</td></tr></table><br />
+<p>Idéalement, et à ajuster selon le contexte de votre distribution en ce qui concerne la gestion du «&#160;logging&#160;» des différents événements par «&#160;syslogd&#160;» ou autres, vous pouvez ajouter les lignes suivantes pour rendre cette liste la plus exhaustive possible et l'analyse plus efficace&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">set logfile /var/log/syslog
+set logfile /var/log/sulog
+set logfile /var/log/user.log
+set logfile /var/log/auth.log</pre></div></div>
+</td></tr></table><br />
+<p>Viennent maintenant quelques optimisations que vous pouvez laisser par défaut au contraire de la définition du serveur SMTP qui sera utilisé pour l'envoi des rapports si vous ne souhaitez pas utiliser celui par défaut tournant sur «&#160;localhost&#160;» donc localement&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">set sleep 5
+set limit 800
+set pager_limit 2
+set mask ___
+set mailserver mail.deimos.fr
+set subject Tenshi report
+set hidepid on</pre></div></div>
+</td></tr></table><br />
+<p>Tenshi a la particularité singulière de ne pas utiliser la «&#160;crontab&#160;» du système pour son fonctionnement&#160;; il est donc possible de configurer différents éléments d'automatisation directement dans le fichier «&#160;tenshi.conf&#160;» et cela selon plusieurs critères.
+</p><p>Les éléments de type «&#160;queue&#160;» sont à mettre en place via la syntaxe suivante&#160;: «&#160;set queue []&#160;»&#160;; le sujet par défaut est «&#160;tenshi report&#160;» si vous n'en précisez pas de spécifiques.
+</p><p>On peut voir ci-dessous 6 éléments configurant l'envoi depuis «&#160;webmaster@deimos.fr&#160;» vers «&#160;deimos@deimos.fr&#160;» selon des fréquences et des périodes différentes dans la journée en fonction de leur criticité.
+</p><p>Pour l'élément «&#160;mail&#160;», envoi programmé à 18h30 d'un rapport et cela tous les jours&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td>
+<p>set queue mail webmaster@deimos.fr deimos@deimos.fr [30 18 * * *]
+</p>
+</td></tr></table><br />
+<p>Pour l'élément «&#160;nf&#160;», envoi programmé toutes les trente minutes d'un rapport et cela tous les jours&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td>
+<p>set queue nf webmaster@deimos.frt deimos@deimos.fr [*/30 * * * *]
+</p>
+</td></tr></table><br />
+<p>Pour l'élément «&#160;report&#160;», envois programmés toutes les 2 heures dans l'intervalle compris entre 9 heures et 17 heures d'un rapport et cela tous les jours&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td>
+<p>set queue report webmaster@deimos.frt deimos@deimos.fr [0 9-17/2 * * *]
+</p>
+</td></tr></table><br />
+<p>Pour l'élément «&#160;misc&#160;», envois programmés dans les mêmes conditions que l'élément précédent&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td>
+<p>set queue misc webmaster@deimos.fr deimos@deimos.fr [0 9-17/2 * * *]
+</p>
+</td></tr></table><br />
+<p>Pour l'élément «&#160;critical&#160;», envoi programmé immédiatement à chaque occurrence identifiée&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td>
+<p>set queue critical webmaster@deimos.fr deimos@deimos.fr [now]
+</p>
+</td></tr></table><br />
+<p>Pour l'élément «&#160;root&#160;», envoi programmé immédiatement à chaque occurrence identifiée&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td>
+<p>set queue root webmaster@deimos.fr deimos@deimos.fr [now]
+</p>
+</td></tr></table><br />
+<p>L'envoi des rapports vers des utilisateurs multiples est également possible à configurer&#160;; il suffit pour cela de remplacer «&#160;deimos@deimos.fr&#160;» par «&#160;deimos@deimos.fr , root@deimos.fr&#160;» par exemple.
+</p><p>On trouve à la suite du fichier les exceptions qui permettront de ne pas reporter des informations ne présentant pas d'intérêt&#160;; elles sont envoyées vers un élément «&#160;trash&#160;» qui ne fait pas parti de la «&#160;contrab&#160;» d'envoi des rapports&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">trash ^hub.c
+trash ^usb.c
+trash ^uhci.c
+trash ^sda
+trash ^Initializing USB
+trash ^scsi0&#160;: SCSI emulation
+trash ^Vendor:
+trash ^Type:
+trash ^Attached scsi removable
+trash ^SCSI device sda
+trash ^sda: Write
+trash ^/dev/scsi
+trash ^WARNING: USB
+trash ^USB Mass Storage
+trash ^/dev
+trash ^ISO
+trash ^floppy0
+trash ^end_request
+trash ^Directory
+trash ^I/O error: dev 08:(.+), sector</pre></div></div>
+</td></tr></table><br />
+<p>Dans le même registre, on supprime les indications pour les répétitions des enregistrements&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">repeat ^(?:last message repeated|above message repeats) (\\d+) time</pre></div></div>
+</td></tr></table><br />
+<p>Un groupe d'exemple pour le service SSHD&#160;; définition du groupe&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group ^sshd(?:\(pam_unix\))?:</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd: fatal: Timeout before authentication for&#160;» quels que soient les caractères suivants indiquant qu'une session SSH a été close pour une durée d'inactivité trop longue ,&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^sshd: fatal: Timeout before authentication for (.+)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;critical ^sshd: Illegal user&#160;» indiquant qu'un nom d'utilisateur non conforme au système a été utilisé pour l'authentification SSH&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;critical&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">critical ^sshd: Illegal user</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd: Connection from&#160;» quels que soient les caractères suivants indiquant une connexion SSH établie&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^sshd: Connection from (.+)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd: Connection closed&#160;» quels que soient les caractères suivants indiquant une session SSH fermée&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^sshd: Connection closed (.+)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd: Closing connection&#160;» quels que soient les caractères suivants indiquant la fermeture en cours d'une connexion SSH&#160;; cela sera reporté dans les rapports appartenant à l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^sshd: Closing connection (.+)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd: Found matching (.+) key: (.+)&#160;» quels que soient les caractères suivants et intemédiaires indiquant que la clé proposée pour l'authentification SSH a été trouvée dans la liste des clés du système&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^sshd: Found matching (.+) key: (.+)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd: Accepted publickey&#160;» quels que soient les caractères suivants indiquant que la clé publique utilisée pour l'ouverture de session SSH a été acceptée&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^sshd: Accepted publickey (.+)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd: Accepted rsa for (.+) from (.+) port (.+)&#160;» quels que soient les caractères suivants et intermédiaires indiquant que la clé RSA proposée a été acceptée&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^sshd: Accepted rsa for (.+) from (.+) port (.+)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd\(pam_unix\): session opened for user root by root\(uid=0\)&#160;» indiquant l'ouverture d'une session SSH avec le compte root depuis le compte root&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;root&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root ^sshd\(pam_unix\): session opened for user root by root\(uid=0\)</pre></div></div>
+</td></tr></table><br />
+<p>Toutes les occurrences de la chaîne de caractère «&#160;sshd\(pam_unix\): session opened for user root by \(uid=0\)&#160;» indiquant l'ouverture d'une session SSH avec le compte root&#160;; cela sera enregistré dans les rapports appartenant à l'élément «&#160;root&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root ^sshd\(pam_unix\): session opened for user root by \(uid=0\)</pre></div></div>
+</td></tr></table><br />
+<p>Et finalement la fermeture du groupe sshd&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group_end</pre></div></div>
+</td></tr></table><br />
+<p>Sur les mêmes principes, plusieurs autres groupes sont à définir en fonction de votre système et de ses applicatifs/services.
+</p><p>Le service «&#160;Sendmail&#160;» avec&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group ^sendmail:
+mail ^sendmail: (.+): to=(.+),(.+)relay=(.+),(.+)stat=Sent(.+)
+mail ^sendmail: (.+): to=(.+),(.+)relay=(.+),(.+)stat=Sent
+mail ^sendmail: (.+): from=(.+),(.+)relay=(.+)
+mail ^sendmail: STARTTLS=client(.+)
+mail ^sendmail
+group_end</pre></div></div>
+</td></tr></table><br />
+<p>Le service «&#160;Sm-mta&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group ^sm-mta:
+mail ^sm-mta: (.+): to=(.+),(.+)delay=(.+)
+mail ^sm-mta: (.+): to=(.+),(.+)relay=(.+),(.+)stat=Sent(.+)
+mail ^sm-mta: (.+): to=(.+),(.+)relay=(.+),(.+)stat=Sent
+mail ^sm-mta: (.+): to=(.+),(.+)relay=local(.+)stat=Sent(.+)
+mail ^sm-mta: (.+): to=(.+),(.+)relay=local(.+)stat=Sent
+mail ^sm-mta: (.+): to=(.+),(.+)stat=Sent(.+)
+mail ^sm-mta: (.+): to=(.+),(.+)stat=Sent
+mail ^sm-mta: (.+): from=(.+),(.+)relay=local(.+)
+mail ^sm-mta: (.+): from=(.+),(.+)relay=(.+)
+mail ^sm-mta: STARTTLS=server(.+)
+mail ^sm-mta: STARTTLS=client(.+)
+trash ^sm-mta:.+User unknown
+mail ^sm-mta: ETRN
+mail ^sm-mta
+group_end</pre></div></div>
+</td></tr></table><br />
+<p>Le service «&#160;Ipop3d&#160;» avec&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group ^ipop3d:
+mail ^ipop3d: Login user=(.+)
+mail ^ipop3d: Logout user=(.+)
+mail ^ipop3d: pop3s SSL service init from (.+)
+mail ^ipop3d: pop3 service init from (.+)
+mail ^ipop3d: Auth user=(.+)
+mail ^ipop3d: Command stream end of file, while reading
+mail ^ipop3d: Command stream end of file while reading
+mail ^ipop3d: AUTHENTICATE LOGIN failure host=(.+)
+mail ^ipop3d: AUTHENTICATE PLAIN failure host=(.+)
+mail ^ipop3d: Login failed
+mail,critical ^ipop3d:
+group_end</pre></div></div>
+</td></tr></table><br />
+<p>Le service «&#160;Imapd&#160;» avec&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group ^imapd:
+mail ^imapd: Login user=(.+)
+mail ^imapd: Logout user=(.+)
+mail ^imapd: port (.+) service init from (.+)
+mail ^imapd: imaps SSL service init from (.+)
+mail ^imapd: Command stream end of file, while reading
+mail ^imapd: Command stream end of file while reading
+mail ^imapd: Authenticated user=(.+)
+mail ^imapd: AUTHENTICATE LOGIN failure host=(.+)
+mail ^imapd: AUTHENTICATE PLAIN failure host=(.+)
+mail ^imapd: Autologout(.+)
+mail ^imapd: Login failed
+mail,critical ^imapd:
+group_end</pre></div></div>
+</td></tr></table><br />
+<p>Le service «&#160;login\(pam_unix\)&#160;» avec&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group ^login\(pam_unix\):
+critical ^login\(pam_unix\): session opened for user root by root\(uid=0\)
+critical ^login\(pam_unix\): session opened for user root by \(uid=0\)
+report ^login\(pam_unix\): session closed for user (.+)
+report ^login\(pam_unix\): session opened for user (.+)
+group_end</pre></div></div>
+</td></tr></table><br />
+<p>Le service «&#160;su(pam_unix)&#160;» avec&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">group ^su\(pam_unix\):
+root,report ^su\(pam_unix\): session opened for user root
+root,report ^su\(pam_unix\): session closed for user root(.+)
+report ^su\(pam_unix\): session opened for user (.+)
+report ^su\(pam_unix\): session closed for user (.+)
+group_end</pre></div></div>
+</td></tr></table><br />
+<p>Ensuite tous les enregistrements de la chaîne de caractère «&#160;netfilter&#160;» pour le filtrage seront envoyés vers l'élément «&#160;nf&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">nf ^netfilter</pre></div></div>
+</td></tr></table><br />
+<p>Tous les enregistrements de la chaîne de caractère «&#160;sudo&#160;» pour les commandes exécutées sous un autre compte que le compte actif du SHELL seront envoyés vers l'élément «&#160;critical&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">critical ^(?:/usr/bin)?sudo:</pre></div></div>
+</td></tr></table><br />
+<p>Tous les enregistrements de la chaîne de caractère «&#160;init&#160;» pour les lancements de service seront envoyés vers l'élément «&#160;critical&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">critical ^init</pre></div></div>
+</td></tr></table><br />
+<p>Tous les enregistrements de la chaîne de caractère «&#160;passwd\(pam_unix\):&#160;» pour les changements de mots de passe seront envoyés vers l'élément «&#160;report&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">report ^passwd\(pam_unix\):</pre></div></div>
+</td></tr></table><br />
+<p>Tous les autres enregistrements ne correspondant pas aux expressions régulières d'identification précédentes seront envoyés vers l'élément «&#160;misc&#160;»&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/tenshi/tenshi.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">misc .*</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">3</span> Utilisation</span></h1>
+<p>Configurations faites, on passe à l'utilisation de Tenshi en se mettant dans des cas concrets d'alertes afin de recevoir les alarmes correspondantes sur un email prédéfini à condition que les configurations de base aient bien été effectuées prélablement.
+</p><p>Tenshi fonctionne en tant que service, ce qui implique notamment que vous pouvez fermer le terminal où vous l'avez lancé sans pour autant que cela ne l'arrête (équivalent à l'ajout du caractère «&#160;&amp;&#160;» en fin de commande SHELL).
+</p><p>Lors d'un «&#160;ls&#160;» précédent, vous aurez peut être remarqué la présence de 3 scripts d'initialisation pour les systèmes d'exploitation Linux (distribution Debian et Gentoo) et Solaris&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # ls | grep init
+&#160;
+tenshi.debian-init
+tenshi.gentoo-init
+tenshi.solaris-init</pre></div></div>
+</td></tr></table><br />
+<p>Nous utilisons actuellement une distribution de type «&#160;Debian-like&#160;» (Ubuntu), il faut alors copier le script d'initialisation correspondant dans le répertoire «&#160;/etc/init.d/&#160;» qui contient l'ensemble des scripts d'initialisation des services du système&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # cp tenshi.debian-init /etc/init.d/tenshi</pre></div></div>
+</td></tr></table><br />
+<p>Testez ce script&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # sh /etc/init.d/tenshi
+Usage: /etc/init.d/tenshi {start|stop|restart}</pre></div></div>
+</td></tr></table><br />
+<p>Ajoutez des droits d'exécution au script&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<p>root@ns30074:~/tenshi-0.4 # chmod +x /etc/init.d/tenshi
+</p>
+</td></tr></table><br />
+<p>Effectuez le démarrage du «&#160;daemon&#160;» Tenshi&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # /etc/init.d/tenshi start
+Starting log monitor: tenshi.</pre></div></div>
+</td></tr></table><br />
+<p>Testez le lancement effectif de Tenshi&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ps</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~ # ps auwx | grep tenshi
+tenshi 19424 0.0 1.0 8260 5312&#160;? Ss 01:51 0:00 /usr/bin/perl /usr/sbin/tenshi
+tenshi 19425 0.0 0.1 3176 676&#160;? S 01:51 0:00 /usr/bin/tail -q --follow=name --retry -n 0 /var/log/messages /var/log/mail.log</pre></div></div>
+</td></tr></table><br />
+<p>Arrêtez Tenshi&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # /etc/init.d/tenshi stop
+Stopping log monitor: tenshi.</pre></div></div>
+</td></tr></table><br />
+<p>Arrêt forcé de Tenshi en cas de problème avec les scripts&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> killall</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # killall -9 tail tenshi</pre></div></div>
+</td></tr></table><br />
+<p>Redémarrage de Tenshi&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # /etc/init.d/tenshi restart
+Stopping log monitor: tenshi.
+Starting log monitor: tenshi.</pre></div></div>
+</td></tr></table><br />
+<p>Tenshi peut également être lancé hors des scripts d'initialisation afin par exemple de tester un fichier de configuration ou de lancer le service avec un fichier alternatif. Le mode «&#160;Debug&#160;» est également possible entre autres, et sera d'une grande utilité si vous rencontrez un problème notamment avec l'envoi des mails,
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">root@ns30074:~/tenshi-0.4 # tenshi -h
+tenshi 0.4
+Copyright 2004-2006 Andrea Barisani
+and Rob Holland
+&#160;
+Usage: /usr/sbin/tenshi [-c conf_file] [-C|-d|-f|-p] [-P pid_file]
+-c configuration file
+-C test configuration syntax
+-d debug mode
+-f foreground mode
+-p profile mode
+-P pid file
+-h this help</pre></div></div>
+</td></tr></table><br />
+<p>Dernier point à aborder et non des moindres puisque ce sont les rapports avec les alertes qui vous seront envoyées par email. Le premier est un rapport issu de l'élément «&#160;report&#160;» pour une fermeture due à une inactivité trop longue sur une session active du service SSH&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">From: webmaster@deimos.fr
+To: deimos@deimos.fr
+Date: Sun, 18 Jun 2006 03:08:33 +0200
+X-tenshi-version: 0.4
+X-tenshi-hostname: ns30074
+Subject: tenshi report [report]
+&#160;
+&#160;
+ns30074:
+1: sshd: fatal: Timeout before authentication for ___</pre></div></div>
+</td></tr></table><br />
+<p>Le second exemple est un rapport pour l'élément «&#160;misc&#160;» avec une erreur d'authentification SSH, ainsi que l'exécution d'une commande par la «&#160;crontab&#160;» système et l'ouverture d'une session «&#160;pam_unix&#160;» pour le compte root associé à cette précédente entrée «&#160;*/1 * * * * root /usr/local/rtm/bin/rtm 41 &gt;/dev/null 2&gt;/dev/null&#160;» de la «&#160;crontab&#160;»&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">From: webmaster@deimos.fr
+To: deimos@deimos.fr
+Date: Sun, 18 Jun 2006 02:59:07 +0200
+X-tenshi-version: 0.4
+X-tenshi-hostname: ns30074
+Subject: tenshi report [misc]
+&#160;
+&#160;
+ns30074:
+1: sshd: error: PAM: Authentication failure for root from kiko.adsl.nerim.net
+1: /USR/SBIN/CRON: (root) CMD (/usr/local/rtm/bin/rtm 41 &gt;/dev/null 2&gt;/dev/null)
+1: CRON: (pam_unix) session opened for user root by (uid=0)</pre></div></div>
+</td></tr></table><br />
+<p>Le système d'analyse des logs est fonctionnel, il ne vous reste maintenant plus qu'à adapter la configuration en fonction de vos besoins et du temps que vous souhaitez allouer à la lecture des rapports qui en sont issus.
+</p><p>Si vous souhaitez des informations complémentaires, deux listes de diffusion sont à votre disposition&#160;:
+</p><p>la première concerne les discussions générales, pour vous y inscrire il suffit d'envoyer un message à tenshi-user+subscribe@lists.inversepath.com les messages pour la liste sont à envoyer à tenshi-user@lists.inversepath.com
+</p><p>la seconde est dédiée aux évolutions de Tenshi, inscription sur tenshi-announce+subscribe@lists.inversepath.com et messages «&#160;liste&#160;» sur tenshi-announce@lists.inversepath.com
+</p>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">4</span> References</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.secuobs.com/news/07042008-tenshi.shtml">http://www.secuobs.com/news/07042008-tenshi.shtml</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.124 seconds
+Real time usage: 0.124 seconds
+Preprocessor visited node count: 997/1000000
+Preprocessor generated node count: 3046/1000000
+Post‐expand include size: 13477/2097152 bytes
+Template argument size: 4181/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   30.568      1 - -total
+ 41.43%   12.663     35 - Template:Config
+ 35.34%   10.804     28 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2532-0!*!*!1!en!5!* and timestamp 20181111230659 and revision id 5999
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Tenshi_:_Analyse_des_logs_système&amp;oldid=5999">https://wiki.deimos.fr/index.php?title=Tenshi_:_Analyse_des_logs_système&amp;oldid=5999</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Tenshi+%3A+Analyse+des+logs+syst%C3%A8me" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Tenshi_:_Analyse_des_logs_système.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Tenshi_:_Analyse_des_logs_système.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Tenshi_:_Analyse_des_logs_système.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Tenshi_:_Analyse_des_logs_syst%C3%A8me&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Tenshi_:_Analyse_des_logs_syst%C3%A8me&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Tenshi_:_Analyse_des_logs_système.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Tenshi_:_Analyse_des_logs_système.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Tenshi_:_Analyse_des_logs_syst%C3%A8me" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Tenshi_:_Analyse_des_logs_syst%C3%A8me&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Tenshi_:_Analyse_des_logs_syst%C3%A8me&amp;oldid=5999" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Tenshi_:_Analyse_des_logs_syst%C3%A8me&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 9 May 2008, at 17:36.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

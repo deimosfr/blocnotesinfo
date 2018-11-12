@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>SystemTap : Profilez et utilisez rapidement des fonctionnalités du kernel - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel","wgTitle":"SystemTap : Profilez et utilisez rapidement des fonctionnalités du kernel","wgCurRevisionId":10098,"wgRevisionId":10098,"wgArticleId":3252,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel","wgRelevantArticleId":3252,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #b1b100;}
+.c.source-c .kw2 {color: #000000; font-weight: bold;}
+.c.source-c .kw3 {color: #000066;}
+.c.source-c .kw4 {color: #993333;}
+.c.source-c .co1 {color: #666666; font-style: italic;}
+.c.source-c .co2 {color: #339933;}
+.c.source-c .coMULTI {color: #808080; font-style: italic;}
+.c.source-c .es0 {color: #000099; font-weight: bold;}
+.c.source-c .es1 {color: #000099; font-weight: bold;}
+.c.source-c .es2 {color: #660099; font-weight: bold;}
+.c.source-c .es3 {color: #660099; font-weight: bold;}
+.c.source-c .es4 {color: #660099; font-weight: bold;}
+.c.source-c .es5 {color: #006699; font-weight: bold;}
+.c.source-c .br0 {color: #009900;}
+.c.source-c .sy0 {color: #339933;}
+.c.source-c .st0 {color: #ff0000;}
+.c.source-c .nu0 {color: #0000dd;}
+.c.source-c .nu6 {color: #208080;}
+.c.source-c .nu8 {color: #208080;}
+.c.source-c .nu12 {color: #208080;}
+.c.source-c .nu16 {color:#800080;}
+.c.source-c .nu17 {color:#800080;}
+.c.source-c .nu18 {color:#800080;}
+.c.source-c .nu19 {color:#800080;}
+.c.source-c .me1 {color: #202020;}
+.c.source-c .me2 {color: #202020;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-SystemTap_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">SystemTap : Profilez et utilisez rapidement des fonctionnalités du kernel</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#mw-navigation">navigation</a>, 					<a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Red_Hat"><span class="tocnumber">2.1</span> <span class="toctext">Red Hat</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#D.C3.A9veloppement"><span class="tocnumber">2.1.1</span> <span class="toctext">Développement</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Production"><span class="tocnumber">2.1.2</span> <span class="toctext">Production</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Cr.C3.A9er_un_script_systemtap"><span class="tocnumber">3</span> <span class="toctext">Créer un script systemtap</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Les_fonctions"><span class="tocnumber">3.1</span> <span class="toctext">Les fonctions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Ex.C3.A9cution"><span class="tocnumber">4</span> <span class="toctext">Exécution</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Stap"><span class="tocnumber">4.1</span> <span class="toctext">Stap</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#systemtap_ERROR:_Build-id_mismatch"><span class="tocnumber">5.1</span> <span class="toctext">systemtap ERROR: Build-id mismatch</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div class="thumb tright"><div class="thumbinner" style="width:167px;"><a href="./File:Systemtaplogo.png.html" class="image"><img alt="" src="images/4/46/Systemtaplogo.png" width="165" height="25" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="./File:Systemtaplogo.png.html" class="internal" title="Enlarge"></a></div>SystemTap</div></div></div>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>SystemTap est un logiciel pour simplifier la récupération d'informations sur un système Linux. Il permet d'analyser et diagnostiquer un problème de performance ou de fonctionnalité. Il permet de s'affranchir de tous les besoins de recompilation de kernel, de reboot et d’événements indispensable pour une collecte de donnée bas niveau.
+</p><p>SystemTap fournit une interface à la ligne de commande type awk et un language de scripting proche du C qui permet d'écrire des outils directement sur un live kernel. Au delà du tracing/probing, il est utile pour des taches complexes nécessitant une analyse temps réel, programmable avec réponses aux évenements...
+</p><p>SystemTap peut profiler tous les appels system qui utilisent kprobes. A l'inverse d'OProfile, SystemTap capture 100% des évennements.
+</p><p>Un des gros avantage de SystemTap, c'est qu'il a été conçu de manière à être exécuté sur des environnements de production. On a donc&#160;:
+</p>
+<ul><li> Une machine de développement&#160;: Sur laquelle on va compiler et tester les modules kernel SystemTap avec tous les outils et librairies nécessaire au bon développement de celui ci.</li>
+<li> Des machines de Production&#160;: Avoir le minimum de packages installés, avec juste le module compilé désiré, récupéré de la machine de développement.</li></ul>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Red_Hat"><span class="mw-headline-number">2.1</span> Red Hat</span></h2>
+<h3><span class="mw-headline" id="D.C3.A9veloppement"><span class="mw-headline-number">2.1.1</span> Développement</span></h3>
+<p>Assurez vous d'avoir le repository debuginfo. Si ce n'est pas le cas, créez ce fichier avec ce contenu (à adapter)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/yum.repos.d/rhel-debuginfo.repo</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[rhel-debuginfo]
+name=Red Hat Enterprise Linux $releasever - $basearch - Debug
+baseurl=ftp://ftp.redhat.com/pub/redhat/linux/enterprise/$releasever/en/os/$basearch/Debuginfo/
+enabled=1</pre></div></div>
+</td></tr></table><br />
+<p>Puis installez ces packages&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td>
+<pre>yum install systemtap kernel-debuginfo kernel-devel gcc
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Production"><span class="mw-headline-number">2.1.2</span> Production</span></h3>
+<p>Comme expliqué dans l'introduction, l'avantage de SystemTap, c'est que sur une machine de production, il n'y a qu'un seul package à installer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td>
+<pre>yum install systemtap-runtime
+</pre>
+</td></tr></table><br />
+<p>Lorsque vous utiliserez un module, vérifiez la compatibilité entre l'environnement de développement et de production grâce à cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> modinfo</font>
+</td></tr>
+<tr>
+<td>
+<pre>modinfo <i>modulename</i> | grep vermagic
+</pre>
+</td></tr></table><br />
+<p>Si vous voulez connaitre d'un coup tous les modules avec leur version de kernel associée&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> bash</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"><span class="xtra ln-xtra">&gt; for i in `lsmod | awk '{ print $1 }' | egrep -v '^Module$'`&#160;; do modinfo $i | grep vermagic | xargs echo &quot;$i&#160;:&quot;&#160;; done</span>fuse&#160;: vermagic: 2.6.32-220.el6.x86_64 SMP mod_unload modversions
+autofs4&#160;: vermagic: 2.6.32-220.el6.x86_64 SMP mod_unload modversions
+sunrpc&#160;: vermagic: 2.6.32-220.el6.x86_64 SMP mod_unload modversions
+nf_conntrack_ipv4&#160;: vermagic: 2.6.32-220.el6.x86_64 SMP mod_unload modversions
+nf_defrag_ipv4&#160;: vermagic: 2.6.32-220.el6.x86_64 SMP mod_unload modversions
+...</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Cr.C3.A9er_un_script_systemtap"><span class="mw-headline-number">3</span> Créer un script systemtap</span></h1>
+<p>Vous pouvez trouver beaucoup d'exemple sur le site de SystemTap&#160;: <a rel="nofollow" class="external free" href="http://sourceware.org/systemtap/examples/">http://sourceware.org/systemtap/examples/</a>
+</p><p>Les scripts doivent utiliser un notation avec des points et supportent les wilcards. Pour donner une idée de ce qui donnerait un hello world en systemtap&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> hello_world.stp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#! /usr/bin/env stap</span>
+probe begin <span class="br0">&#123;</span> println<span class="br0">&#40;</span><span class="st0">&quot;hello world&quot;</span><span class="br0">&#41;</span> <span class="kw3">exit</span> <span class="br0">&#40;</span><span class="br0">&#41;</span> <span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Les_fonctions"><span class="mw-headline-number">3.1</span> Les fonctions</span></h2>
+<p>Un bon nombre de fonctions existent déjà et sont utilisable dans /usr/share/systemtap/tapset/*.<br />
+Pour appeler une fonction, on va utiliser probe. Voici un exemple&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> my_systemtap_script.stp</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#! /usr/bin/env stap</span>
+probe kernel.<span class="kw2">function</span><span class="br0">&#40;</span><span class="st0">&quot;foo&quot;</span><span class="br0">&#41;</span>
+probe kernel.<span class="kw2">function</span><span class="br0">&#40;</span><span class="st0">&quot;*&quot;</span><span class="br0">&#41;</span>.<span class="kw1">return</span></pre></div></div>
+</td></tr></table><br />
+<p>Voici quelques infos que l'on peut trouver dans ces scripts histoire de comprendre un peu mieux ce qui s'y passe&#160;:
+</p>
+<ul><li> ioscheduler.elv_next_request&#160;: Détecte lorsqu'une requête (de type disque lecture/écriture) est récupérée de la queue</li>
+<li> ioscheduler.elv_next_request.return&#160;: Sort (fonction return de n'importe quel langage) lorsqu'une requête est retournée</li>
+<li> process.exec&#160;: Le process va exécuter un nouveau programme</li>
+<li> process.release&#160;: Lorsque le process souhaité va être libéré de la mémoire (en état non Zombie)</li>
+<li> netdev.receive&#160;: Voir l'arrivée de n'importe quelle donnée réseaux sur toutes les cartes</li>
+<li> tcp.sendmsg&#160;: Lorsque le kernel envoie une trame tcp</li>
+<li> vm.pagefault&#160;: Voir les pagesfault (lorsque la mémoire est physiquement allouée/lorsque les données sont prise depuis la swap...)</li></ul>
+<p>Si vous souhaitez obtenir la liste complète de toutes les fonctions disponibles par le kernel&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> stap</font>
+</td></tr>
+<tr>
+<td>
+<pre>stap -p2 -e 'probe kernel.function("*") {}' | sort -u
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ex.C3.A9cution"><span class="mw-headline-number">4</span> Exécution</span></h1>
+<h2><span class="mw-headline" id="Stap"><span class="mw-headline-number">4.1</span> Stap</span></h2>
+<p>Vous l'aurez certainement compris, c'est la commande stap qui est utilisée pour lancer le scripts. Cette commande est donc à utiliser sur une machine de développement et est découpée en 5 niveaux/étapes&#160;:
+</p>
+<ol><li> Parsing du script (vérification de la syntaxe du script systemtap)</li>
+<li> Comparaison et vérification des symboles/fonctions avec celles du kernel-debuginfo</li>
+<li> Conversion du code SystemTap en C</li>
+<li> Création d'un module Kernel</li>
+<li> Chargement du module et lancement de celui ci (également déchargement, tout ceci requiert les privilèges root)</li></ol>
+<p>Il est possible de ne pas créer de script et de lancer directement la commande stap dans un shell. Vous pouvez également lui définir un niveau d'exécution de cette commande (par exemple 2 grâce à l'option -p). Si vous n'en spécifiez pas, les 5 niveaux seront exécutés et le module restera chargé jusqu'à sa fermeture (via Ctrl+C).
+</p><p>Voyons un exemple de ligne de commande qui va permettre de placer un traceur sur la fonction sys_open() du kernel et qui affichera tous les appels avec leurs arguments&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> stap</font>
+</td></tr>
+<tr>
+<td>
+<pre>stap -e 'probe syscall.open {printf("%s:&#160;%s\n", execname(), argstr)}'
+</pre>
+</td></tr></table><br />
+<p><i>Note&#160;: vous pouvez utiliser l'option -k pour garder une trace de votre compilation dans /tmp pour vérifier s'il y a eu un problème lors d'une étape</i>
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="systemtap_ERROR:_Build-id_mismatch"><span class="mw-headline-number">5.1</span> systemtap ERROR: Build-id mismatch</span></h2>
+<p>Si vous observez ce genre de comportements lors d'une compilation d'un module SystemTap, c'est surement que la version du kernel-dev est différente de la version du kernel qui tourne actuellement sur votre machine. Pour le vérifier, il va falloir comparer le Build-id du kernel en cours d'exécution&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> eu-readelf</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; eu-readelf -n /boot/vmlinuz-`uname -r` | grep "Build ID"
+    Build ID: <b>efbb1bd2e40f890370b8f2fc536c991a2d4abda7</b>
+</pre>
+</td></tr></table><br />
+<p>Avec celle du module kernel-dev&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> eu-readelf</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; eu-readelf -n /usr/lib/debug/lib/modules/<b>ma_version_du_noyau</b>/vmlinux | grep "Build ID"
+    Build ID: <b>adcf5270333d375aa5a034523b006373e8f54e48</b>
+</pre>
+</td></tr></table><br />
+<p>Et là nous pouvons voir qu'il y a un problème de version, ce qui aura pour effet d'avoir ce type de message&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Passe 5&#160;: lancement de l'exécution
+ERROR: Build-id mismatch: &quot;kernel&quot; vs. &quot;vmlinux&quot; byte 0 (0xad vs 0xef) address 0xffffffff814f7380 rc 0
+Warning: /usr/bin/staprun exited with status: 1
+Pass 5: run completed in 10usr/10sys/232real ms.
+Passe 5&#160;: échec de l'exécution.Essayez encore avec une option '--vp 00001' supplémentaire.</pre></div></div>
+<p>Pour résoudre votre problème, il suffira donc de prendre la bonne version de chaque <a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#Installation">packages requis</a>.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.036 seconds
+Real time usage: 0.036 seconds
+Preprocessor visited node count: 201/1000000
+Preprocessor generated node count: 602/1000000
+Post‐expand include size: 2594/2097152 bytes
+Template argument size: 1030/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   10.425      1 - -total
+ 64.34%    6.707      3 - Template:Config
+ 23.56%    2.456      8 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3252-0!*!*!1!en!5!* and timestamp 20181111230640 and revision id 10098
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel&amp;oldid=10098">https://wiki.deimos.fr/index.php?title=SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel&amp;oldid=10098</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=SystemTap+%3A+Profilez+et+utilisez+rapidement+des+fonctionnalit%C3%A9s+du+kernel" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel&amp;oldid=10098" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 31 December 2011, at 14:15.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":30});
+}</script>
+	</body>
+</html>
+	

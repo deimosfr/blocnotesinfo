@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration d'un serveur Bind9 primaire (Master) - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master)","wgTitle":"Installation et configuration d'un serveur Bind9 primaire (Master)","wgCurRevisionId":12466,"wgRevisionId":12466,"wgArticleId":1966,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master)","wgRelevantArticleId":1966,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_d_un_serveur_Bind9_primaire_Master skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration d'un serveur Bind9 primaire (Master)</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#mw-navigation">navigation</a>, 					<a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#host.conf"><span class="tocnumber">3.1</span> <span class="toctext">host.conf</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#rndc.conf"><span class="tocnumber">3.2</span> <span class="toctext">rndc.conf</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Introduction_aux_clefs_TSIG"><span class="tocnumber">3.2.1</span> <span class="toctext">Introduction aux clefs TSIG</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Cr.C3.A9ation_d.27une_clef_TSIG"><span class="tocnumber">3.2.2</span> <span class="toctext">Création d'une clef TSIG</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#named.conf"><span class="tocnumber">3.3</span> <span class="toctext">named.conf</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#named.conf.local"><span class="tocnumber">3.4</span> <span class="toctext">named.conf.local</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#named.conf.default-zones"><span class="tocnumber">3.5</span> <span class="toctext">named.conf.default-zones</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#named.conf.options"><span class="tocnumber">3.6</span> <span class="toctext">named.conf.options</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#db.deimos.fr"><span class="tocnumber">3.7</span> <span class="toctext">db.deimos.fr</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#db.deimos.fr.local"><span class="tocnumber">3.8</span> <span class="toctext">db.deimos.fr.local</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#db.0.168.192.inv"><span class="tocnumber">3.9</span> <span class="toctext">db.0.168.192.inv</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#db.0.168.192.inv.local"><span class="tocnumber">3.10</span> <span class="toctext">db.0.168.192.inv.local</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-16"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#V.C3.A9rification"><span class="tocnumber">4</span> <span class="toctext">Vérification</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Quels_dossiers_et_droits_pour_le_chroot_du_Bind_.3F"><span class="tocnumber">5.1</span> <span class="toctext">Quels dossiers et droits pour le chroot du Bind&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#named_:_invalid_command_from_127.0.0.1:_bad_auth"><span class="tocnumber">5.2</span> <span class="toctext">named&#160;: invalid command from 127.0.0.1: bad auth</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Pourquoi_je_ne_peux_faire_faire_d.27enregistrements_avec_un_.22_.22_.3F"><span class="tocnumber">5.3</span> <span class="toctext">Pourquoi je ne peux faire faire d'enregistrements avec un "_"&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#zone_.27deimos.fr.27_allows_updates_by_IP_address.2C_which_is_insecure"><span class="tocnumber">5.4</span> <span class="toctext">zone 'deimos.fr' allows updates by IP address, which is insecure</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#too_many_timeouts_resolving_.27mycompany.com.2FMX.27_.28in_.27eu.27.3F.29:_disabling_EDNS"><span class="tocnumber">5.5</span> <span class="toctext">too many timeouts resolving 'mycompany.com/MX' (in 'eu'?): disabling EDNS</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#zone_deimos.fr.2FIN.2Finternalview:_journal_rollforward_failed:_journal_out_of_sync_with_zone"><span class="tocnumber">5.6</span> <span class="toctext">zone deimos.fr/IN/internalview: journal rollforward failed: journal out of sync with zone</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Comment_vider_mon_cache_.3F"><span class="tocnumber">5.7</span> <span class="toctext">Comment vider mon cache&#160;?</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://www.isc.org/index.pl?/sw/bind/">BIND (Berkeley Internet Name Domain)</a> est le serveur DNS le plus utilisé sur Internet, spécialement sur les systèmes de type Unix. Il est présentement maintenu par Internet Systems Consortium.
+</p><p>Une nouvelle version de BIND (BIND 9) a été réécrite afin de résoudre certains problèmes architecturaux du code initial et d'ajouter le support de DNSSEC (DNS Security Extensions).
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Pour installer Bind9, c'est assez simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install bind9 dnsutils
+</pre>
+</td></tr></table><br />
+<p>Sur OpenBSD, bind est installé de base.
+</p>
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="host.conf"><span class="mw-headline-number">3.1</span> host.conf</span></h2>
+<p>Voici comment configurer le fichier /etc/host.conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/host.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>order hosts,bind
+multi on
+</pre>
+</td></tr></table><br />
+<p>Nous venons donc dire ici qu'il faut d'abord regarder dans le fichier host et ensuite dans Bind quand des requêtes son effectuées depuis le serveur.
+</p><p>Note&#160;: pas besoin de cette modification pour OpenBSD
+</p>
+<h2><span class="mw-headline" id="rndc.conf"><span class="mw-headline-number">3.2</span> rndc.conf</span></h2>
+<h3><span class="mw-headline" id="Introduction_aux_clefs_TSIG"><span class="mw-headline-number">3.2.1</span> Introduction aux clefs TSIG</span></h3>
+<p>Les signatures de transaction ("TSIG", transaction signatures) constituent une forme plus simple de sécurité DNS. Elles utilisent des fonctions de hachage cryptographique pour générer des pseudo-signatures de paquets DNS. La valeur de hachage est une combinaison des données DNS réelles, d'horodates pour éviter des attaques de type "réexécution" et d'un secret partagé entre le client et le serveur. Etant donné que les deux entités intervenant dans la recherche DNS doivent connaître le secret partagé, les signatures TSIG ne peuvent vraiment être mises en oeuvre que dans des environnements où les systèmes sont sous contrôle administratif commun et où la confidentialité du secret partagé peut absolument être garantie. Dans le cas d'ENUM, cela signifie qu'elles peuvent et doivent être utilisées parmi les serveurs de noms de niveau 0 ENUM. Elles peuvent par exemple être utilisées pour valider les transferts de zone ou les demandes de mise à jour dynamique, ces fonctions étant restreintes aux clients supposés de confiance car ils connaissent le secret partagé.
+</p>
+<h3><span class="mw-headline" id="Cr.C3.A9ation_d.27une_clef_TSIG"><span class="mw-headline-number">3.2.2</span> Création d'une clef TSIG</span></h3>
+<p>Si vous êtes sour OpenBSD, nous allons nous simplifier un peu la vie, et pour que ce tuto ai les mêmes chemins partout, nous allons créer un lien symbolique&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ln</font>
+</td></tr>
+<tr>
+<td>
+<pre>ln -s /var/named/etc /etc/bind
+</pre>
+</td></tr></table><br />
+<p>Nous allons générer une clef TSIG&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dnssec-keygen</font>
+</td></tr>
+<tr>
+<td>
+<pre>cd /etc/bind
+dnssec-keygen -a hmac-md5 -b <b>512</b> -n HOST <b>simba</b>
+</pre>
+</td></tr></table><br />
+<ul><li> Remplacez le nombre de bits par ce que vous souhaitez et mettez votre nom d'hôte.</li>
+<li> Remplacez <b>simba</b> par le nom de votre serveur sur lequel est installé Bind.</li></ul>
+<p>Une fois générer (ceci peut prendre quelques minutes), vous vous retrouvez avec 2 fichiers&#160;:
+</p>
+<ul><li> La clef qu'il faut déplacer dans le dossier de bind.</li>
+<li> Le fichier rndc.conf à créer.</li></ul>
+<p>Voici mes 2 fichiers générés&#160;:
+</p>
+<ul><li> Ksimba.+157+18808.key</li>
+<li> Ksimba.+157+18808.private</li></ul>
+<p>Déplacons dans un premier temps la clef et affectons lui les bons droits&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mv <b>Ksimba.+157+18808.key</b> /etc/bind/<b>rndc.key</b>
+chmod 640 /etc/bind/<b>rndc.key</b>
+</pre>
+<p>Debian&#160;:
+</p>
+<pre>chown root:bind /etc/bind/<b>rndc.key</b>
+</pre>
+<p>OpenBSD&#160;:
+</p>
+<pre>chown root:named /etc/bind/<b>rndc.key</b>
+</pre>
+</td></tr></table><br />
+<p>Si j'affiche le contenu de l'autre fichier, j'ai la clef qui va s'afficher (celle qui va servir à renseigner les fichiers suivants)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> cat</font>
+</td></tr>
+<tr>
+<td>
+<pre>$ cat Ksimba.+157+18808.private
+Private-key-format: v1.2
+Algorithm: 157 (HMAC_MD5)
+Key: <b>a4fGtm0fB4zO+4KfqH/zNZ3nPq+ThM5yUCEE7AqzEVI=</b>
+Bits: AAA=
+</pre>
+</td></tr></table><br />
+<p>Ensuite créons le fichier <b>/etc/bind/rndc.conf</b> et insérons la clef&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/rndc.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>key "rndc-key" {
+        algorithm hmac-md5;
+        secret "<b>a4fGtm0fB4zO+4KfqH/zNZ3nPq+ThM5yUCEE7AqzEVI=</b>";
+};
+
+options {
+        default-key "rndc-key";
+        default-server 127.0.0.1;
+        default-port 953;
+};
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="named.conf"><span class="mw-headline-number">3.3</span> named.conf</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">// This is the primary configuration file for the BIND DNS server named.
+//
+// Please read /usr/share/doc/bind9/README.Debian.gz for information on the 
+// structure of BIND configuration files in Debian, *BEFORE* you customize 
+// this configuration file.
+//
+// If you are just adding zones, please do that in /etc/bind/named.conf.local
+&#160;
+include &quot;/etc/bind/named.conf.options&quot;;
+include &quot;/etc/bind/named.conf.local&quot;;
+include &quot;/etc/bind/named.conf.default-zones&quot;;</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="named.conf.local"><span class="mw-headline-number">3.4</span> named.conf.local</span></h2>
+<p>La section acl permet de définir les listes d'accès réutilisables dans d'autres sections du fichier de configuration. La définition suivante permet de définir les clients internes&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.local</font>
+</td></tr>
+<tr>
+<td>
+<pre>//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+// Acl definition
+
+acl "<b>zoneinterne</b>" {
+        // Plage d'IP autorisée a faire des requetes DNS
+        <b>192.168.0.0/24</b>;
+        <b>10.8.0.0/24</b>;
+        <b>127.0.0.1</b>;
+};
+
+acl "<b>srvsecondaires</b>" {
+        // Mon serveur secondaire
+        <b>x.x.x.x</b>;
+        // Gandi (qui propose un dns secondaire)
+        <b>217.70.177.40</b>;
+};
+</pre>
+</td></tr></table><br />
+<p>Définissons toute la partie de logs&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.local</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">// Logs
+&#160;
+logging {
+        channel xfer-log {
+                file &quot;/var/log/bind.log&quot;;
+                print-category yes;
+                print-severity yes;
+                print-time yes;
+                severity info;
+        };  
+        category xfer-in { xfer-log; };
+        category xfer-out { xfer-log; };
+        category notify { xfer-log; };
+};</pre></div></div>
+</td></tr></table><br />
+<p>Ajoutons un peu de sécurité pour limiter l'administration à distance. Si vous souhaitez ne rien autoriser, mettez la section controls vide&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.local</font>
+</td></tr>
+<tr>
+<td>
+<pre>// TSIG Security | RNDC Key
+
+key "rndc-key" {
+      algorithm hmac-md5;
+      secret "<b>a4fGtm0fB4zO+4KfqH/zNZ3nPq+ThM5yUCEE7AqzEVI=</b>";
+};
+
+controls {
+      inet 127.0.0.1 port 953
+              allow { 127.0.0.1; "srvsecondaires"; } keys { "rndc-key"; };
+};
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="named.conf.default-zones"><span class="mw-headline-number">3.5</span> named.conf.default-zones</span></h2>
+<p>Idéalement, construisez un fichier de zone/vue (à inclure dans named.conf pour chacune de vos zones). Mais pour un soucis de simplicité, nous allons tout laisser dans le même ici.
+</p><p>Les sections view  définissent des comportements du serveur sur la base de l'adresse IP du client qui envoie la requête, permettant de différencier les réponses DNS. On définit ainsi deux vues&#160;:
+</p>
+<ul><li> une correspondant aux clients de la zone interne et DMZ&#160;: il faut réactiver la récursion pour ces requêtes, ainsi que permettre de résoudre tous les noms possible (zone ".").</li>
+<li> une autre correspondant aux requêtes en provenance de l'extérieur (par exemple Internet). Il faut autoriser le requêtes que pour la zone ou le serveur DNS est l'autorité&#160;:</li></ul>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.default-zones</font>
+</td></tr>
+<tr>
+<td>
+<pre>view "interne" {
+
+    // These are the clients that see this view
+    match-clients {
+        zoneinterne;
+    };
+
+    // Recursion permited for zoneinterne ACL subnets
+    recursion yes;
+    allow-recursion {
+        zoneinterne;
+    };  
+
+    // prime the server with knowledge of the root servers
+    zone "." {
+        type hint;
+            file "/etc/bind/db.root";
+        };
+
+    // be authoritative for the localhost forward and reverse zones, and for
+    // broadcast zones as per <a class="external mw-magiclink-rfc" rel="nofollow" href="https://tools.ietf.org/html/rfc1912">RFC 1912</a>
+
+    zone "deimos.fr" {
+        type master;
+        notify no;
+        allow-update { none; };
+        file "<b>/etc/bind/db.deimos.fr.local</b>";
+    };
+
+    zone "mavro.fr" {
+        type master;
+        notify no;
+        allow-update { none; };
+        file "<b>/etc/bind/db.mavro.fr.local</b>";
+    };
+
+   zone "localhost" {
+        type master;
+        notify no;
+        allow-update { none; };
+        file "/etc/bind/db.local";
+   };
+
+   zone "127.in-addr.arpa" {
+        type master;
+        notify no;
+        allow-update { none; };
+        file "/etc/bind/db.127";
+   };
+
+   zone "0.in-addr.arpa" {
+        type master;
+        notify no;
+        allow-update { none; };
+        file "/etc/bind/db.0";
+   };
+
+   zone "255.in-addr.arpa" {
+        type master;
+        notify no;
+        allow-update { none; };
+        file "/etc/bind/db.255";
+   };
+
+   zone "0.168.192.in-addr.arpa" {
+        type master;
+        notify no;
+        allow-update { none; };
+        file "<b>/etc/bind/db.0.168.192.inv.local</b>";
+   };
+};
+</pre>
+</td></tr></table><br />
+<p>Passons maintenant à notre zone externe qui elle sera visible par toutes les personnes de l'extérieur&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.default-zones</font>
+</td></tr>
+<tr>
+<td>
+<pre>view "externe" {
+        match-clients {
+                any;
+        };
+        // Recursion not permited for World Wide Web
+        recursion no;
+
+        zone "deimos.fr" {
+                type master;
+                notify yes;
+                allow-update { none; };
+                allow-transfer { <b>"rndc-key"</b>; };
+                file "<b>/etc/bind/db.deimos.fr</b>";
+        };
+
+        zone "mavro.fr" {
+                type master;
+                notify yes;
+                allow-update { none; };
+                allow-transfer { <b>"rndc-key"</b>; };
+                file "<b>/etc/bind/db.mavro.fr</b>";
+        };
+
+        zone "localhost" {
+                type master;
+                notify yes;
+                allow-update { none; };
+                file "/etc/bind/db.local";
+        };
+
+        zone "127.in-addr.arpa" {
+                type master;
+                notify yes;
+                allow-update { none; };
+                file "/etc/bind/db.127";
+        };
+
+        zone "0.in-addr.arpa" {
+                type master;
+                notify yes;
+                allow-update { none; };
+                file "/etc/bind/db.0";
+        };
+
+        zone "255.in-addr.arpa" {
+                type master;
+                notify yes;
+                allow-update { none; };
+                file "/etc/bind/db.255";
+       };
+
+        zone "0.168.192.in-addr.arpa" {
+                type master;
+                notify yes;
+                allow-update { none; };
+                allow-transfer { <b>"rndc-key"</b>; };
+                file "/etc/bind/db.0.168.192.inv";
+        };
+};
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="named.conf.options"><span class="mw-headline-number">3.6</span> named.conf.options</span></h2>
+<p>Voici le contenu&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.options</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">options {
+    directory &quot;/var/cache/bind&quot;;
+&#160;
+    // If there is a firewall between you and nameservers you want
+    // to talk to, you may need to fix the firewall to allow multiple
+    // ports to talk.  See http://www.kb.cert.org/vuls/id/800113
+&#160;
+    // If your ISP provided one or more IP addresses for stable 
+    // nameservers, you probably want to use them as forwarders.  
+    // Uncomment the following block, and insert the addresses replacing 
+    // the all-0's placeholder.
+&#160;
+    // Force other DNS to answer
+    //forwarders {
+    //      212.27.32.176;
+    //      212.27.32.177;
+    //};
+&#160;
+    //========================================================================
+    // If BIND logs error messages about the root key being expired,
+    // you will need to update your keys.  See https://www.isc.org/bind-keys
+    //========================================================================
+    // Avoid Bind Cache Poisoning
+    dnssec-enable yes;
+    dnssec-validation auto;
+&#160;
+    allow-query {
+             any;
+    };  
+&#160;
+    // Security version
+    // Check with&#160;: dig -t txt -c chaos VERSION.BIND @&lt;dns.server.com&gt;
+    version &quot;Microsoft 2008 DNS Server&quot;;
+&#160;
+    auth-nxdomain no;    # conform to RFC1035
+    listen-on-v6 { any; };
+};</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez rajouter ce type d'options pour améliorer la sécurité&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.options</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">   allow-recursion { none; };      // désactivation des requêtes recursives (et donc du DNS cache Poisonning)
+   allow-transfer { none; };       // désactivation du transfert de zone
+&#160;
+   notify no;                      // désactivation des notifications de changement de zones
+   zone-statistics no;             // désactivation des statistiques
+   interface-interval 0;           // désactivation de la recherche de nouvelles interfaces
+   max-cache-size 20M;             // taille max du cache</pre></div></div>
+</td></tr></table><br />
+<p>Dans le cas où vous souhaitez faire des redirections de domaines (ex: google.com --&gt; une machine de votre réseau local)&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.options</font>
+</td></tr>
+<tr>
+<td>
+<pre>zone "<b>google.com</b>" {
+   type forward;
+   forwarders {
+      <b>192.168.0.17</b>;      // Mon DNS primaire 
+      <b>192.168.0.30</b>;      // Mon DNS secondaire
+   };
+   forward only;
+};
+</pre>
+</td></tr></table><br />
+<p>On peut également mettre ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf.options</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> zone &quot;128.168.192.in-addr.arpa&quot; {
+    type forward;
+    forwarders {
+       192.168.128.99;
+    };
+    forward only;
+ };</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="db.deimos.fr"><span class="mw-headline-number">3.7</span> db.deimos.fr</span></h2>
+<p>Voici le contenu de mon fichier dont le contenu sera à disposition de tout le monde&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/db.deimos.fr</font>
+</td></tr>
+<tr>
+<td>
+<pre>$TTL    604800
+@       IN      SOA     <b>simba.deimos.fr. root.deimos.fr.</b>  (
+</pre>
+</td></tr></table><br />
+<p>Remplacez le premier champs par le FQDN de votre machine, et le second correspond au mail de l'admin (ici root@deimos.fr). L'écriture de l'adresse mail est un peu spéciale, mais elle fonctionne.
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/db.deimos.fr</font>
+</td></tr>
+<tr>
+<td>
+<pre>        2010301201&#160;; Serial (date + incrementation)
+</pre>
+</td></tr></table><br />
+<p>Note&#160;: par convention, le serial est de la forme AAAAMMJJRR (AAAA&#160;: année, MM&#160;: mois, JJ&#160;: jour, RR&#160;: révision).
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/db.deimos.fr</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">         7200      &#160;; Refresh
+         3600      &#160;; Retry
+         1209600   &#160;; Expire
+         604800    &#160;; Negative Cache TTL
+         )
+&#160;
+                 NS      mufasa.deimos.fr.
+                 A       88.162.130.192
+                 NS      ns6.gandi.net.
+                 NS      shenzi.deimos.fr.
+                 MX      5 mufasa.deimos.fr.
+                 MX      10 shenzi.deimos.fr.
+                 TXT     &quot;v=spf1 ip4:192.168.0.0/24 a mx ~all exp=getlost.deimos.fr&quot;
+ getlost         TXT     &quot;You are not allowed to send a message from this domain&quot;
+ _deimos.fr      TXT     &quot;t=y; o=-;&quot;
+ m1._deimos.fr   TXT     &quot;g=; k=rsa; p=;...IWWiAyklt5FDmS2U7QIDAQAB...&quot;</pre></div></div>
+</td></tr></table><br />
+<p>Pour la partie TXT, je vous laisse voir d'autres articles qui traitent du <a href="Serveurs.html#SPF" title="Serveurs">SPF</a>.
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/db.deimos.fr</font>
+</td></tr>
+<tr>
+<td>
+<pre>localhost       A       127.0.0.1
+mufasa          A       82.232.191.145
+shenzi          A       88.191.130.125
+ns6             A       217.70.177.40
+
+mail            CNAME   mufasa
+jabber          CNAME   mufasa
+server          CNAME   mufasa
+serveur         CNAME   mufasa
+sftp            CNAME   mufasa
+www             CNAME   mufasa
+blocnotesinfo   CNAME   mufasa
+infos           CNAME   mufasa
+webmail         CNAME   mufasa
+nagios          CNAME   mufasa
+</pre>
+</td></tr></table><br />
+<p>Tout ceci corresponds à vos enregistrements A, Noms canoniques etc...
+</p>
+<h2><span class="mw-headline" id="db.deimos.fr.local"><span class="mw-headline-number">3.8</span> db.deimos.fr.local</span></h2>
+<p>Ceci est donc pour la zone interne, mettez tout ce que vous voulez sans restrictions...
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/db.deimos.fr.local</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$TTL    604800
+@       IN      SOA     simba.deimos.fr. root.deimos.fr.  (
+        2010301201&#160;; Serial (date + incrementation)
+        7200      &#160;; Refresh
+        3600      &#160;; Retry
+        1209600   &#160;; Expire
+        604800    &#160;; Negative Cache TTL
+        )   
+&#160;
+                NS      simba.deimos.fr.
+                A       192.168.110.3
+                MX      5 mufasa.deimos.fr.
+                MX      10 shenzi.deimos.fr.
+&#160;
+localhost       A       127.0.0.1
+mufasa          A       192.168.0.254
+shenzi          A       192.168.20.4
+ns6             A       217.70.177.40
+&#160;
+rafiki          A       192.168.110.1
+simba           A       192.168.110.3
+sarabi          A       192.168.99.10
+&#160;
+www             CNAME   rafiki
+www1            CNAME   rafiki
+www2            CNAME   shenzi
+&#160;
+blocnotesinfo   CNAME   www 
+blog            CNAME   www 
+webmail         CNAME   www 
+nagios          CNAME   www 
+git             CNAME   www 
+gitweb          CNAME   www 
+phpmyadmin      CNAME   www 
+&#160;
+backuppc        CNAME   sarabi</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="db.0.168.192.inv"><span class="mw-headline-number">3.9</span> db.0.168.192.inv</span></h2>
+<p>Si maintenant nous souhaitons du reverse DNS&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/db.0.168.192.inv</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$TTL    604800
+@       IN      SOA     simba.deimos.fr. root.deimos.fr.     (
+        2010301201&#160;; Serial (date + incrementation)
+        7200      &#160;; Refresh
+        3600      &#160;; Retry
+        1209600   &#160;; Expire
+        604800    &#160;; Negative Cache TTL
+        )
+&#160;
+                NS      simba.deimos.fr.
+                A       88.162.130.192
+                A       88.191.31.89
+                NS      ns6.gandi.net.
+                NS      shenzi.deimos.fr.
+                MX      5 simba.deimos.fr.
+                MX      10 shenzi.deimos.fr.
+                TXT     &quot;v=spf1 ip4:192.168.0.0/24 a mx ~all exp=getlost.deimos.fr&quot;
+getlost         TXT     &quot;You are not allowed to send a message from this domain&quot;
+&#160;
+1               PTR     localhost
+2               PTR     simba
+3               PTR     ns6.gandi.net
+4               PTR     shenzi.deimos.fr</pre></div></div>
+</td></tr></table><br />
+<p>Les PTR doivent aller du plus petit au plus grand e fonction des priorités.
+</p>
+<h2><span class="mw-headline" id="db.0.168.192.inv.local"><span class="mw-headline-number">3.10</span> db.0.168.192.inv.local</span></h2>
+<p>Maintenant, le reverse DNS pour le local&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/db.0.168.192.inv.local</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$TTL    604800
+@       IN      SOA     simba.deimos.fr. root.deimos.fr.     (
+        2010301201&#160;; Serial (date + incrementation)
+        3600      &#160;; Refresh
+        7200      &#160;; Retry
+        1209600   &#160;; Expire
+        604800    &#160;; Negative Cache TTL
+        )
+&#160;
+                NS      simba.deimos.fr.
+                MX      5 simba.deimos.fr.
+&#160;
+1               PTR     localhost
+2               PTR     simba
+3               PTR     serveur
+4               PTR     earth
+5               PTR     wind
+6               PTR     water
+10              PTR     kiss
+11              PTR     imprimante
+30              PTR     psp
+31              PTR     pocket
+32              PTR     ldap</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="V.C3.A9rification"><span class="mw-headline-number">4</span> Vérification</span></h1>
+<p>Il ne reste plus qu'à redémarrer le service et vérifier les logs&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/bind9 restart
+</pre>
+</td></tr></table><br />
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ tail -100 /var/log/syslog 
+Jun 10 22:44:20 deimos named[9641]: starting BIND 9.4.1 -u bind
+Jun 10 22:44:20 deimos named[9641]: found 2 CPUs, using 2 worker threads
+Jun 10 22:44:20 deimos named[9641]: loading configuration from '/etc/bind/named.conf'
+Jun 10 22:44:20 deimos named[9641]: no IPv6 interfaces found
+Jun 10 22:44:20 deimos named[9641]: listening on IPv4 interface eth0, 192.168.0.1#53
+Jun 10 22:44:20 deimos named[9641]: listening on IPv4 interface lo, 127.0.0.1#53
+Jun 10 22:44:20 deimos named[9641]: listening on IPv4 interface tun0, 10.8.0.1#53
+Jun 10 22:44:20 deimos named[9641]: listening on IPv4 interface bond0, 192.168.0.2#53
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: 254.169.IN-ADDR.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: 2.0.192.IN-ADDR.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: 255.255.255.255.IN-ADDR.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: 0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.IP6.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: D.F.IP6.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: 8.E.F.IP6.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: 9.E.F.IP6.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: A.E.F.IP6.ARPA
+Jun 10 22:44:20 deimos named[9641]: automatic empty zone: view interne: B.E.F.IP6.ARPA
+Jun 10 22:44:20 deimos named[9641]: command channel listening on 127.0.0.1#953
+Jun 10 22:44:20 deimos named[9641]: zone 0.in-addr.arpa/IN/interne: loaded serial 1
+Jun 10 22:44:20 deimos named[9641]: zone 127.in-addr.arpa/IN/interne: loaded serial 1
+Jun 10 22:44:20 deimos named[9641]: zone 0.168.192.in-addr.arpa/IN/interne: loaded serial 2006031801
+Jun 10 22:44:20 deimos named[9641]: zone 255.in-addr.arpa/IN/interne: loaded serial 1
+Jun 10 22:44:20 deimos named[9641]: zone mavro.fr/IN/interne: loaded serial 2006031801
+Jun 10 22:44:20 deimos named[9641]: zone localhost/IN/interne: loaded serial 1
+Jun 10 22:44:20 deimos named[9641]: zone deimos.fr/IN/interne: loaded serial 2006110401
+Jun 10 22:44:20 deimos named[9641]: zone 0.in-addr.arpa/IN/externe: loaded serial 1
+Jun 10 22:44:20 deimos named[9641]: zone 127.in-addr.arpa/IN/externe: loaded serial 1
+Jun 10 22:44:20 deimos named[9641]: zone 0.168.192.in-addr.arpa/IN/externe: loaded serial 2006102701
+Jun 10 22:44:20 deimos named[9641]: zone 255.in-addr.arpa/IN/externe: loaded serial 1
+Jun 10 22:44:21 deimos named[9641]: zone mavro.fr/IN/externe: loaded serial 2007040103
+Jun 10 22:44:21 deimos named[9641]: zone localhost/IN/externe: loaded serial 1
+Jun 10 22:44:21 deimos named[9641]: zone deimos.fr/IN/externe: loaded serial 2007040101
+Jun 10 22:44:21 deimos named[9641]: running</pre></div></div>
+<p>Ici aucunes erreurs, donc tout est bon&#160;:-)
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Quels_dossiers_et_droits_pour_le_chroot_du_Bind_.3F"><span class="mw-headline-number">5.1</span> Quels dossiers et droits pour le chroot du Bind&#160;?</span></h2>
+<p>Voici les commandes à effectuer&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir -p /var/lib/named/etc
+mkdir /var/lib/named/dev
+mkdir -p /var/lib/named/var/cache/bind
+mkdir -p /var/lib/named/var/run/bind/run
+mv /etc/bind /var/lib/named/etc
+ln -s /var/lib/named/etc/bind /etc/bind
+mknod /var/lib/named/dev/null c 1 3
+mknod /var/lib/named/dev/random c 1 8
+chmod 666 /var/lib/named/dev/null /var/lib/named/dev/random
+chown -R bind:bind /var/lib/named/var/*
+chown -R bind:bind /var/lib/named/etc/bind</pre></div></div>
+<h2><span class="mw-headline" id="named_:_invalid_command_from_127.0.0.1:_bad_auth"><span class="mw-headline-number">5.2</span> named&#160;: invalid command from 127.0.0.1: bad auth</span></h2>
+<p>Comment ça se fait que tous mes fichiers de conf contiennent la même clef RNDC, et pourtant, je me tappe ce type d'erreur. Comment ça se fait&#160;?
+</p><p>La raison est simple, Bind doit certainement être déjà lancé. Donc un petit coup de&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> netstat</font>
+</td></tr>
+<tr>
+<td>
+<pre>netstat -auntp 
+</pre>
+</td></tr></table><br />
+<p>Et là on doit se rendre compte que ça tourne déjà. Donc un petit coup de kill sur les PID correspondant et on relance le service Bind&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkill</font>
+</td></tr>
+<tr>
+<td>
+<pre>pkill named
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Pourquoi_je_ne_peux_faire_faire_d.27enregistrements_avec_un_.22_.22_.3F"><span class="mw-headline-number">5.3</span> Pourquoi je ne peux faire faire d'enregistrements avec un "_"&#160;?</span></h2>
+<p>Les versions de bind dès 9.3 intègrent maintenant de manière plus précise le contrôle de la validité des nom de domaines. Ils ne peuvent en occurence plus contenir de _ (0x5f dans la <a rel="nofollow" class="external text" href="http://www.lookuptables.com/">ASCII table</a>), comme le stipulent le <a class="external mw-magiclink-rfc" rel="nofollow" href="https://tools.ietf.org/html/rfc1035">RFC 1035</a>. C'est toutefois bien dommage pour moi parce que j'ai plusieurs domaines contenant des _.
+</p><p>Message d'erreur produit&#160;:
+</p>
+<pre>Mar  6 07:48:08 dns3 named[25459]: pri/rags.ch.hosts:25: wisteria_lane.rags.ch: bad owner name (check-names)
+Mar  6 07:48:08 dns3 named[25459]: zone rags.ch/IN: loading master file pri/rags.ch.hosts: bad owner name (check-names)
+</pre>
+<p>Voici donc un petit patch qui résoud le problème&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">name_with_underscore.patch&#160;:
+&#160;
+--- lib/dns/name.c.orig 2006-03-06 17:44:30.000000000 +0100
++++ lib/dns/name.c      2006-03-06 17:45:07.000000000 +0100
+@@ -261,7 +261,7 @@
+        return (ISC_FALSE);
+ }
+&#160;
+-#define hyphenchar(c) ((c) == 0x2d)
++#define hyphenchar(c) ((c) == 0x2d || (c) == 0x5f)
+ #define asterchar(c) ((c) == 0x2a)
+ #define alphachar(c) (((c) &gt;= 0x41 &amp;&amp; (c) &lt;= 0x5a) \
+                      || ((c) &gt;= 0x61 &amp;&amp; (c) &lt;= 0x7a))</pre></div></div>
+<h2><span class="mw-headline" id="zone_.27deimos.fr.27_allows_updates_by_IP_address.2C_which_is_insecure"><span class="mw-headline-number">5.4</span> zone 'deimos.fr' allows updates by IP address, which is insecure</span></h2>
+<p>Vous avez peut être des erreurs de logs dans ce genre&#160;:
+</p>
+<pre>Oct  2 17:29:03 star1 named[5120]: zone 'deimos.fr' allows updates by IP address, which is insecure 
+</pre>
+<p>Ce qui tout simplement signifie que votre clef RNDC n'est pas utilisée. Pour l'utiliser avec les ACL, il suffit donc de rajouter ses serveurs secondaires dans la partie "controls" et n'autoriser les updates (au niveau des zones) qu'avec la clef RNDC&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/bind/named.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+controls {
+      inet 127.0.0.1 port 953 
+              allow { 127.0.0.1; <b>secondaryinternaldns;</b> } keys { "rndc-key"; };
+};
+...
+       zone "deimos.fr" {
+               type master;
+               notify yes;
+               allow-update { <b>key "rndc-key";</b> };
+               file "/etc/bind/db.deimos.fr";
+       };
+...
+</pre>
+</td></tr></table><br />
+<p>Maintenant redémarrez votre serveur DNS et il n'y a plus de problèmes, les échanges se font cryptés&#160;:-)
+</p>
+<h2><span class="mw-headline" id="too_many_timeouts_resolving_.27mycompany.com.2FMX.27_.28in_.27eu.27.3F.29:_disabling_EDNS"><span class="mw-headline-number">5.5</span> too many timeouts resolving 'mycompany.com/MX' (in 'eu'?): disabling EDNS</span></h2>
+<p>Cette erreur peut apparaitre pour la résolution de nom trop longue du à la taille des packets UDP. Ceci peut s'avérer très génant, surtout pour la réception d'email qui peut prendre quelques heures. La solution consisite à  rajouter cette ligne&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> named.conf.options</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+edns-udp-size <b>1460</b>;
+...
+</pre>
+</td></tr></table><br />
+<p>Il ne reste plus qu'a redémarrer le service bind. Si le problème persiste essayez de baisser la taille (passez de 1460 à 500 par exemple) , il existe des moyens pour tester tout ça grâce à la commande dig.<br />
+Utilisez la par exemple comme ceci jusqu'à ne plus avoir de timeout&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dig</font>
+</td></tr>
+<tr>
+<td>
+<pre>dig +norec +dnssec mycompany.com MX @my_dns_server
+dig +dnssec +norec +ignore dnskey MX @my_dns_server
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="zone_deimos.fr.2FIN.2Finternalview:_journal_rollforward_failed:_journal_out_of_sync_with_zone"><span class="mw-headline-number">5.6</span> zone deimos.fr/IN/internalview: journal rollforward failed: journal out of sync with zone</span></h2>
+<p>Le serveur a du être arréter sauvagement, le fichier de zone a été éditer manuellement sans que la zone ai été freezée. Pour résoudre ce problème&#160;:
+</p>
+<ul><li> Arrêter le serveur bind</li>
+<li> Supprimer les fichiers journaux (*.jnl dans "/etc/bind")</li>
+<li> Redémarrer le serveur bind</li></ul>
+<h2><span class="mw-headline" id="Comment_vider_mon_cache_.3F"><span class="mw-headline-number">5.7</span> Comment vider mon cache&#160;?</span></h2>
+<p>Pour vider son cache bind&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rndc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">rndc flush</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p><a href="./File:OpenBSD_dns_server.pdf.html" title="File:OpenBSD dns server.pdf">Serveur DNS sous OpenBSD</a><br />
+<a href="./File:Installing_An_Ubuntu_DNS_Server_With_BIND.pdf.html" title="File:Installing An Ubuntu DNS Server With BIND.pdf">Installing An Ubuntu DNS Server With BIND</a><br />
+<a rel="nofollow" class="external free" href="http://fr.wikipedia.org/wiki/BIND">http://fr.wikipedia.org/wiki/BIND</a><br />
+<a rel="nofollow" class="external free" href="http://fr.gentoo-wiki.com/HOWTO_Bind">http://fr.gentoo-wiki.com/HOWTO_Bind</a><br />
+<a rel="nofollow" class="external free" href="http://www.zytrax.com/books/dns/">http://www.zytrax.com/books/dns/</a><br />
+<a rel="nofollow" class="external free" href="http://brocas.org/blog/post/2006/06/22/14-de-la-securite-d-une-architecture-dns-d-entreprise">http://brocas.org/blog/post/2006/06/22/14-de-la-securite-d-une-architecture-dns-d-entreprise</a><br />
+<a rel="nofollow" class="external free" href="http://groups.google.com/group/comp.protocols.dns.bind/browse_thread/thread/cfa8c63ec6bd08d6?pli=1">http://groups.google.com/group/comp.protocols.dns.bind/browse_thread/thread/cfa8c63ec6bd08d6?pli=1</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.076 seconds
+Real time usage: 0.078 seconds
+Preprocessor visited node count: 547/1000000
+Preprocessor generated node count: 1500/1000000
+Post‐expand include size: 12121/2097152 bytes
+Template argument size: 7475/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   16.331      1 - -total
+ 49.48%    8.081     21 - Template:Config
+ 15.31%    2.500     10 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1966-0!*!0!1!en!5!* and timestamp 20181111230702 and revision id 12466
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)&amp;oldid=12466">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)&amp;oldid=12466</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+d%27un+serveur+Bind9+primaire+%28Master%29" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master).html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)&amp;oldid=12466" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_serveur_Bind9_primaire_(Master)&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 7 May 2013, at 09:06.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

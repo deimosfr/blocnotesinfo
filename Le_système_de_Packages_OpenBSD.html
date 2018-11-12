@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Le système de Packages OpenBSD - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Le_système_de_Packages_OpenBSD.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Le_système_de_Packages_OpenBSD","wgTitle":"Le système de Packages OpenBSD","wgCurRevisionId":5153,"wgRevisionId":5153,"wgArticleId":1857,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Le_système_de_Packages_OpenBSD","wgRelevantArticleId":1857,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Le_système_de_Packages_OpenBSD skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Le système de Packages OpenBSD</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Le_système_de_Packages_OpenBSD.html#mw-navigation">navigation</a>, 					<a href="Le_système_de_Packages_OpenBSD.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Le_système_de_Packages_OpenBSD.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Le_système_de_Packages_OpenBSD.html#PGK"><span class="tocnumber">2</span> <span class="toctext">PGK</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Le_système_de_Packages_OpenBSD.html#Pr.C3.A9paration"><span class="tocnumber">2.1</span> <span class="toctext">Préparation</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Le_système_de_Packages_OpenBSD.html#Installer_un_package"><span class="tocnumber">2.2</span> <span class="toctext">Installer un package</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Le_système_de_Packages_OpenBSD.html#Obtenir_des_infos"><span class="tocnumber">2.3</span> <span class="toctext">Obtenir des infos</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Le_système_de_Packages_OpenBSD.html#Mise_.C3.A0_jour_des_packages"><span class="tocnumber">2.4</span> <span class="toctext">Mise à jour des packages</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Le_système_de_Packages_OpenBSD.html#Suppression_d.27un_package"><span class="tocnumber">2.5</span> <span class="toctext">Suppression d'un package</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Le_système_de_Packages_OpenBSD.html#Upgrade"><span class="tocnumber">2.6</span> <span class="toctext">Upgrade</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="Le_système_de_Packages_OpenBSD.html#Port"><span class="tocnumber">3</span> <span class="toctext">Port</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="Le_système_de_Packages_OpenBSD.html#R.C3.A9cup.C3.A9ration_de_l.27arbre_des_ports"><span class="tocnumber">3.1</span> <span class="toctext">Récupération de l'arbre des ports</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Le_système_de_Packages_OpenBSD.html#Configuration_du_syst.C3.A8me_de_ports"><span class="tocnumber">3.2</span> <span class="toctext">Configuration du système de ports</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="Le_système_de_Packages_OpenBSD.html#Recherches_de_package"><span class="tocnumber">3.3</span> <span class="toctext">Recherches de package</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Le_système_de_Packages_OpenBSD.html#Installer_un_package_2"><span class="tocnumber">3.4</span> <span class="toctext">Installer un package</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Le_système_de_Packages_OpenBSD.html#Nettoyer_apr.C3.A9s_une_compilation"><span class="tocnumber">3.5</span> <span class="toctext">Nettoyer aprés une compilation</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Le passage à OpenBSD n'est pas très évident quand on vient du monde Linux (PS&#160;: depuis Windows, il vaut mieux oublier et rester dessus&#160;:-p, ou passer à Linux).
+</p><p>Bref, sous OpenBSD il y a 2 systèmes de packages&#160;:
+</p>
+<ul><li> Le premier est celui fourni par OpenBSD de base (pkg), c'est celui qui ne contient pas ou quasiment pas de failles de sécurité (pour rappel, 2 failles découvertes en 10 ans). Ces packages sont précompilés</li>
+<li> Le second contient beaucoup plus de logiciels (port), mais d'après OpenBSD, ils peuvent compromettrent la stabilité et sécurité du système. Celà dit il est préférable d'utiliser ceci plutot que de recompiler sois meme d'après des sources diverses puisqu'ici, ces packages ont tout de même étés validés par OpenBSD. Ces packages sont compilés à la volée.</li></ul>
+<h1><span class="mw-headline" id="PGK"><span class="mw-headline-number">2</span> PGK</span></h1>
+<h2><span class="mw-headline" id="Pr.C3.A9paration"><span class="mw-headline-number">2.1</span> Préparation</span></h2>
+<p>Dans un premier temps, il faut <a rel="nofollow" class="external text" href="http://www.openbsd.org/fr/ftp.html">choisir un serveur FTP</a> afin de lui indiquer le repository. Moi j'ai choisis un français&#160;:
+</p>
+<pre>export PKG_PATH=ftp://ftp.arcane-networks.fr/pub/OpenBSD/`uname -r`/packages/`machine -a`/
+</pre>
+<p>Ensuite pour être tranquile à chaque fois, il suffit de rajouter cette ligne dans son <b>.profil</b>.
+</p>
+<h2><span class="mw-headline" id="Installer_un_package"><span class="mw-headline-number">2.2</span> Installer un package</span></h2>
+<p>Pour installer les packages, il existe plusieurs arguments. J'utilise -i pour avoir un mode interractif (depuis OpenBSD 3.9) ainsi que l'otopn -v qui va me donner du verbose. Pour installer postfix, je vais alors faire&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ pkg_add -iv postfix
+Ambiguous: postfix could be postfix-2.3.2 postfix-2.3.2-ldap postfix-2.3.2-mysql postfix-2.3.2-sasl2 postfix-2.4.20060727 postfix-2.4.20060727-ldap postfix-2.4.20060727-mysql postfix-2.4.20060727-sasl2
+Choose one package
+         0: &lt;None&gt;
+         1: postfix-2.3.2
+         2: postfix-2.3.2-ldap
+         3: postfix-2.3.2-mysql
+         4: postfix-2.3.2-sasl2
+         5: postfix-2.4.20060727
+         6: postfix-2.4.20060727-ldap
+         7: postfix-2.4.20060727-mysql
+         8: postfix-2.4.20060727-sasl2
+Your choice:</pre></div></div>
+<p>Je n'ai plus qu'a choisir le numéro de la version que je souhaite installer. Sinon, j'indique directement ce que je souhaite&#160;:
+</p>
+<pre>pkg_add -v postfix-2.4.20060727
+</pre>
+<h2><span class="mw-headline" id="Obtenir_des_infos"><span class="mw-headline-number">2.3</span> Obtenir des infos</span></h2>
+<p>Pour obtenir des infos sur mes packages installés, je n'ai qu'à faire&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">$ pkg_info
+screen-4.0.3        multi-screen window manager
+tcl-8.4.7p1         Tool Command Language
+vim-7.0.42-no_x11   vi clone, many additional features
+zsh-4.2.6p0         Z shell, Bourne shell-compatible</pre></div></div>
+<h2><span class="mw-headline" id="Mise_.C3.A0_jour_des_packages"><span class="mw-headline-number">2.4</span> Mise à jour des packages</span></h2>
+<p>Pour mettre à jour des packages il suffit d'utiliser la commande pkg_add suivit d'un arguement et le nom du package à updater&#160;:
+</p>
+<pre>pkg_add -u screen
+</pre>
+<p>Si vous rajoutez l'option -c, celà écrasera les fichiers de configuration actuels par ceux par défaut.
+</p>
+<h2><span class="mw-headline" id="Suppression_d.27un_package"><span class="mw-headline-number">2.5</span> Suppression d'un package</span></h2>
+<p>Encore une fois ce n'est pas très compliqué, il faut utiliser la commande pkg_delete suivit du package à supprimer&#160;:
+</p>
+<pre>pkg_delete screen
+</pre>
+<h2><span class="mw-headline" id="Upgrade"><span class="mw-headline-number">2.6</span> Upgrade</span></h2>
+<p>Lorsqu'il y a une upgrade de version, pensez à modifier votre ligne de repository, puis faites ceci pour mettre tous les packages à jour&#160;:
+</p>
+<pre>pkg_add -ui -F update -F updatedepends
+</pre>
+<h1><span class="mw-headline" id="Port"><span class="mw-headline-number">3</span> Port</span></h1>
+<h2><span class="mw-headline" id="R.C3.A9cup.C3.A9ration_de_l.27arbre_des_ports"><span class="mw-headline-number">3.1</span> Récupération de l'arbre des ports</span></h2>
+<p>Récupérons le tar.gz et décompressons le&#160;:
+</p>
+<pre>cd /tmp
+ftp ftp://ftp.openbsd.org/pub/OpenBSD/`uname -r`/ports.tar.gz
+cd /usr
+tar xzf /tmp/ports.tar.gz
+</pre>
+<h2><span class="mw-headline" id="Configuration_du_syst.C3.A8me_de_ports"><span class="mw-headline-number">3.2</span> Configuration du système de ports</span></h2>
+<p>Si vous avez créer un nouvel utilisateur, passez le dans la liste des sudoers, et rajoutez lui les droits&#160;:
+</p>
+<pre>chgrp -R wsrc /usr/ports
+find /usr/ports -type d -exec chmod g+w {} \;
+</pre>
+<p>Ensuite nous allons rajouter quelques lignes dans le fichier mk.conf&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">echo &quot;USE_SYSTRACE=Yes&quot; &gt;&gt; /etc/mk.conf
+echo &quot;WRKOBJDIR=/usr/obj/ports&quot; &gt;&gt; /etc/mk.conf
+echo &quot;DISTDIR=/usr/distfiles&quot; &gt;&gt; /etc/mk.conf
+echo &quot;PACKAGE_REPOSITORY=/usr/packages&quot; &gt;&gt; /etc/mk.conf</pre></div></div>
+<h2><span class="mw-headline" id="Recherches_de_package"><span class="mw-headline-number">3.3</span> Recherches de package</span></h2>
+<p>Pour efectuer une recherche&#160;:
+</p>
+<pre>cd /usr/ports
+make search key=nmap
+</pre>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">Port:   nmap-4.11
+Path:   net/nmap
+Info:   scan ports and fingerprint stack of network hosts
+Maint:  Okan Demirmen &lt;okan@demirmen.com&gt;
+Index:  net security
+L-deps: dnet::net/libdnet gdk_pixbuf-2.0.0.0,gdk-x11-2.0.0.0,gtk-x11-2.0.0.0::x11/gtk+2 iconv.&gt;=4::converters/libiconv intl.&gt;=3:gettext-&gt;=0.10.38:devel/gettext pcre::devel/pcre
+B-deps:&#160;:devel/gmake gettext-&gt;=0.14.5:devel/gettext pkgconfig-*:devel/pkgconfig
+R-deps: gettext-&gt;=0.10.38:devel/gettext
+Archs:  any
+&#160;
+Port:   nmap-4.11-no_x11
+Path:   net/nmap,no_x11
+Info:   scan ports and fingerprint stack of network hosts
+Maint:  Okan Demirmen &lt;okan@demirmen.com&gt;
+Index:  net security
+L-deps: dnet::net/libdnet pcre::devel/pcre
+B-deps:&#160;:devel/gmake
+R-deps: 
+Archs:  any</pre></div></div>
+<p>Ici je n'ai pas d'interface graphique, donc pas besoin de x11, l'option no_x11 m'intéresse.
+</p>
+<h2><span class="mw-headline" id="Installer_un_package_2"><span class="mw-headline-number">3.4</span> Installer un package</span></h2>
+<p>Pour installer un package il suffit de se mettre dans la bonne section, puis lancer la compilation&#160;:
+</p>
+<pre>cd /usr/ports/net/nmap/
+</pre>
+<p>Maintenant voyons les options disponibles&#160;:
+</p>
+<pre>$ make show=FLAVORS
+no_x11
+</pre>
+<p>Là encore une fois, on voit bien que je peux compiler nmap sans le graphique. Je passe donc mon arguement avant de compiler, puis le make install&#160;:
+</p>
+<pre>env FLAVOR="no_x11" make install
+</pre>
+<h2><span class="mw-headline" id="Nettoyer_apr.C3.A9s_une_compilation"><span class="mw-headline-number">3.5</span> Nettoyer aprés une compilation</span></h2>
+<p>Vous voulez probablement nettoyer le répertoire de travail par défaut du port aprés avoir construit et installé le paquetage.
+</p>
+<pre>$ make clean
+===&gt;  Cleaning for rsnapshot-1.2.9
+</pre>
+<p>En outre, vous pouvez aussi nettoyer les répertoires de travail de toutes les dépendances du port avec cette cible de make&#160;:
+</p>
+<pre>$ make clean=depends
+===&gt;  Cleaning for rsync-2.6.8
+===&gt;  Cleaning for rsnapshot-1.2.9
+</pre>
+<p>Si vous désirez supprimer l'ensemble des sources de la distribution du port, vous pouvez utiliser
+</p>
+<pre>$ make clean=dist
+===&gt;  Cleaning for rsnapshot-1.2.9
+===&gt;  Dist cleaning for rsnapshot-1.2.9
+</pre>
+<p>Dans le cas ou vous avez compilé de multiples saveurs du même port, vous pouvez nettoyer les répertoires de travail de toutes ces saveurs en une fois en utilisant
+</p>
+<pre>$ make clean=flavors
+</pre>
+<!-- 
+NewPP limit report
+CPU time usage: 0.008 seconds
+Real time usage: 0.009 seconds
+Preprocessor visited node count: 108/1000000
+Preprocessor generated node count: 180/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1857-0!*!*!1!en!*!* and timestamp 20181111230622 and revision id 5153
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Le_système_de_Packages_OpenBSD&amp;oldid=5153">https://wiki.deimos.fr/index.php?title=Le_système_de_Packages_OpenBSD&amp;oldid=5153</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Le+syst%C3%A8me+de+Packages+OpenBSD" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Le_système_de_Packages_OpenBSD.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Le_système_de_Packages_OpenBSD.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Le_système_de_Packages_OpenBSD.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Le_syst%C3%A8me_de_Packages_OpenBSD&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Le_syst%C3%A8me_de_Packages_OpenBSD&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Le_système_de_Packages_OpenBSD.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Le_système_de_Packages_OpenBSD.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Le_syst%C3%A8me_de_Packages_OpenBSD" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Le_syst%C3%A8me_de_Packages_OpenBSD&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Le_syst%C3%A8me_de_Packages_OpenBSD&amp;oldid=5153" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Le_syst%C3%A8me_de_Packages_OpenBSD&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 27 November 2007, at 18:07.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

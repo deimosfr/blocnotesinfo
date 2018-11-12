@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Installation et configuration d'un cluster Heartbeat V1 - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Installation_et_configuration_d'un_cluster_Heartbeat_V1","wgTitle":"Installation et configuration d'un cluster Heartbeat V1","wgCurRevisionId":7352,"wgRevisionId":7352,"wgArticleId":1907,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Installation_et_configuration_d'un_cluster_Heartbeat_V1","wgRelevantArticleId":1907,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Installation_et_configuration_d_un_cluster_Heartbeat_V1 skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Installation et configuration d'un cluster Heartbeat V1</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#mw-navigation">navigation</a>, 					<a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Pr.C3.A9ambule"><span class="tocnumber">2</span> <span class="toctext">Préambule</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Twin_1"><span class="tocnumber">2.1</span> <span class="toctext">Twin 1</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Twin_2"><span class="tocnumber">2.2</span> <span class="toctext">Twin 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Etats_des_machines"><span class="tocnumber">3</span> <span class="toctext">Etats des machines</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Installation_d.27HeartBeat"><span class="tocnumber">4</span> <span class="toctext">Installation d'HeartBeat</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Configuration_basique"><span class="tocnumber">5</span> <span class="toctext">Configuration basique</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#ha.cf"><span class="tocnumber">5.1</span> <span class="toctext">ha.cf</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#haresources"><span class="tocnumber">5.2</span> <span class="toctext">haresources</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#authkeys"><span class="tocnumber">5.3</span> <span class="toctext">authkeys</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Mise_en_route_et_premiers_essais"><span class="tocnumber">5.4</span> <span class="toctext">Mise en route et premiers essais</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Configuration_plus_pouss.C3.A9e"><span class="tocnumber">6</span> <span class="toctext">Configuration plus poussée</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Octroyer_plusieurs_adresses_IP_pour_le_cluster"><span class="tocnumber">6.1</span> <span class="toctext">Octroyer plusieurs adresses IP pour le cluster</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Sp.C3.A9cifier_les_actions_.C3.A0_effectuer"><span class="tocnumber">6.2</span> <span class="toctext">Spécifier les actions à effectuer</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Consid.C3.A9rations_pratiques"><span class="tocnumber">7</span> <span class="toctext">Considérations pratiques</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Concernant_la_liaison_r.C3.A9seau"><span class="tocnumber">7.1</span> <span class="toctext">Concernant la liaison réseau</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Concernant_une_liaison_s.C3.A9rie_compl.C3.A9mentaire"><span class="tocnumber">7.2</span> <span class="toctext">Concernant une liaison série complémentaire</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Plusieurs_clusters_sur_un_m.C3.AAme_r.C3.A9seau"><span class="tocnumber">7.3</span> <span class="toctext">Plusieurs clusters sur un même réseau</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#Ressources"><span class="tocnumber">8</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>L'idée générale pour assurer la disponibilité d'un service est de faire fonctionner plusieurs machines (deux au minimum) en même temps. Ces machines forment ce qu'on appelle un cluster et chaque machine est un node du cluster. Chacune des machines va vérifier si les autres répondent toujours en prenant le pouls de chacune des autres. Si une machine cesse de fonctionner, les autres assurent le service.
+</p><p>Une fois le cluster configuré, on y accède au travers d'une seule et unique adresse IP qui est celle du cluster; qui lui-même est composé de plusieurs nodes.
+</p><p>Pour pouvoir mettre en place ce genre de technique, nous allons utiliser l'application HeartBeat qui va se charger de surveiller les machines et d'appliquer une série de scripts définis par l'utilisateur si cela s'avère nécessaire (c'est-à-dire si une machine tombe).
+</p>
+<h1><span class="mw-headline" id="Pr.C3.A9ambule"><span class="mw-headline-number">2</span> Préambule</span></h1>
+<p>La configuration de tests se compose de deux machines modestes&#160;; twin1 et twin2.
+</p><p>Le cluster sera accessible au travers de l'adresse 192.168.252.205.
+</p>
+<h2><span class="mw-headline" id="Twin_1"><span class="mw-headline-number">2.1</span> Twin 1</span></h2>
+<ul><li> Maître / Primaire</li>
+<li> Pentium 3 - 500 MHz - 128Mo RAM</li>
+<li> Installation neuve de Debian en mode minimaliste</li>
+<li> Mise à niveau de l'image vers 2.6.18-4-686 (au lieu de 386)</li>
+<li> IP&#160;: 192.168.252.200</li>
+<li> Hostname&#160;: twin1</li>
+<li> Disque de 13.5Go partagé en 5 partitions (/ de 4.5Go, /srv/prod de 3Go, /srv/intern de 3Go, /srv/other de 2Go et swap de 1Go)</li></ul>
+<h2><span class="mw-headline" id="Twin_2"><span class="mw-headline-number">2.2</span> Twin 2</span></h2>
+<ul><li> Esclave / Secondaire</li>
+<li> Pentium 3 - 700 MHz - 128Mo RAM</li>
+<li> Installation neuve de Debian Stable en mode minimaliste</li>
+<li> Mise à niveau de l'image vers 2.6.18-4-686 (au lieu de 386)</li>
+<li> IP&#160;: 192.168.252.201</li>
+<li> Hostname&#160;: twin2</li>
+<li> Disque de 10Go partagé en 4 partitions (/ de 3Go, /srv/prod de 3Go, /srv/intern de 3Go et swap de 1Go)</li></ul>
+<h1><span class="mw-headline" id="Etats_des_machines"><span class="mw-headline-number">3</span> Etats des machines</span></h1>
+<p>Sur les deux machines, voici ce qui a été fait.
+</p>
+<ul><li> Installation CD d'installation Debian 4.0 et configuration réseau manuelle.</li>
+<li> Mise à jour de quelques paquets basiques via Internet.</li></ul>
+<pre>sudo apt-get update
+sudo apt-get dist-upgrade
+</pre>
+<ul><li> Mise à niveau du kernel pour profiter du Pentium 3 (pas nécessaire). Après la mise à niveau, un petit redémarrage pour prendre en compte le nouveau kernel.</li></ul>
+<pre>sudo apt-get install linux-image-2.6.18-686
+sudo reboot
+</pre>
+<h1><span class="mw-headline" id="Installation_d.27HeartBeat"><span class="mw-headline-number">4</span> Installation d'HeartBeat</span></h1>
+<p>HeartBeat s'installe très simplement sur une Debian. Le paquet se trouve dans les dépôts standards. Il vous suffit donc de lancer la commande suivante sur les deux machines (Twin 1 et Twin 2)&#160;:
+</p>
+<pre>sudo apt-get install heartbeat-2
+</pre>
+<p>Une fois le service installé, vous obtiendrez une erreur disant que le fichier de configuration ha.cf n'est pas présent. Ce qui est parfaitement normal.
+</p><p>Voyons à présent la configuration basique de HeartBeat.
+</p>
+<h1><span class="mw-headline" id="Configuration_basique"><span class="mw-headline-number">5</span> Configuration basique</span></h1>
+<p>La configuration d'HeartBeat repose sur 3 fichiers fondamentaux. Durant la configuration basique, je vais vous présenter une configuration minimaliste en vue de poursuivre un but&#160;:
+</p>
+<ul><li> fournir une base minimaliste que vous pourrez adapter à vos besoins au fil du temps.</li></ul>
+<p>Les trois fichiers de configuration sont strictement identiques sur les deux machines; chez vous, il convient donc de les copier sur chacune des machines du cluster. Dans notre exemple, il s'agit de Twin 1 et Twin 2.
+</p>
+<h2><span class="mw-headline" id="ha.cf"><span class="mw-headline-number">5.1</span> ha.cf</span></h2>
+<pre>sudo vi /etc/ha.d/ha.cf
+</pre>
+<p>Voici le fichier ha.cf que j'utilise sur Twin 1 et Twin 2&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">bcast         eth0
+&#160;
+debugfile     /var/log/ha-debug
+logfile       /var/log/ha-log
+logfacility   local0
+&#160;
+keepalive     2
+deadtime      10
+warntime      6
+initdead      60
+&#160;
+udpport       694
+node          twin1
+node          twin2
+&#160;
+auto_failback off
+&#160;
+apiauth         mgmtd   uid=root
+crm             on
+respawn         root    /usr/lib/heartbeat/mgmtd -v</pre></div></div>
+<p>Examinons ce fichier de configuration en détails&#160;:
+</p>
+<ul><li> bcast&#160;: indique l'interface réseau par laquelle on va effectuer la prise de pouls.</li>
+<li> debugfile&#160;: indique le fichier de déboguage à utiliser.</li>
+<li> logfile&#160;: indique le log d'activité à utiliser.</li>
+<li> logfacility&#160;: indique que l'on utilise la facilité syslog en plus.</li>
+<li> keepalive&#160;: indique le délai entre deux battements de pouls. Ce délai est donné par défaut en seconde; pour utiliser les millisecondes, on ajoute le suffixe ms.</li>
+<li> deadtime&#160;: indique le temps nécessaire avant de considérer un noeud comme étant mort. Ce temps est donné par défaut en seconde; pour utiliser les millisecondes, on ajoute le suffixe ms.</li>
+<li> warntime&#160;: indique le délai avant d'envoyer un avertissement pour les pouls en retard. Ce délai est donné par défaut en seconde; pour utiliser les millisecondes, on ajoute le suffixe ms.</li>
+<li> initdead&#160;: indique un deadtime spécifique pour les configurations où le réseau met un certain temps à démarrer. initdead est normalement deux fois plus grand que deadtime (au minimum). Ce délai est donné par défaut en seconde; pour utiliser les millisecondes, on ajoute le suffixe ms.</li>
+<li> udpport&#160;: indique le port à utiliser pour la prise de pouls.</li>
+<li> node&#160;: renseigne le nom des machines faisant partie du cluster. Ce nom doit être identique à celui retourné par la commande uname -n.</li>
+<li> auto_failback&#160;: indique le comportement à adopter si le node maître revient dans le cluster. Si on met la valeur on, lorsque le node maître revient dans le cluster, tout est transféré sur ce dernier. Si on met la valeur off, les services continuent à tourner sur l'esclave même lorsque le maître revient dans le cluster.</li>
+<li> apiauth&#160;: indique que l'uid root à le droit d'administrer à distance via le GUI (<b>celà implique aussi à ajouter root dans le group haresources</b>)</li>
+<li> crm&#160;: autorise les connexions distantes</li>
+<li> respawn&#160;: le binaire à lancer pour l'ouverture du port pour prise de la main à distance</li></ul>
+<p>Personnellement, je préfère la valeur off pour l'auto_failback pour pouvoir faire un retour à la normale manuellement lorsque la charge de production est moins importante. De plus, si le node maître souffre d'un grave problème, on pourrait avoir une boucle de démarrage/extinction qui entraînerait un relais des services de manière incessante. Ce qui peut devenir problématique.
+</p>
+<h2><span class="mw-headline" id="haresources"><span class="mw-headline-number">5.2</span> haresources</span></h2>
+<p>Maintenant, nous allons définir le node maître, l'adresse IP du cluster et les services devant être assurés. Dans un premier temps (configuration basique oblige), nous allons uniquement mettre en place l'adresse IP du cluster.
+</p><p>Pour configurer cet aspect de HeartBeat, nous éditons le fichier haresources par le biais de la commande suivante&#160;:
+</p>
+<pre>sudo vi /etc/ha.d/haresources
+</pre>
+<p><b>ATTENTION&#160;: le fichier de configuration des resources doit être STRICTEMENT identique sur chacun des noeuds.</b>
+</p><p>Dans notre exemple, le fichier de configuration des resources ressemble à ceci&#160;:
+</p>
+<pre>twin1 IPaddr::192.168.252.205
+</pre>
+<p>C'est à dire que nous définissons le node maître comme étant twin1 et que l'adresse IP du cluster est 192.168.252.205. Nous allons en rester là pour la configuration basique mais je vous invite à lire la section concernant la configuration avancée pour obtenir plus d'informations.
+</p>
+<h2><span class="mw-headline" id="authkeys"><span class="mw-headline-number">5.3</span> authkeys</span></h2>
+<p>Le fichier authkeys permet aux nodes de cluster de s'identifier mutuellement. Ce fichier s'édite via la commande suivante&#160;:
+</p>
+<pre> sudo vi /etc/ha.d/authkeys
+</pre>
+<p><b>ATTENTION&#160;: le fichier de configuration des clés d'authentification doit être STRICTEMENT identique sur chacun des noeuds.</b>
+</p><p>Dans notre exemple, le fichier authkeys ressemble à ceci&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">auth 2
+1 md5 &quot;cluster twin test&quot;
+2 crc</pre></div></div>
+<p>Le mot clé auth indique quel est le système d'identification que l'on va utiliser. Si le lien n'est pas sûr physiquement, il est nécessaire d'utiliser un chiffrement md5 avec une chaîne de clé plus intelligente que celle-ci.
+</p><p>Dans notre cas, il n'y a que les deux twins sur un petit réseau local et donc nous utilisons le système crc.
+</p><p>Une fois le fichier édité, n'oubliez pas de le protéger en introduisant la commande&#160;:
+</p>
+<pre>sudo chmod 600 /etc/ha.d/authkeys
+</pre>
+<h2><span class="mw-headline" id="Mise_en_route_et_premiers_essais"><span class="mw-headline-number">5.4</span> Mise en route et premiers essais</span></h2>
+<p>Avant de faire nos premiers essais, je vous suggère d'installer un serveur SSH sur chacun des serveurs. Cette page vous guidera pour l'installation du serveur SSH et l'utilisation du client SSH.
+</p><p>Vérifiez si les connexions SSH à chacun des nodes via leur adresse IP propre (192.168.252.200 et 192.168.252.201 dans notre exemple) fonctionnent. Si tel est le cas, nous pouvons faire un petit test.
+</p><p>Lancez le service HeartBeat sur le node maître; à savoir Twin 1 via la commande suivante&#160;:
+</p>
+<pre>sudo /etc/init.d/heartbeat start
+</pre>
+<p>Ensuite, à l'aide de la même commande, activez HeartBeat sur Twin 2.
+</p><p>Vous pouvez maintenant tenter une connexion SSH sur l'adresse du cluster; à savoir&#160;: 192.168.252.205 dans notre exemple. Une fois identifié, vous vous rendez compte que l'invite de ligne de commande vous dit que vous êtes sur twin1.
+</p><p>Maintenant, retirez fermement le cordon d'alimentation de Twin 1.
+</p><p>Votre console SSH va vous signaler une erreur (normal...&#160;;-) ).
+</p><p>Relancez une connexion SSH sur l'adresse du cluster; à savoir&#160;: 192.168.252.205 dans notre exemple. Le service répond&#160;! Or, Twin 1 est arrêté. Une fois identifié, vous vous rendez comtpe que l'invite de ligne de commande indique&#160;:
+</p>
+<pre>deimos@twin2:~$
+</pre>
+<p>Tout fonctionne. Maintenant, imaginons que Twin 1 revienne dans le cluster (remettez la prise de courant de Twin 1).
+</p><p>Le cluster tourne toujours sur Twin 2. Pour forcer le basculement sur Twin 1 (vu que l'on est en mode auto_failback off), on entre la commande suivante sur Twin 2&#160;:
+</p>
+<pre>sudo /etc/init.d/heartbeat restart
+</pre>
+<p>Et Twin 1 reprend automatiquement le relais.
+</p>
+<h1><span class="mw-headline" id="Configuration_plus_pouss.C3.A9e"><span class="mw-headline-number">6</span> Configuration plus poussée</span></h1>
+<p>La ligne de configuration du fichier /etc/ha.d/haresources telle que définie ci-dessus indique uniquement que le node maître est Twin 1 et que l'adresse IP du cluster est 192.168.252.205. Selon cette configuration, HeartBeat fait le minimum, aucun script ou service n'est lancé ou arrêté sur les différents nodes composant le cluster.
+</p><p>Voyons comment on peut configurer avec plus de finesse le fichier haresources pour certains besoins spécifiques.
+</p>
+<h2><span class="mw-headline" id="Octroyer_plusieurs_adresses_IP_pour_le_cluster"><span class="mw-headline-number">6.1</span> Octroyer plusieurs adresses IP pour le cluster</span></h2>
+<p>Nous avons écrit une ligne de ce type lors de la configuration de base&#160;:
+</p>
+<pre>twin1 IPaddr::192.168.252.205
+</pre>
+<p>Ce qui signifie que l'on assigne au cluster l'adresse IP 192.168.252.205. Cependant, on peut imaginer avoir besoin de plus d'une adresse IP pour accéder au cluster. C'est-à-dire que l'on a plusieurs points d'entrée vers le cluster et que chaque point d'entrée (adresse IP) permettra d'accéder au cluster.
+</p><p>Pour ce faire, nous configurons simplement les nodes avec le fichier /etc/ha.d/haresources suivant&#160;:
+</p>
+<pre>twin1 IPaddr::192.168.252.205 IPaddr::192.168.252.206
+</pre>
+<p>Et vous pouvez assigner autant d'adresse IP supplémentaires que l'on désire.
+</p>
+<h2><span class="mw-headline" id="Sp.C3.A9cifier_les_actions_.C3.A0_effectuer"><span class="mw-headline-number">6.2</span> Spécifier les actions à effectuer</span></h2>
+<p>Une fois la configuration basique établie, c'est le node maître (si tout se passe bien) qui fournit les services pour l'extérieur. Si tous vos noeuds sont configurés de manière exactement identique et font tourner les mêmes services en permanence, cela ne pose aucun problème.
+</p><p>Si l'on veut être plus fin dans la configuration des nodes, on indique également les actions à entreprendre dans le cluster lorsqu'un node tombe. Cet aspect est primordial si certains services doivent accéder à des ressources exclusives (c'est-à-dire qu'un seul noeud à la fois peut utiliser une ressource particulière). C'est le cas des disques mirrorés via le réseau (voir RAID-1 over IP) où un seul node peut accéder au disque mirroré en lecture-écriture.
+</p><p>Pour palier ce genre de problème, on peut spécifier des actions à entreprendre en complétant le fichier /etc/ha.d/haresources. Pour spécifier ces actions, on utilise des scripts du style de l'Init System V (ou des scripts supplémentaire de HeartBeat ou encore des scripts fait-maison) pour indiquer ce que le cluster doit faire en cas de basculement d'un node vers un autre.
+</p><p>Prenons un exemple simple (mais non intéressant&#160;;-))&#160;: le service ssh. Le script Init de ce service se trouve dans /etc/init.d/ (ainsi que beaucoup d'autres; apache, inetd, rsync,...). Nous configurons le fichier /etc/ha.d/haresources (sur chacun des noeuds, ne l'oubliez pas&#160;!) de la manière suivante&#160;:
+</p>
+<pre>twin1 IPaddr::192.168.252.205 ssh
+</pre>
+<p>Cette ligne indique à HeartBeat les informations suivantes&#160;:
+</p>
+<ul><li> Le node maître est twin1.</li>
+<li> L'adresse IP du cluster est 192.168.252.205.</li>
+<li> Les actions à entreprendre en cas de basculement sont&#160;: ssh.</li></ul>
+<p>Voyons en détail ce que signifie Les actions à entreprendre sont....
+</p><p>Les scripts utilisés par HeartBeat doivent répondre à 3 commandes&#160;: start, stop et status. Ces commandes sont appelées dans les cas suivants&#160;:
+</p>
+<ul><li> start&#160;: appelé sur le node sur lequel le cluster vient de basculer.</li>
+<li> stop&#160;: appelé sur le node qui vient de tomber.</li></ul>
+<p>Donc, imaginons que ce soit Twin 1 qui répond aux requêtes adressées au cluster. Si Twin 1 tombe, HeartBeat exécutes ssh stop sur ce dernier (si c'est possible évidemment) ensuite, HeartBeat bascule l'IP sur Twin 2 et exécute ssh start sur ce dernier.
+</p><p>Dans le cas ssh, cela n'a pas beaucoup d'intérêt mais pour le montage des systèmes de fichiers ou pour simplement envoyer des emails, c'est indispensable.
+</p><p>L'ordre de recherches des scripts est le suivant&#160;:
+</p>
+<ul><li> /etc/ha.d/resource.d/&#160;: qui est installé par défaut et contient un certain nombre de script intéressants.</li>
+<li> /etc/init.d/&#160;: qui est le répertoire d'usage pour le système d'Init System V.</li></ul>
+<p>Vous pouvez ajouter des scripts personnels dans /etc/ha.d/resource.d/ mais n'oubliez pas qu'ils doivent être capables de répondre aux commandes start, stop et status.
+</p><p>N'hésitez pas à regarder les quelques scripts se trouvant dans /etc/ha.d/resource.d pour vous en inspirer et savoir comment ils fonctionnent (syntaxiquement parlant).
+</p>
+<h1><span class="mw-headline" id="Consid.C3.A9rations_pratiques"><span class="mw-headline-number">7</span> Considérations pratiques</span></h1>
+<h2><span class="mw-headline" id="Concernant_la_liaison_r.C3.A9seau"><span class="mw-headline-number">7.1</span> Concernant la liaison réseau</span></h2>
+<p>La solution décrite ci-dessus utilise la bande passante du réseau de manière intensive. Toutes les deux secondes (ou plus fréquemment encore suivant la configuration), chaque node va envoyer un paquet UDP sur chacun des autres nodes. En plus de cela, chaque node répondra à chacun des paquets envoyés. Je vous laisse imaginer le nombre de paquets transitant sur le réseau.
+</p><p>L'idéal est d'avoir des machines avec plusieurs cartes réseaux. Par exemple, nous pouvons utiliser deux cartes réseaux&#160;: une carte réseau pour les prises de pouls et une carte réseau pour les services.
+</p><p>Si votre cluster ne se compose que de deux noeuds, alors, il vaut mieux utiliser un câble croisé entre les deux machines afin de ne pas surcharger le réseau de production.
+</p><p>Quoiqu'il en soit, je vous conseille d'utiliser un réseau dédié à la prise de pouls et au basculement des services. Dans le cas contraire, vous allez au devant d'une surcharge de votre réseau de production et les performances vont légèrement chuter.
+</p>
+<h2><span class="mw-headline" id="Concernant_une_liaison_s.C3.A9rie_compl.C3.A9mentaire"><span class="mw-headline-number">7.2</span> Concernant une liaison série complémentaire</span></h2>
+<p>Vous pouvez, en plus de la prise de pouls UDP, effectuer une prise de pouls directe via un câble série null modem qui connecte les deux machines. Cette prise de pouls est un complément efficace au réseau dans le cas où une interface réseau viendrait à tomber.
+</p><p>Pour utiliser cette liaison série supplémentaire, vous devez introduire les deux lignes suivantes dans le fichier /etc/ha.d/ha.cf (juste après la ligne bcast eth0)&#160;:
+</p>
+<pre>baud     19200
+serial   /dev/ttyS0
+</pre>
+<p>Je n'irai pas plus loin concernant les liaisons séries car je n'ai pas eu l'occasion de les expérimenter.
+Lors d'un changement de configuration...
+</p><p>Lors d'un changement de configuration du cluster (les 3 fichiers de configuration de HeartBeat), vous devez forcer les processus heartbeat à relire les fichiers de configuration. Veillez toujours à avoir des fichiers de configurations identiques sur les différents noeuds de vos serveurs, sans quoi, le clustering ne fonctionnerait pas.
+</p><p>Pour forcer la relecture des fichiers de configuration, vous entrez la commande suivante sur chaque node du cluster en terminant par le node qui a le contrôle (normalement, le node maître sauf si vous êtes en situation catastrophe). Préparer les consoles et les commandes à l'avance pour que le temps durant lequel les noeuds ont des configurations différentes soit le plus court possible&#160;!&#160;:
+</p>
+<pre>sudo /etc/init.d/heartbeat reload
+</pre>
+<p>Le solution la plus sûre étant de stopper tous les heartbeats, d'appliquer les modifications et de les relancer; mais parfois, les environnements de production ne permettent pas ce genre de chose.
+</p>
+<h2><span class="mw-headline" id="Plusieurs_clusters_sur_un_m.C3.AAme_r.C3.A9seau"><span class="mw-headline-number">7.3</span> Plusieurs clusters sur un même réseau</span></h2>
+<p>Récemment, j'ai ajouté un cluster supplémentaire sur un réseau dans lequel il y avait déjà un cluster. Cela a posé quelques problèmes (rien de grave, juste des logs gigantesques).
+</p><p>En fait, les noeuds du second cluster recevaient les paquets heartbeat broadcast et ne savaient pas les interprêter. Un message de warning dans la log de heartbeat donnait quelque chose ressemblant à ceci&#160;:
+</p>
+<pre>Aug  8 06:28:54 nodeprod1 heartbeat[6743]: ERROR: process_status_message: bad node [nodearch2] in message
+Aug  8 06:28:54 nodeprod1 heartbeat[6743]: info: MSG: Dumping message with 9 fields
+[...]
+</pre>
+<p>En fait, les noeuds s'envoiaient des messages en broadcast les uns aux autres sans savoir quoi en faire. Pour résoudre ce problème, il fallait supprimer le broadcast et utiliser soit l'unicast, soit le multicast.
+</p><p>Pour ce faire, il vous suffit de modifier le fichier /etc/ha.d/ha.cf et mettre en commentaire la ligne bcast &lt;interface&gt;. Ensuite, suivant le nombre de noeud de votre cluster (si vous n'avez que deux noeuds, l'unicast est suffisant) vous modifier la configuration.
+</p><p>Pour une configuration en unicast (toujours en suivant l'exemple ci-dessus) sur Twin1, on ajoute la ligne&#160;:
+</p>
+<pre>ucast eth1 192.168.252.201
+</pre>
+<p>Et pour Twin2, on ajoute la ligne&#160;:
+</p>
+<pre>ucast eth1 192.168.252.200
+</pre>
+<p>Pour une configuration en multicast (plus facile pour maintenir les fichiers identiques ou si il y a plus de deux noeuds), on ajoute la ligne suivante (sur les deux noeuds)&#160;:
+</p>
+<pre>mcast eth1 225.0.0.1 694 1 0
+mcast &lt;interface&gt; &lt;groupe multicast&gt; &lt;udp port&gt; &lt;ttl&gt; 0
+</pre>
+<p>Le groupe multicast est une adresse que vous choisissez compise entre 224.0.0.0 - 239.255.255.255 par laquelle vos noeuds vont communiquer. Prenez garde à ne pas avoir d'autres systèmes utilisant ce groupe multicast. Le ttl indique le nombre de saut de réseau que le paquet peut effectuer (de 1 à 255). En général, les noeuds sont sur le même réseau et une valeur de 1 est parfaite.
+</p><p>Le zéro qui termine la ligne est un bug dans heartbeat&#160;;-).
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">8</span> Ressources</span></h1>
+<p><a href="./File:Cluster_Haute_DisponibilitÃ©_avec_Equilibrage_de_charge.pdf.html" title="File:Cluster Haute DisponibilitÃ© avec Equilibrage de charge.pdf">Cluster Haute Disponibilité avec Equilibrage de charge</a><br />
+<a href="./File:VM_Replication_Failover_Debian.pdf.html" title="File:VM Replication Failover Debian.pdf">Documentation Vmware replication on Debian</a><br />
+<a href="./File:High_Availability_Cluster_Heartbeat_centos.pdf.html" title="File:High Availability Cluster Heartbeat centos.pdf">Documentation on HA on Cent OS</a><br />
+<a href="./File:Setting_Up_A_High-Availability_Load_Balancer_(With_Failover_and_Session_Support)_With_HAProxy-Heartbeat.pdf.html" title="File:Setting Up A High-Availability Load Balancer (With Failover and Session Support) With HAProxy-Heartbeat.pdf">Documentation on HA Load Balancer (With Failover and Session Support) With HAProxy/Heartbeat</a><br />
+<a href="./File:How_To_Set_Up_A_Loadbalanced_High-Availability_Apache_Cluster_Based_On_Ubuntu.pdf.html" title="File:How To Set Up A Loadbalanced High-Availability Apache Cluster Based On Ubuntu.pdf">How To Set Up A Loadbalanced High-Availability Apache Cluster Based On Ubuntu</a><br />
+<a href="./File:Openldap_multimasters.pdf.html" title="File:Openldap multimasters.pdf">Mise en place d'un OpenLDAP multimaitre</a><br />
+<a href="./File:The_Perfect_Load-Balanced_High-Availability_Web_Cluster_With_2_Servers_Running_Xen_On_Ubuntu_8_04_Hardy_Heron.pdf.html" title="File:The Perfect Load-Balanced High-Availability Web Cluster With 2 Servers Running Xen On Ubuntu 8 04 Hardy Heron.pdf">The Perfect Load-Balanced High-Availability Web Cluster With 2 Servers Running Xen On Ubuntu</a><br />
+<a href="images/4/43/Setting_Up_A_High-Availability_Load_Balancer_(With_Failover_and_Session_Support)_With_Perlbal_Heartbeat_On_Debian_Etch.pdf" class="internal" title="Setting Up A High-Availability Load Balancer (With Failover and Session Support) With Perlbal Heartbeat On Debian Etch.pdf">Setting Up A High-Availability Load Balancer (With Failover and Session Support) With Perlbal Heartbeat On Debian</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.019 seconds
+Preprocessor visited node count: 99/1000000
+Preprocessor generated node count: 134/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1907-0!*!*!1!en!*!* and timestamp 20181111230709 and revision id 7352
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V1&amp;oldid=7352">https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V1&amp;oldid=7352</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Installation+et+configuration+d%27un+cluster+Heartbeat+V1" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V1&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V1&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Installation_et_configuration_d'un_cluster_Heartbeat_V1.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Installation_et_configuration_d'un_cluster_Heartbeat_V1.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Installation_et_configuration_d%27un_cluster_Heartbeat_V1" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V1&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V1&amp;oldid=7352" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Installation_et_configuration_d%27un_cluster_Heartbeat_V1&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 18 February 2009, at 18:31.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

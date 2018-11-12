@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>ElasticSearch: powerful search and analytics engine - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./ElasticSearch:_powerful_search_and_analytics_engine.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"ElasticSearch:_powerful_search_and_analytics_engine","wgTitle":"ElasticSearch: powerful search and analytics engine","wgCurRevisionId":13425,"wgRevisionId":13425,"wgArticleId":3711,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"ElasticSearch:_powerful_search_and_analytics_engine","wgRelevantArticleId":3711,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-javascript {line-height: normal;}
+.source-javascript li, .source-javascript pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for javascript
+ * CSS class: source-javascript, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.javascript.source-javascript .de1, .javascript.source-javascript .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.javascript.source-javascript  {font-family:monospace;}
+.javascript.source-javascript .imp {font-weight: bold; color: red;}
+.javascript.source-javascript li, .javascript.source-javascript .li1 {font-weight: normal; vertical-align:top;}
+.javascript.source-javascript .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.javascript.source-javascript .li2 {font-weight: bold; vertical-align:top;}
+.javascript.source-javascript .kw1 {color: #000066; font-weight: bold;}
+.javascript.source-javascript .kw2 {color: #003366; font-weight: bold;}
+.javascript.source-javascript .kw3 {color: #000066;}
+.javascript.source-javascript .kw5 {color: #FF0000;}
+.javascript.source-javascript .co1 {color: #006600; font-style: italic;}
+.javascript.source-javascript .co2 {color: #009966; font-style: italic;}
+.javascript.source-javascript .coMULTI {color: #006600; font-style: italic;}
+.javascript.source-javascript .es0 {color: #000099; font-weight: bold;}
+.javascript.source-javascript .br0 {color: #009900;}
+.javascript.source-javascript .sy0 {color: #339933;}
+.javascript.source-javascript .st0 {color: #3366CC;}
+.javascript.source-javascript .nu0 {color: #CC0000;}
+.javascript.source-javascript .me1 {color: #660066;}
+.javascript.source-javascript .ln-xtra, .javascript.source-javascript li.ln-xtra, .javascript.source-javascript div.ln-xtra {background-color: #ffc;}
+.javascript.source-javascript span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-ElasticSearch_powerful_search_and_analytics_engine skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">ElasticSearch: powerful search and analytics engine</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#mw-navigation">navigation</a>, 					<a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Basics_concepts"><span class="tocnumber">2</span> <span class="toctext">Basics concepts</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Input_data"><span class="tocnumber">2.1</span> <span class="toctext">Input data</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Index"><span class="tocnumber">2.2</span> <span class="toctext">Index</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Architecture"><span class="tocnumber">2.3</span> <span class="toctext">Architecture</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Configuration"><span class="tocnumber">4</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#File_descriptors"><span class="tocnumber">4.1</span> <span class="toctext">File descriptors</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#JVM"><span class="tocnumber">4.2</span> <span class="toctext">JVM</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Cluster"><span class="tocnumber">4.3</span> <span class="toctext">Cluster</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Dynamic_scripting"><span class="tocnumber">4.4</span> <span class="toctext">Dynamic scripting</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Administration"><span class="tocnumber">5</span> <span class="toctext">Administration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Check_health"><span class="tocnumber">5.1</span> <span class="toctext">Check health</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Get_nodes_informations"><span class="tocnumber">5.2</span> <span class="toctext">Get nodes informations</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Shutdown_a_node"><span class="tocnumber">5.3</span> <span class="toctext">Shutdown a node</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Shutdown_the_cluster"><span class="tocnumber">5.4</span> <span class="toctext">Shutdown the cluster</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Usage"><span class="tocnumber">6</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Create_a_new_entry"><span class="tocnumber">6.1</span> <span class="toctext">Create a new entry</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Get_a_document"><span class="tocnumber">6.2</span> <span class="toctext">Get a document</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Update_a_document"><span class="tocnumber">6.3</span> <span class="toctext">Update a document</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#Remove_a_document_or_it.27s_content"><span class="tocnumber">6.4</span> <span class="toctext">Remove a document or it's content</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Elasticsearch_logo.png.html" class="image" title="Elastic Search"><img alt="Elastic Search" src="images/f/f4/Elasticsearch_logo.png" width="220" height="58" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>1.3</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://www.elasticsearch.org/">ElasticSearch Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>12/08/2014</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Elasticsearch<sup id="cite_ref-1" class="reference"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#cite_note-1">[1]</a></sup> is a flexible and powerful open source, distributed, real-time search and analytics engine. Architected from the ground up for use in distributed environments where reliability and scalability are must haves, Elasticsearch gives you the ability to move easily beyond simple full-text search. Through its robust set of APIs and query DSLs, plus clients for the most popular programming languages, Elasticsearch delivers on the near limitless promises of search technology.
+</p>
+<h1><span class="mw-headline" id="Basics_concepts"><span class="mw-headline-number">2</span> Basics concepts</span></h1>
+<p>Here are a some Lucene informations that you need to know:
+</p>
+<ul><li> All the information of the structures are called inverted index.</li>
+<li> You can't modify, only delete then insert.</li>
+<li> Deletes (like on MariaDB XtraDB called "optimize") creates fragmentation. To merge data this process is called <b>segment merge</b>.</li></ul>
+<h2><span class="mw-headline" id="Input_data"><span class="mw-headline-number">2.1</span> Input data</span></h2>
+<p>Data analysis is made by the <b>analyser</b> which is built of a tokenizer and zero or more token filters, and it can also have zero or more character mappers. A <b>tokenizer</b> in Lucene is used to split the text into tokens and is built of zero or more token filters.
+</p><p>Filters are processed sequentially. The character mappers are used before the tokenizer. For example you can remove HTML tags with it.
+</p>
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>Remove all unnecessary fields like html tags to avoid mistaken scoring
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Index"><span class="mw-headline-number">2.2</span> Index</span></h2>
+<p>A query may be not analyzed (you can decide). For example, the prfix and the term queries are not analyzed while the match query is!
+In ElasticSearch, an index is like a table in MariaDB. Data is <b>stored in JSON format</b> called a "document".
+</p>
+<h2><span class="mw-headline" id="Architecture"><span class="mw-headline-number">2.3</span> Architecture</span></h2>
+<p>ElasticSearch knows how to work in standalone mode or is able to work in cluster. <b>Cluster implies Sharding + Replication:</b>
+<a href="./File:Es-cluster.png.html" class="image"><img alt="Es-cluster.png" src="images/e/e8/Es-cluster.png" width="920" height="391" /></a>
+</p><p>When you send a new document to the cluster, you specify a target index and send it to one node (any of available nodes). In cluster mode, ElasticSearch gateways forwards their data to the primary node. In a cluster, there is only one writing node that can switch to another node if this one falls down.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">3</span> Installation</span></h1>
+<p>To install ElasticSearch, you can take the last stable version available on the official repository. First of all install the repository key:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cd /tmp
+wget -O - http://packages.elasticsearch.org/GPG-KEY-elasticsearch | apt-key add -</pre></div></div>
+</td></tr></table><br />
+<p>Add the repository file:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">deb http://packages.elasticsearch.org/elasticsearch/1.3/debian stable main</pre></div></div>
+</td></tr></table><br />
+<p>Now install elasticsearch with the dependancies:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install elasticsearch openjdk-7-jre-headless openntpd</pre></div></div>
+</td></tr></table><br />
+<p>To finish configure the init file:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> update-rc.d</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">update-rc.d elasticsearch defaults 95 10</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">4</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="File_descriptors"><span class="mw-headline-number">4.1</span> File descriptors</span></h2>
+<p>To avoid reaching maximum file descriptor, you have to update the limits.conf file with those settings:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/security/limits.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">    elasticsearch soft nofile 32000
+    elasticsearch hard nofile 32000</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="JVM"><span class="mw-headline-number">4.2</span> JVM</span></h2>
+<p>Regarding the JVM parameters, it's recommended to use 1G (XMX) for small deployments. Check out your logs to see indications about OutOfMemoryError exceptions 'ES_HEAP_SIZE' variable size.
+</p>
+<table width="100%" class="notes_array">
+<tr>
+<td class="notes_subarray"> <font size="-1"><a href="./File:Notes_file.png.html" class="image" title="Notes"><img alt="Notes" src="images/2/20/Notes_file.png" width="31" height="32" /></a> Notes</font>
+</td></tr>
+<tr>
+<td>
+<p>You should avoid to allocate 50% of your total system memory to the JVM.
+</p>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Cluster"><span class="mw-headline-number">4.3</span> Cluster</span></h2>
+<p>Depending on the configuration you want to have (single or cluster), you have to edit 2 values in the default configuration file:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/elasticsearch/elasticsearch.yml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">cluster.name: elasticsearch
+node.name: &quot;Node 1&quot;</pre></div></div>
+</td></tr></table><br />
+<ul><li> cluster.name: set it if you want your server to join a cluster.</li>
+<li> node.name: set a hostname. If not set, it will take the server hostname.</li></ul>
+<h2><span class="mw-headline" id="Dynamic_scripting"><span class="mw-headline-number">4.4</span> Dynamic scripting</span></h2>
+<p>You may want to enable dynamic scripting<sup id="cite_ref-2" class="reference"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#cite_note-2">[2]</a></sup> to do advanced query in cli. To enable it, add it in the configuration:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/elasticsearch/elasticsearch.yml</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">script.disable_dynamic: false</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Administration"><span class="mw-headline-number">5</span> Administration</span></h1>
+<h2><span class="mw-headline" id="Check_health"><span class="mw-headline-number">5.1</span> Check health</span></h2>
+<p>You can check your cluster health like this:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XGET http<span class="sy0">:</span><span class="co1">//127.0.0.1:9200/_cluster/health?pretty</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;cluster_name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;elasticsearch&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;status&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;green&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;timed_out&quot;</span> <span class="sy0">:</span> <span class="kw2">false</span><span class="sy0">,</span>
+  <span class="st0">&quot;number_of_nodes&quot;</span> <span class="sy0">:</span> <span class="nu0">3</span><span class="sy0">,</span>
+  <span class="st0">&quot;number_of_data_nodes&quot;</span> <span class="sy0">:</span> <span class="nu0">3</span><span class="sy0">,</span>
+  <span class="st0">&quot;active_primary_shards&quot;</span> <span class="sy0">:</span> <span class="nu0">5</span><span class="sy0">,</span>
+  <span class="st0">&quot;active_shards&quot;</span> <span class="sy0">:</span> <span class="nu0">10</span><span class="sy0">,</span>
+  <span class="st0">&quot;relocating_shards&quot;</span> <span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">,</span>
+  <span class="st0">&quot;initializing_shards&quot;</span> <span class="sy0">:</span> <span class="nu0">0</span><span class="sy0">,</span>
+  <span class="st0">&quot;unassigned_shards&quot;</span> <span class="sy0">:</span> <span class="nu0">0</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Get_nodes_informations"><span class="mw-headline-number">5.2</span> Get nodes informations</span></h2>
+<p>To get informations regarding nodes, you can use 'cat':
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="re5">-XGET</span> <span class="st0">&quot;http://127.0.0.1:9200/_cat/nodes?v&amp;h=name,id,ip,port,v,m&quot;</span>
+name  <span class="kw2">id</span>   <span class="kw2">ip</span>            port v     m 
+node1 YbCv 192.168.33.31 <span class="nu0">9300</span> 1.2.2 m 
+node2 kXy7 192.168.33.32 <span class="nu0">9300</span> 1.2.2 m 
+node3 VNK9 192.168.33.33 <span class="nu0">9300</span> 1.2.2 <span class="sy0">*</span></pre></div></div>
+</td></tr></table><br />
+<p>The interesting things here are the master node (last column defined by '*').
+</p><p>Or you can use this:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XGET <span class="st0">&quot;http://127.0.0.1:9200/_nodes/process?pretty&quot;</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;cluster_name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;elasticsearch&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;nodes&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+    <span class="st0">&quot;c8AX1atwQ6C2hl13_S0r4g&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+      <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node3&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;transport_address&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;inet[/192.168.33.33:9300]&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;host&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node3&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;ip&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;192.168.33.33&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;version&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1.2.2&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;build&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;9902f08&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;http_address&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;inet[/192.168.33.33:9200]&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;process&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+        <span class="st0">&quot;refresh_interval_in_millis&quot;</span> <span class="sy0">:</span> <span class="nu0">1000</span><span class="sy0">,</span>
+        <span class="st0">&quot;id&quot;</span> <span class="sy0">:</span> <span class="nu0">3457</span><span class="sy0">,</span>
+        <span class="st0">&quot;max_file_descriptors&quot;</span> <span class="sy0">:</span> <span class="nu0">65535</span><span class="sy0">,</span>
+        <span class="st0">&quot;mlockall&quot;</span> <span class="sy0">:</span> <span class="kw2">false</span>
+      <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="st0">&quot;pmsqiKGHRMGEo3iWaxv3Gw&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+      <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node1&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;transport_address&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;inet[/192.168.33.31:9300]&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;host&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node1&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;ip&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;192.168.33.31&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;version&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1.2.2&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;build&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;9902f08&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;http_address&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;inet[/192.168.33.31:9200]&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;process&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+        <span class="st0">&quot;refresh_interval_in_millis&quot;</span> <span class="sy0">:</span> <span class="nu0">1000</span><span class="sy0">,</span>
+        <span class="st0">&quot;id&quot;</span> <span class="sy0">:</span> <span class="nu0">3480</span><span class="sy0">,</span>
+        <span class="st0">&quot;max_file_descriptors&quot;</span> <span class="sy0">:</span> <span class="nu0">65535</span><span class="sy0">,</span>
+        <span class="st0">&quot;mlockall&quot;</span> <span class="sy0">:</span> <span class="kw2">false</span>
+      <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="st0">&quot;xVXb40pgRNKdd9G6u8-7Uw&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+      <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node2&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;transport_address&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;inet[/192.168.33.32:9300]&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;host&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node2&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;ip&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;192.168.33.32&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;version&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1.2.2&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;build&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;9902f08&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;http_address&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;inet[/192.168.33.32:9200]&quot;</span><span class="sy0">,</span>
+      <span class="st0">&quot;process&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+        <span class="st0">&quot;refresh_interval_in_millis&quot;</span> <span class="sy0">:</span> <span class="nu0">1000</span><span class="sy0">,</span>
+        <span class="st0">&quot;id&quot;</span> <span class="sy0">:</span> <span class="nu0">3886</span><span class="sy0">,</span>
+        <span class="st0">&quot;max_file_descriptors&quot;</span> <span class="sy0">:</span> <span class="nu0">65535</span><span class="sy0">,</span>
+        <span class="st0">&quot;mlockall&quot;</span> <span class="sy0">:</span> <span class="kw2">false</span>
+      <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>To get more information and options, look at the official documentation<sup id="cite_ref-3" class="reference"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#cite_note-3">[3]</a></sup>.
+</p>
+<h2><span class="mw-headline" id="Shutdown_a_node"><span class="mw-headline-number">5.3</span> Shutdown a node</span></h2>
+<p>To shutdown a specific node, use that curl command and replace the nodeid with the desired id number:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XPOST http<span class="sy0">:</span><span class="co1">//127.0.0.1:9200/_cluster/nodes/&lt;nodeid&gt;/_shutdown?pretty</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;cluster_name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;elasticsearch&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;nodes&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+    <span class="st0">&quot;zfnG3AKMShad0Ti9qgchFQ&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+      <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node2&quot;</span>
+    <span class="br0">&#125;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Shutdown_the_cluster"><span class="mw-headline-number">5.4</span> Shutdown the cluster</span></h2>
+<p>If you want to shutdown the whole cluster at once:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XPOST http<span class="sy0">:</span><span class="co1">//127.0.0.1:9200/_cluster/nodes/_shutdown?pretty</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;cluster_name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;elasticsearch&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;nodes&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+    <span class="st0">&quot;FKCjz60DRgWCat7WE9NkBQ&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+      <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node3&quot;</span>
+    <span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="st0">&quot;IfQBC4VrRICLyO5pNsohHA&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+      <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node1&quot;</span>
+    <span class="br0">&#125;</span><span class="sy0">,</span>
+    <span class="st0">&quot;kzlYH_8rRBmWXCdZIjYrlQ&quot;</span> <span class="sy0">:</span> <span class="br0">&#123;</span>
+      <span class="st0">&quot;name&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;node2&quot;</span>
+    <span class="br0">&#125;</span>
+  <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Usage"><span class="mw-headline-number">6</span> Usage</span></h1>
+<h2><span class="mw-headline" id="Create_a_new_entry"><span class="mw-headline-number">6.1</span> Create a new entry</span></h2>
+<p>To create a new entry with it's automated index, you simply needs to insert like this:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XPUT http<span class="sy0">:</span><span class="co1">//localhost:9200/vehicule/moto/1?pretty -d '{&quot;vendor&quot;: &quot;Kawazaki&quot;, &quot;model&quot;: &quot;Z1000&quot;, &quot;tags&quot;: [&quot;sports&quot;, &quot;roadster&quot;] }'</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">1</span><span class="sy0">,</span>
+  <span class="st0">&quot;created&quot;</span> <span class="sy0">:</span> <span class="kw2">true</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>If everything was fine, you should have "created" value to true. Each time there will be an update on the document, the version will automatically increase. If you do not specify the id, it will automatically be generated:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XPOST http<span class="sy0">:</span><span class="co1">//localhost:9200/vehicule/moto/?pretty -d '{&quot;vendor&quot;: &quot;Kawazaki&quot;, &quot;model&quot;: &quot;Z1000&quot;, &quot;tags&quot;: [&quot;sports&quot;, &quot;roadster&quot;] }'</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;q1mSSqHbSqCuOHLdUGVLYQ&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">1</span><span class="sy0">,</span>
+  <span class="st0">&quot;created&quot;</span> <span class="sy0">:</span> <span class="kw2">true</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Get_a_document"><span class="mw-headline-number">6.2</span> Get a document</span></h2>
+<p>To get a document (an entry), this is simple:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XGET http<span class="sy0">:</span><span class="co1">//localhost:9200/vehicule/moto/1?pretty</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">1</span><span class="sy0">,</span>
+  <span class="st0">&quot;found&quot;</span> <span class="sy0">:</span> <span class="kw2">true</span><span class="sy0">,</span>
+  <span class="st0">&quot;_source&quot;</span><span class="sy0">:</span><span class="br0">&#123;</span><span class="st0">&quot;vendor&quot;</span><span class="sy0">:</span> <span class="st0">&quot;Kawazaki&quot;</span><span class="sy0">,</span> <span class="st0">&quot;model&quot;</span><span class="sy0">:</span> <span class="st0">&quot;Z1000&quot;</span><span class="sy0">,</span> <span class="st0">&quot;tags&quot;</span><span class="sy0">:</span> <span class="br0">&#91;</span><span class="st0">&quot;sports&quot;</span><span class="sy0">,</span> <span class="st0">&quot;roadster&quot;</span><span class="br0">&#93;</span> <span class="br0">&#125;</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>You only have to know the id. If a document is not found:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XGET http<span class="sy0">:</span><span class="co1">//localhost:9200/vehicule/moto/4?pretty</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;4&quot;</span><span class="sy0">,</span>
+<span class="xtra ln-xtra">  <span class="st0">&quot;found&quot;</span> <span class="sy0">:</span> <span class="kw2">false</span></span><span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>You'll get found value set to false
+</p>
+<h2><span class="mw-headline" id="Update_a_document"><span class="mw-headline-number">6.3</span> Update a document</span></h2>
+<p>Lucene doesn't know how to update a document. So when you'll ask to ElasticSearch to update a document, you will in fact delete the current and create a new one. To modify a document (here the model value), you can do it like that:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XPOST http<span class="sy0">:</span><span class="co1">//localhost:9200/vehicule/moto/1/_update?pretty -d '{&quot;script&quot;: &quot;ctx._source.model = \&quot;Z800\&quot;&quot;}'</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">2</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>As you can see the version number has been incremented.
+</p><p>To add a new field to a current document:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1">curl <span class="sy0">-</span>XPOST <span class="st0">'localhost:9200/vehicule/moto/1/_update?pretty'</span> <span class="sy0">-</span>d <span class="st0">'{
+&gt;     &quot;script&quot;&#160;: &quot;ctx._source.power = <span class="es0">\&quot;</span>139cv<span class="es0">\&quot;</span>&quot;
+&gt; }'</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">11</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>If you want to add a tag in the current tag list of a document:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XPOST <span class="st0">'localhost:9200/vehicule/moto/1/_update?pretty'</span> <span class="sy0">-</span>d <span class="st0">'{
+    &quot;script&quot;&#160;: &quot;ctx._source.tags += tag&quot;,
+    &quot;params&quot;&#160;: { 
+        &quot;tag&quot;&#160;: &quot;white/orange&quot;
+    }   
+}'</span>
+&#160;
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">10</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Remove_a_document_or_it.27s_content"><span class="mw-headline-number">6.4</span> Remove a document or it's content</span></h2>
+<p>To remove a complete document:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XDELETE <span class="st0">'localhost:9200/vehicule/moto/4?pretty'</span>
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;found&quot;</span> <span class="sy0">:</span> <span class="kw2">true</span><span class="sy0">,</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;4&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">3</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>To remove a document field (here power):
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XPOST <span class="st0">'localhost:9200/vehicule/moto/1/_update?pretty'</span> <span class="sy0">-</span>d <span class="st0">'{
+    &quot;script&quot;&#160;: &quot;ctx._source.remove(<span class="es0">\&quot;</span>power<span class="es0">\&quot;</span>)&quot;
+}'</span>
+&#160;
+<span class="br0">&#123;</span>
+  <span class="st0">&quot;_index&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;vehicule&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_type&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;moto&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_id&quot;</span> <span class="sy0">:</span> <span class="st0">&quot;1&quot;</span><span class="sy0">,</span>
+  <span class="st0">&quot;_version&quot;</span> <span class="sy0">:</span> <span class="nu0">13</span>
+<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<p>ElasticSearch knows how to deal with concurrency, however if you really want to be sure to safely delete a document at a certain version, you can force it. It will fail if the document has changed in the meantime:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="javascript source-javascript"><pre class="de1"><span class="sy0">&gt;</span> curl <span class="sy0">-</span>XDELETE <span class="st0">'localhost:9200/vehicule/moto/4?version=15'</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">7</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elasticsearch.org/overview/">http://www.elasticsearch.org/overview/</a></span>
+</li>
+<li id="cite_note-2"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#cite_ref-2">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html">http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/modules-scripting.html</a></span>
+</li>
+<li id="cite_note-3"><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#cite_ref-3">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/cat-nodes.html">http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/cat-nodes.html</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.092 seconds
+Real time usage: 0.095 seconds
+Preprocessor visited node count: 564/1000000
+Preprocessor generated node count: 1644/1000000
+Post‐expand include size: 5566/2097152 bytes
+Template argument size: 1577/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   44.870      1 - -total
+ 71.93%   32.274     18 - Template:Command
+  4.60%    2.065      4 - Template:Config
+  4.36%    1.956      1 - Template:Infobox
+  1.83%    0.823      2 - Template:Notes
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3711-0!*!*!1!en!5!* and timestamp 20181111230655 and revision id 13425
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=ElasticSearch:_powerful_search_and_analytics_engine&amp;oldid=13425">https://wiki.deimos.fr/index.php?title=ElasticSearch:_powerful_search_and_analytics_engine&amp;oldid=13425</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=ElasticSearch%3A+powerful+search+and+analytics+engine" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=ElasticSearch:_powerful_search_and_analytics_engine&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=ElasticSearch:_powerful_search_and_analytics_engine&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./ElasticSearch:_powerful_search_and_analytics_engine.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/ElasticSearch:_powerful_search_and_analytics_engine.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/ElasticSearch:_powerful_search_and_analytics_engine" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=ElasticSearch:_powerful_search_and_analytics_engine&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=ElasticSearch:_powerful_search_and_analytics_engine&amp;oldid=13425" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=ElasticSearch:_powerful_search_and_analytics_engine&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 12 August 2014, at 14:07.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

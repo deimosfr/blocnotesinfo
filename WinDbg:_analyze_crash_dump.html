@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>WinDbg: analyze crash dump - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./WinDbg:_analyze_crash_dump.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"WinDbg:_analyze_crash_dump","wgTitle":"WinDbg: analyze crash dump","wgCurRevisionId":13197,"wgRevisionId":13197,"wgArticleId":3674,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"WinDbg:_analyze_crash_dump","wgRelevantArticleId":3674,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-WinDbg_analyze_crash_dump skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">WinDbg: analyze crash dump</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./WinDbg:_analyze_crash_dump.html#mw-navigation">navigation</a>, 					<a href="./WinDbg:_analyze_crash_dump.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./WinDbg:_analyze_crash_dump.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./WinDbg:_analyze_crash_dump.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./WinDbg:_analyze_crash_dump.html#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="./WinDbg:_analyze_crash_dump.html#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Windbg_icon.gif.html" class="image" title="WinDbg"><img alt="WinDbg" src="images/b/b6/Windbg_icon.gif" width="63" height="62" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td></td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Windows 2008 R2</td>
+   </tr><tr>
+      <th>Website</th>
+      <td></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>16/02/2014</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>WinDbg is a multipurpose debugger for Microsoft Windows, distributed on the web by Microsoft. It can be used to debug user mode applications, drivers, and the operating system itself in kernel mode. It is a GUI application, but it has little in common with the more well-known, but less powerful, Visual Studio Debugger.
+</p><p>WinDbg can be used for debugging kernel-mode memory dumps, created after what is commonly called the Blue Screen of Death which occurs when a bug check is issued. It can also be used to debug user-mode crash dumps. This is known as post-mortem debugging.
+</p><p>WinDbg also has the ability to automatically load debugging symbol files (e.g., PDB files) from a server by matching various criteria (e.g., timestamp, CRC, single or multiprocessor version). This is a very helpful and time saving alternative to creating a symbol tree for a debugging target environment. If a private symbol server is configured, the symbols can be correlated with the source code for the binary. This eases the burden of debugging problems that have various versions of binaries installed on the debugging target by eliminating the need for finding and installing specific symbols version on the debug host. Microsoft has a public symbol server that has most of the public symbols for Windows 2000 and later versions of Windows (including service packs).
+</p><p>Recent versions of WinDbg have been and are being distributed as part of the free Debugging Tools for Windows suite, which shares a common debugging back-end between WinDbg and command line debugger front-ends like KD, CDB, and NTSD. Most commands can be used as is with all the included debugger front-ends.<sup id="cite_ref-1" class="reference"><a href="./WinDbg:_analyze_crash_dump.html#cite_note-1">[1]</a></sup>
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>To get WinDbg working, you need 2 things:
+</p>
+<ul><li> WinDbg: <a rel="nofollow" class="external free" href="http://www.microsoft.com/en-us/download/confirmation.aspx?id=8279">http://www.microsoft.com/en-us/download/confirmation.aspx?id=8279</a></li>
+<li> Symbols: <a rel="nofollow" class="external free" href="http://msdn.microsoft.com/en-us/windows/hardware/gg463028">http://msdn.microsoft.com/en-us/windows/hardware/gg463028</a></li></ul>
+<p>Install them, then add an environment variable with the following:
+</p>
+<ul><li> Variable name: _NT_SYMBOL_PATH</li>
+<li> Value: C:\Symbols</li></ul>
+<p>Then close your session and login again.
+</p>
+<h1><span class="mw-headline" id="Usage"><span class="mw-headline-number">3</span> Usage</span></h1>
+<p>You're now ready to use the debugger&#160;! Open WinDbg, click on "Open crash dump" and select your "MEMORY.DMP". Then launch that command:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a>&#160;!analyze</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">0: kd&gt;&#160;!analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+&#160;
+CLOCK_WATCHDOG_TIMEOUT (101)
+An expected clock interrupt was not received on a secondary processor in an
+MP system within the allocated interval. This indicates that the specified
+processor is hung and not processing interrupts.
+Arguments:
+Arg1: 0000000000000008, Clock interrupt time out interval in nominal clock ticks.
+Arg2: 0000000000000000, 0.
+Arg3: fffff88001f3f180, The PRCB address of the hung processor.
+Arg4: 0000000000000004, 0.
+&#160;
+Debugging Details:
+------------------
+&#160;
+&#160;
+BUGCHECK_STR:  CLOCK_WATCHDOG_TIMEOUT_18_PROC
+&#160;
+DEFAULT_BUCKET_ID:  VISTA_DRIVER_FAULT
+&#160;
+PROCESS_NAME:  System
+&#160;
+CURRENT_IRQL:  d
+&#160;
+STACK_TEXT:  
+fffff800`02bfc2c8 fffff800`01728a89&#160;: 00000000`00000101 00000000`00000008 00000000`00000000 fffff880`01f3f180&#160;: nt!KeBugCheckEx
+fffff800`02bfc2d0 fffff800`016dbeb7&#160;: fffff980`00000000 fffff800`00000004 00000000`0002625a fffff800`016f11e4&#160;: nt!&#160;??&#160;::FNODOBFM::`string'+0x4e2e
+fffff800`02bfc360 fffff800`0161c1c0&#160;: 00000000`00000000 fffff800`02bfc510 fffff800`016383c0 fffff800`00000000&#160;: nt!KeUpdateSystemTime+0x377
+fffff800`02bfc460 fffff800`016cdb73&#160;: ffffffff`ffaef08d fffff800`016383c0 fffff800`02bfc6b0 00000000`00000000&#160;: hal!HalpRtcClockInterrupt+0x130
+fffff800`02bfc490 fffff800`0161617e&#160;: fffff800`01617790 00000000`00000000 fffffa80`491fc840 fffff880`01786ee0&#160;: nt!KiInterruptDispatchNoLock+0x163
+fffff800`02bfc628 fffff800`01617790&#160;: 00000000`00000000 fffffa80`491fc840 fffff880`01786ee0 00000000`00000007&#160;: hal!HalpGetPmTimerPerfCounterValue+0x10
+fffff800`02bfc630 fffff880`0169e059&#160;: 00000000`00369e99 00000042`2e0a39f7 fffffa80`491e0470 fffff880`0169fe22&#160;: hal!KeQueryPerformanceCounter+0x9c
+fffff800`02bfc660 fffff880`0169d10a&#160;: 00000000`00000018 00000000`00000000 00000000`00000000 00000000`00000005&#160;: tcpip!TcpUpdateMicrosecondCount+0x79
+fffff800`02bfc6a0 fffff800`016dd062&#160;: fffff800`02bfc938 00000000`00000000 fffff800`02bfc860 00000000`00000005&#160;: tcpip!TcpPeriodicTimeoutHandler+0x7a
+fffff800`02bfc7a0 fffff800`016dcf06&#160;: fffff800`018ce080 00000000`001bc201 00000000`00000000 00000000`00000102&#160;: nt!KiProcessTimerDpcTable+0x66
+fffff800`02bfc810 fffff800`016dcdee&#160;: 00000042`2e0a39f7 fffff800`02bfce88 00000000`001bc201 fffff800`018462a8&#160;: nt!KiProcessExpiredTimerList+0xc6
+fffff800`02bfce60 fffff800`016dcbd7&#160;: fffffa80`49767dc7 fffff800`001bc201 00000000`00000000 00000000`00000000&#160;: nt!KiTimerExpiration+0x1be
+fffff800`02bfcf00 fffff800`016d4165&#160;: 00000000`00000000 fffffa80`48c00680 00000000`00000000 fffff880`00e28a00&#160;: nt!KiRetireDpcList+0x277
+fffff800`02bfcfb0 fffff800`016d3f7c&#160;: 00000000`00000010 00000000`00000286 fffff880`029e0598 00000000`00000018&#160;: nt!KxRetireDpcList+0x5
+fffff880`029e0570 fffff800`0171d453&#160;: fffff800`016cdba0 fffff800`016cdc0c 00000000`17ed5aa0 fffff800`016383c0&#160;: nt!KiDispatchInterruptContinue
+fffff880`029e05a0 fffff800`016cdc0c&#160;: 00000000`17ed5aa0 fffff800`016383c0 00000000`f8d15f7d 00000000`1b7181f5&#160;: nt!KiDpcInterruptBypass+0x13
+fffff880`029e05b0 fffff880`01207c47&#160;: 00000000`00000015 00000000`00000000 d4d8e501`cc8cd0a4 669495ef`1e7cdce3&#160;: nt!KiInterruptDispatchNoLock+0x1fc
+fffff880`029e0740 fffff880`01205616&#160;: fffff880`029e09a0 fffff800`17ed5aa0 00000000`4b38f223 00000000`48bebae9&#160;: cng!SHA256Transform+0x757
+fffff880`029e07e0 fffff880`01204eb5&#160;: 00000000`00020000 fffff880`029e0844 fffff8a0`14c840a8 00000000`00000001&#160;: cng!SHA256Update+0x10b
+fffff880`029e0820 fffff880`012053ed&#160;: fffffa80`48f2f060 fffff800`016d99f3 fffffa80`20206f49 fffff8a0`01a08410&#160;: cng!GatherRandomKey+0x255
+fffff880`029e0be0 fffff800`019c7f4d&#160;: 00000000`00000001 00000000`00000001 fffffa80`4cd15610 fffffa80`48c00680&#160;: cng!scavengingWorkItemRoutine+0x3d
+fffff880`029e0c80 fffff800`016dba21&#160;: fffff800`0186e600 fffff800`019c7f01 fffffa80`48c00600 00000000`00000000&#160;: nt!IopProcessWorkItem+0x3d
+fffff880`029e0cb0 fffff800`0196ecce&#160;: 00000000`00000000 fffffa80`48c00680 00000000`00000080 fffffa80`48bd1040&#160;: nt!ExpWorkerThread+0x111
+fffff880`029e0d40 fffff800`016c2fe6&#160;: fffff880`027b0180 fffffa80`48c00680 fffff880`027bb4c0 00000000`00000000&#160;: nt!PspSystemThreadStartup+0x5a
+fffff880`029e0d80 00000000`00000000&#160;: fffff880`029e1000 fffff880`029db000 fffff880`029e05b0 00000000`00000000&#160;: nt!KxStartSystemThread+0x16
+&#160;
+&#160;
+STACK_COMMAND:  kb
+&#160;
+SYMBOL_NAME:  ANALYSIS_INCONCLUSIVE
+&#160;
+FOLLOWUP_NAME:  MachineOwner
+&#160;
+MODULE_NAME: Unknown_Module
+&#160;
+IMAGE_NAME:  Unknown_Image
+&#160;
+DEBUG_FLR_IMAGE_TIMESTAMP:  0
+&#160;
+FAILURE_BUCKET_ID:  X64_CLOCK_WATCHDOG_TIMEOUT_18_PROC_ANALYSIS_INCONCLUSIVE
+&#160;
+BUCKET_ID:  X64_CLOCK_WATCHDOG_TIMEOUT_18_PROC_ANALYSIS_INCONCLUSIVE
+&#160;
+Followup: MachineOwner
+---------</pre></div></div>
+</td></tr></table><br />
+<p>It is also possible to get more informations by viewing loaded modules:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">0: kd&gt; lmv
+start             end                 module name
+fffff800`014e1000 fffff800`014eb000   kdcom      (deferred)             
+    Image path: kdcom.dll
+    Image name: kdcom.dll
+    Timestamp:        Tue Jul 14 03:31:07 2009 (4A5BDFDB)
+    CheckSum:         00009363
+    ImageSize:        0000A000
+    Translations:     0000.04b0 0000.04e4 0409.04b0 0409.04e4
+fffff800`01608000 fffff800`01651000   hal        (pdb symbols)          c:\symbols\hal.pdb\A085D08B9C5D4BFDBA48AC285BDA03F22\hal.pdb
+    Loaded symbol image file: hal.dll
+    Image path: hal.dll
+    Image name: hal.dll
+    Timestamp:        Sat Nov 20 14:00:25 2010 (4CE7C669)
+[...]</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">4</span> References</span></h1>
+<ol class="references">
+<li id="cite_note-1"><a href="./WinDbg:_analyze_crash_dump.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://en.wikipedia.org/wiki/WinDbg">http://en.wikipedia.org/wiki/WinDbg</a></span>
+</li>
+</ol>
+<p><a rel="nofollow" class="external free" href="http://www.networkworld.com/news/2005/041105-windows-crash.html">http://www.networkworld.com/news/2005/041105-windows-crash.html</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.020 seconds
+Real time usage: 0.022 seconds
+Preprocessor visited node count: 98/1000000
+Preprocessor generated node count: 332/1000000
+Post‐expand include size: 1056/2097152 bytes
+Template argument size: 159/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    8.657      1 - -total
+ 40.77%    3.529      2 - Template:Command
+ 24.10%    2.086      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3674-0!*!*!1!en!5!* and timestamp 20181111230649 and revision id 13197
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=WinDbg:_analyze_crash_dump&amp;oldid=13197">https://wiki.deimos.fr/index.php?title=WinDbg:_analyze_crash_dump&amp;oldid=13197</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=WinDbg%3A+analyze+crash+dump" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./WinDbg:_analyze_crash_dump.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./WinDbg:_analyze_crash_dump.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./WinDbg:_analyze_crash_dump.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=WinDbg:_analyze_crash_dump&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=WinDbg:_analyze_crash_dump&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./WinDbg:_analyze_crash_dump.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/WinDbg:_analyze_crash_dump.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/WinDbg:_analyze_crash_dump" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=WinDbg:_analyze_crash_dump&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=WinDbg:_analyze_crash_dump&amp;oldid=13197" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=WinDbg:_analyze_crash_dump&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 16 February 2014, at 07:25.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

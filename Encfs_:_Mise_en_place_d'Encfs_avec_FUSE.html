@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Encfs : Mise en place d'Encfs avec FUSE - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Encfs_:_Mise_en_place_d'Encfs_avec_FUSE","wgTitle":"Encfs : Mise en place d'Encfs avec FUSE","wgCurRevisionId":9472,"wgRevisionId":9472,"wgArticleId":1755,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Encfs_:_Mise_en_place_d'Encfs_avec_FUSE","wgRelevantArticleId":1755,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Encfs_Mise_en_place_d_Encfs_avec_FUSE skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Encfs : Mise en place d'Encfs avec FUSE</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#mw-navigation">navigation</a>, 					<a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Debian"><span class="tocnumber">2.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#FreeBSD"><span class="tocnumber">2.2</span> <span class="toctext">FreeBSD</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Utilisation"><span class="tocnumber">4</span> <span class="toctext">Utilisation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Mono_Utilisateur"><span class="tocnumber">4.1</span> <span class="toctext">Mono Utilisateur</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Multi_Utilisateurs"><span class="tocnumber">4.2</span> <span class="toctext">Multi Utilisateurs</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#D.C3.A9monter_un_volume"><span class="tocnumber">4.3</span> <span class="toctext">Démonter un volume</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Changer_le_mot_de_passe"><span class="tocnumber">4.4</span> <span class="toctext">Changer le mot de passe</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Pam_et_Encfs"><span class="tocnumber">5</span> <span class="toctext">Pam et Encfs</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#FAQ"><span class="tocnumber">6</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Is_there_an_example_configuration_file_.3F"><span class="tocnumber">6.1</span> <span class="toctext">Is there an example configuration file&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#What_command_will_pam_encfs_run_to_mount_a_directory_.3F"><span class="tocnumber">6.2</span> <span class="toctext">What command will pam_encfs run to mount a directory&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#My_KDE_doesn.27t_work"><span class="tocnumber">6.3</span> <span class="toctext">My KDE doesn't work</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Can_I_mount_multiple_under_one_login_directories_with_pam_encfs_.3F"><span class="tocnumber">6.4</span> <span class="toctext">Can I mount multiple under one login directories with pam_encfs&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#pam_encfs_does_not_find_my_encfs_executable"><span class="tocnumber">6.5</span> <span class="toctext">pam_encfs does not find my encfs executable</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#It_works_on_normal_login.2C_but_not_in_gdm"><span class="tocnumber">6.6</span> <span class="toctext">It works on normal login, but not in gdm</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#It_asks_me_for_my_password_twice"><span class="tocnumber">6.7</span> <span class="toctext">It asks me for my password twice</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#I.27ve_tried_to_use_pam_encfs_as_my_main_authentication_scheme.2C_it_doesn.27t_work_.21"><span class="tocnumber">6.8</span> <span class="toctext">I've tried to use pam_encfs as my main authentication scheme, it doesn't work&#160;!</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#I_can.27t_login_to_X_because_the_filesystem_doesn.27t_support_locks"><span class="tocnumber">6.9</span> <span class="toctext">I can't login to X because the filesystem doesn't support locks</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#I_can.27t_create_hard_link"><span class="tocnumber">6.10</span> <span class="toctext">I can't create hard link</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#Encfs_in_an_OpenVZ_VE"><span class="tocnumber">6.11</span> <span class="toctext">Encfs in an OpenVZ VE</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://encfs.sourceforge.net/">EncFS</a> est un système de fichier crypté, qui permet donc de stocker sur son disque dur des fichiers dont on voudrait que les autres n'aient pas accès, même si la machine part dans la nature.
+</p><p>EncFS me semble particulièrement intéressant&#160;:
+</p>
+<ul><li> Pas besoin d'être root pour l'utiliser</li>
+<li> Mise en oeuvre super simple. Utilisation triviale (cf. infra)</li>
+<li> Encryptage séparé de chaque fichier. Cela peut paraître mois sûr (on peut connaitre les tailles, nom, dates de modifs des fichiers) mais ça a l'énorme avantage d'être plus efficace (pas besoin de re-encrypter tout le volume si un seul fichier change) et adaptable (pas besoin de prévoir à l'avance la taille que prendra le système de fichier)</li>
+<li> (avis subjectif) le mec qui a fait ça m'a l'air de bien comprendre les outils crypto. À vous de vérifier mes dires.&#160;;-)</li></ul>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Debian"><span class="mw-headline-number">2.1</span> Debian</span></h2>
+<p>Nous allons récupérer les paquets nécessaires&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install encfs fuse-utils
+</pre>
+</td></tr></table><br />
+<p>Maintenant, vérifions que vous avez ce qu'il faut dans votre noyau&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> grep</font>
+</td></tr>
+<tr>
+<td>
+<pre>grep FUSE &lt; /boot/config-2.6.19 
+</pre>
+</td></tr></table><br />
+<p>Vous devriez avoir une de ces 2 lignes&#160;:
+</p>
+<pre>CONFIG_FUSE_FS=y
+CONFIG_FUSE_FS=m
+</pre>
+<p>Si ce n'est pas le cas, il faut recompiler votre noyau et mettre FUSE en module ou l'intégrer en dur.
+</p>
+<h2><span class="mw-headline" id="FreeBSD"><span class="mw-headline-number">2.2</span> FreeBSD</span></h2>
+<p>Sur FreeBSD, il est préférable de prendre les versions packagées tellement la partie compilation est longue et requiert de dépendances&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkg_add</font>
+</td></tr>
+<tr>
+<td>
+<pre>pkg_add -r fusefs-encfs
+</pre>
+</td></tr></table><br />
+<p>Ensuite, ajoutez cette ligne dans votre rc.conf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/rc.conf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+fusefs_enable="YES"
+</pre>
+</td></tr></table><br />
+<p>Ensuite, si vous voulez que n'importe quel utilisateur puisse utiliser fuse, lancez cette commande&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sysctl</font>
+</td></tr>
+<tr>
+<td>
+<pre>sysctl vfs.usermount=1
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>Nous allons réer le système de fichier encrypté&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> encfs</font>
+</td></tr>
+<tr>
+<td>
+<pre>encfs ~/.crypt ~/crypt
+</pre>
+</td></tr></table><br />
+<p>Répondre aux questions&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> The directory &quot;/home/deimos/.crypt&quot; does not exist. Should it be created? (y,n) y
+ The directory &quot;/home/deimos/crypt&quot; does not exist. Should it be created? (y,n) y
+ Création d'un nouveau volume chiffré.
+ Veuillez choisir au moins une des options suivantes&#160;:
+  entrez &quot;x&quot; pour le mode de configuration expert,
+  entrez &quot;p&quot; pour un mode pré-configuré paranoïaque,
+  n'importe quoi d'autre ou une ligne vide sélectionnera le mode standard.
+ ?&gt; p</pre></div></div>
+<p>Nous n'allons pas nous prendre la tête ici et configurer en mode Paranoïaque pour avoir le must en matière de cryptage&#160;:-)&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> Configuration paranoïaque sélectionnée.
+&#160;
+ Configuration terminée. Le système de fichiers sur le
+ point d'être créé a les caractéristiques suivantes&#160;:
+ Chiffrement de système de fichiers &quot;ssl/aes&quot;, version 2:1:1
+ Encodage du nom de fichier&#160;: &quot;nameio/block&quot;, version 3:0:1
+ Taille de clé&#160;: 256 bits
+ Taille de bloc&#160;: 512 octets, y compris 8 octets d'en-tête MAC
+ Chaque fichier comprend un en-tête de 8 octets avec des données IV uniques.
+ Nom de fichiers chiffrés en utilisant le mode de chaînage IV.
+ L'IV des données du fichier est chaînée à l'IV du nom de fichier.
+&#160;
+ Vous allez maintenant devoir entrer un mot de passe
+ pour votre système de fichiers.
+ Vous allez devoir absolument vous souvenir de ce mot de passe,
+ comme il n'y a aucun mécanisme de secours.
+ Cependant, le mot de passe pourra être changé plus tard
+ en utilisant encfsctl.</pre></div></div>
+<p>Choisissez votre mot de passe&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> Nouveau mot de passe EncFS:  
+ Vérifiez le mot de passe EncFS:</pre></div></div>
+<h1><span class="mw-headline" id="Utilisation"><span class="mw-headline-number">4</span> Utilisation</span></h1>
+<h2><span class="mw-headline" id="Mono_Utilisateur"><span class="mw-headline-number">4.1</span> Mono Utilisateur</span></h2>
+<p>Pour monter notre dossier crypté&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> encfs</font>
+</td></tr>
+<tr>
+<td>
+<pre>encfs ~/.crypt ~/crypt
+</pre>
+</td></tr></table><br />
+<p>Entrez maintenant votre mot de passe. (Lire la version Multi Utilisateurs pour la suite des explications). Si vous souhaitez que tout le monde puisse accéder à votre partage crypté, il faut rajouter <i>--public</i>&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> encfs</font>
+</td></tr>
+<tr>
+<td>
+<pre>encfs <b>--public</b> ~/.crypt ~/crypt
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Multi_Utilisateurs"><span class="mw-headline-number">4.2</span> Multi Utilisateurs</span></h2>
+<p>Créer un fichier pour qu'il soit crypté à la volée&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> touch</font>
+</td></tr>
+<tr>
+<td>
+<pre>touch ~/crypt/toto
+</pre>
+</td></tr></table><br />
+<p>Vérifions notre fichier&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; ls -l ~/crypt/toto
+-rw-r--r--  1 deimos deimos 0 2005-04-20 21:27 /home/deimos/crypt/toto
+</pre>
+</td></tr></table><br />
+<p>Et maintenant dans le dossier crypté&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ls</font>
+</td></tr>
+<tr>
+<td>
+<pre>&gt; ls -l ~/.crypt/
+ total 0
+-rw-r--r--  1 deimos deimos 0 2005-04-20 21:27 FmIxHB3JurWr9jUCCgsUI8Ei
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="D.C3.A9monter_un_volume"><span class="mw-headline-number">4.3</span> Démonter un volume</span></h2>
+<p>Pour démonter le volume&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> fusermount</font>
+</td></tr>
+<tr>
+<td>
+<pre>fusermount -u ~/crypt/
+</pre>
+</td></tr></table><br />
+<p>Voilà, c'est aussi simple que ça&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Changer_le_mot_de_passe"><span class="mw-headline-number">4.4</span> Changer le mot de passe</span></h2>
+<p>Si vous souhaitez changer le mot de passe d'un volume encfs, faite comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> encfsctl</font>
+</td></tr>
+<tr>
+<td>
+<pre>encfsctl passwd ~/.crypt
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Pam_et_Encfs"><span class="mw-headline-number">5</span> Pam et Encfs</span></h1>
+<p>Put pam_encfs.conf in /etc/security and modify your pam to load (for example):
+</p>
+<pre>auth required        pam_encfs.so
+</pre>
+<p>and if you want to auto umount on logout:
+</p>
+<pre>session        required        pam_encfs.so
+</pre>
+<p>(note that setting "encfs_default --idle=1", means it'll auto umount after 1 minute idletime, so you can ignore this if you want to)
+</p><p>If you want gdm working you'll have to do this: (to allow use of --public / allow_root / allow_other)
+</p>
+<pre>echo "user_allow_other" &gt;&gt; /etc/fuse.conf
+</pre>
+<pre>adduser testuser # (put him in the fuse group if you have one)
+mkdir -p /mnt/storage/enc/testuser 
+</pre>
+<p>Setup your /etc/pam_encfs.conf (default should work)
+</p>
+<pre>chown testuser:testuser /mnt/storage/enc/testuser
+su testuser
+encfs /mnt/storage/enc/testuser /home/testuser
+</pre>
+<p>Use same password as your login atm&#160;:
+</p>
+<pre>fusermount -u /home/testuser
+</pre>
+<p>when you login, the directory should be mounted.
+</p><p>Example to enable encryption for existing user (logout of any important things, turn off your apps, preferably do this in terminal login/as root)&#160;:
+</p>
+<pre>sudo mkdir -p /mnt/storage/enc/anders /mnt/storage/enc/tmp
+Use your main password on next part&#160;:
+encfs /mnt/storage/enc/anders /mnt/storage/enc/tmp -- -o allow_root
+cd /home/anders
+find . -print -xdev | cpio -pamd /mnt/storage/enc/tmp
+fusermount -u /mnt/storage/enc/tmp
+cd /
+sudo mv /home/anders /home/anders.BAK
+sudo mkdir /home/anders
+sudo chown anders:anders /home/anders
+sudo rmdir /mnt/storage/enc/tmp
+exit
+</pre>
+<p>On next login (in theory) your homedir should be mounted&#160;;)
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">6</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="Is_there_an_example_configuration_file_.3F"><span class="mw-headline-number">6.1</span> Is there an example configuration file&#160;?</span></h2>
+<p>Yes, both in svn (link at <a rel="nofollow" class="external free" href="http://hollowtube.mine.nu/wiki/index.php?n=Projects.PamEncfs">http://hollowtube.mine.nu/wiki/index.php?n=Projects.PamEncfs</a> ), and in the downloaded archive from my release. Some distributions have chosen an extreamly simple example configuration file, mine is a bit more explained.
+</p>
+<h2><span class="mw-headline" id="What_command_will_pam_encfs_run_to_mount_a_directory_.3F"><span class="mw-headline-number">6.2</span> What command will pam_encfs run to mount a directory&#160;?</span></h2>
+<p>It depends on your options, but something like&#160;:
+</p>
+<pre>encfs -S --idle=1 -v /mnt/storage/enc/test /home/test -- -o allow_other,allow_root,nonempty
+  
+</pre>
+<h2><span class="mw-headline" id="My_KDE_doesn.27t_work"><span class="mw-headline-number">6.3</span> My KDE doesn't work</span></h2>
+<p>Login through KDE sometimes fails because KDE tries to store files to the home directory before mounting, and expect them to be there afterwards. To work around this you'll need to set 3 things in /etc/kde3/kdm/kdmrc, "DmrcDir=/tmp" (in the general section).  And "UserAuthDir,ClientLogFile", both can be set to /tmp, these are in the [X-*-Core] section.<br />
+There might be security related issues with this solution, I haven't looked into that.  If your paranoid about it you could make a temp directory  tmp/user that only you have access to.
+</p>
+<h2><span class="mw-headline" id="Can_I_mount_multiple_under_one_login_directories_with_pam_encfs_.3F"><span class="mw-headline-number">6.4</span> Can I mount multiple under one login directories with pam_encfs&#160;?</span></h2>
+<p>No, there is however an unofficial patch here&#160;: <a rel="nofollow" class="external free" href="http://bugs.gentoo.org/show_bug.cgi?id=102112">http://bugs.gentoo.org/show_bug.cgi?id=102112</a> (<a rel="nofollow" class="external free" href="https://joshua.haninge.kth.se/~sachankara/pam_encfs-0.1.3-multiple-mount-points.patch">https://joshua.haninge.kth.se/~sachankara/pam_encfs-0.1.3-multiple-mount-points.patch</a> ). This has not been applied to the main tree, as it segfaults when I test it with a very basic encfs configuration file (but might work with more advanced ones).
+</p>
+<h2><span class="mw-headline" id="pam_encfs_does_not_find_my_encfs_executable"><span class="mw-headline-number">6.5</span> pam_encfs does not find my encfs executable</span></h2>
+<p>pam_encfs uses execvp, that means that in some systems it wont find it if it's in /usr/local/bin, make a symlink to /usr/bin.
+</p>
+<h2><span class="mw-headline" id="It_works_on_normal_login.2C_but_not_in_gdm"><span class="mw-headline-number">6.6</span> It works on normal login, but not in gdm</span></h2>
+<ul><li> Problem1, /etc/pam.d/gdm has a different system than /etc/pam.d/login, fix it&#160;;).</li>
+<li> Problem2, You dont have the fuse option user_allow_root(or other) set, 
+<ul><li> Make sure /etc/fuse.conf has user_allow_other (or user_allow_root).</li>
+<li> Make sure /etc/pam_encfs.conf has fuse_default allow_root, or the fuse option allow_root set.</li></ul></li></ul>
+<h2><span class="mw-headline" id="It_asks_me_for_my_password_twice"><span class="mw-headline-number">6.7</span> It asks me for my password twice</span></h2>
+<p>Try adding use_first_pass after pam_unix (or any other module that supports it).
+</p>
+<h2><span class="mw-headline" id="I.27ve_tried_to_use_pam_encfs_as_my_main_authentication_scheme.2C_it_doesn.27t_work_.21"><span class="mw-headline-number">6.8</span> I've tried to use pam_encfs as my main authentication scheme, it doesn't work&#160;!</span></h2>
+<p>I return PAM_IGNORE on errors, this can't work reliably as a main system, because of for example logging in twice (in which case the directory would already be mounted, and we therefor can't check password ok).
+</p>
+<h2><span class="mw-headline" id="I_can.27t_login_to_X_because_the_filesystem_doesn.27t_support_locks"><span class="mw-headline-number">6.9</span> I can't login to X because the filesystem doesn't support locks</span></h2>
+<p>This could be a problem if your not using drop_permission, use it.  And if you REALLY want to mount as root, put:
+</p>
+<pre>export XAUTHORITY=/tmp/.Xauthority-$USER
+export ICEAUTHORITY=/tmp/.ICEauthority-$USER
+</pre>
+<p>in your ~/.bashrc
+</p><p>My system-auth file on gentoo:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">auth       required     pam_env.so
+auth       sufficient   /lib/security/pam_encfs.so
+auth       sufficient   /lib/security/pam_sha512.so pwdfile /etc/security/pam.sha
+auth       sufficient   pam_unix.so likeauth nullok
+auth       required     pam_deny.so
+&#160;
+account    required     pam_unix.so
+&#160;
+password   required     pam_cracklib.so retry=3
+password   sufficient   pam_unix.so nullok md5 shadow use_authtok
+password   required     pam_deny.so
+&#160;
+session    required     pam_limits.so
+session    required     pam_unix.so</pre></div></div>
+<p>Here it'll ask for the password twice, my modules (pam_encfs/pam_sha512) will try to use any previous password if it finds one.<br />
+So if you move pam_unix.so in auth to under pam_env.so, it'll ask for the password once.<br />
+Note that if pam_unix gets a password it finds ok, pam_encfs/pam_sha512 wont be used at all.
+</p>
+<h2><span class="mw-headline" id="I_can.27t_create_hard_link"><span class="mw-headline-number">6.10</span> I can't create hard link</span></h2>
+<p>This is because of the External IV Chaining&#160;:
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">There is a cost associated with this. When External IV Chaining is enabled, hard links will not be allowed within the filesystem, as there would be no way to properly decode two different filenames pointing to the same data.
+&#160;
+Also, renaming a file requires modifying the file header. So renames will only be allowed when the user has write access to the file.
+&#160;
+Because of these limits, this option is disabled by default for standard mode (and enabled by default for paranoia mode).</pre></div></div>
+<p>If you create as the paranoia mode a crypted partition, this mode will be automatically enable. So use the default mode or create as expert mode without this&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Encfs_in_an_OpenVZ_VE"><span class="mw-headline-number">6.11</span> Encfs in an OpenVZ VE</span></h2>
+<p>Si vous souhaitez faire de l'encfs dans un VE, vous risquez de vous heurter à des problèmes de droit: 
+</p>
+<pre> EncFS Password: 
+fuse: device not found, try 'modprobe fuse' first
+fuse failed.  Common problems:
+ - fuse kernel module not installed (modprobe fuse)
+ - invalid options -- see usage message
+</pre>
+<p>Sachez donc qu'il faut déjà au niveau du VZ charger le module fuse pour que les VE en héritent. Ajoutez ceci sur votre VZ pour ne pas avoir à charger le module à chaque boot&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/modules</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+# Load Fuse
+fuse
+...
+</pre>
+</td></tr></table><br />
+<p>Puis chargez le dynamiquement pour y avoir accès ensuite&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> modprobe</font>
+</td></tr>
+<tr>
+<td>
+<pre>modprobe fuse
+</pre>
+</td></tr></table><br />
+<p>Pour les contourner on va donc créer le device fuse depuis l'host sur le VE en question et lui rajouter les droits d'admin (un peu moyen en terme de sécu, mais pas le choix)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>vzctl set $my_veid --devices c:10:229:rw --save
+vzctl exec $my_veid mknod /dev/fuse c 10 229
+vzctl set $my_veid --capability sys_admin:on --save
+</pre>
+</td></tr></table><br />
+<p>Il est possible que la deuxième ligne ne fonctionne pas quand le VE est éteint. Lancez là alors une fois allumée puis montez votre partition encfs.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.044 seconds
+Real time usage: 0.044 seconds
+Preprocessor visited node count: 308/1000000
+Preprocessor generated node count: 742/1000000
+Post‐expand include size: 4637/2097152 bytes
+Template argument size: 888/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    9.644      1 - -total
+ 29.11%    2.807     14 - Template:Command
+ 19.83%    1.913      1 - Template:Openvz_encfs_faq
+ 11.86%    1.144      2 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1755-0!*!*!1!en!5!* and timestamp 20181111230723 and revision id 9472
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE&amp;oldid=9472">https://wiki.deimos.fr/index.php?title=Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE&amp;oldid=9472</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Encfs+%3A+Mise+en+place+d%27Encfs+avec+FUSE" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Encfs_:_Mise_en_place_d'Encfs_avec_FUSE.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE&amp;oldid=9472" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 5 February 2011, at 16:49.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":31});
+}</script>
+	</body>
+</html>
+	

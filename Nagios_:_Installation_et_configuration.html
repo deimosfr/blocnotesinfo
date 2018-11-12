@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Nagios : Installation et configuration - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Nagios_:_Installation_et_configuration.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Nagios_:_Installation_et_configuration","wgTitle":"Nagios : Installation et configuration","wgCurRevisionId":13432,"wgRevisionId":13432,"wgArticleId":1015,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Nagios_:_Installation_et_configuration","wgRelevantArticleId":1015,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #b1b100;}
+.c.source-c .kw2 {color: #000000; font-weight: bold;}
+.c.source-c .kw3 {color: #000066;}
+.c.source-c .kw4 {color: #993333;}
+.c.source-c .co1 {color: #666666; font-style: italic;}
+.c.source-c .co2 {color: #339933;}
+.c.source-c .coMULTI {color: #808080; font-style: italic;}
+.c.source-c .es0 {color: #000099; font-weight: bold;}
+.c.source-c .es1 {color: #000099; font-weight: bold;}
+.c.source-c .es2 {color: #660099; font-weight: bold;}
+.c.source-c .es3 {color: #660099; font-weight: bold;}
+.c.source-c .es4 {color: #660099; font-weight: bold;}
+.c.source-c .es5 {color: #006699; font-weight: bold;}
+.c.source-c .br0 {color: #009900;}
+.c.source-c .sy0 {color: #339933;}
+.c.source-c .st0 {color: #ff0000;}
+.c.source-c .nu0 {color: #0000dd;}
+.c.source-c .nu6 {color: #208080;}
+.c.source-c .nu8 {color: #208080;}
+.c.source-c .nu12 {color: #208080;}
+.c.source-c .nu16 {color:#800080;}
+.c.source-c .nu17 {color:#800080;}
+.c.source-c .nu18 {color:#800080;}
+.c.source-c .nu19 {color:#800080;}
+.c.source-c .me1 {color: #202020;}
+.c.source-c .me2 {color: #202020;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-perl {line-height: normal;}
+.source-perl li, .source-perl pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for perl
+ * CSS class: source-perl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.perl.source-perl .de1, .perl.source-perl .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.perl.source-perl  {font-family:monospace;}
+.perl.source-perl .imp {font-weight: bold; color: red;}
+.perl.source-perl li, .perl.source-perl .li1 {font-weight: normal; vertical-align:top;}
+.perl.source-perl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.perl.source-perl .li2 {font-weight: bold; vertical-align:top;}
+.perl.source-perl .kw1 {color: #b1b100;}
+.perl.source-perl .kw2 {color: #000000; font-weight: bold;}
+.perl.source-perl .kw3 {color: #000066;}
+.perl.source-perl .co1 {color: #666666; font-style: italic;}
+.perl.source-perl .co2 {color: #009966; font-style: italic;}
+.perl.source-perl .co3 {color: #0000ff;}
+.perl.source-perl .co4 {color: #cc0000; font-style: italic;}
+.perl.source-perl .co5 {color: #0000ff;}
+.perl.source-perl .coMULTI {color: #666666; font-style: italic;}
+.perl.source-perl .es0 {color: #000099; font-weight: bold;}
+.perl.source-perl .es_h {color: #000099; font-weight: bold;}
+.perl.source-perl .br0 {color: #009900;}
+.perl.source-perl .sy0 {color: #339933;}
+.perl.source-perl .st0 {color: #ff0000;}
+.perl.source-perl .st_h {color: #ff0000;}
+.perl.source-perl .nu0 {color: #cc66cc;}
+.perl.source-perl .me1 {color: #006600;}
+.perl.source-perl .me2 {color: #006600;}
+.perl.source-perl .re0 {color: #0000ff;}
+.perl.source-perl .re4 {color: #009999;}
+.perl.source-perl .ln-xtra, .perl.source-perl li.ln-xtra, .perl.source-perl div.ln-xtra {background-color: #ffc;}
+.perl.source-perl span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Nagios_Installation_et_configuration skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Nagios : Installation et configuration</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Nagios_:_Installation_et_configuration.html#mw-navigation">navigation</a>, 					<a href="./Nagios_:_Installation_et_configuration.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Nagios_:_Installation_et_configuration.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Nagios_:_Installation_et_configuration.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Nagios_:_Installation_et_configuration.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Nagios_:_Installation_et_configuration.html#apache2.conf"><span class="tocnumber">3.1</span> <span class="toctext">apache2.conf</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Nagios_:_Installation_et_configuration.html#cgi.cfg"><span class="tocnumber">3.2</span> <span class="toctext">cgi.cfg</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="./Nagios_:_Installation_et_configuration.html#commands.cgi"><span class="tocnumber">3.3</span> <span class="toctext">commands.cgi</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="./Nagios_:_Installation_et_configuration.html#htpasswd.users"><span class="tocnumber">3.4</span> <span class="toctext">htpasswd.users</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Nagios_:_Installation_et_configuration.html#nagios.cfg"><span class="tocnumber">3.5</span> <span class="toctext">nagios.cfg</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="./Nagios_:_Installation_et_configuration.html#resource.cfg"><span class="tocnumber">3.6</span> <span class="toctext">resource.cfg</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="./Nagios_:_Installation_et_configuration.html#conf.d.2Fcontacts.cfg"><span class="tocnumber">3.7</span> <span class="toctext">conf.d/contacts.cfg</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./Nagios_:_Installation_et_configuration.html#conf.d.2Fcustom-commands.cfg"><span class="tocnumber">3.8</span> <span class="toctext">conf.d/custom-commands.cfg</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./Nagios_:_Installation_et_configuration.html#conf.d.2Fgeneric-host.cfg"><span class="tocnumber">3.9</span> <span class="toctext">conf.d/generic-host.cfg</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./Nagios_:_Installation_et_configuration.html#conf.d.2Fgeneric_service.cfg"><span class="tocnumber">3.10</span> <span class="toctext">conf.d/generic_service.cfg</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./Nagios_:_Installation_et_configuration.html#conf.d.2Ftimeperiods.cfg"><span class="tocnumber">3.11</span> <span class="toctext">conf.d/timeperiods.cfg</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./Nagios_:_Installation_et_configuration.html#conf.d.2Fhostgroups.2Funix-srv.cfg"><span class="tocnumber">3.12</span> <span class="toctext">conf.d/hostgroups/unix-srv.cfg</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./Nagios_:_Installation_et_configuration.html#conf.d.2Fhosts.2Fserveur.cfg"><span class="tocnumber">3.13</span> <span class="toctext">conf.d/hosts/serveur.cfg</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="./Nagios_:_Installation_et_configuration.html#Addons"><span class="tocnumber">4</span> <span class="toctext">Addons</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="./Nagios_:_Installation_et_configuration.html#NRPE"><span class="tocnumber">4.1</span> <span class="toctext">NRPE</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="./Nagios_:_Installation_et_configuration.html#Cacher_des_alertes_.22non_OK.22"><span class="tocnumber">4.2</span> <span class="toctext">Cacher des alertes "non OK"</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="./Nagios_:_Installation_et_configuration.html#Ajouter_un_CGI_personnalis.C3.A9"><span class="tocnumber">4.3</span> <span class="toctext">Ajouter un CGI personnalisé</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="./Nagios_:_Installation_et_configuration.html#Envoyer_des_alertes_SMS_via_Free_Mobile"><span class="tocnumber">4.4</span> <span class="toctext">Envoyer des alertes SMS via Free Mobile</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="./Nagios_:_Installation_et_configuration.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-23"><a href="./Nagios_:_Installation_et_configuration.html#No_output_returned_from_plugin"><span class="tocnumber">5.1</span> <span class="toctext">No output returned from plugin</span></a>
+<ul>
+<li class="toclevel-3 tocsection-24"><a href="./Nagios_:_Installation_et_configuration.html#Solution_1"><span class="tocnumber">5.1.1</span> <span class="toctext">Solution 1</span></a></li>
+<li class="toclevel-3 tocsection-25"><a href="./Nagios_:_Installation_et_configuration.html#Solution_2"><span class="tocnumber">5.1.2</span> <span class="toctext">Solution 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-26"><a href="./Nagios_:_Installation_et_configuration.html#Error:_Could_not_stat.28.29_command_file_.27.2Fvar.2Flib.2Fnagios3.2Frw.2Fnagios.cmd.27.21"><span class="tocnumber">5.2</span> <span class="toctext">Error: Could not stat() command file '/var/lib/nagios3/rw/nagios.cmd'!</span></a>
+<ul>
+<li class="toclevel-3 tocsection-27"><a href="./Nagios_:_Installation_et_configuration.html#Solution_1_2"><span class="tocnumber">5.2.1</span> <span class="toctext">Solution 1</span></a></li>
+<li class="toclevel-3 tocsection-28"><a href="./Nagios_:_Installation_et_configuration.html#Solution_2_2"><span class="tocnumber">5.2.2</span> <span class="toctext">Solution 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-29"><a href="./Nagios_:_Installation_et_configuration.html#Je_ne_recoit_pas_de_mails"><span class="tocnumber">5.3</span> <span class="toctext">Je ne recoit pas de mails</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="./Nagios_:_Installation_et_configuration.html#return_code_of_127_is_out_of_bounds"><span class="tocnumber">5.4</span> <span class="toctext">return code of 127 is out of bounds</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="./Nagios_:_Installation_et_configuration.html#CHECK_NRPE:_Error_-_Could_not_complete_SSL_handshake."><span class="tocnumber">5.5</span> <span class="toctext">CHECK_NRPE: Error - Could not complete SSL handshake.</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="./Nagios_:_Installation_et_configuration.html#Monitorer_Wordpress"><span class="tocnumber">5.6</span> <span class="toctext">Monitorer Wordpress</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="./Nagios_:_Installation_et_configuration.html#You_don.27t_have_permission_to_access_.2Fnagios3.2F_on_this_server"><span class="tocnumber">5.7</span> <span class="toctext">You don't have permission to access /nagios3/ on this server</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="./Nagios_:_Installation_et_configuration.html#Mes_checks_en_attente_sont_toujours_l.C3.A0_m.C3.AAme_apr.C3.A8s_un_reboot"><span class="tocnumber">5.8</span> <span class="toctext">Mes checks en attente sont toujours là même après un reboot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-35"><a href="./Nagios_:_Installation_et_configuration.html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Nagios_logo.png.html" class="image" title="Nagios"><img alt="Nagios" src="images/8/80/Nagios_logo.png" width="220" height="52" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>Nagios 3</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 6</td>
+   </tr><tr>
+      <th>Website</th>
+      <td></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>08/09/2014</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Nagios est un utilitaire très puissant permettant de tester via des plugins divers services tel que le SMTP, le PING et bien d'autres choses. Ca vous permet de savoir si vos plateformes sont toujours en service.<br />
+Bref, il est capable de vous alerter sous différentes formes. Essayez, vous allez voir, c'est magique&#160;:-)
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>Pour l'installation c'est assez simple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install nagios3
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<p>La configuration par contre ça se complique. Il faut savoir que Nagios est difficile à abordé, mais une fois que vous avez compris, vous gagnez beaucoup de temps et pouvez déployer de nouveaux services avec facilité.
+</p>
+<h2><span class="mw-headline" id="apache2.conf"><span class="mw-headline-number">3.1</span> apache2.conf</span></h2>
+<p>Ceci est la configuration qui est fourni en standard Debian pour apache2. Ca vous permet d'accéder à Nagios via <a rel="nofollow" class="external free" href="http://serveur/nagios3">http://serveur/nagios3</a>. A vous de voir si vous souhaitez modifier la configuration ou pas&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/apache2.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1"><span class="co1"># apache configuration for nagios 3.x</span>
+<span class="co1"># note to users of nagios 1.x and 2.x:</span>
+<span class="co1">#	throughout this file are commented out sections which preserve</span>
+<span class="co1">#	backwards compatibility with bookmarks/config for older nagios versios.</span>
+<span class="co1">#	simply look for lines following &quot;nagios 1.x:&quot; and &quot;nagios 2.x&quot; comments.</span>
+&#160;
+<span class="kw1">ScriptAlias</span> /cgi-bin/nagios3 /usr/lib/cgi-bin/nagios3
+<span class="kw1">ScriptAlias</span> /nagios3/cgi-bin /usr/lib/cgi-bin/nagios3
+<span class="co1"># nagios 1.x:</span>
+<span class="co1">#ScriptAlias /cgi-bin/nagios /usr/lib/cgi-bin/nagios3</span>
+<span class="co1">#ScriptAlias /nagios/cgi-bin /usr/lib/cgi-bin/nagios3</span>
+<span class="co1"># nagios 2.x: </span>
+<span class="co1">#ScriptAlias /cgi-bin/nagios2 /usr/lib/cgi-bin/nagios3</span>
+<span class="co1">#ScriptAlias /nagios2/cgi-bin /usr/lib/cgi-bin/nagios3</span>
+&#160;
+<span class="co1"># Where the stylesheets (config files) reside</span>
+<span class="kw1">Alias</span> /nagios3/stylesheets /etc/nagios3/stylesheets
+<span class="co1"># nagios 1.x:</span>
+<span class="co1">#Alias /nagios/stylesheets /etc/nagios3/stylesheets</span>
+<span class="co1"># nagios 2.x:</span>
+<span class="co1">#Alias /nagios2/stylesheets /etc/nagios3/stylesheets</span>
+&#160;
+<span class="co1"># Where the HTML pages live</span>
+<span class="kw1">Alias</span> /nagios3 /usr/share/nagios3/htdocs
+<span class="co1"># nagios 2.x: </span>
+<span class="co1">#Alias /nagios2 /usr/share/nagios3/htdocs</span>
+<span class="co1"># nagios 1.x:</span>
+<span class="co1">#Alias /nagios /usr/share/nagios3/htdocs</span>
+&#160;
+&lt;<span class="kw3">DirectoryMatch</span> (/usr/share/nagios3/htdocs|/usr/lib/cgi-bin/nagios3|/etc/nagios3/stylesheets)&gt;
+	<span class="kw1">Options</span> <span class="kw2">FollowSymLinks</span>
+&#160;
+	<span class="kw1">DirectoryIndex</span> index.php
+&#160;
+	<span class="kw1">AllowOverride</span> AuthConfig
+	<span class="kw1">Order</span> <span class="kw1">Allow</span>,<span class="kw1">Deny</span>
+	<span class="kw1">Allow</span> From <span class="kw2">All</span>
+&#160;
+	<span class="kw1">AuthName</span> <span class="st0">&quot;Nagios Access&quot;</span>
+	<span class="kw1">AuthType</span> Basic
+	<span class="kw1">AuthUserFile</span> /etc/nagios3/htpasswd.users
+	<span class="co1"># nagios 1.x:</span>
+	<span class="co1">#AuthUserFile /etc/nagios/htpasswd.users</span>
+	<span class="kw1">require</span> valid-<span class="kw1">user</span>
+&lt;/<span class="kw3">DirectoryMatch</span>&gt;
+&#160;
+<span class="co1"># Enable this ScriptAlias if you want to enable the grouplist patch.</span>
+<span class="co1"># See http://apan.sourceforge.net/download.html for more info</span>
+<span class="co1"># It allows you to see a clickable list of all hostgroups in the</span>
+<span class="co1"># left pane of the Nagios web interface</span>
+<span class="co1"># XXX This is not tested for nagios 2.x use at your own peril</span>
+<span class="co1">#ScriptAlias /nagios3/side.html /usr/lib/cgi-bin/nagios3/grouplist.cgi</span>
+<span class="co1"># nagios 1.x:</span>
+<span class="co1">#ScriptAlias /nagios/side.html /usr/lib/cgi-bin/nagios3/grouplist.cgi</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="cgi.cfg"><span class="mw-headline-number">3.2</span> cgi.cfg</span></h2>
+<p>Je vous épargne tous les commentaires de ce fichier et vous montre la configuration que j'utilise. Ceci est la configuration pour l'interface web de Nagios&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/cgi.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="re2">main_config_file</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>nagios3<span class="sy0">/</span>nagios.cfg
+<span class="re2">physical_html_path</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>share<span class="sy0">/</span>nagios3<span class="sy0">/</span>htdocs
+<span class="re2">url_html_path</span>=<span class="sy0">/</span>nagios3
+<span class="re2">show_context_help</span>=<span class="nu0">1</span>
+<span class="re2">use_pending_states</span>=<span class="nu0">1</span>
+<span class="re2">nagios_check_command</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>lib<span class="sy0">/</span>nagios<span class="sy0">/</span>plugins<span class="sy0">/</span>check_nagios <span class="sy0">/</span>var<span class="sy0">/</span>cache<span class="sy0">/</span>nagios3<span class="sy0">/</span>status.dat <span class="nu0">5</span> <span class="st_h">'/usr/sbin/nagios3'</span>
+<span class="re2">use_authentication</span>=<span class="nu0">1</span>
+<span class="re2">use_ssl_authentication</span>=<span class="nu0">0</span> 
+<span class="re2">authorized_for_system_information</span>=deimos
+<span class="re2">authorized_for_configuration_information</span>=deimos
+<span class="re2">authorized_for_system_commands</span>=deimos
+<span class="re2">authorized_for_all_services</span>=deimos
+<span class="re2">authorized_for_all_hosts</span>=deimos
+<span class="re2">authorized_for_all_service_commands</span>=deimos
+<span class="re2">authorized_for_all_host_commands</span>=deimos
+<span class="re2">default_statusmap_layout</span>=<span class="nu0">5</span>
+<span class="re2">default_statuswrl_layout</span>=<span class="nu0">4</span>
+<span class="re2">ping_syntax</span>=<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw2">ping</span> <span class="re5">-n</span> <span class="re5">-U</span> <span class="re5">-c</span> <span class="nu0">5</span> <span class="re1">$HOSTADDRESS</span>$
+<span class="re2">refresh_rate</span>=<span class="nu0">90</span>
+<span class="re2">escape_html_tags</span>=<span class="nu0">1</span>
+<span class="re2">action_url_target</span>=_blank
+<span class="re2">notes_url_target</span>=_blank
+<span class="re2">lock_author_names</span>=<span class="nu0">1</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="commands.cgi"><span class="mw-headline-number">3.3</span> commands.cgi</span></h2>
+<p>Ce fichier permet de définir des commandes particiulières pour des check particuliers. Par exemple si vous avez développé des plugins, vous devrez créer une commande associée&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/commands.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">###############################################################################</span>
+<span class="co0"># COMMANDS.CFG - SAMPLE COMMAND DEFINITIONS FOR NAGIOS </span>
+<span class="co0">###############################################################################</span>
+&#160;
+<span class="co0">################################################################################</span>
+<span class="co0"># NOTIFICATION COMMANDS</span>
+<span class="co0">################################################################################</span>
+&#160;
+<span class="co0"># 'notify-host-by-email' command definition</span>
+define <span class="kw3">command</span><span class="br0">&#123;</span>
+	command_name	notify-host-by-email
+	command_line	<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw3">printf</span> <span class="st0">&quot;%b&quot;</span> <span class="st0">&quot;***** Nagios *****<span class="es1">\n</span><span class="es1">\n</span>Notification Type: <span class="es2">$NOTIFICATIONTYPE</span>$<span class="es1">\n</span>Host: <span class="es2">$HOSTNAME</span>$<span class="es1">\n</span>State: <span class="es2">$HOSTSTATE</span>$<span class="es1">\n</span>Address: <span class="es2">$HOSTADDRESS</span>$<span class="es1">\n</span>Info: <span class="es2">$HOSTOUTPUT</span>$<span class="es1">\n</span><span class="es1">\n</span>Date/Time: <span class="es2">$LONGDATETIME</span>$<span class="es1">\n</span>&quot;</span> <span class="sy0">|</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>mail <span class="re5">-s</span> <span class="st0">&quot;** <span class="es2">$NOTIFICATIONTYPE</span>$ Host Alert: <span class="es2">$HOSTNAME</span>$ is <span class="es2">$HOSTSTATE</span>$ **&quot;</span> <span class="re1">$CONTACTEMAIL</span>$
+	<span class="br0">&#125;</span>
+&#160;
+<span class="co0"># 'notify-service-by-email' command definition</span>
+define <span class="kw3">command</span><span class="br0">&#123;</span>
+	command_name	notify-service-by-email
+	command_line	<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw3">printf</span> <span class="st0">&quot;%b&quot;</span> <span class="st0">&quot;***** Nagios *****<span class="es1">\n</span><span class="es1">\n</span>Notification Type: <span class="es2">$NOTIFICATIONTYPE</span>$<span class="es1">\n</span><span class="es1">\n</span>Service: <span class="es2">$SERVICEDESC</span>$<span class="es1">\n</span>Host: <span class="es2">$HOSTALIAS</span>$<span class="es1">\n</span>Address: <span class="es2">$HOSTADDRESS</span>$<span class="es1">\n</span>State: <span class="es2">$SERVICESTATE</span>$<span class="es1">\n</span><span class="es1">\n</span>Date/Time: <span class="es2">$LONGDATETIME</span>$<span class="es1">\n</span><span class="es1">\n</span>Additional Info:<span class="es1">\n</span><span class="es1">\n</span><span class="es2">$SERVICEOUTPUT</span>$&quot;</span> <span class="sy0">|</span> <span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span>mail <span class="re5">-s</span> <span class="st0">&quot;** <span class="es2">$NOTIFICATIONTYPE</span>$ Service Alert: <span class="es2">$HOSTALIAS</span>$/<span class="es2">$SERVICEDESC</span>$ is <span class="es2">$SERVICESTATE</span>$ **&quot;</span> <span class="re1">$CONTACTEMAIL</span>$
+	<span class="br0">&#125;</span>
+&#160;
+<span class="co0">################################################################################</span>
+<span class="co0"># HOST CHECK COMMANDS</span>
+<span class="co0">################################################################################</span>
+&#160;
+<span class="co0"># On Debian, check-host-alive is being defined from within the</span>
+<span class="co0"># nagios-plugins-basic package</span>
+&#160;
+<span class="co0">################################################################################</span>
+<span class="co0"># PERFORMANCE DATA COMMANDS</span>
+<span class="co0">################################################################################</span>
+&#160;
+<span class="co0"># 'process-host-perfdata' command definition</span>
+define <span class="kw3">command</span><span class="br0">&#123;</span>
+	command_name	process-host-perfdata
+	command_line	<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw3">printf</span> <span class="st0">&quot;%b&quot;</span> <span class="st0">&quot;<span class="es2">$LASTHOSTCHECK</span>$<span class="es1">\t</span><span class="es2">$HOSTNAME</span>$<span class="es1">\t</span><span class="es2">$HOSTSTATE</span>$<span class="es1">\t</span><span class="es2">$HOSTATTEMPT</span>$<span class="es1">\t</span><span class="es2">$HOSTSTATETYPE</span>$<span class="es1">\t</span><span class="es2">$HOSTEXECUTIONTIME</span>$<span class="es1">\t</span><span class="es2">$HOSTOUTPUT</span>$<span class="es1">\t</span><span class="es2">$HOSTPERFDATA</span>$<span class="es1">\n</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>nagios3<span class="sy0">/</span>host-perfdata.out
+	<span class="br0">&#125;</span>
+&#160;
+<span class="co0"># 'process-service-perfdata' command definition</span>
+define <span class="kw3">command</span><span class="br0">&#123;</span>
+	command_name	process-service-perfdata
+	command_line	<span class="sy0">/</span>usr<span class="sy0">/</span>bin<span class="sy0">/</span><span class="kw3">printf</span> <span class="st0">&quot;%b&quot;</span> <span class="st0">&quot;<span class="es2">$LASTSERVICECHECK</span>$<span class="es1">\t</span><span class="es2">$HOSTNAME</span>$<span class="es1">\t</span><span class="es2">$SERVICEDESC</span>$<span class="es1">\t</span><span class="es2">$SERVICESTATE</span>$<span class="es1">\t</span><span class="es2">$SERVICEATTEMPT</span>$<span class="es1">\t</span><span class="es2">$SERVICESTATETYPE</span>$<span class="es1">\t</span><span class="es2">$SERVICEEXECUTIONTIME</span>$<span class="es1">\t</span><span class="es2">$SERVICELATENCY</span>$<span class="es1">\t</span><span class="es2">$SERVICEOUTPUT</span>$<span class="es1">\t</span><span class="es2">$SERVICEPERFDATA</span>$<span class="es1">\n</span>&quot;</span> <span class="sy0">&gt;&gt;</span> <span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>nagios3<span class="sy0">/</span>service-perfdata.out
+	<span class="br0">&#125;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="htpasswd.users"><span class="mw-headline-number">3.4</span> htpasswd.users</span></h2>
+<p>Voici le htpasswd de Nagios. Pour changer le login nagiosadmin qui existe par défaut, faite&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> htpasswd</font>
+</td></tr>
+<tr>
+<td>
+<pre>htpasswd -c htpasswd.users deimos
+</pre>
+</td></tr></table><br />
+<p>A vous de remplacer deimos par l'utilisateur que vous souhaitez. Attention toute fois, ceci va créer un fichier vierge et créer cet utilisateur unique.
+</p>
+<h2><span class="mw-headline" id="nagios.cfg"><span class="mw-headline-number">3.5</span> nagios.cfg</span></h2>
+<p>Ceci est la configuration du serveur Nagios, mais pas la configuration des hosts et services&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/nagios.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="re2">log_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>nagios3<span class="sy0">/</span>nagios.log
+<span class="re2">cfg_file</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>nagios3<span class="sy0">/</span>commands.cfg
+<span class="re2">cfg_dir</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>nagios-plugins<span class="sy0">/</span>config
+<span class="re2">cfg_dir</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>nagios3<span class="sy0">/</span>conf.d
+<span class="re2">object_cache_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>cache<span class="sy0">/</span>nagios3<span class="sy0">/</span>objects.cache
+<span class="re2">precached_object_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>nagios3<span class="sy0">/</span>objects.precache
+<span class="re2">resource_file</span>=<span class="sy0">/</span>etc<span class="sy0">/</span>nagios3<span class="sy0">/</span>resource.cfg
+<span class="re2">status_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>cache<span class="sy0">/</span>nagios3<span class="sy0">/</span>status.dat
+<span class="re2">status_update_interval</span>=<span class="nu0">10</span>
+<span class="re2">nagios_user</span>=nagios
+<span class="re2">nagios_group</span>=nagios
+<span class="re2">check_external_commands</span>=<span class="nu0">1</span>
+<span class="re2">command_check_interval</span>=-<span class="nu0">1</span>
+<span class="re2">command_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>nagios3<span class="sy0">/</span>rw<span class="sy0">/</span>nagios.cmd
+<span class="re2">external_command_buffer_slots</span>=<span class="nu0">4096</span>
+<span class="re2">lock_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>run<span class="sy0">/</span>nagios3<span class="sy0">/</span>nagios3.pid
+<span class="re2">temp_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>cache<span class="sy0">/</span>nagios3<span class="sy0">/</span>nagios.tmp
+<span class="re2">temp_path</span>=<span class="sy0">/</span>tmp
+<span class="re2">event_broker_options</span>=-<span class="nu0">1</span>
+<span class="re2">log_rotation_method</span>=d
+<span class="re2">log_archive_path</span>=<span class="sy0">/</span>var<span class="sy0">/</span>log<span class="sy0">/</span>nagios3<span class="sy0">/</span>archives
+<span class="re2">use_syslog</span>=<span class="nu0">1</span>
+<span class="re2">log_notifications</span>=<span class="nu0">1</span>
+<span class="re2">log_service_retries</span>=<span class="nu0">1</span>
+<span class="re2">log_host_retries</span>=<span class="nu0">1</span>
+<span class="re2">log_event_handlers</span>=<span class="nu0">1</span>
+<span class="re2">log_initial_states</span>=<span class="nu0">0</span>
+<span class="re2">log_external_commands</span>=<span class="nu0">1</span>
+<span class="re2">log_passive_checks</span>=<span class="nu0">1</span>
+<span class="re2">service_inter_check_delay_method</span>=s
+<span class="re2">max_service_check_spread</span>=<span class="nu0">30</span>
+<span class="re2">service_interleave_factor</span>=s
+<span class="re2">host_inter_check_delay_method</span>=s
+<span class="re2">max_host_check_spread</span>=<span class="nu0">30</span>
+<span class="re2">max_concurrent_checks</span>=<span class="nu0">0</span>
+<span class="re2">check_result_reaper_frequency</span>=<span class="nu0">10</span>
+<span class="re2">max_check_result_reaper_time</span>=<span class="nu0">30</span>
+<span class="re2">check_result_path</span>=<span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>nagios3<span class="sy0">/</span>spool<span class="sy0">/</span>checkresults
+<span class="re2">max_check_result_file_age</span>=<span class="nu0">3600</span>
+<span class="re2">cached_host_check_horizon</span>=<span class="nu0">15</span>
+<span class="re2">cached_service_check_horizon</span>=<span class="nu0">15</span>
+<span class="re2">enable_predictive_host_dependency_checks</span>=<span class="nu0">1</span>
+<span class="re2">enable_predictive_service_dependency_checks</span>=<span class="nu0">1</span>
+<span class="re2">soft_state_dependencies</span>=<span class="nu0">0</span>
+<span class="re2">auto_reschedule_checks</span>=<span class="nu0">0</span>
+<span class="re2">auto_rescheduling_interval</span>=<span class="nu0">30</span>
+<span class="re2">auto_rescheduling_window</span>=<span class="nu0">180</span>
+<span class="re2">sleep_time</span>=<span class="nu0">0.25</span>
+<span class="re2">service_check_timeout</span>=<span class="nu0">60</span>
+<span class="re2">host_check_timeout</span>=<span class="nu0">30</span>
+<span class="re2">event_handler_timeout</span>=<span class="nu0">30</span>
+<span class="re2">notification_timeout</span>=<span class="nu0">30</span>
+<span class="re2">ocsp_timeout</span>=<span class="nu0">5</span>
+<span class="re2">perfdata_timeout</span>=<span class="nu0">5</span>
+<span class="re2">retain_state_information</span>=<span class="nu0">1</span>
+<span class="re2">state_retention_file</span>=<span class="sy0">/</span>var<span class="sy0">/</span>lib<span class="sy0">/</span>nagios3<span class="sy0">/</span>retention.dat
+<span class="re2">retention_update_interval</span>=<span class="nu0">60</span>
+<span class="re2">use_retained_program_state</span>=<span class="nu0">1</span>
+<span class="re2">use_retained_scheduling_info</span>=<span class="nu0">1</span>
+<span class="re2">retained_host_attribute_mask</span>=<span class="nu0">0</span>
+<span class="re2">retained_service_attribute_mask</span>=<span class="nu0">0</span>
+<span class="re2">retained_process_host_attribute_mask</span>=<span class="nu0">0</span>
+<span class="re2">retained_process_service_attribute_mask</span>=<span class="nu0">0</span>
+<span class="re2">retained_contact_host_attribute_mask</span>=<span class="nu0">0</span>
+<span class="re2">retained_contact_service_attribute_mask</span>=<span class="nu0">0</span>
+<span class="re2">interval_length</span>=<span class="nu0">60</span>
+<span class="re2">check_for_updates</span>=<span class="nu0">1</span>
+<span class="re2">bare_update_check</span>=<span class="nu0">0</span>
+<span class="re2">use_aggressive_host_checking</span>=<span class="nu0">0</span>
+<span class="re2">execute_service_checks</span>=<span class="nu0">1</span>
+<span class="re2">accept_passive_service_checks</span>=<span class="nu0">1</span>
+<span class="re2">execute_host_checks</span>=<span class="nu0">1</span>
+<span class="re2">accept_passive_host_checks</span>=<span class="nu0">1</span>
+<span class="re2">enable_notifications</span>=<span class="nu0">1</span>
+<span class="re2">enable_event_handlers</span>=<span class="nu0">1</span>
+<span class="re2">process_performance_data</span>=<span class="nu0">0</span>
+<span class="re2">obsess_over_services</span>=<span class="nu0">0</span>
+<span class="re2">obsess_over_hosts</span>=<span class="nu0">0</span>
+<span class="re2">translate_passive_host_checks</span>=<span class="nu0">0</span>
+<span class="re2">passive_host_checks_are_soft</span>=<span class="nu0">0</span>
+<span class="re2">check_for_orphaned_services</span>=<span class="nu0">1</span>
+<span class="re2">check_for_orphaned_hosts</span>=<span class="nu0">1</span>
+<span class="re2">check_service_freshness</span>=<span class="nu0">1</span>
+<span class="re2">service_freshness_check_interval</span>=<span class="nu0">60</span>
+<span class="re2">check_host_freshness</span>=<span class="nu0">0</span>
+<span class="re2">host_freshness_check_interval</span>=<span class="nu0">60</span>
+<span class="re2">additional_freshness_latency</span>=<span class="nu0">15</span>
+<span class="re2">enable_flap_detection</span>=<span class="nu0">1</span>
+<span class="re2">low_service_flap_threshold</span>=<span class="nu0">5.0</span>
+<span class="re2">high_service_flap_threshold</span>=<span class="nu0">20.0</span>
+<span class="re2">low_host_flap_threshold</span>=<span class="nu0">5.0</span>
+<span class="re2">high_host_flap_threshold</span>=<span class="nu0">20.0</span>
+<span class="re2">date_format</span>=iso8601
+<span class="re2">p1_file</span>=<span class="sy0">/</span>usr<span class="sy0">/</span>lib<span class="sy0">/</span>nagios3<span class="sy0">/</span>p1.pl
+<span class="re2">enable_embedded_perl</span>=<span class="nu0">1</span>
+<span class="re2">use_embedded_perl_implicitly</span>=<span class="nu0">1</span>
+<span class="re2">illegal_object_name_chars</span>=<span class="sy0">`</span>~<span class="sy0">!</span>$<span class="sy0">%</span>^<span class="sy0">&amp;*|</span><span class="st_h">'&quot;&lt;&gt;?,()=
+illegal_macro_output_chars=`~$&amp;|'</span><span class="st0">&quot;&lt;&gt;
+use_regexp_matching=0
+use_true_regexp_matching=0
+admin_email=root@localhost
+admin_pager=pageroot@localhost
+daemon_dumps_core=0
+use_large_installation_tweaks=0
+enable_environment_macros=1
+debug_level=0
+debug_verbosity=1
+debug_file=/var/log/nagios3/nagios.debug
+max_debug_file_size=1000000</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="resource.cfg"><span class="mw-headline-number">3.6</span> resource.cfg</span></h2>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/nagios.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1">...
+<span class="co0"># Sets $USER1$ to be the path to the plugins</span>
+<span class="re1">$USER1</span>$=<span class="sy0">/</span>usr<span class="sy0">/</span>lib<span class="sy0">/</span>nagios<span class="sy0">/</span>plugins
+...</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="conf.d.2Fcontacts.cfg"><span class="mw-headline-number">3.7</span> conf.d/contacts.cfg</span></h2>
+<p>Les contacts servent à définir les contacts et groupes de contact 
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/contacts</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define contact{
+        contact_name                    deimos
+        alias                           Deimos
+        service_notification_period     24x7
+        host_notification_period        24x7
+        service_notification_options    w,u,c,r
+        host_notification_options       d,r
+        service_notification_commands   notify-service-by-email
+        host_notification_commands      notify-host-by-email
+        email                           deimos@deimos.fr
+        }
+define contactgroup{
+        contactgroup_name       admins
+        alias                   Nagios Administrators
+        members                 deimos
+        }</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="conf.d.2Fcustom-commands.cfg"><span class="mw-headline-number">3.8</span> conf.d/custom-commands.cfg</span></h2>
+<p>Je parlais plus haut des commandes personnalisées. En voici une que j'ai réaliser pour tester la réplication MySQL. Ceci me permettra de lancer la réplication via la commande check_mysqlrep&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/custom-commands.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">##############################
+#   CUSTOM NAGIOS COMMANDS   #
+##############################
+&#160;
+define command{
+    command_name	check_mysqlrep
+    command_line	/usr/lib/nagios/plugins/check_mysql -H $HOSTADDRESS$ -u $ARG1$ -p $ARG2$ -w $ARG3$ -c $ARG4$ -S
+}</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="conf.d.2Fgeneric-host.cfg"><span class="mw-headline-number">3.9</span> conf.d/generic-host.cfg</span></h2>
+<p>Ce fichier sert à donner la configuration générique pour les hosts, les intervales de notification etc... je vous laisse regarder la documentation officielle&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/generic-host.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># Generic host definition template - This is NOT a real host, just a template!
+&#160;
+define host{
+        name                            generic-host   &#160;; The name of this host template
+        notifications_enabled           1      &#160;; Host notifications are enabled
+        event_handler_enabled           1      &#160;; Host event handler is enabled
+        flap_detection_enabled          1      &#160;; Flap detection is enabled
+        failure_prediction_enabled      1      &#160;; Failure prediction is enabled
+        process_perf_data               1      &#160;; Process performance data
+        retain_status_information       1      &#160;; Retain status information across program restarts
+        retain_nonstatus_information    1      &#160;; Retain non-status information across program restarts
+	check_command                   check-host-alive
+	max_check_attempts              10
+	notification_interval           0
+	notification_period             24x7
+	notification_options            d,u,r
+	contact_groups                  admins
+        register                        0      &#160;; DONT REGISTER THIS DEFINITION - ITS NOT A REAL HOST, JUST A TEMPLATE!
+        _PROCWARN                       150
+        _PROCCRIT                       200
+        }</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="conf.d.2Fgeneric_service.cfg"><span class="mw-headline-number">3.10</span> conf.d/generic_service.cfg</span></h2>
+<p>Ce fichier sert à donner la configuration générique pour les services, les intervales de notification etc... je vous laisse regarder la documentation officielle&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/generic_service.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define service{
+        name                            generic-service&#160;; The 'name' of this service template
+        active_checks_enabled           1      &#160;; Active service checks are enabled
+        passive_checks_enabled          1      &#160;; Passive service checks are enabled/accepted
+        parallelize_check               1      &#160;; Active service checks should be parallelized (disabling this can lead to major performance problems)
+        obsess_over_service             1      &#160;; We should obsess over this service (if necessary)
+        check_freshness                 0      &#160;; Default is to NOT check service 'freshness'
+        notifications_enabled           1      &#160;; Service notifications are enabled
+        event_handler_enabled           1      &#160;; Service event handler is enabled
+        flap_detection_enabled          1      &#160;; Flap detection is enabled
+        failure_prediction_enabled      1      &#160;; Failure prediction is enabled
+        process_perf_data               1      &#160;; Process performance data
+        retain_status_information       1      &#160;; Retain status information across program restarts
+        retain_nonstatus_information    1      &#160;; Retain non-status information across program restarts
+		notification_interval           0		; Only send notifications on status change by default.
+		is_volatile                     0
+		check_period                    24x7
+		normal_check_interval           3
+		retry_check_interval            1
+		max_check_attempts              3
+		notification_period             24x7
+		notification_options            w,u,c,r
+		contact_groups                  admins
+        register                        0      &#160;; DONT REGISTER THIS DEFINITION - ITS NOT A REAL SERVICE, JUST A TEMPLATE!
+        }</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="conf.d.2Ftimeperiods.cfg"><span class="mw-headline-number">3.11</span> conf.d/timeperiods.cfg</span></h2>
+<p>Ce fichier sert à définir des template pour les périodes de notification&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/timeperiods.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">###############################################################################
+# timeperiods.cfg
+###############################################################################
+&#160;
+# This defines a timeperiod where all times are valid for checks, 
+# notifications, etc.  The classic &quot;24x7&quot; support nightmare.&#160;:-)
+&#160;
+define timeperiod{
+        timeperiod_name 24x7
+        alias           24 Hours A Day, 7 Days A Week
+        sunday          00:00-24:00
+        monday          00:00-24:00
+        tuesday         00:00-24:00
+        wednesday       00:00-24:00
+        thursday        00:00-24:00
+        friday          00:00-24:00
+        saturday        00:00-24:00
+        }
+&#160;
+# Here is a slightly friendlier period during work hours
+define timeperiod{
+        timeperiod_name workhours
+        alias           Standard Work Hours
+        monday          09:00-17:00
+        tuesday         09:00-17:00
+        wednesday       09:00-17:00
+        thursday        09:00-17:00
+        friday          09:00-17:00
+        }
+&#160;
+# The complement of workhours
+define timeperiod{
+        timeperiod_name nonworkhours
+        alias           Non-Work Hours
+        sunday          00:00-24:00
+        monday          00:00-09:00,17:00-24:00
+        tuesday         00:00-09:00,17:00-24:00
+        wednesday       00:00-09:00,17:00-24:00
+        thursday        00:00-09:00,17:00-24:00
+        friday          00:00-09:00,17:00-24:00
+        saturday        00:00-24:00
+        }
+&#160;
+# This one is a favorite: never&#160;:)
+define timeperiod{
+        timeperiod_name never
+        alias           Never
+        }
+&#160;
+# end of file</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="conf.d.2Fhostgroups.2Funix-srv.cfg"><span class="mw-headline-number">3.12</span> conf.d/hostgroups/unix-srv.cfg</span></h2>
+<p>Voici un exemple de configuration pour un hostgroup. Il suffira ensuite d'associer un host à ce hostgroup pour qu'il récupère tous les services décrit ci dessous&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/hostgroups/unix-srv.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># Some generic hostgroup definitions
+&#160;
+define hostgroup {
+    hostgroup_name  unix-srv
+    alias           Unix servers
+}
+&#160;
+# Define a service to check the disk space of the root partition
+# on the local machine.  Warning if &lt; 20% free, critical if
+# &lt; 10% free space on partition.
+&#160;
+define service{
+    use                             generic-service
+    hostgroup_name                  unix-srv
+    service_description             Disk Space
+    check_command                   check_nrpe!check_all_disks!20%!10%
+}
+&#160;
+# Define a service to check the number of currently logged in
+# users on the local machine.  Warning if &gt; 20 users, critical
+# if &gt; 50 users.
+&#160;
+define service{
+    use                             generic-service        &#160;; Name of service template to use
+    hostgroup_name                  unix-srv
+    service_description             Current Users
+    check_command                   check_nrpe!check_users!2!3
+}
+&#160;
+# Define a service to check the number of currently running procs
+# on the local machine.  Warning if &gt; 250 processes, critical if
+# &gt; 400 processes.
+&#160;
+define service{
+    use                             generic-service        &#160;; Name of service template to use
+    hostgroup_name                  unix-srv
+    service_description             Total Processes
+    check_command                   check_nrpe!check_procs!$_HOSTPROCWARN$!$_HOSTPROCCRIT$
+}
+&#160;
+# Check Zombie process
+define service{
+    use                             generic-service        &#160;; Name of service template to use
+    hostgroup_name                  unix-srv
+    service_description             Zombie Processes
+    check_command                   check_nrpe!check_zombie_procs!2!3
+}
+# Define a service to check the load on the local machine. 
+&#160;
+define service{
+    use                             generic-service        &#160;; Name of service template to use
+    hostgroup_name                  unix-srv
+    service_description             Current Load
+    check_command                   check_nrpe!check_load!5.0,4.0,3.0!10.0,6.0,4.0
+}
+&#160;
+# check that ssh services are running
+define service{
+    use                             generic-service
+    hostgroup_name                  unix-srv
+    service_description             SSH Servers
+    check_command                   check_ssh
+}</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="conf.d.2Fhosts.2Fserveur.cfg"><span class="mw-headline-number">3.13</span> conf.d/hosts/serveur.cfg</span></h2>
+<p>Et ici je déclare un host et associe unix-srv déclaré plus haut pour qu'il hérite des services ci dessus&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/hosts/serveur.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define host{
+    use                     generic-host
+    host_name               server.deimos.fr
+    alias                   server
+    address                 server.deimos.fr
+    hostgroups              unix-srv
+    _PROCWARN               280
+    _PROCCRIT               350
+}</pre></div></div>
+</td></tr></table><br />
+<p>Ici j'utilise des variables (_PROCWARN et _PROCCRIT) qui passent à travers les valeurs par défaut (<a rel="nofollow" class="external text" href="http://nagios.sourceforge.net/docs/3_0/customobjectvars.html">Voir la documentation pour plus d'infos</a>). Vous devez ajouter comme dans la documentation HOST ($_HOSTPROCWARN$ et $_HOSTPROCCRIT$) uniquement pour la partie déclaration de commande.
+</p><p>Si vous souhaitez une configuration plus complète, je vous joint une archive avec une configuration Nagios3 plus complète&#160;: <a href="images/1/1e/Nagios3.tgz" class="internal" title="Nagios3.tgz">Nagios configuration</a>
+</p>
+<h1><span class="mw-headline" id="Addons"><span class="mw-headline-number">4</span> Addons</span></h1>
+<h2><span class="mw-headline" id="NRPE"><span class="mw-headline-number">4.1</span> NRPE</span></h2>
+<p>Nous devons configurer le check NRPE pour qu'il prenne en compte plusieurs arguments. Sinon de base, nous serons limités à 1. Editez le fichier suivant et ajouter y le nombre nécessaire d'arguments&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios-plugins/config/check_nrpe.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># this command runs a program $ARG1$ with arguments $ARG2$
+define command {
+    command_name    check_nrpe
+    command_line    /usr/lib/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$ -a $ARG2$ $ARG3$ $ARG4$ $ARG5$ $ARG6$ $ARG7$ $ARG8$ $ARG9$
+}
+&#160;
+# this command runs a program $ARG1$ with no arguments
+define command {
+    command_name    check_nrpe_1arg
+    command_line    /usr/lib/nagios/plugins/check_nrpe -H $HOSTADDRESS$ -c $ARG1$
+}</pre></div></div>
+</td></tr></table><br />
+<p>Ici je suis allé jusqu'à 9, mais de mémoire vous pouvez aller jusqu'à 32 arguments.
+</p>
+<h2><span class="mw-headline" id="Cacher_des_alertes_.22non_OK.22"><span class="mw-headline-number">4.2</span> Cacher des alertes "non OK"</span></h2>
+<p>Il existe une solution simple pour ne pas afficher certaines alertes qui vous pourissent un peu l'existance, comme par exemple si comme moi vous avez pas loin de 1500 alertes, que vous avez un écran 107cm juste pour Nagios et que certaines alertes vous prennent trop de place et ne peuvent être résolues rapidement (ex un check de backup par semaine qui a foiré).
+</p><p>Donc la solution se fait via l'interface graphique en acknoledgeant (oui, du verbe acknoledger&#160;!) les services que vous le voulez plus voir. Ainsi, elles seront cachés et lorsqu'elles reviendront OK, elles s'afficheront de nouveau et l'acknoledge disparaitra.
+</p><p>Ensuite dans l'url de votre navigateur, il va falloir la modifier un peu afin de lui demander de ne pas afficher les alertes acknoledgées. En parcourant les sources du cgi, on peut trouver ce type d'infos&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> grep SERVICE_ include/cgiutils.h.in</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="c source-c"><pre class="de1"><span class="co2">#define SERVICE_SCHEDULED_DOWNTIME	1</span>
+<span class="co2">#define SERVICE_NO_SCHEDULED_DOWNTIME	2</span>
+<span class="co2">#define SERVICE_STATE_ACKNOWLEDGED	4</span>
+<span class="co2">#define SERVICE_STATE_UNACKNOWLEDGED	8</span>
+<span class="co2">#define SERVICE_CHECKS_DISABLED		16</span>
+<span class="co2">#define SERVICE_CHECKS_ENABLED		32</span>
+<span class="co2">#define SERVICE_EVENT_HANDLER_DISABLED	64</span>
+<span class="co2">#define SERVICE_EVENT_HANDLER_ENABLED	128</span>
+<span class="co2">#define SERVICE_FLAP_DETECTION_ENABLED	256</span>
+<span class="co2">#define SERVICE_FLAP_DETECTION_DISABLED	512</span>
+<span class="co2">#define SERVICE_IS_FLAPPING		1024</span>
+<span class="co2">#define SERVICE_IS_NOT_FLAPPING		2048</span>
+<span class="co2">#define SERVICE_NOTIFICATIONS_DISABLED	4096</span>
+<span class="co2">#define SERVICE_NOTIFICATIONS_ENABLED	8192</span>
+<span class="co2">#define SERVICE_PASSIVE_CHECKS_DISABLED	16384</span>
+<span class="co2">#define SERVICE_PASSIVE_CHECKS_ENABLED	32768</span>
+<span class="co2">#define SERVICE_PASSIVE_CHECK           65536</span>
+<span class="co2">#define SERVICE_ACTIVE_CHECK            131072</span>
+<span class="co2">#define SERVICE_HARD_STATE		262144</span>
+<span class="co2">#define SERVICE_SOFT_STATE		524288</span></pre></div></div>
+</td></tr></table><br />
+<p>PS&#160;: j'ai pris ces lignes des sources de Nagios 3, il y a quelques petites choses en moins pour la version 2 et 1.
+</p><p>Voici un exemple d'url avec les correspondances&#160;:
+</p>
+<pre>http://nagioshost/cgi-bin/nagios3/status.cgi?host=all&amp;servicestatustypes=28&amp;serviceprops=8
+</pre>
+<ul><li> servicestatustypes=28&#160;: tous les états sauf OK</li>
+<li> serviceprops=8&#160;: Enlève les états d'acknoledge</li></ul>
+<p>Et un petit + maintenant, si vous souhaitez ne pas voir le résumé des infos situé en haut de la page (cacher le header), voici l'option '&amp;noheader'&#160;:
+</p>
+<pre>http://nagioshost/cgi-bin/nagios3/status.cgi?host=all&amp;servicestatustypes=28&amp;serviceprops=8<b>&amp;noheader</b>
+</pre>
+<h2><span class="mw-headline" id="Ajouter_un_CGI_personnalis.C3.A9"><span class="mw-headline-number">4.3</span> Ajouter un CGI personnalisé</span></h2>
+<p>Dans certains cas, vous pouvez avoir certains checks qui stockent temporairement des informations sur le serveur Nagios et vous souhaitez pouvoir exécuter des actions depuis l'interface Nagios. Pour cela, il existe l'option 'action_url' sur lequel nous allons pouvoir lui donner une URL ou se trouve un cgi qui exécutera ce que l'on veut, avec pourquoi pas des options.
+</p><p>Pour commencer, nous allons créer notre CGI. Voici un exemple minimaliste ou je supprime un fichier temporaire&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /usr/lib/cgi-bin/nagios3/remove.cgi</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="co1">#!/usr/bin/perl </span>
+&#160;
+<span class="kw2">use</span> CGI<span class="sy0">;</span>
+<span class="re0">$query</span> <span class="sy0">=</span> CGI<span class="sy0">::</span><span class="kw2">new</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="re0">$host</span> <span class="sy0">=</span> <span class="re0">$query</span><span class="sy0">-&gt;</span><span class="me1">param</span><span class="br0">&#40;</span><span class="st0">&quot;host&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Avoid inputing special characters that would crash the program</span>
+<span class="kw1">if</span> <span class="br0">&#40;</span> <span class="re0">$h</span> <span class="sy0">=~</span> <span class="co2">/\`|\~|\@|\#|\$|\%|\^|\&amp;|\*|\(|\)|\:|\=|\+|\&quot;|\'|\;|\&lt;|\&gt;/</span> <span class="br0">&#41;</span> <span class="br0">&#123;</span> 
+    <span class="kw3">print</span> <span class="st0">&quot;Illegal special chars detected. Exit<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+    <span class="kw3">exit</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw3">print</span> <span class="st0">&quot;Content-type: text/html<span class="es0">\n</span><span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw3">print</span> <span class="st0">&quot;&lt;HTML&gt;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw3">print</span> <span class="st0">&quot;&lt;HEAD&gt;&lt;Title&gt;Removing $host temporary file&lt;/Title&gt;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw3">print</span> <span class="st0">&quot;&lt;LINK REL='stylesheet' TYPE='text/css' HREF='/nagios/stylesheets/common.css'&gt;&lt;LINK REL='stylesheet' TYPE='text/css' HREF='/nagios/stylesheets/status.css'&gt;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw3">print</span> <span class="st0">&quot;&lt;/HEAD&gt;&lt;BODY&gt;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw3">print</span> <span class="st0">&quot;Removing $host Interface Network Flapping temporary file...&quot;</span><span class="sy0">;</span>
+<span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">-</span>f <span class="st0">&quot;/tmp/iface_state_$host.txt&quot;</span><span class="br0">&#41;</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">unlink</span><span class="br0">&#40;</span><span class="st0">&quot;/tmp/iface_state_$host.txt&quot;</span><span class="br0">&#41;</span> <span class="kw1">or</span> <span class="kw3">print</span> <span class="st0">&quot;FAIL&lt;br /&gt;/tmp/iface_state_$host.txt&#160;: $!<span class="es0">\n</span>&quot;</span> <span class="kw1">and</span> <span class="kw3">exit</span><span class="br0">&#40;</span><span class="nu0">1</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw3">print</span> <span class="st0">&quot;OK<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+<span class="kw1">else</span>
+<span class="br0">&#123;</span>
+    <span class="kw3">print</span> <span class="st0">&quot;FAIL&lt;br /&gt;/tmp/iface_state_$host.txt&#160;: No such file or directory<span class="es0">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+<span class="kw3">print</span> <span class="st0">&quot;&lt;/body&gt;&lt;/html&gt;<span class="es0">\n</span>&quot;</span><span class="sy0">;</span></pre></div></div>
+</td></tr></table><br />
+<p>Et puis dans la configuration du service en question, j'insère mon 'action_url'&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> nagios_config.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define service{
+         use                             generic-services-ulsysnet
+         hostgroup_name                  network
+         service_description             Interface Network Flapping
+         check_period                    24x7
+         notification_period             24x7
+ 	 _SNMP_PORT			 161
+	 _SNMP_COMMUNITY		         public
+         _DURATION			 86400
+         check_command                   check_interface_flapping
+<span class="xtra ln-xtra">         # For Thruk &amp; Nagios</span><span class="xtra ln-xtra">	 # action_url			 ../../cgi-bin/nagios3/remove.cgi?host=$HOSTADDRESS$</span><span class="xtra ln-xtra">         # For Nagios only               </span><span class="xtra ln-xtra">         action_url			 remove.cgi?host=$HOSTADDRESS$</span>}</pre></div></div>
+</td></tr></table><br />
+<p>Il ne vous reste plus qu'à reloader Nagios.
+</p>
+<h2><span class="mw-headline" id="Envoyer_des_alertes_SMS_via_Free_Mobile"><span class="mw-headline-number">4.4</span> Envoyer des alertes SMS via Free Mobile</span></h2>
+<p>Merci à Free Mobile de nous offrir la possibilité d'envoyer des SMS via une API (activable depuis l'interface web de son compte). Comment cela fonctionne&#160;? Il suffit de créer dans le dossier de configuration un dossier scripts et mettre le contenu de ce script dedans:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/scripts/send_sms.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/bash</span>
+<span class="re2">message</span>=<span class="st0">&quot;<span class="es4">$(perl -MURI::Escape -e 'print uri_escape($ARGV[0])</span>;' &quot;</span>Naemon <span class="re4">$1</span>: <span class="re4">$2</span> on <span class="re4">$3</span> <span class="re4">$4</span> <span class="br0">&#40;</span><span class="re4">$5</span><span class="br0">&#41;</span><span class="st0">&quot;)&quot;</span>
+<span class="xtra ln-xtra">curl <span class="re5">--insecure</span> <span class="st0">&quot;https://smsapi.free-mobile.fr/sendmsg?user=&lt;userid&gt;&amp;pass=&lt;password&gt;&amp;msg=<span class="es2">$message</span>&quot;</span></span></pre></div></div>
+</td></tr></table><br />
+<p>Adaptez les champs 'userid' et 'password' avec vos paramètres personnels (ces identifiants sont disponible depuis l'interface web Free Mobile). Maintenant créez les contacts et contactgroups associés:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/contacts.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define contact {
+  contact_name                   oncall-sms                        &#160;; Short name of user
+  alias                          oncall-sms                       &#160;; Full name of user
+  use                            contact-sms                    &#160;; Inherit default values from generic-contact template (defined above)
+}
+&#160;
+define contactgroup {
+  contactgroup_name              admins-sms
+  alias                          Nagios Administrators SMS
+  members                        oncall-sms
+}</pre></div></div>
+</td></tr></table><br />
+<p>Ajoutez les commandes nécessaires, capable d'appeler le script:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/commands.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># 'notify-host-by-sms' command definition
+define command {
+  command_name                   notify-host-by-sms
+  command_line                   /etc/naemon/scripts/send_sms.sh $SHORTDATETIME$ $NOTIFICATIONTYPE$ $HOSTNAME$/$SERVICEDESC$ $HOSTSTATE$ $HOSTOUTPUT$
+}
+&#160;
+# 'notify-service-by-sms' command definition
+define command {
+  command_name                   notify-service-by-sms
+  command_line                   /etc/naemon/scripts/send_sms.sh $SHORTDATETIME$ $NOTIFICATIONTYPE$ $HOSTNAME$/$SERVICEDESC$ $SERVICESTATE$ $SERVICEOUTPUT$
+}</pre></div></div>
+</td></tr></table><br />
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/templates/contacts.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define contact {
+  name                           contact-sms                    &#160;; The name of this contact template
+  host_notification_commands     notify-host-by-sms               &#160;; send host notifications via email
+  host_notification_options      d,u,r                          &#160;; send notifications for all host states, flapping events, and scheduled downtime events
+  host_notification_period       24x7                               &#160;; host notifications can be sent anytime
+  register                       0                                  &#160;; DONT REGISTER THIS DEFINITION - ITS NOT A REAL CONTACT, JUST A TEMPLATE!
+  service_notification_commands  notify-service-by-sms            &#160;; send service notifications via email
+  service_notification_options   u,c,r                        &#160;; send notifications for all service states, flapping events, and scheduled downtime events
+  service_notification_period    24x7                               &#160;; service notifications can be sent anytime
+}</pre></div></div>
+</td></tr></table><br />
+<p><br />
+Et pour finir le service escalation, afin de notifier tout le monde par SMS s'il n'y a pas eu d'action assez rapide:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/conf.d/escalation.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define serviceescalation {
+	host_name              *
+	service_description    *
+	first_notification     3
+	last_notification      4
+	notification_interval  0
+	contact_groups         admins,admins-sms
+}</pre></div></div>
+</td></tr></table><br />
+<p>Bien entendu, tout ceci n'est qu'un exemple et il faudra certainement adapter à vos besoins.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="No_output_returned_from_plugin"><span class="mw-headline-number">5.1</span> No output returned from plugin</span></h2>
+<h3><span class="mw-headline" id="Solution_1"><span class="mw-headline-number">5.1.1</span> Solution 1</span></h3>
+<p>Si vous rencontrez ce type d'erreurs, c'est que vous n'avez pas activé les arguments au niveau de la configuration d'NRPE. Dans le fichier de configuration d'nrpe /etc/nagios/nrpe.cfg, passez cette valeur&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios/nrpe.cfg</font>
+</td></tr>
+<tr>
+<td>
+<pre>dont_blame_nrpe=0
+</pre>
+</td></tr></table><br />
+<p>à 1&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios/nrpe.cfg</font>
+</td></tr>
+<tr>
+<td>
+<pre>dont_blame_nrpe=1
+</pre>
+</td></tr></table><br />
+<p>Ensuite redémarrez nrpe et c'est parti&#160;:-)
+</p>
+<h3><span class="mw-headline" id="Solution_2"><span class="mw-headline-number">5.1.2</span> Solution 2</span></h3>
+<p>J'ai eu ce problème et ai chercher un moment avant de trouver. Cela vient d'NRPE et pour la configuration de l'hôte en question, remplacez par exemple ceci&#160;:
+</p>
+<pre><b>check_nrpe</b>!check_disk_c
+</pre>
+<p>par
+</p>
+<pre><b>check_nrpe_1arg</b>!check_disk_c
+</pre>
+<p>La différence c'est que&#160;:
+</p>
+<ul><li> check_nrpe&#160;: prends des arguements</li>
+<li> check_nrpe_1arg&#160;: ne prends pas d'arguments</li></ul>
+<h2><span class="mw-headline" id="Error:_Could_not_stat.28.29_command_file_.27.2Fvar.2Flib.2Fnagios3.2Frw.2Fnagios.cmd.27.21"><span class="mw-headline-number">5.2</span> Error: Could not stat() command file '/var/lib/nagios3/rw/nagios.cmd'!</span></h2>
+<h3><span class="mw-headline" id="Solution_1_2"><span class="mw-headline-number">5.2.1</span> Solution 1</span></h3>
+<p>Ce genre d'erreur existe parceque tout simplement vous n'avez pas les droits, donc pour résoudre ce problème&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>chmod -Rf a+rx /var/lib/nagios3
+</pre>
+</td></tr></table><br />
+<p>Ou sinon&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chown</font>
+</td></tr>
+<tr>
+<td>
+<pre>chown nagios.www-data /var/lib/nagios3/rw/nagios.cmd
+</pre>
+</td></tr></table><br />
+<h3><span class="mw-headline" id="Solution_2_2"><span class="mw-headline-number">5.2.2</span> Solution 2</span></h3>
+<p>Petit problème de droits sous Debian généralement, voici la solution&#160;! Exécutez en root ces commandes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dpkg-statoverride</font>
+</td></tr>
+<tr>
+<td>
+<pre>dpkg-statoverride --update --add nagios www-data 2710 /var/lib/nagios3/rw
+dpkg-statoverride --update --add nagios nagios 751 /var/lib/nagios3
+chmod -Rf a+rx /var/lib/nagios3
+chown nagios.www-data /var/lib/nagios3/rw/nagios.cmd
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Je_ne_recoit_pas_de_mails"><span class="mw-headline-number">5.3</span> Je ne recoit pas de mails</span></h2>
+<p>Il faut vérifier si la commande mail est bien présente command.cfg et surtout avec le bon PATH. Par exemple avec Debian, j'ai rencontré un petit problème et ce simple lien symbolique a résolu le problème&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> ln</font>
+</td></tr>
+<tr>
+<td>
+<pre>ln -s /usr/bin/mail /bin/mail
+</pre>
+</td></tr></table><br />
+<p><br />
+</p>
+<h2><span class="mw-headline" id="return_code_of_127_is_out_of_bounds"><span class="mw-headline-number">5.4</span> return code of 127 is out of bounds</span></h2>
+<p>C'est certainement du à une erreur de droit (exécution du plugins) ou bien parceque vous n'indiquez pas le path complet de l'éxécutable que vous souhaitez lancer. Oubliez $USER1$, pour moi ça ne fonctionne pas très bien. Après quelques reload de Nagios, ça se remet à déconner, donc utilisez le full path.
+</p>
+<h2><span class="mw-headline" id="CHECK_NRPE:_Error_-_Could_not_complete_SSL_handshake."><span class="mw-headline-number">5.5</span> CHECK_NRPE: Error - Could not complete SSL handshake.</span></h2>
+<p>Je parie que c'est parce que vous n'avez pas les droits&#160;! Un petit telnet sur le port 5666 de votre serveur en dira long. Modifiez ensuite la ligne allowed_hosts du nrpe.cfg et tout devrait rentrer dans l'ordre&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Monitorer_Wordpress"><span class="mw-headline-number">5.6</span> Monitorer Wordpress</span></h2>
+<p>Wordpress a une petite particularité avec le check_http, c'est qu'il faut lui faire suivre les liens (option "follow"). Voici un exemple de check&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> commands.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">define command{
+    command_name    check_blog
+    command_line    /usr/lib/nagios/plugins/check_http -H 'www.deimos.fr' -u '/blog/index.php' -s 'Parce que la mémoire humaine ne fait pas des Go' -f follow
+}</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="You_don.27t_have_permission_to_access_.2Fnagios3.2F_on_this_server"><span class="mw-headline-number">5.7</span> You don't have permission to access /nagios3/ on this server</span></h2>
+<p>Si comme moi après une msie à jour de Debian (5 -&gt; 6) vous avez ce message, il faut remplacer "index.html" par "index.php"&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/apache2/conf.d/nagios3.conf</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1"> ...
+ <span class="kw1">DirectoryIndex</span> index.php
+ ...</pre></div></div>
+</td></tr></table><br />
+<p>Puis on redémarre le service&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/apache2 restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Mes_checks_en_attente_sont_toujours_l.C3.A0_m.C3.AAme_apr.C3.A8s_un_reboot"><span class="mw-headline-number">5.8</span> Mes checks en attente sont toujours là même après un reboot</span></h2>
+<p>Il peut arriver d'avoir des soucis sur sa machine Nagios et les checks qui doivent être fait, restent actifs, même après un reboot. C'est tout simplement du au fait que Nagios les garde en mémoire pour pouvoir les réexécuter plus tard. Pour purger cette queue, modifiez ceci dans la configuration de Nagios, redémarrez le, puis repassez le paramètre à 1&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nagios3/nagios.cfg</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">[...]
+retain_state_information=0
+[...]</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p><a href="./File:OpenBSD_nagios.pdf.html" title="File:OpenBSD nagios.pdf">Documentation Nagios sur OpenBSD</a><br />
+<a rel="nofollow" class="external free" href="http://www.mail-archive.com/nagios-users@lists.sourceforge.net/msg04394.html">http://www.mail-archive.com/nagios-users@lists.sourceforge.net/msg04394.html</a><br />
+<a href="./File:Nagios.pdf.html" title="File:Nagios.pdf">Documentation Nagios</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.136 seconds
+Real time usage: 0.139 seconds
+Preprocessor visited node count: 690/1000000
+Preprocessor generated node count: 1858/1000000
+Post‐expand include size: 9402/2097152 bytes
+Template argument size: 2697/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   71.651      1 - -total
+ 81.66%   58.509     25 - Template:Config
+  7.81%    5.595      1 - Template:Nagios_minimal_cgi
+  6.42%    4.602      8 - Template:Command
+  3.00%    2.153      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1015-0!*!*!1!en!5!* and timestamp 20181111230717 and revision id 13432
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Nagios_:_Installation_et_configuration&amp;oldid=13432">https://wiki.deimos.fr/index.php?title=Nagios_:_Installation_et_configuration&amp;oldid=13432</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Nagios+%3A+Installation+et+configuration" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Nagios_:_Installation_et_configuration.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Nagios_:_Installation_et_configuration.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Nagios_:_Installation_et_configuration.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Nagios_:_Installation_et_configuration&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Nagios_:_Installation_et_configuration&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Nagios_:_Installation_et_configuration.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Nagios_:_Installation_et_configuration.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Nagios_:_Installation_et_configuration" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Nagios_:_Installation_et_configuration&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Nagios_:_Installation_et_configuration&amp;oldid=13432" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Nagios_:_Installation_et_configuration&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 8 September 2014, at 05:57.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

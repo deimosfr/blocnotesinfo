@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Faire de la QOS (Quality Of Service) avec PF - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Faire_de_la_QOS_(Quality_Of_Service)_avec_PF","wgTitle":"Faire de la QOS (Quality Of Service) avec PF","wgCurRevisionId":4855,"wgRevisionId":4855,"wgArticleId":2271,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Faire_de_la_QOS_(Quality_Of_Service)_avec_PF","wgRelevantArticleId":2271,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Faire_de_la_QOS_Quality_Of_Service_avec_PF skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Faire de la QOS (Quality Of Service) avec PF</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#mw-navigation">navigation</a>, 					<a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#Set_of_commands"><span class="tocnumber">2</span> <span class="toctext">Set of commands</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#bandwidth"><span class="tocnumber">2.1</span> <span class="toctext">bandwidth</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#priority"><span class="tocnumber">2.2</span> <span class="toctext">priority</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#qlimit"><span class="tocnumber">2.3</span> <span class="toctext">qlimit</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#realtime"><span class="tocnumber">2.4</span> <span class="toctext">realtime</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#upperlimit"><span class="tocnumber">2.5</span> <span class="toctext">upperlimit</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#linkshare"><span class="tocnumber">2.6</span> <span class="toctext">linkshare</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#default"><span class="tocnumber">2.7</span> <span class="toctext">default</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#Setup_HFSC"><span class="tocnumber">3</span> <span class="toctext">Setup HFSC</span></a></li>
+</ul>
+</div>
+
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Hierarchical Fair Service Curve (HFSC) alias QOS&#160;:<br />
+Quality of Service (QoS) is an attempt to give priority to a packet type or data connection on a per session basis. Hierarchical Fair Service Curve takes QoS to the next level over CBQ by focusing on guaranteed real-time, adaptive best-effort, and hierarchical link-sharing service.
+</p><p>Though this may sound difficult, it is really easy to use once you understand the basics.
+</p><p>What HSFC means without technical jargon is, you have the ability to setup rules to govern how data leaves the system. For example...
+</p>
+<ul><li> You may choose to have ack packets labeled with the highest priority to guarantee those packets go out first. Ack packets are the way you tell the remote system you have received the last payload and to continue to send the next. This will make sure you data transfers go as fast as they can even on a saturated connection.</li></ul>
+<ul><li> What if you are an avid gamer and other users on your network are slowing your connection down or causing you to loose your connection. You choose to give priority to your gaming traffic over normal web traffic. This way you can play games without slowing down and keep your latency low while other users on the network browse the web and download files.</li></ul>
+<ul><li> What if you are running a web server and you find the majority of your data is text based and is less than 10KB per page, but you do have a few larger data files around 5MB. You decide you want to serve out data quickly in the beginning of the connection and slow down after a few seconds. You can setup HFSC to serve out the first few seconds of a connection at full speed, lets say 100KB/sec and then slow the connection down after 5 seconds to 25KB/sec. This allows you to serve out your page at full speed and still allow people to download the 5MB files at slow speed, saving band with for other new web clients.</li></ul>
+<p>Quality of Service gives you the tools you need to shape traffic.
+</p>
+<h1><span class="mw-headline" id="Set_of_commands"><span class="mw-headline-number">2</span> Set of commands</span></h1>
+<p>Lets take a look at the basic set of commands in HFSC and why you would uses them in the real world:
+</p>
+<h2><span class="mw-headline" id="bandwidth"><span class="mw-headline-number">2.1</span> bandwidth</span></h2>
+<p>The percentage of the total connection speed this queue is allowed to borrow from the total queue or other queues. This variable can be not equal zero(0) and the bandwidth values for all of the queues can not exceed 100% of the available connection. This value is not to be confused with "bandwidth" as a value to describe the amount of data that can be transferred to or from a server, but a as directive specifying the amount of total connection speed this queue can borrow.
+</p>
+<h2><span class="mw-headline" id="priority"><span class="mw-headline-number">2.2</span> priority</span></h2>
+<p>The level specifies the order in which a service is to occur relative to other queues. The higher the number or value, the high the priority. This directive is a simple way of saying which packets are first out of the gate compared to others. Lets say you have gaming data and bulk web data. You want gaming data to be first since it is interactive and bulk web traffic can wait. Set the gaming data queue at least 1 priority level higher than the bulk web traffic queue.
+</p>
+<h2><span class="mw-headline" id="qlimit"><span class="mw-headline-number">2.3</span> qlimit</span></h2>
+<p>The amount of "slots" available to a queue to save outgoing packates when the amount of available band with has been exceeded. This value is 50 by default. When the total amount of bandwidth has been reached on the outgoing interface or higher queues are taking up all of the band with then no more data can be sent. The qlimit will put the packets the queue can not send out into slots in memory in the order that they arrive. When band with is available the qlimit slots will be emptied in the order they arrived; first in, first out. If the qlimit reaches the maximum value of qlimit, the packets will be dropped. Look at qlimit slots as "emergency use only," but as a better alternative to dropping the packets out right. Also, do not think that setting the qlimit really high will solve the problem of bandwidth starvation and packet drops. What you want to do is setup a queue with the proper bandwidth boundaries so that packets only go into the qlimit slots for a short time, if ever.
+</p>
+<h2><span class="mw-headline" id="realtime"><span class="mw-headline-number">2.4</span> realtime</span></h2>
+<p>The amount of bandwidth that is garrunteed to the queue no matter what any other queue needs. Realtime can be set from 0% to 80% of total connection bandwidth. Lets say you want to make sure that your web server gets 25KB/sec of bandwidth no matter what. Setting the realtime value will give the webserver queue the bandwidth it needs even if other queues want to share its bandwith.
+</p>
+<h2><span class="mw-headline" id="upperlimit"><span class="mw-headline-number">2.5</span> upperlimit</span></h2>
+<p>The amount of bandwidth the queue can _never_ exceed. For example, say you want to setup a new mail server and you want to make sure that the server never takes up more than 50% of your available bandwidth. Or lets say you have a p2p user you need the limit. Using the upperlimit value will keep them from abusing the connection.
+</p>
+<h2><span class="mw-headline" id="linkshare"><span class="mw-headline-number">2.6</span> linkshare</span></h2>
+<p>This vaule has the exact same use as "bandwidth" above. If you decide to use both "bandwidth" and "linkshare" in the same rule pf(OpenBSD 4.1) will just drop "linkshare". For this reason we are not going to use it.
+</p>
+<h2><span class="mw-headline" id="default"><span class="mw-headline-number">2.7</span> default</span></h2>
+<p>The deafult queue. As data connections or rules that are specifically put into a queue will be put into this queue rule. This directive must be in one rule. You can _not_ have two(2) default directives in any two(2) rules.
+</p>
+<h1><span class="mw-headline" id="Setup_HFSC"><span class="mw-headline-number">3</span> Setup HFSC</span></h1>
+<p>Now, lets take a look at a common HFSC queue setup. The following group of rules splits data into 6 subsets and gives each one of them specific data tasks and limits. You do not have to follow this example exactly, especially since you have the definitions above. Let me explain what each line does and why it is used then you can decide for yourself.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">#Comcast Upload = 768Kb/s (queue at 97%)
+ altq on $ExtIf bandwidth 744Kb hfsc queue { ack, dns, ssh, bulk, bittor, spamd }
+   queue ack        bandwidth 80% priority 7 qlimit 500 hfsc (realtime 50%)
+   queue dns        bandwidth  7% priority 6 qlimit 500 hfsc (realtime  5%)
+   queue ssh        bandwidth 10% priority 5 qlimit 500 hfsc (realtime 20%) {ssh_bulk, ssh_login}
+    queue ssh_login bandwidth 90% priority 5 qlimit 500 hfsc
+    queue ssh_bulk  bandwidth 10% priority 4 qlimit 500 hfsc
+   queue bulk       bandwidth  1% priority 4 qlimit 500 hfsc (realtime 5% default)
+   queue bittor     bandwidth  1% priority 3 qlimit 500 hfsc (upperlimit 99%)
+   queue spamd      bandwidth  1% priority 2 qlimit 500 hfsc (upperlimit 1%)</pre></div></div>
+<pre>#Comcast Upload = 768Kb/s (queue at 97%)
+</pre>
+<p>The first line is simply a comment. It reminds one that comcast's total upload bandwidth is 768Kb/s (kilobits per second). You never want to use exactly the total upload speed, but a few kilobytes less. On comcast 97% works very well. Why? Because you want to use your queue as the limiting factor in the connection. When you send out data and you saturate your link the router you connect to will decide what packets go first and that is what we want HSFC to do. You can _not_ trust your upsteam router to forward packets correctly. It may be that the router maintainer does not care, the router does not have the ability, or the router it too old. So, we limit the upload speed to just under the total available. "Doesn't that waste some bandwidth then?" Yes, in this example we are not using 3KB/s, but remember we are making sure the upsteam routers sends out the packets in the order we want, not what they decide. This makes all the difference with ACK packets especially and will actually increase the available bandwidth on a saturated connection
+</p>
+<pre>altq on $ExtIf bandwidth 744Kb hfsc queue { ack, dns, ssh, bulk, bittor, spamd }
+</pre>
+<p>The second line is the parent queue for the external interface ($ExtIf), it shows we are using "hfsc queue" and lists out all six(6) of the child queues (ack, dns, ssh, bulk, bittor, spamd). This is where we specify the bandwidth limit at 97% of the total 768Kb = 744Kb.
+</p><p>The next set of lines specify the 6 child queues and also two sub-child queues in the ssh rule. All of these rules use the external interface and are limited by the parent queue's bandwidth limitations.
+</p><p>Note&#160;: REMEMBER: Do not set your upload bandwidth to high otherwise the queue in pf will be useless. A safe rule is to set the maximum
+bandwidth at around 97% of the total upload speed available to you. Setting your max speed lower is preferable to setting it too high. 
+</p>
+<pre>queue ack bandwidth 80% priority 7 qlimit 500 hfsc (realtime 50%)
+</pre>
+<p>This is the ack queue. it can borrow as little as 80% of the total bandwidth, it is the highest priority at 7, and has a very high queue limit of 500 slots. The realtime of 50% means this queue is guarantee at least 50% of the total bandwidth no matter what any other rules wants.
+</p><p>The highest priority queue is for ack (aknowlage) packets. Ack packets are the method your system tells the remote systems that you have received the payload they sent and to send the next one. By prioritizing these packets you can keep your transfer rates high even on a highly saturated link. For example, if you are downloading a file and you receive a chunk of data the remote system will not send you the next chunk of data until you send them an OK. The OK is the ack packet. When you send the ack packet the remote system knows you got the packet and it has checked out, thus it will send the next one. If on the other hand you delay ack packets, the transfer rate will diminish quickly because the remote system wont send anything new until you respond.
+</p>
+<pre>queue dns bandwidth 7% priority 6 qlimit 500 hfsc (realtime 5%)
+</pre>
+<p>This is the dns queue. it can borrow as litle as 7% of the total bandwidth, it is the second highest priority at 6, and has a very high queue limit of 500 slots. The realtime of 5% means this queue is guarantee at least 5% of the total bandwidth no matter what any other rules wants.
+</p><p>This queue is simple to make sure dns packets get out on time. Though this is not really necessary your web browsing users will be thankful. When you goto a site or enter a URL the clients need the ip of the server. This rule simply allows dns queries to go out before other traffic.
+</p>
+<pre>queue ssh bandwidth 10% priority 5 qlimit 500 hfsc (realtime 20%) {ssh_login, ssh_bulk}
+   queue ssh_login bandwidth 90% priority 5 qlimit 500 hfsc
+   queue ssh_bulk bandwidth 10% priority 4 qlimit 500 hfsc
+</pre>
+<p>This is the ssh parent and child queues. The parent queue can borrow as little as 10% of the total bandwidth, it is at priority at 5, and has a very high queue limit of 500 slots. The realtime of 20% means this queue is guarantee at least 20% of the total bandwith.
+</p><p>The two(2) child queues are for ssh's interactive logins (ssh_login) and bulk transfer data like scp/sftp (ssh_bulk). These two queues are under the parent queue and both divide the parents bandwidth of 10% of the total bandwidth. In this example we want to make sure interactive ssh like the console has at least 90% of the bandwidth. The rest of the bandwidth at 10% is used for bulk transfers like scp and sftp transfers. Both child queues do have the ability to share bandwidth from each other. The priorities of the ssh child queues are independent of all of the other queues. W could have picked any other priorities as long at ssh_login was higher than ssh_bulk.
+</p>
+<pre>queue bulk bandwidth 1% priority 4 qlimit 500 hfsc (realtime 5% default)
+</pre>
+<p>This is the bulk queue. The bulk queue can borrow as little at 1% of the total bandwidth, it is at priority at 4, and has a very high queue limit of 500 slots. The realtime of 5% means this queue is guaranteed at least 5% of the total bandwidth no matter what any other rules wants.
+</p><p>This queue is the where all of the general traffic will go. If one does not specify a queue for a rule, that traffic will go here. Notice the directive "default" after the realtime tag.
+</p><p>One also has the option of changing the realtime speed over time. In the following example the bulk queue has been changed. This time we will transfer 37kb/s for 5000 milliseconds and then drop the speeds down to 10kb/sec. This might be useful to keep short bursts fast, but slow down big downloads.
+</p>
+<pre>queue bulk bandwidth 1% priority 4 qlimit 500 hfsc (realtime 37kb 5000 10kb default)
+</pre>
+<pre>queue bittor bandwidth 1% priority 3 qlimit 500 hfsc (upperlimit 99%)
+</pre>
+<p>This is bittor queue. The bittor queue can borrow as little at 1% of the total bandwidth, it is at priority at 3, and has a very high queue limit of 500 slots. Notice this rule does not have a real time directive. This is because we have decided that bittor traffic is expendable and we want to make sure this queue gives up all bandwidth to higher priority queues need it. The upperlimit directive makes sure this rule will never borrow more than 99% of the total bandwidth from any other queue.
+</p><p>This rule is here to show that one can use peer sharing tools and still have control of their network. You will notice that remote clients using peer 2 peer sharing tools connecting will hammer your connection. This rule will allow the data to transfer at up to 99% of your full speed, but if another queue needs the bandwidth, the bittor queue will be pruned almost instantly to 1%. Imagine if you are getting the latest OpenBSD distro through a torrent and then you want to browse the web. Normally, you would experience a slow connection because you are fighting for bandwidth. With this rule your browsing traffic gets the bandwidth it needs instantly. The bittor queue on the other hand gets reduced and starts using the qlimit slots until you are done using the bandwidth browsing. Best of both worlds.
+</p>
+<pre>queue spamd bandwidth 1% priority 2 qlimit 500 hfsc (upperlimit 1%)
+</pre>
+<p>This is spamd queue. The spamd queue can borrow as little at 1% of the total bandwidth, it is at lowest priority of 2, and has a very high queue limit of 500 slots. Notice this rule does not have a real time directive. This is because we have decided that spamd traffic is expendable and we want to make sure this queue gives up all bandwidth is higher priority queues need it. The upperlimit directive makes sure this rule will never borrow more than 1% of the total bandwidth from any other queue.
+</p><p>This rule is used for spammers and is linked to the spamd daemon to annoy spammers. Since the traffic on this queue has very low traffic requirements we have decided to set the upper and lower bounds at 1% of the total bandwidth. Even with 100 spammers connected less than 1KB/sec is more than enough to annoy them. Even if you had more spammers connected the queue would never use more than 1% of the bandwidth. Any extra packets would go into qlimit and if that fills would then packets would be dropped. No problem since the data in expendable.
+</p><p>Now that we have taken a detailed look at the queue rules and diretives, we now need to look at a way to apply those queues to our pf rules.
+</p><p>Here we have two(2) examples of rules you can use queuing on. Notice the queue names we used above like ack, bulk, sh_login, and ssh_bulk at the end of the rules. Also, notice the order that we have put the two queues in on each rule. The first queue name in "bulk, ack" is for general data and the second "ack" is for special short length packets.
+</p><p>pass out on $ExtIf inet proto tcp from ($ExtIf) to any flags S/SA modulate state queue (bulk, ack)
+pass out on $ExtIf inet proto tcp from ($ExtIf) to any port ssh flags S/SA modulate state queue (ssh_bulk, ssh_login)
+</p><p>The first rule is passing out bulk traffic on the external interface and prioritizing ack packets. The second rule is passing out data on port 22(ssh) and prioritizing the interactive ssh traffic. This traffic is originating on our internal network or on the firewall itself.
+</p><p>If we decided to have a rule with only one queue directive it would look like so.
+</p>
+<pre>pass out on $ExtIf inet proto tcp from ($ExtIf) to any flags S/SA modulate state queue (bulk)
+</pre>
+<p>You can also queue data on the return trip on an external stateful connection. Remember you can _not_ queue data coming into the box, only going out. Lets say you have a web server and clients from the outside connect to you and you want their data responses to be queued. The following works perfectly.
+</p>
+<pre>pass in on $ExtIf inet proto tcp from any to ($ExtIf) port www flags S/SA modulate state queue (bulk, ack)
+</pre>
+<p>So, now you have read all about queuing and you have applied the queue tags to your rules. Now you need to verify that what you setup works actually does what you thought it should do. You should first install "pftop" from the OpenBSD package collection. It is a very easy install without any dependencies. You can also install the latest version from source without issue.
+</p><p>The following is an example output from "table #8" in pftop. To get to this table start pftop and press #8 on the keyboard.
+</p>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">pfTop: Up Queue 1-9/9, View: queue, Cache: 10000
+&#160;
+  QUEUE          BW SCH  PRIO     PKTS    BYTES   DROP_P   DROP_B QLEN BORROW SUSPEN     P/S     B/S
+root_rl0       744K hfsc    0        0        0        0        0    0                     0       0
+ ack           595K hfsc    7        0        0        0        0    0                     0       0
+ dns          52080 hfsc    6        0        0        0        0    0                     0       0
+ ssh          74400 hfsc    5        0        0        0        0    0                     0       0
+  ssh_login   66960 hfsc    5       83    13538        0        0    0                   0.2      26
+  ssh_bulk     7440 hfsc    4       11     3042        0        0    0                     0       0
+ bulk          7440 hfsc    4      406    44540        0        0    0                    80     403
+ bittor        7440 hfsc    3        0        0        0        0    0                     0       0
+ spamd         7440 hfsc    2    24424  1412491        0        0  140                    15     923</pre></div></div>
+<p>The output above is similar to what you are looking for. You need to test each type of queue you setup to make sure you see the packets being added to the correct queue. For example, you could ssh to another machine going out the external interface and as you do so you should see packets being add to the "ssh_login"queue.
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.012 seconds
+Real time usage: 0.011 seconds
+Preprocessor visited node count: 45/1000000
+Preprocessor generated node count: 86/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:2271-0!*!*!1!en!*!* and timestamp 20181111230705 and revision id 4855
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Faire_de_la_QOS_(Quality_Of_Service)_avec_PF&amp;oldid=4855">https://wiki.deimos.fr/index.php?title=Faire_de_la_QOS_(Quality_Of_Service)_avec_PF&amp;oldid=4855</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Faire+de+la+QOS+%28Quality+Of+Service%29+avec+PF" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Faire_de_la_QOS_(Quality_Of_Service)_avec_PF&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Faire_de_la_QOS_(Quality_Of_Service)_avec_PF&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Faire_de_la_QOS_(Quality_Of_Service)_avec_PF.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Faire_de_la_QOS_(Quality_Of_Service)_avec_PF" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Faire_de_la_QOS_(Quality_Of_Service)_avec_PF&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Faire_de_la_QOS_(Quality_Of_Service)_avec_PF&amp;oldid=4855" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Faire_de_la_QOS_(Quality_Of_Service)_avec_PF&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 7 October 2007, at 10:14.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":30});
+}</script>
+	</body>
+</html>
+	

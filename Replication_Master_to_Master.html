@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Replication Master to Master - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="Replication_Master_to_Master.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Replication_Master_to_Master","wgTitle":"Replication Master to Master","wgCurRevisionId":12591,"wgRevisionId":12591,"wgArticleId":1669,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Replication_Master_to_Master","wgRelevantArticleId":1669,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Replication_Master_to_Master skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Replication Master to Master</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="Replication_Master_to_Master.html#mw-navigation">navigation</a>, 					<a href="Replication_Master_to_Master.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Replication_Master_to_Master.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Replication_Master_to_Master.html#Master_1_configuration"><span class="tocnumber">2</span> <span class="toctext">Master 1 configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="Replication_Master_to_Master.html#Step_1"><span class="tocnumber">2.1</span> <span class="toctext">Step 1</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="Replication_Master_to_Master.html#Step_2"><span class="tocnumber">2.2</span> <span class="toctext">Step 2</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="Replication_Master_to_Master.html#Step_3"><span class="tocnumber">2.3</span> <span class="toctext">Step 3</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="Replication_Master_to_Master.html#Slave_1_configuration"><span class="tocnumber">3</span> <span class="toctext">Slave 1 configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="Replication_Master_to_Master.html#Step_1_2"><span class="tocnumber">3.1</span> <span class="toctext">Step 1</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="Replication_Master_to_Master.html#Step_2_2"><span class="tocnumber">3.2</span> <span class="toctext">Step 2</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="Replication_Master_to_Master.html#Step_3_2"><span class="tocnumber">3.3</span> <span class="toctext">Step 3</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="Replication_Master_to_Master.html#Master_1_verification"><span class="tocnumber">4</span> <span class="toctext">Master 1 verification</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="Replication_Master_to_Master.html#Master_2_configuration"><span class="tocnumber">5</span> <span class="toctext">Master 2 configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-12"><a href="Replication_Master_to_Master.html#Step_1_3"><span class="tocnumber">5.1</span> <span class="toctext">Step 1</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="Replication_Master_to_Master.html#Step_2_3"><span class="tocnumber">5.2</span> <span class="toctext">Step 2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="Replication_Master_to_Master.html#Slave_1_configuration_2"><span class="tocnumber">6</span> <span class="toctext">Slave 1 configuration</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="Replication_Master_to_Master.html#Master_2_verification"><span class="tocnumber">7</span> <span class="toctext">Master 2 verification</span></a></li>
+<li class="toclevel-1 tocsection-16"><a href="Replication_Master_to_Master.html#Monitoring"><span class="tocnumber">8</span> <span class="toctext">Monitoring</span></a></li>
+<li class="toclevel-1 tocsection-17"><a href="Replication_Master_to_Master.html#FAQ"><span class="tocnumber">9</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="Replication_Master_to_Master.html#After_a_reboot_the_slave_is_not_synchronized"><span class="tocnumber">9.1</span> <span class="toctext">After a reboot the slave is not synchronized</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="Replication_Master_to_Master.html#Watch_current_process_to_determine_syncro_problem"><span class="tocnumber">9.2</span> <span class="toctext">Watch current process to determine syncro problem</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="Replication_Master_to_Master.html#What_if_I_have_binlogs_corrupted_.3F"><span class="tocnumber">9.3</span> <span class="toctext">What if I have binlogs corrupted&#160;?</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="Replication_Master_to_Master.html#Repair_replication"><span class="tocnumber">9.4</span> <span class="toctext">Repair replication</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-22"><a href="Replication_Master_to_Master.html#Ressources"><span class="tocnumber">10</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<div class="thumb tright"><div class="thumbinner" style="width:130px;"><a href="./File:Mysql_logo.jpeg.html" class="image"><img alt="" src="images/e/e4/Mysql_logo.jpeg" width="128" height="130" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="./File:Mysql_logo.jpeg.html" class="internal" title="Enlarge"></a></div>MySQL Logo</div></div></div>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>After done the installation (Look here&#160;: <a href="Installation_et_configuration.html" title="Installation et configuration">Installation et configuration</a>), we are going to set up MySQL master-master replication. We need to replicate MySQL servers to achieve high-availability (HA). In my case I need two masters that are synchronized with each other so that if one of them drops down, other could take over and no data is lost. Similarly when the first one goes up again, it will still be used as slave for the live one.
+</p><p><a href="./File:Mysql_replication.png.html" class="image"><img alt="Mysql replication.png" src="images/2/2c/Mysql_replication.png" width="1053" height="532" /></a>
+</p><p>Here  is a basic step by step tutorial, that will cover the mysql master and slave replication and also will describe the mysql master and master replication.
+</p><p><b>Notions:</b> we will call system 1 as master1 and slave2 and system2 as master2 and slave 1.
+</p>
+<hr />
+<p>Install mysql on master 1 and slave 1. configure network services on both system, like&#160;:
+</p>
+<ul><li> <b>Master 1/Slave 2 ip: 10.8.0.1</b></li>
+<li> <b>Master 2/Slave 1 ip&#160;: 10.8.0.6</b></li></ul>
+<h1><span class="mw-headline" id="Master_1_configuration"><span class="mw-headline-number">2</span> Master 1 configuration</span></h1>
+<h2><span class="mw-headline" id="Step_1"><span class="mw-headline-number">2.1</span> Step 1</span></h2>
+<p>On Master 1, make changes in my.cnf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> my.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+[mysqld]
+<b>log-bin=/var/log/mysql/mysql-bin.log</b>
+<b>binlog-do-db=&lt;database name&gt;  # input the database which should be replicated</b>
+<b>binlog-ignore-db=mysql        # input the database that should be ignored for replication</b>
+binlog-ignore-db=test
+expire_logs_days=14
+# binlog_cache_size = 64K # Enable this if binlog_cache_disk_use increase in 'show global status'
+sync_binlog = 1 # Reduce performances but essential for data integrity between slave &lt;- master
+slave_compressed_protocol = 1 # Good for wan replication to reduce network I/O at low cost of extra CPU
+
+<b>server-id=1</b>
+<b>bind-address = 0.0.0.0</b>
+...
+</pre>
+</td></tr></table><br />
+<p>Notes&#160;: Italic lines are nearly optional and bold lines need to be set
+</p><p>If you want to sync all databases without setting exclusions, you could without adding '*ignore-db' values&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> my.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+[mysqld]
+<b>log-bin=/var/log/mysql/mysql-bin.log</b>
+expire_logs_days=14
+# binlog_cache_size = 64K # Enable this if binlog_cache_disk_use increase in 'show global status'
+sync_binlog = 1 # Reduce performances but essential for data integrity between slave &lt;- master
+slave_compressed_protocol = 1 # Good for wan replication to reduce network I/O at low cost of extra CPU
+
+<b>server-id=1</b>
+<b>bind-address = 0.0.0.0</b>
+...
+</pre>
+</td></tr></table><br />
+<p>Restart MySQL&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> restart</font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/mysql restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Step_2"><span class="mw-headline-number">2.2</span> Step 2</span></h2>
+<p>On master 1, connect on it and create a replication slave account in mysql.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql&gt; create user '<b>replication'</b>@'<b>10.8.0.1'</b> identified by '<b>password'</b>;
+</pre>
+</td></tr></table><br />
+<ul><li> replication&#160;: username for replication</li>
+<li> password&#160;: password for replication user</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql&gt; grant replication slave on <b>&lt;database name&gt;.*</b> to '<b>replication'</b>@'<b>10.8.0.1'</b>;
+</pre>
+<p>or
+</p>
+<pre>mysql&gt; grant replication slave on *.* to '<b>replication'</b>@'<b>10.8.0.1'</b>;
+</pre>
+</td></tr></table><br />
+<p>Flush the privileges and database tables with read lock&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> flush privileges;
+ flush tables with read lock;
+ show master status;
+ +------------------+----------+--------------+------------------+
+ | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
+ +------------------+----------+--------------+------------------+
+ | mysql-bin.000173 |    50937 | wikidb       |                  | 
+ +------------------+----------+--------------+------------------+
+ 1 row in set (0.00 sec)</pre></div></div>
+</td></tr></table><br />
+<p>Note, if you have full InnoDB databases, you needn't to flush tables with read locks.
+</p>
+<h2><span class="mw-headline" id="Step_3"><span class="mw-headline-number">2.3</span> Step 3</span></h2>
+<p>Backup the desired database and upload them to the slave. If you're on InnoDB&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqldump</font>
+</td></tr>
+<tr>
+<td>
+<pre>mysqldump -uroot -p --opt --add-drop-table --routines --triggers --events --single-transaction --master-data=2 -B <b>wikidb</b> &gt; wikidb.sql
+</pre>
+</td></tr></table><br />
+<p><i>Note: If there is InnoDB/MyISAM, add --lock-all-tables&#160;!</i>
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> scp</font>
+</td></tr>
+<tr>
+<td>
+<pre>scp <b>wikidb.sql</b> <b>10.8.0.6</b>:~/
+</pre>
+</td></tr></table><br />
+<p>Then we will unlock tables&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql -uroot -p
+unlock tables;
+quit;
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Slave_1_configuration"><span class="mw-headline-number">3</span> Slave 1 configuration</span></h1>
+<h2><span class="mw-headline" id="Step_1_2"><span class="mw-headline-number">3.1</span> Step 1</span></h2>
+<p>Let's create the database&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql -uroot -p
+create database wikidb;
+quit;
+</pre>
+</td></tr></table><br />
+<p>Then we import the database&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql -uroot -p  wikidb &lt; wikidb.sql
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Step_2_2"><span class="mw-headline-number">3.2</span> Step 2</span></h2>
+<p>Now edit my.cnf on Slave1 or Master2&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> my.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>[mysqld]
+...
+<b>server-id=2</b>
+<b>bind-address = 0.0.0.0</b>
+# sync_binlog = 1
+expire_log_days = 14
+...
+</pre>
+</td></tr></table><br />
+<p>Then restart MySQL&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> restart</font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/mysql restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Step_3_2"><span class="mw-headline-number">3.3</span> Step 3</span></h2>
+<p>Grab informations from the Master&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> head</font>
+</td></tr>
+<tr>
+<td>
+<pre>head -n100 database.sql 
+</pre>
+</td></tr></table><br />
+<p>Now we're going to inform the slave database&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql -uroot -p
+stop slave;
+reset slave;
+change master to master_host='<b>10.8.0.1'</b>, master_user='<b>replication'</b>, master_password='<b>password'</b>, master_log_file='<b>mysql-bin.000173'</b>, master_log_pos=<b>50937</b>;
+</pre>
+</td></tr></table><br />
+<p>Let's starting the slave 1&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>start slave;
+show slave status\G;
+
+ ************************** 1. row ***************************
+             Slave_IO_State: Waiting for master to send event
+                Master_Host: 192.168.16.4
+                Master_User: replica
+                Master_Port: 3306
+              Connect_Retry: 60
+            Master_Log_File: MASTERMYSQL01-bin.000009
+        Read_Master_Log_Pos: 4
+             Relay_Log_File: MASTERMYSQL02-relay-bin.000015
+              Relay_Log_Pos: 3630
+      Relay_Master_Log_File: MASTERMYSQL01-bin.000009
+<b>           Slave_IO_Running: Yes</b>
+<b>          Slave_SQL_Running: Yes</b>
+            Replicate_Do_DB:
+        Replicate_Ignore_DB:
+         Replicate_Do_Table:
+     Replicate_Ignore_Table:
+    Replicate_Wild_Do_Table:
+Replicate_Wild_Ignore_Table:
+                 Last_Errno: 0
+                 Last_Error:
+               Skip_Counter: 0
+        Exec_Master_Log_Pos: 4
+            Relay_Log_Space: 3630
+            Until_Condition: None
+             Until_Log_File:
+              Until_Log_Pos: 0
+         Master_SSL_Allowed: No
+         Master_SSL_CA_File:
+         Master_SSL_CA_Path:
+            Master_SSL_Cert:
+          Master_SSL_Cipher:
+             Master_SSL_Key:
+<b>      Seconds_Behind_Master: 1519187</b>
+
+1 row in set (0.00 sec)
+</pre>
+</td></tr></table><br />
+<p>Above highlighted rows must be indicate related log files and <b>Slave_IO_Running and Slave_SQL_Running: must be to YES.</b>
+</p>
+<ul><li> Seconds_Behind_Master&#160;: is the difference time between master and slave data sync (in progress...).</li>
+<li> Master_Host&#160;: This is the address of the master server. The slave will connect on it to get the logs that have to be replayed</li>
+<li> Master_User&#160;: The user that we will use for the replication</li>
+<li> Master_Port&#160;: The port where the slave will connect to on the master</li>
+<li> Master_Log_File: This file is the binary log that the slave will have to replay. the binary log is located on the master server. This file contains every statement that makes a change to the database in a binary format.</li>
+<li> Read_Master_Log_Pos&#160;: This is the position number on the binary log file that is being read by the "Slave_I/O Process" (the process that established the connexion to the master and ensure the sync)</li>
+<li> Relay_Log_File: Same as the binary log but this file is located on the slave. This is a relay file of the master binary log</li>
+<li> Relay_Log_Pos: This is the position number on the relay log file that is being read by the "Slave_SQL Process" (the process that replays the changes to the slave database)</li>
+<li> Relay_Master_Log_File&#160;: It contains all the statements that have been processed by the slave.</li>
+<li> Slave_IO_Running&#160;: The status of the Slave_I/O process. when it's on "Yes" that means that the slave is properly connected to the master. if it's on "No" that means that something goes wrong with the connectivity between the 2 nodes</li>
+<li> Slave_SQL_Running&#160;: The status of the Slave_SQL process. when it's on "Yes" that means that the slave is able to process statements and that all is working correctly. if it's on "No" that means that something goes wrong while reading the relay logs</li></ul>
+<h1><span class="mw-headline" id="Master_1_verification"><span class="mw-headline-number">4</span> Master 1 verification</span></h1>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mysql&gt; show master status;
++------------------------+----------+--------------+------------------+
+| File                   | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++------------------------+----------+--------------+------------------+
+|MysqlMYSQL01-bin.000008 |      410 | adam         |                  |
++------------------------+----------+--------------+------------------+
+1 row in set (0.00 sec)</pre></div></div>
+</td></tr></table><br />
+<p>The above scenario is for master-slave, now we will create a slave master scenario for the same systems and it will work as master master.
+</p>
+<h1><span class="mw-headline" id="Master_2_configuration"><span class="mw-headline-number">5</span> Master 2 configuration</span></h1>
+<h2><span class="mw-headline" id="Step_1_3"><span class="mw-headline-number">5.1</span> Step 1</span></h2>
+<p>On Master 2, make changes in my.cnf&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> my.cnf</font>
+</td></tr>
+<tr>
+<td>
+<pre>...
+[mysqld]
+<b>log-bin=/var/log/mysql/mysql-bin.log</b>
+<b>binlog-do-db=&lt;database name&gt;  # input the database which should be replicated</b>
+<b>binlog-ignore-db=mysql        # input the database that should be ignored for replication</b>
+binlog-ignore-db=test
+expire_logs_days=14
+# binlog_cache_size = 64K # Enable this if binlog_cache_disk_use increase in 'show global status'
+sync_binlog = 1 # Reduce performances but essential for data integrity between slave &lt;- master
+slave_compressed_protocol = 1 # Good for wan replication to reduce network I/O at low cost of extra CPU
+
+<b>server-id=2</b>
+<b>bind-address = 0.0.0.0</b>
+# sync_binlog = 1
+expire_log_days = 14
+...
+</pre>
+</td></tr></table><br />
+<p>Restart MySQL&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>/etc/init.d/mysql restart
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Step_2_3"><span class="mw-headline-number">5.2</span> Step 2</span></h2>
+<p>On master 1, connect on it and create a replication slave account in mysql.
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql&gt; create user '<b>replication'</b>@'<b>10.8.0.6'</b> identified by '<b>password'</b>;
+</pre>
+</td></tr></table><br />
+<ul><li> replication&#160;: username for replication</li>
+<li> password&#160;: password for replication user</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql&gt; grant replication slave on <b>&lt;database name&gt;.*</b> to '<b>replication'</b>@'<b>10.8.0.6'</b>;
+</pre>
+<p>or
+</p>
+<pre>mysql&gt; grant replication slave on *.* to '<b>replication'</b>@'<b>10.8.0.6'</b>;
+</pre>
+</td></tr></table><br />
+<p>Flush the provileges&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> flush privileges;
+ show master status;
+ +------------------+----------+--------------+------------------+
+ | File             | Position | Binlog_Do_DB | Binlog_Ignore_DB |
+ +------------------+----------+--------------+------------------+
+ | mysql-bin.000173 |    50937 | wikidb       |                  | 
+ +------------------+----------+--------------+------------------+
+ 1 row in set (0.00 sec)</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Slave_1_configuration_2"><span class="mw-headline-number">6</span> Slave 1 configuration</span></h1>
+<p>Now we're going to inform the slave database&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql -uroot -p
+slave stop;
+reset slave;
+change master to master_host='<b>10.8.0.6'</b>, master_user='<b>replication'</b>, master_password='<b>password'</b>, master_log_file='<b>mysql-bin.000173'</b>, master_log_pos=<b>50937</b>;
+</pre>
+</td></tr></table><br />
+<p>Let's starting the slave 2&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>start slave;
+show slave status\G;
+
+ ************************** 1. row ***************************
+             Slave_IO_State: Waiting for master to send event
+                Master_Host: 10.8.0.6
+                Master_User: replica
+                Master_Port: 3306
+              Connect_Retry: 60
+            Master_Log_File: MASTERMYSQL01-bin.000009
+        Read_Master_Log_Pos: 4
+             Relay_Log_File: MASTERMYSQL02-relay-bin.000015
+              Relay_Log_Pos: 3630
+      Relay_Master_Log_File: MASTERMYSQL01-bin.000009
+<b>           Slave_IO_Running: Yes</b>
+<b>          Slave_SQL_Running: Yes</b>
+            Replicate_Do_DB:
+        Replicate_Ignore_DB:
+         Replicate_Do_Table:
+     Replicate_Ignore_Table:
+    Replicate_Wild_Do_Table:
+Replicate_Wild_Ignore_Table:
+                 Last_Errno: 0
+                 Last_Error:
+               Skip_Counter: 0
+        Exec_Master_Log_Pos: 4
+            Relay_Log_Space: 3630
+            Until_Condition: None
+             Until_Log_File:
+              Until_Log_Pos: 0
+         Master_SSL_Allowed: No
+         Master_SSL_CA_File:
+         Master_SSL_CA_Path:
+            Master_SSL_Cert:
+          Master_SSL_Cipher:
+             Master_SSL_Key:
+<b>      Seconds_Behind_Master: 1519187</b>
+
+1 row in set (0.00 sec)
+</pre>
+</td></tr></table><br />
+<p>Above highlighted rows must be indicate related log files and <b>Slave_IO_Running and Slave_SQL_Running: must be to YES.</b>
+</p>
+<h1><span class="mw-headline" id="Master_2_verification"><span class="mw-headline-number">7</span> Master 2 verification</span></h1>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mysql&gt; show master status;
++------------------------+----------+--------------+------------------+
+| File                   | Position | Binlog_Do_DB | Binlog_Ignore_DB |
++------------------------+----------+--------------+------------------+
+|MysqlMYSQL01-bin.000008 |      410 | adam         |                  |
++------------------------+----------+--------------+------------------+
+1 row in set (0.00 sec)</pre></div></div>
+</td></tr></table><br />
+<p>The above scenario is for master-slave, now we will create a slave master scenario for the same systems and it will work as master master.
+</p>
+<h1><span class="mw-headline" id="Monitoring"><span class="mw-headline-number">8</span> Monitoring</span></h1>
+<p>Now you need to monitor your replication, you need to look at this when doing 'show slave status\G'&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show slave status</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">             ...
+             Slave_IO_Running: Yes
+             Slave_SQL_Running: Yes
+             Seconds_Behind_Master: 0
+             ...</pre></div></div>
+</td></tr></table><br />
+<p>What is interesting to investigate are those lines&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show slave status</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">             ...
+             Last_IO_Error: error connecting to master 'replication@192.168.25.9:3306' - retry-time: 60  retries: 86400
+             Last_SQL_Error:
+             ...</pre></div></div>
+</td></tr></table><br />
+<p>You also need to look at binlog size&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> show global status</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mysql&gt; show global status like '%binlog%';
++------------------------+---------+
+| Variable_name          | Value   |
++------------------------+---------+
+| Binlog_cache_disk_use  | 2       |
+| Binlog_cache_use       | 4333061 | 
+| Com_binlog             | 0       | 
+| Com_show_binlog_events | 0       | 
+| Com_show_binlogs       | 14      | 
++------------------------+---------+
+5 rows in set (0.00 sec)</pre></div></div>
+</td></tr></table><br />
+<p>Ugrade Binlog_cache_size from 32 to 128k if Binlog_cache_disk_use is not equal to 0.
+</p>
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">9</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="After_a_reboot_the_slave_is_not_synchronized"><span class="mw-headline-number">9.1</span> After a reboot the slave is not synchronized</span></h2>
+<p>On the master get informations&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<pre>mysql -uroot -p
+show master status;
+</pre>
+</td></tr></table><br />
+<p>Try to do this on the slave (adapt to your configuration)&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td>
+<div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mysql -uroot -p
+slave stop;
+reset slave;
+change master to master_host='10.8.0.6', master_user='replication', master_password='password', master_log_file='mysql-bin.000173', master_log_pos=50937;
+start slave;
+show slave status\G;</pre></div></div>
+</td></tr></table><br />
+<p>The slave syncronization should be repared&#160;:-)
+</p>
+<h2><span class="mw-headline" id="Watch_current_process_to_determine_syncro_problem"><span class="mw-headline-number">9.2</span> Watch current process to determine syncro problem</span></h2>
+<p>With this command, we can see if there is a mysql replication problem&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysqladmin</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"> $ mysqladmin -uroot -p processlist
+&#160;
+ +------+-------------+------------------------+----+-------------+--------+-----------------------------------------------------------------------+------------------+
+ | Id   | User        | Host                   | db | Command     | Time   | State                                                                 | Info             |
+ +------+-------------+------------------------+----+-------------+--------+-----------------------------------------------------------------------+------------------+
+ | 1    | system user |                        |    | Connect     | 264546 | Waiting for master to send event                                      |                  |
+ | 2    | system user |                        |    | Connect     | 1798   | Has read all relay log; waiting for the slave I/O thread to update it |                  |
+ | 4796 | replication | 10.8.0.6:60523         |    | Binlog Dump | 4733   | Has sent all binlog to slave; waiting for binlog to be updated        |                  |
+ | 5020 | root        | localhost              |    | Query       | 0      |                                                                       | show processlist |
+ +------+-------------+------------------------+----+-------------+--------+-----------------------------------------------------------------------+------------------+</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="What_if_I_have_binlogs_corrupted_.3F"><span class="mw-headline-number">9.3</span> What if I have binlogs corrupted&#160;?</span></h2>
+<p>If you've got this kind of problem, a tool called mk-table-checksum available <a rel="nofollow" class="external text" href="http://www.maatkit.org/doc/mk-table-checksum.html">here</a> permit to check consitency between 2 servers. It also can help to recreate a consistancy database from the master.
+</p>
+<h2><span class="mw-headline" id="Repair_replication"><span class="mw-headline-number">9.4</span> Repair replication</span></h2>
+<p>You may need to repair your replication because somethings went wrong and you can see that in the slave status (Last_Error). The way to correct the problem is to stop the slave&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">stop slave;</pre></div></div>
+</td></tr></table><br />
+<p>Then analyze the error message and correct it on the slave. Then skip the error message&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">set global sql_slave_skip_counter=1;</pre></div></div>
+</td></tr></table><br />
+<p>Then start the slave again&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> mysql</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">start slave;</pre></div></div>
+</td></tr></table><br />
+<p>All should now be ok&#160;:-)
+</p>
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">10</span> Ressources</span></h1>
+<p>Here is another documentation if you encounter problem&#160;:<br />
+<a href="./File:MySQL_Database_Scale-out_and_Replication_for_High_Growth_Businesses.pdf.html" title="File:MySQL Database Scale-out and Replication for High Growth Businesses.pdf">MySQL Database Scale-out and Replication for High Growth Businesses (Très bonne documentation)</a><br />
+<a href="./File:Mysql_mastertomaster.pdf.html" title="File:Mysql mastertomaster.pdf">Other MySQL masters replication documentation</a><br />
+<a href="./File:MastertoMaster_Replication_With_MySQL_5.pdf.html" title="File:MastertoMaster Replication With MySQL 5.pdf">Master to Master replication MySQL 5 on Debian Etch</a><br />
+<a href="./File:Master-Master_Replication_With_MySQL_5_On_Fedora_8.pdf.html" title="File:Master-Master Replication With MySQL 5 On Fedora 8.pdf">Master to Master replication MySQL 5 on Fedora</a><br />
+<a href="./File:How_To_Repair_MySQL_Replication.pdf.html" title="File:How To Repair MySQL Replication.pdf">How To Repair MySQL Replication</a><br />
+<a href="./File:Setting_Up_Master-Master_Replication_On_Four_Nodes_With_MySQL_5_On_Debian_Etch.pdf.html" title="File:Setting Up Master-Master Replication On Four Nodes With MySQL 5 On Debian Etch.pdf">Setting Up Master-Master Replication On Four Nodes</a><br />
+<a href="images/5/5c/Mariadb_mysql_avance.pdf" class="internal" title="Mariadb mysql avance.pdf">MariaDB MySQL Avancé</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.084 seconds
+Real time usage: 0.083 seconds
+Preprocessor visited node count: 827/1000000
+Preprocessor generated node count: 2346/1000000
+Post‐expand include size: 13269/2097152 bytes
+Template argument size: 8535/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   16.867      1 - -total
+ 56.85%    9.589     30 - Template:Command
+ 19.75%    3.331      4 - Template:Config
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:1669-0!*!0!1!en!5!* and timestamp 20181111230656 and revision id 12591
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Replication_Master_to_Master&amp;oldid=12591">https://wiki.deimos.fr/index.php?title=Replication_Master_to_Master&amp;oldid=12591</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Replication+Master+to+Master" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="Replication_Master_to_Master.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="Replication_Master_to_Master.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="Replication_Master_to_Master.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Replication_Master_to_Master&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Replication_Master_to_Master&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="Replication_Master_to_Master.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Replication_Master_to_Master.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Replication_Master_to_Master" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Replication_Master_to_Master&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Replication_Master_to_Master&amp;oldid=12591" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Replication_Master_to_Master&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 21 June 2013, at 07:25.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

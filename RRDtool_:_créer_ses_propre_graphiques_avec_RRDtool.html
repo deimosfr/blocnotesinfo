@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>RRDtool : créer ses propre graphiques avec RRDtool - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool","wgTitle":"RRDtool : créer ses propre graphiques avec RRDtool","wgCurRevisionId":8616,"wgRevisionId":8616,"wgArticleId":3083,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool","wgRelevantArticleId":3083,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-perl {line-height: normal;}
+.source-perl li, .source-perl pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for perl
+ * CSS class: source-perl, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.perl.source-perl .de1, .perl.source-perl .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.perl.source-perl  {font-family:monospace;}
+.perl.source-perl .imp {font-weight: bold; color: red;}
+.perl.source-perl li, .perl.source-perl .li1 {font-weight: normal; vertical-align:top;}
+.perl.source-perl .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.perl.source-perl .li2 {font-weight: bold; vertical-align:top;}
+.perl.source-perl .kw1 {color: #b1b100;}
+.perl.source-perl .kw2 {color: #000000; font-weight: bold;}
+.perl.source-perl .kw3 {color: #000066;}
+.perl.source-perl .co1 {color: #666666; font-style: italic;}
+.perl.source-perl .co2 {color: #009966; font-style: italic;}
+.perl.source-perl .co3 {color: #0000ff;}
+.perl.source-perl .co4 {color: #cc0000; font-style: italic;}
+.perl.source-perl .co5 {color: #0000ff;}
+.perl.source-perl .coMULTI {color: #666666; font-style: italic;}
+.perl.source-perl .es0 {color: #000099; font-weight: bold;}
+.perl.source-perl .es_h {color: #000099; font-weight: bold;}
+.perl.source-perl .br0 {color: #009900;}
+.perl.source-perl .sy0 {color: #339933;}
+.perl.source-perl .st0 {color: #ff0000;}
+.perl.source-perl .st_h {color: #ff0000;}
+.perl.source-perl .nu0 {color: #cc66cc;}
+.perl.source-perl .me1 {color: #006600;}
+.perl.source-perl .me2 {color: #006600;}
+.perl.source-perl .re0 {color: #0000ff;}
+.perl.source-perl .re4 {color: #009999;}
+.perl.source-perl .ln-xtra, .perl.source-perl li.ln-xtra, .perl.source-perl div.ln-xtra {background-color: #ffc;}
+.perl.source-perl span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-RRDtool_créer_ses_propre_graphiques_avec_RRDtool skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">RRDtool : créer ses propre graphiques avec RRDtool</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#mw-navigation">navigation</a>, 					<a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#G.C3.A9rer_une_base_RRD"><span class="tocnumber">2</span> <span class="toctext">Gérer une base RRD</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Cr.C3.A9er_une_base"><span class="tocnumber">2.1</span> <span class="toctext">Créer une base</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Mise_.C3.A0_jour_d.27une_base"><span class="tocnumber">2.2</span> <span class="toctext">Mise à jour d'une base</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Modifier_l.27ordre_d.27insertion_des_donn.C3.A9es"><span class="tocnumber">2.2.1</span> <span class="toctext">Modifier l'ordre d'insertion des données</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#G.C3.A9n.C3.A9rer_des_graphs"><span class="tocnumber">3</span> <span class="toctext">Générer des graphs</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Diff.C3.A9rents_types_de_graphs"><span class="tocnumber">3.1</span> <span class="toctext">Différents types de graphs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#G.C3.A9n.C3.A9rer_des_graphs_historiques"><span class="tocnumber">4</span> <span class="toctext">Générer des graphs historiques</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Exemple"><span class="tocnumber">5</span> <span class="toctext">Exemple</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Cr.C3.A9ation_de_la_base_RRD"><span class="tocnumber">5.1</span> <span class="toctext">Création de la base RRD</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#G.C3.A9n.C3.A9ration_d.27un_fichier_de_datas"><span class="tocnumber">5.2</span> <span class="toctext">Génération d'un fichier de datas</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Mise_.C3.A0_jour_de_la_base"><span class="tocnumber">5.3</span> <span class="toctext">Mise à jour de la base</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#G.C3.A9n.C3.A9ration_des_graphs"><span class="tocnumber">5.4</span> <span class="toctext">Génération des graphs</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<div class="thumb tright"><div class="thumbinner" style="width:191px;"><a href="./File:Rrdtool-logo.png.html" class="image"><img alt="" src="images/b/b1/Rrdtool-logo.png" width="189" height="84" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="./File:Rrdtool-logo.png.html" class="internal" title="Enlarge"></a></div>RRDtool Logo</div></div></div>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p><a rel="nofollow" class="external text" href="http://fr.wikipedia.org/wiki/RRdTool">RRDtool</a> est un outil de gestion de base de données RRD (round-Robin database) créé par Tobi Oetiker. Il est utilisé par de nombreux outils open source, tels que Cacti, collectd, Lighttpd, et Nagios, pour la sauvegarde de données cycliques et le tracé de graphiques, de données chronologiques. Cet outil a été créé pour superviser des données serveur, telles la bande passante et la température d'un processeur. Le principal avantage d'une base RRD est sa taille fixe.
+</p><p>RRDTool inclut également un outil permettant de représenter graphiquement les données contenues dans la base.<br />
+RRDTool est un logiciel libre distribué selon les termes de la GNU GPL.
+</p><p>J'ai eu recours à utiliser RRD pour grapher l'occupation disque de plusieurs dossiers utilisateurs (ex: /home/users/*).
+</p>
+<ul><li> Vue d'ensemble sur le fonctionnement d'RRDtool&#160;:</li></ul>
+<ol><li> Créer une base vide RRD qui contiendra les données a grapher</li>
+<li> Mettre a jour les données RRD via la commande "rrdtool update" ou via un script</li>
+<li> Générer des des graphs avec la commande "rrdtool graph"</li></ol>
+<h1><span class="mw-headline" id="G.C3.A9rer_une_base_RRD"><span class="mw-headline-number">2</span> Gérer une base RRD</span></h1>
+<p>La base RRD utilise un nombre définit d'enregistrements. Tout ajout se place en tête de la base et les autres se décallent petit à petit et ainsi de suite. Il ne peut donc y avoir aucuns débordement puisque c'est controlé. Le seul soucis à tout celà est qu'il faut connaitre le nombre d'enregistrements qu'il va falloir garder. Vous pouvez par exemple vouloir un jour ou un mois, ce qui n'est pas pareil.
+</p>
+<h2><span class="mw-headline" id="Cr.C3.A9er_une_base"><span class="mw-headline-number">2.1</span> Créer une base</span></h2>
+<p>Nous allons dans un premier temps créer la base&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rrdtool</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rrdtool create temptrax.rrd \
+--start N --step 300 \
+DS:probe1-temp:GAUGE:600:55:95 \
+DS:probe2-temp:GAUGE:600:55:95 \
+DS:probe3-temp:GAUGE:600:55:95 \
+DS:probe4-temp:GAUGE:600:55:95 \
+RRA:MIN:0.5:12:1440 \
+RRA:MAX:0.5:12:1440 \
+RRA:AVERAGE:0.5:1:1440</pre></div></div>
+</td></tr></table><br />
+<p>Avec l'argument create, RRDtool va créer la base de donnée qui va contenir tous les camps nécessaire. Cette base ne comprends pour le moment aucunes données. Ensuite&#160;:
+</p>
+<ul><li> temptrax.rrd&#160;: c'est le nom de la base de donnée ainsi que son emplacement</li>
+<li> --start N&#160;: donne une indication sur le début de graph. Ici j'utilise N pour dire maintenant. Mais je peux utiliser une date au format epoch.</li>
+<li> --step 300&#160;: indique les temps d'intervalle en secondes ou les données arriveront en base (ici 5 min)</li></ul>
+<hr />
+<ul><li> DS&#160;: spécifie les différentes sources de données. Ici j'ai 4 sondes de température suivit du nom (DS-Name) que je veux leur affecter.
+<ul><li> GAUGE&#160;: C'est un DST (Data Source Type). Il en existe d'ailleurs plusieurs&#160;:</li></ul></li></ul>
+<table border="1" align="center">
+<tr>
+<th>DST Type
+</th>
+<th>Description
+</th></tr>
+<tr>
+<td>GAUGE
+</td>
+<td>c'est le plus courant, et généralement le meilleur choix
+</td></tr>
+<tr>
+<td>COUNTER
+</td>
+<td>C'est un compteur qui va s'incrémenter en permanence
+</td></tr>
+<tr>
+<td>DERIVE
+</td>
+<td>Va enregistrer la dérive de la précédente et de la suivante valeur
+</td></tr>
+<tr>
+<td>ABSOLUTE
+</td>
+<td>Enregistre les valeurs et les reset après chaque lecture
+</td></tr></table>
+<ul><li><ul><li> 600:55:95&#160;: Ces 3 derniers champs signifient&#160;:
+<ul><li> 600&#160;: Le heartbeat minimal en secondes (après ce délai, la valeur passera en unknow si la base de donnée n'a rien reçu pendant cette période)</li>
+<li> 55&#160;: Valeur minimale possible (en dehors, la valeur sera unknow)</li>
+<li> 95&#160;: Valeur maximale possible (en dehors, la valeur sera unknow)</li></ul></li></ul></li></ul>
+<p>Pour ces 2 valeurs ci dessus, si vous ne savez pas quoi mettre, mettez 'U' pour unknow (ex: DS:probe1-temp:GAUGE:600:U:U)
+</p>
+<hr />
+<ul><li> RRA&#160;: RRA signifie Round Robin Archives. Ce sont comme des vues dans lesquelles les données vont être stockées. Dans chaque base RRD, les RRA sont stockées séparément avec un nombre définit d'enregistrement. A chaque nouvel enregistrement dans la base, on ajoute un PDP (Primary Data Point) qui sera combiné à celui ci et qui sera mis dans notre RRA dans une CF (Consolidation Function). Elle permettra de déterminer la valeur actuelle a écrire.
+<ul><li> MIN: C'est le type de CF que nous utilisons. Il en existe d'autres tel que&#160;:</li></ul></li></ul>
+<table border="1" align="center">
+<tr>
+<th>CF Type
+</th></tr>
+<tr>
+<td>AVERAGE
+</td></tr>
+<tr>
+<td>MIN
+</td></tr>
+<tr>
+<td>MAX
+</td></tr>
+<tr>
+<td>LAST
+</td></tr></table>
+<ul><li><ul><li> 0.5&#160;: Ceci est un XFF (XFiles Factor) qui est un pourcentage de PDP qui peuvent être en unknow sans recevoir de valeurs à unknow.</li>
+<li> 12&#160;: Ceci est le nombre de PDP qu'il va fabriquer la valeur enregistrée.</li>
+<li> 1440&#160;: C'est le nombre d'enregistrements que le RRA doit contenir.</li></ul></li></ul>
+<hr />
+<p>Résumons&#160;: Je créer une base de donnée RRD appellée temptrax.rrd qui va&#160;:
+</p>
+<ul><li> débuter maintenant</li>
+<li> être mise à jour toutes les 5 min</li></ul>
+<p>De plus&#160;:
+</p>
+<ul><li> Je possède 4 sources de données différentes avec 1 sonde de type GAUGE.</li>
+<li> Si ma source de donnée n'est pas mise à jour <b>au moins</b> toutes les 10 min et que la valeur n'est pas comprise entre 55 et 95 alors la valeur sera unknow.</li></ul>
+<p>J'ai également 3 types de RRA&#160;:
+</p>
+<ul><li> 2 sont pour les valeurs min et max utilisant 12 PDP autorisant 50&#160;% d'entre eux en unknow</li>
+<li> On peut enregistrer jusqu'à 1440 enregistrements</li></ul>
+<p>Sachant qu'on met à jour normalement toutes les 5 min, que nous utilisons 12 PDP (chaque mise à jour est un PDP). Ce qui veut dire que&#160;:
+</p>
+<ul><li> nous ajoutons un enregistrement chaque heures (5 mins * 12)</li>
+<li> on fait 1440 enregistrements</li></ul>
+<p>Ca nous donne 60 jours (1440/24h) de RRA. Chaque valeur de min et max collectée en PDP sera utilisée comme valeur pour le RRA.
+</p><p>Dans le dernier RRA, nous utilisons une moyenne de PDP collectés, autorisant 50% de unknow, mais nous n'en utilisons qu'un PDP par enregistrement (donc chaque mise à jour). Nous faisons 1440 enregistrements qui signifie que ce RRA enregistrera (1440/12 mise à jour par heures/24h) 5 jours de données.<br />
+Dans un prochain cas, nous verrons qu'avec un simple PDP, le CF n'est pas très important et que vous aurez probablement utilisé LAST.
+</p>
+<h2><span class="mw-headline" id="Mise_.C3.A0_jour_d.27une_base"><span class="mw-headline-number">2.2</span> Mise à jour d'une base</span></h2>
+<p>La mise à jour peut suivant les cas être très simple ou très compliqué suivant le type de graphs. Pour l'utilisation, c'est par contre très simple et se caractérise sous cette forme&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rrdtool</font>
+</td></tr>
+<tr>
+<td>
+<pre>rrdtool update &lt;file.rrd&gt; timestamp:val1[:val2:...]
+</pre>
+</td></tr></table><br />
+<p>Généralement cette commande est placée à la fin d'un script qui a récupérer toute les données via SNMP ou autre afin de passer un résultat de retour en argument. Si nous décortiquons la commande, ça nous donne&#160;:
+</p>
+<ul><li> &lt;file.rrd&gt;&#160;: l'emplacement avec le fichier rrd</li>
+<li> timestamp&#160;: l'heure de mise à jour (comme plus haut, "N" signifie maintenant)</li>
+<li> val1[:val2:...]&#160;: les valeurs sont séparées par ":" et <b>il doit y en avoir autant que de DS déclarés et dans l'ordre&#160;!</b></li></ul>
+<p>Voici un exemple crado pour mettre des données à jour&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> update-rrd.pl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="co1">#!/usr/bin/perl</span>
+<span class="co1"># RRD Update Script: update_rrd_temps.pl </span>
+&#160;
+<span class="re0">$HOST</span> <span class="sy0">=</span> <span class="st0">&quot;10.10.0.90&quot;</span><span class="sy0">;</span>
+<span class="re0">$PATH</span> <span class="sy0">=</span> <span class="st0">&quot;/home/benr/RRD/TempTrax-RRD&quot;</span><span class="sy0">;</span>
+<span class="re0">$NumProbes</span> <span class="sy0">=</span> <span class="nu0">4</span><span class="sy0">;</span>
+&#160;
+<span class="kw1">for</span><span class="br0">&#40;</span><span class="re0">$i</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span> <span class="re0">$i</span> <span class="sy0">&lt;=</span> <span class="re0">$NumProbes</span><span class="sy0">;</span> <span class="re0">$i</span><span class="sy0">++</span><span class="br0">&#41;</span> <span class="br0">&#123;</span>
+  <span class="re0">$x</span> <span class="sy0">=</span> <span class="st0">`${PATH}/check_temptraxe -H ${HOST} -p ${i}`</span><span class="sy0">;</span>
+  <span class="re0">$x</span> <span class="sy0">=~</span> <span class="co2">s/^.*([0-9.]{4}).*$/$1/</span><span class="sy0">;</span>
+  <span class="kw3">chomp</span><span class="br0">&#40;</span><span class="re0">$x</span><span class="br0">&#41;</span><span class="sy0">;</span>
+  <span class="kw3">push</span><span class="br0">&#40;</span><span class="re0">@TEMPS</span><span class="sy0">,</span><span class="re0">$x</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="st0">`/usr/local/rrdtool-1.0.48/bin/rrdtool update ${PATH}/temptrax.rrd 
+ &quot;N:$TEMPS[0]:$TEMPS[1]:$TEMPS[2]:$TEMPS[3]&quot;`</span><span class="sy0">;</span></pre></div></div>
+</td></tr></table><br />
+<p>De plus il faudra mettre en crontab ce genre de script pour mettre à jour automatiquement les données. Sinon, vous pouvez faire une boucle pour mettre à jour (un peu plus crade).
+</p>
+<h3><span class="mw-headline" id="Modifier_l.27ordre_d.27insertion_des_donn.C3.A9es"><span class="mw-headline-number">2.2.1</span> Modifier l'ordre d'insertion des données</span></h3>
+<p>Si vous souhaitez modifier l'ordre d'insertion des données, vous pouvez faire comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rrdtool</font>
+</td></tr>
+<tr>
+<td>
+<pre>rrdtool update --template ds2:ds1:ds3
+</pre>
+</td></tr></table><br />
+<p>Cependant, n'oubliez pas que les données déjà insérées ont été entrées dans un ordre bien précis, si vous le changez, l'historique des graphes sera erroné.
+</p>
+<h1><span class="mw-headline" id="G.C3.A9n.C3.A9rer_des_graphs"><span class="mw-headline-number">3</span> Générer des graphs</span></h1>
+<p>Nous allons utiliser rrdtool graph pour générer un graph depuis notre base de données rrd. Il existe une tonne d'options pour cette commande. Nous ne verrons que les basiques ici. Voici ce que nous allons lancer&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> rrdtool</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; rrdtool graph mygraph.png -a PNG --title=&quot;TempTrax&quot; \
+--vertical-label &quot;Deg F&quot; \
+'DEF:probe1=temptrax.rrd:probe1-temp:AVERAGE' \
+'DEF:probe2=temptrax.rrd:probe2-temp:AVERAGE' \
+'DEF:probe3=temptrax.rrd:probe3-temp:AVERAGE' \
+'DEF:probe4=temptrax.rrd:probe4-temp:AVERAGE' \
+'LINE1:probe1#ff0000:Switch Probe' \
+'LINE1:probe2#0400ff:Server Probe' \
+'AREA:probe3#cccccc:HVAC' \
+'LINE1:probe4#35b73d:QA Lab Probe' \
+'GPRINT:probe1:LAST:Switch Side Last Temp\:&#160;%2.1lf F' \
+'GPRINT:probe3:LAST:HVAC Output Last Temp\:&#160;%2.1lf F\j' \
+'GPRINT:probe2:LAST:Server Side Last Temp\:&#160;%2.1lf F' \
+'GPRINT:probe4:LAST:QA Lab Last Temp\:&#160;%2.1lf F\j'</pre></div></div>
+</td></tr></table><br />
+<p>Pour obtenir ceci a terme cela&#160;:<br />
+<a href="./File:Temptraxrrd.png.html" class="image"><img alt="Temptraxrrd.png" src="images/0/0e/Temptraxrrd.png" width="491" height="198" /></a>
+</p><p>Épluchons un peu ce que ça nous donne&#160;:
+</p>
+<ul><li> mygraph.png&#160;: chemin et nom du graphique à générer
+<ul><li> -a PNG&#160;: type de fichier image à générer. Par défaut c'est du gif, mais on peut forcer en PNG ou GD.</li>
+<li> --title&#160;: Le titre a afficher en haut du graphique</li>
+<li> --vertical-label&#160;: Nom à donner l'axe Y des axis</li></ul></li></ul>
+<hr />
+<ul><li> DEF&#160;: Ce sont juste des noms virtuels (vname) que l'on donne aux DS. Il est fortement conseillé d'utiliser des vnames&#160;! En effet, du fait que nous pouvons utiliser plusieurs bases RRD pour faire un graph, si nous avons des DS portant le même nom, il y aura des effets indésirables.
+<ul><li> probe1&#160;: nom du vname</li>
+<li> temptrax.rrd&#160;: base de données rrd a traiter</li>
+<li> rrd:probe1-temp&#160;: le nom du DS originale</li>
+<li> AVERAGE&#160;: Le type de CF qui nous intéresse spécifié dans le RRA</li></ul></li></ul>
+<hr />
+<ul><li> LINE1|AREA&#160;: Ce sont le type de graph que nous souhaitons faire. Pour plus d'exemples <a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#Diff.C3.A9rents_types_de_graphs">cliquez ici</a> pour voir les graphs disponibles.
+<ul><li> probe4&#160;: le vname correspondant</li>
+<li> #35b73d&#160;: Couleur de la courbe au format hexadécimal</li>
+<li> QA Lab Probe&#160;: Nom de la légende affiché en bas du graph</li></ul></li></ul>
+<hr />
+<ul><li> GPRINT&#160;: Ces lignes permettent de mettre des renseignements supplémentaires en bas du graph. Il est généralement sympa de voir les 
+<ul><li> probe1&#160;: le vname correspondant</li>
+<li> LAST&#160;: C'est la dernière donnée CF dans la base de donnée (du fait que j'utilise LAST)</li>
+<li> Switch Side Last Temp\:&#160;: Ceci est la ligne a affichée en bas du graph
+<ul><li>&#160;%2.1lf&#160;: permet d'afficher une valeur numérique avec 1 chiffre après la virgule (voir la doc de printf ou sprintf pour toutes les possibilités)</li>
+<li> \j&#160;: permet d'avoir un alignement sur la droite</li></ul></li></ul></li></ul>
+<h2><span class="mw-headline" id="Diff.C3.A9rents_types_de_graphs"><span class="mw-headline-number">3.1</span> Différents types de graphs</span></h2>
+<ul><li> Graphique de type LINE&#160;:</li></ul>
+<p><a href="./File:Graph-line.png.html" class="image"><img alt="Graph-line.png" src="images/5/54/Graph-line.png" width="481" height="168" /></a>
+</p><p>Vous pouvez spécifier plusieurs types de lignes (LINE1, LINE2, LINE3, LINE4). Plus ce numéro est élevé, plus la ligne correspondante sera au dessus des lignes de numéro inférieurs.
+</p>
+<ul><li> Graphique de type AREA&#160;:</li></ul>
+<p><a href="./File:Graph-area.png.html" class="image"><img alt="Graph-area.png" src="images/5/5c/Graph-area.png" width="481" height="168" /></a><br />
+AREA permet de remplir la partie basse des graphs.
+</p>
+<ul><li> Graphique de type STACK&#160;:</li></ul>
+<p><a href="./File:Graph-stack.png.html" class="image"><img alt="Graph-stack.png" src="images/5/5e/Graph-stack.png" width="481" height="168" /></a><br />
+Permet de superposer les graphs.
+</p>
+<h1><span class="mw-headline" id="G.C3.A9n.C3.A9rer_des_graphs_historiques"><span class="mw-headline-number">4</span> Générer des graphs historiques</span></h1>
+<p>Le concept est assez simple. Notre base RRD initiale doit récupérer le temps suffisant pour que nous fassions les graphs qui nous intéressent (ex il nous faut au - 3 semaines en base si nous souhaitons faire des graphs sur 3 semaines d'historique).
+</p><p>Seulement voilà, nous allons utiliser 2 nouveaux arguments qui sont --start et --end. Par défaut, les graphs se font sur 24h. En ajoutant ces paramètres, on peut indiquer un début et une fin&#160;:
+</p>
+<ul><li> --end&#160;: par défaut c'est now. Et il est généralement pratique de laisser par défaut.</li>
+<li> --start&#160;: C'est la date de départ du graph qui peut être spécifier sous plusieurs formats&#160;:
+<ul><li> epoch&#160;: vous pouvez spécifier la date en secondes depuis le 1er janvier 1970</li>
+<li> jours&#160;: vous pouvez spécifier un jour de la semaine "monday" par exemple</li>
+<li> semaines&#160;: vous pouvez demander les 2 dernières semaines "-2weeks"</li>
+<li> mois&#160;: vous pouvez demander le moins dernier "-1month"</li>
+<li> année&#160;: Et pour finir, l'année "-1year"</li></ul></li></ul>
+<p>Bref, la notation est relativement aisée comme vous pouvez le voir. Regardez le man de rrdfetch si vous souhaitez plus d'infos.
+</p>
+<h1><span class="mw-headline" id="Exemple"><span class="mw-headline-number">5</span> Exemple</span></h1>
+<p>Voici un exemple que je vous propose d'un truc que j'ai développé pour avoir des graphs sur la taille occupée par utilisateur sur leur home (ça rejoint fortement <a href="./Open_Flash_Chart_:_Créer_des_graphiques_flash.html" title="Open Flash Chart : Créer des graphiques flash">ma doc sur OpenChart</a>). Ce qui va me donner quelquechose comme ceci&#160;:
+</p><p><a href="./File:Rrd_day.png.html" class="image"><img alt="Rrd day.png" src="images/4/41/Rrd_day.png" width="497" height="188" /></a>
+<a href="./File:Rrd_week.png.html" class="image"><img alt="Rrd week.png" src="images/f/fc/Rrd_week.png" width="497" height="188" /></a>
+</p>
+<h2><span class="mw-headline" id="Cr.C3.A9ation_de_la_base_RRD"><span class="mw-headline-number">5.1</span> Création de la base RRD</span></h2>
+<p>Tous mes scripts sont stockées dans un dossier /etc/scripts/. Donc si vous voulez la jouer à la copier/coller, créez ce dossier.
+</p><p>Donc nous allons créer la base comme ceci&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/scripts/create_rrd.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/sh</span>
+&#160;
+rrdtool create <span class="sy0">/</span>etc<span class="sy0">/</span>scripts<span class="sy0">/</span>rrd_db.rrd \
+<span class="re5">--start</span> N <span class="re5">--step</span> <span class="nu0">300</span> \
+DS:user1:GAUGE:<span class="nu0">750</span>:U:U \
+DS:user2:GAUGE:<span class="nu0">750</span>:U:U \
+DS:user3:GAUGE:<span class="nu0">750</span>:U:U \
+DS:user4:GAUGE:<span class="nu0">750</span>:U:U \
+RRA:MIN:<span class="nu0">0.5</span>:<span class="nu0">12</span>:<span class="nu0">720</span> \
+RRA:MAX:<span class="nu0">0.5</span>:<span class="nu0">12</span>:<span class="nu0">720</span> \
+RRA:AVERAGE:<span class="nu0">0.5</span>:<span class="nu0">12</span>:<span class="nu0">720</span></pre></div></div>
+</td></tr></table><br />
+<p>Adaptez donc la partie du nom des utilisateurs et de la base RRD (/stats/rrd_db.rrd) à ce que vous souhaitez.
+</p>
+<h2><span class="mw-headline" id="G.C3.A9n.C3.A9ration_d.27un_fichier_de_datas"><span class="mw-headline-number">5.2</span> Génération d'un fichier de datas</span></h2>
+<p>Ensuite on va faire un petit script qui va nous générer un fichier datas qui va pouvoir être repris par OpenChart et par RRD (enfin un truc un peu générique facile à parser quoi).
+</p><p>Idem adaptez les users, les couleurs des users, la source et la destination&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/scripts/gen-datas.pl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="co1">#!/usr/bin/perl -w</span>
+&#160;
+<span class="kw2">use</span> strict<span class="sy0">;</span>
+<span class="kw3">no</span> strict <span class="st0">&quot;refs&quot;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Set folder containing all users folder</span>
+<span class="kw1">my</span> <span class="re0">$source</span><span class="sy0">=</span><span class="st_h">'/home'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$destination</span><span class="sy0">=</span><span class="st_h">'/var/www/.stats/datas'</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Set all users</span>
+<span class="kw1">my</span> <span class="re0">@users</span> <span class="sy0">=</span> <span class="br0">&#40;</span>
+            <span class="st_h">'user1'</span><span class="sy0">,</span>
+            <span class="st_h">'user2'</span><span class="sy0">,</span>
+            <span class="st_h">'user3'</span><span class="sy0">,</span>
+            <span class="st_h">'user4'</span>
+<span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Set color per user</span>
+<span class="kw1">my</span> <span class="re0">@colors</span> <span class="sy0">=</span> <span class="br0">&#40;</span>
+            <span class="st_h">'#000000'</span><span class="sy0">,</span>
+            <span class="st_h">'#2d9409'</span><span class="sy0">,</span>
+            <span class="st_h">'#4e5fff'</span><span class="sy0">,</span>
+            <span class="st_h">'#de1000'</span>
+<span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Size per user</span>
+<span class="kw1">my</span> <span class="re0">@ksize</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">@printable_size</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Get total size</span>
+<span class="kw2">sub</span> get_total_size
+<span class="br0">&#123;</span>
+    <span class="kw1">my</span> <span class="re0">$good_size</span><span class="sy0">;</span>
+&#160;
+    <span class="kw3">open</span> <span class="br0">&#40;</span>GET_TOTAL_SIZE<span class="sy0">,</span> <span class="st0">&quot;df -k $source |&quot;</span><span class="br0">&#41;</span> <span class="kw1">or</span> <span class="kw3">die</span> <span class="br0">&#40;</span><span class="st0">&quot;Can't get full size of $source<span class="es0">\n</span>&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">&#40;</span><span class="re4">&lt;GET_TOTAL_SIZE&gt;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span><span class="co2">/\S+\s*(\d*)\s*(\d*).*$source/</span><span class="br0">&#41;</span>
+        <span class="br0">&#123;</span>
+            <span class="kw3">push</span> <span class="re0">@users</span><span class="sy0">,</span> <span class="st_h">'disponible'</span><span class="sy0">;</span>
+            <span class="kw3">push</span> <span class="re0">@colors</span><span class="sy0">,</span> <span class="st_h">'#ffffff'</span><span class="sy0">;</span>
+            <span class="kw3">return</span> <span class="br0">&#40;</span><span class="co3">$1</span><span class="sy0">,</span> <span class="co3">$2</span><span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>
+    <span class="kw3">close</span> <span class="br0">&#40;</span>GET_TOTAL_SIZE<span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="co1"># Calcul userspace size for each users</span>
+<span class="kw2">sub</span> get_users_size
+<span class="br0">&#123;</span>
+    <span class="kw1">my</span> <span class="re0">$good_size</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$total_size</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$ref_users</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">@users</span><span class="sy0">=</span><span class="re0">@$ref_users</span><span class="sy0">;</span>
+&#160;
+    <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">@users</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span><span class="sy0">-</span>d <span class="st0">&quot;$source/$_&quot;</span><span class="br0">&#41;</span>
+        <span class="br0">&#123;</span>
+            <span class="kw3">open</span> <span class="br0">&#40;</span>GET_SIZE<span class="sy0">,</span> <span class="st0">&quot;du -sk $source/$_ |&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+            <span class="kw1">while</span> <span class="br0">&#40;</span><span class="re4">&lt;GET_SIZE&gt;</span><span class="br0">&#41;</span>
+            <span class="br0">&#123;</span>
+                <span class="kw3">chomp</span> <span class="co5">$_</span><span class="sy0">;</span>
+                <span class="kw1">if</span> <span class="br0">&#40;</span><span class="co2">/(\d*)\s*(\w*)/</span><span class="br0">&#41;</span>
+                <span class="br0">&#123;</span>
+                    <span class="kw1">if</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="co3">$1</span> <span class="sy0">/</span> <span class="nu0">1024</span><span class="br0">&#41;</span> <span class="sy0">&gt;=</span> <span class="nu0">1000</span><span class="br0">&#41;</span>
+                    <span class="br0">&#123;</span>
+                        <span class="co1"># Set Go</span>
+                        <span class="re0">$good_size</span> <span class="sy0">=</span> <span class="kw3">sprintf</span> <span class="br0">&#40;</span><span class="st0">&quot;%.1fGo&quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="co3">$1</span> <span class="sy0">/</span> <span class="nu0">1048576</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                        <span class="kw3">push</span> <span class="re0">@printable_size</span><span class="sy0">,</span> <span class="re0">$good_size</span><span class="sy0">;</span>
+                        <span class="kw3">push</span> <span class="re0">@ksize</span><span class="sy0">,</span> <span class="co3">$1</span><span class="sy0">;</span>
+                    <span class="br0">&#125;</span>
+                    <span class="kw1">else</span>
+                    <span class="br0">&#123;</span>
+                        <span class="co1"># Set Mo</span>
+                        <span class="re0">$good_size</span> <span class="sy0">=</span> <span class="kw3">sprintf</span> <span class="br0">&#40;</span><span class="st0">&quot;%.0fMo&quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="co3">$1</span> <span class="sy0">/</span> <span class="nu0">1024</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                        <span class="kw3">push</span> <span class="re0">@printable_size</span><span class="sy0">,</span> <span class="re0">$good_size</span><span class="sy0">;</span>
+                        <span class="kw3">push</span> <span class="re0">@ksize</span><span class="sy0">,</span> <span class="co3">$1</span><span class="sy0">;</span>
+                    <span class="br0">&#125;</span>
+                <span class="br0">&#125;</span>
+                <span class="kw1">else</span>
+                <span class="br0">&#123;</span>
+                    <span class="re0">$good_size</span> <span class="sy0">=</span> <span class="kw3">sprintf</span> <span class="br0">&#40;</span><span class="st0">&quot;%.0f&quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="co3">$1</span> <span class="sy0">/</span> <span class="re0">$total_size</span><span class="br0">&#41;</span> <span class="sy0">*</span> <span class="nu0">100</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                    <span class="kw3">push</span> <span class="re0">@ksize</span><span class="sy0">,</span> <span class="co3">$1</span><span class="sy0">;</span>
+                <span class="br0">&#125;</span>
+            <span class="br0">&#125;</span>
+            <span class="kw3">close</span> <span class="br0">&#40;</span>GET_SIZE<span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+        <span class="kw1">else</span>
+        <span class="br0">&#123;</span>
+            <span class="kw3">push</span> <span class="re0">@ksize</span><span class="sy0">,</span> <span class="nu0">0</span><span class="sy0">;</span>
+            <span class="kw3">push</span> <span class="re0">@printable_size</span><span class="sy0">,</span> <span class="st_h">'0Mo'</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="kw2">sub</span> get_free_size
+<span class="br0">&#123;</span>
+    <span class="kw1">my</span> <span class="re0">$total_size</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$busy_size</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$ref_ksize</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">@ksize</span><span class="sy0">=</span><span class="re0">@$ref_ksize</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$used_ksize</span><span class="sy0">=</span><span class="nu0">0</span><span class="sy0">;</span>
+&#160;
+    <span class="kw2">sub</span> print_size
+    <span class="br0">&#123;</span>
+        <span class="kw1">my</span> <span class="re0">$good_size</span><span class="sy0">;</span>
+        <span class="kw1">if</span> <span class="br0">&#40;</span><span class="br0">&#40;</span><span class="co5">$_</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">/</span> <span class="nu0">1024</span><span class="br0">&#41;</span> <span class="sy0">&gt;=</span> <span class="nu0">1000</span><span class="br0">&#41;</span>
+        <span class="br0">&#123;</span>
+            <span class="co1"># Set Go</span>
+            <span class="re0">$good_size</span> <span class="sy0">=</span> <span class="kw3">sprintf</span> <span class="br0">&#40;</span><span class="st0">&quot;%.1fGo&quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="co5">$_</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">/</span> <span class="nu0">1048576</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+            <span class="kw3">push</span> <span class="re0">@printable_size</span><span class="sy0">,</span> <span class="re0">$good_size</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+        <span class="kw1">else</span>
+        <span class="br0">&#123;</span>
+            <span class="co1"># Set Mo</span>
+            <span class="re0">$good_size</span> <span class="sy0">=</span> <span class="kw3">sprintf</span> <span class="br0">&#40;</span><span class="st0">&quot;%.0fMo&quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="co5">$_</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span> <span class="sy0">/</span> <span class="nu0">1024</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+            <span class="kw3">push</span> <span class="re0">@printable_size</span><span class="sy0">,</span> <span class="re0">$good_size</span><span class="sy0">;</span>
+        <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>
+&#160;
+    <span class="kw1">foreach</span> <span class="br0">&#40;</span><span class="re0">@ksize</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        <span class="re0">$used_ksize</span> <span class="sy0">+=</span> <span class="co5">$_</span><span class="sy0">;</span>
+    <span class="br0">&#125;</span>
+&#160;
+    <span class="co1"># Delete free space values</span>
+    <span class="kw3">pop</span> <span class="re0">@ksize</span><span class="sy0">;</span>
+    <span class="kw3">pop</span> <span class="re0">@printable_size</span><span class="sy0">;</span>
+&#160;
+    <span class="co1"># Add others if needed</span>
+    <span class="kw1">my</span> <span class="re0">$unknow_ksize</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$busy_size</span> <span class="sy0">-</span> <span class="re0">$used_ksize</span><span class="br0">&#41;</span> <span class="sy0">/</span> <span class="nu0">1024</span><span class="sy0">;</span>
+    <span class="kw1">if</span> <span class="br0">&#40;</span><span class="re0">$unknow_ksize</span> <span class="sy0">&gt;</span> <span class="nu0">1024</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>
+        <span class="kw3">push</span> <span class="re0">@users</span><span class="sy0">,</span> <span class="st_h">'autres'</span><span class="sy0">;</span>
+        <span class="re0">$unknow_ksize</span> <span class="sy0">=</span> <span class="kw3">sprintf</span> <span class="br0">&#40;</span><span class="st0">&quot;%.0f&quot;</span><span class="sy0">,</span> <span class="re0">$unknow_ksize</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+        <span class="co1"># Free size</span>
+        <span class="kw1">my</span> <span class="re0">$free_size</span> <span class="sy0">=</span> <span class="br0">&#40;</span><span class="re0">$total_size</span> <span class="sy0">-</span> <span class="re0">$busy_size</span><span class="br0">&#41;</span><span class="sy0">;</span>
+        <span class="kw3">push</span> <span class="re0">@ksize</span><span class="sy0">,</span> <span class="re0">$free_size</span><span class="sy0">;</span>
+        <span class="re0">&amp;print_size</span><span class="br0">&#40;</span><span class="re0">$free_size</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+        <span class="co1"># Other size</span>
+        <span class="kw3">push</span> <span class="re0">@ksize</span><span class="sy0">,</span> <span class="re0">$unknow_ksize</span><span class="sy0">;</span>
+        <span class="re0">&amp;print_size</span><span class="br0">&#40;</span><span class="re0">$unknow_ksize</span><span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+        <span class="kw3">push</span> <span class="re0">@colors</span><span class="sy0">,</span> <span class="st_h">'#ff6600'</span><span class="sy0">;</span>
+    <span class="br0">&#125;</span>
+    <span class="kw3">return</span> <span class="re0">@ksize</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="co1"># Write datas</span>
+<span class="kw2">sub</span> write_datas_file
+    <span class="br0">&#123;</span>
+    <span class="kw1">my</span> <span class="re0">$ref_users</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$ref_ksize</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$ref_printable_size</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$ref_colors</span><span class="sy0">=</span><span class="kw3">shift</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">@users</span><span class="sy0">=</span><span class="re0">@$ref_users</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">@ksize</span><span class="sy0">=</span><span class="re0">@$ref_ksize</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">@printable_size</span><span class="sy0">=</span><span class="re0">@$ref_printable_size</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">@colors</span><span class="sy0">=</span><span class="re0">@$ref_colors</span><span class="sy0">;</span>
+&#160;
+    <span class="kw3">open</span> <span class="br0">&#40;</span>DATAW<span class="sy0">,</span> <span class="st0">&quot;&gt;$destination&quot;</span><span class="br0">&#41;</span> <span class="kw1">or</span> <span class="kw3">die</span> <span class="st0">&quot;Can't write $destination file&#160;: $!
+    my $i=0;
+    foreach (@users)
+    {
+        print DATAW &quot;</span><span class="re0">$users</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">:</span><span class="re0">$ksize</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">:</span><span class="re0">$printable_size</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="sy0">:</span><span class="re0">$colors</span><span class="br0">&#91;</span><span class="re0">$i</span><span class="br0">&#93;</span><span class="re0">\n</span>
+        <span class="re0">$i</span><span class="sy0">++;</span>
+    <span class="br0">&#125;</span>
+    <span class="kw3">close</span> <span class="br0">&#40;</span>DATAW<span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="br0">&#125;</span>
+&#160;
+<span class="co1"># Get total partition size and busy size</span>
+<span class="kw1">my</span> <span class="br0">&#40;</span><span class="re0">$total_size</span><span class="sy0">,</span> <span class="re0">$busy_size</span><span class="br0">&#41;</span><span class="sy0">=</span><span class="re0">&amp;get_total_size</span><span class="sy0">;</span>
+<span class="co1"># Get all userspace size</span>
+<span class="re0">&amp;get_users_size</span><span class="br0">&#40;</span><span class="re0">$total_size</span><span class="sy0">,</span><span class="re0">\@users</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="co1"># Get free size and unknow size</span>
+<span class="re0">@ksize</span><span class="sy0">=</span><span class="re0">&amp;get_free_size</span><span class="br0">&#40;</span><span class="re0">$total_size</span><span class="sy0">,</span><span class="re0">$busy_size</span><span class="sy0">,</span><span class="re0">\@ksize</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="co1"># Write datas file</span>
+<span class="re0">&amp;write_datas_file</span><span class="br0">&#40;</span><span class="re0">\@users</span><span class="sy0">,</span><span class="re0">\@ksize</span><span class="sy0">,</span><span class="re0">\@printable_size</span><span class="sy0">,</span><span class="re0">\@colors</span><span class="br0">&#41;</span><span class="sy0">;</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Mise_.C3.A0_jour_de_la_base"><span class="mw-headline-number">5.3</span> Mise à jour de la base</span></h2>
+<p>Maintenant pour ce qui est de la mise à jour de la base, il va falloir mettre en crontab un script pour la mettre à jour&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/scripts/update-rrd.pl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="co1">#!/usr/bin/perl -w</span>
+&#160;
+<span class="kw2">use</span> strict<span class="sy0">;</span>
+&#160;
+<span class="kw1">my</span> <span class="re0">$source</span><span class="sy0">=</span><span class="st_h">'/var/www/.stats/datas'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$destination</span><span class="sy0">=</span><span class="st_h">'/var/www/.stats/rrd_db.rrd'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">@rrd_arg</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$gb_size</span><span class="sy0">;</span>
+&#160;
+<span class="kw3">open</span> <span class="br0">&#40;</span>RRD_DATA<span class="sy0">,</span> <span class="st0">&quot;&lt;$source&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">&#40;</span><span class="re4">&lt;RRD_DATA&gt;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>   
+        <span class="kw3">chomp</span> <span class="co5">$_</span><span class="sy0">;</span> 
+        <span class="kw1">unless</span> <span class="br0">&#40;</span><span class="co2">/disponible|autre/i</span><span class="br0">&#41;</span>
+        <span class="br0">&#123;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span><span class="co2">/^.*:(\d*):/</span><span class="br0">&#41;</span>
+            <span class="br0">&#123;</span>
+                <span class="re0">$gb_size</span><span class="sy0">=</span><span class="kw3">sprintf</span> <span class="br0">&#40;</span><span class="st0">&quot;%.1f&quot;</span><span class="sy0">,</span> <span class="br0">&#40;</span><span class="co3">$1</span> <span class="sy0">/</span> <span class="nu0">1048576</span><span class="br0">&#41;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+                <span class="kw3">push</span> <span class="re0">@rrd_arg</span><span class="sy0">,</span> <span class="re0">$gb_size</span><span class="sy0">;</span>
+            <span class="br0">&#125;</span>
+        <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>   
+<span class="kw3">close</span> <span class="br0">&#40;</span>RRD_DATA<span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="re0">@rrd_arg</span> <span class="sy0">=</span> <span class="kw3">join</span> <span class="st_h">':'</span><span class="sy0">,</span> <span class="re0">@rrd_arg</span><span class="sy0">;</span>
+<span class="kw3">system</span> <span class="st0">&quot;rrdtool update $destination N:@rrd_arg<span class="es0">\n</span>&quot;</span><span class="sy0">;</span></pre></div></div>
+</td></tr></table><br />
+<p>Adaptez ici la source et la destination.
+</p>
+<h2><span class="mw-headline" id="G.C3.A9n.C3.A9ration_des_graphs"><span class="mw-headline-number">5.4</span> Génération des graphs</span></h2>
+<p>Afin de générer les graphs, il va falloir définir l'emplacement des images. Pour celà adaptez la source, rrd_db et les 2 destinations. Il y aura donc ici 1 image pour le graph du jour et une image pour le graph sur 2 semaines&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/scripts/update-rrd.pl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="perl source-perl"><pre class="de1"><span class="co1">#!/usr/bin/perl -w</span>
+&#160;
+<span class="kw2">use</span> strict<span class="sy0">;</span>
+&#160;
+<span class="kw1">my</span> <span class="re0">$source</span><span class="sy0">=</span><span class="st_h">'/var/www/.stats/datas'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$rrd_db</span><span class="sy0">=</span><span class="st_h">'/var/www/.stats/rrd_db.rrd'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$destination_day</span><span class="sy0">=</span><span class="st_h">'/var/www/.stats/usage_day.png'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">$destination_week</span><span class="sy0">=</span><span class="st_h">'/var/www/.stats/usage_week.png'</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">@users_lines</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">@colors_lines</span><span class="sy0">;</span>
+<span class="kw1">my</span> <span class="re0">@user_size</span><span class="sy0">;</span>
+&#160;
+<span class="kw3">open</span> <span class="br0">&#40;</span>RRD_DATA<span class="sy0">,</span> <span class="st0">&quot;&lt;$source&quot;</span><span class="br0">&#41;</span><span class="sy0">;</span>
+    <span class="kw1">my</span> <span class="re0">$i</span><span class="sy0">=</span><span class="nu0">1</span><span class="sy0">;</span>
+    <span class="kw1">while</span> <span class="br0">&#40;</span><span class="re4">&lt;RRD_DATA&gt;</span><span class="br0">&#41;</span>
+    <span class="br0">&#123;</span>   
+        <span class="kw3">chomp</span> <span class="co5">$_</span><span class="sy0">;</span> 
+        <span class="kw1">unless</span> <span class="br0">&#40;</span><span class="co2">/disponible|autres/i</span><span class="br0">&#41;</span>
+        <span class="br0">&#123;</span>
+            <span class="kw1">if</span> <span class="br0">&#40;</span><span class="co2">/(.*):(.*):(.*):(.*)/</span><span class="br0">&#41;</span>
+            <span class="br0">&#123;</span>
+                <span class="kw3">push</span> <span class="re0">@users_lines</span><span class="sy0">,</span> <span class="st0">&quot;'DEF:user$i=$rrd_db:$1:AVERAGE'&quot;</span><span class="sy0">;</span>
+                <span class="kw3">push</span> <span class="re0">@colors_lines</span><span class="sy0">,</span> <span class="st0">&quot;'LINE1:user$i$4:$1 ($3)'&quot;</span><span class="sy0">;</span>
+                <span class="re0">$i</span><span class="sy0">++;</span>
+            <span class="br0">&#125;</span>
+        <span class="br0">&#125;</span>
+    <span class="br0">&#125;</span>   
+<span class="kw3">close</span> <span class="br0">&#40;</span>RRD_DATA<span class="br0">&#41;</span><span class="sy0">;</span>
+&#160;
+<span class="co1"># Generate day graph</span>
+<span class="kw3">system</span> <span class="st0">&quot;rrdtool graph $destination_day -a PNG --title=<span class="es0">\&quot;</span>Utilisation disque par jour<span class="es0">\&quot;</span> --vertical-label <span class="es0">\&quot;</span>Giga Octets<span class="es0">\&quot;</span> @users_lines @colors_lines&quot;</span><span class="sy0">;</span>
+<span class="co1"># Generate 2 weeks graphs</span>
+<span class="kw3">system</span> <span class="st0">&quot;rrdtool graph $destination_week --start -2weeks --end N -a PNG --title=<span class="es0">\&quot;</span>Utilisation disque (2 semaines)<span class="es0">\&quot;</span> --vertical-label <span class="es0">\&quot;</span>Giga Octets<span class="es0">\&quot;</span> @users_lines @colors_lines&quot;</span><span class="sy0">;</span></pre></div></div>
+</td></tr></table><br />
+<p>Là, on a tout ce qu'il faut pour créer, mettre à jour et générer des graphs. On va juste mettre les bons droits d'exécution&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> chmod</font>
+</td></tr>
+<tr>
+<td>
+<pre>chmod u+rx /etc/scripts/*
+</pre>
+</td></tr></table><br />
+<p>Et finir par définir la crontab&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> crontab -e</font>
+</td></tr>
+<tr>
+<td>
+<pre># Generate graphs
+*/5 * * * * /etc/scripts/gen-piechart-db.pl 2&gt;/dev/null
+*/5 * * * * /etc/scripts/gen-datas.pl&#160;; /etc/scripts/update-rrd.pl&#160;; /etc/scripts/gen-rrd-graph.pl 1&gt; /dev/null
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<p><a rel="nofollow" class="external free" href="http://www.cuddletech.com/articles/rrd/index.html">http://www.cuddletech.com/articles/rrd/index.html</a><br />
+<a rel="nofollow" class="external free" href="http://oss.oetiker.ch/rrdtool/">http://oss.oetiker.ch/rrdtool/</a><br />
+<a rel="nofollow" class="external free" href="http://www.vandenbogaerdt.nl/rrdtool/tutorial/graph.php">http://www.vandenbogaerdt.nl/rrdtool/tutorial/graph.php</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.068 seconds
+Real time usage: 0.069 seconds
+Preprocessor visited node count: 227/1000000
+Preprocessor generated node count: 598/1000000
+Post‐expand include size: 2437/2097152 bytes
+Template argument size: 835/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   30.145      1 - -total
+ 86.17%   25.976      5 - Template:Config
+  9.35%    2.818      6 - Template:Command
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3083-0!*!0!1!en!5!* and timestamp 20181111230715 and revision id 8616
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool&amp;oldid=8616">https://wiki.deimos.fr/index.php?title=RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool&amp;oldid=8616</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=RRDtool+%3A+cr%C3%A9er+ses+propre+graphiques+avec+RRDtool" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/RRDtool_:_créer_ses_propre_graphiques_avec_RRDtool.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool&amp;oldid=8616" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 21 January 2010, at 12:44.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":32});
+}</script>
+	</body>
+</html>
+	

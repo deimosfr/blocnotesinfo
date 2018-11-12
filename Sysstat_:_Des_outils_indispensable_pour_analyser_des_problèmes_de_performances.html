@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Sysstat : Des outils indispensable pour analyser des problèmes de performances - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=ext.cite.styles|mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances","wgTitle":"Sysstat : Des outils indispensable pour analyser des problèmes de performances","wgCurRevisionId":12914,"wgRevisionId":12914,"wgArticleId":3244,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Solaris","Linux"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances","wgRelevantArticleId":3244,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-bash {line-height: normal;}
+.source-bash li, .source-bash pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for bash
+ * CSS class: source-bash, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.bash.source-bash .de1, .bash.source-bash .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.bash.source-bash  {font-family:monospace;}
+.bash.source-bash .imp {font-weight: bold; color: red;}
+.bash.source-bash li, .bash.source-bash .li1 {font-weight: normal; vertical-align:top;}
+.bash.source-bash .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.bash.source-bash .li2 {font-weight: bold; vertical-align:top;}
+.bash.source-bash .kw1 {color: #000000; font-weight: bold;}
+.bash.source-bash .kw2 {color: #c20cb9; font-weight: bold;}
+.bash.source-bash .kw3 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .co0 {color: #666666; font-style: italic;}
+.bash.source-bash .co1 {color: #800000;}
+.bash.source-bash .co2 {color: #cc0000; font-style: italic;}
+.bash.source-bash .co3 {color: #000000; font-weight: bold;}
+.bash.source-bash .co4 {color: #666666;}
+.bash.source-bash .es1 {color: #000099; font-weight: bold;}
+.bash.source-bash .es2 {color: #007800;}
+.bash.source-bash .es3 {color: #007800;}
+.bash.source-bash .es4 {color: #007800;}
+.bash.source-bash .es5 {color: #780078;}
+.bash.source-bash .es_h {color: #000099; font-weight: bold;}
+.bash.source-bash .br0 {color: #7a0874; font-weight: bold;}
+.bash.source-bash .sy0 {color: #000000; font-weight: bold;}
+.bash.source-bash .st0 {color: #ff0000;}
+.bash.source-bash .st_h {color: #ff0000;}
+.bash.source-bash .nu0 {color: #000000;}
+.bash.source-bash .re0 {color: #007800;}
+.bash.source-bash .re1 {color: #007800;}
+.bash.source-bash .re2 {color: #007800;}
+.bash.source-bash .re4 {color: #007800;}
+.bash.source-bash .re5 {color: #660033;}
+.bash.source-bash .ln-xtra, .bash.source-bash li.ln-xtra, .bash.source-bash div.ln-xtra {background-color: #ffc;}
+.bash.source-bash span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Sysstat_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Sysstat : Des outils indispensable pour analyser des problèmes de performances</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#mw-navigation">navigation</a>, 					<a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Debian"><span class="tocnumber">2.1</span> <span class="toctext">Debian</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Red_Hat"><span class="tocnumber">2.2</span> <span class="toctext">Red Hat</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Solaris"><span class="tocnumber">2.3</span> <span class="toctext">Solaris</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#iostat"><span class="tocnumber">3</span> <span class="toctext">iostat</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Linux"><span class="tocnumber">3.1</span> <span class="toctext">Linux</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Solaris_2"><span class="tocnumber">3.2</span> <span class="toctext">Solaris</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#sar"><span class="tocnumber">4</span> <span class="toctext">sar</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Disques"><span class="tocnumber">4.1</span> <span class="toctext">Disques</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#CPU"><span class="tocnumber">4.2</span> <span class="toctext">CPU</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#M.C3.A9moire"><span class="tocnumber">4.3</span> <span class="toctext">Mémoire</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Swap"><span class="tocnumber">4.4</span> <span class="toctext">Swap</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Network"><span class="tocnumber">4.5</span> <span class="toctext">Network</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Les_IO"><span class="tocnumber">4.6</span> <span class="toctext">Les IO</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Les_processus"><span class="tocnumber">4.7</span> <span class="toctext">Les processus</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-17"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#FAQ"><span class="tocnumber">5</span> <span class="toctext">FAQ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-18"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#sar:_can.27t_open_.2Fvar.2Fadm.2Fsa.2FsaXX_:_No_such_file_or_directory"><span class="tocnumber">5.1</span> <span class="toctext">sar: can't open /var/adm/sa/saXX&#160;: No such file or directory</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#Ressources"><span class="tocnumber">6</span> <span class="toctext">Ressources</span></a></li>
+</ul>
+</div>
+
+<div class="thumb tright"><div class="thumbinner" style="width:302px;"><a href="./File:Sysstat_logo.png.html" class="image"><img alt="" src="images/7/78/Sysstat_logo.png" width="300" height="126" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="./File:Sysstat_logo.png.html" class="internal" title="Enlarge"></a></div>Sysstat</div></div></div>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>Sysstat est un package qui contient le binaire sar et iostat. Le dernier sert à monitorer uniquement les IO disque, tandis que sar sert à monitorer à peu prêt tout.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<h2><span class="mw-headline" id="Debian"><span class="mw-headline-number">2.1</span> Debian</span></h2>
+<p>Sous Debian, il va falloir installer sysstat&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td>
+<pre>aptitude install sysstat
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Red_Hat"><span class="mw-headline-number">2.2</span> Red Hat</span></h2>
+<p>Sous Red Hat, il va falloir installer sysstat&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> yum</font>
+</td></tr>
+<tr>
+<td>
+<pre>yum install sysstat
+</pre>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Solaris"><span class="mw-headline-number">2.3</span> Solaris</span></h2>
+<p>Sous Solaris, il va falloir utiliser <a href="./Pkg-get_:_Mise_en_place_d'un_système_de_repository_pour_Solaris.html" title="Pkg-get : Mise en place d'un système de repository pour Solaris">les packages Sun Freeware</a> pour trouver cet outil&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pkg-get</font>
+</td></tr>
+<tr>
+<td>
+<pre>pkg-get install CSWsysstat
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="iostat"><span class="mw-headline-number">3</span> iostat</span></h1>
+<p>iostat va permettre de mesurer les I/O disque. S'il peut être très intéressant de tester les perfs des disques montés sur vos machines, je vous conseil d'utiliser <a href="./Screen_:_Les_commandes_les_plus_utilisées.html" title="Screen : Les commandes les plus utilisées">screen</a> afin de vous rendre compte de ce que celà donne en temps réel.
+</p>
+<h2><span class="mw-headline" id="Linux"><span class="mw-headline-number">3.1</span> Linux</span></h2>
+<p>Sous linux, voici comment l'utiliser sur le disque sda par exemple&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> iostat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; iostat -x sda 1 5
+&#160;
+<span class="xtra ln-xtra">avg-cpu: &#160;%user  &#160;%nice&#160;%system&#160;%iowait &#160;%steal  &#160;%idle</span><span class="xtra ln-xtra">           0,21    0,00    0,29    0,05    0,00   99,45</span><span class="xtra ln-xtra">&#160;</span><span class="xtra ln-xtra">Device:         rrqm/s   wrqm/s     r/s     w/s   rsec/s   wsec/s avgrq-sz avgqu-sz   await  svctm &#160;%util</span><span class="xtra ln-xtra">sda               0,71     1,25    1,23    0,76    79,29    15,22    47,55     0,01    2,84   0,73   0,14</span>&#160;
+avg-cpu: &#160;%user  &#160;%nice&#160;%system&#160;%iowait &#160;%steal  &#160;%idle
+           0,00    0,00    0,00    0,00    0,00  100,00
+&#160;
+Device:         rrqm/s   wrqm/s     r/s     w/s   rsec/s   wsec/s avgrq-sz avgqu-sz   await  svctm &#160;%util
+sda               0,00     0,00    1,00    0,00    16,00     0,00    16,00     0,00    1,00   1,00   0,10
+&#160;
+avg-cpu: &#160;%user  &#160;%nice&#160;%system&#160;%iowait &#160;%steal  &#160;%idle
+           0,00    0,00    0,00    0,00    0,00  100,00</pre></div></div>
+</td></tr></table><br />
+<ul><li> -x&#160;: mode de statistiques étendues</li>
+<li> 1&#160;: Cela signifie que toutes les secondes, iostat va analyser les performances de tous les disques</li>
+<li> 5&#160;: Pendant 5 secondes</li></ul>
+<p>Les premières lignes de la commande iostat donne une moyenne des I/O depuis le boot de la machine. Voici quelques explications sur les colonnes&#160;:
+</p>
+<ul><li> r/s&#160;: opérations en lecture par seconde</li>
+<li> w/s&#160;: opérations en écriture par seconde</li>
+<li> await&#160;: temps d'attente (r/s + w/s)</li></ul>
+<p>Pour savoir si on a des lectures/écritures séquentielles sur le disque&#160;:
+</p>
+<ul><li> rrqm/s&#160;: nombre de requêtes mergées par secondes en lecture</li>
+<li> wrqm/s&#160;: nombre de requêtes mergées par secondes en écriture</li></ul>
+<p>Plus les lectures sont séquentielles, plus la rapidité sera présente (sur disques non SSD), plus les secteurs seront dispersés, plus l'attente sera longue.
+</p><p>Pour tester, voici quelques infos utiles<sup id="cite_ref-1" class="reference"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#cite_note-1">[1]</a></sup>&#160;:
+</p>
+<ul><li> Advise to drop cache for whole file</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dd if=ifile iflag=nocache count=0</pre></div></div>
+</td></tr></table><br />
+<ul><li> Ensure drop cache for whole file</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dd of=ofile oflag=nocache conv=notrunc,fdatasync count=0</pre></div></div>
+</td></tr></table><br />
+<ul><li> Drop cache for part of file</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dd if=ifile iflag=nocache skip=10 count=10 of=/dev/null</pre></div></div>
+</td></tr></table><br />
+<ul><li> Stream data just using readahead cache</li></ul>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dd</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">dd if=ifile of=ofile iflag=nocache oflag=nocache</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Solaris_2"><span class="mw-headline-number">3.2</span> Solaris</span></h2>
+<p>Sous Solaris, les commandes sont un petit peu différentes&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> iostat</font>
+</td></tr>
+<tr>
+<td>
+<pre>iostat -xcnCXTdz 1
+</pre>
+</td></tr></table><br />
+<p>Pour stresser le disque, nous utiliserons la commande dd qui est une commande de bas niveau&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> dd</font>
+</td></tr>
+<tr>
+<td>
+<pre>dd if=/dev/zero of=/export/home/dd.img bs=10485760 count=100
+</pre>
+</td></tr></table><br />
+<p>Et voici un petit script shell qui fait tout pour vous&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> bench_disk.sh</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"><span class="co0">#!/bin/sh</span>
+<span class="co0"># Made by Pierre Mavro</span>
+&#160;
+<span class="kw3">echo</span> <span class="st0">&quot;What size of file would you like to test (in Mo)&#160;? (ex. 10240 for 10Go)&#160;:&quot;</span>
+<span class="kw2">read</span> <span class="kw2">size</span>
+<span class="kw3">echo</span> <span class="st0">&quot;Choose your requiered device&#160;:&quot;</span>
+<span class="kw2">df</span> <span class="sy0">|</span> <span class="kw2">awk</span> <span class="st_h">'{ print $1 }'</span>
+<span class="kw2">read</span> device
+<span class="kw3">echo</span> <span class="st0">&quot;&quot;</span>
+<span class="kw3">echo</span> <span class="st0">&quot;Please enter to confirm&#160;: a test_array_file file of <span class="es2">$size</span> will be created in <span class="es2">$device</span>&quot;</span>
+<span class="kw2">read</span> ok
+<span class="kw3">echo</span> <span class="st0">&quot;&quot;</span>
+<span class="kw3">echo</span> <span class="st0">&quot;Starting disk bench (Ctrl+C to stop)...&quot;</span>
+<span class="kw2">dd</span> <span class="re2">if</span>=<span class="sy0">/</span>dev<span class="sy0">/</span>zero <span class="re2">of</span>=<span class="re1">$device</span><span class="sy0">/</span>test_array_file <span class="re2">bs</span>=1024k <span class="re2">count</span>=<span class="re1">$size</span> <span class="sy0">&amp;</span>
+iostat <span class="re5">-nmCxz</span> <span class="nu0">1</span></pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="sar"><span class="mw-headline-number">4</span> sar</span></h1>
+<p>sar est un outil qui va nous permettre de monitorer beaucoup de choses. A l'installation de sysstat, sar va se mettre en crontab pour exécuter régulièrement des sondages placés dans /var/log/sa.
+</p><p>Vous pouvez à tout moment changer la crontab par défaut&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/cron.d/sysstat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1"># Run system activity accounting tool every 10 minutes
+*/10 * * * * root /usr/lib64/sa/sa1 -S DISK 1 1
+# 0 * * * * root /usr/lib64/sa/sa1 -S DISK 600 6 &amp;
+# Generate a daily summary of process accounting at 23:53
+53 23 * * * root /usr/lib64/sa/sa2 -A</pre></div></div>
+</td></tr></table><br />
+<p>Décommentez toutes les lignes ou ajustez selon vos besoins. Pour lire par la suite ces fichiers, utilisez la commande sar comme ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td>
+<pre>sar -d -f /var/log/sa/sa<b>XX</b>
+</pre>
+</td></tr></table><br />
+<ul><li> XX&#160;: jour du mois</li></ul>
+<p>Une petite chose importante avant d'utiliser sar, créez vous un alias dans votre bashrc ou le fichier de préférences pour votre shell favori afin que les heures s'affichent correctement&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> ~/.zshrc</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="bash source-bash"><pre class="de1"> <span class="kw3">alias</span> <span class="re2">sar</span>=<span class="st_h">'LANG=C sar'</span></pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Disques"><span class="mw-headline-number">4.1</span> Disques</span></h2>
+<p>Pour monitorer les disques, c'est l'option -d qu'il faut utiliser&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -d 1 2
+&#160;
+13:57:03          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+13:57:04      dev8-16      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+13:57:04       dev8-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+13:57:04     dev253-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+13:57:04     dev253-1      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+&#160;
+13:57:04          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+13:57:05      dev8-16      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+13:57:05       dev8-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+13:57:05     dev253-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+13:57:05     dev253-1      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+&#160;
+<span class="xtra ln-xtra">Moyenne&#160;:         DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util</span><span class="xtra ln-xtra">Moyenne&#160;:     dev8-16      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00</span><span class="xtra ln-xtra">Moyenne&#160;:      dev8-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00</span><span class="xtra ln-xtra">Moyenne&#160;:    dev253-0      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00</span><span class="xtra ln-xtra">Moyenne&#160;:    dev253-1      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00</span></pre></div></div>
+</td></tr></table><br />
+<p>Comme vous pouvez le voir, les dernières lignes correspondent aux moyennes depuis le boot de la machine.
+</p><p>Si les devices des disques ne vous parlent pas trop, vous pouvez utiliser l'option -p&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -d -p 1 2
+&#160;
+14:13:28          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+14:13:29          sdb      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:13:29          sda      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:13:29    VolGroup-lv_root      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:13:29    VolGroup-lv_swap      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+&#160;
+14:13:29          DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+14:13:30          sdb      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:13:30          sda      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:13:30    VolGroup-lv_root      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:13:30    VolGroup-lv_swap      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+&#160;
+Moyenne&#160;:         DEV       tps  rd_sec/s  wr_sec/s  avgrq-sz  avgqu-sz     await     svctm    &#160;%util
+Moyenne&#160;:         sdb      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+Moyenne&#160;:         sda      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+Moyenne&#160;:   VolGroup-lv_root      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+Moyenne&#160;:   VolGroup-lv_swap      0,00      0,00      0,00      0,00      0,00      0,00      0,00      0,00</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="CPU"><span class="mw-headline-number">4.2</span> CPU</span></h2>
+<p>Pour analyser le CPU&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -u 1 3
+&#160;
+14:20:56        CPU    &#160;%user    &#160;%nice  &#160;%system  &#160;%iowait   &#160;%steal    &#160;%idle
+14:20:57        all      0,00      0,00      0,00      0,00      0,00    100,00
+14:20:58        all      0,00      0,00      0,00      0,00      0,00    100,00
+14:20:59        all      0,00      0,00      0,99      0,00      0,00     99,01
+Moyenne&#160;:       all      0,00      0,00      0,33      0,00      0,00     99,67</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="M.C3.A9moire"><span class="mw-headline-number">4.3</span> Mémoire</span></h2>
+<p>Pour monitorer la mémoire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -r 1 30
+Linux 3.2.0-3-amd64 (deb-pmavro) 	13/09/2012 	_x86_64_	(2 CPU)
+&#160;
+18:17:01    kbmemfree kbmemused &#160;%memused kbbuffers  kbcached  kbcommit  &#160;%commit  kbactive   kbinact
+18:17:02       275472   3617496     92,92    220604   1635456   4294436     55,08   2053992   1312976
+18:17:03       275612   3617356     92,92    220604   1635140   4294136     55,08   2054064   1312708
+18:17:04       268048   3624920     93,11    220616   1642852   4302016     55,18   2054192   1320488
+18:17:05       276356   3616612     92,90    220616   1634612   4293660     55,07   2054348   1312128</pre></div></div>
+</td></tr></table><br />
+<p>Vous pouvez également utiliser vmstat pour monitorer la mémoire&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> vmstat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; vmstat -n 1 30
+procs -----------memory---------- ---swap-- -----io---- -system-- ----cpu----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa
+ 0  0  52600 272952 220800 1636336    0    1   572   587  471  222 19  3 75  3
+ 3  0  52600 272828 220804 1635904    0    0     0   140 2969 6041 16  3 79  2
+ 0  0  52600 275108 220804 1635492    0    0     0     0 3016 6002 18  3 80  0
+ 0  0  52600 274984 220804 1635184    0    0     0   220 2327 4608 14  3 83  0
+ 0  0  52600 277836 220804 1635044    0    0     0     0 2868 5820 24  4 72  0</pre></div></div>
+</td></tr></table><br />
+<ul><li> free, buff et cache&#160;: le nombre de mémoire en KiB qui est idle</li>
+<li> si et so&#160;: correspondent à l'utilsation de la swap</li>
+<li> swpd&#160;: la taille en KiB de swap utilisé</li></ul>
+<p>Pour monitorer le taux de changement&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -R 1 30   
+Linux 3.2.0-3-amd64 (deb-pmavro) 	13/09/2012 	_x86_64_	(2 CPU)
+&#160;
+18:18:42      frmpg/s   bufpg/s   campg/s
+18:18:43     -2203,00      0,00   2202,00
+18:18:44       713,00      0,00      8,00
+18:18:45      -279,00      0,00    404,00
+18:18:46       186,00      0,00    -13,00
+18:18:47       -93,00      0,00     26,00
+18:18:48      -155,00      2,00    -18,00
+18:18:49        62,00      0,00    -44,00</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Swap"><span class="mw-headline-number">4.4</span> Swap</span></h2>
+<p>Pour analyser la swap&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -W 1 3
+&#160;
+14:22:10     pswpin/s pswpout/s
+14:22:11         0,00      0,00
+14:22:12         0,00      0,00
+14:22:13         0,00      0,00
+Moyenne&#160;:        0,00      0,00</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Network"><span class="mw-headline-number">4.5</span> Network</span></h2>
+<p>Pour une analyse réseaux&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -n DEV 1 2
+&#160;
+14:23:47        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+14:23:48           lo      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:23:48         eth0      1,00      1,00      0,06      0,17      0,00      0,00      0,00
+&#160;
+14:23:48        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+14:23:49           lo      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+14:23:49         eth0      2,00      1,00      0,12      0,38      0,00      0,00      1,00
+&#160;
+Moyenne&#160;:       IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s
+Moyenne&#160;:          lo      0,00      0,00      0,00      0,00      0,00      0,00      0,00
+Moyenne&#160;:        eth0      1,50      1,00      0,09      0,28      0,00      0,00      0,50</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Les_IO"><span class="mw-headline-number">4.6</span> Les IO</span></h2>
+<p>Pour monitorer tous les IO&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sar</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; sar -B 1 30
+Linux 3.2.0-3-amd64 (deb-pmavro) 	13/09/2012 	_x86_64_	(2 CPU)
+&#160;
+18:19:33     pgpgin/s pgpgout/s   fault/s  majflt/s  pgfree/s pgscank/s pgscand/s pgsteal/s   &#160;%vmeff
+18:19:34         0,00      0,00    106,00      0,00   3105,00      0,00      0,00      0,00      0,00
+18:19:35         0,00      0,00     58,00      0,00   1567,00      0,00      0,00      0,00      0,00
+18:19:36         0,00      0,00     82,00      0,00   1039,00      0,00      0,00      0,00      0,00
+18:19:37         0,00      0,00    205,00      0,00   1530,00      0,00      0,00      0,00      0,00
+18:19:38         0,00     44,00    131,00      0,00   1192,00      0,00      0,00      0,00      0,00</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Les_processus"><span class="mw-headline-number">4.7</span> Les processus</span></h2>
+<p>Il est possible via la commande pidstat d'obtenir beaucoup d'informations sur un processus ne particulier&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pidstat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; pidstat -p 2365 1 50
+Linux 3.2.0-4-amd64 (ZG020194) 	05/07/2013 	_x86_64_	(2 CPU)
+&#160;
+02:12:57 PM       PID   &#160;%usr&#160;%system &#160;%guest   &#160;%CPU   CPU  Command
+02:12:58 PM      2365    1.00    0.00    0.00    1.00     0  awesome
+02:12:59 PM      2365    0.00    0.00    0.00    0.00     0  awesome
+02:13:00 PM      2365    0.00    1.00    0.00    1.00     0  awesome</pre></div></div>
+</td></tr></table><br />
+<p>Il est également possible de monitorer les IO (-d) ou encore le top 5 des processus en pagefault&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> pidstat</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; pidstat -T CHILD -r 2 5   
+Linux 3.2.0-4-amd64 (ZG020194) 	05/07/2013 	_x86_64_	(2 CPU)
+&#160;
+02:16:02 PM       PID minflt-nr majflt-nr  Command
+02:16:04 PM      2252         1         0  VBoxService
+02:16:04 PM      2365        50         0  awesome
+02:16:04 PM      4938         7         0  firefox
+02:16:04 PM      5051       171         0  pidstat</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="FAQ"><span class="mw-headline-number">5</span> FAQ</span></h1>
+<h2><span class="mw-headline" id="sar:_can.27t_open_.2Fvar.2Fadm.2Fsa.2FsaXX_:_No_such_file_or_directory"><span class="mw-headline-number">5.1</span> sar: can't open /var/adm/sa/saXX&#160;: No such file or directory</span></h2>
+<p>Vous désirez, sous Solaris, utiliser la commande "sar" afin d'effectuer du monitoring ou de l'analyse de performance sur votre serveur, mais quand vous exécutez la commande, vous obtenez une erreur semblable à la suivante&#160;:
+</p>
+<pre>sar: can't open /var/adm/sa/saXX&#160;: No such file or directory
+</pre>
+<p>La réponse se trouve dans le manpage de "sadc". Vous devez exécuter la commande suivante, et vous devriez être en mesure d'exécuter la commande sans problème, après avoir exécuté ceci&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> sadc</font>
+</td></tr>
+<tr>
+<td>
+<pre>su sys -c "/usr/lib/sa/sadc /var/adm/sa/sa`date +%d`"
+</pre>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Ressources"><span class="mw-headline-number">6</span> Ressources</span></h1>
+<a rel="nofollow" class="external free" href="http://www.cyberciti.biz/open-source/command-line-hacks/linux-monitor-process-using-pidstat/">http://www.cyberciti.biz/open-source/command-line-hacks/linux-monitor-process-using-pidstat/</a><ol class="references">
+<li id="cite_note-1"><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#cite_ref-1">^</a> <span class="reference-text"><a rel="nofollow" class="external free" href="http://comments.gmane.org/gmane.comp.gnu.coreutils.general/904">http://comments.gmane.org/gmane.comp.gnu.coreutils.general/904</a></span>
+</li>
+</ol>
+
+<!-- 
+NewPP limit report
+CPU time usage: 0.080 seconds
+Real time usage: 0.079 seconds
+Preprocessor visited node count: 494/1000000
+Preprocessor generated node count: 1394/1000000
+Post‐expand include size: 5168/2097152 bytes
+Template argument size: 1352/2097152 bytes
+Highest expansion depth: 4/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   31.240      1 - -total
+ 41.97%   13.110      3 - Template:Config
+ 34.32%   10.723     23 - Template:Command
+  7.42%    2.319      1 - Template:Iostat_cmd_output
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3244-0!*!0!1!en!5!* and timestamp 20181111230617 and revision id 12914
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances&amp;oldid=12914">https://wiki.deimos.fr/index.php?title=Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances&amp;oldid=12914</a>"					</div>
+													<div id='catlinks' class='catlinks'><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://wiki.deimos.fr/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="./Category:Solaris.html" title="Category:Solaris">Solaris</a></li><li><a href="./Category:Linux.html" title="Category:Linux">Linux</a></li></ul></div></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Sysstat+%3A+Des+outils+indispensable+pour+analyser+des+probl%C3%A8mes+de+performances" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Sysstat_:_Des_outils_indispensable_pour_analyser_des_problèmes_de_performances.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances&amp;oldid=12914" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 24 August 2013, at 12:57.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["ext.cite.a11y","mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":33});
+}</script>
+	</body>
+</html>
+	

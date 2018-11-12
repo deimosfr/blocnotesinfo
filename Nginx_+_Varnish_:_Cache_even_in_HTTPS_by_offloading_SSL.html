@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8" />
+<title>Nginx + Varnish : Cache even in HTTPS by offloading SSL - Deimos.fr / Bloc Notes Informatique</title>
+<meta name="generator" content="MediaWiki 1.25.5" />
+<link rel="shortcut icon" href="https://wiki.deimos.fr/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="opensearch_desc.php" title="Deimos.fr / Bloc Notes Informatique (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="https://wiki.deimos.fr/api.php?action=rsd" />
+<link rel="alternate" hreflang="x-default" href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html" />
+<link rel="copyright" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr" />
+<link rel="alternate" type="application/atom+xml" title="Deimos.fr / Bloc Notes Informatique Atom feed" href="https://wiki.deimos.fr/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint,shared|mediawiki.sectionAnchor|mediawiki.skinning.interface|mediawiki.ui.button|skins.vector.styles&amp;only=styles&amp;skin=vector&amp;*.css" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<link rel="stylesheet" href="load.php%3Fdebug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector&amp;*.css" />
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-css:7:6f8c0c45eefd74c7bbe9478b32df38c0 */</style>
+<script src="load.php%3Fdebug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL","wgTitle":"Nginx + Varnish : Cache even in HTTPS by offloading SSL","wgCurRevisionId":13178,"wgRevisionId":13178,"wgArticleId":3662,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL","wgRelevantArticleId":3662,"wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"hidesig":true,"preview":true,"publish":false}});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\"});});
+/* cache key: blocnotesinfo-wiki_:resourceloader:filter:minify-js:7:a5c52c063dc436c1ca7c9f456936a5e9 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","skins.vector.js"]);
+}</script>
+<style type="text/css">/*<![CDATA[*/
+.source-text {line-height: normal;}
+.source-text li, .source-text pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for text
+ * CSS class: source-text, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.text.source-text .de1, .text.source-text .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.text.source-text  {font-family:monospace;}
+.text.source-text .imp {font-weight: bold; color: red;}
+.text.source-text li, .text.source-text .li1 {font-weight: normal; vertical-align:top;}
+.text.source-text .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.text.source-text .li2 {font-weight: bold; vertical-align:top;}
+.text.source-text .ln-xtra, .text.source-text li.ln-xtra, .text.source-text div.ln-xtra {background-color: #ffc;}
+.text.source-text span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-apache {line-height: normal;}
+.source-apache li, .source-apache pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for apache
+ * CSS class: source-apache, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.apache.source-apache .de1, .apache.source-apache .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.apache.source-apache  {font-family:monospace;}
+.apache.source-apache .imp {font-weight: bold; color: red;}
+.apache.source-apache li, .apache.source-apache .li1 {font-weight: normal; vertical-align:top;}
+.apache.source-apache .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.apache.source-apache .li2 {font-weight: bold; vertical-align:top;}
+.apache.source-apache .kw1 {color: #00007f;}
+.apache.source-apache .kw2 {color: #0000ff;}
+.apache.source-apache .kw3 {color: #000000; font-weight:bold;}
+.apache.source-apache .co1 {color: #adadad; font-style: italic;}
+.apache.source-apache .es0 {color: #000099; font-weight: bold;}
+.apache.source-apache .br0 {color: #339933;}
+.apache.source-apache .sy0 {color: #008000;}
+.apache.source-apache .st0 {color: #7f007f;}
+.apache.source-apache .nu0 {color: #ff0000;}
+.apache.source-apache .ln-xtra, .apache.source-apache li.ln-xtra, .apache.source-apache div.ln-xtra {background-color: #ffc;}
+.apache.source-apache span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+.source-php {line-height: normal;}
+.source-php li, .source-php pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for php
+ * CSS class: source-php, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.php.source-php .de1, .php.source-php .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;font-family: monospace, monospace;}
+.php.source-php  {font-family:monospace;}
+.php.source-php .imp {font-weight: bold; color: red;}
+.php.source-php li, .php.source-php .li1 {font-weight: normal; vertical-align:top;}
+.php.source-php .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.php.source-php .li2 {font-weight: bold; vertical-align:top;}
+.php.source-php .kw1 {color: #b1b100;}
+.php.source-php .kw2 {color: #000000; font-weight: bold;}
+.php.source-php .kw3 {color: #990000;}
+.php.source-php .kw4 {color: #009900; font-weight: bold;}
+.php.source-php .co1 {color: #666666; font-style: italic;}
+.php.source-php .co2 {color: #666666; font-style: italic;}
+.php.source-php .co3 {color: #0000cc; font-style: italic;}
+.php.source-php .co4 {color: #009933; font-style: italic;}
+.php.source-php .coMULTI {color: #666666; font-style: italic;}
+.php.source-php .es0 {color: #000099; font-weight: bold;}
+.php.source-php .es1 {color: #000099; font-weight: bold;}
+.php.source-php .es2 {color: #660099; font-weight: bold;}
+.php.source-php .es3 {color: #660099; font-weight: bold;}
+.php.source-php .es4 {color: #006699; font-weight: bold;}
+.php.source-php .es5 {color: #006699; font-weight: bold; font-style: italic;}
+.php.source-php .es6 {color: #009933; font-weight: bold;}
+.php.source-php .es_h {color: #000099; font-weight: bold;}
+.php.source-php .br0 {color: #009900;}
+.php.source-php .sy0 {color: #339933;}
+.php.source-php .sy1 {color: #000000; font-weight: bold;}
+.php.source-php .st0 {color: #0000ff;}
+.php.source-php .st_h {color: #0000ff;}
+.php.source-php .nu0 {color: #cc66cc;}
+.php.source-php .nu8 {color: #208080;}
+.php.source-php .nu12 {color: #208080;}
+.php.source-php .nu19 {color:#800080;}
+.php.source-php .me1 {color: #004000;}
+.php.source-php .me2 {color: #004000;}
+.php.source-php .re0 {color: #000088;}
+.php.source-php .ln-xtra, .php.source-php li.ln-xtra, .php.source-php div.ln-xtra {background-color: #ffc;}
+.php.source-php span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/Vector/csshover.min.htc")}</style><![endif]-->
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Nginx_Varnish_Cache_even_in_HTTPS_by_offloading_SSL skin-vector action-view vector-animateLayout">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Nginx + Varnish : Cache even in HTTPS by offloading SSL</span></h1>
+						<div id="bodyContent" class="mw-body-content">
+									<div id="siteSub">From Deimos.fr / Bloc Notes Informatique</div>
+								<div id="contentSub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Jump to:					<a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#mw-navigation">navigation</a>, 					<a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#Installation"><span class="tocnumber">2</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#Configuration"><span class="tocnumber">3</span> <span class="toctext">Configuration</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#Nginx"><span class="tocnumber">3.1</span> <span class="toctext">Nginx</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#Varnish"><span class="tocnumber">3.2</span> <span class="toctext">Varnish</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#Testing"><span class="tocnumber">4</span> <span class="toctext">Testing</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</div>
+
+<table class="config_array" align="right" style="width:20em; font-size:90%; text-align:left; border: 1px #d0e7ff solid; margin-left:10px;">
+   <tr>
+      <td class="config_subarray" colspan="2" style="text-align:center;"><a href="./File:Nginx-logo.png.html" class="image" title="Nginx Logo"><img alt="Nginx Logo" src="images/a/a1/Nginx-logo.png" width="136" height="36" /></a></td>
+   </tr><tr><td colspan="2" style="text-align:center;"><hr class="gradient" /></td></tr><tr>
+      <th>Software version</th>
+      <td>1.2.1</td>
+   </tr><tr>
+      <th>Operating System</th>
+      <td>Debian 7</td>
+   </tr><tr>
+      <th>Website</th>
+      <td><a rel="nofollow" class="external text" href="http://nginx.org/">Nginx Website</a> <a rel="nofollow" class="external text" href="http://www.varnish-cache.org/">Varnish Website</a></td>
+   </tr><tr>
+      <th>Last Update</th>
+      <td>16/01/2014</td>
+   </tr><tr>
+      <th>Others</th>
+      <td></td>
+   </tr>
+</table>
+<h1><span class="mw-headline" id="Introduction"><span class="mw-headline-number">1</span> Introduction</span></h1>
+<p>You certainly know how that Varnish is a very good caching solution but the major problem is you can't use it for SSL connections. Fortunately there is a solution called "Offload SSL" which decrypt the SSL, send it to the cache system and return crypted flow. This schema will help you more on understanding the purpose of it&#160;:
+</p><p><a href="./File:Offload-ssl.png.html" class="image"><img alt="Offload-ssl.png" src="images/c/c4/Offload-ssl.png" width="715" height="586" /></a>
+</p><p>How the thing goes&#160;?
+</p>
+<ul><li> Let's start with the simplest thing&#160;: the non SSL traffic&#160;:</li></ul>
+<ol><li> The client requests data to the Varnish server&#160;:
+<ol><li> If Varnish gots information -&gt; it replies directly to the client</li>
+<li> If Varnish doesn't got information&#160;:
+<ol><li> It forwards connections to the Nginx in backend which reply to Varnish for caching</li>
+<li> Send back results to the client</li></ol></li></ol></li></ol>
+<ul><li> For the SSL traffic now&#160;:</li></ul>
+<ol><li> The client request data to the Nginx Frontend with SSL</li>
+<li> Nginx decrypt SSL traffic and forward the clear traffic to Varnish</li>
+<li> Varnish check it's cache and decide to forward to the Nginx backend if data is not in cache
+<ol><li> Nginx backend reply the required data to Varnish</li></ol></li>
+<li> The data in Varnish are sent back to the Nginx Frontend for SSL reencapsulation</li>
+<li> Nginx Front end send the result to the client</li></ol>
+<p>Of course you don't need to have multiple machine to make it work. Here I'm using a single machine and a single Nginx instance listening on 2 different ports.
+</p>
+<h1><span class="mw-headline" id="Installation"><span class="mw-headline-number">2</span> Installation</span></h1>
+<p>You need to have of course Nginx PHP-FPM and Varnish installed&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> aptitude</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">aptitude install varnish nginx php5-fpm openssl</pre></div></div>
+</td></tr></table><br />
+<p>Then create SSL certificates or install yours&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> </font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">mkdir -p /etc/nginx/ssl
+cd /etc/nginx/ssl
+openssl req -new -x509 -nodes -out server.crt -keyout server.key</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Configuration"><span class="mw-headline-number">3</span> Configuration</span></h1>
+<h2><span class="mw-headline" id="Nginx"><span class="mw-headline-number">3.1</span> Nginx</span></h2>
+<p>Regarding the Nginx configuration, here is the configuration for the Frontend (SSL) and the backend (8000) on the same Nginx instance&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/nginx/sites-enabled/default</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1"><span class="co1"># SSL VirtualHost</span>
+server {
+    <span class="co1"># SSL Listen port</span>
+<span class="xtra ln-xtra">    <span class="kw1">listen</span> <span class="nu0">443</span> ssl;</span>&#160;
+    <span class="co1"># Certificates</span>
+    ssl_certificate /etc/nginx/ssl/server.crt;
+    ssl_certificate_key /etc/nginx/ssl/server.key;
+&#160;
+    <span class="co1"># Resumption</span>
+    ssl_session_cache shared:SSL:10m;
+    <span class="co1"># Timeout</span>
+    ssl_session_timeout 10m;
+&#160;
+    <span class="co1"># Security options</span>
+    ssl_ciphers ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-RC4-SHA:ECDHE-RSA-RC4-SHA:ECDH-ECDSA-RC4-SHA:ECDH-RSA-RC4-SHA:ECDHE-RSA-AES256-SHA:RC4-SHA;
+    ssl_prefer_server_ciphers <span class="kw2">on</span>;
+&#160;
+    server_name vhost.deimos.fr;
+&#160;
+<span class="xtra ln-xtra">    <span class="co1"># Proxy Pass to Varnish</span></span><span class="xtra ln-xtra">    <span class="co1"># Add headers to recognize SSL</span></span><span class="xtra ln-xtra">    location / {</span><span class="xtra ln-xtra">        proxy_pass  http://127.0.0.1:<span class="nu0">80</span>;</span><span class="xtra ln-xtra">        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><span class="xtra ln-xtra">        proxy_set_header X-Forwarded-Host $host;</span><span class="xtra ln-xtra">        proxy_set_header X-Real-IP $remote_addr;</span><span class="xtra ln-xtra">        proxy_set_header X-Forwarded-Proto https;</span><span class="xtra ln-xtra">        proxy_set_header X-Forwarded-<span class="kw1">Port</span> <span class="nu0">443</span>;</span><span class="xtra ln-xtra">        proxy_set_header X-Secure <span class="kw2">on</span>;</span><span class="xtra ln-xtra">    }</span>}
+&#160;
+<span class="co1"># Clear VirtualHost</span>
+<span class="xtra ln-xtra">server {</span>    <span class="kw1">listen</span> <span class="nu0">8000</span>;
+&#160;
+    server_name vhost.deimos.fr;
+    root /usr/share/nginx/www/test;
+    index index.php;
+<span class="xtra ln-xtra">&#160;</span><span class="xtra ln-xtra">    set_real_ip_from   127.0.0.1;</span><span class="xtra ln-xtra">    real_ip_header     X-Forwarded-For;</span>    real_ip_recursive <span class="kw2">on</span>;
+&#160;
+    access_log /var/log/nginx/vhost.deimos.fr_access.log;
+    error_log /var/log/nginx/vhost.deimos.fr_error.log;
+&#160;
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+&#160;
+    location ~ \.php$ {
+        <span class="kw1">include</span> fastcgi_params;
+	fastcgi_pass    127.0.0.1:<span class="nu0">9000</span>;
+        fastcgi_intercept_errors <span class="kw2">on</span>;
+    }
+}</pre></div></div>
+</td></tr></table><br />
+<h2><span class="mw-headline" id="Varnish"><span class="mw-headline-number">3.2</span> Varnish</span></h2>
+<p>First of all, change the configuration to have a cache RAM and listen on 80 port&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/default/varnish</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">...
+# Should we start varnishd at boot?  Set to &quot;yes&quot; to enable.
+START=yes
+[...]
+<span class="xtra ln-xtra">DAEMON_OPTS=&quot;-a&#160;:80 \</span><span class="xtra ln-xtra">             -b localhost:8000 \</span>             -S /etc/varnish/secret \
+             -p thread_pools=2 \
+             -p thread_pool_min=100 \
+             -p thread_pool_max=2000 \
+             -p thread_pool_add_delay=2 \
+             -p session_linger=50 \
+             -s malloc,512m&quot;
+[...]</pre></div></div>
+</td></tr></table><br />
+<p>Then configure the forward to the Nginx backend and elements to cache&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /etc/varnish/default.vcl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="apache source-apache"><pre class="de1"><span class="co1"># This is a basic VCL configuration file for varnish.  See the vcl(7)</span>
+<span class="co1"># man page for details on VCL syntax and semantics.</span>
+<span class="co1"># </span>
+<span class="co1"># Default backend definition.  Set this to point to your content</span>
+<span class="co1"># server.</span>
+<span class="co1">#</span>
+&#160;
+<span class="xtra ln-xtra"><span class="co1"># Redirect to Nginx Backend if not in cache</span></span><span class="xtra ln-xtra">backend default {</span><span class="xtra ln-xtra">    .host = <span class="st0">&quot;127.0.0.1&quot;</span>;</span><span class="xtra ln-xtra">    .<span class="kw1">port</span> = <span class="st0">&quot;8000&quot;</span>;</span><span class="xtra ln-xtra">}</span>&#160;
+acl purge {
+    <span class="st0">&quot;127.0.0.1&quot;</span>;
+}
+&#160;
+<span class="co1"># vcl_recv is called whenever a request is received </span>
+sub vcl_recv {
+<span class="xtra ln-xtra">    if (req.restarts == <span class="nu0">0</span>) {</span><span class="xtra ln-xtra">        if (req.http.x-forwarded-for) {</span><span class="xtra ln-xtra">            set req.http.X-Forwarded-For =</span><span class="xtra ln-xtra">                req.http.X-Forwarded-For + <span class="st0">&quot;, &quot;</span> + client.ip;</span><span class="xtra ln-xtra">        } else {</span><span class="xtra ln-xtra">            set req.http.X-Forwarded-For = client.ip;</span><span class="xtra ln-xtra">        }</span><span class="xtra ln-xtra">    }</span><span class="xtra ln-xtra">&#160;</span><span class="xtra ln-xtra">    if (req.http.X-Real-IP) { </span><span class="xtra ln-xtra">        set req.http.X-Forwarded-For = req.http.X-Real-IP;</span><span class="xtra ln-xtra">    } else {</span><span class="xtra ln-xtra">        set req.http.X-Forwarded-For = client.ip;</span><span class="xtra ln-xtra">    }</span>&#160;
+<span class="co1"># Serve objects up to 2 minutes past their expiry if the backend</span>
+<span class="co1"># is slow to respond.</span>
+    set req.grace = 120s;
+&#160;
+    set req.backend = default;
+&#160;
+<span class="xtra ln-xtra">    if (!req.http.X-Forwarded-Proto) {</span><span class="xtra ln-xtra">        set req.http.X-Forwarded-Proto = <span class="st0">&quot;http&quot;</span>;</span><span class="xtra ln-xtra">        set req.http.X-Forwarded-<span class="kw1">Port</span> = <span class="st0">&quot;80&quot;</span>;</span><span class="xtra ln-xtra">        set req.http.X-Forwarded-Host = req.http.host;</span><span class="xtra ln-xtra">    }</span>&#160;
+&#160;
+<span class="co1"># This uses the ACL action called &quot;purge&quot;. Basically if a request to</span>
+<span class="co1"># PURGE the cache comes from anywhere other than localhost, ignore it.</span>
+    if (req.request == <span class="st0">&quot;PURGE&quot;</span>) 
+    {if (!client.ip ~ purge)
+        {error <span class="nu0">405</span> <span class="st0">&quot;Not allowed.&quot;</span>;}
+        return(lookup);}
+&#160;
+<span class="co1"># Pass any requests that Varnish does not understand straight to the backend.</span>
+    if (req.request&#160;!= <span class="st0">&quot;GET&quot;</span> &amp;&amp; req.request&#160;!= <span class="st0">&quot;HEAD&quot;</span> &amp;&amp;
+            req.request&#160;!= <span class="st0">&quot;PUT&quot;</span> &amp;&amp; req.request&#160;!= <span class="st0">&quot;POST&quot;</span> &amp;&amp;
+            req.request&#160;!= <span class="st0">&quot;TRACE&quot;</span> &amp;&amp; req.request&#160;!= <span class="st0">&quot;OPTIONS&quot;</span> &amp;&amp;
+            req.request&#160;!= <span class="st0">&quot;DELETE&quot;</span>) 
+    {return(pipe);}     /* Non-RFC2616 or CONNECT which is weird. */
+&#160;
+<span class="co1"># Pass anything other than GET and HEAD directly.</span>
+    if (req.request&#160;!= <span class="st0">&quot;GET&quot;</span> &amp;&amp; req.request&#160;!= <span class="st0">&quot;HEAD&quot;</span>)
+    {return(pass);}      /* We only deal with GET and HEAD by default */
+&#160;
+<span class="co1"># Pass requests from logged-in users directly.</span>
+    if (req.http.Authorization || req.http.Cookie)
+    {return(pass);}      /* Not cacheable by default */
+&#160;
+<span class="co1"># Pass any requests with the &quot;If-None-Match&quot; header directly.</span>
+    if (req.http.If-None-Match)
+    {return(pass);}
+&#160;
+<span class="co1"># Force lookup if the request is a no-cache request from the client.</span>
+    if (req.http.Cache-Control ~ <span class="st0">&quot;no-cache&quot;</span>)
+    {ban_url(req.url);}
+    return(lookup);
+}
+&#160;
+sub vcl_pipe {
+<span class="co1"># This is otherwise not necessary if you do not do any request rewriting.</span>
+    set req.http.connection = <span class="st0">&quot;close&quot;</span>;
+}
+&#160;
+<span class="co1"># Called if the cache has a copy of the page.</span>
+sub vcl_hit {
+    if (req.request == <span class="st0">&quot;PURGE&quot;</span>) 
+    {ban_url(req.url);
+        error <span class="nu0">200</span> <span class="st0">&quot;Purged&quot;</span>;}
+&#160;
+    if (!obj.ttl &gt; 0s)
+    {return(pass);}
+}
+&#160;
+<span class="co1"># Called if the cache does not have a copy of the page.</span>
+sub vcl_miss {
+    if (req.request == <span class="st0">&quot;PURGE&quot;</span>) 
+    {error <span class="nu0">200</span> <span class="st0">&quot;Not in cache&quot;</span>;}
+}
+&#160;
+<span class="co1"># Called after a document has been successfully retrieved from the backend.</span>
+sub vcl_fetch {
+    set beresp.grace = 120s;
+&#160;
+    if (beresp.ttl &lt; 48h) {
+        set beresp.ttl = 48h;}
+&#160;
+    if (!beresp.ttl &gt; 0s) 
+    {return(hit_for_pass);}
+&#160;
+    if (beresp.http.Set-Cookie) 
+    {return(hit_for_pass);}
+&#160;
+    if (req.http.Authorization &amp;&amp;&#160;!beresp.http.Cache-Control ~ <span class="st0">&quot;public&quot;</span>) 
+    {return(hit_for_pass);}
+}
+&#160;
+sub vcl_pass {
+    return (pass);
+}
+&#160;
+sub vcl_hash {
+    hash_data(req.url);
+    if (req.http.host) {
+        hash_data(req.http.host);
+    } else {
+        hash_data(server.ip);
+    }
+    return (hash);
+}
+&#160;
+sub vcl_deliver {
+<span class="xtra ln-xtra">    <span class="co1"># Debug</span></span><span class="xtra ln-xtra">    remove resp.http.Via;</span><span class="xtra ln-xtra">    remove resp.http.X-Varnish;</span><span class="xtra ln-xtra">    <span class="co1"># Add a header to indicate a cache HIT/MISS</span></span><span class="xtra ln-xtra">    if (obj.hits &gt; <span class="nu0">0</span>) {</span><span class="xtra ln-xtra">        set resp.http.X-Cache = <span class="st0">&quot;HIT&quot;</span>;</span><span class="xtra ln-xtra">        set resp.http.X-Cache-Hits = obj.hits;</span><span class="xtra ln-xtra">        set resp.http.X-Age = resp.http.Age;</span><span class="xtra ln-xtra">        remove resp.http.Age;</span><span class="xtra ln-xtra">    } else {</span><span class="xtra ln-xtra">        set resp.http.X-Cache = <span class="st0">&quot;MISS&quot;</span>;</span><span class="xtra ln-xtra">    }</span>    return (deliver);
+}
+&#160;
+sub vcl_error {
+    set obj.http.Content-Type = <span class="st0">&quot;text/html; charset=utf-8&quot;</span>;
+    set obj.http.Retry-After = <span class="st0">&quot;5&quot;</span>;
+    synthetic {<span class="st0">&quot;</span>
+<span class="st0">        &lt;?xml version=&quot;</span><span class="nu0">1.0</span><span class="st0">&quot; encoding=&quot;</span>utf-<span class="nu0">8</span><span class="st0">&quot;?&gt;</span>
+<span class="st0">            &lt;!DOCTYPE html PUBLIC &quot;</span>-//W3C//DTD XHTML <span class="nu0">1.0</span> Strict//EN<span class="st0">&quot;</span>
+<span class="st0">            &quot;</span>http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd<span class="st0">&quot;&gt;</span>
+<span class="st0">            &lt;html&gt;</span>
+<span class="st0">            &lt;head&gt;</span>
+<span class="st0">            &lt;title&gt;&quot;</span>} + obj.status + <span class="st0">&quot; &quot;</span> + obj.response + {<span class="st0">&quot;&lt;/title&gt;</span>
+<span class="st0">            &lt;/head&gt;</span>
+<span class="st0">            &lt;body&gt;</span>
+<span class="st0">            &lt;h1&gt;Error &quot;</span>} + obj.status + <span class="st0">&quot; &quot;</span> + obj.response + {<span class="st0">&quot;&lt;/h1&gt;</span>
+<span class="st0">            &lt;p&gt;&quot;</span>} + obj.response + {<span class="st0">&quot;&lt;/p&gt;</span>
+<span class="st0">            &lt;h3&gt;Guru Meditation:&lt;/h3&gt;</span>
+<span class="st0">            &lt;p&gt;XID: &quot;</span>} + req.xid + {<span class="st0">&quot;&lt;/p&gt;</span>
+<span class="st0">            &lt;hr&gt;</span>
+<span class="st0">            &lt;p&gt;Varnish cache server&lt;/p&gt;</span>
+<span class="st0">            &lt;/body&gt;</span>
+<span class="st0">            &lt;/html&gt;</span>
+<span class="st0">            &quot;</span>};
+    return (deliver);
+}
+&#160;
+sub vcl_init {
+    return (ok);
+}
+&#160;
+sub vcl_fini {
+    return (ok);
+}</pre></div></div>
+</td></tr></table><br />
+<h1><span class="mw-headline" id="Testing"><span class="mw-headline-number">4</span> Testing</span></h1>
+<p>The testing part is should be applied in the good order. For my personal usages, I waste too much time because I didn't made the proper checks before. The things to check should be in that order&#160;:
+</p>
+<ol><li> Check Nginx backend on port 8000</li>
+<li> Check Varnish access on port 80</li>
+<li> Check SSL Nginx frontend on port 443</li></ol>
+<p>Add this index in your vhost server to get your header informations directly on the page&#160;:
+</p>
+<table width="100%" class="config_array">
+<tr>
+<td class="config_subarray"> <font size="-1"><a href="./File:Configuration_file.png.html" class="image" title="Configuration File"><img alt="Configuration File" src="images/a/a6/Configuration_file.png" width="32" height="32" /></a> /usr/share/nginx/www/test/index.php</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="php source-php"><pre class="de1"><span class="kw2">&lt;?php</span>
+<span class="kw1">echo</span> <span class="st0">&quot;Show all headers&#160;:<span class="es1">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw1">foreach</span><span class="br0">&#40;</span><span class="re0">$_SERVER</span> <span class="kw1">as</span> <span class="re0">$h</span><span class="sy0">=&gt;</span><span class="re0">$v</span><span class="br0">&#41;</span>
+ <span class="kw1">if</span><span class="br0">&#40;</span><span class="kw3">ereg</span><span class="br0">&#40;</span><span class="st_h">'HTTP_(.+)'</span><span class="sy0">,</span><span class="re0">$h</span><span class="sy0">,</span><span class="re0">$hp</span><span class="br0">&#41;</span><span class="br0">&#41;</span>
+   <span class="kw1">echo</span> <span class="st0">&quot;&lt;li&gt;<span class="es4">$h</span> = <span class="es4">$v</span>&lt;/li&gt;<span class="es1">\n</span>&quot;</span><span class="sy0">;</span>
+<span class="kw3">header</span><span class="br0">&#40;</span><span class="st_h">'Content-type: text/html'</span><span class="br0">&#41;</span><span class="sy0">;</span>
+<span class="sy1">?&gt;</span></pre></div></div>
+</td></tr></table><br />
+<p>To test it you can use curl&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> curl</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; curl -I http://url
+HTTP/1.1 200 OK
+Server: nginx
+Content-Type: text/html; charset=UTF-8
+Last-Modified: Tue, 07 Jan 2014 10:40:39 GMT
+Expires: Tue, 07 Jan 2014 11:40:39 GMT
+Pragma: public
+Cache-Control: public, must-revalidate, proxy-revalidate
+Etag: db7025811efc180e605972eb57550b68
+X-Powered-By: W3 Total Cache/0.9.3
+Vary: Accept-Encoding
+X-Pingback: http://blog.deimos.fr/xmlrpc.php
+Date: Tue, 07 Jan 2014 10:56:23 GMT
+X-Varnish: 964417199 964417198
+Age: 4
+Via: 1.1 varnish
+Connection: keep-alive</pre></div></div>
+</td></tr></table><br />
+<p>Use wget&#160;:
+</p>
+<table width="100%" class="command_array">
+<tr>
+<td class="command_subarray"> <font size="-1"><a href="./File:Terminal.png.html" class="image" title="Command"><img alt="Command" src="images/9/9c/Terminal.png" width="32" height="32" /></a> wget</font>
+</td></tr>
+<tr>
+<td><div dir="ltr" class="mw-geshi mw-code mw-content-ltr"><div class="text source-text"><pre class="de1">&gt; wget -SS http://url
+HTTP request sent, awaiting response... 
+  HTTP/1.1 200 OK
+  Server: nginx
+  Content-Type: text/html; charset=UTF-8
+  Last-Modified: Tue, 07 Jan 2014 10:40:39 GMT
+  Expires: Tue, 07 Jan 2014 11:40:39 GMT
+  Pragma: public
+  Cache-Control: public, must-revalidate, proxy-revalidate
+  Etag: db7025811efc180e605972eb57550b68
+  X-Powered-By: W3 Total Cache/0.9.3
+  Vary: Accept-Encoding
+  X-Pingback: http://url
+  Transfer-Encoding: chunked
+  Date: Tue, 07 Jan 2014 10:57:22 GMT
+  X-Varnish: 964417220 964417198
+  Age: 63
+  Via: 1.1 varnish
+  Connection: keep-alive
+Length: unspecified [text/html]</pre></div></div>
+</td></tr></table><br />
+<p>Or you can also use <a rel="nofollow" class="external text" href="http://livehttpheaders.mozdev.org/">LiveHTTPHeader Firefox extension</a> to see headers. Now press keyboard&#160;:
+</p>
+<ul><li> Ctrl+r&#160;: to reload the page (the second try should be cached)</li>
+<li> Ctrl+Shift+r&#160;: to reload the page asking the server to not deliver cached informations</li></ul>
+<p>If you try to access in https, you should get something like that&#160;:
+</p>
+<pre>
+Show all headers&#160;:
+HTTP_X_FORWARDED_HOST = test.deimos.fr
+HTTP_X_FORWARDED_PROTO = https
+HTTP_X_FORWARDED_PORT = 443
+HTTP_HOST = 127.0.0.1
+HTTP_USER_AGENT = Mozilla/5.0 (X11; Linux x86_64; rv:26.0) Gecko/20100101 Firefox/26.0
+HTTP_ACCEPT = text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_LANGUAGE = fr,fr-fr;q=0.8,en-us;q=0.5,en;q=0.3
+HTTP_ACCEPT_ENCODING = gzip, deflate
+HTTP_COOKIE = _pk_id.1.5a2c=dfe5af08663a76b5.1388449087.3.1389005232.1388454622.; __qca=P0-1050834221-1388449087452; __cfduid=daa3baabbe79eb123b50f511c058dd29c1389819921950
+HTTP_CACHE_CONTROL = max-age=0
+HTTP_X_FORWARDED_FOR = 222.2.20.132, 127.0.0.1
+HTTP_X_VARNISH = 1929521662
+</pre>
+<h1><span class="mw-headline" id="References"><span class="mw-headline-number">5</span> References</span></h1>
+<p><a rel="nofollow" class="external free" href="http://mikkel.hoegh.org/blog/2012/07/24/varnish-as-reverse-proxy-with-nginx-as-web-server-and-ssl-terminator/">http://mikkel.hoegh.org/blog/2012/07/24/varnish-as-reverse-proxy-with-nginx-as-web-server-and-ssl-terminator/</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.064 seconds
+Real time usage: 0.065 seconds
+Preprocessor visited node count: 200/1000000
+Preprocessor generated node count: 610/1000000
+Post‐expand include size: 2467/2097152 bytes
+Template argument size: 672/2097152 bytes
+Highest expansion depth: 3/40
+Expensive parser function count: 0/100
+-->
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%   40.237      1 - -total
+ 83.61%   33.643      4 - Template:Config
+  7.85%    3.160      4 - Template:Command
+  5.28%    2.123      1 - Template:Infobox
+-->
+
+<!-- Saved in parser cache with key blocnotesinfo-wiki_:pcache:idhash:3662-0!*!*!1!en!5!* and timestamp 20181111230822 and revision id 13178
+ -->
+</div>									<div class="printfooter">
+						Retrieved from "<a dir="ltr" href="https://wiki.deimos.fr/index.php?title=Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL&amp;oldid=13178">https://wiki.deimos.fr/index.php?title=Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL&amp;oldid=13178</a>"					</div>
+													<div id='catlinks' class='catlinks catlinks-allhidden'></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigation menu</h2>
+
+			<div id="mw-head">
+									<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+						<h3 id="p-personal-label">Personal tools</h3>
+						<ul>
+							<li id="pt-login"><a href="https://wiki.deimos.fr/index.php?title=Special:UserLogin&amp;returnto=Nginx+%2B+Varnish+%3A+Cache+even+in+HTTPS+by+offloading+SSL" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in</a></li>						</ul>
+					</div>
+									<div id="left-navigation">
+										<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+						<h3 id="p-namespaces-label">Namespaces</h3>
+						<ul>
+															<li  id="ca-nstab-main" class="selected"><span><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+													</ul>
+					</div>
+										<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+												<h3 id="p-variants-label"><span>Variants</span><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+									</div>
+				<div id="right-navigation">
+										<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+						<h3 id="p-views-label">Views</h3>
+						<ul>
+															<li id="ca-view" class="selected"><span><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html" >Read</a></span></li>
+															<li id="ca-viewsource"><span><a href="https://wiki.deimos.fr/index.php?title=Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL&amp;action=edit"  title="This page is protected.&#10;You can view its source [e]" accesskey="e">View source</a></span></li>
+															<li id="ca-history" class="collapsible"><span><a href="https://wiki.deimos.fr/index.php?title=Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+													</ul>
+					</div>
+										<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+						<h3 id="p-cactions-label"><span>More</span><a href="./Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html#"></a></h3>
+
+						<div class="menu">
+							<ul>
+															</ul>
+						</div>
+					</div>
+										<div id="p-search" role="search">
+						<h3>
+							<label for="searchInput">Search</label>
+						</h3>
+
+						<form action="https://wiki.deimos.fr/index.php" id="searchform">
+														<div id="simpleSearch">
+															<input type="search" name="search" placeholder="Search" title="Search Deimos.fr / Bloc Notes Informatique [f]" accesskey="f" id="searchInput" /><input type="hidden" value="Special:Search" name="title" /><input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton mw-fallbackSearchButton" /><input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchButton" class="searchButton" />								</div>
+						</form>
+					</div>
+									</div>
+			</div>
+			<div id="mw-panel">
+				<div id="p-logo" role="banner"><a style="background-image: url(images/a/a7/Logo_deimosfr.png);" href="index.html"  title="Visit the main page"></a></div>
+						<div class="portal" role="navigation" id='p-navigation_et_RSS' aria-labelledby='p-navigation_et_RSS-label'>
+			<h3 id='p-navigation_et_RSS-label'>navigation et RSS</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-cd-.7E"><a href="index.html">cd ~</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Menu' aria-labelledby='p-Menu-label'>
+			<h3 id='p-Menu-label'>Menu</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Solaris"><a href="Solaris.html">Solaris</a></li>
+													<li id="n-BSD"><a href="BSD.html">BSD</a></li>
+													<li id="n-Linux"><a href="Linux.html">Linux</a></li>
+													<li id="n-Mac-OS-X"><a href="Mac_OS_X.html">Mac OS X</a></li>
+													<li id="n-Windows"><a href="Windows.html">Windows</a></li>
+													<li id="n-Servers"><a href="Serveurs.html">Servers</a></li>
+													<li id="n-Development"><a href="Développement.html">Development</a></li>
+													<li id="n-Ethical-Hacking"><a href="Hacking_éthique.html">Ethical Hacking</a></li>
+													<li id="n-Network"><a href="Réseaux.html">Network</a></li>
+													<li id="n-Divers"><a href="Divers.html">Divers</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Liens' aria-labelledby='p-Liens-label'>
+			<h3 id='p-Liens-label'>Liens</h3>
+
+			<div class="body">
+									<ul>
+													<li id="n-Welcome-Page"><a href="http://www.deimos.fr" rel="nofollow">Welcome Page</a></li>
+													<li id="n-Blog"><a href="http://blog.deimos.fr" rel="nofollow">Blog</a></li>
+													<li id="n-Resume"><a href="https://www.linkedin.com/in/pmavro/" rel="nofollow">Resume</a></li>
+													<li id="n-GitHub"><a href="https://github.com/deimosfr" rel="nofollow">GitHub</a></li>
+											</ul>
+							</div>
+		</div>
+			<div class="portal" role="navigation" id='p-Google_Search' aria-labelledby='p-Google_Search-label'>
+			<h3 id='p-Google_Search-label'>Google Search</h3>
+
+			<div class="body">
+									
+<div><form action="http://www.google.fr/cse" id="cse-search-box">
+    <input type="hidden" name="cx" value="partner-pub-8001790276473966:7664586454" />
+    <input type="hidden" name="ie" value="UTF-8" />
+    <input type="text" name="q" size="12" />
+    <input type="submit" name="sa" value="Search" />
+</form></div>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-googletranslator' aria-labelledby='p-googletranslator-label'>
+			<h3 id='p-googletranslator-label'>Translate</h3>
+
+			<div class="body">
+									<div id="google_translate_element"></div><script>
+                                        function googleTranslateElementInit() {
+                                          new google.translate.TranslateElement({
+                                            pageLanguage: 'fr',
+                                            includedLanguages: 'en,de,es'
+                                          }, 'google_translate_element');
+                                        }
+                                        </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>			</div>
+		</div>
+			<div class="portal" role="navigation" id='p-tb' aria-labelledby='p-tb-label'>
+			<h3 id='p-tb-label'>Tools</h3>
+
+			<div class="body">
+									<ul>
+													<li id="t-whatlinkshere"><a href="./Special:WhatLinksHere/Nginx_+_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL.html" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+													<li id="t-recentchangeslinked"><a href="https://wiki.deimos.fr/Special:RecentChangesLinked/Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+													<li id="t-specialpages"><a href="https://wiki.deimos.fr/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+													<li id="t-print"><a href="https://wiki.deimos.fr/index.php?title=Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL&amp;printable=yes" rel="alternate" title="Printable version of this page [p]" accesskey="p">Printable version</a></li>
+													<li id="t-permalink"><a href="https://wiki.deimos.fr/index.php?title=Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL&amp;oldid=13178" title="Permanent link to this revision of the page">Permanent link</a></li>
+													<li id="t-info"><a href="https://wiki.deimos.fr/index.php?title=Nginx_%2B_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL&amp;action=info" title="More information about this page">Page information</a></li>
+											</ul>
+							</div>
+		</div>
+				</div>
+		</div>
+		<div id="footer" role="contentinfo">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 16 January 2014, at 17:46.</li>
+											<li id="footer-info-copyright">Content is available under <a class="external" rel="nofollow" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr">Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé</a> unless otherwise noted.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://wiki.deimos.fr/blocnotesinfo:Privacy_policy" title="blocnotesinfo:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="https://wiki.deimos.fr/blocnotesinfo:About" title="blocnotesinfo:About">About Deimos.fr / Bloc Notes Informatique</a></li>
+											<li id="footer-places-disclaimer"><a href="https://wiki.deimos.fr/blocnotesinfo:General_disclaimer" title="blocnotesinfo:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+											<li id="footer-copyrightico">
+															<a href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.fr"><img src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png" alt="Attribution - Pas d’Utilisation Commerciale - Partage dans les Mêmes Conditions 3.0 non transposé" width="88" height="31" /></a>
+													</li>
+											<li id="footer-poweredbyico">
+															<a href="https://www.mediawiki.org/"><img src="resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="resources/assets/poweredby_mediawiki_132x47.png 1.5x, resources/assets/poweredby_mediawiki_176x62.png 2x" width="88" height="31" /></a>
+															<a href="http://www.mediawiki.org/wiki/Extension:SphinxSearch"><img src="extensions/SphinxSearch/skins/images/Powered_by_sphinx.png" alt="Search Powered by Sphinx" width="88" height="31" /></a>
+													</li>
+									</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>if(window.jQuery)jQuery.ready();</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.toc","mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest"],null,true);
+}</script>
+<script>if(window.mw){
+document.write("\u003Cscript src=\"https://wiki.deimos.fr/load.php?debug=false\u0026amp;lang=en\u0026amp;modules=site\u0026amp;only=scripts\u0026amp;skin=vector\u0026amp;*\"\u003E\u003C/script\u003E");
+}</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63927289-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript" src="https://analytics.example.com/tracking.js"></script><script src="https://js.reactk.com/script/reactk.min.js"></script><script type="text/javascript">reactk.init("B7stJmobgweRBoDZrLflNQpDcgFxET");</script> 
+<script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":100});
+}</script>
+	</body>
+</html>
+	
