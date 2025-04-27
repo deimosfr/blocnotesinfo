@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Backups on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/backups/</link><description>Recent content in Backups on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/backups/index.xml" rel="self" type="application/rss+xml"/><item><title>Rsync: Incremental Backup</title><link>https://wiki.deimos.fr/Rsync_:_Sauvegarde_incr%C3%A9mentale/</link><pubDate>Fri, 06 Sep 2013 08:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rsync_:_Sauvegarde_incr%C3%A9mentale/</guid><description>&lt;h2 id="scripts-and-programs">Scripts and Programs &lt;a href="#scripts-and-programs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are scripts and programs available to facilitate the use of this solution:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.mikerubel.org/computers/rsync_snapshots/" rel="external" target="_blank">Easy Automated Snapshot-Style Backups with Linux and Rsync&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.rsnapshot.org/" rel="external" target="_blank">rsnapshot&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="a-manual-example">A Manual Example &lt;a href="#a-manual-example" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You want to copy your disk/backup a partition.&lt;br>
+Assuming you have created a partition on another disk and mounted it (in this example &lt;code>/mnt/usbharddrivemain&lt;/code>):&lt;/p></description></item><item><title>BackupPC: A Complete Backup Tool</title><link>https://wiki.deimos.fr/BackupPC_:_Un_outil_complet_de_backup/</link><pubDate>Mon, 09 Jul 2012 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/BackupPC_:_Un_outil_complet_de_backup/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;re looking for a beautiful tool for making backups and restorations, look no further, BackupPC is for you.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="windows-host-via-smb">Windows Host via SMB &lt;a href="#windows-host-via-smb" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You can backup via network shares. For this on Windows, set up your share, and for the machine here&amp;rsquo;s an example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="45d8dbb" class="language- ">
+ &lt;code>#============================================================= -*-perl-*-
+#
+# Configuration file for Windows hosts.
+# Note the slashes instead of backslashes
+#
+
+###########################################################################
+# What to backup and when to do it
+###########################################################################
+#Array of directories to backup
+$Conf{BackupFilesOnly} = [&amp;#39;/Documents and Settings&amp;#39;, &amp;#39;Travail&amp;#39;];
+#Array of directories excluded from backup
+$Conf{BackupFilesExclude} = &amp;#39;/Documents and Setings/user1/Local Settings/Temp&amp;#39;;
+
+###########################################################################
+# General per-PC configuration settings
+###########################################################################
+#NetBios name of the machine
+$Conf{ClientNameAlias} = &amp;#39;netbiosname&amp;#39;;
+#Backup method used
+$Conf{XferMethod} = &amp;#39;smb&amp;#39;;
+#Verbosity level of log files
+$Conf{XferLogLevel} = 1;
+#Name of shares to backup
+$Conf{SmbShareName} = [&amp;#39;C$&amp;#39;];
+#Network user name
+$Conf{SmbShareUserName} = &amp;#39;Administrateur&amp;#39;;
+#Network user password
+$Conf{SmbSharePasswd} = &amp;#39;secret&amp;#39;;
+#Backup compression method
+$Conf{ArchiveComp} = &amp;#39;bzip2&amp;#39;;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="windows-host-via-rsync">Windows Host via rsync &lt;a href="#windows-host-via-rsync" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>We&amp;rsquo;ll use the method where we&amp;rsquo;ll do without Cygwin. You can use the method with Cygwin, but don&amp;rsquo;t install both simultaneously.&lt;/p></description></item><item><title>Unison: Backup like rsync but bidirectional</title><link>https://wiki.deimos.fr/Unison_:_Sauvegarde_comme_rsync_mais_bidirectionnelle/</link><pubDate>Fri, 13 May 2011 17:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Unison_:_Sauvegarde_comme_rsync_mais_bidirectionnelle/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Unison_(file_synchronizer)" rel="external" target="_blank">Unison&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a popular file synchronization software that also offers functionality for creating and managing directory backups. The synchronization is bidirectional (meaning that modifications in one directory are reflected in the other and vice-versa), making it useful for keeping directories in sync between two different machines.&lt;/p></description></item><item><title>Amazon S3: Clean and Automated Backups with Amazon S3</title><link>https://wiki.deimos.fr/amazone-s3-sauvegarde-propres-et-automatisees-avec-amazon-s3/</link><pubDate>Tue, 15 Feb 2011 08:19:00 +0100</pubDate><guid>https://wiki.deimos.fr/amazone-s3-sauvegarde-propres-et-automatisees-avec-amazon-s3/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For those who don&amp;rsquo;t know, &lt;a href="https://aws.amazon.com/s3" rel="external" target="_blank">Amazon S3&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a remote backup service. The advantages are:&lt;/p>
+&lt;ul>
+&lt;li>the price&lt;/li>
+&lt;li>the bandwidth&lt;/li>
+&lt;li>the storage&lt;/li>
+&lt;/ul>
+&lt;p>I&amp;rsquo;ll let you look at the price list to see for yourself.&lt;/p></description></item><item><title>Bacula: Setting Up a High-Performance Backup Server</title><link>https://wiki.deimos.fr/Bacula_:_Mise_en_place_d'un_serveur_de_Backup_Performant/</link><pubDate>Wed, 14 May 2008 15:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bacula_:_Mise_en_place_d'un_serveur_de_Backup_Performant/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.bacula.org" rel="external" target="_blank">Bacula&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a backup server that allows for the purchase of other commercial solutions with plugins for additional features. It also has the advantage of having a nice graphical web interface that creates beautiful graphs, etc.&lt;/p></description></item><item><title>ZRM: Automated Backups and Easy Restorations</title><link>https://wiki.deimos.fr/ZRM_:_Sauvegardes_automatis%C3%A9es_et_restaurations_faciles/</link><pubDate>Sat, 19 Apr 2008 11:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZRM_:_Sauvegardes_automatis%C3%A9es_et_restaurations_faciles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>ZRM for MySQL is a powerful, flexible and robust backup and recovery solution for MySQL databases for all storage engines. With ZRM for MySQL a Database Administrator can automate logical or raw backup to a local or remote disk. In this How To, we attempt to explain how to recover from an user error at any given point in time.&lt;/p>
+&lt;h2 id="our-scenario">Our Scenario &lt;a href="#our-scenario" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At approximately 2:30pm there were 5 tablespaces added into the MovieID table. At 3pm you get a call from a user, who was trying to delete some unused tablespaces but ended up deleting the last 5 that he just added. The last full backup you performed was the night before at 7pm. How do you recover back to right before the last 5 tablespaces were deleted? In this case we will demonstrate a point in time restore.&lt;/p></description></item><item><title>Backups and Restorations with tapes</title><link>https://wiki.deimos.fr/Sauvegardes_et_Restaurations/</link><pubDate>Sat, 05 Apr 2008 17:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sauvegardes_et_Restaurations/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A crucial function of system administration is to backup file systems. Backups safeguard against data loss, damage, or corruption. Backup tapes are often referred to as dump tapes.&lt;/p>
+&lt;h2 id="rmt-device">rmt device &lt;a href="#rmt-device" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>All tape drives have logical device names that you use to reference the device on the command line. The image shows the format that all logical device names use.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9774da4" class="language-bash ">
+ &lt;code>/dev/rmt/#hn&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li># : Logical Tape number&lt;/li>
+&lt;li>h : Tape density (l,m,h,c,u)&lt;/li>
+&lt;li>No rewind&lt;/li>
+&lt;/ul>
+&lt;p>The logical tape numbers in the tape drive names always start with 0. For example:&lt;/p></description></item><item><title>Rdiff-backup: Incremental Remote Backups</title><link>https://wiki.deimos.fr/Rdiff-backup_:_Sauvegardes_distantes_incr%C3%A9mentielles/</link><pubDate>Sun, 28 Jan 2007 21:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rdiff-backup_:_Sauvegardes_distantes_incr%C3%A9mentielles/</guid><description>&lt;p>rdiff-backup is a simple and efficient utility. It can be used to make a remote backup of a directory via SSH. The differences are then saved in archives. &lt;a href="https://www.nongnu.org/rdiff-backup/" rel="external" target="_blank">rdiff-backup Main page&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item></channel></rss>

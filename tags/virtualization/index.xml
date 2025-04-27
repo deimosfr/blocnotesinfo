@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Virtualization on Tech Notebook</title><link>https://wiki.deimos.fr/tags/virtualization/</link><description>Recent content in Virtualization on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/virtualization/index.xml" rel="self" type="application/rss+xml"/><item><title>KVM: Setting Up KVM</title><link>https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM/</link><pubDate>Tue, 03 Mar 2015 09:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/kvm-logo.png" alt="KVM" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>0.12.5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.linux-kvm.org/" rel="external" target="_blank">KVM Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>03/03/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>KVM (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V). It consists of a loadable kernel module, kvm.ko, that provides the core virtualization infrastructure and a processor specific module, kvm-intel.ko or kvm-amd.ko. KVM also requires a modified QEMU although work is underway to get the required changes upstream.&lt;/p></description></item><item><title>LXC: Install and configure the Linux Containers</title><link>https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers/</link><pubDate>Sun, 22 Feb 2015 00:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>0.8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://lxc.sourceforge.net/" rel="external" target="_blank">LXC Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>22/02/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LXC is the userspace control package for Linux Containers, a lightweight virtual system mechanism sometimes described as &amp;ldquo;chroot on steroids&amp;rdquo;.&lt;/p></description></item><item><title>Docker: Manage Containers Easily with Advanced Features</title><link>https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features/</link><pubDate>Wed, 09 Jul 2014 15:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Docker_:_manage_LXC_containers_easily_with_advanced_features/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Software version&lt;/td>
+ &lt;td>0.11.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>Debian 8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://www.docker.io" rel="external" target="_blank">Docker Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>09/07/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.docker.io/" rel="external" target="_blank">Docker&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is an open-source engine that automates the deployment of any application as a lightweight, portable, self-sufficient container that will run virtually anywhere.&lt;/p></description></item><item><title>Vagrant: Quickly Deploy Virtual Machines</title><link>https://wiki.deimos.fr/Vagrant_:_quickly_deploy_virtual_machines/</link><pubDate>Thu, 13 Mar 2014 16:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vagrant_:_quickly_deploy_virtual_machines/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/vagrant-logo.png" alt="Vagrant" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.vagrantup.com/" rel="external" target="_blank">Vagrant Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>13/03/2014&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>VirtualBox&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Vagrant provides easy to configure, reproducible, and portable work environments built on top of industry-standard technology and controlled by a single consistent workflow to help maximize the productivity and flexibility of you and your team.&lt;/p></description></item><item><title>Setting up VLAN</title><link>https://wiki.deimos.fr/Mise_en_place_de_VLAN/</link><pubDate>Mon, 07 May 2012 20:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_VLAN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A Virtual Local Area Network, commonly known as &lt;a href="https://en.wikipedia.org/wiki/VLAN" rel="external" target="_blank">VLAN&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, is a logically independent computer network. Multiple VLANs can coexist on the same network switch.&lt;/p></description></item><item><title>VServer: Setting Up VServer</title><link>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</link><pubDate>Tue, 24 May 2011 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Linux-VServer is a security context isolator combined with segmented routing, chroot, extended quotas, and other standard tools.&lt;/p>
+&lt;p>Initially launched by Jacques Gélinas as the CTX patch, Linux-VServer consists of a patch for the Linux kernel that allows multiple applications to run in different security contexts on the same host machine. Linux-VServer is also equipped with a set of tools to install/manage these contexts.&lt;/p>
+&lt;p>This project allows one or more operating environments (operating systems without the kernel) to run on a distribution, meaning you can run one or more distributions on a single distribution.&lt;/p></description></item><item><title>Setting up Xen</title><link>https://wiki.deimos.fr/Mise_en_place_de_Xen/</link><pubDate>Sun, 13 Dec 2009 16:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Xen allows multiple operating systems (and their applications) to run in isolation on the same physical machine. Guest operating systems share the host machine&amp;rsquo;s resources.&lt;/p>
+&lt;p>Xen is a &amp;ldquo;paravirtualizer&amp;rdquo; or &amp;ldquo;hypervisor&amp;rdquo; for virtual machines. Guest operating systems are &amp;ldquo;aware&amp;rdquo; of the underlying Xen system and need to be &amp;ldquo;ported&amp;rdquo; (adapted) to work on Xen. Linux, NetBSD, FreeBSD, and Plan 9 can already run on Xen.&lt;/p>
+&lt;p>Xen 3 can also run unmodified systems like Windows on processors that support VT technology.&lt;/p></description></item><item><title>Converting VMware Images to Xen</title><link>https://wiki.deimos.fr/Convertion_dimages_Vmware_vers_Xen/</link><pubDate>Fri, 11 Dec 2009 21:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertion_dimages_Vmware_vers_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At work, I received some new toys. The particularity of these machines is that they are equipped with &amp;ldquo;Dual-Core Intel Xeon 5140 Processor (2.33 GHz, 1333 FSB)&amp;rdquo; CPUs, and the special feature of these CPUs is that in small print at the bottom of their spec sheet, you can read &amp;ldquo;NOTE: Intel Xeon Processor 5100/5000 sequence are 64-bit, Dual-Core, 4MB L2 Cache, and support Intel VT technology.&amp;rdquo; And that&amp;rsquo;s awesome.&lt;/p></description></item><item><title>Configuration and Usage of Solaris Zones (Containers)</title><link>https://wiki.deimos.fr/Configuration_et_utilisation_des_Zones_Solaris_(Containers)/</link><pubDate>Fri, 11 Dec 2009 21:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_et_utilisation_des_Zones_Solaris_(Containers)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Zones or Containers are:&lt;/p>
+&lt;ul>
+&lt;li>Virtual instance of Solaris&lt;/li>
+&lt;li>Software partition for the OS&lt;/li>
+&lt;/ul>
+&lt;p>A large SunFire server with hardware domains allows many isolated systems to be created. Zones achieve this in software and is far more flexible - it is easy to move individual CPUs between zones as needed, or to configure a more sophisticated way to share CPUs and memory.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are two general zone types to pick from during zone creation. They are,&lt;/p></description></item><item><title>WebVZ: Manage OpenVZ VMs with a Web Interface</title><link>https://wiki.deimos.fr/WebVZ%5C_:_Administrer_ces_VM_OpenVZ_en_interface_web/</link><pubDate>Sat, 28 Nov 2009 16:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/WebVZ%5C_:_Administrer_ces_VM_OpenVZ_en_interface_web/</guid><description>&lt;p>To have a web interface for managing your OpenVZ VMs, WebVZ is available:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/get_webvz_to_administrate_openvz.pdf">Documentation on how to get WebVZ to Administrate OpenVZ&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/managing_openvz_with_the_webvz_control_panel_on_debian_lenny.pdf">Managing OpenVZ With The WebVZ Control Panel On Debian Lenny&lt;/a>&lt;/p></description></item><item><title>Ganeti: Xen Cluster Management</title><link>https://wiki.deimos.fr/Ganeti_:_Management_d'un_Cluster_Xen/</link><pubDate>Fri, 27 Nov 2009 21:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ganeti_:_Management_d'un_Cluster_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://code.google.com/p/ganeti/" rel="external" target="_blank">Ganeti&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a virtual server management software tool built on top of Xen virtual machine monitor and other Open Source software.&lt;/p>
+&lt;p>However, Ganeti requires pre-installed virtualization software on your servers in order to function. Once installed, the tool will take over the management part of the virtual instances (Xen DomU), e.g. disk creation management, operating system installation for these instances (in co-operation with OS-specific install scripts), and startup, shutdown, failover between physical systems. It has been designed to facilitate cluster management of virtual servers and to provide fast and simple recovery after physical failures using commodity hardware.&lt;/p></description></item><item><title>XenServer 5.0: Tips &amp; Tricks</title><link>https://wiki.deimos.fr/XenServer_5.0_:_Astuces/</link><pubDate>Fri, 08 May 2009 15:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/XenServer_5.0_:_Astuces/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Xen can be very temperamental, especially the Citrix version with the incomplete XenCenter. That&amp;rsquo;s why, here are some tips to help you navigate through difficult situations.&lt;/p>
+&lt;h2 id="adding-boot-options-in-xencenter-startup-options">Adding Boot Options in XenCenter &amp;ldquo;Startup Options&amp;rdquo; &lt;a href="#adding-boot-options-in-xencenter-startup-options" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To add this option, which is missing when creating a VM using a template.&lt;/p>
+&lt;p>You need to access the server console and check the UUID of the concerned VM:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="26e5ec7" class="language-bash ">
+ &lt;code>xe vm-list &lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Retrieve the UUID preceding the VM: uuid=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx&lt;/p></description></item><item><title>XenServer 5.0: Configuring XenServer with SUN Hardware</title><link>https://wiki.deimos.fr/XenServer_5.0_:_Configuration_d%27un_XenServer_avec_du_mat%C3%A9riel_SUN/</link><pubDate>Sun, 19 Apr 2009 09:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/XenServer_5.0_:_Configuration_d%27un_XenServer_avec_du_mat%C3%A9riel_SUN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To perform installation on multiple XenServer, I needed to set up multiple hardware devices connected via Fiber channel. I completed two installations, both with this kind of hardware:&lt;/p>
+&lt;ul>
+&lt;li>SUN X4150&lt;/li>
+&lt;li>SUN X4600&lt;/li>
+&lt;li>SUN StorageTek ST2540&lt;/li>
+&lt;li>SUN StorageTek ST6140&lt;/li>
+&lt;/ul>
+&lt;h2 id="hardware-connectivity">Hardware Connectivity &lt;a href="#hardware-connectivity" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To setup connectivity, I used fiber channel. To make it work, you need to have Fiber Channel Switch and if possible, redundancy (so, 2 switches).&lt;/p>
+&lt;p>Having this kind of configuration creates multiple multipath links. This is very beneficial for fault tolerance and load balancing.&lt;/p></description></item><item><title>XenServer 4.1: Changing the Management Interface</title><link>https://wiki.deimos.fr/XenServer_4.1_:_Changer_l'interface_de_Management/</link><pubDate>Wed, 04 Feb 2009 18:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/XenServer_4.1_:_Changer_l'interface_de_Management/</guid><description>&lt;p>The other day I installed a XenServer 4.1 server. Unfortunately, I selected the wrong management interface during installation, choosing eth0 instead of eth1.&lt;/p>
+&lt;p>The question was: how to change the management interface on XenServer 4.1?&lt;/p>
+&lt;h2 id="retrieving-the-uuid-of-the-interface">Retrieving the UUID of the interface &lt;a href="#retrieving-the-uuid-of-the-interface" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, we need to retrieve the UUID of the interface (they call it &amp;ldquo;PIF&amp;rdquo;):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c5795a1" class="language-bash ">
+ &lt;code>[root@xenserver-backup2 ~]# xe pif-list 
+uuid ( RO) : f34c8861-94d7-c3da-0437-3a068b273db5
+ device ( RO): eth3
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): c7c6e869-f611-11ad-871e-c130bbb9d13f
+
+
+uuid ( RO) : ffcba213-30dd-09d2-ee7e-0708507516f0
+ device ( RO): eth2
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): 55efa2d9-768b-52a0-4595-cebf771ce602
+
+
+uuid ( RO) : 7e5946e3-3c11-ebec-2636-713a69ce60ae
+ device ( RO): eth1
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): 7755aae6-a565-6e0a-a6b0-49cef6abee5e
+
+
+uuid ( RO) : b726e0f2-7b58-3489-dca7-0269630f8d4e
+ device ( RO): eth0
+ currently-attached ( RO): false
+ VLAN ( RO): -1
+ network-uuid ( RO): ae8ca5b4-9fa1-912a-7cca-55f4060a782c&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configure-ip-options">Configure IP options &lt;a href="#configure-ip-options" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Then we assign IP options with a command like this:&lt;/p></description></item><item><title>VirtualBox: VMware Alternative</title><link>https://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware/</link><pubDate>Wed, 28 Jan 2009 03:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>VirtualBox is a virtual machine created by InnoTek for Windows, 32 and 64-bit GNU/Linux, and Mac OS X hosts supporting Windows (including Vista), Linux 2.x, OS/2 Warp, OpenBSD, and FreeBSD as guest systems. After several years of development, VirtualBox was released under the GNU GPL license in January 2007.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Once you&amp;rsquo;ve downloaded the version, installation is quite simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="935b9c1" class="language-bash ">
+ &lt;code>dpkg -i virtualbox*.deb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then you&amp;rsquo;ll need the bridge utilities:&lt;/p></description></item><item><title>Converting a VMware Disk Image for Qemu or Xen</title><link>https://wiki.deimos.fr/Convertir_une_image_disque_Vmware_pour_Qemu_ou_Xen/</link><pubDate>Fri, 25 Apr 2008 08:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertir_une_image_disque_Vmware_pour_Qemu_ou_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve switched to the new Ubuntu, great! Except for one thing: VMware doesn&amp;rsquo;t work yet, you have to wait for a patch, etc&amp;hellip; but I don&amp;rsquo;t have time to wait!&lt;/p>
+&lt;p>VMware is nice and pretty, but it&amp;rsquo;s becoming annoying. So I decided to use KVM and QTqemu for the graphical interface. And here I am, ready to convert my VMware images.&lt;/p>
+&lt;h2 id="conversion">Conversion &lt;a href="#conversion" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For conversion, we&amp;rsquo;ll first use VMware for preparation and then qemu for the actual conversion:&lt;/p></description></item><item><title>Migrating from Xen to KVM</title><link>https://wiki.deimos.fr/Migration_Xen_vers_KVM/</link><pubDate>Fri, 18 Apr 2008 22:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Migration_Xen_vers_KVM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have, like me, surrendered to the joys of user-friendly virtualization to manage some of your projects, for testing, or just to show off&amp;hellip; In short, you used the tools from the &amp;ldquo;xen-tools&amp;rdquo; package on your Debian machine, particularly &lt;code>/usr/bin/xen-create-image&lt;/code> to create your DomU instances.&lt;/p>
+&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Over time, maintaining your various modules with the xenified kernel of your Dom0 has become tedious, so you decided to switch to KVM, &amp;ldquo;it&amp;rsquo;s so simple&amp;rdquo; (except, of course, if you&amp;rsquo;re using a precompiled Debian kernel).&lt;/p></description></item><item><title>Xen Conversion P2V</title><link>https://wiki.deimos.fr/Xen_convertion_P2V/</link><pubDate>Tue, 04 Mar 2008 17:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_convertion_P2V/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>How to remedy the physical deterioration of a server (oldpc) by migrating the OS into a brand new Xen HVM domU.&lt;/p>
+&lt;h2 id="2-preparing-space-for-oldpc-on-the-xen-server">2 Preparing space for oldpc on the xen server &lt;a href="#2-preparing-space-for-oldpc-on-the-xen-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Create a disk image (20 GB size):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="994b296" class="language-bash ">
+ &lt;code>dd if=/dev/zero of=/vieuxpc/vieuxpc.hda.img bs=1024k count=20000&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Create a loop device corresponding to the entire disk image:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bfe1525" class="language-bash ">
+ &lt;code>losetup /dev/loop0 /vieuxpc/vieuxpc.hda.img&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Partition the image:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="57a5fb5" class="language-bash ">
+ &lt;code>fdisk /dev/loop0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>List the created partitions:&lt;/p></description></item><item><title>Port forwarding from dom0 to bridged domU with IPVS</title><link>https://wiki.deimos.fr/Port_forwarding_depuis_dom0_vers_bridged_domU_avec_IPVS/</link><pubDate>Sun, 16 Sep 2007 21:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Port_forwarding_depuis_dom0_vers_bridged_domU_avec_IPVS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Those following zone0&amp;rsquo;s adventures know: Netfilter sucks badly when it comes to forwarding simple ports from a dom0 to a bridged domU. That&amp;rsquo;s just how it is, we don&amp;rsquo;t know where it comes from, maybe from 64-bit, maybe from BSD domUs, maybe from the Xen kernel, maybe, maybe, maybe. Anyway, after many hours of tweaking, debugging, tcpdump and so on, we decided on &lt;a href="https://www.linuxvirtualserver.org/software/ipvs.html" rel="external" target="_blank">IPVS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>. I&amp;rsquo;ve posted the results of our experiences here, so if you also want to set up a simple port forwarding between Xen domains, you won&amp;rsquo;t have to waste an entire Saturday and miss the techno-parade.&lt;/p></description></item><item><title>QEMU: Windows Installation</title><link>https://wiki.deimos.fr/Qemu_:_Installation_de_Windows/</link><pubDate>Fri, 24 Aug 2007 06:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Qemu_:_Installation_de_Windows/</guid><description>&lt;p>QEMU allows you to run one or more operating systems (and their applications) in isolation on the same physical machine. QEMU works on x86, x86-64, PPC, Sparc, and ARM platforms. QEMU runs under Linux, FreeBSD, OpenBSD, Mac OS X, Unix, and Windows operating systems.&lt;/p>
+&lt;p>QEMU is a free, reliable, and powerful virtualization tool. Guest operating systems share the resources of the physical machine.&lt;/p>
+&lt;p>QEMU is a &amp;ldquo;system emulator&amp;rdquo; or &amp;ldquo;virtual machine.&amp;rdquo; Guest operating systems are not &amp;ldquo;aware&amp;rdquo; of the underlying QEMU - they don&amp;rsquo;t need to be &amp;ldquo;ported&amp;rdquo; (adapted) to work on QEMU.&lt;/p></description></item><item><title>Xen and vserver: monitoring VMs on a PHP page</title><link>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</link><pubDate>Mon, 14 May 2007 10:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I used this kind of script because it&amp;rsquo;s simpler to open a small web page to view VM activity rather than launching a bunch of commands.&lt;/p>
+&lt;h2 id="sudo">Sudo &lt;a href="#sudo" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You need sudo because by default Apache doesn&amp;rsquo;t have the necessary rights to execute these commands:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ea84b80" class="language-bash ">
+ &lt;code>apt-get install sudo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then edit &lt;code>/etc/sudoers&lt;/code> and add the following:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d994f26" class="language-bash ">
+ &lt;code>www-data ALL=NOPASSWD: /usr/sbin/vserver-stat,/usr/sbin/xm list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="php-and-script">Php and script &lt;a href="#php-and-script" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You obviously need to have Apache and PHP installed for this to work:&lt;/p></description></item></channel></rss>

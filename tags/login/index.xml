@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Login on Tech Notebook</title><link>https://wiki.deimos.fr/tags/login/</link><description>Recent content in Login on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/login/index.xml" rel="self" type="application/rss+xml"/><item><title>PAM Time: Setting Login Restrictions</title><link>https://wiki.deimos.fr/Pam_time:_Mettre_des_restrictions_sur_les_logins/</link><pubDate>Fri, 06 May 2011 20:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pam_time:_Mettre_des_restrictions_sur_les_logins/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>pam_time is able to make several kinds of restrictions like:&lt;/p>
+&lt;ul>
+&lt;li>Time Based Restrictions&lt;/li>
+&lt;li>Access Based Restrictions&lt;/li>
+&lt;/ul>
+&lt;p>I&amp;rsquo;ll explain here how to use those options.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="time-based-restrictions">Time Based Restrictions &lt;a href="#time-based-restrictions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>These examples will limit the login times of certain users. See &lt;code>/etc/security/time.conf&lt;/code> for more information/examples. In order to place time restrictions on user logins, the following must be placed in &lt;code>/etc/pam.d/login&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3cc4e59" class="language-bash ">
+ &lt;code>account required /lib/security/pam_time.so&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The remaining lines should be placed in &lt;code>/etc/security/time.conf&lt;/code>.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenBSD on Tech Notebook</title><link>https://wiki.deimos.fr/docs/bsd/misc/openbsd/</link><description>Recent content in OpenBSD on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/bsd/misc/openbsd/index.xml" rel="self" type="application/rss+xml"/><item><title>Modifying Boot Parameters</title><link>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_de_boot/</link><pubDate>Sun, 17 May 2009 09:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_de_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may want to modify certain boot parameters (Grub equivalent). Here is some information about that.&lt;/p>
+&lt;h2 id="bootconf">boot.conf &lt;a href="#bootconf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Edit the file &lt;code>/etc/boot.conf&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3a4e5f0" class="language-bash ">
+ &lt;code>stty com0 19200
+set tty com0
+set timeout 1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Personally, I just added the &amp;ldquo;set timeout&amp;rdquo; line to 1, the other parameters were already there. For those who don&amp;rsquo;t understand these lines, I&amp;rsquo;ll explain a bit:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>stty com0 19200&lt;/code>: Sets the baud rate of the com0 port to 19200&lt;/li>
+&lt;li>&lt;code>set tty com0&lt;/code>: Defines the tty on com0 to initialize it&lt;/li>
+&lt;li>&lt;code>set timeout 1&lt;/code>: Sets the waiting time for the boot system (in seconds, here 1 sec)&lt;/li>
+&lt;/ul></description></item><item><title>OpenBSD Configuration Guide (Very Complete)</title><link>https://wiki.deimos.fr/Guide_de_configuration_d%27OpenBSD_%5C%28Tr%C3%A8s_complet%5C%29/</link><pubDate>Sun, 18 Jan 2009 03:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Guide_de_configuration_d%27OpenBSD_%5C%28Tr%C3%A8s_complet%5C%29/</guid><description>&lt;p>Here is a fairly complete documentation on setting up PF, OpenNTPD, and more:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/openbsd.pdf">OpenBSD Configuration Guide&lt;/a>&lt;/p></description></item><item><title>Recovering your OpenBSD after a bad manipulation</title><link>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_son_OpenBSD_apr%C3%A8s_une_mauvaise_manip/</link><pubDate>Sun, 20 Jan 2008 07:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_son_OpenBSD_apr%C3%A8s_une_mauvaise_manip/</guid><description>&lt;h2 id="1-concrete-case">1. Concrete case &lt;a href="#1-concrete-case" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>While manipulating my external partitions, I accidentally executed:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bcc0a4a" class="language-bash ">
+ &lt;code># rm -fr /dev&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>At boot time I get:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="42151d5" class="language-bash ">
+ &lt;code>&amp;#34;/dev/console not found&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>How to fix this problem?&lt;/p>
+&lt;h2 id="2-solutions">2. Solutions &lt;a href="#2-solutions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>A simple method with minimal manipulation is to boot from a ramdisk (your /bsd.rd file that you should have, or an installation CD) and perform an Upgrade.&lt;/p>
+&lt;p>This won&amp;rsquo;t overwrite your configuration files, just the files provided in the base system excluding etc42.tgz and xetc42.tgz.&lt;/p></description></item><item><title>OpenBSD Package System</title><link>https://wiki.deimos.fr/Le_syst%C3%A8me_de_Packages_OpenBSD/</link><pubDate>Tue, 27 Nov 2007 18:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Le_syst%C3%A8me_de_Packages_OpenBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Transitioning to OpenBSD isn&amp;rsquo;t very straightforward when coming from the Linux world (PS: if you&amp;rsquo;re coming from Windows, it&amp;rsquo;s better to stay there or switch to Linux first).&lt;/p>
+&lt;p>In OpenBSD, there are two package systems:&lt;/p>
+&lt;ul>
+&lt;li>The first one is provided by the base OpenBSD system (pkg), containing packages with almost no security vulnerabilities (just a reminder: only 2 vulnerabilities discovered in 10 years). These packages are pre-compiled.&lt;/li>
+&lt;li>The second contains many more software applications (port), but according to OpenBSD, they can compromise system stability and security. That said, it&amp;rsquo;s still preferable to use these rather than compiling yourself from various sources since these packages have still been validated by the OpenBSD team. These packages are compiled on demand.&lt;/li>
+&lt;/ul>
+&lt;h2 id="pgk">PGK &lt;a href="#pgk" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="preparation">Preparation &lt;a href="#preparation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>First, you need to &lt;a href="https://www.openbsd.org/fr/ftp.html" rel="external" target="_blank">choose an FTP server&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> to specify the repository. I chose a French server:&lt;/p></description></item></channel></rss>

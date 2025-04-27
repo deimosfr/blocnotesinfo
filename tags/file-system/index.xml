@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>File System on Tech Notebook</title><link>https://wiki.deimos.fr/tags/file-system/</link><description>Recent content in File System on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/file-system/index.xml" rel="self" type="application/rss+xml"/><item><title>OCFS2: Oracle's Cluster File System</title><link>https://wiki.deimos.fr/OCFS2%C2%A0:%C2%A0Le_FileSystem_Cluster_d%27Oracle/</link><pubDate>Sat, 03 Mar 2012 15:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OCFS2%C2%A0:%C2%A0Le_FileSystem_Cluster_d%27Oracle/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OCFS2 is a cluster filesystem that allows sharing filesystems between multiple machines with fault tolerance.&lt;/p>
+&lt;p>This file system was initially created for Oracle databases and therefore has a locking mechanism designed for this type of application. You can use it as a file system, but the problem is that it may flush old locks after a certain period. If your idea is really to use a cluster filesystem to store files, it would be better to turn to GFS.&lt;/p></description></item><item><title>No space left on device while there is space available</title><link>https://wiki.deimos.fr/No_space_left_on_device_alors_qu%5C%27il_y_a_de_la_place/</link><pubDate>Mon, 13 Oct 2008 20:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/No_space_left_on_device_alors_qu%5C%27il_y_a_de_la_place/</guid><description>&lt;h2 id="the-problem">The problem &lt;a href="#the-problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes the system can no longer write to a partition and reports &amp;ldquo;No Space Left On Device&amp;rdquo; even though &amp;ldquo;df -h&amp;rdquo; shows that there is enough space available.&lt;/p>
+&lt;p>For example, I can no longer write at all to my &amp;ldquo;/var&amp;rdquo; partition. Let&amp;rsquo;s check the space with df -h:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d6f54e3" class="language-bash ">
+ &lt;code>Sys. de fich. Tail. Occ. Disp. %Occ. Monté sur
+/dev/sda3 9,7G 2,4G 6,9G 26% /
+tmpfs 498M 0 498M 0% /lib/init/rw
+tmpfs 498M 0 498M 0% /dev/shm
+/dev/sda1 122M 9,9M 106M 9% /boot
+/dev/sda6 132G 3,6G 121G 3% /mnt/datas
+/dev/sda5 4,9G 4,0G 629M 87% /var&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="the-solution">The solution &lt;a href="#the-solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>BUT WHY??? After some reflection and research&amp;hellip; OF COURSE! The inodes!!!&lt;/p></description></item></channel></rss>

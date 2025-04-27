@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Unix on Tech Notebook</title><link>https://wiki.deimos.fr/categories/unix/</link><description>Recent content in Unix on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/unix/index.xml" rel="self" type="application/rss+xml"/><item><title>Solaris Package Management</title><link>https://wiki.deimos.fr/Gestion_des_packages_Solaris/</link><pubDate>Wed, 15 Feb 2012 18:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gestion_des_packages_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Packages, like in all distributions, are a simple way to install software. Here we will examine all the ways to manage these packages.&lt;/p>
+&lt;h2 id="locations">Locations &lt;a href="#locations" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To find out what is installed on your system, simply look at the &lt;code>/var/sadm/install/contents&lt;/code> file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fab774b" class="language-bash ">
+ &lt;code>more /var/sadm/install/contents&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7668fbe" class="language- ">
+ &lt;code>(output edited for brevity)
+/bin=./usr/bin s none SUNWcsr
+/dev d none 0755 root sys SUNWcsr SUNWcsd
+/dev/allkmem=../devices/pseudo/mm@0:allkmem s none SUNWcsd
+/dev/arp=../devices/pseudo/arp@0:arp s none SUNWcsd
+/etc/ftpd/ftpusers e ftpusers 0644 root sys 198 16387 1094222536 SUNWftpr
+/etc/passwd e passwd 0644 root sys 580 48298 1094222123 SUNWcsr&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To find where a specific software is installed on the system, you can do this:&lt;/p></description></item><item><title>Disk Management in Solaris</title><link>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</link><pubDate>Mon, 30 Jan 2012 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Compared to Linux, Solaris is quite similar except for certain aspects which I will clarify here. This guide will not only cover Solaris but also include general information about disk architecture and filesystems.&lt;/p>
+&lt;h2 id="physical-operation">Physical Operation &lt;a href="#physical-operation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="files-inodes-and-blocks">Files, Inodes and Blocks &lt;a href="#files-inodes-and-blocks" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On your hard drive, where you store your data, there is a hierarchical structure:&lt;/p>
+&lt;ul>
+&lt;li>Directories and files&lt;/li>
+&lt;li>Inodes&lt;/li>
+&lt;li>Blocks&lt;/li>
+&lt;/ul>
+&lt;p>Inodes are what know exactly where each directory/file is located. When you create or call a file, it points to an inode. This inode is then able to identify which data block it belongs to (binary slice). Here&amp;rsquo;s a small explanation with an image:&lt;/p></description></item><item><title>IP Filter: Using the Firewall on Solaris</title><link>https://wiki.deimos.fr/IP_Filter_:_Utilisation_du_firewall_sous_Solaris/</link><pubDate>Tue, 28 Dec 2010 07:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/IP_Filter_:_Utilisation_du_firewall_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>IPFilter (commonly referred to as ipf) is an open source software package that provides firewall services and network address translation (NAT) for many UNIX-like operating systems. The author and software maintainer is Darren Reed. IPFilter supports both IPv4 and IPv6 protocols, and is a stateful firewall.&lt;/p>
+&lt;p>IPFilter is delivered with FreeBSD, NetBSD and Solaris 10. It used to be a part of OpenBSD, but it was removed in May 2001 due to problems with the license of IP Filter, after negotiations between Theo de Raadt and Reed broke down. At first glance, the license looks a lot like BSD Licenses, but does not allow redistribution of modified versions. Reed came back with another proposal but it was already too late. The software was removed from OpenBSD.&lt;/p></description></item><item><title>Mount an ISO image on Solaris</title><link>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</link><pubDate>Tue, 15 Jun 2010 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Many software packages can be downloaded in the form of an ISO image. Rather than burning the image to a CD-ROM to access its contents, it is easy to mount the image directly into the filesystem using the lofiadm and mount commands.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Given an ISO image in &lt;code>/export/temp/software.iso&lt;/code>, a loopback file device (&lt;code>/dev/lofi/1&lt;/code>) is created with the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cb8756e" class="language-bash ">
+ &lt;code>lofiadm -a /export/temp/software.iso /dev/lofi/1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The lofi device creates a block device version of a file. This block device can be mounted to &lt;code>/mnt&lt;/code> with the following command:&lt;/p></description></item><item><title>Managing Solaris Processes</title><link>https://wiki.deimos.fr/Manager_les_processes_Solaris/</link><pubDate>Mon, 12 Apr 2010 09:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/Manager_les_processes_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A process is any program that is running on the system. All processes are assigned a unique process identification (PID) number, which is used by the kernel to track and manage the process. The PID numbers are used by the root and regular users to identify and control their processes.&lt;/p>
+&lt;h2 id="prstat">prstat &lt;a href="#prstat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The prstat command examines and displays information about active processes on the system.&lt;/p>
+&lt;p>This command enables you to view information by specific processes, user identification (UID) numbers, central processing unit (CPU) IDs, or processor sets. By default, the prstat command displays information about all processes sorted by CPU usage. To use the prstat command, perform the command:&lt;/p></description></item><item><title>Setting up VNC server on Solaris</title><link>https://wiki.deimos.fr/Mise_en_place_de_vncserver_sur_Solaris/</link><pubDate>Wed, 03 Dec 2008 15:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_vncserver_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris, my love! You who never have packages and are never very convenient to use! In short, my difficult love! And yes, VNC server is doable! Recompiling manually is too difficult and time-consuming, so I opted for packages. But even that isn&amp;rsquo;t all roses!&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Add this line to your profile:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5ad5131" class="language-bash ">
+ &lt;code>PATH=$PATH:/usr/openwin/bin:/usr/X11/bin&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="method-2">Method 2 &lt;a href="#method-2" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For prerequisites, you need pkg-get! Then let&amp;rsquo;s get started:&lt;/p></description></item></channel></rss>

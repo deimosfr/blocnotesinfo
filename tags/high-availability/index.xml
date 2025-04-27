@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>High Availability on Tech Notebook</title><link>https://wiki.deimos.fr/tags/high-availability/</link><description>Recent content in High Availability on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/high-availability/index.xml" rel="self" type="application/rss+xml"/><item><title>MariaDB Galera Cluster: Multi-Master Replication</title><link>https://wiki.deimos.fr/MariaDB_Galera_Cluster_:_la_r%C3%A9plication_multi_maitres/</link><pubDate>Sat, 19 Apr 2014 05:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/MariaDB_Galera_Cluster_:_la_r%C3%A9plication_multi_maitres/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/galeracluster_logo.png" alt="MariaDB" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://mariadb.org/" rel="external" target="_blank">MariaDB Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>19/04/2014&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Galera 23.2.4(r147)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you have already set up MySQL replication, you know that you&amp;rsquo;re limited to 2 master nodes maximum. Many actions must be done manually, making it difficult to have something that&amp;rsquo;s both scalable and accessible for simultaneous writes, since by default writes are synchronous.&lt;/p></description></item><item><title>Installation and Configuration of DRBD</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_DRBD/</link><pubDate>Sat, 07 Sep 2013 09:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_DRBD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>DRBD&lt;/strong> is a system that allows you to create software RAID1 over a local network.
+This enables high availability and resource sharing on a cluster without a disk array.&lt;/p>
+&lt;p>Here we will install &lt;strong>DRBD8&lt;/strong>, with the goal of implementing a cluster filesystem (see documentation on OCFS2) which is not supported on DRBD7.
+We&amp;rsquo;ll use the DRBD8 packages from Debian repositories. We&amp;rsquo;ll work on a 2-node cluster.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, install the following packages:&lt;/p></description></item><item><title>Replication Master to Master</title><link>https://wiki.deimos.fr/Replication_Master_to_Master/</link><pubDate>Fri, 21 Jun 2013 07:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Replication_Master_to_Master/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mysql_logo.jpeg" alt="MySQL Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>After completing the installation (See: &lt;a href="https://wiki.deimos.fr/MySQL_:_Installation_et_configuration/">Installation and Configuration&lt;/a>), we are going to set up MySQL master-master replication. We need to replicate MySQL servers to achieve high-availability (HA). In my case I need two masters that are synchronized with each other so that if one of them goes down, the other could take over and no data is lost. Similarly, when the first one goes up again, it will still be used as slave for the live one.&lt;/p></description></item><item><title>Installation and Configuration of Red Hat Cluster Suite</title><link>https://wiki.deimos.fr/Installation_et_Configuration_de_Red_Hat_Cluster_Suite/</link><pubDate>Mon, 14 May 2012 08:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_Configuration_de_Red_Hat_Cluster_Suite/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/red_hat_logo.png" alt="Red Hat Cluster Suite" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5/6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 5/6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.redhat.com" rel="external" target="_blank">Red Hat Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Red Hat offers a cluster based on Open Source solutions. This document explains how to set one up.&lt;/p></description></item><item><title>Network: Creating Bonding</title><link>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</link><pubDate>Wed, 18 Apr 2012 18:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Channel bonding, also known as Port Trucking, allows applying a series of predefined policies on a group of network links combined into one. This group of network interfaces gives you the ability to perform load balancing and especially fault tolerance. Seven operation modes are available to combine necessity and flexibility. In this article, we will explore the possibilities offered and their implementation.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Two prerequisites appear at the network switch level, where the interfaces are connected:&lt;/p></description></item><item><title>Installing a Red Hat 4 Cluster</title><link>https://wiki.deimos.fr/Installation_d%5C%27un_cluster_Red_Hat_4/</link><pubDate>Sun, 26 Feb 2012 13:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_d%5C%27un_cluster_Red_Hat_4/</guid><description>&lt;p>&lt;strong>To install Red Hat Enterprise with Cluster Suite, take CDs or DVD and boot from it.&lt;/strong>&lt;/p>
+&lt;p>We are going to see step by step the interesting components.&lt;/p>
+&lt;h2 id="language">Language &lt;a href="#language" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="27ce21c" class="language- ">
+ &lt;code>Set the English language and not French to have more verbose output during future problems.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="keyboard">Keyboard &lt;a href="#keyboard" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="67d9665" class="language- ">
+ &lt;code>Keep the French keyboard&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="partitioning-do-the-same-partitioning-on-all-the-cluster-nodes">Partitioning (do the same partitioning on all the cluster nodes) &lt;a href="#partitioning-do-the-same-partitioning-on-all-the-cluster-nodes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Location&lt;/th>
+ &lt;th>Type&lt;/th>
+ &lt;th>Size&lt;/th>
+ &lt;th>LVM Name&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>/boot&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>128 MB&lt;/td>
+ &lt;td>&lt;strong>NO LVM!!!&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>LVM&lt;/td>
+ &lt;td>Group&lt;/td>
+ &lt;td>Full Size (space left)&lt;/td>
+ &lt;td>VolGroup00&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>racine&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/var&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>var&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/usr&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>10240 MB&lt;/td>
+ &lt;td>usr&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/tmp&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>2048 MB&lt;/td>
+ &lt;td>tmp&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>swap&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>swap&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/home&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>Space left&lt;/td>
+ &lt;td>home&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="list-of-packages-installation">List of packages installation &lt;a href="#list-of-packages-installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a886811" class="language- ">
+ &lt;code>base
+base-x
+kde-desktop or gnome-desktop
+editors (only vim)
+mail-server (- spamassassin)
+development-tools
+compat-arch-development
+admin-tools (&amp;#43; sysstem-boot-config)
+system-tools
+compat-arch-support&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>After rebooting, install these packages from the cluster suite (cdrom/RedHat/RPMS). Warning: pay attention for SMP; if not SMP servers, do not install it, install other relative packages.&lt;/p></description></item><item><title>Installation and Configuration of SUN Cluster</title><link>https://wiki.deimos.fr/Installation_et_configuration_du_SUN_Cluster/</link><pubDate>Thu, 03 Nov 2011 00:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_du_SUN_Cluster/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris Cluster (sometimes Sun Cluster or SunCluster) is a high-availability cluster software product for the Solaris Operating System, created by Sun Microsystems.&lt;/p>
+&lt;p>It is used to improve the availability of software services such as databases, file sharing on a network, electronic commerce websites, or other applications. Sun Cluster operates by having redundant computers or nodes where one or more computers continue to provide service if another fails. Nodes may be located in the same data center or on different continents.&lt;/p></description></item><item><title>IPMP Configuration</title><link>https://wiki.deimos.fr/Configuration_de_l'IPMP/</link><pubDate>Wed, 06 Apr 2011 09:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_de_l'IPMP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>IP Network Multipathing (IPMP) enables you to detect interface failures and transparently switch network access for a system with multiple interfaces on the same IP link. IPMP also allows load balancing of packets for systems with multiple interfaces.&lt;/p>
+&lt;p>The equivalent on Linux is called bonding and on BSD, it&amp;rsquo;s called trunking.&lt;/p>
+&lt;p>IPMP improves the reliability, availability, and network performance of systems with multiple physical interfaces. Sometimes a physical interface or the networking hardware connected to that interface fails or requires maintenance. Traditionally, it is then impossible to contact the system through any of the IP addresses associated with the failed interface. Additionally, any existing connections to the system using those IP addresses are disrupted.&lt;/p></description></item><item><title>Installation and Configuration of Pacemaker</title><link>https://wiki.deimos.fr/Installation_et_Configuration_de_Pacemaker/</link><pubDate>Tue, 21 Dec 2010 20:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_Configuration_de_Pacemaker/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Pacemaker is the logical evolution of Heartbeat, which has merged with other open source software to achieve perfection. Pacemaker is a resource management software. It must be coupled with Corosync which will manage the exchange of information between nodes.&lt;/p>
+&lt;p>The installation and configuration described here is done on Debian 6.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For installation, nothing could be simpler on Debian:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e5840d7" class="language-bash ">
+ &lt;code>aptitude install pacemaker corosync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="corosync">Corosync &lt;a href="#corosync" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For Corosync configuration, we need to generate encryption keys for intra-cluster information exchange (between nodes):&lt;/p></description></item><item><title>Installation of Sun Cluster</title><link>https://wiki.deimos.fr/Installation_of_Sun_Cluster_(old)/</link><pubDate>Mon, 26 Jul 2010 12:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_of_Sun_Cluster_(old)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is not very complicated. You just have to follow this documentation&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For the installation, download the Availability Suite on &lt;a href="https://www.sun.com" rel="external" target="_blank">Sun Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Installation and Configuration of a Heartbeat V2 Cluster</title><link>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27un_cluster_Heartbeat_V2/</link><pubDate>Wed, 18 Feb 2009 18:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27un_cluster_Heartbeat_V2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://linux-ha.org" rel="external" target="_blank">Heartbeat&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is one of the most widely used cluster solutions because it&amp;rsquo;s very flexible, powerful and stable. We&amp;rsquo;ll see how to proceed with installation, configuration and service monitoring for Heartbeat 2. Compared to version 1, Heartbeat 2 can manage more than 2 nodes.&lt;/p></description></item><item><title>Installation and Configuration of a Heartbeat V1 Cluster</title><link>https://wiki.deimos.fr/Installation_et_configuration_d'un_cluster_Heartbeat_V1/</link><pubDate>Wed, 18 Feb 2009 18:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d'un_cluster_Heartbeat_V1/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The main idea to ensure service availability is to have multiple machines (at least two) running simultaneously. These machines form what we call a cluster, and each machine is a node in the cluster. Each machine will check if the others are still responding by taking their pulse. If a machine stops working, the others will ensure the service.&lt;/p>
+&lt;p>Once the cluster is configured, it is accessed through a single unique IP address, which is the cluster&amp;rsquo;s IP address; the cluster itself consists of multiple nodes.&lt;/p></description></item><item><title>Load Balancing and Fail Over for Web Services</title><link>https://wiki.deimos.fr/Load_Balancing_et_Fail_Over_pour_les_services_Web/</link><pubDate>Wed, 18 Feb 2009 18:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Load_Balancing_et_Fail_Over_pour_les_services_Web/</guid><description>&lt;p>For comprehensive documentation on load balancing with failover for web services, please refer to our detailed HAProxy guide:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/haproxy-load-balance-your-traffic/">HAProxy: Load Balance Your Traffic&lt;/a>&lt;/p>
+&lt;p>This guide covers setup and configuration for HTTP load balancing, MySQL/MariaDB balancing, and SSL offloading.&lt;/p></description></item><item><title>MySQL Cluster Load Balanced with Heartbeat</title><link>https://wiki.deimos.fr/MySQL_Cluster_Load_Balanc%C3%A9_avec_Heartbeat/</link><pubDate>Mon, 16 Jun 2008 05:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/MySQL_Cluster_Load_Balanc%C3%A9_avec_Heartbeat/</guid><description>&lt;p>Here is documentation that requires good knowledge of &lt;a href="https://wiki.deimos.fr/MySQL_:_Installation_et_configuration/">MySQL replications&lt;/a> and &lt;a href="https://wiki.deimos.fr/Replication_Master_to_Master/">clustering&lt;/a> techniques.&lt;/p>
+&lt;p>It can save you a lot of time even if you have the necessary knowledge:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/load-balanced_mysql_cluster_with_mysql_5_1.pdf">Documentation on a Load-Balanced MySQL Cluster With MySQL 5.1&lt;/a>&lt;/p></description></item><item><title>Installation and Configuration of KeepAlived/Pound with Failover and Session Support</title><link>https://wiki.deimos.fr/Installation_et_Configuration_de_KeepAlived/Pound_avec_Failover_et_support_de_session/</link><pubDate>Sat, 03 Nov 2007 16:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_Configuration_de_KeepAlived/Pound_avec_Failover_et_support_de_session/</guid><description>&lt;p>Here&amp;rsquo;s a great documentation I found for anyone who doesn&amp;rsquo;t want to use Heartbeat 2.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/ha_pound-keepalived.pdf">Documentation about Pound and KeepAlived&lt;/a>&lt;/p></description></item><item><title>Slony-I: Database Replication for PostgreSQL</title><link>https://wiki.deimos.fr/Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL/</link><pubDate>Thu, 30 Aug 2007 13:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Slony-I enables advanced database replication capabilities. The downside is that it&amp;rsquo;s not simple to set up the first time. People who have previously configured DB replications will find it easier to succeed.&lt;/p>
+&lt;p>According to Slony&amp;rsquo;s documentation, it&amp;rsquo;s not recommended to replicate across a WAN, as the slon daemon (replication daemon) is very fragile and may leave a database in a zombie state, and won&amp;rsquo;t die for up to 2 hours.&lt;/p></description></item></channel></rss>

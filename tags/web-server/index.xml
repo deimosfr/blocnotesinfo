@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web Server on Tech Notebook</title><link>https://wiki.deimos.fr/tags/web-server/</link><description>Recent content in Web Server on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/web-server/index.xml" rel="self" type="application/rss+xml"/><item><title>MediaWiki: Installation and Configuration</title><link>https://wiki.deimos.fr/MediaWiki:Installation_et_configuration/</link><pubDate>Thu, 27 Nov 2014 07:38:00 +0200</pubDate><guid>https://wiki.deimos.fr/MediaWiki:Installation_et_configuration/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A wiki is a content management system for websites that allows pages to be freely and equally editable by all authorized visitors. Wikis are used to facilitate collaborative document writing with minimal constraints. The wiki was invented by Ward Cunningham in 1995, for a section of a website on computer programming that he called WikiWikiWeb. The word &amp;ldquo;wiki&amp;rdquo; comes from the Hawaiian term wiki wiki, which means &amp;ldquo;fast&amp;rdquo; or &amp;ldquo;informal&amp;rdquo;. By the mid-2000s, wikis had reached a good level of maturity and are associated with Web 2.0. Created in 2001, Wikipedia has become the world&amp;rsquo;s most visited wiki.&lt;/p></description></item><item><title>Nginx: Installation and Configuration as an Apache Alternative</title><link>https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d'une_alternative_d'Apache/</link><pubDate>Fri, 29 Aug 2014 15:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d'une_alternative_d'Apache/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nginx-logo.png" alt="Nginx Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://nginx.org/" rel="external" target="_blank">Nginx Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>29/08/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Nginx" rel="external" target="_blank">Nginx&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> [engine x] is a web server (or HTTP) software written by Igor Sysoev, whose development began in 2002 for the needs of a high-traffic Russian site.&lt;/p></description></item><item><title>Nginx + Varnish: Cache even in HTTPS by offloading SSL</title><link>https://wiki.deimos.fr/Nginx_%20_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL/</link><pubDate>Thu, 16 Jan 2014 17:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nginx_%20_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nginx-logo.png" alt="Nginx Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://nginx.org/" rel="external" target="_blank">Nginx Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> &lt;a href="https://www.varnish-cache.org/" rel="external" target="_blank">Varnish Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>16/01/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You certainly know how that Varnish is a very good caching solution but the major problem is you can&amp;rsquo;t use it for SSL connections. Fortunately there is a solution called &amp;ldquo;Offload SSL&amp;rdquo; which decrypt the SSL, send it to the cache system and return crypted flow. This schema will help you more on understanding the purpose of it:&lt;/p></description></item><item><title>Tomcat: Setting up a Tomcat server</title><link>https://wiki.deimos.fr/Tomcat_:_Mise_en_place_d'un_serveur_Tomcat/</link><pubDate>Mon, 17 Jun 2013 12:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tomcat_:_Mise_en_place_d'un_serveur_Tomcat/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/tomcat_logo.png" alt="Tomcat" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.5/6/7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://tomcat.apache.org/" rel="external" target="_blank">Tomcat Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>17/06/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://tomcat.apache.org/" rel="external" target="_blank">Apache Tomcat&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a J2EE servlet container. Originating from the Jakarta project, Tomcat is now a main project of the Apache Foundation. Tomcat implements Sun Microsystems&amp;rsquo; servlet and JSP specifications. It includes tools for configuration and management, but can also be configured by editing XML configuration files. Since Tomcat includes an internal HTTP server, it is also considered an HTTP server. Tomcat is also considered an &lt;a href="https://en.wikipedia.org/wiki/Application_server" rel="external" target="_blank">application server&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Selfoss: An Elegant RSS Reader</title><link>https://wiki.deimos.fr/Selfoss_:_An_elegant_RSS_reader/</link><pubDate>Fri, 14 Jun 2013 21:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Selfoss_:_An_elegant_RSS_reader/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/selfoss_logo.png" alt="Selfoss" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://selfoss.aditu.de/" rel="external" target="_blank">Selfoss Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/06/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Nginx&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://selfoss.aditu.de/" rel="external" target="_blank">Selfoss&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a self-hosted RSS reader solution. It could be compared to Tiny Tinys RSS or Feedly.&lt;/p></description></item><item><title>HTTP Substitutions Filter: Multiple Filters with Regex on Response Bodies</title><link>https://wiki.deimos.fr/Http_substitutions_filter_:_multiple_filters_with_regex_on_response_bodies/</link><pubDate>Fri, 26 Apr 2013 15:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Http_substitutions_filter_:_multiple_filters_with_regex_on_response_bodies/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nginx-logo.png" alt="Nginx Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/yaoweibin/ngx_http_substitutions_filter_module" rel="external" target="_blank">nginx_substitutions_filter Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>26/04/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>nginx_substitutions_filter is a filter module which can do both regular expression and fixed string substitutions on response bodies. This module is quite different from the Nginx&amp;rsquo;s native Substitution Module. It scans the output chains buffer and matches string line by line, just like Apache&amp;rsquo;s mod_substitute.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description></item><item><title>Theme for Apache Directory Index Listing</title><link>https://wiki.deimos.fr/Theme_pour_le_Directory_Index_Listing_d%5C%27Apache/</link><pubDate>Mon, 09 Apr 2012 13:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Theme_pour_le_Directory_Index_Listing_d%5C%27Apache/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/apachefileindex_logo.png" alt="File.Index" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.0&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://blog.is-a-geek.org/apache-file-listing-mit-eigenem-theme-verschonern" rel="external" target="_blank">Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>09/04/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The default Apache directory index listing is&amp;hellip; (we can say it)&amp;hellip; very ugly. Here is a theme I found &lt;a href="https://blog.is-a-geek.org/apache-file-listing-mit-eigenem-theme-verschonern" rel="external" target="_blank">on this site&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and which &lt;a href="https://wiki.deimos.fr/others/directory_index_theme.tgz">I have slightly modified&lt;/a>. Here&amp;rsquo;s a preview:&lt;/p></description></item><item><title>Proxy: Creating a proxy with Apache</title><link>https://wiki.deimos.fr/Proxy:%C2%A0Cr%C3%A9er_un_proxy_avec_Apache/</link><pubDate>Thu, 29 Mar 2012 07:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Proxy:%C2%A0Cr%C3%A9er_un_proxy_avec_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With Apache&amp;rsquo;s mod_proxy, there are several use cases. I will propose two scenarios here.&lt;/p>
+&lt;h3 id="scenario-1">Scenario 1 &lt;a href="#scenario-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s the situation! I&amp;rsquo;m in a computer school where (like in many schools) only port 80 is open, and the class isn&amp;rsquo;t always interesting.&lt;/p>
+&lt;p>So what can you do to access your SSH server, play World of Warcraft, or download heavily from eMule?&lt;/p>
+&lt;p>Well, Uncle Tom has a super pattern for you who wants to break the laws: the APACHE MOD_PROXY PLATINUM EDITION!&lt;/p></description></item><item><title>Real-time monitoring of your Apache server</title><link>https://wiki.deimos.fr/Monitorer_en_temps_r%C3%A9el_votre_Apache/</link><pubDate>Wed, 18 Jan 2012 13:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_en_temps_r%C3%A9el_votre_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It can sometimes be useful to monitor an Apache server, especially when there is an abnormal load. That&amp;rsquo;s why we&amp;rsquo;re going to look at some tools to help monitor Apache connections and status in real time.&lt;/p>
+&lt;h2 id="mod-status">Mod Status &lt;a href="#mod-status" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Mod status is an Apache module that displays very interesting information. It has the advantage of being native to Apache.&lt;/p>
+&lt;h3 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To activate the module, it&amp;rsquo;s very simple:&lt;/p></description></item><item><title>Lighttpd: Installation and configuration of an Apache alternative</title><link>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</link><pubDate>Tue, 10 May 2011 11:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LigHTTPd (or &amp;ldquo;lighty&amp;rdquo;) is a secure, fast, and flexible HTTP server.&lt;/p>
+&lt;p>Its speed comes from having a smaller memory footprint than other HTTP servers, as well as intelligent CPU load management.&lt;/p>
+&lt;p>Many languages like PHP, Perl, Ruby, and Python are supported via FastCGI.&lt;/p>
+&lt;p>The main disadvantage of LigHTTPd is that it has only one configuration file and doesn&amp;rsquo;t support .htaccess files (though there are alternatives): directives must be in the configuration file. This is also an advantage, as the server administrator only has one file to manage.&lt;/p></description></item><item><title>Apache 2 Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27Apache_2/</link><pubDate>Wed, 06 Apr 2011 08:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27Apache_2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Apache is one of the most widely used web servers in the world, if not THE most used web server in the world.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c2de30" class="language-bash ">
+ &lt;code>apt-get install apache2&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="choose-a-default-charset">Choose a Default Charset &lt;a href="#choose-a-default-charset" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In the configuration file &lt;code>/etc/apache2/apache2.conf&lt;/code> or &lt;code>/etc/apache2/conf.d/charset&lt;/code>, insert this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="52f003d" class="language-bash ">
+ &lt;code>AddDefaultCharset .latin9&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then reload Apache:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="82a2415" class="language-bash ">
+ &lt;code>/etc/init.d/apache2 reload&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="authentication">Authentication &lt;a href="#authentication" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="ldap">LDAP &lt;a href="#ldap" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>For LDAP authentication, you need to install this:&lt;/p></description></item><item><title>Setting up OpenSSL with Lighttpd</title><link>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</link><pubDate>Wed, 15 Apr 2009 07:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Adding security to your website is important. In this guide, we&amp;rsquo;ll see how to create and insert SSL certificates in Lighttpd.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We only need OpenSSL:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bc007ab" class="language-bash ">
+ &lt;code>apt-get install openssl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="generating-ssl-keys">Generating SSL keys &lt;a href="#generating-ssl-keys" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s create an ssl directory in the Lighttpd configuration folder, then generate the certificates:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e53f286" class="language-bash ">
+ &lt;code>mkdir /etc/lighttpd/ssl
+openssl req -new -x509 -keyout /etc/lighttpd/ssl/selfcert.pem -out /etc/lighttpd/ssl/selfcert.pem -days 3650 -nodes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>selfcert.pem: use the name that interests you (e.g., deimos.fr.pem)&lt;/li>
+&lt;li>3650: number of days the certificate is valid (10 years, we&amp;rsquo;re safe for a good while)&lt;/li>
+&lt;/ul>
+&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s enable the SSL module for Lighttpd:&lt;/p></description></item><item><title>Securing Apache with mod_security</title><link>https://wiki.deimos.fr/S%C3%A9curiser_Apache_avec_mod_security/</link><pubDate>Sun, 18 Jan 2009 03:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/S%C3%A9curiser_Apache_avec_mod_security/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is what I&amp;rsquo;ve been looking for quite some time! A module specifically designed for Apache security.&lt;/p>
+&lt;p>This module increases the security level of an Apache web server or other servers if used with Apache in proxy mode. Modsecurity acts as an application firewall embedded in Apache. It protects web applications against common attacks (SQL injection, Cross Site Scripting, etc.)&lt;/p>
+&lt;p>I found this nice documentation, but like most docs, it&amp;rsquo;s missing some things. It&amp;rsquo;s not much but I&amp;rsquo;m adding it anyway.&lt;/p></description></item><item><title>Slotlimit: Apache Module to Limit Apache Resources</title><link>https://wiki.deimos.fr/Slotlimit_:_Module_d'apache_pour_limiter_les_ressources_d'Apache/</link><pubDate>Mon, 13 Oct 2008 19:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Slotlimit_:_Module_d'apache_pour_limiter_les_ressources_d'Apache/</guid><description>&lt;p>Here&amp;rsquo;s a very practical Apache module that limits your Apache resources:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/how_to_manage_apache_resources_limits_with_mod_slotlimit.pdf">How To Manage Apache Resources Limits With mod_slotlimit&lt;/a>&lt;/p></description></item><item><title>Geolocation with Apache 2</title><link>https://wiki.deimos.fr/Geolocalisation_avec_Apache_2/</link><pubDate>Sun, 16 Mar 2008 08:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Geolocalisation_avec_Apache_2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This guide explains how to set up &lt;a href="https://www.maxmind.com/app/mod_geoip" rel="external" target="_blank">mod_geoip&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> with Apache2 on a Debian Etch system. mod_geoip looks up the IP address of the client end user. This allows you to redirect or block users based on their country. You can also use this technology for your &lt;a href="https://www.openx.org/" rel="external" target="_blank">OpenX&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> (formerly known as OpenAds or phpAdsNew) ad server to allow &lt;a href="https://en.wikipedia.org/wiki/Geo_targeting" rel="external" target="_blank">geo targeting&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item></channel></rss>

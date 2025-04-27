@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BIOS on Tech Notebook</title><link>https://wiki.deimos.fr/tags/bios/</link><description>Recent content in BIOS on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/bios/index.xml" rel="self" type="application/rss+xml"/><item><title>Upgrading the Soekris BIOS</title><link>https://wiki.deimos.fr/Upgrader_le_BIOS_de_la_Soekris/</link><pubDate>Wed, 01 Dec 2010 21:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Upgrader_le_BIOS_de_la_Soekris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I strongly recommend upgrading the BIOS whenever an update is available: &lt;a href="https://www.soekris.com/downloads.htm" rel="external" target="_blank">https://www.soekris.com/downloads.htm&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p>
+&lt;p>Since it&amp;rsquo;s not necessarily obvious how to do it, I&amp;rsquo;ll explain the process.&lt;/p></description></item><item><title>BIOS Beep Codes and Their Meanings</title><link>https://wiki.deimos.fr/Signification_des_bips_%C3%A9mis_par_le_Bios/</link><pubDate>Wed, 09 Apr 2008 10:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Signification_des_bips_%C3%A9mis_par_le_Bios/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Many of you have probably wondered about the meaning of beeps when a computer fails to boot properly. Here&amp;rsquo;s a list of what those beeps mean.&lt;/p>
+&lt;h2 id="meanings">Meanings &lt;a href="#meanings" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>1 short beep&lt;/strong>: Refresh failure. The system has problems accessing RAM for refresh operations. The issue is often due to a RAM or motherboard problem.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>2 short beeps&lt;/strong>: Parity error. Parity error in the first 64KB of memory. Problem with either RAM or the motherboard.&lt;/p></description></item><item><title>How to Check BIOS Version Without Rebooting</title><link>https://wiki.deimos.fr/Connaitre_sa_version_du_Bios_sans_rebooter/</link><pubDate>Wed, 29 Aug 2007 19:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_sa_version_du_Bios_sans_rebooter/</guid><description>&lt;p>Sometimes when you have old machines, you might want to know if flashing the BIOS would allow you to use a larger disk. From a remote system, the following command (run as root) will give you plenty of information:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0d1cdd4" class="language-bash ">
+ &lt;code>dd if=/dev/mem bs=32k skip=31 count=1 | strings -n 8 | grep -i bios
+1&amp;#43;0 records in
+1&amp;#43;0 records out
+32768 bytes transferred in 0.011551 seconds (2836813 bytes/sec)
+Award SoftwareIBM COMPATIBLE 486 BIOS COPYRIGHT Award Software Inc.oftware Inc. Aw
+Award Modular BIOS v4.51PG&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="explanation">Explanation &lt;a href="#explanation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On an x86 system, the BIOS is traditionally accessible in the last 64KB of the first MB of memory. The dd command is instructed to read from RAM starting at the first byte, skipping 31 blocks of 32KB each, and displaying the 32nd block.&lt;/p></description></item><item><title>OpenBoot PROM, BIOS Management</title><link>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</link><pubDate>Wed, 29 Nov 2006 09:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The PROM is the equivalent of the BIOS or EFI on a standard x86 system.&lt;/p>
+&lt;h2 id="approach">Approach &lt;a href="#approach" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To know your PROM version:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="818bf32" class="language-bash ">
+ &lt;code>/usr/platform/`uname -m`/sbin/prtdiag -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c1ab015" class="language-bash ">
+ &lt;code>prtconf -V&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="nvram">NVRAM &lt;a href="#nvram" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The NVRAM can be modified by a user to change some options on the machine:&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/sun-prom-nvram.gif" alt="NVRAM" loading="lazy">
+
+&lt;/p>
+&lt;p>Once the NVRAM is stored on the chipset, during the PROM call at boot, it will check the user&amp;rsquo;s preferences at the NVRAM level in order to apply them.&lt;/p></description></item></channel></rss>

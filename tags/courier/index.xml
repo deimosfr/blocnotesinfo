@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Courier on Tech Notebook</title><link>https://wiki.deimos.fr/tags/courier/</link><description>Recent content in Courier on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/courier/index.xml" rel="self" type="application/rss+xml"/><item><title>Installation and Configuration of Postfix and Courier</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Postfix_et_Courrier/</link><pubDate>Tue, 07 May 2013 07:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Postfix_et_Courrier/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix.png" alt="Postfix Architecture" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an email server and free software developed by Wietse Venema. It handles the delivery of electronic messages. It was designed as a faster, easier to administer, and more secure alternative to the historical Sendmail.&lt;/p></description></item><item><title>Setting up a Courier POP3 server with SSL</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</link><pubDate>Thu, 10 Apr 2008 13:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to install a POP3 server so that your emails can be retrieved from a mail client or another server, then Courier POP3 is a good solution. Additionally, setting up SSL is recommended as it provides security.&lt;/p>
+&lt;p>For the POP3 server to be fully functional, you&amp;rsquo;ll obviously need it to be accompanied by a mail server (&lt;a href="https://wiki.deimos.fr/docs/servers/emails/">see documentation here&lt;/a>).&lt;/p>
+&lt;p>I have done this installation on OpenBSD, so this entire documentation will be for OpenBSD, but given the simplicity of the process, it&amp;rsquo;s very easily portable to other systems.&lt;/p></description></item><item><title>SSL: Certificate Management</title><link>https://wiki.deimos.fr/SSL_:_Gestion_des_certificats/</link><pubDate>Sun, 08 Jul 2007 21:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSL_:_Gestion_des_certificats/</guid><description>&lt;h2 id="problem-statement">Problem Statement &lt;a href="#problem-statement" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>After a year of good and loyal service, your &lt;strong>Courier (POP3 or IMAP)&lt;/strong> server fails due to a simple SSL problem! Yes, after a year, certificates expire!&lt;/p>
+&lt;h2 id="preparation">Preparation &lt;a href="#preparation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We need to generate new certificates. First, let&amp;rsquo;s go to the right location:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e920590" class="language-bash ">
+ &lt;code>cd /etc/courier/&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, we delete the old one:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c3380df" class="language-bash ">
+ &lt;code>rm pop3d.pem&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="generation">Generation &lt;a href="#generation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="automatic">Automatic &lt;a href="#automatic" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If you decide to simply renew this certificate every year, edit the &amp;ldquo;.cnf&amp;rdquo; file and fill it out correctly. Here&amp;rsquo;s an example:&lt;/p></description></item></channel></rss>

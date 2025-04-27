@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>UTF8 on Tech Notebook</title><link>https://wiki.deimos.fr/tags/utf8/</link><description>Recent content in UTF8 on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/utf8/index.xml" rel="self" type="application/rss+xml"/><item><title>Using MySQL</title><link>https://wiki.deimos.fr/Utilisation_de_MySQL/</link><pubDate>Fri, 25 Jan 2013 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utilisation_de_MySQL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are some solutions that will hopefully save you time.&lt;/p>
+&lt;h2 id="converting-a-latin1-database-to-utf8">Converting a Latin1 Database to UTF8 &lt;a href="#converting-a-latin1-database-to-utf8" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the magic command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f207785" class="language-bash ">
+ &lt;code>mysqldump --add-drop-table -uroot -p &amp;#34;DB_name&amp;#34; | replace CHARSET=latin1 CHARSET=utf8 | iconv -f latin1 -t utf8 | mysql -uroot -p &amp;#34;DB_name&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="adding-a-prefix-to-all-tables-in-a-database">Adding a Prefix to All Tables in a Database &lt;a href="#adding-a-prefix-to-all-tables-in-a-database" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to add a prefix to all tables in a database:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="72f9b17" class="language-sql ">
+ &lt;code>SELECT Concat(&amp;#39;ALTER TABLE &amp;#39;, TABLE_NAME, &amp;#39; RENAME TO my_prefix_&amp;#39;, TABLE_NAME, &amp;#39;;&amp;#39;) FROM information_schema.TABLES WHERE table_schema = &amp;#39;my_database&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You just need to replace:&lt;/p></description></item></channel></rss>

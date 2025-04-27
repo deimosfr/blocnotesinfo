@@ -1,0 +1,1605 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Solaris on Tech Notebook</title><link>https://wiki.deimos.fr/tags/solaris/</link><description>Recent content in Solaris on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/solaris/index.xml" rel="self" type="application/rss+xml"/><item><title>Create a PKI</title><link>https://wiki.deimos.fr/Create_a_PKI/</link><pubDate>Thu, 26 Feb 2015 06:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Create_a_PKI/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Software version&lt;/td>
+ &lt;td>1.0.1k&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>26/02/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A public key infrastructure (PKI)&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a set of hardware, software, people, policies, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates.&lt;/p></description></item><item><title>NFS: Setting up an NFS Server</title><link>https://wiki.deimos.fr/NFS_:_Mise_en_place_d'un_serveur_NFS/</link><pubDate>Sun, 23 Nov 2014 06:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/NFS_:_Mise_en_place_d'un_serveur_NFS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Network File System (NFS) is a protocol developed by Sun Microsystems that allows a computer to access files over a network.&lt;/p>
+&lt;p>This network file system allows sharing data primarily between UNIX systems. Implementations also exist for Macintosh and Microsoft Windows.&lt;/p>
+&lt;p>NFS is compatible with IPv6 on most systems.&lt;/p>
+&lt;p>Setting up an NFS server can be useful in certain cases such as for a TFTP server or to avoid using Samba, which is essentially an emulated Windows layer.&lt;/p></description></item><item><title>Sysstat: Essential Tools for Analyzing Performance Issues</title><link>https://wiki.deimos.fr/Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances/</link><pubDate>Sat, 24 Aug 2013 12:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/sysstat_logo.png" alt="Sysstat" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sysstat is a package containing the sar and iostat binaries. The latter is used to monitor only disk I/O, while sar is used to monitor almost everything.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Debian, you need to install sysstat:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e90dde6" class="language-bash ">
+ &lt;code>aptitude install sysstat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Red Hat, you need to install sysstat:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4145948" class="language-bash ">
+ &lt;code>yum install sysstat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="solaris">Solaris &lt;a href="#solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Solaris, you&amp;rsquo;ll need to use &lt;a href="https://wiki.deimos.fr/Pkg-get_:_Mise_en_place_d%27un_syst%C3%A8me_de_repository_pour_Solaris/">Sun Freeware packages&lt;/a> to find this tool:&lt;/p></description></item><item><title>Configure Network on Solaris</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris/</link><pubDate>Mon, 06 May 2013 14:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris can be challenging! Especially when you come from a Linux/BSD world and find that all the network commands are strange.&lt;/p>
+&lt;h2 id="detecting-network-cards">Detecting Network Cards &lt;a href="#detecting-network-cards" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To detect network cards that are present and especially connected, here&amp;rsquo;s a very useful command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c390117" class="language-bash ">
+ &lt;code>$ dladm show-dev
+igb0 link: up speed: 1000 Mbps duplex: full
+igb1 link: up speed: 1000 Mbps duplex: full
+igb2 link: up speed: 1000 Mbps duplex: full
+igb3 link: up speed: 1000 Mbps duplex: full
+clprivnet0 link: unknown speed: 0 Mbps duplex: unknown&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Or you can use &lt;code>dladm show-links&lt;/code> to get more detailed information about the connection status.&lt;/p></description></item><item><title>Pkg-get: Setting up a Repository System for Solaris</title><link>https://wiki.deimos.fr/Pkg-get_:_Mise_en_place_d%27un_syst%C3%A8me_de_repository_pour_Solaris/</link><pubDate>Wed, 23 Jan 2013 10:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pkg-get_:_Mise_en_place_d%27un_syst%C3%A8me_de_repository_pour_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Package installation in Solaris is quite basic by default, and recompiling sources is not always simple or fast. This is why I suggest using pkg-get, which is a very practical utility that allows you to install your desired packages for Solaris (SPARC or x86) in just a few seconds or minutes.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="new-method">New Method &lt;a href="#new-method" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The new method makes things much simpler:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b723748" class="language-bash ">
+ &lt;code>pkgadd -d http://get.opencsw.org/now&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then add &lt;code>/opt/csw/bin&lt;/code> to your path:&lt;/p></description></item><item><title>ZFS: The Filesystem Par Excellence</title><link>https://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence/</link><pubDate>Wed, 02 Jan 2013 13:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/zfs_logo.jpg" alt="ZFS" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>ZFS or Z File System is an open-source filesystem under the CDDL license. The &amp;lsquo;Z&amp;rsquo; doesn&amp;rsquo;t officially stand for anything specific, but has been referred to in various ways in the press, such as Zettabyte (from the English unit zettabyte for data storage), or ZFS as &amp;ldquo;the last word in filesystems&amp;rdquo;.&lt;/p>
+&lt;p>Produced by Sun Microsystems for Solaris 10 and above, it was designed by Jeff Bonwick&amp;rsquo;s team. Announced for September 2004, it was integrated into Solaris on October 31, 2005, and on November 16, 2005, as a feature of OpenSolaris build 27. Sun announced that ZFS was integrated into the Solaris update dated June 2006, a year after the opening of the OpenSolaris community.&lt;/p></description></item><item><title>Ulimit: Using System Limits</title><link>https://wiki.deimos.fr/Ulimit_:_Utiliser_les_limites_syst%C3%A8mes/</link><pubDate>Tue, 03 Jul 2012 10:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ulimit_:_Utiliser_les_limites_syst%C3%A8mes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The ulimit programs allow to limit system-wide resource use using a normal configuration file - &lt;code>/etc/security/limits.conf&lt;/code>. This can help a lot in system administration, e.g. when a user starts too many processes and therefore makes the system unresponsive for other users.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cc48f25" class="language-bash ">
+ &lt;code>ulimit -a&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0ece5e8" class="language- ">
+ &lt;code>core file size (blocks, -c) 0
+data seg size (kbytes, -d) unlimited
+scheduling priority (-e) 0
+file size (blocks, -f) unlimited
+pending signals (-i) 7671
+max locked memory (kbytes, -l) 64
+max memory size (kbytes, -m) 811664
+open files (-n) 1024
+pipe size (512 bytes, -p) 8
+POSIX message queues (bytes, -q) 819200
+real-time priority (-r) 0
+stack size (kbytes, -s) 8192
+cpu time (seconds, -t) unlimited
+max user processes (-u) 7671
+virtual memory (kbytes, -v) 1175120
+file locks (-x) unlimited&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All these settings can be manipulated. A good example is this forkbomb that forks as many processes as possible and can crash systems where no user limits are set&lt;/p></description></item><item><title>My Perl Scripts That Can Serve as Exercises</title><link>https://wiki.deimos.fr/Mes_scripts_Perl_qui_peuvent_servir_d'exercices/</link><pubDate>Wed, 06 Jun 2012 13:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mes_scripts_Perl_qui_peuvent_servir_d'exercices/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s not always easy to start with a programming language, especially when you&amp;rsquo;ve never studied it in school! That&amp;rsquo;s why I&amp;rsquo;m offering some small scripts I made right after going through some books. These scripts should increase in difficulty as you go along.&lt;/p>
+&lt;h2 id="ps-java-and-xmx">PS, Java and XMX &lt;a href="#ps-java-and-xmx" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For work, I had to create a script for Solaris that lists users, PIDs, launch dates for Java processes, and some other information. The goal was to display XMX values without the entire Java command inserted, or other unnecessary information for the people who were going to use this script. Here is my first Perl script:&lt;/p></description></item><item><title>Tmpfs: Mounting a RAM filesystem on Solaris</title><link>https://wiki.deimos.fr/Tmpfs_:_monter_un_filesystem_en_RAM_sous_Solaris/</link><pubDate>Sun, 19 Feb 2012 09:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tmpfs_:_monter_un_filesystem_en_RAM_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>TmpFS (Temporary File System) is the generic name given to any temporary Unix file system. Any file created in such a filesystem disappears when the system is shut down.&lt;/p>
+&lt;p>The default implementation of tmpfs in Linux 2.6.x kernels is based on ramfs, which uses the caching mechanism to optimize memory management.
+It is also available on Solaris 10.&lt;/p>
+&lt;p>However, tmpfs additionally offers a memory size limit that is set at mount time and can be modified on-the-fly with the &amp;ldquo;remount&amp;rdquo; option for security purposes. Tmpfs also allows the system to use swap space when necessary, which provides an additional guarantee.&lt;/p></description></item><item><title>Automating Installation of Many Packages</title><link>https://wiki.deimos.fr/Automatiser_l'installation_de_beaucoup_de_packages/</link><pubDate>Wed, 15 Feb 2012 18:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Automatiser_l'installation_de_beaucoup_de_packages/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Pkgadd isn&amp;rsquo;t particularly user-friendly; it has plenty of options but they&amp;rsquo;re a bit too hidden for my taste. For work, I needed to deploy approximately 1000 packages on several machines. However, with each package installation, I had to enter &amp;lsquo;y&amp;rsquo; and press enter, which quickly becomes tedious.&lt;/p>
+&lt;p>To solve this problem, I looked at the man page and found the &lt;code>-n&lt;/code> argument, which is useful since it lets you bypass interactive mode. The drawback is that it doesn&amp;rsquo;t work perfectly. So I searched a bit on the internet and found the response file. This is a file where we pass options. These options are tested during a package installation, and here we force them by default to avoid being bothered.&lt;/p></description></item><item><title>Solaris Package Management</title><link>https://wiki.deimos.fr/Gestion_des_packages_Solaris/</link><pubDate>Wed, 15 Feb 2012 18:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gestion_des_packages_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Packages, like in all distributions, are a simple way to install software. Here we will examine all the ways to manage these packages.&lt;/p>
+&lt;h2 id="locations">Locations &lt;a href="#locations" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To find out what is installed on your system, simply look at the &lt;code>/var/sadm/install/contents&lt;/code> file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fab774b" class="language-bash ">
+ &lt;code>more /var/sadm/install/contents&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7668fbe" class="language- ">
+ &lt;code>(output edited for brevity)
+/bin=./usr/bin s none SUNWcsr
+/dev d none 0755 root sys SUNWcsr SUNWcsd
+/dev/allkmem=../devices/pseudo/mm@0:allkmem s none SUNWcsd
+/dev/arp=../devices/pseudo/arp@0:arp s none SUNWcsd
+/etc/ftpd/ftpusers e ftpusers 0644 root sys 198 16387 1094222536 SUNWftpr
+/etc/passwd e passwd 0644 root sys 580 48298 1094222123 SUNWcsr&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To find where a specific software is installed on the system, you can do this:&lt;/p></description></item><item><title>How to Check the Number of Active CPU Cores on Solaris</title><link>https://wiki.deimos.fr/Connaitre_le_nombre_de_cores_CPU_actifs_sur_Solaris/</link><pubDate>Mon, 06 Feb 2012 10:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_nombre_de_cores_CPU_actifs_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On certain machines (especially HP), it&amp;rsquo;s very practical for licensing issues to be able to limit the number of cores. Afterwards, it&amp;rsquo;s important to verify that the state is what you expect.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To get the list of active cores:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock hl_lines linenos">
+ &lt;pre id="7f00d31" class="language-bash line-numbers" data-line="2,4" data-line-offset="1">
+ &lt;code>&amp;gt; psrinfo -pv
+The physical processor has 1 virtual processor (0) x86 (chipid 0x0 GenuineIntel family 6 model 44 step 2 clock 2800 MHz)
+ Intel(r) Xeon(r) CPU X5660 @ 2.80GHz
+The physical processor has 1 virtual processor (1) x86 (chipid 0x1 GenuineIntel family 6 model 44 step 2 clock 2800 MHz)
+ Intel(r) Xeon(r) CPU X5660 @ 2.80GHz&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here we can see that I only have one virtual CPU per processor (so 2 total).&lt;/p></description></item><item><title>Adding Swap Space on Solaris</title><link>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</link><pubDate>Mon, 30 Jan 2012 12:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this documentation is to quickly describe how to create swap space on Solaris. There are other documentation sources such as &lt;a href="https://wiki.deimos.fr/Management_des_disques_sous_Solaris/">Disk Management in Solaris&lt;/a> that describe in depth how disks work on Solaris, but that&amp;rsquo;s not the goal here.&lt;/p>
+&lt;p>We&amp;rsquo;ll look at three methods to add swap space:&lt;/p>
+&lt;ul>
+&lt;li>On UFS&lt;/li>
+&lt;li>On ZFS&lt;/li>
+&lt;li>Using a swap file&lt;/li>
+&lt;/ul>
+&lt;h2 id="swap-on-ufs">Swap on UFS &lt;a href="#swap-on-ufs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to add swap space on a UFS disk, you&amp;rsquo;ll need to create a partition. Let&amp;rsquo;s first see what we have:&lt;/p></description></item><item><title>Disk Management in Solaris</title><link>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</link><pubDate>Mon, 30 Jan 2012 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Compared to Linux, Solaris is quite similar except for certain aspects which I will clarify here. This guide will not only cover Solaris but also include general information about disk architecture and filesystems.&lt;/p>
+&lt;h2 id="physical-operation">Physical Operation &lt;a href="#physical-operation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="files-inodes-and-blocks">Files, Inodes and Blocks &lt;a href="#files-inodes-and-blocks" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On your hard drive, where you store your data, there is a hierarchical structure:&lt;/p>
+&lt;ul>
+&lt;li>Directories and files&lt;/li>
+&lt;li>Inodes&lt;/li>
+&lt;li>Blocks&lt;/li>
+&lt;/ul>
+&lt;p>Inodes are what know exactly where each directory/file is located. When you create or call a file, it points to an inode. This inode is then able to identify which data block it belongs to (binary slice). Here&amp;rsquo;s a small explanation with an image:&lt;/p></description></item><item><title>Installation and Configuration of SUN Cluster</title><link>https://wiki.deimos.fr/Installation_et_configuration_du_SUN_Cluster/</link><pubDate>Thu, 03 Nov 2011 00:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_du_SUN_Cluster/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris Cluster (sometimes Sun Cluster or SunCluster) is a high-availability cluster software product for the Solaris Operating System, created by Sun Microsystems.&lt;/p>
+&lt;p>It is used to improve the availability of software services such as databases, file sharing on a network, electronic commerce websites, or other applications. Sun Cluster operates by having redundant computers or nodes where one or more computers continue to provide service if another fails. Nodes may be located in the same data center or on different continents.&lt;/p></description></item><item><title>NTP: Creating an NTP Server</title><link>https://wiki.deimos.fr/NTP_:_Cr%C3%A9ation_d%27un_serveur_NTP/</link><pubDate>Thu, 06 Oct 2011 11:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/NTP_:_Cr%C3%A9ation_d%27un_serveur_NTP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The NTP server is a time server. It provides time based on atomic clock references.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Super quick:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9efd17a" class="language-bash ">
+ &lt;code>apt-get install ntp&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="solaris">Solaris &lt;a href="#solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Solaris, NTP is normally installed by default. Otherwise, search for packages containing &lt;em>ntpd&lt;/em>.
+You will need to copy the server configuration file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0a56674" class="language-bash ">
+ &lt;code>cp /etc/inet/ntp.server /etc/inet/ntp.conf&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is some information before diving into configuration files:&lt;/p>
+&lt;ul>
+&lt;li>stratum: indicates that it&amp;rsquo;s not very reliable data&lt;/li>
+&lt;li>127.127.1.0: time given by the machine (BIOS)&lt;/li>
+&lt;li>peer: defines a server of the same stratum as the server (same level/same geographic location), which allows for more reliability. Using 1 server + peers provides a more refined configuration than having only geographically distant servers.&lt;/li>
+&lt;/ul>
+&lt;h3 id="debian-1">Debian &lt;a href="#debian-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s the configuration file for a time server (&lt;code>/etc/inet/ntp.conf&lt;/code>):&lt;/p></description></item><item><title>IPMP Configuration</title><link>https://wiki.deimos.fr/Configuration_de_l'IPMP/</link><pubDate>Wed, 06 Apr 2011 09:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_de_l'IPMP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>IP Network Multipathing (IPMP) enables you to detect interface failures and transparently switch network access for a system with multiple interfaces on the same IP link. IPMP also allows load balancing of packets for systems with multiple interfaces.&lt;/p>
+&lt;p>The equivalent on Linux is called bonding and on BSD, it&amp;rsquo;s called trunking.&lt;/p>
+&lt;p>IPMP improves the reliability, availability, and network performance of systems with multiple physical interfaces. Sometimes a physical interface or the networking hardware connected to that interface fails or requires maintenance. Traditionally, it is then impossible to contact the system through any of the IP addresses associated with the failed interface. Additionally, any existing connections to the system using those IP addresses are disrupted.&lt;/p></description></item><item><title>IP Filter: Using the Firewall on Solaris</title><link>https://wiki.deimos.fr/IP_Filter_:_Utilisation_du_firewall_sous_Solaris/</link><pubDate>Tue, 28 Dec 2010 07:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/IP_Filter_:_Utilisation_du_firewall_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>IPFilter (commonly referred to as ipf) is an open source software package that provides firewall services and network address translation (NAT) for many UNIX-like operating systems. The author and software maintainer is Darren Reed. IPFilter supports both IPv4 and IPv6 protocols, and is a stateful firewall.&lt;/p>
+&lt;p>IPFilter is delivered with FreeBSD, NetBSD and Solaris 10. It used to be a part of OpenBSD, but it was removed in May 2001 due to problems with the license of IP Filter, after negotiations between Theo de Raadt and Reed broke down. At first glance, the license looks a lot like BSD Licenses, but does not allow redistribution of modified versions. Reed came back with another proposal but it was already too late. The software was removed from OpenBSD.&lt;/p></description></item><item><title>Finding a Process Running on a Specific Port on Solaris</title><link>https://wiki.deimos.fr/Trouver_le_process_qui_tourne_sur_un_certain_port_sur_Solaris/</link><pubDate>Thu, 05 Aug 2010 13:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trouver_le_process_qui_tourne_sur_un_certain_port_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since &lt;code>netstat -auntpl&lt;/code> doesn&amp;rsquo;t exist on Solaris, I had to do some research to find out how to determine which process is listening on a specific port.&lt;/p>
+&lt;h2 id="solutions-1">Solutions 1 &lt;a href="#solutions-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ll need to create a small script:&lt;/p>
+&lt;p>(&lt;code>get_process_from_port.sh&lt;/code>)&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4fa8d23" class="language-bash ">
+ &lt;code>#!/bin/ksh
+
+line=&amp;#39;---------------------------------------------&amp;#39;
+pids=$(/usr/bin/ps -ef | sed 1d | awk &amp;#39;{print $2}&amp;#39;)
+
+if [ $# -eq 0 ]; then
+ read ans?&amp;#34;Enter port you would like to know pid for: &amp;#34;
+else
+ ans=$1
+fi
+
+for f in $pids
+do
+ /usr/proc/bin/pfiles $f 2&amp;gt;/dev/null | /usr/xpg4/bin/grep -q &amp;#34;port: $ans&amp;#34;
+ if [ $? -eq 0 ]; then
+ echo $line
+ echo &amp;#34;Port: $ans is being used by PID:\c&amp;#34;
+ /usr/bin/ps -ef -o pid -o args | egrep -v &amp;#34;grep|pfiles&amp;#34; | grep $f
+ fi
+done
+exit 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Run the script and enter the port number when prompted.&lt;/p></description></item><item><title>Setting up a quorum server</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_quorum_server/</link><pubDate>Mon, 26 Jul 2010 12:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_quorum_server/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>THIS IS NEEDED ONLY FOR A 2 NODES CLUSTER WITHOUT A DISKS ARRAY!&lt;/strong>&lt;/p>
+&lt;p>You generally need it when you have 2 servers without a SAN, so you need a third machine with this service installed and launched for your quorum.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Normally the Quorum Server software is installed with the Sun Cluster Software.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Just configure the file &lt;code>/etc/scqsd/scqsd.conf&lt;/code> with this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f006c1a" class="language-bash ">
+ &lt;code>/usr/cluster/lib/sc/scqsd -d /var/scqsd -i quorum_name -p 9001&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>quorum_name: is the instance name of the quorum server&lt;/li>
+&lt;li>9001: is the default listening port of quorum server&lt;/li>
+&lt;/ul>
+&lt;p>After that, just launch the quorum server instance:&lt;/p></description></item><item><title>Installation of Sun Cluster</title><link>https://wiki.deimos.fr/Installation_of_Sun_Cluster_(old)/</link><pubDate>Mon, 26 Jul 2010 12:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_of_Sun_Cluster_(old)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is not very complicated. You just have to follow this documentation&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For the installation, download the Availability Suite on &lt;a href="https://www.sun.com" rel="external" target="_blank">Sun Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Mount an ISO image on Solaris</title><link>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</link><pubDate>Tue, 15 Jun 2010 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Many software packages can be downloaded in the form of an ISO image. Rather than burning the image to a CD-ROM to access its contents, it is easy to mount the image directly into the filesystem using the lofiadm and mount commands.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Given an ISO image in &lt;code>/export/temp/software.iso&lt;/code>, a loopback file device (&lt;code>/dev/lofi/1&lt;/code>) is created with the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cb8756e" class="language-bash ">
+ &lt;code>lofiadm -a /export/temp/software.iso /dev/lofi/1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The lofi device creates a block device version of a file. This block device can be mounted to &lt;code>/mnt&lt;/code> with the following command:&lt;/p></description></item><item><title>Managing Solaris Processes</title><link>https://wiki.deimos.fr/Manager_les_processes_Solaris/</link><pubDate>Mon, 12 Apr 2010 09:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/Manager_les_processes_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A process is any program that is running on the system. All processes are assigned a unique process identification (PID) number, which is used by the kernel to track and manage the process. The PID numbers are used by the root and regular users to identify and control their processes.&lt;/p>
+&lt;h2 id="prstat">prstat &lt;a href="#prstat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The prstat command examines and displays information about active processes on the system.&lt;/p>
+&lt;p>This command enables you to view information by specific processes, user identification (UID) numbers, central processing unit (CPU) IDs, or processor sets. By default, the prstat command displays information about all processes sorted by CPU usage. To use the prstat command, perform the command:&lt;/p></description></item><item><title>Upgrading SUN Cluster</title><link>https://wiki.deimos.fr/Upgrader_SUN_Cluster/</link><pubDate>Sat, 13 Feb 2010 14:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/Upgrader_SUN_Cluster/</guid><description>&lt;h2 id="1-introduction">1. Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Upgrading a cluster is not an easy task. I&amp;rsquo;ll explain here the steps to follow.&lt;/p>
+&lt;h2 id="2-preparing-environment">2. Preparing environment &lt;a href="#2-preparing-environment" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First of all, you need to be sure you don&amp;rsquo;t have any running services (You should do those step for all your servers).&lt;/p>
+&lt;p>Then you need to boot in a non cluster mode:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="edce713" class="language-bash ">
+ &lt;code>reboot -- -x&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You also need to download the latest version of Sun Cluster and unzip it in &lt;code>/export/home/patchs/&lt;/code> for example.&lt;/p></description></item><item><title>ACL: Implementing NT-Style Permissions on Solaris</title><link>https://wiki.deimos.fr/ACL_Implementation_droits_type_NT_sur_Solaris/</link><pubDate>Wed, 10 Feb 2010 13:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/ACL_Implementation_droits_type_NT_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With respect to a computer filesystem, an access control list (&lt;a href="https://en.wikipedia.org/wiki/Access_control_list" rel="external" target="_blank">ACL&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>) is a list of permissions attached to an object. An ACL specifies which users or system processes are granted access to objects, as well as what operations are allowed to be performed on given objects. In a typical ACL, each entry in the list specifies a subject and an operation (e.g. the entry (Alice, delete) on the ACL for file WXY gives Alice permission to delete file WXY).&lt;/p></description></item><item><title>Changing Solaris Locales</title><link>https://wiki.deimos.fr/Changer_les_locales_de_Solaris/</link><pubDate>Mon, 08 Feb 2010 16:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Changer_les_locales_de_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may encounter messages like &amp;ldquo;couldn&amp;rsquo;t set locale correctly&amp;rdquo; which can quickly become annoying to see in the display.&lt;/p>
+&lt;h2 id="problem-explanation">Problem Explanation &lt;a href="#problem-explanation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This occurs because the locales installed on the machine do not match those in your shell&amp;rsquo;s environment variables.&lt;/p>
+&lt;p>To see what you have in your shell:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3776f44" class="language-bash ">
+ &lt;code>&amp;gt; env &lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And to see what&amp;rsquo;s available on the system, it&amp;rsquo;s just as simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1b0ecce" class="language-bash ">
+ &lt;code>&amp;gt; ls /usr/lib/locale
+C&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For my part, I live in France, so I need the locales for my country. I&amp;rsquo;m going to install the Western European locales. For this, you&amp;rsquo;ll need the Solaris DVD in the drive:&lt;/p></description></item><item><title>SMF: Service Management Facility</title><link>https://wiki.deimos.fr/SMF_:_Service_Management_Facility/</link><pubDate>Wed, 03 Feb 2010 21:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/SMF_:_Service_Management_Facility/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SMF services are listed by categories:&lt;/p>
+&lt;ul>
+&lt;li>application&lt;/li>
+&lt;li>device&lt;/li>
+&lt;li>legacy&lt;/li>
+&lt;li>milestone&lt;/li>
+&lt;li>network&lt;/li>
+&lt;li>platform&lt;/li>
+&lt;li>site&lt;/li>
+&lt;li>system&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c087bf0" class="language- ">
+ &lt;code>svc:/system/filesystem/root:default&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>The prefix svc indicates that it&amp;rsquo;s a service managed by SMF&lt;/li>
+&lt;li>The category of the service is &amp;ldquo;system&amp;rdquo;&lt;/li>
+&lt;li>The service itself is a filesystem&lt;/li>
+&lt;li>The instance of the service is the root of the file system&lt;/li>
+&lt;li>The word &amp;ldquo;default&amp;rdquo; identifies the first, in this case only, instance of the service&lt;/li>
+&lt;/ul>
+&lt;p>Another example:&lt;/p></description></item><item><title>Running Multiple MySQL Instances on Solaris</title><link>https://wiki.deimos.fr/Lancer_plusieurs_instances_de_MySQL_sur_Solaris/</link><pubDate>Fri, 29 Jan 2010 06:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lancer_plusieurs_instances_de_MySQL_sur_Solaris/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download MySQL&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d66a35" class="language-bash ">
+ &lt;code>wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.41-solaris10-x86_64.pkg.gz/from/http://mir2.ovh.net/ftp.mysql.com/&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Create the MySQL user&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2bf9848" class="language-bash ">
+ &lt;code>groupadd mysql
+useradd -g mysql -s /bin/false -d /var/empty mysql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Verify that the user is properly created&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9a060f8" class="language-bash ">
+ &lt;code># finger mysql
+Login name: mysql
+Directory: /var/empty Shell: /bin/sh
+Never logged in.
+No unread mail
+No Plan.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Decompress the MySQL archive and install it&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7cb8898" class="language-bash ">
+ &lt;code>gunzip mysql-5.1.41-solaris10-x86_64.pkg.gz
+pkgadd -d mysql-5.1.41-solaris10-x86_64.pkg&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="mycnf">my.cnf &lt;a href="#mycnf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create two distinct configuration files by changing:&lt;/p></description></item><item><title>Configuration and Usage of Solaris Zones (Containers)</title><link>https://wiki.deimos.fr/Configuration_et_utilisation_des_Zones_Solaris_(Containers)/</link><pubDate>Fri, 11 Dec 2009 21:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_et_utilisation_des_Zones_Solaris_(Containers)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Zones or Containers are:&lt;/p>
+&lt;ul>
+&lt;li>Virtual instance of Solaris&lt;/li>
+&lt;li>Software partition for the OS&lt;/li>
+&lt;/ul>
+&lt;p>A large SunFire server with hardware domains allows many isolated systems to be created. Zones achieve this in software and is far more flexible - it is easy to move individual CPUs between zones as needed, or to configure a more sophisticated way to share CPUs and memory.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are two general zone types to pick from during zone creation. They are,&lt;/p></description></item><item><title>Installing HA Zones with ZFS and Solaris Cluster</title><link>https://wiki.deimos.fr/Installation_de_Zones_HA_avec_ZFS_et_Solaris_Cluster/</link><pubDate>Mon, 30 Nov 2009 21:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_de_Zones_HA_avec_ZFS_et_Solaris_Cluster/</guid><description>&lt;p>Here is excellent and quick-to-implement documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/installing_ha_containers_with_zfs_using_the_solaris_10_os_and_solaris_cluster_3.2_software.pdf">Installing HA Containers With ZFS Using the Solaris 10 OS and Solaris Cluster 3.2 Software&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/zone-cluster-virtual-cluster.pdf">Zone Cluster - How to Deploy virtual Clusters and why&lt;/a>&lt;/p></description></item><item><title>Modifying Network Card Parameters</title><link>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_des_cartes_r%C3%A9seaux/</link><pubDate>Sat, 28 Nov 2009 16:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_des_cartes_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Project Brussels from the OpenSolaris project revamped how link properties are managed, and their push to get rid of ndd and device-specific properties is now well underway!&lt;/p>
+&lt;h2 id="show-properties">Show properties &lt;a href="#show-properties" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Link properties are actually pretty cool, and they can be displayed with the dladm utilities &amp;ldquo;show-linkprop&amp;rdquo; option:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="980ca91" class="language-bash ">
+ &lt;code>$ dladm show-linkprop e1000g0
+
+LINK PROPERTY PERM VALUE DEFAULT POSSIBLE
+e1000g0 speed r- 0 0 --
+e1000g0 autopush -- -- -- --
+e1000g0 zone rw -- -- --
+e1000g0 duplex r- half half half,full
+e1000g0 state r- down up up,down
+e1000g0 adv_autoneg_cap rw 1 1 1,0
+e1000g0 mtu rw 1500 1500 --
+e1000g0 flowctrl rw bi bi no,tx,rx,bi
+e1000g0 adv_1000fdx_cap r- 1 1 1,0
+e1000g0 en_1000fdx_cap rw 1 1 1,0
+e1000g0 adv_1000hdx_cap r- 0 1 1,0
+e1000g0 en_1000hdx_cap r- 0 1 1,0
+e1000g0 adv_100fdx_cap r- 1 1 1,0
+e1000g0 en_100fdx_cap rw 1 1 1,0
+e1000g0 adv_100hdx_cap r- 1 1 1,0
+e1000g0 en_100hdx_cap rw 1 1 1,0
+e1000g0 adv_10fdx_cap r- 1 1 1,0
+e1000g0 en_10fdx_cap rw 1 1 1,0
+e1000g0 adv_10hdx_cap r- 1 1 1,0
+e1000g0 en_10hdx_cap rw 1 1 1,0
+e1000g0 maxbw rw -- -- --
+e1000g0 cpus rw -- -- --
+e1000g0 priority rw high high low,medium,high&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>As you can see in the above output, the typical speed, duplex, mtu and flowctrl properties are listed. In addition to those, the &amp;ldquo;maxbw&amp;rdquo; and &amp;ldquo;cpus&amp;rdquo; properties that were introduced with the recent crossbow putback are visible. The &amp;ldquo;maxbw&amp;rdquo; property is especially useful, since it allows you to limit how much bandwidth is available to an interface. Here is an example that caps bandwidth for an interface at 2Mb/s:&lt;/p></description></item><item><title>Creating an iSCSI Share Between Solaris and Debian</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_partage_iSCSI_entre_Solaris_et_Debian/</link><pubDate>Sat, 28 Nov 2009 15:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_partage_iSCSI_entre_Solaris_et_Debian/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Technology is beautiful, isn&amp;rsquo;t it! Here&amp;rsquo;s a guide to create an iSCSI share between Solaris and Debian. Be careful with performance as this remains iSCSI - I don&amp;rsquo;t recommend it for production environments unless you know what you&amp;rsquo;re doing.&lt;/p>
+&lt;p>In this setup, Solaris will be our server and Debian our client.&lt;/p>
+&lt;h2 id="2-installation">2 Installation &lt;a href="#2-installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="21-solaris">2.1 Solaris &lt;a href="#21-solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s verify that we have the required packages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="021e662" class="language-bash ">
+ &lt;code>$ pkginfo | grep iscsi
+system SUNWiscsir Sun iSCSI Device Driver (root)
+system SUNWiscsitgtr Sun iSCSI Target (Root)
+system SUNWiscsitgtu Sun iSCSI Target (Usr)
+system SUNWiscsiu Sun iSCSI Management Utilities (usr)&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="22-debian">2.2 Debian &lt;a href="#22-debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s install Open iSCSI:&lt;/p></description></item><item><title>Managing Updates with Update Manager and smpatch</title><link>https://wiki.deimos.fr/G%C3%A9rer_ses_updates_avec_Update_Manager_et_smpatch/</link><pubDate>Sat, 21 Nov 2009 07:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/G%C3%A9rer_ses_updates_avec_Update_Manager_et_smpatch/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As I love Debian and some of my servers are running on Solaris, I had to get in touch with Solaris update solutions. They have a GUI called Solaris Update Manager and the CLI version called smpatch.&lt;/p>
+&lt;p>As it is on servers, I don&amp;rsquo;t have a graphical interface and I need to run updates with command lines. That&amp;rsquo;s what I&amp;rsquo;ll specifically talk about in this documentation. List of interesting binaries:&lt;/p></description></item><item><title>Creating a Solaris Package</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_package_Solaris/</link><pubDate>Sat, 14 Nov 2009 16:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_package_Solaris/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Creating your own Solaris package can be very practical. Why? It saves time and it&amp;rsquo;s clean :-)&lt;/p>
+&lt;p>We will need several files, but not all of them are mandatory. I&amp;rsquo;ll try to detail as much as possible to make everything clear.&lt;/p>
+&lt;p>It&amp;rsquo;s also possible to secure your package by certifying it via SSL, GPG, etc.&lt;/p>
+&lt;h2 id="2-creating-necessary-files">2 Creating Necessary Files &lt;a href="#2-creating-necessary-files" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s create a package folder and work in it. Here&amp;rsquo;s the composition of a package:&lt;/p></description></item><item><title>Multipathing Management on Solaris</title><link>https://wiki.deimos.fr/Multipathing_management_on_Solaris/</link><pubDate>Fri, 06 Nov 2009 16:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Multipathing_management_on_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Multipathing allows for connection to multiple links. For example, a disk array connected via fiber to machines can have 2 fibers per machine.&lt;/p>
+&lt;p>To manage this type of configuration, you need to use multipathing.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To check if your multipath is enabled, it&amp;rsquo;s simple. Look at your devices, they should look like this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d1b6073" class="language- ">
+ &lt;code>/dev/dsk/c3t2000002037CD9F72d0s0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>instead of this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ba6a140" class="language- ">
+ &lt;code>/dev/dsk/c1t1d0s0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If this is not the case, then perform the actions that follow.&lt;/p></description></item><item><title>PAM: Install pam_mkhomedir for Automatic User Home Directory Creation</title><link>https://wiki.deimos.fr/PAM_:_Installer_pam_mkhomedir_pour_la_cr%C3%A9ation_automatique_des_home_utilisateurs/</link><pubDate>Tue, 06 Oct 2009 08:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_:_Installer_pam_mkhomedir_pour_la_cr%C3%A9ation_automatique_des_home_utilisateurs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may be in a situation like mine where you have your Solaris connected to an LDAP server or similar, and you&amp;rsquo;re facing the problem of automatic home directory creation for users who connect. After 2-3 hours of struggles, I finally managed to compile and configure everything.&lt;/p>
+&lt;p>Here&amp;rsquo;s my documentation to save time for others who might face the same issue.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, you&amp;rsquo;ll need a small package to avoid errors like this:&lt;/p></description></item><item><title>Setting up OpenLDAP Client</title><link>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</link><pubDate>Wed, 23 Sep 2009 09:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenLDAP is unfortunately not available as standard on Solaris, however it is possible to install it via pkg-get.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Configure the &lt;code>/etc/pam.conf&lt;/code> file:&lt;/li>
+&lt;/ul>
+&lt;p>For each line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c0ea0a" class="language-bash ">
+ &lt;code>service auth required pam_unix_auth.so.1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>replace &amp;ldquo;required&amp;rdquo; with &amp;ldquo;sufficient&amp;rdquo; and add behind the line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6af2348" class="language-bash ">
+ &lt;code>service auth sufficient pam_ldap.so.1 try_first_pass&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This should result in something like this (&lt;code>/etc/pam.conf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b261686" class="language-bash ">
+ &lt;code>#
+#ident &amp;#34;@(#)pam.conf 1.28 04/04/21 SMI&amp;#34;
+#
+# Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+# Use is subject to license terms.
+#
+# PAM configuration
+#
+# Unless explicitly defined, all services use the modules
+# defined in the &amp;#34;other&amp;#34; section.
+#
+# Modules are defined with relative pathnames, i.e., they are
+# relative to /usr/lib/security/$ISA. Absolute path names, as
+# present in this file in previous releases are still acceptable.
+#
+# Authentication management
+#
+# login service (explicit because of pam_dial_auth)
+#
+login auth requisite pam_authtok_get.so.1
+login auth required pam_dhkeys.so.1
+login auth required pam_unix_cred.so.1
+login auth sufficient pam_ldap.so.1 try_first_pass
+login auth sufficient pam_unix_auth.so.1
+login auth required pam_dial_auth.so.1
+#
+# rlogin service (explicit because of pam_rhost_auth)
+#
+rlogin auth sufficient pam_rhosts_auth.so.1
+rlogin auth requisite pam_authtok_get.so.1
+rlogin auth required pam_dhkeys.so.1
+rlogin auth required pam_unix_cred.so.1
+rlogin auth sufficient pam_ldap.so.1 try_first_pass
+rlogin auth sufficient pam_unix_auth.so.1
+#
+# Kerberized rlogin service
+#
+krlogin auth required pam_unix_cred.so.1
+krlogin auth binding pam_krb5.so.1
+krlogin auth sufficient pam_ldap.so.1
+krlogin auth sufficient pam_unix_auth.so.1
+#
+# rsh service (explicit because of pam_rhost_auth,
+# and pam_unix_auth for meaningful pam_setcred)
+#
+rsh auth sufficient pam_rhosts_auth.so.1
+rsh auth required pam_unix_cred.so.1
+#
+# Kerberized rsh service
+#
+krsh auth required pam_unix_cred.so.1
+krsh auth binding pam_krb5.so.1
+krsh auth sufficient pam_ldap.so.1
+krsh auth sufficient pam_unix_auth.so.1
+#
+# Kerberized telnet service
+#
+ktelnet auth required pam_unix_cred.so.1
+ktelnet auth binding pam_krb5.so.1
+ktelnet auth sufficient pam_ldap.so.1
+ktelnet auth sufficient pam_unix_auth.so.1
+#
+# PPP service (explicit because of pam_dial_auth)
+#
+ppp auth requisite pam_authtok_get.so.1
+ppp auth required pam_dhkeys.so.1
+ppp auth required pam_unix_cred.so.1
+ppp auth sufficient pam_ldap.so.1
+ppp auth sufficient pam_unix_auth.so.1
+ppp auth required pam_dial_auth.so.1
+#
+# Default definitions for Authentication management
+# Used when service name is not explicitly mentioned for authentication
+#
+other auth requisite pam_authtok_get.so.1
+other auth required pam_dhkeys.so.1
+other auth required pam_unix_cred.so.1
+other auth sufficient pam_ldap.so.1
+other auth sufficient pam_unix_auth.so.1
+#
+# passwd command (explicit because of a different authentication module)
+#
+passwd auth required pam_passwd_auth.so.1
+#
+# cron service (explicit because of non-usage of pam_roles.so.1)
+#
+cron account required pam_unix_account.so.1
+#
+# Default definition for Account management
+# Used when service name is not explicitly mentioned for account management
+#
+other account requisite pam_roles.so.1
+other account required pam_unix_account.so.1
+#
+# Default definition for Session management
+# Used when service name is not explicitly mentioned for session management
+#
+other session required pam_unix_session.so.1
+#
+# Default definition for Password management
+# Used when service name is not explicitly mentioned for password management
+#
+other password required pam_dhkeys.so.1
+other password requisite pam_authtok_get.so.1
+other password requisite pam_authtok_check.so.1
+other password required pam_authtok_store.so.1
+#
+# Support for Kerberos V5 authentication and example configurations can
+# be found in the pam_krb5(5) man page under the &amp;#34;EXAMPLES&amp;#34; section.
+#&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Configure the &lt;code>/etc/nsswitch.ldap&lt;/code> file&lt;/li>
+&lt;/ul>
+&lt;p>Keep &amp;ldquo;ldap&amp;rdquo; only where it&amp;rsquo;s useful: for now on the passwd: and group: lines.
+For the rest, use the content of the &lt;code>/etc/nsswitch.dns&lt;/code> file.
+This gives:&lt;/p></description></item><item><title>Most Used Commands List</title><link>https://wiki.deimos.fr/Liste_des_commandes_les_plus_utilis%C3%A9es/</link><pubDate>Sat, 19 Sep 2009 21:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Liste_des_commandes_les_plus_utilis%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>While GUIs are nice on Linux systems, they are completely unnecessary on servers and only waste resources. This is why I&amp;rsquo;m providing a list of the most used commands as well as some practical usage tips.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="recalling-the-last-argument-from-the-previous-command">Recalling the Last Argument from the Previous Command &lt;a href="#recalling-the-last-argument-from-the-previous-command" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s a useful tip that lets you recall the last argument from the previously executed command. For example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5b4cf1c" class="language-bash ">
+ &lt;code>$ cd /root
+$ ls !$
+test1 test2&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="most-used-commands">Most Used Commands &lt;a href="#most-used-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/linux_commands_line.pdf">Linux commands line documentation&lt;/a>&lt;/p></description></item><item><title>Getting Hardware Information from a Machine</title><link>https://wiki.deimos.fr/Obtenir_les_informations_hardware_d'une_machine/</link><pubDate>Wed, 26 Aug 2009 13:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Obtenir_les_informations_hardware_d'une_machine/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On machines (especially remote ones), it&amp;rsquo;s often useful to obtain information such as available RAM, etc.&lt;/p>
+&lt;p>In short, we might need other information, and I&amp;rsquo;m not sure where to put all of this data.&lt;/p>
+&lt;h2 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dmesg">dmesg &lt;a href="#dmesg" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>This command shows what is written during kernel boot and all kernel calls (module loading, etc.). On some distributions, it&amp;rsquo;s even written in the logs in &lt;code>/var/log/*&lt;/code>. Here&amp;rsquo;s an example output:&lt;/p></description></item><item><title>Jumpstart: Automating Solaris Installations Without Networks</title><link>https://wiki.deimos.fr/Jumpstart:_automatiser_les_installations_Solaris_sans_r%C3%A9seaux/</link><pubDate>Fri, 21 Aug 2009 15:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/Jumpstart:_automatiser_les_installations_Solaris_sans_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For my job, I had to automate Solaris installations. Jumpstart exists for this purpose. The problem is that in a new datacenter, you don&amp;rsquo;t always have what you need. That&amp;rsquo;s the real issue. That&amp;rsquo;s why I researched documentation on the internet, which often doesn&amp;rsquo;t work properly, and I&amp;rsquo;ll try to create a comprehensible guide that works (hopefully).&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ll need a fresh Solaris installation on which you&amp;rsquo;ll do minimal configuration. Also install anything else you&amp;rsquo;re interested in.&lt;/p></description></item><item><title>Creating a RAID 1 (mirroring) on Solaris</title><link>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</link><pubDate>Wed, 11 Feb 2009 16:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The Solaris system includes the DiskSuite package that allows RAID 1 mirroring of a UFS filesystem using LVM. This tutorial explains how to achieve this.
+It goes without saying that you need two disks of the same capacity.&lt;/p>
+&lt;h2 id="procedure">Procedure &lt;a href="#procedure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are the necessary steps:
+Once we&amp;rsquo;re ready to mirror a disk, we display its partitions with the format command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a68044b" class="language-bash ">
+ &lt;code>Format
+ 
+Searching for disks...done
+ 
+ 
+AVAILABLE DISK SELECTIONS:
+ 0. c1t0d0 &amp;lt;SUN146G cyl 14087 alt 2 hd 24 sec 848&amp;gt; root
+ /pci@0/pci@0/pci@2/scsi@0/sd@0,0
+ 1. c1t1d0 &amp;lt;HITACHI-H101414SCSUN146G-SA25-136.73GB&amp;gt;
+ /pci@0/pci@0/pci@2/scsi@0/sd@1,0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We choose the 1st disk (if it&amp;rsquo;s the one to be duplicated), then:&lt;/p></description></item><item><title>Monitoring Superuser Access</title><link>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</link><pubDate>Wed, 04 Feb 2009 18:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When the operating system is installed, a superuser is created, with an UID of 0. The usage of the su command is recorded in &lt;code>/var/adm/sulog&lt;/code>.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To record in the first place you need to do the following.
+In the file &lt;code>/etc/default/su&lt;/code>, uncomment the entry:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="11f017f" class="language-bash ">
+ &lt;code>SULOG=/var/adm/sulog.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Save it.&lt;/p>
+&lt;p>The entries look like this (&lt;code>/var/adm/sulog&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="48efe0e" class="language-bash ">
+ &lt;code>MO 02/18 14:21 &amp;#43; pts/0 nrocha-root
+TU 02/19 14:45 - pts/0 root-nrocha
+WE 02/20 19:47 &amp;#43; pts/0 amaria-nrocha&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>The first three columns show the time the event occurred.&lt;/li>
+&lt;li>The fourth column shows a - for failed access and a + for successful access.&lt;/li>
+&lt;li>The fifth column shows which port the access was made from.&lt;/li>
+&lt;li>The last column shows the name of the user who tried to switch users and the switched user.&lt;/li>
+&lt;/ul>
+&lt;p>Note: This procedure was tested on the Solaris 10 OS.&lt;/p></description></item><item><title>VirtualBox: VMware Alternative</title><link>https://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware/</link><pubDate>Wed, 28 Jan 2009 03:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>VirtualBox is a virtual machine created by InnoTek for Windows, 32 and 64-bit GNU/Linux, and Mac OS X hosts supporting Windows (including Vista), Linux 2.x, OS/2 Warp, OpenBSD, and FreeBSD as guest systems. After several years of development, VirtualBox was released under the GNU GPL license in January 2007.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Once you&amp;rsquo;ve downloaded the version, installation is quite simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="935b9c1" class="language-bash ">
+ &lt;code>dpkg -i virtualbox*.deb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then you&amp;rsquo;ll need the bridge utilities:&lt;/p></description></item><item><title>DTrace: Real-time Problem Detection</title><link>https://wiki.deimos.fr/DTrace_:_d%C3%A9tection_de_probl%C3%A8mes_en_temps_r%C3%A9el/</link><pubDate>Fri, 26 Dec 2008 18:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/DTrace_:_d%C3%A9tection_de_probl%C3%A8mes_en_temps_r%C3%A9el/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/DTrace" rel="external" target="_blank">DTrace&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a tracing system designed by Sun Microsystems for real-time problem detection at both kernel and application levels. It has been available since November 2003 and was integrated as part of Solaris 10 in January 2005. DTrace is the first component of the OpenSolaris project whose code was released under the Common Development and Distribution License (CDDL).&lt;/p></description></item><item><title>Make Unsupported Network Cards Work with Solaris</title><link>https://wiki.deimos.fr/make-unsupported-network-cards-work-with-solaris/</link><pubDate>Sun, 21 Dec 2008 16:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/make-unsupported-network-cards-work-with-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I recently faced an issue with network card recognition for my home server. I have two D-Link DGE-530T gigabit network cards, and unfortunately, they don&amp;rsquo;t work out of the box with Solaris. No need to panic though - as the drivers exist under BSD license, they have been ported and some even packaged.&lt;/p>
+&lt;p>This was my case for these DLINK cards. I&amp;rsquo;ll share the approach I followed to get my two cards working, and I&amp;rsquo;ll provide reference links in case you have other network cards that need to be recognized.&lt;/p></description></item><item><title>Encrypting a Password with MD5</title><link>https://wiki.deimos.fr/Crypter_un_mot_de_passe_en_MD5/</link><pubDate>Wed, 17 Dec 2008 16:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Crypter_un_mot_de_passe_en_MD5/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MD5 hashing allows you to verify the integrity of a file. In short, it creates a fingerprint that helps you verify (after a transfer, for example) whether the file arrived correctly and is not corrupted.&lt;/p>
+&lt;p>Today, MD5 encryption has been broken, and it&amp;rsquo;s possible to simulate a fake fingerprint. Therefore, you should be careful about how you use it. Personally, I use it to verify the integrity of downloaded files (as it&amp;rsquo;s a very common method). For example, when I download Sun Cluster, I verify the MD5 hash to ensure the installation is complete and not corrupted.&lt;/p></description></item><item><title>Changing Hostname on Solaris</title><link>https://wiki.deimos.fr/Changer_le_hostname_de_sa_solaris/</link><pubDate>Fri, 05 Dec 2008 14:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Changer_le_hostname_de_sa_solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>While there are things about Solaris that can be frustrating, this is one aspect where it&amp;rsquo;s impressive! You don&amp;rsquo;t need to restart your machine to change the hostname - it updates live. I have to admit that&amp;rsquo;s pretty cool.&lt;/p>
+&lt;h2 id="temporary-method">Temporary Method &lt;a href="#temporary-method" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the temporary method (which will be lost after reboot):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7fd31ba" class="language-bash ">
+ &lt;code>hostname machine_name&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And to verify:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="817dad2" class="language-bash ">
+ &lt;code>hostname&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="manual-method">Manual Method &lt;a href="#manual-method" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The method provided here doesn&amp;rsquo;t use any utilities.&lt;/p></description></item><item><title>Setting up VNC server on Solaris</title><link>https://wiki.deimos.fr/Mise_en_place_de_vncserver_sur_Solaris/</link><pubDate>Wed, 03 Dec 2008 15:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_vncserver_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris, my love! You who never have packages and are never very convenient to use! In short, my difficult love! And yes, VNC server is doable! Recompiling manually is too difficult and time-consuming, so I opted for packages. But even that isn&amp;rsquo;t all roses!&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Add this line to your profile:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5ad5131" class="language-bash ">
+ &lt;code>PATH=$PATH:/usr/openwin/bin:/usr/X11/bin&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="method-2">Method 2 &lt;a href="#method-2" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For prerequisites, you need pkg-get! Then let&amp;rsquo;s get started:&lt;/p></description></item><item><title>Using the Web Console</title><link>https://wiki.deimos.fr/Utiliser_la_webconsole/</link><pubDate>Thu, 27 Nov 2008 15:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utiliser_la_webconsole/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The web console is a tool that allows you to access SUN application management via a web interface. For example, it&amp;rsquo;s possible to administer ZFS pools and partitions or manage your cluster entirely through a web interface.&lt;/p>
+&lt;p>This is very convenient for the average user and even more so when you can save time by delegating recurring tasks to a third party (non-experienced) person. That&amp;rsquo;s why I find the web console very useful. To use it, simply connect to this address: https://127.0.0.1:6789&lt;/p></description></item><item><title>Removing User Limitations</title><link>https://wiki.deimos.fr/Enlever_les_limitation_utilisateurs/</link><pubDate>Tue, 21 Oct 2008 17:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Enlever_les_limitation_utilisateurs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At work, I experienced an issue with JVM memory where Xmx and Xms were set to 4.5GB, and part of the memory was going to swap until a Full GC triggered, at which point the reserved memory (RSS) that had gone to swap returned to RAM.&lt;/p>
+&lt;p>The warning messages I received were:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2974d4e" class="language- ">
+ &lt;code>pages faults&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>I searched quite a bit before finding a solution.&lt;/p>
+&lt;h2 id="removing-user-limitations">Removing User Limitations &lt;a href="#removing-user-limitations" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, for the JVM, you need to add an option at launch:&lt;/p></description></item><item><title>Debugging a JVM Crash</title><link>https://wiki.deimos.fr/Debugger_un_crash_de_JVM/</link><pubDate>Sun, 20 Apr 2008 11:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debugger_un_crash_de_JVM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have an application that has problems such as crashing, but the port and process remain up anyway. This happened to me particularly with Atlassian&amp;rsquo;s Confluence wiki.&lt;/p>
+&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The application crashes, yet it still remains up at the process and port level. Therefore, we need to debug the JVM.&lt;/p>
+&lt;p>I won&amp;rsquo;t explain in detail how a JVM works, but here are the basics:&lt;/p>
+&lt;ul>
+&lt;li>The minimum memory allocated to an application is defined by the Xms option. At startup, the application will consume the value of Xms (in this case 1GB).&lt;/li>
+&lt;li>The maximum memory allocated to the application is defined by the Xmx option. The application will therefore reserve (in this case) 1GB of RAM that can be used &lt;strong>only&lt;/strong> by the JVM.&lt;/li>
+&lt;li>For choosing Xms and Xmx values, it&amp;rsquo;s sufficient to check the memory consumption (generally the application provides this information).&lt;/li>
+&lt;li>Garbage Collections (GC or memory purging) happen regularly when reaching approximately 90% to 95% of Xmx. This frees up memory space from stored objects. The disadvantage is that when this Full GC operates, the application temporarily freezes. During this period, it&amp;rsquo;s no longer possible to access the application. Full GCs may chain together if the Xmx is too low since they launch too frequently, which can completely freeze the application.&lt;/li>
+&lt;/ul>
+&lt;h2 id="changing-boot-options">Changing Boot Options &lt;a href="#changing-boot-options" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s an example of how to enable loggc which will allow us to see if the JVM is doing too many GCs, or performing a Full GC:&lt;/p></description></item><item><title>Convert MySQL RC Script to SMF</title><link>https://wiki.deimos.fr/Convertir_le_script_RC_de_MySQL_vers_un_SMF/</link><pubDate>Sun, 20 Apr 2008 08:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertir_le_script_RC_de_MySQL_vers_un_SMF/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris 10 and later now supplies MySQL as part of the OS, provided you&amp;rsquo;ve installed the &amp;ldquo;SUNWmysql[rtu]&amp;rdquo; pkgs, but it&amp;rsquo;s started via a legacy RC script still. This document details how to create an SMF manifest to start MySQL instead.&lt;/p>
+&lt;p>Note: This process is only needed if you are running Solaris 10, or you wish to use the MySQL 4.x installation that is supplied with Nevada. Later builds of Nevada (I believe snv_79 and later) now come with MySQL 5.0 and includes a service manifest for this version.&lt;/p></description></item><item><title>Setting up Nagios NRPE on Solaris 10</title><link>https://wiki.deimos.fr/Mise_en_place_de_Nagios_NRPE_sur_Solaris_10/</link><pubDate>Sat, 05 Apr 2008 10:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Nagios_NRPE_sur_Solaris_10/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Traditionally Linux is the platform of choice for running Nagios however Solaris takes some beating for performance and reliability. Installing Nagios on Solaris is pretty straightforward however there are some tricks to make the install smoother.&lt;/p>
+&lt;p>Usually our installation comprises Nagios 2.0, Nagios Plugins 1.4.2 and NRPE 2.4 so we&amp;rsquo;ll cover these here.&lt;/p>
+&lt;p>Our target system is a Sun Ultra 60 so we&amp;rsquo;re using the SPARC version of Solaris 10. The same principles should apply to Solaris on Intel though.&lt;/p></description></item><item><title>SSH: Setting up SSH Server on a Minimal Solaris Installation</title><link>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</link><pubDate>Sat, 05 Apr 2008 10:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</guid><description>&lt;p>If you need to manage a Solaris 10 box with a minimal install, and SSH is not available, you can install it off of the 2nd CD. Rather than figure out the path to your CDROM (see this article), it was easier in our case to just tar up the needed packages and FTP them to our Solaris box:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de8f50" class="language-bash ">
+ &lt;code>root@srv-3 Product # cp -R SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr 
+SUNWsshu /home/srv-1/sshpkg/
+root@srv-3 Product # cd /home/srv-1/sshpkg/
+root@srv-3 sshpkg # ls
+SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr SUNWsshu
+root@srv-3 sshpkg # tar -cf ../ssh.tar *
+root@srv-3 sshpkg # tar -tf ../ssh.tar
+SUNWsshcu/
+SUNWsshcu/archive/
+.
+.
+.
+SUNWsshu/reloc/
+SUNWsshu/reloc/usr/
+SUNWsshu/reloc/usr/bin/
+SUNWsshu/reloc/usr/lib/
+SUNWsshu/reloc/usr/lib/ssh/
+root@srv-3 sshpkg #&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>On the Solaris side, FTP these to /tmp, then from tmp:&lt;/p></description></item><item><title>Linux-Unix Cheat Sheets - The Ultimate Collection</title><link>https://wiki.deimos.fr/Linux-Unix_cheat_sheets_-_The_ultimate_collection/</link><pubDate>Sun, 10 Feb 2008 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Linux-Unix_cheat_sheets_-_The_ultimate_collection/</guid><description>&lt;h2 id="linux-command-line-cheat-sheets">Linux Command Line Cheat Sheets &lt;a href="#linux-command-line-cheat-sheets" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/linuxrefcard.pdf">Linux reference card&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.tuxfiles.org/linuxhelp/linuxcommands.html" rel="external" target="_blank">http://www.tuxfiles.org/linuxhelp/linuxcommands.html&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.redhat.com/docs/manuals/linux/RHL-6.2-Manual/getting-started-guide/ch-doslinux.html" rel="external" target="_blank">http://www.redhat.com/docs/manuals/linux/RHL-6.2-Manual/getting-started-guide/ch-doslinux.html&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://theory.chem.umn.edu/~mayaan/command.html" rel="external" target="_blank">http://theory.chem.umn.edu/~mayaan/command.html&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.linuxhelp.net/guides/cheats/" rel="external" target="_blank">http://www.linuxhelp.net/guides/cheats/&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/the_one_page_linux_manual.pdf">The One Page Linux Manual&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/linux_security_quick_reference_guide.pdf">Linux Security Quick Reference Guide&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/linux_system_call_quick_reference.pdf">LINUX System Call Quick Reference&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.oreillynet.com/linux/cmd/" rel="external" target="_blank">http://www.oreillynet.com/linux/cmd/&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://wiki.typo3.org/index.php/Linux_cheat_sheet" rel="external" target="_blank">http://wiki.typo3.org/index.php/Linux_cheat_sheet&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Advanced Usage of MediaWiki</title><link>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_de_Mediawiki/</link><pubDate>Sat, 13 Oct 2007 09:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_de_Mediawiki/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We&amp;rsquo;re very far from realizing how powerful MediaWiki truly is. Those who are familiar with Confluence (a wiki solution more targeted at businesses) know that MediaWiki is far ahead and can sometimes be complex when you want to add dynamic features to your wiki.&lt;/p>
+&lt;p>That&amp;rsquo;s why I&amp;rsquo;ll try to document the advanced uses of MediaWiki here.&lt;/p>
+&lt;p>If you&amp;rsquo;re just starting with MediaWiki, I recommend first reading &lt;a href="https://wiki.deimos.fr/MediaWiki:Installation_et_configuration/">this&lt;/a>.&lt;/p>
+&lt;h2 id="uses">Uses &lt;a href="#uses" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="tables">Tables &lt;a href="#tables" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="dynamic-modifications">Dynamic Modifications &lt;a href="#dynamic-modifications" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>You should read the &lt;a href="https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_de_Mediawiki/#simplification-of-table-writing">table writing simplification&lt;/a> before continuing. Edit your template and look at the example below:&lt;/p></description></item><item><title>Introduction and Architecture of Setting Up a SUN Cluster</title><link>https://wiki.deimos.fr/Introduction_et_Architechture_de_mise_en_place_d'un_Cluster_SUN/</link><pubDate>Thu, 11 Oct 2007 06:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_et_Architechture_de_mise_en_place_d'un_Cluster_SUN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The SUN Cluster Suite is also called SunPlex. I could not explain all here, and you should know well clustering basics.&lt;/p>
+&lt;h3 id="types-of-clusters">Types of Clusters &lt;a href="#types-of-clusters" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>There are 2 types of clusters:&lt;/p>
+&lt;ul>
+&lt;li>Cluster HA: High Availability Cluster&lt;/li>
+&lt;li>Cluster HPC: High Performance Computing&lt;/li>
+&lt;/ul>
+&lt;h3 id="definitions">Definitions &lt;a href="#definitions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Scalable: Add instances for the same application (e.g. Apache)&lt;/li>
+&lt;li>Unaware applications: non-clustered applications&lt;/li>
+&lt;li>SPOF: Single Point of Failure (e.g. Only one network card is on a node instead of two)&lt;/li>
+&lt;li>RGM: Resources Group Manager&lt;/li>
+&lt;li>Data Service: it&amp;rsquo;s an agent generated by RGM&lt;/li>
+&lt;li>IPMP: It controls network failures (&amp;gt; SunPlex v3.0) (Similar to Bonding on Linux)&lt;/li>
+&lt;li>DPM: Disk Path Monitoring (hard drive monitoring&amp;hellip;works with I/O access, so if no traffic runs on the drive, no error can be found)&lt;/li>
+&lt;li>Application Traffic Striping: Virtual private IP address (must be network class B &amp;lt; SunPlex v3.1)&lt;/li>
+&lt;li>SCI: This is a shared memory technology for clusters. With this each node can view the memory of each other.&lt;/li>
+&lt;li>Containers: Zones + RGM&lt;/li>
+&lt;li>Amnesia: Amnesia occurs when a node is booting but can&amp;rsquo;t join the cluster because another node hasn&amp;rsquo;t authorized it. So it&amp;rsquo;s waiting for authorization.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solaris-zone">Solaris Zone &lt;a href="#solaris-zone" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>A Solaris zone is a virtual zone that encapsulates a service (e.g. Apache). The advantage is that we can manage the maximum processor percentage or the maximum memory that the service can use. Many other features are available. A zone can be clustered &amp;gt; SunPlex v3.1; for older versions, you can cluster the global zone.&lt;/p></description></item><item><title>Authenticating Solaris Accounts on Active Directory</title><link>https://wiki.deimos.fr/Authentification_de_comptes_Solaris_sur_un_Active_Directory/</link><pubDate>Sat, 08 Sep 2007 11:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Authentification_de_comptes_Solaris_sur_un_Active_Directory/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Implementation of authentication on Solaris from an Active Directory (AD).&lt;/p>
+&lt;p>What this implementation allows for user management on a machine:&lt;/p>
+&lt;ul>
+&lt;li>Solaris accounts need to be created with an identifier identical to the AD one, with disk space.&lt;/li>
+&lt;li>Password verification is done via AD.&lt;/li>
+&lt;/ul>
+&lt;p>This document is based on a scenario of implementing this type of authentication on Solaris 9.&lt;/p>
+&lt;p>The concepts described here apply to all UNIX operating systems that support Kerberos version 5 protocol.&lt;/p></description></item><item><title>Creating an ISO Image</title><link>https://wiki.deimos.fr/Cr%C3%A9er_une_image_ISO/</link><pubDate>Tue, 14 Aug 2007 06:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_une_image_ISO/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Creating an ISO image in Windows can be somewhat tedious in some cases (e.g., bootable CDs, etc.). In Linux, one might think it would be complicated, but it&amp;rsquo;s actually very simple.&lt;/p>
+&lt;h2 id="method-using-cat">Method using cat &lt;a href="#method-using-cat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The easiest method:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="acfd655" class="language-bash ">
+ &lt;code>cat /dev/hda &amp;gt; ~/image.iso&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>hda: corresponds to your CD device (using &lt;code>/dev/cdrom&lt;/code> should also work)&lt;/p>
+&lt;h2 id="method-using-dd">Method using dd &lt;a href="#method-using-dd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s another method that&amp;rsquo;s not much more complicated:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="752f01a" class="language-bash ">
+ &lt;code>dd if=/dev/cdrom of=winxp.iso&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And if you want compression afterward:&lt;/p></description></item><item><title>Some information about the machine</title><link>https://wiki.deimos.fr/Quelques_infos_sur_la_b%C3%A9cane/</link><pubDate>Fri, 16 Mar 2007 14:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Quelques_infos_sur_la_b%C3%A9cane/</guid><description>&lt;p>To know the available CPUs on the machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="45f71f8" class="language-bash ">
+ &lt;code>psrinfo -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To have all the information about the machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="78f29a8" class="language-bash ">
+ &lt;code>sysdef&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Get Unix Format Time on Solaris</title><link>https://wiki.deimos.fr/Obtenir_l'heure_au_format_Unix_sous_Solaris/</link><pubDate>Tue, 06 Mar 2007 16:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Obtenir_l'heure_au_format_Unix_sous_Solaris/</guid><description>&lt;h2 id="getting-unix-format-time-on-solaris">Getting Unix Format Time on Solaris &lt;a href="#getting-unix-format-time-on-solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a little script to obtain Unix format on Solaris (Epoch Time):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="eabf39e" class="language-bash ">
+ &lt;code>#!/bin/sh
+/usr/bin/truss /usr/bin/date 2&amp;gt;&amp;amp;1 | nawk -F= &amp;#39;/^time\(\)/ {gsub(/ /,&amp;#34;&amp;#34;,$2);print $2}&amp;#39;
+exit $?&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And finally, let&amp;rsquo;s see it in action:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f8e6970" class="language-bash ">
+ &lt;code># ./edate
+1149276150&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>User Management</title><link>https://wiki.deimos.fr/Gestion_des_utilisateurs/</link><pubDate>Thu, 30 Nov 2006 18:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gestion_des_utilisateurs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here we&amp;rsquo;re going to see how to manage users.&lt;/p>
+&lt;h2 id="passwd">passwd &lt;a href="#passwd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Due to the critical nature of the &lt;code>/etc/passwd&lt;/code> file, you should refrain from editing this file directly. Instead, you should use the Solaris Management Console or command-line tools to maintain the file.&lt;/p>
+&lt;p>The following is an example of an &lt;code>/etc/passwd&lt;/code> file that contains the default system account entries.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f0b7a08" class="language-bash ">
+ &lt;code>root:x:0:0:Super-User:/:/sbin/sh
+daemon:x:1:1::/:
+bin:x:2:2::/usr/bin:
+sys:x:3:3::/:
+adm:x:4:4:Admin:/var/adm:
+lp:x:71:8:Line Printer Admin:/usr/spool/lp:
+uucp:x:5:5:uucp Admin:/usr/lib/uucp:
+nuucp:x:9:9:uucp Admin:/var/spool/uucppublic:/usr/lib/uucp/uucico
+smmsp:x:25:25:SendMail Message Submission Program:/:
+listen:x:37:4:Network Admin:/usr/net/nls:
+gdm:x:50:50:GDM Reserved UID:/:
+webservd:x:80:80:WebServer Reserved UID:/:
+nobody:x:60001:60001:NFS Anonymous Access User:/:
+noaccess:x:60002:60002:No Access User:/:
+nobody4:x:65534:65534:SunOS 4.x NFS Anonymous Access User:/:&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Each entry in the &lt;code>/etc/passwd&lt;/code> file contains seven fields. A colon separates each field. The following is the format for an entry:&lt;/p></description></item><item><title>OpenBoot PROM, BIOS Management</title><link>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</link><pubDate>Wed, 29 Nov 2006 09:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The PROM is the equivalent of the BIOS or EFI on a standard x86 system.&lt;/p>
+&lt;h2 id="approach">Approach &lt;a href="#approach" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To know your PROM version:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="818bf32" class="language-bash ">
+ &lt;code>/usr/platform/`uname -m`/sbin/prtdiag -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c1ab015" class="language-bash ">
+ &lt;code>prtconf -V&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="nvram">NVRAM &lt;a href="#nvram" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The NVRAM can be modified by a user to change some options on the machine:&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/sun-prom-nvram.gif" alt="NVRAM" loading="lazy">
+
+&lt;/p>
+&lt;p>Once the NVRAM is stored on the chipset, during the PROM call at boot, it will check the user&amp;rsquo;s preferences at the NVRAM level in order to apply them.&lt;/p></description></item><item><title>Patching Solaris</title><link>https://wiki.deimos.fr/Patcher_sa_Solaris/</link><pubDate>Tue, 28 Nov 2006 18:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Patcher_sa_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I won&amp;rsquo;t go into detailed explanation of what a patch is, but you should know that by applying patches (fixes), you can eliminate bugs and security vulnerabilities.&lt;/p>
+&lt;h2 id="detecting-patches">Detecting Patches &lt;a href="#detecting-patches" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a5f6c69" class="language-bash ">
+ &lt;code>showrev -p&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a8b8e99" class="language- ">
+ &lt;code>Patch: 106793-01 Obsoletes: Requires: Incompatibles: Packages: SUNWhea . . .&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="16a7229" class="language-bash ">
+ &lt;code>patchadd -p&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="259048f" class="language- ">
+ &lt;code>Patch: 106793-01 Obsoletes: Requires: Incompatibles: Packages: SUNWhea 
+. . .&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>These versions should be identical. If they&amp;rsquo;re not, it means a patch has been applied.&lt;/p></description></item><item><title>Spam Reinjection for Testing</title><link>https://wiki.deimos.fr/R%C3%A9injection_de_Spams_pour_tests/</link><pubDate>Tue, 03 Oct 2006 13:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9injection_de_Spams_pour_tests/</guid><description>&lt;p>I need to reinject spam for testing on a server&amp;hellip; but using the simple &lt;code>mail&lt;/code> command is not sufficient to reinject messages with their headers&amp;hellip;&lt;/p>
+&lt;p>We&amp;rsquo;ll use the sendmail command (even for Postfix):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ec1a089" class="language-bash ">
+ &lt;code>for i in message.*; do cat &amp;#34;$i&amp;#34; | sendmail -f from@domain.tld to@domain.tld ;done&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The Postfix sendmail command implements the Postfix to Sendmail compatibility interface:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="98b8dbe" class="language-bash ">
+ &lt;code>-f sender
+Set the envelope sender address. This is the address where delivery problems are sent to, unless the message contains an Errors-To: message header.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To get &amp;ldquo;fresh&amp;rdquo; spam samples, you can use &lt;a href="https://www.spamarchive.org/" rel="external" target="_blank">SpamArchive.org&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item></channel></rss>

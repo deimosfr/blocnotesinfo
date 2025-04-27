@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MySQL on Tech Notebook</title><link>https://wiki.deimos.fr/categories/mysql/</link><description>Recent content in MySQL on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/mysql/index.xml" rel="self" type="application/rss+xml"/><item><title>Piwik: Statistics for Your Website</title><link>https://wiki.deimos.fr/Piwik_:_Des_statistiques_pour_votre_site_web/</link><pubDate>Sat, 12 Jul 2014 09:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Piwik_:_Des_statistiques_pour_votre_site_web/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/piwik-logo.jpg" alt="Piwik Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve been using &lt;a href="https://piwik.org/" rel="external" target="_blank">Piwik&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> for over a year and hadn&amp;rsquo;t written an article about it yet. This is the opportunity to show you this equivalent to Google Analytics.&lt;/p></description></item><item><title>MySQL: Installation and Configuration</title><link>https://wiki.deimos.fr/MySQL_:_Installation_et_configuration/</link><pubDate>Wed, 09 Apr 2014 16:39:00 +0200</pubDate><guid>https://wiki.deimos.fr/MySQL_:_Installation_et_configuration/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mysql_logo.jpeg" alt="MySQL Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Mysql" rel="external" target="_blank">MySQL&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a relational SQL database server developed with a focus on high performance. It is multi-threaded, robust, and multi-user. It is open-source software developed under a dual license depending on its use: in an open-source product or in a proprietary product. In the latter case, the license is paid; otherwise, it&amp;rsquo;s free.&lt;/p></description></item><item><title>MySQL: Backups, Restorations and Transfers</title><link>https://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts/</link><pubDate>Fri, 15 Nov 2013 12:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mysql_logo.jpeg" alt="MySQL Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="backups">Backups &lt;a href="#backups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="mysqldump">mysqldump &lt;a href="#mysqldump" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In my opinion, this is THE best method. It&amp;rsquo;s provided as standard and works very well. &lt;strong>However, be careful with large databases&lt;/strong>. If you have large databases, then look at &lt;a href="./xtrabackup_:_optimiser_ses_backups_mysql.html">XtraBackup&lt;/a>.&lt;/p>
+&lt;p>Its use with a shell is as follows (for small databases):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f226034" class="language-bash ">
+ &lt;code>mysqldump -uUSER -pPASSWORD -e --single-transaction --opt DATABASE &amp;gt; backup-`date &amp;#43;%y%m%d`.sql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To back up all databases at once:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1dcd221" class="language-bash ">
+ &lt;code>mysqldump -uUSER -pPASSWORD --all-databases &amp;gt; backup-`date &amp;#43;%y%m%d`.sql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>There are also other options:&lt;/p></description></item><item><title>Tiny Tiny RSS: An Alternative to Google Reader</title><link>https://wiki.deimos.fr/Tiny_Tiny_RSS_:_Une_alternative_%C3%A0_Google_Reader/</link><pubDate>Sat, 29 Jun 2013 16:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tiny_Tiny_RSS_:_Une_alternative_%C3%A0_Google_Reader/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/tinytinyrss_logo.png" alt="Tiny Tiny RSS Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For years I&amp;rsquo;ve been happily using Google Reader. But increasingly, I&amp;rsquo;m reading from RSS feeds about people who have lost their data through Google. Even in enterprise mode, it&amp;rsquo;s not possible today to easily and automatically back up your data.&lt;/p>
+&lt;p>I&amp;rsquo;ve therefore chosen not to leave my data with Google and to take care of it myself. I&amp;rsquo;ve selected &lt;a href="https://tt-rss.org" rel="external" target="_blank">Tiny Tiny RSS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> which aims to be a very good alternative to Google Reader.&lt;/p></description></item><item><title>MysqlTuner: Optimizing Your MySQL Server</title><link>https://wiki.deimos.fr/MysqlTuner_:_Optimiser_votre_serveur_MySQL/</link><pubDate>Thu, 06 Jun 2013 09:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/MysqlTuner_:_Optimiser_votre_serveur_MySQL/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mysql_logo.jpeg" alt="MySQL Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MySQL is widely used in business environments but can become very complex when managing databases of significant size. We need to check cache, memory usage, and look for optimization opportunities in various areas.&lt;/p>
+&lt;p>This documentation will not only cover MysqlTuner, but also how to optimize your MySQL server in general.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installing MysqlTuner is fairly simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="214468d" class="language-bash ">
+ &lt;code>apt-get install mysqltuner&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply launch mysqltuner with the correct connection rights to your database:&lt;/p></description></item><item><title>Using MySQL</title><link>https://wiki.deimos.fr/Utilisation_de_MySQL/</link><pubDate>Fri, 25 Jan 2013 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utilisation_de_MySQL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are some solutions that will hopefully save you time.&lt;/p>
+&lt;h2 id="converting-a-latin1-database-to-utf8">Converting a Latin1 Database to UTF8 &lt;a href="#converting-a-latin1-database-to-utf8" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the magic command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f207785" class="language-bash ">
+ &lt;code>mysqldump --add-drop-table -uroot -p &amp;#34;DB_name&amp;#34; | replace CHARSET=latin1 CHARSET=utf8 | iconv -f latin1 -t utf8 | mysql -uroot -p &amp;#34;DB_name&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="adding-a-prefix-to-all-tables-in-a-database">Adding a Prefix to All Tables in a Database &lt;a href="#adding-a-prefix-to-all-tables-in-a-database" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to add a prefix to all tables in a database:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="72f9b17" class="language-sql ">
+ &lt;code>SELECT Concat(&amp;#39;ALTER TABLE &amp;#39;, TABLE_NAME, &amp;#39; RENAME TO my_prefix_&amp;#39;, TABLE_NAME, &amp;#39;;&amp;#39;) FROM information_schema.TABLES WHERE table_schema = &amp;#39;my_database&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You just need to replace:&lt;/p></description></item><item><title>PowerAdmin: An Administration Interface for PowerDNS</title><link>https://wiki.deimos.fr/PowerAdmin_:_Une_interface_d'administration_pour_PowerDNS/</link><pubDate>Tue, 15 May 2012 15:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/PowerAdmin_:_Une_interface_d'administration_pour_PowerDNS/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweradmin_logo.png" alt="PowerAdmin" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.1.6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.poweradmin.org" rel="external" target="_blank">PowerAdmin Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PowerAdmin is an administration interface for PowerDNS. It&amp;rsquo;s built with PHP and allows you to manage much more than the basic functionality of PowerDNS.&lt;/p></description></item><item><title>PowerDNS: Creating a Master DNS Server</title><link>https://wiki.deimos.fr/PowerDNS_:_Cr%C3%A9er_serveur_DNS_maitre/</link><pubDate>Tue, 15 May 2012 14:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/PowerDNS_:_Cr%C3%A9er_serveur_DNS_maitre/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/powerdns_logo.png" alt="PowerDNS" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.9.22&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.powerdns.com" rel="external" target="_blank">PowerDNS Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PowerDNS is (as its name suggests) a DNS server. It&amp;rsquo;s a direct competitor to Bind. It aims to be less memory-intensive and offers more flexible configuration options than Bind.&lt;/p></description></item><item><title>Purging MySQL Binary Logs</title><link>https://wiki.deimos.fr/Purger_les_mysql-bin_logs/</link><pubDate>Fri, 02 Dec 2011 08:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Purger_les_mysql-bin_logs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Slow query logs and binary logs are essential for several purposes in MySQL. In this documentation, we&amp;rsquo;ll see how to manage them. This is particularly useful when you&amp;rsquo;re running low on disk space.&lt;/p>
+&lt;h2 id="slow-query-logs">Slow Query Logs &lt;a href="#slow-query-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction-1">Introduction &lt;a href="#introduction-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Slow query logs are simply standard logs. They can be managed like standard server logs.&lt;/p>
+&lt;h3 id="flush-logs">Flush Logs &lt;a href="#flush-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To flush logs, simply run this command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="668effd" class="language-bash ">
+ &lt;code>echo &amp;#34;&amp;#34; &amp;gt; slow-query.log&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="rotate-logs">Rotate Logs &lt;a href="#rotate-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5823ebd" class="language-bash ">
+ &lt;code>mv slow-query.log slow-query.log.old
+mysqladmin flush-logs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="binary-logs">Binary Logs &lt;a href="#binary-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction-2">Introduction &lt;a href="#introduction-2" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You might find a large number of bin files in the MySQL data directory called &amp;ldquo;server-bin.n&amp;rdquo; or mysql-bin.00000n, where n is an incrementing number. Usually &lt;code>/var/lib/mysql&lt;/code> stores the binary log files. The binary log contains all statements that update data or potentially could have updated it. For example, a DELETE or UPDATE which matched no rows. Statements are stored in the form of events that describe the modifications. The binary log also contains information about how long each statement that updated data took to execute.&lt;/p></description></item><item><title>NDOUtils: Sending States to a Database</title><link>https://wiki.deimos.fr/NDOUtils_:_Envoyer_les_%C3%A9tats_en_base_de_donn%C3%A9e/</link><pubDate>Wed, 07 Jul 2010 08:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/NDOUtils_:_Envoyer_les_%C3%A9tats_en_base_de_donn%C3%A9e/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>NDO is an additional module allowing Nagios to write the state of the machines and services to be monitored in a database.&lt;/p>
+&lt;p>NDO is made up of two modules: NDOMOD and NDO2DB.&lt;/p>
+&lt;p>NDOMOD must be launched on the Nagios server and retrieves the information reported by Nagios to transmit it via TCP (or a Unix socket) to NDO2DB.&lt;/p>
+&lt;p>NDO2DB is a daemon that listens on a TCP port (or a Unix socket) and writes the received data to a database (MySQL or PgSQL).&lt;/p></description></item><item><title>Symfony: Installation and Configuration of the PHP Framework</title><link>https://wiki.deimos.fr/Symfony_:_Installation_et_configuration_du_framework_PHP/</link><pubDate>Sun, 02 May 2010 20:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Symfony_:_Installation_et_configuration_du_framework_PHP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.symfony-project.org" rel="external" target="_blank">Symfony&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a free MVC framework written in PHP 5. As a framework, it facilitates and accelerates the development of Internet and Intranet websites and applications.&lt;/p></description></item><item><title>Running Multiple MySQL Instances on Solaris</title><link>https://wiki.deimos.fr/Lancer_plusieurs_instances_de_MySQL_sur_Solaris/</link><pubDate>Fri, 29 Jan 2010 06:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lancer_plusieurs_instances_de_MySQL_sur_Solaris/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download MySQL&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d66a35" class="language-bash ">
+ &lt;code>wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.41-solaris10-x86_64.pkg.gz/from/http://mir2.ovh.net/ftp.mysql.com/&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Create the MySQL user&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2bf9848" class="language-bash ">
+ &lt;code>groupadd mysql
+useradd -g mysql -s /bin/false -d /var/empty mysql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Verify that the user is properly created&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9a060f8" class="language-bash ">
+ &lt;code># finger mysql
+Login name: mysql
+Directory: /var/empty Shell: /bin/sh
+Never logged in.
+No unread mail
+No Plan.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Decompress the MySQL archive and install it&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7cb8898" class="language-bash ">
+ &lt;code>gunzip mysql-5.1.41-solaris10-x86_64.pkg.gz
+pkgadd -d mysql-5.1.41-solaris10-x86_64.pkg&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="mycnf">my.cnf &lt;a href="#mycnf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create two distinct configuration files by changing:&lt;/p></description></item><item><title>Vsftpd: Setting up virtual hosts with MySQL</title><link>https://wiki.deimos.fr/Vsftpd_:_Mise_en_place_d%27h%C3%B4tes_virtuels_avec_MySQL/</link><pubDate>Thu, 21 Jan 2010 13:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vsftpd_:_Mise_en_place_d%27h%C3%B4tes_virtuels_avec_MySQL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Vsftpd" rel="external" target="_blank">vsFTPd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, short for Very Secure FTP Daemon, is a free, simple, and secure FTP server.&lt;/p>
+&lt;p>It was developed with the best possible security in mind to address vulnerabilities in classic FTP servers.&lt;/p></description></item><item><title>Installation and Configuration of a Centreon Server</title><link>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Centreon/</link><pubDate>Sun, 23 Aug 2009 07:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Centreon/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Centreon is one of the most flexible and powerful GPL-licensed monitoring software solutions. It&amp;rsquo;s built on top of the OpenSource Nagios technology.&lt;/p>
+&lt;p>Designed for a wide range of users, it&amp;rsquo;s perfectly suited for measuring system, network, and application indicators. Centreon brings together essential functions for managing monitoring of critical infrastructures. Being modular, it adapts to your needs and allows you to extend its functionality further.&lt;/p>
+&lt;p>For my part, I chose to move from Nagios 3 to Centreon to get graphics and reporting capabilities.&lt;/p></description></item><item><title>PhpMyAdmin: Installation and Configuration</title><link>https://wiki.deimos.fr/PhpMyAdmin_:_Installation_et_configuration/</link><pubDate>Sat, 09 May 2009 08:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/PhpMyAdmin_:_Installation_et_configuration/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>phpMyAdmin (pronounced &amp;ldquo;p h p my admin&amp;rdquo;) is a free, user-friendly interface written in PHP for the MySQL DBMS to facilitate the management of MySQL databases on a server, and is distributed under the GNU GPL license.&lt;/p>
+&lt;p>It is one of the most famous interfaces for managing a MySQL database on a PHP server. Many hosting providers, whether free or paid, offer it, which means the user doesn&amp;rsquo;t have to install it. Among them, we can mention Free or Lycos Multimania.&lt;/p></description></item><item><title>MediaTomb: Setting up a multimedia (UPnP) server</title><link>https://wiki.deimos.fr/MediaTomb_:_Mise_en_place_d%27un_serveur_multim%C3%A9dia_%28UPnP%29/</link><pubDate>Thu, 23 Apr 2009 19:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/MediaTomb_:_Mise_en_place_d%27un_serveur_multim%C3%A9dia_%28UPnP%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MediaTomb is a multimedia server capable of streaming movies, music, and photos. It&amp;rsquo;s very practical for game consoles like Xbox360 or PlayStation 3, but has many other uses as well.&lt;/p>
+&lt;p>For example, if you have a machine that contains movies but isn&amp;rsquo;t connected to your TV screen, you need something to relay the content. This is where a PlayStation 3, for instance, comes in. However, it needs to know where to find the movies, so you need to install a UPnP server on your machine.&lt;/p></description></item><item><title>GreenSQL: Preventing SQL Injections with GreenSQL</title><link>https://wiki.deimos.fr/GreenSQL:_Eviter_les_injections_SQL_avec_GreenSQL/</link><pubDate>Wed, 28 Jan 2009 03:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/GreenSQL:_Eviter_les_injections_SQL_avec_GreenSQL/</guid><description>&lt;p>SQL injections are common hacking methods that deserve special attention. Here is some documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/preventing_mysql_injection_attacks_with_greensql.pdf">Documentation on Preventing MySQL Injection Attacks With GreenSQL&lt;/a>&lt;/p></description></item><item><title>DaloRADIUS: Setting up a FreeRadius server with DaloRADIUS web interface</title><link>https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d'un_serveur_FreeRadius_avec_interface_web_Daloradius/</link><pubDate>Wed, 24 Sep 2008 12:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d'un_serveur_FreeRadius_avec_interface_web_Daloradius/</guid><description>&lt;p>Here is documentation that allows you to set up FreeRadius with MySQL account management and a web interface with DaloRADIUS:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/authentication_authorization_accounting_with_freeradius_mysql_backend_web_based_management_with_daloradius.pdf">Authentication Authorization Accounting with FreeRadius MySQL backend web based Management with DaloRADIUS&lt;/a>&lt;/p></description></item><item><title>PHP-syslog-ng: Interpretation of Syslog-ng logs in a web interface</title><link>https://wiki.deimos.fr/Php-syslog-ng_:_Interpr%C3%A9tation_des_logs_Syslog-ng_dans_une_interfa%C3%A7e_web/</link><pubDate>Wed, 23 Jul 2008 14:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Php-syslog-ng_:_Interpr%C3%A9tation_des_logs_Syslog-ng_dans_une_interfa%C3%A7e_web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://code.google.com/p/php-syslog-ng/" rel="external" target="_blank">php-syslog-ng&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a web application that allows you to format, search, and interpret logs. For searching, it requires logs to be in an SQL database, and for log interpretation, it&amp;rsquo;s specifically designed for Cisco logs.&lt;/p></description></item><item><title>Setting up a MySQL Proxy</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_Proxy_MySQL/</link><pubDate>Sun, 29 Jun 2008 12:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_Proxy_MySQL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is documentation for setting up a MySQL proxy that can also serve as a Load Balancer:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/installing_mysql_proxy.pdf">Installing MySQL Proxy&lt;/a>&lt;/p></description></item><item><title>MySQL Cluster Load Balanced with Heartbeat</title><link>https://wiki.deimos.fr/MySQL_Cluster_Load_Balanc%C3%A9_avec_Heartbeat/</link><pubDate>Mon, 16 Jun 2008 05:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/MySQL_Cluster_Load_Balanc%C3%A9_avec_Heartbeat/</guid><description>&lt;p>Here is documentation that requires good knowledge of &lt;a href="https://wiki.deimos.fr/MySQL_:_Installation_et_configuration/">MySQL replications&lt;/a> and &lt;a href="https://wiki.deimos.fr/Replication_Master_to_Master/">clustering&lt;/a> techniques.&lt;/p>
+&lt;p>It can save you a lot of time even if you have the necessary knowledge:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/load-balanced_mysql_cluster_with_mysql_5_1.pdf">Documentation on a Load-Balanced MySQL Cluster With MySQL 5.1&lt;/a>&lt;/p></description></item><item><title>Convert MySQL RC Script to SMF</title><link>https://wiki.deimos.fr/Convertir_le_script_RC_de_MySQL_vers_un_SMF/</link><pubDate>Sun, 20 Apr 2008 08:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertir_le_script_RC_de_MySQL_vers_un_SMF/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris 10 and later now supplies MySQL as part of the OS, provided you&amp;rsquo;ve installed the &amp;ldquo;SUNWmysql[rtu]&amp;rdquo; pkgs, but it&amp;rsquo;s started via a legacy RC script still. This document details how to create an SMF manifest to start MySQL instead.&lt;/p>
+&lt;p>Note: This process is only needed if you are running Solaris 10, or you wish to use the MySQL 4.x installation that is supplied with Nevada. Later builds of Nevada (I believe snv_79 and later) now come with MySQL 5.0 and includes a service manifest for this version.&lt;/p></description></item><item><title>NagVis: Map Your Architecture with Nagios Alerts</title><link>https://wiki.deimos.fr/NagVis:_Cartographier_son_architecture_avec_ses_alertes_nagios/</link><pubDate>Tue, 11 Mar 2008 07:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/NagVis:_Cartographier_son_architecture_avec_ses_alertes_nagios/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>NagVis is a really great product, easy to use but not to install. That&amp;rsquo;s why I did this documentation. You also need to install NDOUtils. We&amp;rsquo;ll see the installation too.&lt;/p>
+&lt;h2 id="ndoutils">NDOUtils &lt;a href="#ndoutils" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="prepair-system">Prepair System &lt;a href="#prepair-system" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Make sure your System meets the requirements:&lt;/p>
+&lt;ul>
+&lt;li>Nagios v2.X (stable) is running&lt;/li>
+&lt;li>mysql (Version &amp;gt; 4)&lt;/li>
+&lt;/ul>
+&lt;h3 id="download-ndoutils">Download NDOUtils &lt;a href="#download-ndoutils" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You can get the latest version of NDOUtils on the Nagios website &lt;a href="https://www.nagios.org/download/" rel="external" target="_blank">https://www.nagios.org/download/&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item><item><title>OpenFire: Installation of OpenFire</title><link>https://wiki.deimos.fr/OpenFire_:_Installation_d'OpenFire/</link><pubDate>Mon, 12 Nov 2007 15:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenFire_:_Installation_d'OpenFire/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenFire is currently the most functional Jabber server available. It offers very interesting features, though some are paid.&lt;/p>
+&lt;p>It&amp;rsquo;s still very integratable with technologies such as LDAP, Oracle, or MySQL.&lt;/p>
+&lt;h2 id="download">Download &lt;a href="#download" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it, it&amp;rsquo;s really not difficult. We download it from &lt;a href="https://www.igniterealtime.org/projects/openfire" rel="external" target="_blank">the official website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p></description></item><item><title>MySQL Replication Master to Slave</title><link>https://wiki.deimos.fr/Replication_Master_to_Slave/</link><pubDate>Mon, 09 Jul 2007 15:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Replication_Master_to_Slave/</guid><description>&lt;p>Here is documentation on how to manage MySQL Master to Slave replication.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/mysql_master_slave.pdf">MySQL Master to Slave Documentation&lt;/a>&lt;/p></description></item></channel></rss>

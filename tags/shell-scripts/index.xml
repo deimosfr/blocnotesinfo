@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shell Scripts on Tech Notebook</title><link>https://wiki.deimos.fr/tags/shell-scripts/</link><description>Recent content in Shell Scripts on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/shell-scripts/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL: Backups, Restorations and Transfers</title><link>https://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts/</link><pubDate>Fri, 15 Nov 2013 12:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mysql_logo.jpeg" alt="MySQL Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="backups">Backups &lt;a href="#backups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="mysqldump">mysqldump &lt;a href="#mysqldump" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In my opinion, this is THE best method. It&amp;rsquo;s provided as standard and works very well. &lt;strong>However, be careful with large databases&lt;/strong>. If you have large databases, then look at &lt;a href="./xtrabackup_:_optimiser_ses_backups_mysql.html">XtraBackup&lt;/a>.&lt;/p>
+&lt;p>Its use with a shell is as follows (for small databases):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f226034" class="language-bash ">
+ &lt;code>mysqldump -uUSER -pPASSWORD -e --single-transaction --opt DATABASE &amp;gt; backup-`date &amp;#43;%y%m%d`.sql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To back up all databases at once:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1dcd221" class="language-bash ">
+ &lt;code>mysqldump -uUSER -pPASSWORD --all-databases &amp;gt; backup-`date &amp;#43;%y%m%d`.sql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>There are also other options:&lt;/p></description></item></channel></rss>

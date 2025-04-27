@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>P2V on Tech Notebook</title><link>https://wiki.deimos.fr/tags/p2v/</link><description>Recent content in P2V on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/p2v/index.xml" rel="self" type="application/rss+xml"/><item><title>Xen Conversion P2V</title><link>https://wiki.deimos.fr/Xen_convertion_P2V/</link><pubDate>Tue, 04 Mar 2008 17:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_convertion_P2V/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>How to remedy the physical deterioration of a server (oldpc) by migrating the OS into a brand new Xen HVM domU.&lt;/p>
+&lt;h2 id="2-preparing-space-for-oldpc-on-the-xen-server">2 Preparing space for oldpc on the xen server &lt;a href="#2-preparing-space-for-oldpc-on-the-xen-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Create a disk image (20 GB size):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="994b296" class="language-bash ">
+ &lt;code>dd if=/dev/zero of=/vieuxpc/vieuxpc.hda.img bs=1024k count=20000&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Create a loop device corresponding to the entire disk image:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bfe1525" class="language-bash ">
+ &lt;code>losetup /dev/loop0 /vieuxpc/vieuxpc.hda.img&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Partition the image:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="57a5fb5" class="language-bash ">
+ &lt;code>fdisk /dev/loop0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>List the created partitions:&lt;/p></description></item></channel></rss>

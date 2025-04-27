@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dependencies on Tech Notebook</title><link>https://wiki.deimos.fr/tags/dependencies/</link><description>Recent content in Dependencies on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/dependencies/index.xml" rel="self" type="application/rss+xml"/><item><title>Find all dependencies related to a package</title><link>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</link><pubDate>Wed, 24 Sep 2008 15:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes it&amp;rsquo;s very practical to find all dependencies of a package. Here&amp;rsquo;s a useful command for this purpose.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e871358" class="language-bash ">
+ &lt;code>apt-get install apt-rdepends&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example search:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e3a52f4" class="language-bash ">
+ &lt;code>$ apt-rdepends libapache2-mod-php5
+Reading package lists... Done
+Building dependency tree... Done
+libapache2-mod-php5
+ Depends: apache2-mpm-itk
+ Depends: apache2-mpm-prefork (&amp;gt;&amp;gt; 2.0.52)
+ Depends: apache2.2-common
+ Depends: libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libdb4.4
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libmagic1
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libxml2 (&amp;gt;= 2.6.27)
+ Depends: mime-support (&amp;gt;= 2.03-1)
+ Depends: php5-common (= 5.2.0-8&amp;#43;etch1)
+ Depends: ucf
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+apache2-mpm-itk
+ Depends: apache2.2-common (= 2.2.3-4&amp;#43;etch5)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcap1
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+apache2.2-common
+ Depends: apache2-utils
+ Depends: libmagic1
+ Depends: lsb-base
+ Depends: mime-support
+ Depends: net-tools
+ Depends: procps
+apache2-utils
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libuuid1
+libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libuuid1
+libc6
+ Depends: tzdata
+tzdata
+libuuid1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libaprutil1
+ Depends: libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.7)
+ Depends: libuuid1
+libdb4.4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libexpat1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libldap2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgnutls13 (&amp;gt;= 1.4.0-0)
+ Depends: libsasl2-2
+libgnutls13
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: liblzo1
+ Depends: libopencdk8 (&amp;gt;= 0.5.8)
+ Depends: libtasn1-3 (&amp;gt;= 0.3.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+libgcrypt11
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgpg-error0 (&amp;gt;= 1.2)
+libgpg-error0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+liblzo1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libopencdk8
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+zlib1g
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libtasn1-3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libsasl2-2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.2
+libdb4.2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpq4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+libcomerr2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libkrb53
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+libssl0.9.8
+ Depends: debconf (&amp;gt;= 0.5)
+ Depends: debconf-2.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+debconf
+ Depends: debconf-english
+ Depends: debconf-i18n
+ PreDepends: perl-base (&amp;gt;= 5.6.1-4)
+debconf-english
+ Depends: debconf
+debconf-i18n
+ Depends: debconf
+ Depends: liblocale-gettext-perl
+ Depends: libtext-charwidth-perl
+ Depends: libtext-iconv-perl
+ Depends: libtext-wrapi18n-perl
+liblocale-gettext-perl
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+ PreDepends: perl-base (&amp;gt;= 5.8.7-3)
+ PreDepends: perlapi-5.8.7
+perl-base
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+perlapi-5.8.7
+libtext-charwidth-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+perlapi-5.8.8
+libtext-iconv-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+libtext-wrapi18n-perl
+ Depends: libtext-charwidth-perl
+debconf-2.0
+libsqlite3-0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpcre3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libmagic1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+lsb-base
+ Depends: ncurses-bin
+ Depends: sed
+ncurses-bin
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libncurses5 (&amp;gt;= 5.4-5)
+libncurses5
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+sed
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+mime-support
+net-tools
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+procps
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libncurses5 (&amp;gt;= 5.4-5)
+ Depends: lsb-base (&amp;gt;= 3.0-10)
+libcap1
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-4)
+apache2-mpm-prefork
+ Depends: apache2.2-common (= 2.2.3-4)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libxml2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+php5-common
+ Depends: sed (&amp;gt;= 4.1.1-1)
+ucf
+ Depends: coreutils (&amp;gt;= 5.91)
+ Depends: debconf (&amp;gt;= 1.2.0)
+ Depends: debconf-2.0
+coreutils
+ PreDepends: libacl1 (&amp;gt;= 2.2.11-1)
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libselinux1 (&amp;gt;= 1.32)
+libacl1
+ Depends: libattr1 (&amp;gt;= 2.4.4-1)
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libattr1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libselinux1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libsepol1 (&amp;gt;= 1.14)
+libsepol1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Debian: No More Dependency Errors When Configuring From Source</title><link>https://wiki.deimos.fr/Debian_:_Fini_les_erreurs_de_d%C3%A9pendances_quand_vous_voulez_configurer_des_sources/</link><pubDate>Tue, 28 Nov 2006 07:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Fini_les_erreurs_de_d%C3%A9pendances_quand_vous_voulez_configurer_des_sources/</guid><description>&lt;p>Imagine you want to install the latest version of xyz from source on your Debian system. You run ./configure and&amp;hellip; BLAM!!! You get a ton of errors because of libraries that aren&amp;rsquo;t installed.&lt;/p>
+&lt;p>Well, this won&amp;rsquo;t happen anymore, thanks to a very user-friendly utility called auto-apt.&lt;/p>
+&lt;p>To install it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9b7071c" class="language-bash ">
+ &lt;code>apt-get install auto-apt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, enjoy the pleasure of ./configure without errors. To use it, just type:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="95f8c7d" class="language-bash ">
+ &lt;code>auto-apt run ./configure&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>instead. That&amp;rsquo;s all. If apt detects an error due to a missing file, it will kindly offer to install it for you.&lt;/p></description></item></channel></rss>

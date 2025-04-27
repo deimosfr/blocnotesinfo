@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logging on Tech Notebook</title><link>https://wiki.deimos.fr/tags/logging/</link><description>Recent content in Logging on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/logging/index.xml" rel="self" type="application/rss+xml"/><item><title>Acct: The Ultimate Keyfinder</title><link>https://wiki.deimos.fr/Acct_Le_keyfinder_par_excellence/</link><pubDate>Mon, 06 May 2013 13:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/Acct_Le_keyfinder_par_excellence/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>In a production environment, it can be useful to know what each person is doing. This is particularly helpful when a mistake happens and nobody admits to it (yes, it happens). Novice hackers (aka script kiddies) who call themselves hackers because they&amp;rsquo;ve put a keylogger on a machine might also be interested in this. However, the purpose is obviously not the same.&lt;/p>
+&lt;p>Two commands are useful:&lt;/p>
+&lt;ul>
+&lt;li>sa: obtains statistics on process launches&lt;/li>
+&lt;li>lastcomm: obtains a list of commands launched by users&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The installation is done as follows:&lt;/p></description></item><item><title>Syslog-ng: Installation and Configuration of Syslog-ng</title><link>https://wiki.deimos.fr/Syslog-ng_:_Installation_et_configuration_de_Syslog-ng/</link><pubDate>Mon, 12 Dec 2011 20:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Syslog-ng_:_Installation_et_configuration_de_Syslog-ng/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.balabit.com/network-security/syslog-ng/opensource-logging-system/" rel="external" target="_blank">Syslog-ng&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a new generation system log manager. It allows you to centralize logs from machines in a computer network with incredible ease, and to sort them just as easily. This daemon is therefore essential for network administrators concerned about the performance of their machines.&lt;/p></description></item><item><title>Rsyslog: Installation and Configuration</title><link>https://wiki.deimos.fr/Rsyslog_:%C2%A0Installation_et_configuration_d%27Rsyslog/</link><pubDate>Thu, 06 Oct 2011 11:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rsyslog_:%C2%A0Installation_et_configuration_d%27Rsyslog/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Syslog is a standard for forwarding log messages in an IP network. The term &amp;ldquo;syslog&amp;rdquo; is often used for both the actual syslog protocol, as well as the application or library sending syslog messages.&lt;/p>
+&lt;p>Syslog is a client/server protocol: the syslog sender sends a small (less than 1KB) textual message to the syslog receiver. The receiver is commonly called &amp;ldquo;syslogd&amp;rdquo;, &amp;ldquo;syslog daemon&amp;rdquo; or &amp;ldquo;syslog server&amp;rdquo;. Syslog messages can be sent via UDP and/or TCP.&lt;/p></description></item><item><title>Monitoring Superuser Access</title><link>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</link><pubDate>Wed, 04 Feb 2009 18:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When the operating system is installed, a superuser is created, with an UID of 0. The usage of the su command is recorded in &lt;code>/var/adm/sulog&lt;/code>.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To record in the first place you need to do the following.
+In the file &lt;code>/etc/default/su&lt;/code>, uncomment the entry:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="11f017f" class="language-bash ">
+ &lt;code>SULOG=/var/adm/sulog.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Save it.&lt;/p>
+&lt;p>The entries look like this (&lt;code>/var/adm/sulog&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="48efe0e" class="language-bash ">
+ &lt;code>MO 02/18 14:21 &amp;#43; pts/0 nrocha-root
+TU 02/19 14:45 - pts/0 root-nrocha
+WE 02/20 19:47 &amp;#43; pts/0 amaria-nrocha&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>The first three columns show the time the event occurred.&lt;/li>
+&lt;li>The fourth column shows a - for failed access and a + for successful access.&lt;/li>
+&lt;li>The fifth column shows which port the access was made from.&lt;/li>
+&lt;li>The last column shows the name of the user who tried to switch users and the switched user.&lt;/li>
+&lt;/ul>
+&lt;p>Note: This procedure was tested on the Solaris 10 OS.&lt;/p></description></item></channel></rss>

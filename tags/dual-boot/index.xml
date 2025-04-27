@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dual Boot on Tech Notebook</title><link>https://wiki.deimos.fr/tags/dual-boot/</link><description>Recent content in Dual Boot on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/dual-boot/index.xml" rel="self" type="application/rss+xml"/><item><title>Installing Mac OS X and Ubuntu in Dual Boot</title><link>https://wiki.deimos.fr/Installer_Mac_OS_X_et_ubuntu_en_dual_boot/</link><pubDate>Sun, 05 Oct 2008 09:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_Mac_OS_X_et_ubuntu_en_dual_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to have Ubuntu alongside your Mac OS X on the same hard drive and be able to choose which OS to launch at boot time, then this article is for you.&lt;/p>
+&lt;h2 id="setup">Setup &lt;a href="#setup" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are the steps:&lt;/p>
+&lt;ul>
+&lt;li>Install Mac OS X&lt;/li>
+&lt;li>Install &lt;a href="https://refit.sourceforge.net/" rel="external" target="_blank">Refit&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and enable it:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4b5b7d8" class="language-bash ">
+ &lt;code>sudo /efi/refit/enable-always.sh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Once completed, launch Boot Camp and decide how much space you want to allocate&lt;/li>
+&lt;li>Reboot from the Ubuntu CD&lt;/li>
+&lt;li>Install &lt;a href="https://www.ubuntu-fr.org/" rel="external" target="_blank">Ubuntu&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>When Ubuntu reboots, go back to Mac OS X (as it&amp;rsquo;s impossible to boot Ubuntu for now)&lt;/li>
+&lt;li>Reinstall &lt;a href="https://refit.sourceforge.net/" rel="external" target="_blank">Refit&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> over the existing installation, then enable it again:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="04b0da1" class="language-bash ">
+ &lt;code>sudo /efi/refit/enable-always.sh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Now you can reboot to boot into Ubuntu :-)&lt;/li>
+&lt;/ul></description></item></channel></rss>

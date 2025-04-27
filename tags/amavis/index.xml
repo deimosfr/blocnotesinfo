@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Amavis on Tech Notebook</title><link>https://wiki.deimos.fr/tags/amavis/</link><description>Recent content in Amavis on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/amavis/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up an Antivirus (ClamAV and Amavis)</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_Antivirus_(ClamAV_et_Amavis)/</link><pubDate>Wed, 24 Sep 2008 11:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_Antivirus_(ClamAV_et_Amavis)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>ClamAV is the antivirus component while Amavis is the interface that connects Postfix with add-ons such as antispam and antivirus tools.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, let&amp;rsquo;s install what we need:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="07a0255" class="language-bash ">
+ &lt;code>apt-get install amavisd-new clamav clamav-daemon zoo unzip unzoo bzip2&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>At the end of the installation, it will ask you some questions. Here are the answers you should provide:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="65101a9" class="language-bash ">
+ &lt;code>Virus database update method: &amp;lt;-- daemon
+Local database mirror site: &amp;lt;-- db.fr.clamav.net (France; select the mirror that is closest to you)
+HTTP proxy information (leave blank for none): &amp;lt;-- (blank)
+Should clamd be notified after updates? &amp;lt;-- Yes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Next we&amp;rsquo;ll add these lines to &lt;code>/etc/postfix/main.cf&lt;/code>:&lt;/p></description></item></channel></rss>

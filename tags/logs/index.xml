@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Logs on Tech Notebook</title><link>https://wiki.deimos.fr/tags/logs/</link><description>Recent content in Logs on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/logs/index.xml" rel="self" type="application/rss+xml"/><item><title>Fluentd: Quickly Search in Your Logs with Elasticsearch, Kibana and Fluentd</title><link>https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd/</link><pubDate>Sat, 10 May 2014 08:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/fluentd_logo.png" alt="Fluentd" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.1.19-1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://fluentd.org/" rel="external" target="_blank">Fluentd Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>10/05/2014&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.elasticsearch.org" rel="external" target="_blank">Elasticsearch&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> 1.1&lt;br />&lt;a href="https://www.elasticsearch.org/overview/kibana/" rel="external" target="_blank">Kibana&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> 3.0.1&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Managing logs is not a complicated task with classical syslog systems (syslog-ng, rsyslog&amp;hellip;). However, being able to search in them quickly when you have several gigabits of logs, with scalability, with a nice graphical interface etc&amp;hellip;is not the same thing.&lt;/p></description></item><item><title>PHP-syslog-ng: Interpretation of Syslog-ng logs in a web interface</title><link>https://wiki.deimos.fr/Php-syslog-ng_:_Interpr%C3%A9tation_des_logs_Syslog-ng_dans_une_interfa%C3%A7e_web/</link><pubDate>Wed, 23 Jul 2008 14:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Php-syslog-ng_:_Interpr%C3%A9tation_des_logs_Syslog-ng_dans_une_interfa%C3%A7e_web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://code.google.com/p/php-syslog-ng/" rel="external" target="_blank">php-syslog-ng&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a web application that allows you to format, search, and interpret logs. For searching, it requires logs to be in an SQL database, and for log interpretation, it&amp;rsquo;s specifically designed for Cisco logs.&lt;/p></description></item><item><title>Vlogger: Splitting Lighttpd logs with statistics generation</title><link>https://wiki.deimos.fr/Vlogger_:_Splitter_les_logs_de_Lighttpd_avec_creation_de_statistiques/</link><pubDate>Tue, 29 Jan 2008 21:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vlogger_:_Splitter_les_logs_de_Lighttpd_avec_creation_de_statistiques/</guid><description>&lt;p>Here is documentation on log segmentation for Lighttpd with statistics creation using Webalizer:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/splitting_lighttpd_logs_with_vlogger_and_creating_statistics_with_webalizer.pdf">Documentation on Splitting lighttpd Logs With vlogger And Creating Statistics With Webalizer&lt;/a>&lt;/p></description></item><item><title>Console Colorization</title><link>https://wiki.deimos.fr/Colorisations_dans_les_consoles/</link><pubDate>Tue, 03 Oct 2006 14:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Colorisations_dans_les_consoles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here we&amp;rsquo;ll see how to colorize certain elements in console terminals.&lt;/p>
+&lt;h2 id="man-pages">Man Pages &lt;a href="#man-pages" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To make the output of the man command more readable by adding color, you can do the following which involves using the most command instead of less for man pages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="07f500c" class="language-bash ">
+ &lt;code>sudo apt-get install most
+export PAGER=`which most`&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>(use the Alt Gr+7 characters to execute the command)&lt;/p>
+&lt;p>To permanently set the PAGER value:&lt;/p></description></item></channel></rss>

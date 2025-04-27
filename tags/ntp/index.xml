@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NTP on Tech Notebook</title><link>https://wiki.deimos.fr/tags/ntp/</link><description>Recent content in NTP on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/ntp/index.xml" rel="self" type="application/rss+xml"/><item><title>NTP: Creating an NTP Server</title><link>https://wiki.deimos.fr/NTP_:_Cr%C3%A9ation_d%27un_serveur_NTP/</link><pubDate>Thu, 06 Oct 2011 11:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/NTP_:_Cr%C3%A9ation_d%27un_serveur_NTP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The NTP server is a time server. It provides time based on atomic clock references.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Super quick:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9efd17a" class="language-bash ">
+ &lt;code>apt-get install ntp&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="solaris">Solaris &lt;a href="#solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Solaris, NTP is normally installed by default. Otherwise, search for packages containing &lt;em>ntpd&lt;/em>.
+You will need to copy the server configuration file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0a56674" class="language-bash ">
+ &lt;code>cp /etc/inet/ntp.server /etc/inet/ntp.conf&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is some information before diving into configuration files:&lt;/p>
+&lt;ul>
+&lt;li>stratum: indicates that it&amp;rsquo;s not very reliable data&lt;/li>
+&lt;li>127.127.1.0: time given by the machine (BIOS)&lt;/li>
+&lt;li>peer: defines a server of the same stratum as the server (same level/same geographic location), which allows for more reliability. Using 1 server + peers provides a more refined configuration than having only geographically distant servers.&lt;/li>
+&lt;/ul>
+&lt;h3 id="debian-1">Debian &lt;a href="#debian-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s the configuration file for a time server (&lt;code>/etc/inet/ntp.conf&lt;/code>):&lt;/p></description></item><item><title>Modifying NTP Synchronization Servers on Windows</title><link>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</link><pubDate>Fri, 30 Oct 2009 07:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I have a Windows Server 2008 DC and I wanted to use my internal time server on a Linux box running ntpd.&lt;/p>
+&lt;p>After a little hunting around, I found the command required to set Windows up to use the correct time peer.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fd71ead" class="language-bash ">
+ &lt;code>w32tm /config /update /manualpeerlist:&amp;#34;0.pool.ntp.org,0x8 1.pool.ntp.org,0x8&amp;#34; /syncfromflags:MANUAL&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>After making this change, you need to restart the Windows Time Service by issuing the following 2 commands:&lt;/p></description></item><item><title>OpenNTPd: Setting up an NTP server on OpenBSD</title><link>https://wiki.deimos.fr/OpenNTPd_:_Mise_en_place_d'un_serveur_NTP_sous_OpenBSD/</link><pubDate>Thu, 21 May 2009 11:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenNTPd_:_Mise_en_place_d'un_serveur_NTP_sous_OpenBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Having your machines synchronized to the correct time is very practical! Especially when you&amp;rsquo;re trying to read logs from two different machines.&lt;/p>
+&lt;p>For those who need microsecond-level precision, OpenNTPd is not the right solution - use the traditional NTP server instead.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Nothing to do :-)&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Open the &lt;code>/etc/ntpd.conf&lt;/code> file and configure it as follows:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a6f0719" class="language-bash ">
+ &lt;code># $OpenBSD: ntpd.conf,v 1.8 2007/07/13 09:05:52 henning Exp $
+# sample ntpd configuration file, see ntpd.conf(5)
+
+# Addresses to listen on (ntpd does not listen by default)
+# listen on *
+
+# sync to a single server
+server 0.pool.ntp.org
+server 1.pool.ntp.org
+server 2.pool.ntp.org
+server ntp1.jussieu.fr
+
+# use a random selection of 8 public stratum 2 servers
+# see http://support.ntp.org/bin/view/Servers/NTPPoolServers
+servers pool.ntp.org&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This is a basic configuration, but it works well.&lt;/p></description></item></channel></rss>

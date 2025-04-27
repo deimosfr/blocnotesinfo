@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Recovery on Tech Notebook</title><link>https://wiki.deimos.fr/categories/system-recovery/</link><description>Recent content in System Recovery on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/system-recovery/index.xml" rel="self" type="application/rss+xml"/><item><title>Recovering your OpenBSD after a bad manipulation</title><link>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_son_OpenBSD_apr%C3%A8s_une_mauvaise_manip/</link><pubDate>Sun, 20 Jan 2008 07:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_son_OpenBSD_apr%C3%A8s_une_mauvaise_manip/</guid><description>&lt;h2 id="1-concrete-case">1. Concrete case &lt;a href="#1-concrete-case" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>While manipulating my external partitions, I accidentally executed:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bcc0a4a" class="language-bash ">
+ &lt;code># rm -fr /dev&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>At boot time I get:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="42151d5" class="language-bash ">
+ &lt;code>&amp;#34;/dev/console not found&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>How to fix this problem?&lt;/p>
+&lt;h2 id="2-solutions">2. Solutions &lt;a href="#2-solutions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>A simple method with minimal manipulation is to boot from a ramdisk (your /bsd.rd file that you should have, or an installation CD) and perform an Upgrade.&lt;/p>
+&lt;p>This won&amp;rsquo;t overwrite your configuration files, just the files provided in the base system excluding etc42.tgz and xetc42.tgz.&lt;/p></description></item></channel></rss>

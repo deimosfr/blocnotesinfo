@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Netcat on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/network/netcat/</link><description>Recent content in Netcat on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/network/netcat/index.xml" rel="self" type="application/rss+xml"/><item><title>Netcat: File Transfer</title><link>https://wiki.deimos.fr/Netcat_:_Transfert_de_fichiers/</link><pubDate>Mon, 14 May 2012 16:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat_:_Transfert_de_fichiers/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Netcat (nc) is a &amp;ldquo;&amp;hellip;simple Unix utility which reads and writes data across network connections, using TCP or UDP protocol. It is designed to be a reliable back-end tool that can be used directly or easily driven by other programs and scripts. At the same time, it is a feature-rich network debugging and exploration tool, since it can create almost any kind of connection you would need and has several interesting built-in capabilities.&amp;rdquo;&lt;/p></description></item><item><title>Netcat: Creating a Listening Port</title><link>https://wiki.deimos.fr/Netcat_:_Cr%C3%A9er_un_port_d%27%C3%A9coute/</link><pubDate>Fri, 27 Apr 2012 07:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat_:_Cr%C3%A9er_un_port_d%27%C3%A9coute/</guid><description>&lt;h2 id="creating-a-listening-port">Creating a Listening Port &lt;a href="#creating-a-listening-port" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Having a server that listens is good, but when testing with a firewall and you don&amp;rsquo;t necessarily have the listening port behind it yet, you can simply use the Netcat command.&lt;/p>
+&lt;p>This command will act as if it were a server-type service that starts listening:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="45f3a6f" class="language-bash ">
+ &lt;code>nc -l numero_du_port&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c57b2d9" class="language-bash ">
+ &lt;code>nc -lp numero_du_port&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The command varies depending on the version of netcat.&lt;/p></description></item><item><title>Netcat: Usage</title><link>https://wiki.deimos.fr/Netcat:%C2%A0utilisation/</link><pubDate>Fri, 27 Nov 2009 21:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat:%C2%A0utilisation/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Netcat is often referred to as a &amp;ldquo;Swiss Army knife&amp;rdquo; utility, and for a good reason. Just like the multi-function usefulness of the venerable Swiss Army pocket knife, netcat&amp;rsquo;s functionality is as helpful. Some of its features include port scanning, transferring files, port listening and it can be used a backdoor.&lt;/p>
+&lt;p>In 2006 netcat was ranked #4 in &amp;ldquo;[1] Top 100 Network Security Tools&amp;rdquo; survey, so it&amp;rsquo;s definitely a tool to know.&lt;/p></description></item><item><title>Netcat: Remote Partition Backup</title><link>https://wiki.deimos.fr/Netcat_:_Sauvegarde_de_partions_%C3%A0_distance/</link><pubDate>Thu, 02 Aug 2007 14:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat_:_Sauvegarde_de_partions_%C3%A0_distance/</guid><description>&lt;h2 id="remote-backups">Remote Backups &lt;a href="#remote-backups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For a simple but efficient way to perform remote backups, you can use the dd and netcat commands.&lt;/p>
+&lt;p>Netcat is available in two flavors ;-):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b3eceee" class="language-bash ">
+ &lt;code>emerge gnu-netcat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2fbcd36" class="language-bash ">
+ &lt;code>emerge netcat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To create an image of your entire hda1 partition, start netcat in passive (listening) mode on the remote machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c65ba8b" class="language-bash ">
+ &lt;code>netcat -l -p 10000 &amp;gt; image.gz&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>On your machine, run dd to read the partition, gzip to compress it, and netcat to transfer the image to the other machine:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Backup on Tech Notebook</title><link>https://wiki.deimos.fr/categories/backup/</link><description>Recent content in Backup on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/backup/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenVZ: Setting Up OpenVZ</title><link>https://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d'OpenVZ/</link><pubDate>Mon, 07 Apr 2014 15:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenVZ_:_Mise_en_place_d'OpenVZ/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Openvz" rel="external" target="_blank">OpenVZ&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an operating system-level virtualization technology based on the Linux kernel. OpenVZ allows a physical server to run multiple isolated instances of operating systems, known as Virtual Private Servers (VPS) or Virtual Environments (VE).&lt;/p></description></item><item><title>XtraBackup: Optimizing Your MySQL Backups</title><link>https://wiki.deimos.fr/Xtrabackup_:_Optimiser_ses_backups_MySQL/</link><pubDate>Fri, 27 Dec 2013 08:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xtrabackup_:_Optimiser_ses_backups_MySQL/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/percona-xtrabackup-logo.png" alt="XtraBackup" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.1.2-611.wheezy&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.percona.com/doc/percona-xtrabackup/" rel="external" target="_blank">XtraBackup Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>27/12/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.percona.com/doc/percona-xtrabackup/" rel="external" target="_blank">XtraBackup&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an open-source solution for optimizing your MySQL backups. It&amp;rsquo;s much faster than mysqldump since it works directly with files rather than SQL queries.&lt;/p></description></item><item><title>Rsync: Incremental Backup</title><link>https://wiki.deimos.fr/Rsync_:_Sauvegarde_incr%C3%A9mentale/</link><pubDate>Fri, 06 Sep 2013 08:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rsync_:_Sauvegarde_incr%C3%A9mentale/</guid><description>&lt;h2 id="scripts-and-programs">Scripts and Programs &lt;a href="#scripts-and-programs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are scripts and programs available to facilitate the use of this solution:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.mikerubel.org/computers/rsync_snapshots/" rel="external" target="_blank">Easy Automated Snapshot-Style Backups with Linux and Rsync&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.rsnapshot.org/" rel="external" target="_blank">rsnapshot&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="a-manual-example">A Manual Example &lt;a href="#a-manual-example" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You want to copy your disk/backup a partition.&lt;br>
+Assuming you have created a partition on another disk and mounted it (in this example &lt;code>/mnt/usbharddrivemain&lt;/code>):&lt;/p></description></item><item><title>BackupPC: A Complete Backup Tool</title><link>https://wiki.deimos.fr/BackupPC_:_Un_outil_complet_de_backup/</link><pubDate>Mon, 09 Jul 2012 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/BackupPC_:_Un_outil_complet_de_backup/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;re looking for a beautiful tool for making backups and restorations, look no further, BackupPC is for you.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="windows-host-via-smb">Windows Host via SMB &lt;a href="#windows-host-via-smb" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You can backup via network shares. For this on Windows, set up your share, and for the machine here&amp;rsquo;s an example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="45d8dbb" class="language- ">
+ &lt;code>#============================================================= -*-perl-*-
+#
+# Configuration file for Windows hosts.
+# Note the slashes instead of backslashes
+#
+
+###########################################################################
+# What to backup and when to do it
+###########################################################################
+#Array of directories to backup
+$Conf{BackupFilesOnly} = [&amp;#39;/Documents and Settings&amp;#39;, &amp;#39;Travail&amp;#39;];
+#Array of directories excluded from backup
+$Conf{BackupFilesExclude} = &amp;#39;/Documents and Setings/user1/Local Settings/Temp&amp;#39;;
+
+###########################################################################
+# General per-PC configuration settings
+###########################################################################
+#NetBios name of the machine
+$Conf{ClientNameAlias} = &amp;#39;netbiosname&amp;#39;;
+#Backup method used
+$Conf{XferMethod} = &amp;#39;smb&amp;#39;;
+#Verbosity level of log files
+$Conf{XferLogLevel} = 1;
+#Name of shares to backup
+$Conf{SmbShareName} = [&amp;#39;C$&amp;#39;];
+#Network user name
+$Conf{SmbShareUserName} = &amp;#39;Administrateur&amp;#39;;
+#Network user password
+$Conf{SmbSharePasswd} = &amp;#39;secret&amp;#39;;
+#Backup compression method
+$Conf{ArchiveComp} = &amp;#39;bzip2&amp;#39;;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="windows-host-via-rsync">Windows Host via rsync &lt;a href="#windows-host-via-rsync" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>We&amp;rsquo;ll use the method where we&amp;rsquo;ll do without Cygwin. You can use the method with Cygwin, but don&amp;rsquo;t install both simultaneously.&lt;/p></description></item><item><title>UFS: Disk usage in UFS</title><link>https://wiki.deimos.fr/UFS_:_utilisation_des_disques_en_UFS/</link><pubDate>Thu, 14 Jun 2012 12:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/UFS_:_utilisation_des_disques_en_UFS/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbyfreebsd.png" alt="FreeBSD" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>FreeBSD 9&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.freebsd.org" rel="external" target="_blank">FreeBSD Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Today with BTRFS and ZFS, it&amp;rsquo;s super simple to create and delete partitions, etc., but with UFS (the old way), it&amp;rsquo;s less obvious, although not very complicated. I&amp;rsquo;ll talk about some common practices here :-)&lt;/p></description></item><item><title>Crontab: Usage</title><link>https://wiki.deimos.fr/Crontab_:_utilisation/</link><pubDate>Mon, 01 Aug 2011 05:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Crontab_:_utilisation/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>In short: crontab is used to execute periodic tasks automatically.
+In detail: crond is a daemon that runs on most Linux distributions and manages certain periodic tasks. A cronjob is a periodic task defined by the user, which will be executed by the system (or predefined by the authors of the Linux distribution you&amp;rsquo;re using).&lt;/p>
+&lt;p>Let&amp;rsquo;s consider a simple example: we want to send ourselves the same email every morning&amp;hellip;&lt;/p></description></item><item><title>Unison: Backup like rsync but bidirectional</title><link>https://wiki.deimos.fr/Unison_:_Sauvegarde_comme_rsync_mais_bidirectionnelle/</link><pubDate>Fri, 13 May 2011 17:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Unison_:_Sauvegarde_comme_rsync_mais_bidirectionnelle/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Unison_(file_synchronizer)" rel="external" target="_blank">Unison&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a popular file synchronization software that also offers functionality for creating and managing directory backups. The synchronization is bidirectional (meaning that modifications in one directory are reflected in the other and vice-versa), making it useful for keeping directories in sync between two different machines.&lt;/p></description></item><item><title>Amazon S3: Clean and Automated Backups with Amazon S3</title><link>https://wiki.deimos.fr/amazone-s3-sauvegarde-propres-et-automatisees-avec-amazon-s3/</link><pubDate>Tue, 15 Feb 2011 08:19:00 +0100</pubDate><guid>https://wiki.deimos.fr/amazone-s3-sauvegarde-propres-et-automatisees-avec-amazon-s3/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For those who don&amp;rsquo;t know, &lt;a href="https://aws.amazon.com/s3" rel="external" target="_blank">Amazon S3&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a remote backup service. The advantages are:&lt;/p>
+&lt;ul>
+&lt;li>the price&lt;/li>
+&lt;li>the bandwidth&lt;/li>
+&lt;li>the storage&lt;/li>
+&lt;/ul>
+&lt;p>I&amp;rsquo;ll let you look at the price list to see for yourself.&lt;/p></description></item><item><title>Creating a RAID 1 (mirroring) on Solaris</title><link>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</link><pubDate>Wed, 11 Feb 2009 16:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The Solaris system includes the DiskSuite package that allows RAID 1 mirroring of a UFS filesystem using LVM. This tutorial explains how to achieve this.
+It goes without saying that you need two disks of the same capacity.&lt;/p>
+&lt;h2 id="procedure">Procedure &lt;a href="#procedure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are the necessary steps:
+Once we&amp;rsquo;re ready to mirror a disk, we display its partitions with the format command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a68044b" class="language-bash ">
+ &lt;code>Format
+ 
+Searching for disks...done
+ 
+ 
+AVAILABLE DISK SELECTIONS:
+ 0. c1t0d0 &amp;lt;SUN146G cyl 14087 alt 2 hd 24 sec 848&amp;gt; root
+ /pci@0/pci@0/pci@2/scsi@0/sd@0,0
+ 1. c1t1d0 &amp;lt;HITACHI-H101414SCSUN146G-SA25-136.73GB&amp;gt;
+ /pci@0/pci@0/pci@2/scsi@0/sd@1,0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We choose the 1st disk (if it&amp;rsquo;s the one to be duplicated), then:&lt;/p></description></item><item><title>Creating an Apple Time Machine Network on FreeBSD</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_Apple_Time_Machine_r%C3%A9seaux_sous_FreeBSD/</link><pubDate>Wed, 28 Jan 2009 02:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_Apple_Time_Machine_r%C3%A9seaux_sous_FreeBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s a quick guide on how to set up Time Machine on Mac OS X to back up to a networked machine running FreeBSD.&lt;/p>
+&lt;h2 id="on-the-freebsd-server">On the FreeBSD server &lt;a href="#on-the-freebsd-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Build &amp;amp; Install net/netatalk from ports.&lt;/li>
+&lt;li>Edit &lt;code>/usr/local/etc/AppleVolumes.default&lt;/code>&lt;/li>
+&lt;li>Append: &amp;ldquo;/your_time_machine_path TimeMachine allow:your_user_name cnidscheme:cdb options:usedots&amp;rdquo; and replace your path and your username in the proper places.&lt;/li>
+&lt;li>Optionally, remove the &amp;ldquo;~&amp;rdquo; already present in that file if you don&amp;rsquo;t want to share users home directories.&lt;/li>
+&lt;li>Add &amp;ldquo;netatalk_enable=&amp;ldquo;YES&amp;rdquo;&amp;rdquo; and &amp;ldquo;afpd_enable=&amp;ldquo;YES&amp;rdquo;&amp;rdquo; to &lt;code>/etc/rc.conf&lt;/code>.&lt;/li>
+&lt;li>&lt;code>/usr/local/etc/rc.d/netatalk start&lt;/code> (nothing will be printed).&lt;/li>
+&lt;/ul>
+&lt;h2 id="mac-os-x-machine-client-running-leopard-of-course">Mac OS X machine client (running Leopard, of course) &lt;a href="#mac-os-x-machine-client-running-leopard-of-course" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Mount your remote volume. Command+K on the Finder and then type: &amp;ldquo;afp://&lt;machine IP address or local hostname if you have a local DNS server>&amp;rdquo;. You can&amp;rsquo;t type the machine name because we&amp;rsquo;re not using multicast DNS.&lt;/li>
+&lt;li>Build a sparse bundle image using &amp;ldquo;Disk utility&amp;rdquo; (HFS+ case-sensitive formatted). Usually, the size should be something that gives you enough room for expansion. If you want to backup your whole MacBook/iMac/etc. disk, you can set the sparse bundle image size the same as the disk your are backing up.&lt;/li>
+&lt;li>The name of this image is important. It should be &amp;ldquo;Your_Computer_Name_MACAddress.sparsebundle&amp;rdquo;. Check your computer name from the &amp;ldquo;Sharing&amp;rdquo; section of &amp;ldquo;System Preferences&amp;rdquo; and the MAC address comes from the interface you&amp;rsquo;ll be using to do the backup. I really recommend using your Wired interface. Check the MAC address via ifconfig(1) or via the &amp;ldquo;Network&amp;rdquo; section of &amp;ldquo;System Preferences&amp;rdquo;. E.g., if you&amp;rsquo;re John Doe, have a MacBook and your MAC address is 00:01:02:03:04:05, your file should be named &amp;ldquo;John Doe&amp;rsquo;s MacBook_000102030405.sparsebundle&amp;rdquo;.&lt;/li>
+&lt;li>On the Terminal, type &amp;ldquo;defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1&amp;rdquo;. This is the crucial thing.&lt;/li>
+&lt;li>Go to &amp;ldquo;System Preferences&amp;rdquo;, &amp;ldquo;Time Machine&amp;rdquo; and enable it. The networked volume will now show up on the list.&lt;/li>
+&lt;li>Before selecting the volume on which you&amp;rsquo;ll dump the backup, copy the sparse bundle file you&amp;rsquo;ve created to your networked volume called &amp;ldquo;TimeMachine&amp;rdquo;.&lt;/li>
+&lt;li>Select the networked Volume from the Time Machine volumes list.&lt;/li>
+&lt;li>Initiate the backup!&lt;/li>
+&lt;/ul>
+&lt;p>Enjoy!&lt;/p></description></item><item><title>CVS Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</link><pubDate>Fri, 26 Dec 2008 18:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="17688ac" class="language-bash ">
+ &lt;code>apt-get install cvs xinetd&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3f2221f" class="language-bash ">
+ &lt;code>up2date cvs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="creating-admin-group-and-directories">Creating Admin Group and Directories &lt;a href="#creating-admin-group-and-directories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d5b93f" class="language-bash ">
+ &lt;code>adduser cvsadmin
+mkdir -p /home/cvsadmin/repository
+mkdir /home/cvsadmin/.lock
+chown -Rf :cvsadmin /home/cvsadmin
+chmod -Rf 775 /home/cvsadmin
+chmod -Rf 777 /home/cvsadmin/.lock
+ln -s /home/cvsadmin/repository /usr/local/cvsroot&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="repository-initialization">Repository Initialization &lt;a href="#repository-initialization" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9e8274c" class="language-bash ">
+ &lt;code>export CVSROOT=/usr/local/cvsroot
+cvs -d $CVSROOT init
+chown -Rf root:cvsadmin /home/cvsadmin/repository/* &amp;amp;&amp;amp; chmod -Rf 777 /home/cvsadmin/repository/*&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="activating-lock-files">Activating Lock Files &lt;a href="#activating-lock-files" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To ensure that lock files are stored in a directory writable by all, you need to modify the &lt;code>/usr/local/cvsroot-backup/CVSROOT/config&lt;/code> file as follows:&lt;/p></description></item><item><title>Bacula: Setting Up a High-Performance Backup Server</title><link>https://wiki.deimos.fr/Bacula_:_Mise_en_place_d'un_serveur_de_Backup_Performant/</link><pubDate>Wed, 14 May 2008 15:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bacula_:_Mise_en_place_d'un_serveur_de_Backup_Performant/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.bacula.org" rel="external" target="_blank">Bacula&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a backup server that allows for the purchase of other commercial solutions with plugins for additional features. It also has the advantage of having a nice graphical web interface that creates beautiful graphs, etc.&lt;/p></description></item><item><title>ZRM: Automated Backups and Easy Restorations</title><link>https://wiki.deimos.fr/ZRM_:_Sauvegardes_automatis%C3%A9es_et_restaurations_faciles/</link><pubDate>Sat, 19 Apr 2008 11:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZRM_:_Sauvegardes_automatis%C3%A9es_et_restaurations_faciles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>ZRM for MySQL is a powerful, flexible and robust backup and recovery solution for MySQL databases for all storage engines. With ZRM for MySQL a Database Administrator can automate logical or raw backup to a local or remote disk. In this How To, we attempt to explain how to recover from an user error at any given point in time.&lt;/p>
+&lt;h2 id="our-scenario">Our Scenario &lt;a href="#our-scenario" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At approximately 2:30pm there were 5 tablespaces added into the MovieID table. At 3pm you get a call from a user, who was trying to delete some unused tablespaces but ended up deleting the last 5 that he just added. The last full backup you performed was the night before at 7pm. How do you recover back to right before the last 5 tablespaces were deleted? In this case we will demonstrate a point in time restore.&lt;/p></description></item><item><title>Backups and Restorations with tapes</title><link>https://wiki.deimos.fr/Sauvegardes_et_Restaurations/</link><pubDate>Sat, 05 Apr 2008 17:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sauvegardes_et_Restaurations/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A crucial function of system administration is to backup file systems. Backups safeguard against data loss, damage, or corruption. Backup tapes are often referred to as dump tapes.&lt;/p>
+&lt;h2 id="rmt-device">rmt device &lt;a href="#rmt-device" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>All tape drives have logical device names that you use to reference the device on the command line. The image shows the format that all logical device names use.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9774da4" class="language-bash ">
+ &lt;code>/dev/rmt/#hn&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li># : Logical Tape number&lt;/li>
+&lt;li>h : Tape density (l,m,h,c,u)&lt;/li>
+&lt;li>No rewind&lt;/li>
+&lt;/ul>
+&lt;p>The logical tape numbers in the tape drive names always start with 0. For example:&lt;/p></description></item><item><title>Differences between du and df</title><link>https://wiki.deimos.fr/Diff%C3%A9rences_entre_du_et_df/</link><pubDate>Wed, 19 Mar 2008 14:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Diff%C3%A9rences_entre_du_et_df/</guid><description>&lt;h2 id="issue">Issue &lt;a href="#issue" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You will certainly ask yourself one day: &amp;ldquo;What is the difference between the du command and the df command?&amp;rdquo;&lt;/p>
+&lt;p>According to the man page for du:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="141fc58" class="language-bash ">
+ &lt;code>du - estimate file space usage&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And df displays exactly the space taken on your hard drive. I encountered a case where on a 30 GB partition, I had this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ec30a63" class="language-bash ">
+ &lt;code>du -sh | grep /home : 13 G used
+df -h /home : 26 G used&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The df command is not wrong.&lt;/p></description></item><item><title>Installing Rsync on Windows</title><link>https://wiki.deimos.fr/Installer_Rsync_sur_Windows/</link><pubDate>Tue, 26 Feb 2008 15:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_Rsync_sur_Windows/</guid><description>&lt;h2 id="installing-cygwin-on-windows">Installing Cygwin on Windows &lt;a href="#installing-cygwin-on-windows" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download: &lt;a href="https://www.cygwin.com/" rel="external" target="_blank">https://www.cygwin.com/&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p>
+&lt;p>During installation, choose a download site in France (if available).&lt;/p>
+&lt;p>Packages to install: rsync, openssh, and cygwin (cygrunsrv, cygwin)&lt;/p></description></item><item><title>Command-line Burning</title><link>https://wiki.deimos.fr/Graver_en_ligne_de_commandes/</link><pubDate>Mon, 18 Feb 2008 07:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Graver_en_ligne_de_commandes/</guid><description>&lt;p>Here is documentation explaining how to burn CDs and DVDs using the command line. This is useful for automating backups, for example:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/gravure_de_cd_dvd_et_commandes_en_ligne.pdf">Documentation on CD/DVD burning and command line tools&lt;/a>&lt;/p></description></item><item><title>Setting up DHCP Failover</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_DHCP_Failover/</link><pubDate>Tue, 06 Nov 2007 18:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_DHCP_Failover/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve been running a DHCP server on my home network for eons now, and today I decided I&amp;rsquo;d move it on to my OpenBSD firewall cluster. It probably really shouldn&amp;rsquo;t be there but I already run a handful of other internal services there, like DNS, and NTP.&lt;/p>
+&lt;p>I assume you already have a working &lt;a href="https://www.openbsd.org/faq/faq6.html#DHCP" rel="external" target="_blank">dhcpd configuration&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> for your single server, if you don&amp;rsquo;t, then you can get a basic DHCP configuration from the OpenBSD FAQ.&lt;/p></description></item><item><title>Jailctl: Creating Chroot Environments (Jails)</title><link>https://wiki.deimos.fr/Jailctl_:_Cr%C3%A9ation_de_chroot_%28jails%29/</link><pubDate>Sun, 15 Apr 2007 21:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Jailctl_:_Cr%C3%A9ation_de_chroot_%28jails%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Jailctl is a shell tool for creating/launching/stopping/updating/backing up/restoring/destroying jails.
+By jail, we mean here a &amp;ldquo;virtual server&amp;rdquo; and not simply a method for isolating a service.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the command to install the package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d2382c9" class="language-bash ">
+ &lt;code>pkg_add -vr jailctl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6793148" class="language-bash ">
+ &lt;code>cd /usr/ports/sysutils/jailctl ; make install clean&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>You need a config file: &lt;code>/usr/local/etc/jails.conf&lt;/code>&lt;/li>
+&lt;li>You also need: a directory where the jails will be stored (&lt;code>/data&lt;/code> in this example)&lt;/li>
+&lt;li>A runme.sh script provided with jailctl that lives by default in &lt;code>/usr/local/jails/addons/&lt;/code>&lt;/li>
+&lt;li>A file dellist4.txt that contains a list of files to delete in the jails because they are not needed (for example commands like mount)&lt;/li>
+&lt;li>A file dellist5.txt that contains more files to delete in case jailctl runs on a 5.x or a 6.x (jailctl is indeed compatible with all versions from 4.x to 6.x)&lt;/li>
+&lt;li>And finally an etc/ directory with configuration files to install in the new jails (by default, login.conf and make.conf).&lt;/li>
+&lt;/ul>
+&lt;p>All this lives in &lt;code>/usr/local/jails/addons/&lt;/code> which we will need to move to &lt;code>/data/addons/&lt;/code> in our example.&lt;/p></description></item><item><title>Rdiff-backup: Incremental Remote Backups</title><link>https://wiki.deimos.fr/Rdiff-backup_:_Sauvegardes_distantes_incr%C3%A9mentielles/</link><pubDate>Sun, 28 Jan 2007 21:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rdiff-backup_:_Sauvegardes_distantes_incr%C3%A9mentielles/</guid><description>&lt;p>rdiff-backup is a simple and efficient utility. It can be used to make a remote backup of a directory via SSH. The differences are then saved in archives. &lt;a href="https://www.nongnu.org/rdiff-backup/" rel="external" target="_blank">rdiff-backup Main page&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item></channel></rss>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BSD on Tech Notebook</title><link>https://wiki.deimos.fr/tags/bsd/</link><description>Recent content in BSD on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/bsd/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction to Packet Filter</title><link>https://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter/</link><pubDate>Mon, 13 Dec 2010 17:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Packet_Filter" rel="external" target="_blank">Packet Filter&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> (or PF) is the official software firewall for &lt;strong>OpenBSD&lt;/strong>, originally written by Daniel Hartmeier. It is a free Open Source software.&lt;/p></description></item><item><title>Getting Hardware Information from a Machine</title><link>https://wiki.deimos.fr/Obtenir_les_informations_hardware_d'une_machine/</link><pubDate>Wed, 26 Aug 2009 13:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Obtenir_les_informations_hardware_d'une_machine/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On machines (especially remote ones), it&amp;rsquo;s often useful to obtain information such as available RAM, etc.&lt;/p>
+&lt;p>In short, we might need other information, and I&amp;rsquo;m not sure where to put all of this data.&lt;/p>
+&lt;h2 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dmesg">dmesg &lt;a href="#dmesg" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>This command shows what is written during kernel boot and all kernel calls (module loading, etc.). On some distributions, it&amp;rsquo;s even written in the logs in &lt;code>/var/log/*&lt;/code>. Here&amp;rsquo;s an example output:&lt;/p></description></item><item><title>Modifying Boot Parameters</title><link>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_de_boot/</link><pubDate>Sun, 17 May 2009 09:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_de_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may want to modify certain boot parameters (Grub equivalent). Here is some information about that.&lt;/p>
+&lt;h2 id="bootconf">boot.conf &lt;a href="#bootconf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Edit the file &lt;code>/etc/boot.conf&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3a4e5f0" class="language-bash ">
+ &lt;code>stty com0 19200
+set tty com0
+set timeout 1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Personally, I just added the &amp;ldquo;set timeout&amp;rdquo; line to 1, the other parameters were already there. For those who don&amp;rsquo;t understand these lines, I&amp;rsquo;ll explain a bit:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>stty com0 19200&lt;/code>: Sets the baud rate of the com0 port to 19200&lt;/li>
+&lt;li>&lt;code>set tty com0&lt;/code>: Defines the tty on com0 to initialize it&lt;/li>
+&lt;li>&lt;code>set timeout 1&lt;/code>: Sets the waiting time for the boot system (in seconds, here 1 sec)&lt;/li>
+&lt;/ul></description></item><item><title>Mounting a Filesystem in Multiple Places Simultaneously</title><link>https://wiki.deimos.fr/Montage_d%27un_filesystem_%C3%A0_plusieurs_endroits_simultan%C3%A9es/</link><pubDate>Tue, 28 Oct 2008 21:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Montage_d%27un_filesystem_%C3%A0_plusieurs_endroits_simultan%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Some might say: &amp;ldquo;There&amp;rsquo;s no need for this, just use symbolic links with ln -s&amp;rdquo;. But I disagree - it&amp;rsquo;s really not the same thing. This approach allows you to have a global view of a particular directory.&lt;/p>
+&lt;p>For example, if I want to mount &lt;code>/var/jails&lt;/code> in &lt;code>/jails&lt;/code>, it&amp;rsquo;s possible and here&amp;rsquo;s the result once done:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b47b57" class="language-bash ">
+ &lt;code>Filesystem Size Used Avail Capacity Mounted on
+/dev/ad4s1a 989M 129M 782M 14% /
+devfs 1.0K 1.0K 0B 100% /dev
+/dev/ad4s1d 224G 1.4G 204G 1% /usr
+/dev/ad4s1e 224G 4.0M 206G 0% /var
+/var/jails 224G 4.0M 206G 0% /jails&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="commands">Commands &lt;a href="#commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Linux&lt;/th>
+ &lt;th>BSD&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>mount &amp;ndash;bind /folder1 /folder2&lt;/td>
+ &lt;td>mount -t nullfs /folder1 /folder2&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>Activating Kernel Modules</title><link>https://wiki.deimos.fr/Activer_modules_son_kernel/</link><pubDate>Sun, 04 May 2008 06:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_modules_son_kernel/</guid><description>&lt;h2 id="bsd-systems">BSD Systems &lt;a href="#bsd-systems" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the type of command you can use to disable ACPI (among other features) in your BSD kernel:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7073c27" class="language-bash ">
+ &lt;code>config -ef /bsd
+disable acpi
+quit&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To re-enable it, simply replace &lt;code>disable&lt;/code> with &lt;code>enable&lt;/code>.&lt;/p></description></item><item><title>OpenBSD Package System</title><link>https://wiki.deimos.fr/Le_syst%C3%A8me_de_Packages_OpenBSD/</link><pubDate>Tue, 27 Nov 2007 18:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Le_syst%C3%A8me_de_Packages_OpenBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Transitioning to OpenBSD isn&amp;rsquo;t very straightforward when coming from the Linux world (PS: if you&amp;rsquo;re coming from Windows, it&amp;rsquo;s better to stay there or switch to Linux first).&lt;/p>
+&lt;p>In OpenBSD, there are two package systems:&lt;/p>
+&lt;ul>
+&lt;li>The first one is provided by the base OpenBSD system (pkg), containing packages with almost no security vulnerabilities (just a reminder: only 2 vulnerabilities discovered in 10 years). These packages are pre-compiled.&lt;/li>
+&lt;li>The second contains many more software applications (port), but according to OpenBSD, they can compromise system stability and security. That said, it&amp;rsquo;s still preferable to use these rather than compiling yourself from various sources since these packages have still been validated by the OpenBSD team. These packages are compiled on demand.&lt;/li>
+&lt;/ul>
+&lt;h2 id="pgk">PGK &lt;a href="#pgk" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="preparation">Preparation &lt;a href="#preparation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>First, you need to &lt;a href="https://www.openbsd.org/fr/ftp.html" rel="external" target="_blank">choose an FTP server&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> to specify the repository. I chose a French server:&lt;/p></description></item><item><title>Migration: Migrating Linux accounts to BSD</title><link>https://wiki.deimos.fr/Migration_:_Migrer_des_comptes_linux_vers_BSD/</link><pubDate>Fri, 23 Nov 2007 11:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Migration_:_Migrer_des_comptes_linux_vers_BSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a solution that allows you to easily migrate Linux accounts to BSD. &lt;strong>The only constraint is that you must not have two identical logins or identifiers after this migration.&lt;/strong>&lt;/p>
+&lt;h2 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Commands to execute (as root) on your Linux machine for exporting:&lt;/p>
+&lt;ul>
+&lt;li>Gathering data from /etc/passwd and /etc/shadow files:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0f336fd" class="language-bash ">
+ &lt;code>pwunconv&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Transforming the /etc/passwd file to be usable by BSD systems (grep -v &amp;lsquo;root|daemon&amp;rsquo; excludes root and daemon users):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9d9bba0" class="language-bash ">
+ &lt;code>cat /etc/passwd | grep -v &amp;#39;^root\|^daemon&amp;#39; | awk -F: &amp;#39;{printf(&amp;#34;%s:%s:%s:%s::0:0:%s:%s:%s\n&amp;#34;, $1,$2,$3,$4,$5,$6,$7);}&amp;#39; &amp;gt; ~/linux_passwd&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Separate the data from /etc/passwd and /etc/shadow again:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9d952b7" class="language-bash ">
+ &lt;code>pwconv&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="bsd">BSD &lt;a href="#bsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Retrieve the generated file on your BSD system, then for importing:&lt;/p></description></item><item><title>Modifying Your Generic Kernel</title><link>https://wiki.deimos.fr/Modifier_son_kernel_g%C3%A9n%C3%A9rique/</link><pubDate>Tue, 13 Nov 2007 09:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_son_kernel_g%C3%A9n%C3%A9rique/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For those coming from the Linux world, they&amp;rsquo;ll find that this is super simple on BSD. In my case, I have a multicore server, and after installing BSD, it only detects one core. It&amp;rsquo;s a shame to run with just one core when you have several. I&amp;rsquo;ll explain here the procedure to switch to multicore, but this works with other kernel modifications as well!&lt;/p>
+&lt;h2 id="single-core-to-multicore">Single Core to Multicore &lt;a href="#single-core-to-multicore" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>During installation, you need to select the &amp;ldquo;bsd.mp&amp;rdquo; kernel. When the machine reboots after installation, it boots on the single-core kernel. We will therefore move the current kernel and replace it with the multicore one. To do this, it&amp;rsquo;s very simple:&lt;/p></description></item><item><title>Bandwidth Usage Statistics</title><link>https://wiki.deimos.fr/Statistiques_sur_la_bande_passante_occup%C3%A9e/</link><pubDate>Sun, 07 Oct 2007 10:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Statistiques_sur_la_bande_passante_occup%C3%A9e/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a simple shell script to calculate the bandwidth usage on the external interface of a BSD or Linux box. Netstat bandwidth summary works well on OpenBSD 4.1, but colleagues have mentioned 3.9 may not work. Linux should work without issue. Also, remember that the netstat stats will reset on reboot of the box.&lt;/p>
+&lt;p>One could use this script to keep track of Internet bandwidth in case their ISP accused them of using too much bandwidth. Comcast for example will call foul if you use more than 90 to 150 gigabytes of download per month. We can only guess that the upload limit is the same. Verizon says they do not have a limit, but they will contact bandwidth abusers. Your ISP might have different rules so check with them. Then use this simple tool to make sure you know what you are using.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Red Hat on Tech Notebook</title><link>https://wiki.deimos.fr/tags/red-hat/</link><description>Recent content in Red Hat on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/red-hat/index.xml" rel="self" type="application/rss+xml"/><item><title>iSCSI: Setting up an iSCSI Server</title><link>https://wiki.deimos.fr/ISCSI_:_Mise_en_place_d'un_serveur_iSCSI/</link><pubDate>Tue, 04 Jun 2013 14:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/ISCSI_:_Mise_en_place_d'un_serveur_iSCSI/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/iscsi_logo.gif" alt="ISCSI" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/ISCSI" rel="external" target="_blank">iSCSI&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> (internet SCSI) is an application layer protocol that enables the transport of SCSI commands over a TCP/IP network.&lt;/p>
+&lt;p>This documentation was created on Red Hat 5 and is compatible with Red Hat 6.&lt;/p></description></item><item><title>SoSReport: Generate and analyze machine reports</title><link>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</link><pubDate>Fri, 15 Mar 2013 15:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/red_hat_logo.png" alt="SOS Report" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/sosreport/sosreport" rel="external" target="_blank">Sosreport Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>CentOS 6.4&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;ve ever contacted Red Hat support, you probably know that they systematically request a sosreport. It&amp;rsquo;s a very practical tool for the support team as it collects command results, log files, configuration files, and other information often essential for diagnosing a problem. Personally, I&amp;rsquo;ve installed it on CentOS and it works very well.&lt;/p></description></item><item><title>Rename Network Interfaces to ethX</title><link>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</link><pubDate>Mon, 16 Jul 2012 21:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ve probably noticed that the recent trend in some Linux distributions is to name network cards not by ethX, but by their chipset. So we end up with em0, em1 or whatever&amp;hellip;&lt;/p>
+&lt;p>This idea probably came from Solaris, but personally, I don&amp;rsquo;t see the benefit, especially since it&amp;rsquo;s more of a hindrance when you want to standardize an IT infrastructure. The purpose of this article is to show how to return to the good old ethX interfaces. I recommend reading &lt;a href="https://wiki.deimos.fr/Udev_:_Utilisation_d'un_socket_pour_parler_avec_les_devices_kernel/">the article on Udev&lt;/a> before starting this one, to better understand certain aspects.&lt;/p></description></item><item><title>Satellite: Deploying Red Hat OS via Red Hat Satellite</title><link>https://wiki.deimos.fr/Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite/</link><pubDate>Fri, 22 Jun 2012 06:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.4.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.redhat.com/products/enterprise-linux/rhn-satellite/" rel="external" target="_blank">Red Hat Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>22/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A &lt;a href="https://www.fr.redhat.com/red_hat_network/" rel="external" target="_blank">Red Hat Satellite&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> server is a solution that allows you to automatically deploy Red Hat OS via PXE/DHCP. You can then manage different installation profiles, manage updates, and perform a variety of simplified administrative tasks.&lt;/p></description></item><item><title>My Python Scripts That Can Serve as Exercises</title><link>https://wiki.deimos.fr/Mes_scripts_Python_qui_peuvent_servir_d'exercices/</link><pubDate>Wed, 06 Jun 2012 13:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mes_scripts_Python_qui_peuvent_servir_d'exercices/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/python-logo.png" alt="Python" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.7 / 3.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.python.org/" rel="external" target="_blank">Python Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s not always easy to start learning a programming language, especially when you&amp;rsquo;ve never studied it in school! That&amp;rsquo;s why I&amp;rsquo;m offering some small scripts that I created right after going through some books. The scripts should increase in difficulty more or less progressively.&lt;/p></description></item><item><title>Installation and Configuration of Red Hat Cluster Suite</title><link>https://wiki.deimos.fr/Installation_et_Configuration_de_Red_Hat_Cluster_Suite/</link><pubDate>Mon, 14 May 2012 08:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_Configuration_de_Red_Hat_Cluster_Suite/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/red_hat_logo.png" alt="Red Hat Cluster Suite" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5/6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 5/6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.redhat.com" rel="external" target="_blank">Red Hat Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Red Hat offers a cluster based on Open Source solutions. This document explains how to set one up.&lt;/p></description></item><item><title>Cisco VPN Client: Installation on Red Hat 6</title><link>https://wiki.deimos.fr/Cisco_VPN_Client_:_Installation_sur_une_Red_Hat_6/</link><pubDate>Fri, 06 Apr 2012 00:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cisco_VPN_Client_:_Installation_sur_une_Red_Hat_6/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbycisco.jpg" alt="Cisco" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>4.8.02&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.cisco.com/" rel="external" target="_blank">Cisco Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/04/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installing the Cisco VPN Client on Linux can be quite challenging! That&amp;rsquo;s why I decided to create this documentation where you just need to copy and paste the commands.&lt;/p></description></item><item><title>Kexec: Optimize Your Boot Times</title><link>https://wiki.deimos.fr/Kexec_:_optimisez_vos_temps_de_boot/</link><pubDate>Thu, 15 Mar 2012 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kexec_:_optimisez_vos_temps_de_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Kexec is a tool that allows rebooting a machine without going through the hardware layer. It will stop all services, shut down the init processes (sysV) to reach the bootloader. Then it will start normally, bypassing the hardware reboot phase.&lt;/p>
+&lt;p>This technique can be very useful on High Availability systems where downtime is critical.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Debian, you need to install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bf4f5b1" class="language-bash ">
+ &lt;code>aptitude install kexec-tools&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Red Hat, you need to have this package installed:&lt;/p></description></item><item><title>GFS2: Red Hat Cluster Filesystem</title><link>https://wiki.deimos.fr/GFS2_:_Le_Filesystem_Cluster_de_Red_Hat/</link><pubDate>Tue, 06 Mar 2012 12:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/GFS2_:_Le_Filesystem_Cluster_de_Red_Hat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Global_File_System" rel="external" target="_blank">Global File System (GFS)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a shared file system designed for Linux or IRIX clusters. GFS and GFS2 are different from distributed file systems like AFS, Coda, or InterMezzo because they allow all nodes to have direct concurrent access to the same block storage device. Additionally, GFS and GFS2 can also be used as a local file system.&lt;/p></description></item><item><title>Yum: Package Management in Red Hat</title><link>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</link><pubDate>Fri, 02 Mar 2012 19:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Yum, which stands for Yellow dog Updater Modified, is a package manager for Linux distributions like Fedora and Red Hat Enterprise Linux, created by Yellow Dog Linux.&lt;/p>
+&lt;p>It allows you to manage the installation and updating of software installed on a distribution. It&amp;rsquo;s a layer on top of RPM that handles downloads and dependencies, similar to Debian&amp;rsquo;s APT or Mandriva&amp;rsquo;s Urpmi.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Installing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3aa0288" class="language-bash ">
+ &lt;code>yum install &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Reinstalling a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="53caaae" class="language-bash ">
+ &lt;code>yum reinstall &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a local RPM:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e002e93" class="language-bash ">
+ &lt;code>yum localinstall &amp;lt;package.rpm&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Removing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7c7dc35" class="language-bash ">
+ &lt;code>yum remove &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Updating packages or a specific package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51a281e" class="language-bash ">
+ &lt;code>yum update &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Getting information about a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c079b69" class="language-bash ">
+ &lt;code>yum info &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a package group:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="db4834e" class="language-bash ">
+ &lt;code>yum groupinstall &amp;lt;group&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Viewing available packages (installed or not):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d0179a7" class="language-bash ">
+ &lt;code>yum list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p></description></item><item><title>Installing a Red Hat 4 Cluster</title><link>https://wiki.deimos.fr/Installation_d%5C%27un_cluster_Red_Hat_4/</link><pubDate>Sun, 26 Feb 2012 13:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_d%5C%27un_cluster_Red_Hat_4/</guid><description>&lt;p>&lt;strong>To install Red Hat Enterprise with Cluster Suite, take CDs or DVD and boot from it.&lt;/strong>&lt;/p>
+&lt;p>We are going to see step by step the interesting components.&lt;/p>
+&lt;h2 id="language">Language &lt;a href="#language" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="27ce21c" class="language- ">
+ &lt;code>Set the English language and not French to have more verbose output during future problems.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="keyboard">Keyboard &lt;a href="#keyboard" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="67d9665" class="language- ">
+ &lt;code>Keep the French keyboard&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="partitioning-do-the-same-partitioning-on-all-the-cluster-nodes">Partitioning (do the same partitioning on all the cluster nodes) &lt;a href="#partitioning-do-the-same-partitioning-on-all-the-cluster-nodes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Location&lt;/th>
+ &lt;th>Type&lt;/th>
+ &lt;th>Size&lt;/th>
+ &lt;th>LVM Name&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>/boot&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>128 MB&lt;/td>
+ &lt;td>&lt;strong>NO LVM!!!&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>LVM&lt;/td>
+ &lt;td>Group&lt;/td>
+ &lt;td>Full Size (space left)&lt;/td>
+ &lt;td>VolGroup00&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>racine&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/var&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>var&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/usr&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>10240 MB&lt;/td>
+ &lt;td>usr&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/tmp&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>2048 MB&lt;/td>
+ &lt;td>tmp&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>swap&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>swap&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/home&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>Space left&lt;/td>
+ &lt;td>home&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="list-of-packages-installation">List of packages installation &lt;a href="#list-of-packages-installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a886811" class="language- ">
+ &lt;code>base
+base-x
+kde-desktop or gnome-desktop
+editors (only vim)
+mail-server (- spamassassin)
+development-tools
+compat-arch-development
+admin-tools (&amp;#43; sysstem-boot-config)
+system-tools
+compat-arch-support&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>After rebooting, install these packages from the cluster suite (cdrom/RedHat/RPMS). Warning: pay attention for SMP; if not SMP servers, do not install it, install other relative packages.&lt;/p></description></item><item><title>Adding Red Hat DVD as a Repository</title><link>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</link><pubDate>Tue, 21 Feb 2012 16:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You don&amp;rsquo;t have a Red Hat subscription or simply no internet connection to connect to the NRH, yet you have the installation DVD that contains all the packages you need!&lt;/p>
+&lt;p>Here&amp;rsquo;s how to add the DVD to the repository.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dvd">DVD &lt;a href="#dvd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a file in /etc/yum.repos.d/redhatcd.repo&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6736735" class="language-bash ">
+ &lt;code>cp /media/RHEL/media.repo /etc/yum.repos.d/redhatcd.repo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And adapt it with this content:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0cde3f7" class="language-bash ">
+ &lt;code>[InstallMedia]
+name=Red Hat Enterprise Linux 6.1
+mediaid=1305068199.328169
+metadata_expire=-1
+gpgcheck=0
+cost=500
+baseurl=file:///media/RHEL/Server&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now we&amp;rsquo;ll clear the cache:&lt;/p></description></item><item><title>OProfile: Profile Your System</title><link>https://wiki.deimos.fr/OProfile_:_profilez_votre_syst%C3%A8me/</link><pubDate>Wed, 28 Dec 2011 19:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/OProfile_:_profilez_votre_syst%C3%A8me/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/oprofile_logo.png" alt="OProfile" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="profiling">Profiling &lt;a href="#profiling" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>&lt;a href="https://oprofile.sourceforge.net" rel="external" target="_blank">OProfile&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a tool used for profiling.&lt;/p>
+&lt;p>Profiling is the process of examining data from various existing data sources (databases, files, etc.) and collecting statistics and information about this data. It is very similar to data analysis.&lt;/p></description></item><item><title>SNMP: The Network Management Protocol</title><link>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</link><pubDate>Sun, 25 Dec 2011 20:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Network management systems are based on three main elements: a supervisor, nodes, and agents. In SNMP terminology, the term &amp;ldquo;manager&amp;rdquo; is more commonly used than &amp;ldquo;supervisor&amp;rdquo;. The supervisor is the console that allows the network administrator to execute management requests. Agents are entities located at each interface, connecting the managed equipment (node) to the network and allowing information to be retrieved on different objects.&lt;/p>
+&lt;p>Switches, hubs, routers, workstations, and servers (physical or virtual) are examples of equipment containing manageable objects. These manageable objects can be hardware information, configuration parameters, performance statistics, and other objects that are directly related to the current behavior of the equipment in question. These objects are classified in a tree-like database called MIB (Management Information Base). SNMP enables communication between the supervisor and agents to collect the desired objects in the MIB.&lt;/p></description></item><item><title>RPM: Build a Binary RPM Package from Sources on Red Hat</title><link>https://wiki.deimos.fr/RPM_:_Build_a_binary_RPM_package_from_sources_on_Red_Hat/</link><pubDate>Wed, 08 Jun 2011 14:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/RPM_:_Build_a_binary_RPM_package_from_sources_on_Red_Hat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Building an RPM is not a complicated task, even from source files. In my job I had to compile &lt;a href="https://www.openonload.org/" rel="external" target="_blank">Open On Load&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> kernel module and package it.&lt;/p></description></item><item><title>TFTP: PXE Server, OS Deployment under Linux</title><link>https://wiki.deimos.fr/TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux/</link><pubDate>Thu, 20 May 2010 05:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PXE boot (Pre-boot eXecution Environment) allows a workstation to boot from the network an operating system that is stored on a server.&lt;/p>
+&lt;p>It also allows automatic and remote installation of servers with various operating systems.&lt;/p>
+&lt;p>To enable PXE, you first need to configure it in the BIOS. The option is frequently found in a menu related to the network card.&lt;/p>
+&lt;p>PXE booting is performed in several steps:&lt;/p>
+&lt;ul>
+&lt;li>Search for an IP address on a DHCP server as well as the file to boot&lt;/li>
+&lt;li>Download the boot file from a Trivial FTP server&lt;/li>
+&lt;li>Execute the boot file&lt;/li>
+&lt;/ul>
+&lt;p>It should be noted that the size of the boot file does not allow for directly booting a Linux kernel, for example, but requires that the boot software download and execute it itself.&lt;/p></description></item><item><title>CVS Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</link><pubDate>Fri, 26 Dec 2008 18:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="17688ac" class="language-bash ">
+ &lt;code>apt-get install cvs xinetd&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3f2221f" class="language-bash ">
+ &lt;code>up2date cvs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="creating-admin-group-and-directories">Creating Admin Group and Directories &lt;a href="#creating-admin-group-and-directories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d5b93f" class="language-bash ">
+ &lt;code>adduser cvsadmin
+mkdir -p /home/cvsadmin/repository
+mkdir /home/cvsadmin/.lock
+chown -Rf :cvsadmin /home/cvsadmin
+chmod -Rf 775 /home/cvsadmin
+chmod -Rf 777 /home/cvsadmin/.lock
+ln -s /home/cvsadmin/repository /usr/local/cvsroot&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="repository-initialization">Repository Initialization &lt;a href="#repository-initialization" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9e8274c" class="language-bash ">
+ &lt;code>export CVSROOT=/usr/local/cvsroot
+cvs -d $CVSROOT init
+chown -Rf root:cvsadmin /home/cvsadmin/repository/* &amp;amp;&amp;amp; chmod -Rf 777 /home/cvsadmin/repository/*&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="activating-lock-files">Activating Lock Files &lt;a href="#activating-lock-files" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To ensure that lock files are stored in a directory writable by all, you need to modify the &lt;code>/usr/local/cvsroot-backup/CVSROOT/config&lt;/code> file as follows:&lt;/p></description></item><item><title>Creating a RedHat DVD from CDs</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</link><pubDate>Fri, 17 Aug 2007 15:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As of this writing, the current RHEL release (5) is only available on CDs, not DVD. It is possible to create a bootable DVD ISO from these CDs using Chris Kloiber&amp;rsquo;s mkdvdiso.sh script.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="script-mkdvdisosh">Script mkdvdiso.sh &lt;a href="#script-mkdvdisosh" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Insert this in a mkdvdiso.sh file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="14014b1" class="language-bash ">
+ &lt;code>#!/bin/bash
+ 
+# by Chris Kloiber &amp;lt;ckloiber@redhat.com&amp;gt;
+ 
+# A quick hack that will create a bootable DVD iso of a Red Hat Linux
+# Distribution. Feed it either a directory containing the downloaded
+# iso files of a distribution, or point it at a directory containing
+# the &amp;#34;RedHat&amp;#34;, &amp;#34;isolinux&amp;#34;, and &amp;#34;images&amp;#34; directories.
+ 
+# This version only works with &amp;#34;isolinux&amp;#34; based Red Hat Linux versions.
+ 
+# Lots of disk space required to work, 3X the distribution size at least.
+ 
+# GPL version 2 applies. No warranties, yadda, yadda. Have fun.
+ 
+ 
+if [ $# -lt 2 ]; then
+	echo &amp;#34;Usage: `basename $0` source /destination/DVD.iso&amp;#34;
+	echo &amp;#34;&amp;#34;
+	echo &amp;#34; The &amp;#39;source&amp;#39; can be either a directory containing a single&amp;#34;
+	echo &amp;#34; set of isos, or an exploded tree like an ftp site.&amp;#34;
+	exit 1
+fi
+ 
+cleanup() {
+[ ${LOOP:=/tmp/loop} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;LOOP mount point = /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $LOOP ] &amp;amp;&amp;amp; rm -rf $LOOP 
+[ ${DVD:=~/mkrhdvd} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;DVD data location is /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $DVD ] &amp;amp;&amp;amp; rm -rf $DVD 
+}
+ 
+cleanup
+mkdir -p $LOOP
+mkdir -p $DVD
+ 
+if [ !`ls $1/*.iso 2&amp;gt;&amp;amp;1&amp;gt;/dev/null ; echo $?` ]; then
+	echo &amp;#34;Found ISO CD images...&amp;#34;
+	CDS=`expr 0`
+	DISKS=&amp;#34;1&amp;#34;
+ 
+	for f in `ls $1/*.iso`; do
+		mount -o loop $f $LOOP
+		cp -av $LOOP/* $DVD
+		if [ -f $LOOP/.discinfo ]; then
+			cp -av $LOOP/.discinfo $DVD
+			CDS=`expr $CDS &amp;#43; 1`
+			if [ $CDS != 1 ] ; then
+ 	DISKS=`echo ${DISKS},${CDS}`
+ 	fi
+		fi
+		umount $LOOP
+	done
+	if [ -e $DVD/.discinfo ]; then
+		awk &amp;#39;{ if ( NR == 4 ) { print disks } else { print ; } }&amp;#39; disks=&amp;#34;$DISKS&amp;#34; $DVD/.discinfo &amp;gt; $DVD/.discinfo.new
+		mv $DVD/.discinfo.new $DVD/.discinfo
+	fi
+else
+	echo &amp;#34;Found FTP-like tree...&amp;#34;
+	cp -av $1/* $DVD
+	[ -e $1/.discinfo ] &amp;amp;&amp;amp; cp -av $1/.discinfo $DVD
+fi
+ 
+rm -rf $DVD/isolinux/boot.cat
+find $DVD -name TRANS.TBL | xargs rm -f
+ 
+cd $DVD
+mkisofs -J -R -v -T -o $2 -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
+/usr/lib/anaconda-runtime/implantisomd5 --force $2
+ 
+cleanup
+echo &amp;#34;&amp;#34;
+echo &amp;#34;Process Complete!&amp;#34;
+echo &amp;#34;&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="install-the-anaconda-runtime">Install the anaconda-runtime &lt;a href="#install-the-anaconda-runtime" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Prerequisite package and its dependencies:&lt;/p></description></item></channel></rss>

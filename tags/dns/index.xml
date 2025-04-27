@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DNS on Tech Notebook</title><link>https://wiki.deimos.fr/tags/dns/</link><description>Recent content in DNS on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/dns/index.xml" rel="self" type="application/rss+xml"/><item><title>Dnsmasq and dhclient: use a specific DNS for a specific domain</title><link>https://wiki.deimos.fr/Dnsmasq_and_dhclient:_use_a_specific_DNS_for_a_specific_domain/</link><pubDate>Sun, 27 Jul 2014 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dnsmasq_and_dhclient:_use_a_specific_DNS_for_a_specific_domain/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Software version&lt;/td>
+ &lt;td>isc-dhcp-client 4.3.0 dnsmasq 2.71&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>Debian 8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>27/07/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>My use case is specific but not isolated. When I&amp;rsquo;m at work, I&amp;rsquo;m connected to my VPN at home. I have a specific DNS at home for my domain in deimos.lan and this is very useful to avoid me to remind all the IP of the services I have.&lt;/p></description></item><item><title>Unbound: Implementing a Next Generation DNS Server</title><link>https://wiki.deimos.fr/Unbound_:_Mise_en_place_d%27un_serveur_DNS_nouvelle_g%C3%A9n%C3%A9ration/</link><pubDate>Thu, 18 Jul 2013 18:38:00 +0200</pubDate><guid>https://wiki.deimos.fr/Unbound_:_Mise_en_place_d%27un_serveur_DNS_nouvelle_g%C3%A9n%C3%A9ration/</guid><description>&lt;p>Unbound is a next-generation DNS server that provides secure connections between DNS servers. It&amp;rsquo;s also designed for high availability and small usages:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/installing_and_using_the_unbound_name_server.pdf">Documentation on Installing And Using The Unbound Name Server&lt;/a>&lt;/p></description></item><item><title>Advanced usage of Bind</title><link>https://wiki.deimos.fr/Utilisation_avanc%C3%A9_de_Bind/</link><pubDate>Tue, 07 May 2013 11:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utilisation_avanc%C3%A9_de_Bind/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Bind is good, but sometimes it becomes a bit complex. Especially when you want to manage DNS servers like providers do. Here are some tips I found to improve the beast.&lt;/p>
+&lt;h2 id="force-zone-updates">Force zone updates &lt;a href="#force-zone-updates" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You may quickly need to update your zones without waiting for Bind to do it itself (see SOA, refresh, etc&amp;hellip; for each zone). For this, you must freeze Bind updates on the zones in question:&lt;/p></description></item><item><title>Installing and Configuring a Primary Bind9 Server (Master)</title><link>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master)/</link><pubDate>Tue, 07 May 2013 09:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Bind9_primaire_(Master)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.isc.org/index.pl?/sw/bind/" rel="external" target="_blank">BIND (Berkeley Internet Name Domain)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is the most widely used DNS server on the Internet, especially on Unix-like systems. It is currently maintained by the Internet Systems Consortium.&lt;/p></description></item><item><title>NamedManager: A Nice Web Interface to Manage Bind</title><link>https://wiki.deimos.fr/NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind/</link><pubDate>Sun, 14 Apr 2013 22:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/NamedManager_:_une_interface_web_agr%C3%A9able_pour_administrer_Bind/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/namedmanager-logo.png" alt="NamedManager" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.5.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/jethrocarr/namedmanager" rel="external" target="_blank">Namedmanager Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/04/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://projects.jethrocarr.com" rel="external" target="_blank">Namedmanager&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a graphical interface for managing your DNS records. It has been thoughtfully designed to facilitate administration, such as automatically adding PTR records when an A record is created, with a simple checkbox.&lt;/p></description></item><item><title>PowerAdmin: An Administration Interface for PowerDNS</title><link>https://wiki.deimos.fr/PowerAdmin_:_Une_interface_d'administration_pour_PowerDNS/</link><pubDate>Tue, 15 May 2012 15:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/PowerAdmin_:_Une_interface_d'administration_pour_PowerDNS/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweradmin_logo.png" alt="PowerAdmin" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.1.6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.poweradmin.org" rel="external" target="_blank">PowerAdmin Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PowerAdmin is an administration interface for PowerDNS. It&amp;rsquo;s built with PHP and allows you to manage much more than the basic functionality of PowerDNS.&lt;/p></description></item><item><title>PowerDNS: Creating a DNS Cache Server</title><link>https://wiki.deimos.fr/PowerDNS:_Cr%C3%A9er_un_serveur_de_cache_DNS/</link><pubDate>Tue, 15 May 2012 14:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/PowerDNS:_Cr%C3%A9er_un_serveur_de_cache_DNS/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/powerdns_logo.png" alt="PowerDNS" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.9.22&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.powerdns.com" rel="external" target="_blank">PowerDNS Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PowerDNS is (as its name suggests) a DNS server. It&amp;rsquo;s a direct competitor to Bind. It aims to be less RAM-intensive and offers more flexible configuration options than Bind.&lt;/p></description></item><item><title>PowerDNS: Creating a Master DNS Server</title><link>https://wiki.deimos.fr/PowerDNS_:_Cr%C3%A9er_serveur_DNS_maitre/</link><pubDate>Tue, 15 May 2012 14:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/PowerDNS_:_Cr%C3%A9er_serveur_DNS_maitre/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/powerdns_logo.png" alt="PowerDNS" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.9.22&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.powerdns.com" rel="external" target="_blank">PowerDNS Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PowerDNS is (as its name suggests) a DNS server. It&amp;rsquo;s a direct competitor to Bind. It aims to be less memory-intensive and offers more flexible configuration options than Bind.&lt;/p></description></item><item><title>VServer: Setting Up VServer</title><link>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</link><pubDate>Tue, 24 May 2011 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Linux-VServer is a security context isolator combined with segmented routing, chroot, extended quotas, and other standard tools.&lt;/p>
+&lt;p>Initially launched by Jacques Gélinas as the CTX patch, Linux-VServer consists of a patch for the Linux kernel that allows multiple applications to run in different security contexts on the same host machine. Linux-VServer is also equipped with a set of tools to install/manage these contexts.&lt;/p>
+&lt;p>This project allows one or more operating environments (operating systems without the kernel) to run on a distribution, meaning you can run one or more distributions on a single distribution.&lt;/p></description></item><item><title>Bindgraph: Get Statistics and Graphs of DNS Queries</title><link>https://wiki.deimos.fr/Bindgraph_:_Avoir_des_stats_et_des_graphs_des_requ%C3%AAtes_DNS/</link><pubDate>Tue, 02 Feb 2010 21:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bindgraph_:_Avoir_des_stats_et_des_graphs_des_requ%C3%AAtes_DNS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is the kind of software I really like. It installs quickly and is very practical.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6dc84ee" class="language-bash ">
+ &lt;code>aptitude install bindgraph&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a configuration file for bindgraph in the /etc/lighttpd/conf-available/ directory:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock linenos">
+ &lt;pre id="4593eb7" class="language-bash line-numbers">
+ &lt;code># Alias for phpMyAdmin directory
+alias.url &amp;#43;= (
+ &amp;#34;/bindgraph&amp;#34; =&amp;gt; &amp;#34;/usr/lib/cgi-bin/bindgraph.cgi&amp;#34;,
+)
+
+$HTTP[&amp;#34;url&amp;#34;] =~ &amp;#34;^/bindgraph*&amp;#34;, {
+
+}&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now, create the necessary symlink:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f2c35de" class="language-bash ">
+ &lt;code>cd /etc/lighttpd/conf-enabled
+ln -s /etc/lighttpd/conf-available/50-bindgraph.conf .&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All that&amp;rsquo;s left is to restart the web server and it&amp;rsquo;s accessible via:&lt;/p></description></item><item><title>Clearing DNS Cache on Mac OS X</title><link>https://wiki.deimos.fr/Vider_son_cache_DNS_sur_Mac_OS_X/</link><pubDate>Sun, 06 Dec 2009 16:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vider_son_cache_DNS_sur_Mac_OS_X/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Just like on Windows systems, there&amp;rsquo;s a solution to clear the DNS cache on Mac OS X.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9995f6e" class="language-bash ">
+ &lt;code>dscacheutil -flushcache&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Securing a Bind Architecture</title><link>https://wiki.deimos.fr/Securing_a_Bind_architecture/</link><pubDate>Fri, 20 Nov 2009 20:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/Securing_a_Bind_architecture/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The figure below shows the general operation of DNS queries in an architecture with multiple DNS servers. Some of these servers (IP 192.168.69.1, 192.168.66.1, and 194.54.3.68) are associated with managing names for a fictional domain &lt;code>test.fr&lt;/code>. Another private DNS server (IP 10.59.1.3) is associated with managing a fictional private domain (invisible from the Internet) called &lt;code>here.local&lt;/code>. Two arbitrary external DNS servers located on the Internet are also represented.&lt;/p></description></item><item><title>Installation and Configuration of a Bind9 Secondary (Slave) Server</title><link>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave)/</link><pubDate>Sun, 04 Oct 2009 19:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you want to set up your own DNS server, you must have a secondary server. If you don&amp;rsquo;t have other machines, you can use Gandi, otherwise follow this guide.&lt;/p>
+&lt;p>&lt;strong>Don&amp;rsquo;t forget to declare the secondary server on the primary server.&lt;/strong>&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On the secondary server:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d5080ef" class="language-bash ">
+ &lt;code>apt-get install bind9&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For OpenBSD, nothing to do, it&amp;rsquo;s already installed by default.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Before beginning, &lt;strong>declare your secondary servers in your domain name records (update NS records + ACL in named.conf)&lt;/strong>, otherwise notifications won&amp;rsquo;t work.&lt;/p></description></item><item><title>DNS FQDN Name Resolution in Local Network</title><link>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</link><pubDate>Wed, 17 Dec 2008 23:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</guid><description>&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have noticed that on Ubuntu, there is a problem resolving FQDN (Fully Qualified Domain Names) for your local DNS servers.&lt;/p>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply edit the &lt;code>/etc/nsswitch.conf&lt;/code> file and replace this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="248f0d3" class="language-bash ">
+ &lt;code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>With:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3c42fbf" class="language-bash ">
+ &lt;code>hosts: files dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And just like magic, everything works! :-)&lt;/p></description></item><item><title>Secondary MX: Setup</title><link>https://wiki.deimos.fr/MX_Secondaire:_mise_en_place/</link><pubDate>Fri, 23 May 2008 07:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/MX_Secondaire:_mise_en_place/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When there&amp;rsquo;s only one mail server handling emails for a domain, if it becomes unavailable, emails sent by third parties to the primary server will be stored in the spool (outgoing queue) of the remote server for a few days in the best case, or immediately returned with an error message (depending on the problem or the configuration of the remote server).&lt;/p>
+&lt;p>Since problems and unavailability are inherent in modern computing, it&amp;rsquo;s necessary to set up a system that can, at least in a degraded mode, transparently recover emails for the sender.&lt;/p></description></item><item><title>Setting up a Bind server with LDAP backend</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Bind_en_backend_LDAP/</link><pubDate>Fri, 22 Feb 2008 18:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Bind_en_backend_LDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This document explains the configuration of a Bind9 server as master but with storage in an LDAP server rather than in a text file.&lt;/p>
+&lt;p>For this, we need to use the &lt;code>sdb-ldap&lt;/code> patch from &lt;a href="https://www.venaas.no/ldap/bind-sdb/" rel="external" target="_blank">https://www.venaas.no/ldap/bind-sdb/&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> for Bind9. FreeBSD includes a port where the patch is directly applied to Bind9 and you just need to install it like any other port.&lt;/p></description></item><item><title>DNS Protocol Security Audits</title><link>https://wiki.deimos.fr/Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS/</link><pubDate>Sun, 23 Dec 2007 23:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS/</guid><description>&lt;h2 id="introduction-to-dns-protocol-security">Introduction to DNS Protocol Security &lt;a href="#introduction-to-dns-protocol-security" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>DNS is used in most local networks; however, it was developed with strong performance constraints at the expense of security, to avoid degrading regular traffic due to the substantial number of queries associated with the nature of this protocol.&lt;/p>
+&lt;p>DNS (&lt;a href="https://fr.wikipedia.org/wiki/Domain_Name_System" rel="external" target="_blank">Domain Naming System&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>) is one of the key protocols of the Internet, along with several major routing protocols, notably BGPv4 (&lt;a href="https://fr.wikipedia.org/wiki/Border_Gateway_Protocol" rel="external" target="_blank">Border Gateway Protocol&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>). It is also used in most current local networks with, depending on the chosen topology, one or more internal DNS server(s).&lt;/p></description></item><item><title>Configuring a Local Network on Debian and Ubuntu</title><link>https://wiki.deimos.fr/Configuration_d%27un_r%C3%A9seau_local_sur_Debian_et_Ubuntu/</link><pubDate>Wed, 18 Apr 2007 14:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_d%27un_r%C3%A9seau_local_sur_Debian_et_Ubuntu/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Not always easy to remember what to put in these damn files, right? Here are some simple examples.&lt;/p>
+&lt;h2 id="configuring-network-interfaces">Configuring Network Interfaces &lt;a href="#configuring-network-interfaces" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Edit the file &lt;code>/etc/network/interfaces&lt;/code>.&lt;/p>
+&lt;h3 id="static-ip-addressing">Static IP Addressing &lt;a href="#static-ip-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For example, here&amp;rsquo;s how I configure my eth0 interface:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b464be6" class="language-bash ">
+ &lt;code>auto lo eth0
+iface lo inet loopback
+
+# Interface eth0
+iface eth0 inet static
+ address 192.168.0.1
+ netmask 255.255.255.0
+ broadcast 192.168.0.255
+ network 192.168.0.0
+ gateway 192.168.0.138&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="dynamic-ip-addressing">Dynamic IP Addressing &lt;a href="#dynamic-ip-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If I want dynamic addressing, it&amp;rsquo;s even simpler:&lt;/p></description></item><item><title>SPF (Sender Policy Framework): Prevention of Email Address Forgery</title><link>https://wiki.deimos.fr/SPF_%28Sender_Policy_Framework%29_:_Pr%C3%A9vention_de_la_contrefa%C3%A7on_d%27adresses_mails/</link><pubDate>Thu, 28 Dec 2006 22:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/SPF_%28Sender_Policy_Framework%29_:_Pr%C3%A9vention_de_la_contrefa%C3%A7on_d%27adresses_mails/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SPF stands for Sender Policy Framework. SPF aims to be an anti-counterfeiting standard to prevent email address forgery.&lt;/p>
+&lt;p>SPF was born in 2003. Its creator, Meng Weng Wong, took the best features of Reverse MX and DMP (Designated Mailer Protocol) to create SPF.&lt;/p>
+&lt;p>SPF uses the return path (MAIL FROM) present in the message header, since all MTAs work with these fields. However, there is a new concept proposed by Microsoft: PRA, which stands for Purported Responsible Address. The PRA corresponds to the end-user address that an MUA (like Thunderbird) uses.&lt;/p></description></item><item><title>Penetration Testing</title><link>https://wiki.deimos.fr/Tests_d'intrusion/</link><pubDate>Tue, 28 Nov 2006 22:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tests_d'intrusion/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Once a network is installed and configured, it continuously evolves. New systems are added, old and faithful machines disappear - everything changes constantly. Users can also make modifications to the network without the administrator&amp;rsquo;s knowledge.&lt;/p>
+&lt;p>To verify the state of a network, an administrator must behave like a hacker and attempt to penetrate their own defenses. This article presents the methodology to follow.&lt;/p>
+&lt;p>It&amp;rsquo;s important to test the security of your own network by putting yourself in the hacker&amp;rsquo;s position to discover potential vulnerabilities. These tests are broken down into several steps:&lt;/p></description></item></channel></rss>

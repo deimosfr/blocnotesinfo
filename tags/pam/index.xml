@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>PAM on Tech Notebook</title><link>https://wiki.deimos.fr/tags/pam/</link><description>Recent content in PAM on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/pam/index.xml" rel="self" type="application/rss+xml"/><item><title>Yubikey: Configure Your Yubikey with PAM</title><link>https://wiki.deimos.fr/Yubikey_:_Configure_your_yubikey_with_pam/</link><pubDate>Wed, 22 Apr 2015 16:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Yubikey_:_Configure_your_yubikey_with_pam/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/yubikey.png" alt="Yubikey" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7/8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.yubico.com/" rel="external" target="_blank">Yubikey Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>22/04/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve bought Yubikeys to manage several things. They permit 2 different kinds of authentication per key. The authentication methods are:&lt;/p></description></item><item><title>PAM Time: Setting Login Restrictions</title><link>https://wiki.deimos.fr/Pam_time:_Mettre_des_restrictions_sur_les_logins/</link><pubDate>Fri, 06 May 2011 20:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pam_time:_Mettre_des_restrictions_sur_les_logins/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>pam_time is able to make several kinds of restrictions like:&lt;/p>
+&lt;ul>
+&lt;li>Time Based Restrictions&lt;/li>
+&lt;li>Access Based Restrictions&lt;/li>
+&lt;/ul>
+&lt;p>I&amp;rsquo;ll explain here how to use those options.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="time-based-restrictions">Time Based Restrictions &lt;a href="#time-based-restrictions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>These examples will limit the login times of certain users. See &lt;code>/etc/security/time.conf&lt;/code> for more information/examples. In order to place time restrictions on user logins, the following must be placed in &lt;code>/etc/pam.d/login&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3cc4e59" class="language-bash ">
+ &lt;code>account required /lib/security/pam_time.so&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The remaining lines should be placed in &lt;code>/etc/security/time.conf&lt;/code>.&lt;/p></description></item><item><title>PAM Cracklib: Configure Password Complexity</title><link>https://wiki.deimos.fr/Pam_cracklib_:_Choisir_la_complexit%C3%A9_des_mots_de_passe/</link><pubDate>Sun, 06 Feb 2011 08:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pam_cracklib_:_Choisir_la_complexit%C3%A9_des_mots_de_passe/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;re tired of users choosing passwords that are too simple on your systems, compromising security in the process, there&amp;rsquo;s a solution. PAM Cracklib allows you to specify the minimum size of passwords, the number of lowercase letters, uppercase letters, digits, and more.&lt;/p>
+&lt;p>It&amp;rsquo;s almost essential, especially if you rely on a backend like LDAP.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installation is straightforward:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5efdee3" class="language-bash ">
+ &lt;code>aptitude install libpam-cracklib&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We only have one file to edit, which greatly simplifies things. Since we&amp;rsquo;re using Debian, they&amp;rsquo;ve made our lives easier - we just need to uncomment some lines that already come with clear explanations!&lt;/p></description></item><item><title>Mixing Apache Authentication</title><link>https://wiki.deimos.fr/Mixing_Apache_Authentication/</link><pubDate>Sun, 11 Apr 2010 15:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mixing_Apache_Authentication/</guid><description>&lt;h2 id="mixing-pam">Mixing PAM &lt;a href="#mixing-pam" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>How to mix PAM authentication (mod_auth_pam) and text file authentication (mod_auth) with Apache. First install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="523dc2c" class="language-bash ">
+ &lt;code>apt-get install libapache2-mod-auth-pam&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then configure your htaccess:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="91ed4dd" class="language-bash ">
+ &lt;code>AuthPAM_Enabled on
+AuthPAM_FallThrough on
+AuthAuthoritative Off
+AuthUserFile /etc/apache2/htpassword
+AuthType Basic
+AuthName &amp;#34;Restricted Access&amp;#34;
+Require valid-user&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If mod_auth_pam doesn&amp;rsquo;t find a valid user, it falls back to mod_auth authentication automatically.&lt;/p>
+&lt;p>Here is another example with webdav:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock linenos">
+ &lt;pre id="17f3a63" class="language-apache line-numbers">
+ &lt;code> Alias /webdav /var/www/ngs
+ &amp;lt;Location /webdav&amp;gt;
+ DAV On
+ AuthPAM_Enabled on
+ AuthBasicAuthoritative Off 
+ AuthPAM_FallThrough off 
+ AuthUserFile /dev/null
+ AuthType Basic
+ AuthName &amp;#34;Webdav Authentication&amp;#34;
+ Require group ngs 
+ &amp;lt;/Location&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="openbsd">OpenBSD &lt;a href="#openbsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On OpenBSD, I had to install &lt;a href="https://www.25thandclement.com/~william/projects/bsdauth.html" rel="external" target="_blank">mod_auth_bsd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p></description></item><item><title>PAM-script: Execute Scripts at Authentication, Session Open and Close</title><link>https://wiki.deimos.fr/PAM-script_:_Executer_des_scripts_%C3%A0_l%27authentification,_l%27ouverture_et_la_fermeture_de_session/</link><pubDate>Sun, 14 Mar 2010 19:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM-script_:_Executer_des_scripts_%C3%A0_l%27authentification,_l%27ouverture_et_la_fermeture_de_session/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need to run some operations at authentication, session opening or closing. Here is a PAM module I&amp;rsquo;ve found that allows this functionality.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download the module from &lt;a href="https://freshmeat.net/projects/pam_script/" rel="external" target="_blank">the Freshmeat project&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and extract it:&lt;/p></description></item><item><title>PAM: Install pam_mkhomedir for Automatic User Home Directory Creation</title><link>https://wiki.deimos.fr/PAM_:_Installer_pam_mkhomedir_pour_la_cr%C3%A9ation_automatique_des_home_utilisateurs/</link><pubDate>Tue, 06 Oct 2009 08:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_:_Installer_pam_mkhomedir_pour_la_cr%C3%A9ation_automatique_des_home_utilisateurs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may be in a situation like mine where you have your Solaris connected to an LDAP server or similar, and you&amp;rsquo;re facing the problem of automatic home directory creation for users who connect. After 2-3 hours of struggles, I finally managed to compile and configure everything.&lt;/p>
+&lt;p>Here&amp;rsquo;s my documentation to save time for others who might face the same issue.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, you&amp;rsquo;ll need a small package to avoid errors like this:&lt;/p></description></item><item><title>Setting up OpenLDAP Client</title><link>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</link><pubDate>Wed, 23 Sep 2009 09:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenLDAP is unfortunately not available as standard on Solaris, however it is possible to install it via pkg-get.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Configure the &lt;code>/etc/pam.conf&lt;/code> file:&lt;/li>
+&lt;/ul>
+&lt;p>For each line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c0ea0a" class="language-bash ">
+ &lt;code>service auth required pam_unix_auth.so.1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>replace &amp;ldquo;required&amp;rdquo; with &amp;ldquo;sufficient&amp;rdquo; and add behind the line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6af2348" class="language-bash ">
+ &lt;code>service auth sufficient pam_ldap.so.1 try_first_pass&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This should result in something like this (&lt;code>/etc/pam.conf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b261686" class="language-bash ">
+ &lt;code>#
+#ident &amp;#34;@(#)pam.conf 1.28 04/04/21 SMI&amp;#34;
+#
+# Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+# Use is subject to license terms.
+#
+# PAM configuration
+#
+# Unless explicitly defined, all services use the modules
+# defined in the &amp;#34;other&amp;#34; section.
+#
+# Modules are defined with relative pathnames, i.e., they are
+# relative to /usr/lib/security/$ISA. Absolute path names, as
+# present in this file in previous releases are still acceptable.
+#
+# Authentication management
+#
+# login service (explicit because of pam_dial_auth)
+#
+login auth requisite pam_authtok_get.so.1
+login auth required pam_dhkeys.so.1
+login auth required pam_unix_cred.so.1
+login auth sufficient pam_ldap.so.1 try_first_pass
+login auth sufficient pam_unix_auth.so.1
+login auth required pam_dial_auth.so.1
+#
+# rlogin service (explicit because of pam_rhost_auth)
+#
+rlogin auth sufficient pam_rhosts_auth.so.1
+rlogin auth requisite pam_authtok_get.so.1
+rlogin auth required pam_dhkeys.so.1
+rlogin auth required pam_unix_cred.so.1
+rlogin auth sufficient pam_ldap.so.1 try_first_pass
+rlogin auth sufficient pam_unix_auth.so.1
+#
+# Kerberized rlogin service
+#
+krlogin auth required pam_unix_cred.so.1
+krlogin auth binding pam_krb5.so.1
+krlogin auth sufficient pam_ldap.so.1
+krlogin auth sufficient pam_unix_auth.so.1
+#
+# rsh service (explicit because of pam_rhost_auth,
+# and pam_unix_auth for meaningful pam_setcred)
+#
+rsh auth sufficient pam_rhosts_auth.so.1
+rsh auth required pam_unix_cred.so.1
+#
+# Kerberized rsh service
+#
+krsh auth required pam_unix_cred.so.1
+krsh auth binding pam_krb5.so.1
+krsh auth sufficient pam_ldap.so.1
+krsh auth sufficient pam_unix_auth.so.1
+#
+# Kerberized telnet service
+#
+ktelnet auth required pam_unix_cred.so.1
+ktelnet auth binding pam_krb5.so.1
+ktelnet auth sufficient pam_ldap.so.1
+ktelnet auth sufficient pam_unix_auth.so.1
+#
+# PPP service (explicit because of pam_dial_auth)
+#
+ppp auth requisite pam_authtok_get.so.1
+ppp auth required pam_dhkeys.so.1
+ppp auth required pam_unix_cred.so.1
+ppp auth sufficient pam_ldap.so.1
+ppp auth sufficient pam_unix_auth.so.1
+ppp auth required pam_dial_auth.so.1
+#
+# Default definitions for Authentication management
+# Used when service name is not explicitly mentioned for authentication
+#
+other auth requisite pam_authtok_get.so.1
+other auth required pam_dhkeys.so.1
+other auth required pam_unix_cred.so.1
+other auth sufficient pam_ldap.so.1
+other auth sufficient pam_unix_auth.so.1
+#
+# passwd command (explicit because of a different authentication module)
+#
+passwd auth required pam_passwd_auth.so.1
+#
+# cron service (explicit because of non-usage of pam_roles.so.1)
+#
+cron account required pam_unix_account.so.1
+#
+# Default definition for Account management
+# Used when service name is not explicitly mentioned for account management
+#
+other account requisite pam_roles.so.1
+other account required pam_unix_account.so.1
+#
+# Default definition for Session management
+# Used when service name is not explicitly mentioned for session management
+#
+other session required pam_unix_session.so.1
+#
+# Default definition for Password management
+# Used when service name is not explicitly mentioned for password management
+#
+other password required pam_dhkeys.so.1
+other password requisite pam_authtok_get.so.1
+other password requisite pam_authtok_check.so.1
+other password required pam_authtok_store.so.1
+#
+# Support for Kerberos V5 authentication and example configurations can
+# be found in the pam_krb5(5) man page under the &amp;#34;EXAMPLES&amp;#34; section.
+#&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Configure the &lt;code>/etc/nsswitch.ldap&lt;/code> file&lt;/li>
+&lt;/ul>
+&lt;p>Keep &amp;ldquo;ldap&amp;rdquo; only where it&amp;rsquo;s useful: for now on the passwd: and group: lines.
+For the rest, use the content of the &lt;code>/etc/nsswitch.dns&lt;/code> file.
+This gives:&lt;/p></description></item><item><title>Setting up a Unix systems specialized Home server</title><link>https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_de_Home_sp%C3%A9cialis%C3%A9_syst%C3%A8mes_Unix/</link><pubDate>Mon, 21 Jul 2008 12:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_de_Home_sp%C3%A9cialis%C3%A9_syst%C3%A8mes_Unix/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This article will show how to have a simultaneous dedicated profile on multiple machines.&lt;/p>
+&lt;p>Here are the goals of this tutorial:&lt;/p>
+&lt;ul>
+&lt;li>Account centralization with LDAP (this should already be done).&lt;/li>
+&lt;li>Each user will have a single personal unix profile on every unix server.&lt;/li>
+&lt;li>The profile is the same everywhere with a share system.&lt;/li>
+&lt;li>They will have paths, aliases and environment vars easier to set via a perl script.&lt;/li>
+&lt;li>The profile will be the same for every user (global environment) plus their personal customizations.&lt;/li>
+&lt;li>Users on Windows will have their Unix profile on a shared drive.&lt;/li>
+&lt;li>A special easy environment for Java is also possible.&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-global-environment">Set global environment &lt;a href="#set-global-environment" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="global-profile">Global Profile &lt;a href="#global-profile" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>This file will be loaded every time when a user logs on. You can add anything if you want it to be loaded. Here is the &lt;code>/etc/profile&lt;/code> file:&lt;/p></description></item><item><title>PAM mount: Automatically Mount Network Shares at Login</title><link>https://wiki.deimos.fr/PAM_mount:_Monter_des_partages_r%C3%A9seaux_au_login/</link><pubDate>Wed, 16 Jul 2008 16:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_mount:_Monter_des_partages_r%C3%A9seaux_au_login/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need sometimes to automatically mount network shares. This can be done with the &lt;a href="https://pam-mount.sourceforge.net/" rel="external" target="_blank">pam_mount&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> module.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For installation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a2f758a" class="language-bash ">
+ &lt;code>apt-get install pam_mount&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="pam_mountconf">pam_mount.conf &lt;a href="#pam_mountconf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Edit the &lt;code>/etc/security/pam_mount.conf&lt;/code> file and configure what you need. Here we would like users to have nfs home share to be mounted from the server at logon. Add this line at the end of the file:&lt;/p></description></item><item><title>PAM (Pluggable Authentication Module): Choosing Authentication Methods</title><link>https://wiki.deimos.fr/PAM_%28Pluggable_Authentification_Module%29_:_Choisir_ses_m%C3%A9thodes_d%27authentifications/</link><pubDate>Sun, 06 Apr 2008 07:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_%28Pluggable_Authentification_Module%29_:_Choisir_ses_m%C3%A9thodes_d%27authentifications/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PAM is THE standard authentication system used in Linux. The power of this tool is unlimited, but it&amp;rsquo;s not always well documented which tends to work against it. As an introduction, let&amp;rsquo;s first look at the motivations that led to the creation of PAM. Originally, in Unix (and in early versions of Linux), the file that centralized user management was &lt;code>/etc/passwd&lt;/code>. It contained many sensitive pieces of information, including encrypted passwords. To use a Unix machine, the first thing to do was to authenticate via the login program (the last program launched by init). This program was developed to parse the &lt;code>/etc/passwd&lt;/code> file.&lt;/p></description></item><item><title>PAM Mount and SshFS with Password Authentication</title><link>https://wiki.deimos.fr/PAM_Mount_et_SshFS_avec_authentification_par_mot_de_passe/</link><pubDate>Wed, 26 Mar 2008 18:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_Mount_et_SshFS_avec_authentification_par_mot_de_passe/</guid><description>&lt;p>Here is documentation about SSHFS and PAM:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/pam_mount_and_sshfs_with_password_authentication.pdf">Documentation on PAM mount and SSHFS with password authentication&lt;/a>&lt;/p></description></item></channel></rss>

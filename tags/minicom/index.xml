@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Minicom on Tech Notebook</title><link>https://wiki.deimos.fr/tags/minicom/</link><description>Recent content in Minicom on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/minicom/index.xml" rel="self" type="application/rss+xml"/><item><title>Connect to Debian via Serial Port</title><link>https://wiki.deimos.fr/Se_connecter_par_port_serie_sur_sa_debian/</link><pubDate>Fri, 20 May 2011 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Se_connecter_par_port_serie_sur_sa_debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This documentation helps you set up a connection to a Linux machine via a serial port. It also explains how to configure minicom.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ae4dd60" class="language-bash ">
+ &lt;code>apt-get install minicom&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>First, we need to determine your COM port configuration:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="35eac8a" class="language-bash ">
+ &lt;code>$ dmesg | grep tty
+[ 0.004000] console [tty0] enabled
+[ 1.629013] tty ttye7: hash matches
+[ 1.629021] tty ttyba: hash matches
+[ 12.843809] usb 5-2: pl2303 converter now attached to ttyUSB0
+[ 129.343389] type=1503 audit(1230854350.490:5): operation=&amp;#34;inode_permission&amp;#34; requested_mask=&amp;#34;w::&amp;#34; denied_mask=&amp;#34;w::&amp;#34; fsuid=0 name=&amp;#34;/dev/ttyUSB0&amp;#34; pid=6609 profile=&amp;#34;/usr/sbin/cupsd&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We can see that ttyUSB0 is detected here.&lt;/p></description></item></channel></rss>

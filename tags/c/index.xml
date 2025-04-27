@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>C on Tech Notebook</title><link>https://wiki.deimos.fr/tags/c/</link><description>Recent content in C on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/c/index.xml" rel="self" type="application/rss+xml"/><item><title>Better Understanding and Using the C Language Preprocessor</title><link>https://wiki.deimos.fr/Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C/</link><pubDate>Sun, 06 Dec 2009 15:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>In the C language, preprocessing is the preliminary stage before compilation. It&amp;rsquo;s a powerful mechanism that allows conditional compilation, file inclusion, and macro definition. Although these features appear simple at first glance, they must be used carefully to avoid compilation errors or, worse, program malfunctions. Additionally, the GCC preprocessor has additional features that can be very useful.&lt;/p>
+&lt;h2 id="a-little-known-compiler-failure">A Little-Known Compiler Failure &lt;a href="#a-little-known-compiler-failure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Thanks to the C macro processor, it&amp;rsquo;s possible to define and use constants as follows:&lt;/p></description></item><item><title>How to Check the Page Size of Your Machine</title><link>https://wiki.deimos.fr/Connaitre_le_page_size_de_sa_machine/</link><pubDate>Wed, 09 May 2007 13:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_page_size_de_sa_machine/</guid><description>&lt;h2 id="determining-the-page-size">Determining the Page Size &lt;a href="#determining-the-page-size" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Most operating systems allow programs to determine what the page size is so that they can allocate memory more efficiently.&lt;/p>
+&lt;h3 id="unix-and-posix-based-operating-systems">UNIX and POSIX-based Operating Systems &lt;a href="#unix-and-posix-based-operating-systems" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>UNIX and POSIX-based systems use the C function sysconf().&lt;/p>
+&lt;p>Edit a test.c file and paste it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fc4196b" class="language-c ">
+ &lt;code>#include &amp;lt;stdio.h&amp;gt; // printf(3)
+#include &amp;lt;unistd.h&amp;gt; // sysconf(3)
+
+int
+main(void)
+{
+ printf(&amp;#34;The page size for this system is %ld bytes\n&amp;#34;, sysconf(_SC_PAGESIZE)); //_SC_PAGE_SIZE is OK too.
+ return 0;
+}&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then compile it with gcc:&lt;/p></description></item></channel></rss>

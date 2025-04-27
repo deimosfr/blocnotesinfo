@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network Security on Tech Notebook</title><link>https://wiki.deimos.fr/tags/network-security/</link><description>Recent content in Network Security on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/network-security/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up Snort &amp; BASE (Basic Analysis and Security Engine)</title><link>https://wiki.deimos.fr/Mise_en_place_de_Snort_%5C&amp;_BASE_%28Basic_Analysis_and_Security_Engine%29/</link><pubDate>Sun, 10 Feb 2008 10:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Snort_%5C&amp;_BASE_%28Basic_Analysis_and_Security_Engine%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Snort is what we call an &lt;a href="https://fr.wikipedia.org/wiki/Syst%C3%A8me_de_d%C3%A9tection_d%27intrusion" rel="external" target="_blank">IDS (Intrusion Detection System)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and more specifically a passive NIDS (Network Intrusion Detection System). It can therefore detect who is trying to compromise your system.&lt;/p></description></item><item><title>ARP Spoofing in a Switched Network</title><link>https://wiki.deimos.fr/arp-spoofing-dans-un-reseau-switche/</link><pubDate>Fri, 03 Aug 2007 16:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/arp-spoofing-dans-un-reseau-switche/</guid><description>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/arp_spoofing_in_switched_lans_fr.pdf">ARP Spoofing in a Switched Network&lt;/a>&lt;/p></description></item><item><title>Basic Configuration of a Cisco PIX</title><link>https://wiki.deimos.fr/Configuration_de_base_d'un_Cisco_Pix/</link><pubDate>Wed, 08 Nov 2006 10:33:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configuration_de_base_d'un_Cisco_Pix/</guid><description>&lt;h2 id="cisco-basics">Cisco Basics &lt;a href="#cisco-basics" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In graphical mode it&amp;rsquo;s not too complicated, but in command line - oh boy - the PIX is challenging to configure!&lt;/p>
+&lt;p>It&amp;rsquo;s Cisco, so it uses proprietary commands but with a touch of Unix. For example, the grep command works :-)&lt;/p>
+&lt;p>Let&amp;rsquo;s get started. Connect and enter your password.&lt;/p>
+&lt;h3 id="the-basics">The Basics &lt;a href="#the-basics" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Switch to &lt;strong>enable&lt;/strong> mode to get admin privileges:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="56f931a" class="language-bash ">
+ &lt;code>en&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Then a &lt;strong>show running-config&lt;/strong> to see the current configuration:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d753f6b" class="language-bash ">
+ &lt;code>sh run&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Once you&amp;rsquo;ve viewed the configuration and decided to add something, do a &lt;strong>configure terminal&lt;/strong>:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c0a3020" class="language-bash ">
+ &lt;code>conf t&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>To exit the current mode:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ca2c0e6" class="language-bash ">
+ &lt;code>Ctrl&amp;#43;z or exit&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Are you sure? Then save to memory (&lt;strong>write memory&lt;/strong>):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4d50064" class="language-bash ">
+ &lt;code>wr m&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="adding-and-removing-commands">Adding and Removing Commands &lt;a href="#adding-and-removing-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>To add a NAT rule for example, copy the existing lines, then copy/paste:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9f2540f" class="language-bash ">
+ &lt;code>static (dmz,outside) tcp 193.252.19.3 2099 SRV-FRONT 2099 netmask 255.255.255.255 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>To delete this rule:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4172c6f" class="language-bash ">
+ &lt;code>no static (dmz,outside) tcp 193.252.19.3 2099 SRV-FRONT 2099 netmask 255.255.255.255 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="adding-an-admin-user">Adding an Admin User &lt;a href="#adding-an-admin-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To add a Cisco admin user:&lt;/p></description></item></channel></rss>

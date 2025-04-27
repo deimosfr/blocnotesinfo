@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Installation on Tech Notebook</title><link>https://wiki.deimos.fr/tags/installation/</link><description>Recent content in Installation on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/installation/index.xml" rel="self" type="application/rss+xml"/><item><title>Automate Debian Installation</title><link>https://wiki.deimos.fr/Automatiser_une_installation_de_Debian/</link><pubDate>Tue, 07 May 2013 11:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Automatiser_une_installation_de_Debian/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>7.0&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s not always easy to set up 10 identical servers. That&amp;rsquo;s why this section will help you have a clean and controlled installation.&lt;/p></description></item><item><title>Debian: Reinstalling a Server Almost Identically</title><link>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</link><pubDate>Mon, 06 May 2013 15:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</guid><description>&lt;h2 id="principle">Principle &lt;a href="#principle" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>From a reference server, I want to quickly install another server with exactly the same packages.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We&amp;rsquo;ll extract the list of installed packages from the reference server:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="120d0f6" class="language-bash ">
+ &lt;code>dpkg --get-selections &amp;gt; my_packages.txt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then reinstall everything from this package list:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a6b7719" class="language-bash ">
+ &lt;code>dpkg --clear-selections
+dpkg --set-selections &amp;lt; my_packages.txt
+apt-get update
+apt-get dselect-upgrade
+apt-get dist-upgrade
+apt-get upgrade&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Creating a Red Hat Kickstart to Automate Installations</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_Kickstart_Red_Hat_pour_automatiser_les_installation/</link><pubDate>Thu, 07 Jun 2012 07:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_Kickstart_Red_Hat_pour_automatiser_les_installation/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Automating Red Hat installations quickly becomes essential if you have many machines to deploy. This is why the Kickstart method exists, allowing you to boot from virtually any media.&lt;/p></description></item><item><title>Installing Debian on a Mac in Single Boot</title><link>https://wiki.deimos.fr/Installer_Debian_sur_un_Mac_en_single_boot/</link><pubDate>Wed, 02 May 2012 20:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_Debian_sur_un_Mac_en_single_boot/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian_logo.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org/" rel="external" target="_blank">Debian&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/02/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are many methods for installing Debian on a Mac, some of which are less elegant than others. One approach that worked for me, but is quite messy, involves having an HFS+ partition with refit and Linux partitions that need to be synchronized with EFI (MBR -&amp;gt; EFI) with each new partition.&lt;/p></description></item><item><title>Automating Installation of Many Packages</title><link>https://wiki.deimos.fr/Automatiser_l'installation_de_beaucoup_de_packages/</link><pubDate>Wed, 15 Feb 2012 18:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Automatiser_l'installation_de_beaucoup_de_packages/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Pkgadd isn&amp;rsquo;t particularly user-friendly; it has plenty of options but they&amp;rsquo;re a bit too hidden for my taste. For work, I needed to deploy approximately 1000 packages on several machines. However, with each package installation, I had to enter &amp;lsquo;y&amp;rsquo; and press enter, which quickly becomes tedious.&lt;/p>
+&lt;p>To solve this problem, I looked at the man page and found the &lt;code>-n&lt;/code> argument, which is useful since it lets you bypass interactive mode. The drawback is that it doesn&amp;rsquo;t work perfectly. So I searched a bit on the internet and found the response file. This is a file where we pass options. These options are tested during a package installation, and here we force them by default to avoid being bothered.&lt;/p></description></item><item><title>Installing pfSense on Soekris</title><link>https://wiki.deimos.fr/Installer_pfSense_sur_Soekris/</link><pubDate>Fri, 03 Dec 2010 23:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_pfSense_sur_Soekris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I spent too much time trying to find how to install pfSense on a Soekris net5501. Why? Because no PXE versions exist or are easily installable, and also due to configuration and connection issues. To help others save time and for my own reference, I&amp;rsquo;ve decided to write this article.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s say I have a hard drive to install pfSense on. I connected it to my Ubuntu Desktop laptop through a USB external 2.5&amp;quot; box and used KVM/QEMU. Here are the required packages:&lt;/p></description></item><item><title>Jumpstart: Automating Solaris Installations Without Networks</title><link>https://wiki.deimos.fr/Jumpstart:_automatiser_les_installations_Solaris_sans_r%C3%A9seaux/</link><pubDate>Fri, 21 Aug 2009 15:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/Jumpstart:_automatiser_les_installations_Solaris_sans_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For my job, I had to automate Solaris installations. Jumpstart exists for this purpose. The problem is that in a new datacenter, you don&amp;rsquo;t always have what you need. That&amp;rsquo;s the real issue. That&amp;rsquo;s why I researched documentation on the internet, which often doesn&amp;rsquo;t work properly, and I&amp;rsquo;ll try to create a comprehensible guide that works (hopefully).&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ll need a fresh Solaris installation on which you&amp;rsquo;ll do minimal configuration. Also install anything else you&amp;rsquo;re interested in.&lt;/p></description></item><item><title>Installing Mac OS X and Ubuntu in Dual Boot</title><link>https://wiki.deimos.fr/Installer_Mac_OS_X_et_ubuntu_en_dual_boot/</link><pubDate>Sun, 05 Oct 2008 09:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_Mac_OS_X_et_ubuntu_en_dual_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to have Ubuntu alongside your Mac OS X on the same hard drive and be able to choose which OS to launch at boot time, then this article is for you.&lt;/p>
+&lt;h2 id="setup">Setup &lt;a href="#setup" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are the steps:&lt;/p>
+&lt;ul>
+&lt;li>Install Mac OS X&lt;/li>
+&lt;li>Install &lt;a href="https://refit.sourceforge.net/" rel="external" target="_blank">Refit&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and enable it:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4b5b7d8" class="language-bash ">
+ &lt;code>sudo /efi/refit/enable-always.sh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Once completed, launch Boot Camp and decide how much space you want to allocate&lt;/li>
+&lt;li>Reboot from the Ubuntu CD&lt;/li>
+&lt;li>Install &lt;a href="https://www.ubuntu-fr.org/" rel="external" target="_blank">Ubuntu&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>When Ubuntu reboots, go back to Mac OS X (as it&amp;rsquo;s impossible to boot Ubuntu for now)&lt;/li>
+&lt;li>Reinstall &lt;a href="https://refit.sourceforge.net/" rel="external" target="_blank">Refit&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> over the existing installation, then enable it again:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="04b0da1" class="language-bash ">
+ &lt;code>sudo /efi/refit/enable-always.sh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Now you can reboot to boot into Ubuntu :-)&lt;/li>
+&lt;/ul></description></item><item><title>Replacing an installed RedHat with Debian without formatting</title><link>https://wiki.deimos.fr/Remplacer_une_RedHat_install%C3%A9e_par_une_Debian_sans_formater/</link><pubDate>Sun, 31 Aug 2008 12:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Remplacer_une_RedHat_install%C3%A9e_par_une_Debian_sans_formater/</guid><description>&lt;p>Here is a fun documentation that explains how to remove the nasty RedHat distro and replace it with the sublime Debian distribution, all without deleting any data:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/how_to_remotely_install_debian_over_a_rh_based_distro.pdf">How To Remotely Install Debian Over A RH Based Distro&lt;/a>&lt;/p></description></item><item><title>Sybase: Installation and Configuration</title><link>https://wiki.deimos.fr/Sybase_:_installation_et_configuration/</link><pubDate>Sun, 06 Apr 2008 08:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sybase_:_installation_et_configuration/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Adaptive Server Enterprise is the data management system designed to manage the explosion of data volume in critical contexts.&lt;/p>
+&lt;p>Adaptive Server Enterprise (ASE) has long been recognized for its reliability, low total cost of ownership and optimal performance. The latest version ASE 15 focuses on key features that form the foundation for long-term strategic agility and continuous innovation in critical environments. ASE 15 offers unique security options and numerous new features aimed at improving performance while reducing costs and operational risks. Discover how to take advantage of new technologies such as grids and clusters, service-oriented architectures, and real-time messaging.&lt;/p></description></item><item><title>SSH: Setting up SSH Server on a Minimal Solaris Installation</title><link>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</link><pubDate>Sat, 05 Apr 2008 10:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</guid><description>&lt;p>If you need to manage a Solaris 10 box with a minimal install, and SSH is not available, you can install it off of the 2nd CD. Rather than figure out the path to your CDROM (see this article), it was easier in our case to just tar up the needed packages and FTP them to our Solaris box:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de8f50" class="language-bash ">
+ &lt;code>root@srv-3 Product # cp -R SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr 
+SUNWsshu /home/srv-1/sshpkg/
+root@srv-3 Product # cd /home/srv-1/sshpkg/
+root@srv-3 sshpkg # ls
+SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr SUNWsshu
+root@srv-3 sshpkg # tar -cf ../ssh.tar *
+root@srv-3 sshpkg # tar -tf ../ssh.tar
+SUNWsshcu/
+SUNWsshcu/archive/
+.
+.
+.
+SUNWsshu/reloc/
+SUNWsshu/reloc/usr/
+SUNWsshu/reloc/usr/bin/
+SUNWsshu/reloc/usr/lib/
+SUNWsshu/reloc/usr/lib/ssh/
+root@srv-3 sshpkg #&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>On the Solaris side, FTP these to /tmp, then from tmp:&lt;/p></description></item><item><title>Installing OSX from an External Drive</title><link>https://wiki.deimos.fr/Installer_OSX_depuis_un_disque_externe/</link><pubDate>Sat, 27 Oct 2007 13:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_OSX_depuis_un_disque_externe/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Maybe your machine doesn&amp;rsquo;t have a DVD drive or it&amp;rsquo;s simply not working. How can you install OSX again? The solution is here&amp;hellip;&lt;/p>
+&lt;h2 id="instructions">Instructions &lt;a href="#instructions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Create a disk image using Disk Utility (on Mac A)&lt;/li>
+&lt;li>Transfer the .dmg file to the target computer (Mac B) via FireWire or Ethernet&lt;/li>
+&lt;li>You&amp;rsquo;ll need an external FireWire hard drive, name it &amp;ldquo;Mac OS X Install DVD&amp;rdquo; with Disk Utility&lt;/li>
+&lt;li>Select the newly created partition and click on the Restore tab&lt;/li>
+&lt;li>Drag and drop the Tiger disk image into &lt;strong>Source&lt;/strong> and the new partition into &lt;strong>Destination&lt;/strong>. Then click on Restore&lt;/li>
+&lt;li>Once the restoration is complete, go to System Preferences / Startup Disk, choose the new partition as the startup disk, then restart&lt;/li>
+&lt;/ul>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/dmg-01-tm.jpg" alt="External OSX Installation" loading="lazy">
+
+&lt;/p></description></item><item><title>Creating a RedHat DVD from CDs</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</link><pubDate>Fri, 17 Aug 2007 15:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As of this writing, the current RHEL release (5) is only available on CDs, not DVD. It is possible to create a bootable DVD ISO from these CDs using Chris Kloiber&amp;rsquo;s mkdvdiso.sh script.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="script-mkdvdisosh">Script mkdvdiso.sh &lt;a href="#script-mkdvdisosh" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Insert this in a mkdvdiso.sh file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="14014b1" class="language-bash ">
+ &lt;code>#!/bin/bash
+ 
+# by Chris Kloiber &amp;lt;ckloiber@redhat.com&amp;gt;
+ 
+# A quick hack that will create a bootable DVD iso of a Red Hat Linux
+# Distribution. Feed it either a directory containing the downloaded
+# iso files of a distribution, or point it at a directory containing
+# the &amp;#34;RedHat&amp;#34;, &amp;#34;isolinux&amp;#34;, and &amp;#34;images&amp;#34; directories.
+ 
+# This version only works with &amp;#34;isolinux&amp;#34; based Red Hat Linux versions.
+ 
+# Lots of disk space required to work, 3X the distribution size at least.
+ 
+# GPL version 2 applies. No warranties, yadda, yadda. Have fun.
+ 
+ 
+if [ $# -lt 2 ]; then
+	echo &amp;#34;Usage: `basename $0` source /destination/DVD.iso&amp;#34;
+	echo &amp;#34;&amp;#34;
+	echo &amp;#34; The &amp;#39;source&amp;#39; can be either a directory containing a single&amp;#34;
+	echo &amp;#34; set of isos, or an exploded tree like an ftp site.&amp;#34;
+	exit 1
+fi
+ 
+cleanup() {
+[ ${LOOP:=/tmp/loop} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;LOOP mount point = /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $LOOP ] &amp;amp;&amp;amp; rm -rf $LOOP 
+[ ${DVD:=~/mkrhdvd} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;DVD data location is /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $DVD ] &amp;amp;&amp;amp; rm -rf $DVD 
+}
+ 
+cleanup
+mkdir -p $LOOP
+mkdir -p $DVD
+ 
+if [ !`ls $1/*.iso 2&amp;gt;&amp;amp;1&amp;gt;/dev/null ; echo $?` ]; then
+	echo &amp;#34;Found ISO CD images...&amp;#34;
+	CDS=`expr 0`
+	DISKS=&amp;#34;1&amp;#34;
+ 
+	for f in `ls $1/*.iso`; do
+		mount -o loop $f $LOOP
+		cp -av $LOOP/* $DVD
+		if [ -f $LOOP/.discinfo ]; then
+			cp -av $LOOP/.discinfo $DVD
+			CDS=`expr $CDS &amp;#43; 1`
+			if [ $CDS != 1 ] ; then
+ 	DISKS=`echo ${DISKS},${CDS}`
+ 	fi
+		fi
+		umount $LOOP
+	done
+	if [ -e $DVD/.discinfo ]; then
+		awk &amp;#39;{ if ( NR == 4 ) { print disks } else { print ; } }&amp;#39; disks=&amp;#34;$DISKS&amp;#34; $DVD/.discinfo &amp;gt; $DVD/.discinfo.new
+		mv $DVD/.discinfo.new $DVD/.discinfo
+	fi
+else
+	echo &amp;#34;Found FTP-like tree...&amp;#34;
+	cp -av $1/* $DVD
+	[ -e $1/.discinfo ] &amp;amp;&amp;amp; cp -av $1/.discinfo $DVD
+fi
+ 
+rm -rf $DVD/isolinux/boot.cat
+find $DVD -name TRANS.TBL | xargs rm -f
+ 
+cd $DVD
+mkisofs -J -R -v -T -o $2 -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
+/usr/lib/anaconda-runtime/implantisomd5 --force $2
+ 
+cleanup
+echo &amp;#34;&amp;#34;
+echo &amp;#34;Process Complete!&amp;#34;
+echo &amp;#34;&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="install-the-anaconda-runtime">Install the anaconda-runtime &lt;a href="#install-the-anaconda-runtime" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Prerequisite package and its dependencies:&lt;/p></description></item></channel></rss>

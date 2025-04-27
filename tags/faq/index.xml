@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FAQ on Tech Notebook</title><link>https://wiki.deimos.fr/tags/faq/</link><description>Recent content in FAQ on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/faq/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up OpenLDAP Client</title><link>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</link><pubDate>Wed, 23 Sep 2009 09:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenLDAP is unfortunately not available as standard on Solaris, however it is possible to install it via pkg-get.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Configure the &lt;code>/etc/pam.conf&lt;/code> file:&lt;/li>
+&lt;/ul>
+&lt;p>For each line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c0ea0a" class="language-bash ">
+ &lt;code>service auth required pam_unix_auth.so.1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>replace &amp;ldquo;required&amp;rdquo; with &amp;ldquo;sufficient&amp;rdquo; and add behind the line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6af2348" class="language-bash ">
+ &lt;code>service auth sufficient pam_ldap.so.1 try_first_pass&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This should result in something like this (&lt;code>/etc/pam.conf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b261686" class="language-bash ">
+ &lt;code>#
+#ident &amp;#34;@(#)pam.conf 1.28 04/04/21 SMI&amp;#34;
+#
+# Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+# Use is subject to license terms.
+#
+# PAM configuration
+#
+# Unless explicitly defined, all services use the modules
+# defined in the &amp;#34;other&amp;#34; section.
+#
+# Modules are defined with relative pathnames, i.e., they are
+# relative to /usr/lib/security/$ISA. Absolute path names, as
+# present in this file in previous releases are still acceptable.
+#
+# Authentication management
+#
+# login service (explicit because of pam_dial_auth)
+#
+login auth requisite pam_authtok_get.so.1
+login auth required pam_dhkeys.so.1
+login auth required pam_unix_cred.so.1
+login auth sufficient pam_ldap.so.1 try_first_pass
+login auth sufficient pam_unix_auth.so.1
+login auth required pam_dial_auth.so.1
+#
+# rlogin service (explicit because of pam_rhost_auth)
+#
+rlogin auth sufficient pam_rhosts_auth.so.1
+rlogin auth requisite pam_authtok_get.so.1
+rlogin auth required pam_dhkeys.so.1
+rlogin auth required pam_unix_cred.so.1
+rlogin auth sufficient pam_ldap.so.1 try_first_pass
+rlogin auth sufficient pam_unix_auth.so.1
+#
+# Kerberized rlogin service
+#
+krlogin auth required pam_unix_cred.so.1
+krlogin auth binding pam_krb5.so.1
+krlogin auth sufficient pam_ldap.so.1
+krlogin auth sufficient pam_unix_auth.so.1
+#
+# rsh service (explicit because of pam_rhost_auth,
+# and pam_unix_auth for meaningful pam_setcred)
+#
+rsh auth sufficient pam_rhosts_auth.so.1
+rsh auth required pam_unix_cred.so.1
+#
+# Kerberized rsh service
+#
+krsh auth required pam_unix_cred.so.1
+krsh auth binding pam_krb5.so.1
+krsh auth sufficient pam_ldap.so.1
+krsh auth sufficient pam_unix_auth.so.1
+#
+# Kerberized telnet service
+#
+ktelnet auth required pam_unix_cred.so.1
+ktelnet auth binding pam_krb5.so.1
+ktelnet auth sufficient pam_ldap.so.1
+ktelnet auth sufficient pam_unix_auth.so.1
+#
+# PPP service (explicit because of pam_dial_auth)
+#
+ppp auth requisite pam_authtok_get.so.1
+ppp auth required pam_dhkeys.so.1
+ppp auth required pam_unix_cred.so.1
+ppp auth sufficient pam_ldap.so.1
+ppp auth sufficient pam_unix_auth.so.1
+ppp auth required pam_dial_auth.so.1
+#
+# Default definitions for Authentication management
+# Used when service name is not explicitly mentioned for authentication
+#
+other auth requisite pam_authtok_get.so.1
+other auth required pam_dhkeys.so.1
+other auth required pam_unix_cred.so.1
+other auth sufficient pam_ldap.so.1
+other auth sufficient pam_unix_auth.so.1
+#
+# passwd command (explicit because of a different authentication module)
+#
+passwd auth required pam_passwd_auth.so.1
+#
+# cron service (explicit because of non-usage of pam_roles.so.1)
+#
+cron account required pam_unix_account.so.1
+#
+# Default definition for Account management
+# Used when service name is not explicitly mentioned for account management
+#
+other account requisite pam_roles.so.1
+other account required pam_unix_account.so.1
+#
+# Default definition for Session management
+# Used when service name is not explicitly mentioned for session management
+#
+other session required pam_unix_session.so.1
+#
+# Default definition for Password management
+# Used when service name is not explicitly mentioned for password management
+#
+other password required pam_dhkeys.so.1
+other password requisite pam_authtok_get.so.1
+other password requisite pam_authtok_check.so.1
+other password required pam_authtok_store.so.1
+#
+# Support for Kerberos V5 authentication and example configurations can
+# be found in the pam_krb5(5) man page under the &amp;#34;EXAMPLES&amp;#34; section.
+#&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Configure the &lt;code>/etc/nsswitch.ldap&lt;/code> file&lt;/li>
+&lt;/ul>
+&lt;p>Keep &amp;ldquo;ldap&amp;rdquo; only where it&amp;rsquo;s useful: for now on the passwd: and group: lines.
+For the rest, use the content of the &lt;code>/etc/nsswitch.dns&lt;/code> file.
+This gives:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Restore on Tech Notebook</title><link>https://wiki.deimos.fr/tags/restore/</link><description>Recent content in Restore on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/restore/index.xml" rel="self" type="application/rss+xml"/><item><title>MySQL: Backups, Restorations and Transfers</title><link>https://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts/</link><pubDate>Fri, 15 Nov 2013 12:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sauvegardes,_restaurations_et_transferts/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mysql_logo.jpeg" alt="MySQL Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="backups">Backups &lt;a href="#backups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="mysqldump">mysqldump &lt;a href="#mysqldump" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In my opinion, this is THE best method. It&amp;rsquo;s provided as standard and works very well. &lt;strong>However, be careful with large databases&lt;/strong>. If you have large databases, then look at &lt;a href="./xtrabackup_:_optimiser_ses_backups_mysql.html">XtraBackup&lt;/a>.&lt;/p>
+&lt;p>Its use with a shell is as follows (for small databases):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f226034" class="language-bash ">
+ &lt;code>mysqldump -uUSER -pPASSWORD -e --single-transaction --opt DATABASE &amp;gt; backup-`date &amp;#43;%y%m%d`.sql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To back up all databases at once:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1dcd221" class="language-bash ">
+ &lt;code>mysqldump -uUSER -pPASSWORD --all-databases &amp;gt; backup-`date &amp;#43;%y%m%d`.sql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>There are also other options:&lt;/p></description></item><item><title>Backups and Restorations with tapes</title><link>https://wiki.deimos.fr/Sauvegardes_et_Restaurations/</link><pubDate>Sat, 05 Apr 2008 17:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sauvegardes_et_Restaurations/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A crucial function of system administration is to backup file systems. Backups safeguard against data loss, damage, or corruption. Backup tapes are often referred to as dump tapes.&lt;/p>
+&lt;h2 id="rmt-device">rmt device &lt;a href="#rmt-device" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>All tape drives have logical device names that you use to reference the device on the command line. The image shows the format that all logical device names use.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9774da4" class="language-bash ">
+ &lt;code>/dev/rmt/#hn&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li># : Logical Tape number&lt;/li>
+&lt;li>h : Tape density (l,m,h,c,u)&lt;/li>
+&lt;li>No rewind&lt;/li>
+&lt;/ul>
+&lt;p>The logical tape numbers in the tape drive names always start with 0. For example:&lt;/p></description></item></channel></rss>

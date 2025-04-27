@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Swap on Tech Notebook</title><link>https://wiki.deimos.fr/tags/swap/</link><description>Recent content in Swap on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/swap/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux Memory Management</title><link>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</link><pubDate>Mon, 06 May 2013 14:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="pages">Pages &lt;a href="#pages" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When looking at &lt;code>/proc/meminfo&lt;/code>, &amp;lsquo;Inactive Clean&amp;rsquo; pages correspond to free pages. If the kernel needs to allocate pages to a process, it can take these pages from the free page list or from inactive clean. Pages being used by processes are referenced as active pages. In the case of shared memory, a page can have multiple processes referencing it.&lt;/p></description></item><item><title>Adding Swap Space on Solaris</title><link>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</link><pubDate>Mon, 30 Jan 2012 12:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this documentation is to quickly describe how to create swap space on Solaris. There are other documentation sources such as &lt;a href="https://wiki.deimos.fr/Management_des_disques_sous_Solaris/">Disk Management in Solaris&lt;/a> that describe in depth how disks work on Solaris, but that&amp;rsquo;s not the goal here.&lt;/p>
+&lt;p>We&amp;rsquo;ll look at three methods to add swap space:&lt;/p>
+&lt;ul>
+&lt;li>On UFS&lt;/li>
+&lt;li>On ZFS&lt;/li>
+&lt;li>Using a swap file&lt;/li>
+&lt;/ul>
+&lt;h2 id="swap-on-ufs">Swap on UFS &lt;a href="#swap-on-ufs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to add swap space on a UFS disk, you&amp;rsquo;ll need to create a partition. Let&amp;rsquo;s first see what we have:&lt;/p></description></item><item><title>SWAP: Creating Dynamic Swap</title><link>https://wiki.deimos.fr/SWAP_:_Cr%C3%A9ation_de_swap_dynamique/</link><pubDate>Sat, 19 Sep 2009 21:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/SWAP_:_Cr%C3%A9ation_de_swap_dynamique/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Creating a swap partition is quite straightforward but extremely useful when you&amp;rsquo;re running out of RAM.&lt;/p>
+&lt;h2 id="creating-swap">Creating Swap &lt;a href="#creating-swap" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="on-a-partition">On a Partition &lt;a href="#on-a-partition" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Use fdisk on the target partition:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ee700a7" class="language-bash ">
+ &lt;code>fdisk /dev/hdc1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then create a primary partition with the key combination &lt;strong>&amp;ldquo;n p 1&amp;rdquo;&lt;/strong>. Next, change the ID to indicate it&amp;rsquo;s a swap partition with &lt;strong>&amp;ldquo;t 82&amp;rdquo;&lt;/strong>.&lt;/p>
+&lt;p>Save everything with the &amp;ldquo;w&amp;rdquo; key. To finish setting up our partition, we need to initialize it:&lt;/p></description></item><item><title>Encrypting Swap Partition</title><link>https://wiki.deimos.fr/Encrypter_sa_swap/</link><pubDate>Wed, 01 Aug 2007 22:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Encrypter_sa_swap/</guid><description>&lt;p>Since OpenBSD 3.7, swap is automatically encrypted. If you&amp;rsquo;re using an earlier version and wish to enable encryption, there are two solutions:&lt;/p>
+&lt;h2 id="without-rebooting">Without Rebooting &lt;a href="#without-rebooting" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To enable swap encryption without rebooting, use the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c3166a9" class="language-bash ">
+ &lt;code>sysctl -w vm.swapencrypt.enable=1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="with-rebooting">With Rebooting &lt;a href="#with-rebooting" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To enable swap encryption permanently (requires a reboot), edit the &lt;code>/etc/sysctl.conf&lt;/code> file and uncomment this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b90011" class="language-bash ">
+ &lt;code>vm.swapencrypt.enable=1&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Resize Swap</title><link>https://wiki.deimos.fr/Resizer_sa_swap/</link><pubDate>Mon, 05 Mar 2007 10:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Resizer_sa_swap/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes it is necessary to add more swap space after installation. For example, you may upgrade the amount of RAM in your system from 128 MB to 256 MB, but there is only 256 MB of swap space. It might be advantageous to increase the amount of swap space to 512 MB if you perform memory-intense operations or run applications that require a large amount of memory.&lt;/p>
+&lt;p>You have three options: create a new swap partition, create a new swap file, or extend swap on an existing LVM2 logical volume. It is recommended that you extend an existing logical volume.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Monitoring on Tech Notebook</title><link>https://wiki.deimos.fr/categories/monitoring/</link><description>Recent content in Monitoring on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/monitoring/index.xml" rel="self" type="application/rss+xml"/><item><title>Monit: Easily Use Triggers on Your System</title><link>https://wiki.deimos.fr/monit-easily-use-triggers-on-your-system/</link><pubDate>Wed, 28 May 2014 09:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/monit-easily-use-triggers-on-your-system/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/monit_logo.png" alt="Monit" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.4-2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://mmonit.com" rel="external" target="_blank">Monit Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/05/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://mmonit.com/monit/documentation/monit.html" rel="external" target="_blank">Monit&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a utility for managing and monitoring processes, programs, files, directories and filesystems on a Unix system. Monit conducts automatic maintenance and repair and can execute meaningful causal actions in error situations. E.g. Monit can start a process if it does not run, restart a process if it does not respond and stop a process if it uses too much resources. You can use Monit to monitor files, directories and filesystems for changes, such as timestamps changes, checksum changes or size changes.&lt;/p></description></item><item><title>Fluentd: Quickly Search in Your Logs with Elasticsearch, Kibana and Fluentd</title><link>https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd/</link><pubDate>Sat, 10 May 2014 08:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Fluentd:_quickly_search_in_your_logs_with_Elasticsearch,_Kibana_and_Fluentd/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/fluentd_logo.png" alt="Fluentd" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.1.19-1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://fluentd.org/" rel="external" target="_blank">Fluentd Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>10/05/2014&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.elasticsearch.org" rel="external" target="_blank">Elasticsearch&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> 1.1&lt;br />&lt;a href="https://www.elasticsearch.org/overview/kibana/" rel="external" target="_blank">Kibana&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> 3.0.1&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Managing logs is not a complicated task with classical syslog systems (syslog-ng, rsyslog&amp;hellip;). However, being able to search in them quickly when you have several gigabits of logs, with scalability, with a nice graphical interface etc&amp;hellip;is not the same thing.&lt;/p></description></item><item><title>Process Latency and Kernel Timing</title><link>https://wiki.deimos.fr/Latence_des_process_et_kernel_timing/</link><pubDate>Sun, 05 Jan 2014 04:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Latence_des_process_et_kernel_timing/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/01/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="the-clocks">The Clocks &lt;a href="#the-clocks" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several clocks that allow you to obtain or manipulate time operations:&lt;/p></description></item><item><title>Sysstat: Essential Tools for Analyzing Performance Issues</title><link>https://wiki.deimos.fr/Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances/</link><pubDate>Sat, 24 Aug 2013 12:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sysstat_:_Des_outils_indispensable_pour_analyser_des_probl%C3%A8mes_de_performances/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/sysstat_logo.png" alt="Sysstat" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sysstat is a package containing the sar and iostat binaries. The latter is used to monitor only disk I/O, while sar is used to monitor almost everything.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Debian, you need to install sysstat:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e90dde6" class="language-bash ">
+ &lt;code>aptitude install sysstat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Red Hat, you need to install sysstat:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4145948" class="language-bash ">
+ &lt;code>yum install sysstat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="solaris">Solaris &lt;a href="#solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Solaris, you&amp;rsquo;ll need to use &lt;a href="https://wiki.deimos.fr/Pkg-get_:_Mise_en_place_d%27un_syst%C3%A8me_de_repository_pour_Solaris/">Sun Freeware packages&lt;/a> to find this tool:&lt;/p></description></item><item><title>Glances: All in One Monitoring Shell Tool</title><link>https://wiki.deimos.fr/glances-all-in-one-monitoring-shell-tool/</link><pubDate>Sun, 11 Aug 2013 19:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/glances-all-in-one-monitoring-shell-tool/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/glances-logo.png" alt="Glances" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.6.1/Latest&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/nicolargo/glances" rel="external" target="_blank">Glances Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>11/08/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://github.com/nicolargo/glances" rel="external" target="_blank">Glances&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a cross-platform curses-based monitoring tool written in Python.&lt;/p></description></item><item><title>How to install and configure a monitoring machine for supervision</title><link>https://wiki.deimos.fr/How_to_install_and_configure_a_monitoring_machine_for_supervision/</link><pubDate>Thu, 08 Aug 2013 07:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/How_to_install_and_configure_a_monitoring_machine_for_supervision/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nagios_logo.png" alt="Nagios" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>08/08/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The goal of this documentation is how to quickly setup a monitoring machine on Nagios/Shinken:&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/monito_screen.png" alt="Monito screen" loading="lazy">
+
+&lt;/p>
+&lt;p>The idea is to have a machine that nobody never touch once installed. It&amp;rsquo;s always boring to plug a keyboard and a mouse when somethings goes wrong on this kind of machine. That&amp;rsquo;s why we&amp;rsquo;ll see how to setup a minimal installation with all requirements to satisfy those needs.&lt;/p></description></item><item><title>Email Summary of Current Nagios Alerts</title><link>https://wiki.deimos.fr/Emails_r%C3%A9capitulatif_des_alertes_Nagios_en_cours/</link><pubDate>Fri, 02 Aug 2013 11:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Emails_r%C3%A9capitulatif_des_alertes_Nagios_en_cours/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Core 3.2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.nagios.org" rel="external" target="_blank">Nagios Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>08/02/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve used this tool found on the internet for a long time, then further developed it with a former colleague. It allows you to receive an email with Nagios alerts. We used it to receive these emails before arriving at work to know what issues were happening. This helps you arrive either running or calmly :-)&lt;/p></description></item><item><title>Shinken: Installation and Configuration of Nagios' Successor</title><link>https://wiki.deimos.fr/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios/</link><pubDate>Thu, 03 Jan 2013 07:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/shinken_logo.png" alt="Shinken" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.shinken-monitoring.org" rel="external" target="_blank">Shinken Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>03/01/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Shinken&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is an application for system and network monitoring. It monitors specified hosts and services, alerting when systems malfunction and when they recover. It is free software under the GNU AGPL license. It is fully compatible with Nagios and aims to provide distributed and highly available monitoring that&amp;rsquo;s easy to set up. Starting as a proof of concept for distributed architectures in Nagios, the program quickly demonstrated much better performance and flexibility than its predecessor.&lt;/p></description></item><item><title>Setting up a distributed monitoring solution with Nagios, CheckMK and Thruk</title><link>https://wiki.deimos.fr/Mise_en_place_dune_solution_de_monitoring_%C3%A9clat%C3%A9_avec_Nagios_CheckMK_et_Thruk/</link><pubDate>Thu, 28 Jun 2012 07:39:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_dune_solution_de_monitoring_%C3%A9clat%C3%A9_avec_Nagios_CheckMK_et_Thruk/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nagios_logo.png" alt="Nagios" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Nagios 3&lt;br>Check Mk 1.1.12p7&lt;br>Thruk 1.30&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Before starting with this documentation, it&amp;rsquo;s recommended to be familiar with certain tools. Here&amp;rsquo;s the list with associated documentation:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.deimos.fr/Nagios_:_Installation_et_configuration/">Nagios&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s/">Check Mk&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/Thruk_:_Une_interface_%C3%A9volu%C3%A9e_pour_Nagios_et_MKlivestatus/">Thruk&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;p>The purpose of this documentation is to install a Thruk server capable of displaying information from different remote Nagios servers:&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nct_1.jpg" alt="Distributed Monitoring Architecture" loading="lazy">
+
+&lt;/p>
+&lt;p>This diagram will be our reference throughout the tutorial.&lt;/p></description></item><item><title>Thruk: An Advanced Interface for Nagios and MKlivestatus</title><link>https://wiki.deimos.fr/Thruk_:_Une_interface_%C3%A9volu%C3%A9e_pour_Nagios_et_MKlivestatus/</link><pubDate>Wed, 30 May 2012 09:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Thruk_:_Une_interface_%C3%A9volu%C3%A9e_pour_Nagios_et_MKlivestatus/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/thruk_logo.png" alt="Thruk logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.30&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.thruk.org" rel="external" target="_blank">Thruk Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>30/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Thruk is an advanced interface for Nagios (and Shinken) that allows connecting to multiple Nagios instances simultaneously and displaying more relevant information compared to the standard Nagios interface.&lt;/p></description></item><item><title>Check MK: Easily collect Nagios information and extend its capabilities</title><link>https://wiki.deimos.fr/Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s/</link><pubDate>Fri, 25 May 2012 07:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Check_MK_:_Collecter_facilement_des_infos_Nagios_et_%C3%A9tendez_ses_possibilit%C3%A9s/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/check_mk_logo.png" alt="Check MK" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.1.12p7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://mathias-kettner.de" rel="external" target="_blank">Check MK Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>25/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Nagios is great, but sometimes it lacks certain features. Here&amp;rsquo;s an excellent addon that allows you to quickly extract data and enhance capabilities (multisites, cluster&amp;hellip;).&lt;/p></description></item><item><title>Installation and Configuration of Red Hat Cluster Suite</title><link>https://wiki.deimos.fr/Installation_et_Configuration_de_Red_Hat_Cluster_Suite/</link><pubDate>Mon, 14 May 2012 08:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_Configuration_de_Red_Hat_Cluster_Suite/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/red_hat_logo.png" alt="Red Hat Cluster Suite" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5/6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 5/6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.redhat.com" rel="external" target="_blank">Red Hat Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Red Hat offers a cluster based on Open Source solutions. This document explains how to set one up.&lt;/p></description></item><item><title>MRTG: Network-Focused Monitoring</title><link>https://wiki.deimos.fr/MRTG_:_Monitoring_ax%C3%A9_r%C3%A9seau/</link><pubDate>Sun, 25 Dec 2011 20:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/MRTG_:_Monitoring_ax%C3%A9_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MRTG Multi Router Traffic Grapher (MRTG) is software developed under the GNU/GPL license at the initiative of Tobias Oetiker. This software allows you to create graphs of network traffic. It uses the SNMP protocol to query network equipment such as routers, switches, or servers that have an MIB.&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mrtg.jpg" alt="MRTG" loading="lazy">
+
+&lt;/p>
+&lt;p>Today, the creators of MRTG have abandoned their project and moved on to &lt;a href="https://wiki.deimos.fr/docs/servers/monitoring/cacti/">Cacti&lt;/a>, which is a much more powerful but also much more complex product.&lt;/p></description></item><item><title>PNP4Nagios: Graph Your Nagios Alerts</title><link>https://wiki.deimos.fr/PNP4Nagios:_Grapher_ses_alertes_Nagios/</link><pubDate>Fri, 26 Aug 2011 15:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/PNP4Nagios:_Grapher_ses_alertes_Nagios/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/pnp4nagios_logo.jpg" alt="PNP4Nagios" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PNP is an addon to Nagios which analyzes performance data provided by plugins and stores them automatically into RRD-databases (Round Robin Databases, see RRD Tool).&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, create a folder where to unzip the installation files. Here, we are going to use &lt;code>/etc/nagios3/pnp4nagios&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51881a1" class="language-bash ">
+ &lt;code>mkdir /etc/nagios3/pnp4nagios
+cd /etc/nagios3/pnp4nagios&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then get the file, unzip and go into the folder:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2f5330c" class="language-bash ">
+ &lt;code>wget http://downloads.sourceforge.net/project/pnp4nagios/PNP-0.6/pnp4nagios-0.6.0.tar.gz?use_mirror=freefr
+cd pnp4nagios-0.6.0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Activate the Apache2 rewrite module:&lt;/p></description></item><item><title>Nagios: Improving the Look of Notification Emails</title><link>https://wiki.deimos.fr/Nagios_:_Am%C3%A9liorer_le_look_des_emails_de_notification/</link><pubDate>Fri, 22 Apr 2011 15:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nagios_:_Am%C3%A9liorer_le_look_des_emails_de_notification/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;ve already used standard email notification in Nagios, you&amp;rsquo;ll find it functional but not really attractive. That&amp;rsquo;s why a project called &amp;ldquo;&lt;a href="https://nagios.frank4dd.com/howto/nagios-flexible-notifications.htm" rel="external" target="_blank">Flexible Notifications for Nagios&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&amp;rdquo; was initiated.&lt;/p></description></item><item><title>Apache 2 Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27Apache_2/</link><pubDate>Wed, 06 Apr 2011 08:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27Apache_2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Apache is one of the most widely used web servers in the world, if not THE most used web server in the world.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c2de30" class="language-bash ">
+ &lt;code>apt-get install apache2&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="choose-a-default-charset">Choose a Default Charset &lt;a href="#choose-a-default-charset" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In the configuration file &lt;code>/etc/apache2/apache2.conf&lt;/code> or &lt;code>/etc/apache2/conf.d/charset&lt;/code>, insert this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="52f003d" class="language-bash ">
+ &lt;code>AddDefaultCharset .latin9&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then reload Apache:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="82a2415" class="language-bash ">
+ &lt;code>/etc/init.d/apache2 reload&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="authentication">Authentication &lt;a href="#authentication" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="ldap">LDAP &lt;a href="#ldap" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>For LDAP authentication, you need to install this:&lt;/p></description></item><item><title>Smartmontools: Hard Drive Monitoring</title><link>https://wiki.deimos.fr/Smartmontool_:_Surveillance_des_disques_dur/</link><pubDate>Fri, 14 Jan 2011 20:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Smartmontool_:_Surveillance_des_disques_dur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Smartmontools is a tool for analyzing hard drives and their most critical physical characteristics. It consists of two parts: smartd daemon, which checks parameters every 30 minutes and writes the results to &lt;code>/var/log/syslog&lt;/code>, and the smartctl command which requires root privileges and is used to display all the information.&lt;/p>
+&lt;h2 id="activation--installation-of-smartmontools">Activation / Installation of smartmontools &lt;a href="#activation--installation-of-smartmontools" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Installation requires root privileges. The package name varies depending on your Debian version. The example below is for Sarge.&lt;/p></description></item><item><title>Collectd: Installation and Configuration</title><link>https://wiki.deimos.fr/Collectd_:_Installation_et_configuration_de_Collectd/</link><pubDate>Wed, 06 Oct 2010 08:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Collectd_:_Installation_et_configuration_de_Collectd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Collectd gathers statistics about the system it is running on and stores this information. Those statistics can then be used to find current performance bottlenecks (i.e. performance analysis) and predict future system load (i.e. capacity planning). Or if you just want pretty graphs of your private server and are fed up with some homegrown solution you&amp;rsquo;re at the right place, too ;).&lt;/p>
+&lt;p>After this installation, you&amp;rsquo;ll likely want access through a web interface. Feel free to continue with &lt;a href="https://wiki.deimos.fr/Serveurs.html#Collectd" rel="external" target="_blank">these documentations&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Heymon: A Web Interface for Collectd</title><link>https://wiki.deimos.fr/Heymon_:_Une_interface_web_pour_Collectd/</link><pubDate>Wed, 28 Jul 2010 15:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Heymon_:_Une_interface_web_pour_Collectd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://github.com/newobj/heymon" rel="external" target="_blank">Heymon&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is one of the most advanced interfaces currently available for Collectd. In my opinion, it&amp;rsquo;s complementary to other interfaces since it allows comparisons between different machines. However, it&amp;rsquo;s quite complicated to set up.&lt;/p></description></item><item><title>NDOUtils: Sending States to a Database</title><link>https://wiki.deimos.fr/NDOUtils_:_Envoyer_les_%C3%A9tats_en_base_de_donn%C3%A9e/</link><pubDate>Wed, 07 Jul 2010 08:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/NDOUtils_:_Envoyer_les_%C3%A9tats_en_base_de_donn%C3%A9e/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>NDO is an additional module allowing Nagios to write the state of the machines and services to be monitored in a database.&lt;/p>
+&lt;p>NDO is made up of two modules: NDOMOD and NDO2DB.&lt;/p>
+&lt;p>NDOMOD must be launched on the Nagios server and retrieves the information reported by Nagios to transmit it via TCP (or a Unix socket) to NDO2DB.&lt;/p>
+&lt;p>NDO2DB is a daemon that listens on a TCP port (or a Unix socket) and writes the received data to a database (MySQL or PgSQL).&lt;/p></description></item><item><title>Collection3: A Web Interface for Collectd</title><link>https://wiki.deimos.fr/Collection3_:_Une_interface_web_pour_Collectd/</link><pubDate>Wed, 09 Jun 2010 21:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Collection3_:_Une_interface_web_pour_Collectd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://wiki.deimos.fr/Collectd_:_Installation_et_configuration_de_Collectd/">Collectd&lt;/a> is great, but with a functional web interface, it&amp;rsquo;s even better. We&amp;rsquo;re going to see how to install &lt;a href="https://collectd.org/wiki/index.php/Collection3" rel="external" target="_blank">Collection3&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, an interface that isn&amp;rsquo;t necessarily pretty, but is very functional.&lt;/p></description></item><item><title>Bindgraph: Get Statistics and Graphs of DNS Queries</title><link>https://wiki.deimos.fr/Bindgraph_:_Avoir_des_stats_et_des_graphs_des_requ%C3%AAtes_DNS/</link><pubDate>Tue, 02 Feb 2010 21:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bindgraph_:_Avoir_des_stats_et_des_graphs_des_requ%C3%AAtes_DNS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is the kind of software I really like. It installs quickly and is very practical.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6dc84ee" class="language-bash ">
+ &lt;code>aptitude install bindgraph&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a configuration file for bindgraph in the /etc/lighttpd/conf-available/ directory:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock linenos">
+ &lt;pre id="4593eb7" class="language-bash line-numbers">
+ &lt;code># Alias for phpMyAdmin directory
+alias.url &amp;#43;= (
+ &amp;#34;/bindgraph&amp;#34; =&amp;gt; &amp;#34;/usr/lib/cgi-bin/bindgraph.cgi&amp;#34;,
+)
+
+$HTTP[&amp;#34;url&amp;#34;] =~ &amp;#34;^/bindgraph*&amp;#34;, {
+
+}&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now, create the necessary symlink:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f2c35de" class="language-bash ">
+ &lt;code>cd /etc/lighttpd/conf-enabled
+ln -s /etc/lighttpd/conf-available/50-bindgraph.conf .&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All that&amp;rsquo;s left is to restart the web server and it&amp;rsquo;s accessible via:&lt;/p></description></item><item><title>RRDtool: Create Your Own Graphics with RRDtool</title><link>https://wiki.deimos.fr/RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool/</link><pubDate>Thu, 21 Jan 2010 12:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/RRDtool_:_cr%C3%A9er_ses_propre_graphiques_avec_RRDtool/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/rrdtool-logo.png" alt="RRDtool Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/RRdTool" rel="external" target="_blank">RRDtool&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a Round-Robin Database (RRD) management tool created by Tobi Oetiker. It is used by many open source tools, such as Cacti, collectd, Lighttpd, and Nagios, for saving cyclical data and plotting chronological data graphs. This tool was created to monitor server data, such as bandwidth and CPU temperature. The main advantage of an RRD database is its fixed size.&lt;/p></description></item><item><title>Bwm-ng: Measure Bandwidth Consumption in Real Time</title><link>https://wiki.deimos.fr/Bwm-ng_:_Mesurer_la_consommation_de_bande_passante_en_temps_r%C3%A9el/</link><pubDate>Sat, 28 Nov 2009 16:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bwm-ng_:_Mesurer_la_consommation_de_bande_passante_en_temps_r%C3%A9el/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes, you need to measure the current total bandwidth. bwm-ng is your friend :-)&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian, it&amp;rsquo;s easy:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="aadbe55" class="language-bash ">
+ &lt;code>apt-get install bwm-ng&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply run the command to get it working directly:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6d59a14" class="language-bash ">
+ &lt;code>$ bwm-ng
+ bwm-ng v0.6 (probing every 0.500s), press &amp;#39;h&amp;#39; for help
+ input: /proc/net/dev type: rate
+ | iface Rx Tx Total
+ ==============================================================================
+ lo: 0.00 KB/s 0.00 KB/s 0.00 KB/s
+ eth0: 2275.89 KB/s 57.56 KB/s 2333.45 KB/s
+ ------------------------------------------------------------------------------
+ total: 2275.89 KB/s 57.56 KB/s 2333.45 KB/s&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Munin: Monitor your servers in a very simple way</title><link>https://wiki.deimos.fr/Munin_:_Surveiller_ses_serveurs_de_fa%C3%A7ons_tr%C3%A8s_simple/</link><pubDate>Fri, 27 Nov 2009 21:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Munin_:_Surveiller_ses_serveurs_de_fa%C3%A7ons_tr%C3%A8s_simple/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://munin.projects.linpro.no/wiki/PluginCat" rel="external" target="_blank">Munin&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a relatively unknown monitoring tool, but unlike Cacti, it is very very simple to use and install. It is also full of surprising features.&lt;/p></description></item><item><title>Weathermap4RRD: Creating Monitoring Maps</title><link>https://wiki.deimos.fr/Weathermap4RRD_:_faire_des_cartes_de_monitoring/</link><pubDate>Fri, 27 Nov 2009 17:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Weathermap4RRD_:_faire_des_cartes_de_monitoring/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Do you like looking at the network maps on Free or OVH websites? Would you like to have the same for your own network? That&amp;rsquo;s what we&amp;rsquo;ll do in this article, which is primarily aimed at network administrators.&lt;/p>
+&lt;p>For this article, we&amp;rsquo;ll be using Cacti and a variation of the original Weathermap: Weathermap4RRD. This fork is not based on MRTG like the original Weathermap, and we&amp;rsquo;ll take advantage of this difference.&lt;/p></description></item><item><title>Create Your Own Graphs</title><link>https://wiki.deimos.fr/create-your-own-graphs/</link><pubDate>Thu, 29 Oct 2009 07:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/create-your-own-graphs/</guid><description>&lt;p>Ahhhh Cacti! It&amp;rsquo;s wonderful when it works!
+Yes, yes, those beautiful graphs look great. However, it&amp;rsquo;s true that when you want to create your own graph, that&amp;rsquo;s a different story! So I found this comprehensive documentation that works perfectly as long as you follow it to the letter!&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/tuto_cacti_dim_shell.pdf">Documentation on creating a graph in Cacti&lt;/a>&lt;/p>
+&lt;p>Now that you know how to create graphs, here are some scripts I made a while ago.&lt;/p></description></item><item><title>Installation and Configuration of a Centreon Server</title><link>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Centreon/</link><pubDate>Sun, 23 Aug 2009 07:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Centreon/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Centreon is one of the most flexible and powerful GPL-licensed monitoring software solutions. It&amp;rsquo;s built on top of the OpenSource Nagios technology.&lt;/p>
+&lt;p>Designed for a wide range of users, it&amp;rsquo;s perfectly suited for measuring system, network, and application indicators. Centreon brings together essential functions for managing monitoring of critical infrastructures. Being modular, it adapts to your needs and allows you to extend its functionality further.&lt;/p>
+&lt;p>For my part, I chose to move from Nagios 3 to Centreon to get graphics and reporting capabilities.&lt;/p></description></item><item><title>Installation and Configuration of a Heartbeat V2 Cluster</title><link>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27un_cluster_Heartbeat_V2/</link><pubDate>Wed, 18 Feb 2009 18:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27un_cluster_Heartbeat_V2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://linux-ha.org" rel="external" target="_blank">Heartbeat&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is one of the most widely used cluster solutions because it&amp;rsquo;s very flexible, powerful and stable. We&amp;rsquo;ll see how to proceed with installation, configuration and service monitoring for Heartbeat 2. Compared to version 1, Heartbeat 2 can manage more than 2 nodes.&lt;/p></description></item><item><title>Introduction to IDS and SNORT</title><link>https://wiki.deimos.fr/Introduction_aux_IDS_et_%C3%A0_SNORT/</link><pubDate>Sat, 24 May 2008 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_aux_IDS_et_%C3%A0_SNORT/</guid><description>&lt;h2 id="introduction-to-ids-and-snort">Introduction to IDS and SNORT &lt;a href="#introduction-to-ids-and-snort" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Intrusion Detection Systems (IDS) are increasingly common and play an important and growing role in the security of today&amp;rsquo;s information systems. SNORT is one of these intrusion detection systems with the distinction of being open source software under the GPL license.&lt;/p>
+&lt;p>&lt;em>Note: This document was written in 2006. Some versions and configurations of the software mentioned may differ from those shown here; please refer to the official project websites in case of issues.&lt;/em>&lt;/p></description></item><item><title>NagVis: Map Your Architecture with Nagios Alerts</title><link>https://wiki.deimos.fr/NagVis:_Cartographier_son_architecture_avec_ses_alertes_nagios/</link><pubDate>Tue, 11 Mar 2008 07:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/NagVis:_Cartographier_son_architecture_avec_ses_alertes_nagios/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>NagVis is a really great product, easy to use but not to install. That&amp;rsquo;s why I did this documentation. You also need to install NDOUtils. We&amp;rsquo;ll see the installation too.&lt;/p>
+&lt;h2 id="ndoutils">NDOUtils &lt;a href="#ndoutils" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="prepair-system">Prepair System &lt;a href="#prepair-system" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Make sure your System meets the requirements:&lt;/p>
+&lt;ul>
+&lt;li>Nagios v2.X (stable) is running&lt;/li>
+&lt;li>mysql (Version &amp;gt; 4)&lt;/li>
+&lt;/ul>
+&lt;h3 id="download-ndoutils">Download NDOUtils &lt;a href="#download-ndoutils" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You can get the latest version of NDOUtils on the Nagios website &lt;a href="https://www.nagios.org/download/" rel="external" target="_blank">https://www.nagios.org/download/&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item><item><title>Installation and Configuration of Cacti</title><link>https://wiki.deimos.fr/installation_et_configuration_de_cacti/</link><pubDate>Wed, 12 Dec 2007 11:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/installation_et_configuration_de_cacti/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Before starting, you should know that the installation of &lt;a href="https://cacti.net/" rel="external" target="_blank">cacti&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> requires a &lt;a href="https://wiki.deimos.fr/docs/servers/databases/mysql-mariadb/">MySQL database&lt;/a>, a &lt;a href="https://wiki.deimos.fr/docs/servers/web/apache/">web server&lt;/a> (apache with PHP) and the SNMP protocol.&lt;/p>
+&lt;p>Cacti is used for specialized network monitoring since the MRTG team abandoned this project to work on Cacti. That said, Cacti doesn&amp;rsquo;t just monitor networks, you can monitor all types of services.&lt;/p></description></item><item><title>Smokeping: Monitoring Latency</title><link>https://wiki.deimos.fr/Smokeping_:_Monitorer_la_latence/</link><pubDate>Fri, 14 Sep 2007 16:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Smokeping_:_Monitorer_la_latence/</guid><description>&lt;p>Smokeping allows you to monitor latency of services, applications, and more.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/monitoring_network_latency_with_smokeping.pdf">Documentation on Monitoring Network Latency With Smokeping&lt;/a>&lt;/p></description></item><item><title>Monitoring Windows with Munin</title><link>https://wiki.deimos.fr/Monitorer_Windows_avec_Munin/</link><pubDate>Wed, 27 Jun 2007 07:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_Windows_avec_Munin/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Windows and its complications&amp;hellip; it&amp;rsquo;s so much easier on Linux! Anyway, there&amp;rsquo;s no getting around it, it&amp;rsquo;s still good when Munin runs on Windows, so here&amp;rsquo;s the documentation&amp;hellip;&lt;/p>
+&lt;h2 id="configuring-snmp-on-windows">Configuring SNMP on Windows &lt;a href="#configuring-snmp-on-windows" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SNMP is a Windows service that can be installed as follows:&lt;/p>
+&lt;ul>
+&lt;li>Control Panel&lt;/li>
+&lt;li>Add/Remove Programs&lt;/li>
+&lt;li>Add or Remove Windows Components&lt;/li>
+&lt;li>Management and Analysis Tools&lt;/li>
+&lt;li>SNMP&lt;/li>
+&lt;/ul>
+&lt;p>(You&amp;rsquo;ll need the Windows CD-ROM)&lt;/p>
+&lt;p>Then, configure the SNMP service:&lt;/p></description></item><item><title>Xen and vserver: monitoring VMs on a PHP page</title><link>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</link><pubDate>Mon, 14 May 2007 10:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I used this kind of script because it&amp;rsquo;s simpler to open a small web page to view VM activity rather than launching a bunch of commands.&lt;/p>
+&lt;h2 id="sudo">Sudo &lt;a href="#sudo" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You need sudo because by default Apache doesn&amp;rsquo;t have the necessary rights to execute these commands:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ea84b80" class="language-bash ">
+ &lt;code>apt-get install sudo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then edit &lt;code>/etc/sudoers&lt;/code> and add the following:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d994f26" class="language-bash ">
+ &lt;code>www-data ALL=NOPASSWD: /usr/sbin/vserver-stat,/usr/sbin/xm list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="php-and-script">Php and script &lt;a href="#php-and-script" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You obviously need to have Apache and PHP installed for this to work:&lt;/p></description></item><item><title>Monit and Munin: Monitor with Munin and Get Alerts with Monit</title><link>https://wiki.deimos.fr/Monit_et_Munin_:_Surveiller_avec_Munin_et_%C3%AAtre_alert%C3%A9_avec_Monit/</link><pubDate>Sun, 13 May 2007 21:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monit_et_Munin_:_Surveiller_avec_Munin_et_%C3%AAtre_alert%C3%A9_avec_Monit/</guid><description>&lt;p>Here is documentation to be alerted in case of problems:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/monitoring_munin_monit.pdf">Monitoring Munin Monit PDF&lt;/a>&lt;/p></description></item><item><title>PhpFtpWho: Connection Monitoring for Proftpd</title><link>https://wiki.deimos.fr/Phpftpwho_:_Monitoring_de_connections_pour_Proftpd/</link><pubDate>Sun, 15 Apr 2007 21:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Phpftpwho_:_Monitoring_de_connections_pour_Proftpd/</guid><description>&lt;p>Here is documentation for monitoring connections to the Proftpd FTP server:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/phpftpwho.pdf">PhpFtpWho PDF&lt;/a>&lt;/p></description></item><item><title>Monitor Your Solaris Users</title><link>https://wiki.deimos.fr/Monitorer_ses_Solaris_Users/</link><pubDate>Fri, 01 Dec 2006 10:35:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_ses_Solaris_Users/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>All systems should be monitored routinely for unauthorized user access. You can determine who is or who has been logged into the system by executing commands and examining log files.&lt;/p>
+&lt;h2 id="who">who &lt;a href="#who" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If a user is logged in remotely, the who command displays the remote host name, or Internet Protocol (IP) address in the last column of the output.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3df6f39" class="language-bash ">
+ &lt;code>who&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="051bb1b" class="language- ">
+ &lt;code>root console Oct 17 08:21	(:0)
+root pts/4 Oct 17 08:21	(:0.0)
+root pts/5 Oct 17 08:21	(:0.0)
+user5 pts/6 Oct 17 09:20	(sys-03)
+root pts/7 Oct 17 09:20	(:0.0)
+user3 pts/8 Oct 17 09:21	(localhost)&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="rusers">rusers &lt;a href="#rusers" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The rusers command produces output similar to that of the who command, but it displays a list of the users logged in on local and remote hosts. The list displays the user&amp;rsquo;s name and the host&amp;rsquo;s name in the order in which the responses are received from the hosts.&lt;/p></description></item></channel></rss>

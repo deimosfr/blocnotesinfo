@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lighttpd on Tech Notebook</title><link>https://wiki.deimos.fr/tags/lighttpd/</link><description>Recent content in Lighttpd on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/lighttpd/index.xml" rel="self" type="application/rss+xml"/><item><title>Managing SSL Certificates Signed by a Certificate Authority</title><link>https://wiki.deimos.fr/G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification/</link><pubDate>Tue, 17 Feb 2015 03:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/startssl_logo.png" alt="StartSSL Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.startssl.com" rel="external" target="_blank">StartSSL Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>17/02/2015&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Nginx 1.2.1&lt;br />Lighttpd 1.4.31&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need SSL certificates for your company or for personal needs on your website. The drawback of self-generated and self-signed certificates is that the first time you visit your site, you&amp;rsquo;ll get a warning message.&lt;/p></description></item><item><title>Gitweb: Installation and configuration of a web interface for git</title><link>https://wiki.deimos.fr/Gitweb_:_Installation_et_configuration_d'une_interface_web_pour_git/</link><pubDate>Mon, 17 Feb 2014 21:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gitweb_:_Installation_et_configuration_d'une_interface_web_pour_git/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Gitweb is a web interface that allows you to view all commits, comments, etc. for &lt;a href="https://wiki.deimos.fr/docs/servers/versionning/git/">git&lt;/a>.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian, it&amp;rsquo;s easy:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cd340ce" class="language-bash ">
+ &lt;code>apt-get install gitweb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Personally, I use lighttpd, but I&amp;rsquo;ll try to provide correct configuration for Apache as well.&lt;/p>
+&lt;h3 id="web-server">Web Server &lt;a href="#web-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>If you&amp;rsquo;re using Lighttpd, make sure the following server modules are loaded:&lt;/p>
+&lt;ul>
+&lt;li>mod_cgi&lt;/li>
+&lt;li>mod_redirect&lt;/li>
+&lt;/ul>
+&lt;p>Then, create a file for your lighttpd configuration:&lt;/p></description></item><item><title>Lighttpd: Installation and configuration of an Apache alternative</title><link>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</link><pubDate>Tue, 10 May 2011 11:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LigHTTPd (or &amp;ldquo;lighty&amp;rdquo;) is a secure, fast, and flexible HTTP server.&lt;/p>
+&lt;p>Its speed comes from having a smaller memory footprint than other HTTP servers, as well as intelligent CPU load management.&lt;/p>
+&lt;p>Many languages like PHP, Perl, Ruby, and Python are supported via FastCGI.&lt;/p>
+&lt;p>The main disadvantage of LigHTTPd is that it has only one configuration file and doesn&amp;rsquo;t support .htaccess files (though there are alternatives): directives must be in the configuration file. This is also an advantage, as the server administrator only has one file to manage.&lt;/p></description></item><item><title>Ajaxterm: Using a Terminal via Web</title><link>https://wiki.deimos.fr/ajaxterm-utiliser-un-terminal-en-web/</link><pubDate>Fri, 22 Apr 2011 13:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajaxterm-utiliser-un-terminal-en-web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://antony.lesuisse.org/software/ajaxterm/" rel="external" target="_blank">Ajaxterm&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> allows you to have a terminal through a web page. For example, if you&amp;rsquo;re at a restricted site that doesn&amp;rsquo;t allow you to use SSH, there&amp;rsquo;s a good chance you can still use HTTPS. This is where Ajaxterm becomes handy, as it allows you to connect to the machine hosting Ajaxterm.&lt;/p></description></item><item><title>Awstats: Setting up Awstats, a Web Logs Interpreter</title><link>https://wiki.deimos.fr/Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web/</link><pubDate>Sun, 11 Apr 2010 15:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>AWStats is a web log analyzer (but also FTP, Streaming, and mail) offering static but also dynamic graphical views of access statistics for your web servers.&lt;br>
+It displays the number of visits, unique visitors, pages, hits, transfers by domain/country, host, time, browser, OS, etc. It can be run using CGI scripts or command line.&lt;br>
+AWStats is free software under the GPL license.&lt;/p>
+&lt;p>The installation of Awstats is simple: this software interprets Apache logs (all commands to which the server responded) to provide you with understandable graphs and tables in the form of a web page.&lt;/p></description></item><item><title>Mailgraph: Email Monitoring (Spam, Rejects, Viruses...)</title><link>https://wiki.deimos.fr/Mailgraph%C2%A0:%C2%A0Surveillance%C2%A0des%C2%A0mails%C2%A0%28Spams,%C2%A0rejects,%C2%A0virus...%29</link><pubDate>Wed, 03 Feb 2010 06:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mailgraph%C2%A0:%C2%A0Surveillance%C2%A0des%C2%A0mails%C2%A0%28Spams,%C2%A0rejects,%C2%A0virus...%29</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Mailgraph is a software tool that generates graphs of email statistics such as spam, viruses, and more.&lt;/p>
+&lt;p>It provides a good overview of what&amp;rsquo;s happening on your mail server.&lt;/p>
+&lt;p>&lt;a href="https://people.ee.ethz.ch/~dws/software/mailgraph/" rel="external" target="_blank">Mailgraph Official Site&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item><item><title>Bindgraph: Get Statistics and Graphs of DNS Queries</title><link>https://wiki.deimos.fr/Bindgraph_:_Avoir_des_stats_et_des_graphs_des_requ%C3%AAtes_DNS/</link><pubDate>Tue, 02 Feb 2010 21:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bindgraph_:_Avoir_des_stats_et_des_graphs_des_requ%C3%AAtes_DNS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is the kind of software I really like. It installs quickly and is very practical.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6dc84ee" class="language-bash ">
+ &lt;code>aptitude install bindgraph&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a configuration file for bindgraph in the /etc/lighttpd/conf-available/ directory:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock linenos">
+ &lt;pre id="4593eb7" class="language-bash line-numbers">
+ &lt;code># Alias for phpMyAdmin directory
+alias.url &amp;#43;= (
+ &amp;#34;/bindgraph&amp;#34; =&amp;gt; &amp;#34;/usr/lib/cgi-bin/bindgraph.cgi&amp;#34;,
+)
+
+$HTTP[&amp;#34;url&amp;#34;] =~ &amp;#34;^/bindgraph*&amp;#34;, {
+
+}&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now, create the necessary symlink:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f2c35de" class="language-bash ">
+ &lt;code>cd /etc/lighttpd/conf-enabled
+ln -s /etc/lighttpd/conf-available/50-bindgraph.conf .&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All that&amp;rsquo;s left is to restart the web server and it&amp;rsquo;s accessible via:&lt;/p></description></item><item><title>WebDAV with Lighttpd</title><link>https://wiki.deimos.fr/Webdav_avec_Lighttpd/</link><pubDate>Wed, 19 Aug 2009 07:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Webdav_avec_Lighttpd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>WebDAV is great once you&amp;rsquo;ve tried it. We&amp;rsquo;ll see how to set it up with Lighttpd. I need it to upload images for my photo album.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For the installation, it&amp;rsquo;s straightforward:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dc03161" class="language-bash ">
+ &lt;code>apt-get install lighttpd-mod-webdav&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s enable our newly installed module:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bcde39c" class="language-bash ">
+ &lt;code>lighty-enable-mod auth
+lighty-enable-mod webdav&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Edit the Lighttpd configuration file and uncomment this section:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef2676a" class="language-perl ">
+ &lt;code>server.modules &amp;lt;nowiki&amp;gt;=&amp;lt;/nowiki&amp;gt; (
+...
+ &amp;#34;mod_webdav&amp;#34;,
+...
+)&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We&amp;rsquo;ll add the folder we want to have WebDAV access to below.&lt;/p></description></item><item><title>PhpLDAPadmin: Setting Up a Graphical Management Solution for OpenLDAP</title><link>https://wiki.deimos.fr/PhpLDAPadmin:_Mise_en_place_d'une_solution_de_management_graphique_pour_OpenLDAP/</link><pubDate>Mon, 11 May 2009 11:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/PhpLDAPadmin:_Mise_en_place_d'une_solution_de_management_graphique_pour_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Managing an OpenLDAP database is not always simple, especially when you don&amp;rsquo;t know all the fields by heart (and there are so many of them).&lt;/p>
+&lt;p>Here&amp;rsquo;s a fairly simple web-based interface to use. For those curious about other graphical interfaces (non-web), there are:&lt;/p>
+&lt;ul>
+&lt;li>The well-known but buggy GQ&lt;/li>
+&lt;li>The less known but very good &lt;a href="https://directory.apache.org/studio/" rel="external" target="_blank">Apache Directory Studio&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s use the magic command:&lt;/p></description></item><item><title>PhpMyAdmin: Installation and Configuration</title><link>https://wiki.deimos.fr/PhpMyAdmin_:_Installation_et_configuration/</link><pubDate>Sat, 09 May 2009 08:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/PhpMyAdmin_:_Installation_et_configuration/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>phpMyAdmin (pronounced &amp;ldquo;p h p my admin&amp;rdquo;) is a free, user-friendly interface written in PHP for the MySQL DBMS to facilitate the management of MySQL databases on a server, and is distributed under the GNU GPL license.&lt;/p>
+&lt;p>It is one of the most famous interfaces for managing a MySQL database on a PHP server. Many hosting providers, whether free or paid, offer it, which means the user doesn&amp;rsquo;t have to install it. Among them, we can mention Free or Lycos Multimania.&lt;/p></description></item><item><title>Banners: Hiding Application Banners (Service Banner Faking)</title><link>https://wiki.deimos.fr/Bani%C3%A8res_:_Cacher_les_bani%C3%A8res_de_ses_applications_%28Service_banner_faking%29/</link><pubDate>Fri, 17 Apr 2009 20:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bani%C3%A8res_:_Cacher_les_bani%C3%A8res_de_ses_applications_%28Service_banner_faking%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is a quick howto on faking service banners. Service banners often contain a lot of useful information for malicious script-kiddies, like the (real) running software on the remote host and its version number. Knowing this, they can better target their exploits. This howto deals with changing this information. Keep in mind that this won&amp;rsquo;t make your system more secure against a known exploit when you run a vulnerable service, however it can provide some &amp;lsquo;social engineering&amp;rsquo; security: script-kiddies often scan whole IP blocks for a known vulnerability, and only attack those who give back a banner telling that they run the vulnerable service. This howto aims to fake the service banners and in this way, fool the script-kiddies. However, your system will still be vulnerable to an exploit if you&amp;rsquo;re running a vulnerable service! If a script-kiddie runs his exploit, even if he sees you don&amp;rsquo;t send out the right banner, you can still be hacked. So, always keep your system up-to-date, see this as a way to decrease the amount of effective attacks on your system, not as a way to be invulnerable. Of course there&amp;rsquo;s also the fun-factor: it&amp;rsquo;s quite amusing to see script-kiddies attempt to break into your &amp;lsquo;Microsoft-IIS/5.0&amp;rsquo; also known as Apache 1.3.27 &lt;em>grin&lt;/em>.&lt;/p></description></item><item><title>Setting up OpenSSL with Lighttpd</title><link>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</link><pubDate>Wed, 15 Apr 2009 07:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Adding security to your website is important. In this guide, we&amp;rsquo;ll see how to create and insert SSL certificates in Lighttpd.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We only need OpenSSL:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bc007ab" class="language-bash ">
+ &lt;code>apt-get install openssl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="generating-ssl-keys">Generating SSL keys &lt;a href="#generating-ssl-keys" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s create an ssl directory in the Lighttpd configuration folder, then generate the certificates:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e53f286" class="language-bash ">
+ &lt;code>mkdir /etc/lighttpd/ssl
+openssl req -new -x509 -keyout /etc/lighttpd/ssl/selfcert.pem -out /etc/lighttpd/ssl/selfcert.pem -days 3650 -nodes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>selfcert.pem: use the name that interests you (e.g., deimos.fr.pem)&lt;/li>
+&lt;li>3650: number of days the certificate is valid (10 years, we&amp;rsquo;re safe for a good while)&lt;/li>
+&lt;/ul>
+&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s enable the SSL module for Lighttpd:&lt;/p></description></item><item><title>Vlogger: Splitting Lighttpd logs with statistics generation</title><link>https://wiki.deimos.fr/Vlogger_:_Splitter_les_logs_de_Lighttpd_avec_creation_de_statistiques/</link><pubDate>Tue, 29 Jan 2008 21:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vlogger_:_Splitter_les_logs_de_Lighttpd_avec_creation_de_statistiques/</guid><description>&lt;p>Here is documentation on log segmentation for Lighttpd with statistics creation using Webalizer:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/splitting_lighttpd_logs_with_vlogger_and_creating_statistics_with_webalizer.pdf">Documentation on Splitting lighttpd Logs With vlogger And Creating Statistics With Webalizer&lt;/a>&lt;/p></description></item></channel></rss>

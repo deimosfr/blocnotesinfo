@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ext3 on Tech Notebook</title><link>https://wiki.deimos.fr/tags/ext3/</link><description>Recent content in Ext3 on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/ext3/index.xml" rel="self" type="application/rss+xml"/><item><title>Filesystem Conversion</title><link>https://wiki.deimos.fr/Conversion_de_filesystems/</link><pubDate>Fri, 08 May 2009 06:39:00 +0200</pubDate><guid>https://wiki.deimos.fr/Conversion_de_filesystems/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes you need to convert your filesystem to a more recent one when possible, without having to reformat everything.&lt;/p>
+&lt;h2 id="ext3---ext4">EXT3 -&amp;gt; EXT4 &lt;a href="#ext3---ext4" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s obvious that the partition to be converted must be unmounted beforehand. Here, I&amp;rsquo;ll use an LVM partition in ext3 to convert it to ext4:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e013435" class="language-bash ">
+ &lt;code>tune2fs -O extents,uninit_bg,dir_index /dev/mapper/lvm-home
+fsck -pf /dev/mapper/lvm-home&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If you&amp;rsquo;re modifying the boot partition, you need to boot from a live CD for example, then run this command to revalidate grub:&lt;/p></description></item><item><title>Anti-forensics on ext2/ext3 Filesystems</title><link>https://wiki.deimos.fr/anti-forensics-sur-systemes-de-fichiers-ext2-ext3/</link><pubDate>Thu, 25 Sep 2008 12:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/anti-forensics-sur-systemes-de-fichiers-ext2-ext3/</guid><description>&lt;p>The first thing a hacker wants to do when they&amp;rsquo;ve managed to get into a machine is to hide the data they want to leave behind. There are those who use techniques that even my grandmother knows about, and there are those who take advantage of the internal structure of the filesystem.&lt;/p>
+&lt;p>This article explains the different solutions for hiding data in an ext2/ext3 filesystem while taking into account the constraints that remain. However, we will not address the topic of deleted data and how to recover it, which is a completely different subject (that of leaving no trace :)).&lt;/p></description></item><item><title>Anatomy of a Linux Filesystem</title><link>https://wiki.deimos.fr/anatomie-d-un-filesystem-linux/</link><pubDate>Wed, 07 Nov 2007 10:42:00 +0100</pubDate><guid>https://wiki.deimos.fr/anatomie-d-un-filesystem-linux/</guid><description>&lt;p>Here is good documentation for people who want to understand how the Linux filesystem works:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/anatomy_of_linux_filesystem.pdf">Documentation on Anatomy of a Linux FileSystem&lt;/a>&lt;/p></description></item><item><title>Ext3: Resize partitions without data loss</title><link>https://wiki.deimos.fr/Ext3_:_redimensionner_ses_partitions_sans_pertes_de_donn%C3%A9es/</link><pubDate>Sun, 07 Jan 2007 18:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ext3_:_redimensionner_ses_partitions_sans_pertes_de_donn%C3%A9es/</guid><description>&lt;p>Here is an interesting and quick documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/resize_ext3_nodatalost.pdf">Resize ext3 without data loss&lt;/a>&lt;/p></description></item></channel></rss>

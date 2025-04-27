@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenLDAP on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/authentication/openldap/</link><description>Recent content in OpenLDAP on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/authentication/openldap/index.xml" rel="self" type="application/rss+xml"/><item><title>LDAP: Installation and Configuration of an LDAP Directory</title><link>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</link><pubDate>Thu, 28 Mar 2013 10:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/openldap-logo.png" alt="OpenLDAP" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.4.23+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.openldap.org/" rel="external" target="_blank">OpenLDAP Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/LDAP" rel="external" target="_blank">Lightweight Directory Access Protocol (LDAP)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a protocol that allows querying and modification of directory services. This protocol is based on TCP/IP. An LDAP directory typically follows the X.500 model defined by ITU-T: it is a tree structure where each node consists of attributes associated with their values.&lt;/p></description></item><item><title>Setting up a Synchronization Solution between ActiveDirectory and OpenLDAP</title><link>https://wiki.deimos.fr/Mise_en_place_d'une_solution_de_Syncronisation_entre_ActiveDirectory_et_OpenLDAP/</link><pubDate>Mon, 12 Apr 2010 08:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'une_solution_de_Syncronisation_entre_ActiveDirectory_et_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This documentation is quite technically advanced, which is why &lt;strong>you need some basic knowledge&lt;/strong> before attempting it. I recommend reading this &lt;a href="./LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP">documentation&lt;/a> first.&lt;/p>
+&lt;p>For authentication, we want to use an OpenLDAP directory as a &lt;strong>cache/backup of an Active Directory (AD) server&lt;/strong>. Authentication will be performed from different applications and Unix-type machines. The goal is also to be able to continue authenticating in case of an AD crash.&lt;/p>
+&lt;p>Note: Because objectively, in case of a crash, here are the approximate reinstallation and restore times:&lt;/p></description></item><item><title>PhpLDAPadmin: Setting Up a Graphical Management Solution for OpenLDAP</title><link>https://wiki.deimos.fr/PhpLDAPadmin:_Mise_en_place_d'une_solution_de_management_graphique_pour_OpenLDAP/</link><pubDate>Mon, 11 May 2009 11:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/PhpLDAPadmin:_Mise_en_place_d'une_solution_de_management_graphique_pour_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Managing an OpenLDAP database is not always simple, especially when you don&amp;rsquo;t know all the fields by heart (and there are so many of them).&lt;/p>
+&lt;p>Here&amp;rsquo;s a fairly simple web-based interface to use. For those curious about other graphical interfaces (non-web), there are:&lt;/p>
+&lt;ul>
+&lt;li>The well-known but buggy GQ&lt;/li>
+&lt;li>The less known but very good &lt;a href="https://directory.apache.org/studio/" rel="external" target="_blank">Apache Directory Studio&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s use the magic command:&lt;/p></description></item><item><title>LDAP: Installation and Configuration of a Secondary LDAP Directory</title><link>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP_(secondaire)/</link><pubDate>Fri, 26 Dec 2008 18:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP_(secondaire)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This document explains how to configure OpenLDAP for LDAP tree replication between 2 servers.&lt;/p>
+&lt;p>For this, we will use &lt;em>slapd&lt;/em> and &lt;em>slurpd&lt;/em> from the OpenLDAP suite.&lt;/p>
+&lt;p>This applies to both Linux distributions, tested on Debian Sarge, and FreeBSD, tested on 6.1.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You will need to configure the &lt;em>slapd&lt;/em> daemons on both servers. For this, you can follow this document: &lt;a href="https://wiki.deimos.fr/LDAP_%5C%5C:_Installation_et_configuration_d%27un_Annuaire_LDAP/">Standard SLAPD Configuration&lt;/a>&lt;/p>
+&lt;h2 id="the-master-server">The Master Server &lt;a href="#the-master-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On the master server, we will create a dedicated user for replication who will only have read rights but will be able to read the entire tree.&lt;/p></description></item></channel></rss>

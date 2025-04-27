@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IPv4 on Tech Notebook</title><link>https://wiki.deimos.fr/tags/ipv4/</link><description>Recent content in IPv4 on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/ipv4/index.xml" rel="self" type="application/rss+xml"/><item><title>IPv6: Complete Removal, IPv4 Only on Debian</title><link>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</link><pubDate>Tue, 21 Aug 2007 21:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When installing a new Debian 4.0 distribution, IPv6 support is enabled by default. This can cause some problems or even simply slow down your system. Indeed, all applications will use IPv6 support for name resolution before or after trying with IPv4.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is the case for mplayer used to read an audio or video stream:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a04aba1" class="language-bash ">
+ &lt;code>[...]
+Resolving live.radio-gresivaudan.org for AF_INET6...
+Couldn&amp;#39;t resolve name for AF_INET6: live.radio-gresivaudan.org
+Resolving live.radio-gresivaudan.org for AF_INET...
+Connecting to server live.radio-gresivaudan.org[217.117.157.190]: 8000...
+[...]&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>There is a simple method to disable IPv6 support. You just need to prevent the system from loading the corresponding module. Edit the file &lt;code>/etc/modprobe.d/blacklist&lt;/code> and add the line:&lt;/p></description></item></channel></rss>

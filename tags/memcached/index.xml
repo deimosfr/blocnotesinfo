@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Memcached on Tech Notebook</title><link>https://wiki.deimos.fr/tags/memcached/</link><description>Recent content in Memcached on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/memcached/index.xml" rel="self" type="application/rss+xml"/><item><title>Memcached: Setting up a Cache Server for Apache</title><link>https://wiki.deimos.fr/Memcached_:_Mise_en_place_d'un_serveur_de_cache_pour_Apache/</link><pubDate>Fri, 27 Nov 2009 20:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Memcached_:_Mise_en_place_d'un_serveur_de_cache_pour_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Memcached is a caching server that helps accelerate client requests.&lt;/p>
+&lt;h2 id="setup">Setup &lt;a href="#setup" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s documentation for setting up a memcached cache server:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/installing_memcached_and_the_php5_memcache_module.pdf">Installing memcached And The PHP5 memcache Module&lt;/a>&lt;/p>
+&lt;h2 id="other">Other &lt;a href="#other" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To get statistics on memcached and calculate hits and ratios:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0962379" class="language-bash ">
+ &lt;code>echo -en &amp;#34;stats\r\n&amp;#34; &amp;#34;quit\r\n&amp;#34; | nc localhost 11211 | tr -s [:cntrl:] &amp;#34; &amp;#34;| cut -f42,48 -d&amp;#34; &amp;#34; | sed &amp;#34;s/\([0-9]*\)\s\([0-9]*\)/ \2\/\1*100/&amp;#34; | bc -l&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Setting up Memcached on WordPress</title><link>https://wiki.deimos.fr/Mise_en_place_de_Memcached_sur_Wordpress/</link><pubDate>Tue, 08 Sep 2009 21:38:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Memcached_sur_Wordpress/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Memcached is a cache server that, unlike some PHP accelerators, does not consume additional CPU. It&amp;rsquo;s therefore an ideal compromise. For WordPress, there is currently no simple solution to quickly set up this solution (although it&amp;rsquo;s not very time-consuming anyway).&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian, it&amp;rsquo;s easy:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="162ea94" class="language-bash ">
+ &lt;code>apt-get install memcached&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Your memcached server is now running on port 11211.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Nothing special needs to be done, the basic configuration is sufficient.&lt;/p></description></item></channel></rss>

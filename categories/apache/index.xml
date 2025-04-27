@@ -1,0 +1,1861 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Apache on Tech Notebook</title><link>https://wiki.deimos.fr/categories/apache/</link><description>Recent content in Apache on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/apache/index.xml" rel="self" type="application/rss+xml"/><item><title>LemonLDAP::NG: More than just SSO</title><link>https://wiki.deimos.fr/LemonLDAP::NG_:_Plus_qu'un_simple_SSO/</link><pubDate>Sat, 16 Mar 2013 08:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/LemonLDAP::NG_:_Plus_qu'un_simple_SSO/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/lemonldap_logo.png" alt="LemonDAP::NG" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://lemonldap-ng.org" rel="external" target="_blank">LemonLDAP::NG Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>16/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Apache 2.2&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LemonLDAP::NG was created by Éric German for the French Ministry of Finance. Initially named LevonLDAP, in tribute to Novell, it was designed to be compatible with Novell&amp;rsquo;s single sign-on (SSO) authentication system. It is based on the book &amp;ldquo;Writing Apache Modules with Perl and C The Apache API and mod_perl&amp;rdquo; by Doug MacEachern and Lincoln Stein (O&amp;rsquo;Reilly).&lt;/p></description></item><item><title>Installation and Configuration of an SVN Repository</title><link>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27un_repository_SVN/</link><pubDate>Fri, 06 Jul 2012 14:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27un_repository_SVN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to use &lt;a href="https://en.wikipedia.org/wiki/Subversion_(software)" rel="external" target="_blank">Subversion&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, the successor of CVS, you first need to install Apache 2.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are the packages to install:&lt;/p></description></item><item><title>Thruk: An Advanced Interface for Nagios and MKlivestatus</title><link>https://wiki.deimos.fr/Thruk_:_Une_interface_%C3%A9volu%C3%A9e_pour_Nagios_et_MKlivestatus/</link><pubDate>Wed, 30 May 2012 09:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Thruk_:_Une_interface_%C3%A9volu%C3%A9e_pour_Nagios_et_MKlivestatus/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/thruk_logo.png" alt="Thruk logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.30&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.thruk.org" rel="external" target="_blank">Thruk Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>30/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Thruk is an advanced interface for Nagios (and Shinken) that allows connecting to multiple Nagios instances simultaneously and displaying more relevant information compared to the standard Nagios interface.&lt;/p></description></item><item><title>PNP4Nagios: Graph Your Nagios Alerts</title><link>https://wiki.deimos.fr/PNP4Nagios:_Grapher_ses_alertes_Nagios/</link><pubDate>Fri, 26 Aug 2011 15:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/PNP4Nagios:_Grapher_ses_alertes_Nagios/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/pnp4nagios_logo.jpg" alt="PNP4Nagios" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PNP is an addon to Nagios which analyzes performance data provided by plugins and stores them automatically into RRD-databases (Round Robin Databases, see RRD Tool).&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, create a folder where to unzip the installation files. Here, we are going to use &lt;code>/etc/nagios3/pnp4nagios&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51881a1" class="language-bash ">
+ &lt;code>mkdir /etc/nagios3/pnp4nagios
+cd /etc/nagios3/pnp4nagios&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then get the file, unzip and go into the folder:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2f5330c" class="language-bash ">
+ &lt;code>wget http://downloads.sourceforge.net/project/pnp4nagios/PNP-0.6/pnp4nagios-0.6.0.tar.gz?use_mirror=freefr
+cd pnp4nagios-0.6.0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Activate the Apache2 rewrite module:&lt;/p></description></item><item><title>Checking Your Website Security with Nikto</title><link>https://wiki.deimos.fr/V%C3%A9rifier_la_s%C3%A9curit%C3%A9_de_son_site_web_avec_Nikto/</link><pubDate>Tue, 05 Apr 2011 21:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/V%C3%A9rifier_la_s%C3%A9curit%C3%A9_de_son_site_web_avec_Nikto/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To verify your configuration file and test potential security vulnerabilities, here&amp;rsquo;s a practical Perl script called Nikto. These are the most well-known security audit applications similar to Nikto:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.secuobs.com/news/07042007-proxmon.shtml" rel="external" target="_blank">WebScarab/ProxMon&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.secuobs.com/news/12022007-webinspect.shtml" rel="external" target="_blank">WebInspect&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> by SPI Dynamics&lt;/li>
+&lt;li>&lt;a href="https://www.secuobs.com/news/20042005-google-hacking.shtml" rel="external" target="_blank">Wikto&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.secuobs.com/news/04122007-firecat.shtml" rel="external" target="_blank">Exploit-me&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.parosproxy.org/index.shtml" rel="external" target="_blank">Paros Proxy&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation-and-configuration">Installation and Configuration &lt;a href="#installation-and-configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the documentation I found:&lt;/p></description></item><item><title>Iptables: Configuration Examples</title><link>https://wiki.deimos.fr/Exemples_de_configurations/</link><pubDate>Mon, 13 Dec 2010 17:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Exemples_de_configurations/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Iptables is not very intuitive, and examples are almost essential for setting up your configuration. Here are some examples ranging from the simplest to the most complex.&lt;/p>
+&lt;h2 id="example-1">Example 1 &lt;a href="#example-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3767339" class="language-bash ">
+ &lt;code>#!/bin/sh
+################################################
+# #
+# Basic Firewall Script #
+# #
+################################################
+
+#############
+# Variables #
+############
+ IPTABLES=/sbin/iptables
+ IF_EXT=eth0
+ IP_SSH=xx.xx.xx.xx
+
+
+###################
+# Clear tables #
+##################
+ ${IPTABLES} -t mangle -F
+ ${IPTABLES} -t nat -F
+ ${IPTABLES} -F
+ ${IPTABLES} -t mangle -X
+ ${IPTABLES} -t nat -X
+ ${IPTABLES} -X
+ ${IPTABLES} -Z
+
+
+#####################
+# Default rules #
+####################
+ ## ignore_echo_broadcasts, TCP Syncookies, ip_forward
+ echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
+
+ ## Default Policy
+ ${IPTABLES} -P INPUT DROP
+ ${IPTABLES} -P OUTPUT DROP
+ ${IPTABLES} -P FORWARD DROP
+
+ ## Accept loopback
+ ${IPTABLES} -A FORWARD -i lo -o lo -j ACCEPT
+ ${IPTABLES} -A INPUT -i lo -j ACCEPT
+ ${IPTABLES} -A OUTPUT -o lo -j ACCEPT
+
+ ## REJECT connections pretending to initialize without syn
+ ${IPTABLES} -A INPUT -p tcp ! --syn -m state --state NEW,INVALID -j REJECT
+
+
+####################
+# Special rules #
+###################
+### Create chains
+ ${IPTABLES} -N SPOOFED
+ ${IPTABLES} -N SERVICES
+
+### Prohibit spoofed packets
+ ${IPTABLES} -A SPOOFED -s 127.0.0.0/8 -j DROP
+ ${IPTABLES} -A SPOOFED -s 169.254.0.0/12 -j DROP
+ ${IPTABLES} -A SPOOFED -s 172.16.0.0/12 -j DROP
+ ${IPTABLES} -A SPOOFED -s 192.168.0.0/16 -j DROP
+ ${IPTABLES} -A SPOOFED -s 10.0.0.0/8 -j DROP
+
+### Allowed INPUT
+ ### ICMP
+	## Ping (*)
+ ${IPTABLES} -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+ ### TCP
+	## SSH (*)
+	${IPTABLES} -A SERVICES -p tcp -d ${IP_SSH} --dport 22 -j ACCEPT
+ ## MAIL (*)
+	${IPTABLES} -A SERVICES -p tcp -d ${IP_SSH} --dport 25 -j ACCEPT
+
+
+#################################
+# Open ports on the firewall #
+################################
+ ${IPTABLES} -A OUTPUT -j ACCEPT
+ ${IPTABLES} -A INPUT -m state --state ESTABLISH,RELATED -j ACCEPT
+ ${IPTABLES} -A INPUT -j SPOOFED
+ ${IPTABLES} -A INPUT -i ${IF_EXT} -j SERVICES&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="example-2">Example 2 &lt;a href="#example-2" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6f5c84e" class="language-bash ">
+ &lt;code>#!/bin/bash
+echo Setting firewall rules...
+
+###### Initialization Start ######
+
+# Block all incoming connections
+iptables -t filter -P INPUT DROP
+iptables -t filter -P FORWARD DROP
+echo - Block all incoming connections: [OK]
+
+# Block all outgoing connections
+iptables -t filter -P OUTPUT DROP
+echo - Block all outgoing connections: [OK]
+
+# Clear current tables
+iptables -t filter -F
+iptables -t filter -X
+echo - Clearing: [OK]
+
+# Allow SSH
+iptables -t filter -A INPUT -p tcp --dport 22 -j ACCEPT
+echo - Allow SSH: [OK]
+
+# Don&amp;#39;t break established connections
+iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+iptables -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+echo - Don&amp;#39;t break established connections: [OK]
+
+###### End Initialization ######
+
+##### Begin Rules ######
+
+# Allow DNS, FTP, HTTP, NTP requests
+iptables -t filter -A OUTPUT -p tcp --dport 21 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 53 -j ACCEPT
+iptables -t filter -A OUTPUT -p udp --dport 53 -j ACCEPT
+iptables -t filter -A OUTPUT -p udp --dport 123 -j ACCEPT
+echo - Allow DNS, FTP, HTTP, NTP requests: [OK]
+
+# Allow loopback
+iptables -t filter -A INPUT -i lo -j ACCEPT
+iptables -t filter -A OUTPUT -o lo -j ACCEPT
+echo - Allow loopback: [OK]
+
+# Allow ping
+iptables -t filter -A INPUT -p icmp -j ACCEPT
+iptables -t filter -A OUTPUT -p icmp -j ACCEPT
+echo - Allow ping: [OK]
+
+# HTTP
+iptables -t filter -A INPUT -p tcp --dport 80 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 8443 -j ACCEPT
+echo - Allow Apache server: [OK]
+
+# FTP
+modprobe ip_conntrack_ftp
+iptables -t filter -A INPUT -p tcp --dport 20 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 21 -j ACCEPT
+iptables -t filter -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+echo - Allow FTP server: [OK]
+
+# Mail
+iptables -t filter -A INPUT -p tcp --dport 25 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 110 -j ACCEPT
+iptables -t filter -A INPUT -p tcp --dport 143 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 25 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 110 -j ACCEPT
+iptables -t filter -A OUTPUT -p tcp --dport 143 -j ACCEPT
+echo - Allow Mail server: [OK]
+
+###### End Rules ######
+
+echo Firewall successfully updated!&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="example-3">Example 3 &lt;a href="#example-3" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9c6d978" class="language-bash ">
+ &lt;code># description: Firewall rules with masquerading
+# probe: true
+#
+### BEGIN INIT INFO
+# Provides: firewall_passerelle
+# Required-Start: $network
+# Required-Stop: $network
+# Default-Start: 3 5
+# Default-Stop:
+# Description: Firewall rules with masquerading (configurable)
+### END INIT INFO
+
+####################################################################
+# INTRODUCTION
+####################################################################
+
+## Make sure we are root
+if [ ! &amp;#34;`id 2&amp;gt;&amp;amp;1 | egrep &amp;#39;uid=0&amp;#39; | cut -d &amp;#39;(&amp;#39; -f1`&amp;#34; = &amp;#34;uid=0&amp;#34; ]; then
+ echo &amp;#34;This script must be run by the &amp;#39;root&amp;#39; user&amp;#34;
+ exit 1 ## Exit the script
+fi
+
+# If iptables utility is not installed, exit with an error
+# Note: the path to the IPTABLES utility may vary from one
+# system to another
+IPT=&amp;#34;/sbin/iptables&amp;#34;
+[ -x ${IPT} ] || {
+ echo &amp;#34;Unable to find the path for iptables&amp;#34;
+ exit 1
+ }
+
+# Internet connection interface
+# This variable is mandatory
+OUT=&amp;#34;ppp0&amp;#34;
+
+# If the following line is uncommented, the machine
+# is not configured in gateway mode and only serves
+# as a firewall
+IN=&amp;#34;eth0&amp;#34; # private network interface if applicable
+
+# Uncomment the following line to enable protocol filtering
+# when using in gateway mode
+#FILTRAGE=&amp;#34;-p tcp -m multiport --destination-port 6667,5190&amp;#34;
+
+# let&amp;#39;s see how we were called
+case &amp;#34;$1&amp;#34; in
+ start)
+ ;;
+ stop)
+ ${IPT} -t filter -F
+ ${IPT} -t nat -F
+ ${IPT} -t filter -X
+ ${IPT} -t filter -Z
+ ${IPT} -t filter -P INPUT ACCEPT
+ ${IPT} -t filter -P OUTPUT ACCEPT
+ ${IPT} -t filter -P FORWARD ACCEPT
+ /bin/echo &amp;#34;0&amp;#34; &amp;gt; /proc/sys/net/ipv4/ip_forward
+ exit 0
+ ;;
+ restart)
+ $0 stop
+ $0 start
+ ;;
+ *)
+ echo &amp;#34;Usage: $0 {start|stop|restart}&amp;#34;
+ exit 1
+esac
+
+# Load modules
+modprobe ip_tables
+modprobe ip_conntrack
+modprobe ip_conntrack_ftp
+modprobe ip_conntrack_irc
+modprobe ip_conntrack_h323
+
+# Clear all rules and chains
+${IPT} -t filter -F
+${IPT} -t nat -F
+${IPT} -t filter -X
+${IPT} -t filter -Z
+
+# Configure default behavior (Policy)
+${IPT} -P INPUT DROP
+${IPT} -P OUTPUT DROP
+${IPT} -P FORWARD DROP
+
+####################################################################
+# Kernel flags
+####################################################################
+
+# Enable TCP SYN Cookie protection (repeated connection requests)
+#/bin/echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/net/ipv4/tcp_syncookies
+
+# Ignore ping responses
+#/bin/echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+# Disable ICMP broadcast responses
+/bin/echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
+
+# Don&amp;#39;t accept source routed packets. Attackers can use source
+# routing to generate traffic pretending to be from inside your
+# network, but which is routed back along the path which it came,
+# namely outside, so attackers can compromise your network.
+# Source routing is rarely used for legitimate purposes.
+/bin/echo &amp;#34;0&amp;#34; &amp;gt; /proc/sys/net/ipv4/conf/all/accept_source_route
+
+# Disable ICMP Redirect Acceptance
+/bin/echo &amp;#34;0&amp;#34; &amp;gt; /proc/sys/net/ipv4/conf/all/accept_redirects
+
+# Enable bad error message protection
+/bin/echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/net/ipv4/icmp_ignore_bogus_error_responses
+
+# To prevent IP SPOOFING, check the source address on all
+# interfaces - can cause issues with asymmetric routing
+# (packets take different paths in each direction)
+for interface in /proc/sys/net/ipv4/conf/*/rp_filter; do
+ /bin/echo &amp;#34;1&amp;#34; &amp;gt; ${interface}
+done
+
+# Log Spoofed Packets, Source Routed Packets, Redirect Packets
+for interface in /proc/sys/net/ipv4/conf/*/log_martians; do
+ /bin/echo &amp;#34;1&amp;#34; &amp;gt; ${interface}
+done
+# For dynamic IP address
+echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/net/ipv4/ip_dynaddr
+
+# Enable IP packet routing
+# This is the main command authorizing the gateway function
+if [ ${IN} ]; then
+ /bin/echo &amp;#34;1&amp;#34; &amp;gt; /proc/sys/net/ipv4/ip_forward
+else
+ /bin/echo &amp;#34;0&amp;#34; &amp;gt; /proc/sys/net/ipv4/ip_forward
+fi
+
+####################################################################
+# Rules
+####################################################################
+
+# Unlimited traffic on loopback address
+${IPT} -A INPUT -i lo -j ACCEPT
+${IPT} -A OUTPUT -o lo -j ACCEPT
+
+# Unlimited traffic on other Ethernet interfaces
+# Avoid touching the public network interface
+# (connected to the Internet)
+for interface in /proc/sys/net/ipv4/conf/eth*; do
+ VAL=`echo ${interface} | cut -c 25-`
+ if [ ${VAL} != ${OUT} ]; then
+ ${IPT} -A INPUT -i ${VAL} -j ACCEPT
+ ${IPT} -A OUTPUT -o ${VAL} -j ACCEPT
+ fi
+done
+
+# transparent proxy: redirection rule to the proxy
+# we consider that eth0 is the private network interface
+# and 3128 is the proxy-cache server port
+#${IPT} -t nat -A PREROUTING -p tcp -i eth0 --dport 80 -j REDIRECT --to-port 3128
+
+# If gateway function is enabled
+if [ ${IN} ]; then
+
+ # Accept forwarding packets on the internal interface
+ ${IPT} -A FORWARD -i ${IN} ${FILTRAGE} -j ACCEPT
+ ${IPT} -A FORWARD -o ${IN} -j ACCEPT
+
+ # Enable masquerading for traffic from the private
+ # subnet (For fixed IP, SNAT is better)
+ ${IPT} -t nat -A POSTROUTING -o ${OUT} -j MASQUERADE
+
+fi
+
+# Accept outgoing connections from the
+# private subnet
+${IPT} -A OUTPUT -o ${OUT} -j ACCEPT
+
+#
+# Add rules to authorize certain ports
+# Uncomment the lines that interest you
+#
+
+## Simultaneous access to a web server and FTP
+#${IPT} -A INPUT -i ${OUT} -p tcp -m state --state NEW -m multiport --destination-port 80,20,21 -j ACCEPT
+
+## Access only to a web server
+#${IPT} -A INPUT -i ${OUT} -p tcp -m state --state NEW --destination-port 80 -j ACCEPT
+
+## gtk-gnutella
+#${IPT} -A INPUT -i ${OUT} -p tcp -m state --state NEW --destination-port 23934 -j ACCEPT
+#${IPT} -A INPUT -i ${OUT} -p udp -m state --state NEW --destination-port 23934 -j ACCEPT
+
+## SSH
+${IPT} -A INPUT -i ${OUT} -p tcp --destination-port 22 -j ACCEPT
+
+## HTTP
+${IPT} -A INPUT -i ${OUT} -p tcp --destination-port 80 -j ACCEPT
+
+# Mldonkey
+${IPT} -A INPUT -i ${OUT} -p tcp --destination-port 6666 -j ACCEPT
+${IPT} -A INPUT -i ${OUT} -p tcp --destination-port 6682 -j ACCEPT
+${IPT} -A INPUT -i ${OUT} -p tcp --destination-port 8155 -j ACCEPT
+
+## Jabber file transfer
+#${IPT} -A INPUT -i ${OUT} -p udp --destination-port 8010 -j ACCEPT
+
+#
+# End of rule addition
+#
+
+# Accept already established incoming connections
+${IPT} -A INPUT -i ${OUT} -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# If gateway function is enabled
+if [ ${IN} ]; then
+
+ # Track rejected packets on the FORWARD chain
+ ${IPT} -N LOG_FWD
+ ${IPT} -A LOG_FWD -j LOG --log-level info --log-ip-options --log-prefix &amp;#34;Firewall FWD:&amp;#34;
+ ${IPT} -A LOG_FWD -j DROP
+
+ # Log rejected packets on the FORWARD chain
+ ${IPT} -A FORWARD -j LOG_FWD
+
+fi
+
+# Initialize tracking for rejected input packets on
+# the external interface
+${IPT} -N LOG_EXT
+${IPT} -A LOG_EXT -j LOG --log-level info --log-ip-options --log-prefix &amp;#34;Firewall IN:&amp;#34;
+${IPT} -A LOG_EXT -j DROP
+
+# Log rejected input packets on the external interface
+${IPT} -A INPUT -i ${OUT} -j LOG_EXT
+
+exit 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="example-4">Example 4 &lt;a href="#example-4" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f212bb6" class="language-bash ">
+ &lt;code>#!/bin/bash
+
+###################################################
+## ARCHITECTURE FOR A 4-INTERFACE FIREWALL ##
+##						 ##
+##		 INTERNET			 ##
+##		 | 			 ##
+##	DMZ--------FIREWALL--------SERVER ZONE ##
+##		 |				 ##
+##		 LAN			 ##
+##						 ##
+###################################################
+
+###################################################
+## REQUIRED IPTABLES MODULES ##
+###################################################
+MODULES_IPTABLES=&amp;#34;ip_tables \
+ ipt_string \
+		 ip_conntrack \
+ ip_conntrack_ftp \
+		 ip_nat_ftp&amp;#34;			# Iptables modules loaded at startup
+INTERNET=&amp;#34;ppp0&amp;#34; 				# Internet device (multiple devices possible)
+INTERNET_NAT=&amp;#34;ppp0&amp;#34; # Internet device used for NAT (only 1 device possible)
+DMZ=&amp;#34;&amp;#34; 	 			# DMZ device (public IPs, servers accessible from internet)
+ZONE_SERVEURS=&amp;#34;eth2&amp;#34;				# Server zone device (private IPs, servers accessible internally)
+LAN=&amp;#34;eth1 eth3&amp;#34;					# Intranet device (multiple devices possible)
+
+PAQUETS_ICMP_AUTHORISES=&amp;#34;0 3 4 5 8 11 12&amp;#34;	# ICMP packets authorized to travel between different networks
+PING_FLOOD=&amp;#34;1/s&amp;#34;				# Number of PING authorized per second
+LOG_FLOOD=&amp;#34;1/s&amp;#34;
+
+PROTOCOLES_AUTHORISES=&amp;#34;47&amp;#34;			# Protocols authorized to pass through the firewall
+
+MASQ_LAN=&amp;#34;YES&amp;#34; # Masquerade the LAN
+MASQ_DMZ=&amp;#34;NO&amp;#34; # Masquerade the DMZ
+MASQ_ZONE_SERVEURS=&amp;#34;YES&amp;#34; # Masquerade the server zone
+
+PORTS_TCP_INTERNET_AUTHORISES=&amp;#34;53&amp;#34;		# TCP ports of the firewall accessible from the internet
+PORTS_UDP_INTERNET_AUTHORISES=&amp;#34;53&amp;#34;		# UDP ports of the firewall accessible from the internet
+PORTS_TCP_DMZ_AUTHORISES=&amp;#34;&amp;#34;			# TCP ports of the firewall accessible from the DMZ
+PORTS_UDP_DMZ_AUTHORISES=&amp;#34;&amp;#34;			# UDP ports of the firewall accessible from the DMZ
+PORTS_TCP_ZONE_SERVEURS_AUTHORISES=&amp;#34;53 113&amp;#34;	# TCP ports of the firewall accessible from the server zone
+PORTS_UDP_ZONE_SERVEURS_AUTHORISES=&amp;#34;53 113&amp;#34;	# UDP ports of the firewall accessible from the server zone
+PORTS_TCP_LAN_AUTHORISES=&amp;#34;53 113 22&amp;#34;		# TCP ports of the firewall accessible from the LAN
+PORTS_UDP_LAN_AUTHORISES=&amp;#34;53 113 22&amp;#34;		# UDP ports of the firewall accessible from the LAN
+
+PORTS_TCP_SORTIE_REFUSES=&amp;#34;6346 \
+			 7777 \
+			 8888 \
+			 6699 \
+			 6000&amp;#34; # TCP ports forbidden for output from the firewall
+PORTS_UDP_SORTIE_REFUSES=&amp;#34;6346 \
+			 7777 \
+			 8888 \
+			 6699 \
+			 6000&amp;#34; # UDP ports forbidden for output from the firewall
+
+RESEAUX_LAN=&amp;#34;192.168.10.0/24 \
+	 192.168.30.0/24&amp;#34; 			# Networks composing the LAN
+RESEAUX_DMZ=&amp;#34;&amp;#34; # Networks composing the DMZ
+RESEAUX_ZONE_SERVEURS=&amp;#34;192.168.50.0/24&amp;#34; # Networks composing the server zone
+
+NAT_TCP_NET=&amp;#34; 80.13.192.105:80&amp;gt;192.168.50.100:8080 &amp;#34; # NAT =&amp;gt; IP_FIREWALL:PORT_FIREWALL&amp;gt;IP_INTERNAL:PORT_INTERNAL
+NAT_UDP_NET=&amp;#34;&amp;#34; 				# NAT =&amp;gt; IP_FIREWALL:PORT_FIREWALL&amp;gt;IP_INTERNAL:PORT_INTERNAL
+
+MOTS_CLES=&amp;#34;root admin&amp;#34; # Keywords to log
+
+MOTS_CLES_INTERDITS=&amp;#34;mp3&amp;gt;192.168.10.117 \
+		 MP3&amp;gt;192.168.10.117 \
+		 ogg&amp;gt;192.168.10.117 \
+		 OGG&amp;gt;192.168.10.117&amp;#34; 	# Forbidden keywords ;-) KEYWORD&amp;gt;RECIPIENT_IP
+IP_INTERDITES=&amp;#34; 66.28.48.0/24 \
+		66.28.49.0/24&amp;#34;			# Addresses blocked from entry
+
+###################################################
+## SCRIPT VARIABLES (DO NOT EDIT) ##
+###################################################
+
+IPTABLES=`which iptables`
+MODPROBE=`which modprobe`
+VERT=&amp;#34;\033[32m&amp;#34;
+JAUNE=&amp;#34;\033[33m&amp;#34;
+GRAS=&amp;#34;\033[1m&amp;#34;
+NORMAL=&amp;#34;\033[m&amp;#34;
+ROUGE=&amp;#34;\033[31m&amp;#34;
+
+
+###################################################
+## VERIFY IPTABLES PRESENCE ##
+###################################################
+
+echo -en &amp;#34;${GRAS}Verifying IPTABLES presence:${NORMAL}&amp;#34;
+if [ -z ${IPTABLES} ] ;then
+ echo -e &amp;#34;\t\t${ROUGE}FAILED${NORMAL}\n&amp;#34;
+ exit 1
+else
+ echo -e &amp;#34;\t\t${VERT}OK${NORMAL}&amp;#34;
+fi
+
+
+###################################################
+## VERIFY MODPROBE PRESENCE ##
+###################################################
+
+echo -en &amp;#34;${GRAS}Verifying MODPROBE presence:${NORMAL}&amp;#34;
+if [ -z ${MODPROBE} ] ;then
+ echo -e &amp;#34;\t\t${ROUGE}FAILED${NORMAL}\n&amp;#34;
+ exit 1
+else
+ echo -e &amp;#34;\t\t${VERT}OK${NORMAL}\n&amp;#34;
+fi
+
+
+###################################################
+## LOADING IPTABLES MODULES ##
+###################################################
+
+for module in ${MODULES_IPTABLES} ;do
+ echo -e &amp;#34;${GRAS}Loading module ${module}:${NORMAL}\t\t\t${VERT}OK${NORMAL}&amp;#34;
+ ${MODPROBE} ${module}
+done
+echo -e &amp;#34;\n&amp;#34;
+
+###################################################
+## BASIC FIREWALL CONFIGURATION USING ##
+## /proc FILESYSTEM ##
+###################################################
+
+###################################################
+## ENABLE IP FORWARDING (routing) ##
+###################################################
+
+echo -en &amp;#34;${GRAS}${JAUNE}Enabling ip forwarding:${NORMAL}&amp;#34;
+if [ -e /proc/sys/net/ipv4/ip_forward ] ; then
+ echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
+ echo -e &amp;#34;\t\t\t\t${VERT}OK${NORMAL}&amp;#34;
+else
+ echo -e &amp;#34;\t\t\t\t${ROUGE}FAILED${NORMAL}\n&amp;#34;
+ exit 1
+fi
+
+###################################################
+## Protection against SYN FLOOD ##
+###################################################
+
+echo -en &amp;#34;${GRAS}${JAUNE}Protection against SYN/FLOOD:${NORMAL}&amp;#34;
+if [ -e /proc/sys/net/ipv4/tcp_syncookies ] ; then
+ echo 1 &amp;gt; /proc/sys/net/ipv4/tcp_syncookies
+ echo -e &amp;#34;\t\t\t${VERT}OK${NORMAL}&amp;#34;
+else
+ echo -e &amp;#34;\t\t\t${ROUGE}FAILED${NORMAL}&amp;#34;
+fi
+
+###################################################
+## Defragment packets before forwarding them ##
+## Useful for masquerading ##
+###################################################
+
+echo -en &amp;#34;${GRAS}${JAUNE}Packet refragmentation:${NORMAL}&amp;#34;
+if [ -e /proc/sys/net/ipv4/ip_always_defrag ] ; then
+ echo 1 &amp;gt; /proc/sys/net/ipv4/ip_always_defrag
+ echo -e &amp;#34;\t\t\t\t${VERT}OK${NORMAL}&amp;#34;
+else
+ echo -e &amp;#34;\t\t\t\t${ROUGE}FAILED${NORMAL}&amp;#34;
+fi
+
+###################################################
+## Don&amp;#39;t respond to ICMP packets ##
+## sent to broadcast ##
+###################################################
+
+echo -en &amp;#34;${GRAS}${JAUNE}Insensitivity to ICMP packets sent to broadcast:${NORMAL}&amp;#34;
+if [ -e /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts ] ; then
+ echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
+ echo -e &amp;#34;\t${VERT}OK${NORMAL}&amp;#34;
+else
+ echo -e &amp;#34;\t${ROUGE}FAILED${NORMAL}&amp;#34;
+fi
+
+###################################################
+## Ignore ICMP errors from hosts ##
+## on the network reacting poorly to frames ##
+## sent to what they perceive as ##
+## the broadcast address ##
+###################################################
+
+if [ -e /proc/sys/net/ipv4/icmp_ignore_bogus_error_responses ] ; then
+ echo 1 &amp;gt; /proc/sys/net/ipv4/icmp_ignore_bogus_error_responses
+fi
+
+###################################################
+## Reverse Path Filtering ##
+## Only route packets belonging to ##
+## our networks ##
+###################################################
+
+echo -e &amp;#34;${GRAS}${JAUNE}Enabling Reverse Path Filtering:${NORMAL}\t\t\t${VERT}OK${NORMAL}\n&amp;#34;
+for f in /proc/sys/net/ipv4/conf/*/rp_filter; do
+ echo 1 &amp;gt; $f
+done
+
+
+###################################################
+## CLEAR OLD RULES ##
+###################################################
+
+echo -en &amp;#34;${GRAS}${JAUNE}Clearing old rules:${NORMAL}&amp;#34;
+${IPTABLES} -t filter -F INPUT
+${IPTABLES} -t filter -F OUTPUT
+${IPTABLES} -t filter -F FORWARD
+${IPTABLES} -t nat -F PREROUTING
+${IPTABLES} -t nat -F OUTPUT
+${IPTABLES} -t nat -F POSTROUTING
+${IPTABLES} -t mangle -F PREROUTING
+${IPTABLES} -t mangle -F OUTPUT
+echo -e &amp;#34;\t\t\t${VERT}OK${NORMAL}&amp;#34;
+
+###################################################
+## RESET CHAINS ##
+###################################################
+
+echo -en &amp;#34;${GRAS}${JAUNE}Resetting chains:${NORMAL}&amp;#34;
+${IPTABLES} -t filter -Z
+${IPTABLES} -t nat -Z
+${IPTABLES} -t mangle -Z
+echo -e &amp;#34;\t\t\t\t${VERT}OK${NORMAL}&amp;#34;
+
+###################################################
+## SET DEFAULT POLICY ##
+###################################################
+
+echo -en &amp;#34;${GRAS}${JAUNE}Setting default policy:${NORMAL}&amp;#34;
+${IPTABLES} -t filter -P INPUT DROP
+${IPTABLES} -t filter -P OUTPUT ACCEPT
+${IPTABLES} -t filter -P FORWARD DROP
+echo -e &amp;#34;\t\t${VERT}OK${NORMAL}\n&amp;#34;
+
+###################################################
+## KEYWORDS TO LOG ##
+###################################################
+
+if [ &amp;#34;${MOTS_CLES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -ne &amp;#34;${GRAS}${JAUNE}Enabling keyword-based logging system:${NORMAL}&amp;#34;
+ for mot in ${MOTS_CLES} ;do
+	${IPTABLES} -A INPUT -m string --string &amp;#34;${mot}&amp;#34; -j LOG --log-level info --log-prefix &amp;#34;${mot}: &amp;#34;
+	${IPTABLES} -A FORWARD -m string --string &amp;#34;${mot}&amp;#34; -j LOG --log-level info --log-prefix &amp;#34;${mot}: &amp;#34;
+ done
+ echo -e &amp;#34;\t\t${VERT}OK${NORMAL}&amp;#34;
+fi
+
+###################################################
+## Block entry of certain addresses ##
+## via the firewall for tcp and udp ##
+###################################################
+
+if [ &amp;#34;${IP_INTERDITES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Blocking entry of certain addresses:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for adr in ${IP_INTERDITES} ;do
+	${IPTABLES} -t filter -A FORWARD -p tcp -s ${adr} -j DROP
+	${IPTABLES} -t filter -A FORWARD -p udp -s ${adr} -j DROP
+ done
+fi
+
+###################################################
+## Block outgoing of certain ports via ##
+## the firewall for tcp ##
+###################################################
+
+if [ &amp;#34;${PORTS_TCP_SORTIE_REFUSES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Blocking outgoing TCP ports:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for port_no in ${PORTS_TCP_SORTIE_REFUSES} ;do
+	${IPTABLES} -t filter -A FORWARD -p tcp --dport ${port_no} -j DROP
+	${IPTABLES} -t filter -A OUTPUT -p tcp -o ${INTERNET} --dport ${port_no} -j DROP
+ done
+fi
+
+###################################################
+## Block outgoing of certain ports via ##
+## the firewall for udp ##
+###################################################
+
+if [ &amp;#34;${PORTS_TCP_SORTIE_REFUSES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Blocking outgoing UDP ports:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for port_no in ${PORTS_TCP_SORTIE_REFUSES} ;do
+	${IPTABLES} -t filter -A FORWARD -p udp --dport ${port_no} -j DROP
+	${IPTABLES} -t filter -A OUTPUT -p udp -o ${INTERNET} --dport ${port_no} -j DROP
+ done
+fi
+###################################################
+## Block passage of certain keywords ##
+###################################################
+
+if [ &amp;#34;${MOTS_CLES_INTERDITS}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Blocking passage of certain keywords:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for mot_cles in ${MOTS_CLES_INTERDITS} ;do
+	mot=`echo ${mot_cles} | sed &amp;#39;s/&amp;gt;.*//g&amp;#39;`
+	ip=`echo ${mot_cles} | sed &amp;#39;s/.*&amp;gt;//g&amp;#39;`
+
+	${IPTABLES} -A INPUT -m string --string &amp;#34;${mot}&amp;#34; -d ${ip} -j DROP
+	${IPTABLES} -A FORWARD -m string --string &amp;#34;${mot}&amp;#34; -d ${ip} -j DROP
+ done
+fi
+
+###################################################
+## Allow ICMP packets ##
+###################################################
+
+if [ &amp;#34;${PAQUETS_ICMP_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Allowing certain ICMP packets:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for icmp_no in ${PAQUETS_ICMP_AUTHORISES} ;do
+	${IPTABLES} -t filter -A INPUT -p icmp --icmp-type ${icmp_no} -m limit --limit ${PING_FLOOD} -j ACCEPT
+	${IPTABLES} -t filter -A FORWARD -p icmp --icmp-type ${icmp_no} -m limit --limit ${PING_FLOOD} -j ACCEPT
+	${IPTABLES} -t filter -A OUTPUT -p icmp --icmp-type ${icmp_no} -m limit --limit ${PING_FLOOD} -j ACCEPT
+ done
+fi
+
+
+###################################################
+## Allow certain protocols to pass ##
+###################################################
+
+if [ &amp;#34;${PROTOCOLES_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Allowing certain protocols:${NORMAL}\t\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for protocole_no in ${PROTOCOLES_AUTHORISES} ;do
+	${IPTABLES} -t filter -A INPUT -p ${protocole_no} -j ACCEPT
+	${IPTABLES} -t filter -A FORWARD -p ${protocole_no} -j ACCEPT
+ done
+fi
+
+
+###################################################
+## Allow connections already established before ##
+## launch of this script ##
+###################################################
+
+echo -e &amp;#34;${GRAS}${JAUNE}Allowing already established connections:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+${IPTABLES} -t filter -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+${IPTABLES} -t filter -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT
+${IPTABLES} -t filter -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+
+###################################################
+## Allow LocalHost connections ##
+###################################################
+
+echo -e &amp;#34;${GRAS}${JAUNE}Allowing localhost connections:${NORMAL}\t${VERT}OK${NORMAL}&amp;#34;
+${IPTABLES} -t filter -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+${IPTABLES} -t filter -A FORWARD -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+${IPTABLES} -t filter -A OUTPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT
+
+###################################################
+## Allow TCP connections on the ##
+## internet device ##
+###################################################
+
+if [ &amp;#34;${INTERNET}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for internet_device in ${INTERNET} ;do
+	if [ &amp;#34;${PORTS_TCP_INTERNET_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}TCP connections on internet interface ${internet_device}:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_TCP_INTERNET_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p tcp -i ${internet_device} --dport ${port_no} -j ACCEPT
+
+		if [ &amp;#34;0${port_no}&amp;#34; == &amp;#34;021&amp;#34; ] ;then
+		 ${IPTABLES} -t filter -A INPUT -p tcp -i ${internet_device} --sport 20 --dport 1024:65535 ! --syn -j ACCEPT
+		fi
+	 done
+	fi
+ done
+fi
+
+
+###################################################
+## Allow UDP connections on the ##
+## internet device ##
+###################################################
+
+if [ &amp;#34;${INTERNET}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for internet_device in ${INTERNET} ;do
+	if [ &amp;#34;${PORTS_UDP_INTERNET_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}UDP connections on internet interface ${internet_device}:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_UDP_INTERNET_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p udp -i ${internet_device} --dport ${port_no} -j ACCEPT
+	 done
+	fi
+ done
+fi
+
+
+###################################################
+## Allow TCP connections on the ##
+## DMZ device ##
+###################################################
+
+if [ &amp;#34;${DMZ}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for dmz_device in ${DMZ} ;do
+	if [ &amp;#34;${PORTS_TCP_DMZ_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}TCP connections on DMZ interface ${dmz_device}:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_TCP_DMZ_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p tcp -i ${dmz_device} --dport ${port_no} -j ACCEPT
+
+		if [ &amp;#34;0${port_no}&amp;#34; == &amp;#34;021&amp;#34; ] ;then
+		 ${IPTABLES} -t filter -A INPUT -p tcp -i ${dmz_device} --sport 20 --dport 1024:65535 ! --syn -j ACCEPT
+		fi
+	 done
+	fi
+ done
+fi
+
+###################################################
+## Allow UDP connections on the ##
+## DMZ device ##
+###################################################
+
+if [ &amp;#34;${DMZ}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for dmz_device in ${DMZ} ;do
+	if [ &amp;#34;${PORTS_UDP_DMZ_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}UDP connections on DMZ interface ${dmz_device}:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_UDP_DMZ_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p udp -i ${dmz_device} --dport ${port_no} -j ACCEPT
+	 done
+	fi
+ done
+fi
+
+
+###################################################
+## Allow TCP connections on the ##
+## server zone device ##
+###################################################
+
+if [ &amp;#34;${ZONE_SERVEURS}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for zone_serveurs_device in ${ZONE_SERVEURS} ;do
+	if [ &amp;#34;${PORTS_TCP_ZONE_SERVEURS_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}TCP connections on server zone interface ${zone_serveurs_device}:${NORMAL}\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_TCP_ZONE_SERVEURS_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p tcp -i ${zone_serveurs_device} --dport ${port_no} -j ACCEPT
+
+		if [ &amp;#34;0${port_no}&amp;#34; == &amp;#34;021&amp;#34; ] ;then
+		 ${IPTABLES} -t filter -A INPUT -p tcp -i ${zone_serveurs_device} --sport 20 --dport 1024:65535 ! --syn -j ACCEPT
+		fi
+	 done
+	fi
+ done
+fi
+
+###################################################
+## Allow UDP connections on the ##
+## server zone device ##
+###################################################
+
+if [ &amp;#34;${ZONE_SERVEURS}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for zone_serveurs_device in ${ZONE_SERVEURS} ;do
+	if [ &amp;#34;${PORTS_UDP_ZONE_SERVEURS_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}UDP connections on server zone interface ${zone_serveurs_device}:${NORMAL}\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_UDP_ZONE_SERVEURS_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p udp -i ${zone_serveurs_device} --dport ${port_no} -j ACCEPT
+	 done
+	fi
+ done
+fi
+
+###################################################
+## Allow TCP connections on the ##
+## LAN device ##
+###################################################
+
+if [ &amp;#34;${LAN}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for lan_device in ${LAN} ;do
+	if [ &amp;#34;${PORTS_TCP_LAN_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}TCP connections on LAN interface ${lan_device}:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_TCP_LAN_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p tcp -i ${lan_device} --dport ${port_no} -j ACCEPT
+
+		if [ &amp;#34;0${port_no}&amp;#34; == &amp;#34;021&amp;#34; ] ;then
+		 ${IPTABLES} -t filter -A INPUT -p tcp -i ${lan_device} --sport 20 --dport 1024:65535 ! --syn -j ACCEPT
+		fi
+	 done
+	fi
+ done
+fi
+
+
+###################################################
+## Allow UDP connections on the ##
+## LAN device ##
+###################################################
+
+if [ &amp;#34;${LAN}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ for lan_device in ${LAN} ;do
+	if [ &amp;#34;${PORTS_UDP_LAN_AUTHORISES}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+	 echo -e &amp;#34;${GRAS}${JAUNE}UDP connections on LAN interface ${lan_device}:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+	 for port_no in ${PORTS_UDP_LAN_AUTHORISES} ;do
+		${IPTABLES} -t filter -A INPUT -p udp -i ${lan_device} --dport ${port_no} -j ACCEPT
+	 done
+	fi
+ done
+fi
+echo -e &amp;#34;&amp;#34;
+
+
+###################################################
+## Masquerade the LAN ##
+###################################################
+
+if [ &amp;#34;${MASQ_LAN}&amp;#34; = &amp;#34;YES&amp;#34; -o &amp;#34;${MASQ_LAN}&amp;#34; = &amp;#34;yes&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Enabling Masquerading for the LAN:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for reseau in ${RESEAUX_LAN} ;do
+	${IPTABLES} -t nat -A POSTROUTING -s ${reseau} -o ${INTERNET} -j MASQUERADE
+	${IPTABLES} -t filter -A FORWARD -s ${reseau} -j ACCEPT
+ done
+fi
+
+
+###################################################
+## Masquerade the DMZ ##
+###################################################
+
+if [ &amp;#34;${MASQ_DMZ}&amp;#34; = &amp;#34;YES&amp;#34; -o &amp;#34;${MASQ_DMZ}&amp;#34; = &amp;#34;yes&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Enabling Masquerading for the DMZ:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for reseau in ${RESEAUX_DMZ} ;do
+	${IPTABLES} -t nat -A POSTROUTING -s ${reseau} -o ${INTERNET} -j MASQUERADE
+	${IPTABLES} -t filter -A FORWARD -s ${reseau} -j ACCEPT
+ done
+fi
+
+###################################################
+## Masquerade the server zone ##
+###################################################
+
+if [ &amp;#34;${MASQ_ZONE_SERVEURS}&amp;#34; = &amp;#34;YES&amp;#34; -o &amp;#34;${MASQ_ZONE_SERVEURS}&amp;#34; = &amp;#34;yes&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Enabling Masquerading for the server zone:${NORMAL}\t${VERT}OK${NORMAL}&amp;#34;
+
+ for reseau in ${RESEAUX_ZONE_SERVEURS} ;do
+	${IPTABLES} -t nat -A POSTROUTING -s ${reseau} -o ${INTERNET} -j MASQUERADE
+	${IPTABLES} -t filter -A FORWARD -s ${reseau} -j ACCEPT
+ done
+fi
+
+
+###################################################
+## Enable TCP NAT ##
+###################################################
+
+if [ &amp;#34;${NAT_TCP_NET}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Enabling TCP network address translation:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for translation in ${NAT_TCP_NET} ;do
+	srcport=`echo ${translation} | sed &amp;#39;s/&amp;gt;.*//g&amp;#39;|cut -d : -f 2`
+	srchost=`echo ${translation} | sed &amp;#39;s/:.*//g&amp;#39;`
+	desthost=`echo ${translation} | sed &amp;#39;s/.*&amp;gt;//g&amp;#39;| cut -d : -f 1`
+	destport=`echo ${translation} | sed &amp;#39;s/.*://g&amp;#39;`
+
+	${IPTABLES} -t nat -A PREROUTING -p tcp -i ${INTERNET_NAT} -d ${srchost} --dport ${srcport} -j DNAT --to ${desthost}:${destport}
+	${IPTABLES} -A FORWARD -p tcp -i ${INTERNET_NAT} -d ${desthost} --dport ${destport} -j ACCEPT
+ done
+fi
+
+
+###################################################
+## Enable UDP NAT ##
+###################################################
+
+if [ &amp;#34;${NAT_UDP_NET}&amp;#34; != &amp;#34;&amp;#34; ] ;then
+ echo -e &amp;#34;${GRAS}${JAUNE}Enabling UDP network address translation:${NORMAL}\t\t${VERT}OK${NORMAL}&amp;#34;
+
+ for translation in ${NAT_UDP_NET} ;do
+	srcport=`echo ${translation} | sed &amp;#39;s/&amp;gt;.*//g&amp;#39;|cut -d : -f 2`
+	srchost=`echo ${translation} | sed &amp;#39;s/:.*//g&amp;#39;`
+	desthost=`echo ${translation} | sed &amp;#39;s/.*&amp;gt;//g&amp;#39;| cut -d : -f 1`
+	destport=`echo ${translation} | sed &amp;#39;s/.*://g&amp;#39;`
+
+	${IPTABLES} -t nat -A PREROUTING -p udp -i ${INTERNET_NAT} -d ${srchost} --dport ${srcport} -j DNAT --to ${desthost}:${destport}
+	${IPTABLES} -A FORWARD -p udp -i ${INTERNET_NAT} -d ${desthost} --dport ${destport} -j ACCEPT
+ done
+fi
+
+###################################################
+## FUCK nimda and codered:) ##
+###################################################
+
+echo -e &amp;#34;${GRAS}${JAUNE}Protection against Nimda and codered:${NORMAL}\t\t\t${VERT}OK${NORMAL}&amp;#34;
+${IPTABLES} -I INPUT -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;c&amp;#43;dir&amp;#34;
+${IPTABLES} -I INPUT -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;c&amp;#43;tftp&amp;#34;
+${IPTABLES} -I INPUT -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;cmd.exe&amp;#34;
+${IPTABLES} -I INPUT -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;default.ida&amp;#34;
+${IPTABLES} -I FORWARD -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;c&amp;#43;dir&amp;#34;
+${IPTABLES} -I FORWARD -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;c&amp;#43;tftp&amp;#34;
+${IPTABLES} -I FORWARD -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;cmd.exe&amp;#34;
+${IPTABLES} -I FORWARD -j DROP -m string -p tcp -s 0.0.0.0/0 --string &amp;#34;default.ida&amp;#34;
+
+
+###################################################
+## Enable logging ##
+###################################################
+
+echo -ne &amp;#34;${GRAS}${JAUNE}Enabling logging system:${NORMAL}&amp;#34;
+${IPTABLES} -t filter -A INPUT -p tcp -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;INPUT TCP DROPPED: &amp;#34;
+${IPTABLES} -t filter -A INPUT -p udp -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;INPUT UDP DROPPED: &amp;#34;
+${IPTABLES} -t filter -A INPUT -p icmp -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;INPUT ICMP DROPPED: &amp;#34;
+${IPTABLES} -t filter -A INPUT -f -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;INPUT FRAGMENT DROPPED: &amp;#34;
+${IPTABLES} -t filter -A INPUT -p all -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;INPUT PROTOCOL DROPPED: &amp;#34;
+
+${IPTABLES} -t filter -A FORWARD -p tcp -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;FORWARD TCP DROPPED: &amp;#34;
+${IPTABLES} -t filter -A FORWARD -p udp -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;FORWARD UDP DROPPED: &amp;#34;
+${IPTABLES} -t filter -A FORWARD -p icmp -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;FORWARD ICMP DROPPED: &amp;#34;
+${IPTABLES} -t filter -A FORWARD -f -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;FORWARD FRAGMENT DROPPED: &amp;#34;
+${IPTABLES} -t filter -A FORWARD -p all -m limit --limit ${LOG_FLOOD} -j LOG --log-level info --log-prefix &amp;#34;FORWARD PROTOCOL DROPPED: &amp;#34;
+echo -e &amp;#34;\t\t\t\t${VERT}OK${NORMAL}&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="example-5">Example 5 &lt;a href="#example-5" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="260d868" class="language-bash ">
+ &lt;code>#!/bin/bash
+
+#-------------------------------------------------------------------------
+# Essentials
+#-------------------------------------------------------------------------
+
+IPTABLES=&amp;#39;/sbin/iptables&amp;#39;;
+modprobe nf_conntrack_ftp
+
+#-------------------------------------------------------------------------
+# Physical and virtual interfaces definitions
+#-------------------------------------------------------------------------
+
+# Interfaces
+wan_if=&amp;#34;eth0&amp;#34;;
+vpn_if=&amp;#34;tap0&amp;#34;;
+
+#-------------------------------------------------------------------------
+# Networks definitions
+#-------------------------------------------------------------------------
+
+# Networks
+wan_ip=&amp;#34;x.x.x.x&amp;#34;;
+lan_net=&amp;#34;192.168.90.0/24&amp;#34;;
+vpn_net=&amp;#34;192.168.20.0/24&amp;#34;;
+
+# IPs
+ed_ip=&amp;#34;192.168.90.1&amp;#34;;
+banzai_ip=&amp;#34;192.168.90.2&amp;#34;;
+
+#-------------------------------------------------------------------------
+# Global Rules input / output / forward
+#-------------------------------------------------------------------------
+
+# Flushing tables
+$IPTABLES -F
+$IPTABLES -X
+$IPTABLES -t nat -F
+
+# Define default policy
+$IPTABLES -P INPUT DROP
+$IPTABLES -P OUTPUT ACCEPT
+$IPTABLES -P FORWARD ACCEPT
+
+$IPTABLES -A INPUT -j ACCEPT -d $lan_net;
+$IPTABLES -A INPUT -j ACCEPT -m state --state ESTABLISHED,RELATED
+
+#-------------------------------------------------------------------------
+# Allow masquerading for VE
+#-------------------------------------------------------------------------
+
+# Activating masquerade to get Internet from VE
+$IPTABLES -t nat -A POSTROUTING -o $wan_if -s $lan_net -j MASQUERADE
+
+# Activating masquerade to get VPN access from VE
+$IPTABLES -t nat -A POSTROUTING -o tap0 -j MASQUERADE
+
+#-------------------------------------------------------------------------
+# Allow ports on CT
+#-------------------------------------------------------------------------
+
+# Allow ICMP
+$IPTABLES -A INPUT -j ACCEPT -p icmp
+
+# SSH access
+$IPTABLES -A INPUT -j ACCEPT -p tcp --dport 22
+
+#-------------------------------------------------------------------------
+# Redirections for incoming connections (wan)
+#-------------------------------------------------------------------------
+
+# HTTP access
+$IPTABLES -t nat -A PREROUTING -p tcp --dport 80 -d $wan_ip -j DNAT --to-destination $ed_ip:80
+
+# HTTPS access
+$IPTABLES -t nat -A PREROUTING -p tcp --dport 443 -d $wan_ip -j DNAT --to-destination $ed_ip:443&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="example-6">Example 6 &lt;a href="#example-6" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8098b08" class="language-bash ">
+ &lt;code>#!/bin/bash
+clear
+echo &amp;#34;############################## Firewall Rules ###################################&amp;#34;
+# Enable routing
+echo 1 &amp;gt; /proc/sys/net/ipv4/ip_forward
+
+echo &amp;#34;Initializing rules&amp;#34;
+
+# Clear all rules
+iptables -F
+iptables -t nat -F
+# Apply basic policies
+# Allow internal traffic
+iptables -P INPUT ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -P FORWARD ACCEPT
+# Block all entry and exit
+iptables -t nat -P PREROUTING DROP
+iptables -t nat -P POSTROUTING DROP
+
+# Internal traffic allowed
+echo &amp;#34;Internal traffic&amp;#34;
+iptables -t nat -I POSTROUTING -o lo -j ACCEPT
+iptables -t nat -I PREROUTING -i lo -j ACCEPT
+
+
+# Network card definitions
+WEB=&amp;#34;ppp0&amp;#34;
+DMZ=&amp;#34;eth2&amp;#34;
+COM=&amp;#34;eth1&amp;#34;
+STA=&amp;#34;eth0&amp;#34;
+PPP=&amp;#34;ppp0&amp;#34;
+
+# IP network definitions
+NET_COM=&amp;#34;10.0.0.0/8&amp;#34;
+NET_STA=&amp;#34;192.168.2.0/24&amp;#34;
+NET_DMZ=&amp;#34;172.16.1.0/24&amp;#34;
+
+# Server definitions for external connection to servers
+REMOTE=&amp;#34;192.168.2.8:81&amp;#34;
+FICS=&amp;#34;172.16.1.6/32&amp;#34;
+EXC=&amp;#34;172.16.1.3/32&amp;#34;
+DC=&amp;#34;172.16.1.1/32&amp;#34;
+MAIL=&amp;#34;172.16.1.3:25&amp;#34;
+HTTP=&amp;#34;172.16.1.4:80&amp;#34;
+EMULE=&amp;#34;172.16.1.4:5555&amp;#34;
+RDP=&amp;#34;172.16.1.4:3389&amp;#34;
+PPTP=&amp;#34;172.16.1.1&amp;#34;
+VUE=&amp;#34;192.168.2.8/32&amp;#34;
+MAILWEB=&amp;#34;172.16.1.3/32&amp;#34;
+LINUX2=&amp;#34;172.16.1.7/32&amp;#34;
+LINUX=&amp;#34;192.168.2.5/32&amp;#34;
+YONI=&amp;#34;192.168.2.62/32&amp;#34;
+WIFI=&amp;#34;192.168.2.7/32&amp;#34;
+
+# Common Rules
+# ====================== &amp;gt;&amp;gt;&amp;gt;&amp;gt; Masquerade all networks to the internet
+echo &amp;#34;Applying common rules&amp;#34;
+# All outgoing traffic to Internet is masqueraded
+iptables -t nat -I POSTROUTING -s $NET_STA -d $NET_DMZ -j MASQUERADE
+
+# Squid must always go out to internal clients
+
+iptables -t nat -I POSTROUTING -p tcp --sport 3128 -d $NET_STA -j ACCEPT
+
+iptables -t nat -I POSTROUTING -o $WEB -j MASQUERADE
+
+iptables -t nat -I POSTROUTING -o $COM -j MASQUERADE
+
+iptables -t nat -A POSTROUTING -s $NET_STA -o $COM -j DROP
+iptables -t nat -A POSTROUTING -s $NET_DMZ -o $COM -j DROP
+
+
+iptables -I INPUT -i $WEB -m state --state ESTABLISHED -j ACCEPT
+iptables -I OUTPUT -m state --state ESTABLISHED -j ACCEPT
+
+iptables -I INPUT -i $COM -m state --state ESTABLISHED -j ACCEPT
+
+# Allow standard internal routing
+
+# ====================== &amp;gt;&amp;gt;&amp;gt;&amp;gt; DHCP
+echo &amp;#34;Allowing DHCP traffic&amp;#34;
+iptables -t nat -A PREROUTING -p udp --dport 67:68 -j ACCEPT
+iptables -t nat -A POSTROUTING -p udp --sport 67:68 -j ACCEPT
+
+echo &amp;#34;Local DNS to SRV-DC&amp;#34;
+iptables -t nat -A PREROUTING -p udp --sport 53 -i $DMZ -s &amp;#34;172.16.1.1/32&amp;#34; -j ACCEPT
+iptables -t nat -A POSTROUTING -p udp --dport 53 -o $DMZ -d &amp;#34;172.16.1.1/32&amp;#34; -j ACCEPT
+
+iptables -t nat -A PREROUTING -p tcp --sport 53 -i $DMZ -s &amp;#34;172.16.1.1/32&amp;#34; -j ACCEPT
+iptables -t nat -A POSTROUTING -p tcp --dport 53 -o $DMZ -d &amp;#34;172.16.1.1/32&amp;#34; -j ACCEPT
+
+# Network access rules
+# 1 --&amp;gt; DMZ
+	echo &amp;#34;====================== &amp;gt;&amp;gt;&amp;gt;&amp;gt; Rules for commercial machines&amp;#34;
+	echo &amp;#34;Daytime rules&amp;#34;
+	echo &amp;#34;Access based on time&amp;#34;
+
+	iptables -t nat -I PREROUTING -i $DMZ -m time --timestart 08:45 --timestop 17:45 \
+		--days Mon,Tue,Wed,Thu,Fri -p tcp -m multiport --ports 20,21,80,3128,1863,110,119,25,8080,9000 -j ACCEPT
+
+	echo &amp;#34;Nighttime rules&amp;#34;
+	iptables -t nat -I PREROUTING -i $DMZ -m time --timestart 17:46 --timestop 23:59 \
+		--days Mon,Tue,Wed,Thu -p tcp -j ACCEPT
+ iptables -t nat -I PREROUTING -i $DMZ -m time --timestart 00:00 --timestop 08:44 \
+ --days Mon,Tue,Wed,Thu,Fri -p tcp -j ACCEPT
+
+	# No limits on weekends
+	echo &amp;#34;No limits on weekends&amp;#34;
+ iptables -t nat -I PREROUTING -i $DMZ -m time --timestart 17:46 --timestop 23:59 \
+ --days Fri -p tcp -j ACCEPT
+ iptables -t nat -I PREROUTING -i $DMZ -m time --timestart 00:00 --timestop 23:59 \
+ --days Sat,Sun -p tcp -j ACCEPT
+
+
+	iptables -t nat -I PREROUTING -i $DMZ -p udp --dport 53 -j ACCEPT
+	#====&amp;gt;&amp;gt;&amp;gt;&amp;gt;&amp;gt; Transparent proxy for commercial users
+	iptables -t nat -I PREROUTING -p tcp -i $DMZ --dport 80 -j REDIRECT --to-port 3128
+	iptables -t nat -A PREROUTING -p tcp -i $DMZ --dport 443 -j ACCEPT
+#	iptables -t nat -A PREROUTING -p tcp -i $DMZ --dport 443 -j REDIRECT --to-port 3128
+
+	echo &amp;#34;====================== &amp;gt;&amp;gt;&amp;gt;&amp;gt; Rules for classrooms&amp;#34;
+# 2 --&amp;gt; Classroom &amp;lt;-&amp;gt; DMZ
+#	A - FICS2
+	echo &amp;#34;	Classroom -&amp;gt; SRV-FICS2&amp;#34;
+	iptables -t nat -A PREROUTING -p tcp -d $FICS -j ACCEPT
+	iptables -t nat -A PREROUTING -p tcp --dport 80 -d $MAILWEB -j ACCEPT
+	iptables -t nat -A POSTROUTING -s $NET_DMZ -d $NET_STA -j ACCEPT
+# 3 --&amp;gt; Classroom &amp;lt;-&amp;gt; Internet
+#	A - HTTP
+	echo &amp;#34;	Classroom -&amp;gt; Internet with Squid&amp;#34;
+	iptables -t nat -A PREROUTING -p tcp -i $STA --dport 80 -j REDIRECT --to-port 3128
+	iptables -t nat -A PREROUTING -p tcp -i $STA --dport 443 -j ACCEPT
+
+#	C - DNS
+	iptables -t nat -A PREROUTING -p udp -i $STA --dport 53 -j ACCEPT
+#	iptables -t nat -A PREROUTING -p tcp -i $STA --dport 53 -j ACCEPT
+
+	echo &amp;#34;====================== &amp;gt;&amp;gt;&amp;gt;&amp;gt; Rules for Internet to internal network&amp;#34;
+# 5 --&amp;gt; Internet &amp;lt;--&amp;gt; DMZ
+#	A - SMTP
+		echo &amp;#34;	SMTP&amp;#34;
+		iptables -t nat -I PREROUTING -i $WEB -p tcp --dport 25 -j DNAT --to-destination $MAIL
+		iptables -t nat -I POSTROUTING -o $DMZ -d $EXC -p tcp --dport 25 -j ACCEPT
+
+#	B - WEB
+		echo &amp;#34;	WEB&amp;#34;
+		iptables -t nat -A PREROUTING -i $WEB -p tcp --dport 80 -j DNAT --to-destination $HTTP
+		iptables -t nat -A POSTROUTING -o $DMZ -d &amp;#34;172.16.1.4/32&amp;#34; -p tcp --dport 80 -j MASQUERADE
+#	B&amp;#39; - EMULE
+		iptables -t nat -A PREROUTING -i $WEB -p tcp --dport 5555 -j DNAT --to-destination $EMULE
+		iptables -t nat -A POSTROUTING -o $DMZ -d &amp;#34;172.16.1.4/32&amp;#34; -p tcp --dport 5555 -j MASQUERADE
+		iptables -t nat -A PREROUTING -i $WEB -p udp --dport 5555 -j DNAT --to-destination $HTTP
+		iptables -t nat -A POSTROUTING -o $DMZ -d &amp;#34;172.16.1.4/32&amp;#34; -p udp --dport 5555 -j MASQUERADE
+#	C - PPTP
+		echo &amp;#34;	PPTP&amp;#34;
+		iptables -t nat -A PREROUTING -i $WEB -p 47 -j DNAT --to-destination $PPTP
+		iptables -t nat -A POSTROUTING -o $DMZ -p 47 -j MASQUERADE
+		iptables -t nat -A PREROUTING -i $WEB -p tcp --dport 1723 -j DNAT --to-destination $PPTP
+		iptables -t nat -A POSTROUTING -o $DMZ -p tcp --dport 1723 -j MASQUERADE
+
+#	D - SSH from outside or only for authorized internal machines
+		echo &amp;#34;	SSH from Internet&amp;#34;
+		iptables -t nat -A PREROUTING -s 172.16.1.0/24 -p tcp --dport 22 -j ACCEPT
+
+# E - FTP
+ echo &amp;#34; FTP IS DISABLED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&amp;#34;
+ #iptables -t nat -A PREROUTING -i $WEB -p tcp --dport 20 -j DNAT --to-destination &amp;#34;172.16.1.4:20&amp;#34;
+ #iptables -t nat -A PREROUTING -i $WEB -p tcp --dport 21 -j DNAT --to-destination &amp;#34;172.16.1.4:21&amp;#34;
+ #iptables -t nat -A POSTROUTING -o $DMZ -d &amp;#34;172.16.1.4/32&amp;#34; -p tcp --dport 21 -j MASQUERADE
+
+ #iptables -t nat -A POSTROUTING -o $DMZ -d &amp;#34;172.16.1.4/32&amp;#34; -p tcp --dport 20 -j MASQUERADE
+
+#	F - RDP
+		echo &amp;#34; RDP&amp;#34;
+		iptables -t nat -A PREROUTING -i $WEB -p tcp --dport 3389 -j DNAT --to-destination $RDP
+ iptables -t nat -A POSTROUTING -o $DMZ -d &amp;#34;172.16.1.4/32&amp;#34; -p tcp --dport 3389 -j MASQUERADE
+#	G - SNMP
+		echo &amp;#34; SNMP&amp;#34;
+		iptables -t nat -A POSTROUTING -p tcp --dport 161 -j ACCEPT
+		iptables -t nat -A POSTROUTING -p udp --dport 161 -j ACCEPT
+		iptables -t nat -A POSTROUTING -p udp --dport 162 -j ACCEPT
+
+
+# 6 --&amp;gt; Access by MAC address
+	echo &amp;#34;====================== &amp;gt;&amp;gt;&amp;gt;&amp;gt; Special rules for internal users&amp;#34;
+	echo &amp;#34;	Yoni&amp;#34;
+#	A - Yoni
+		iptables -t nat -I PREROUTING -m mac --mac-source &amp;#39;00:00:F0:82:58:AF&amp;#39; -j ACCEPT
+		iptables -t nat -I PREROUTING -m mac --mac-source &amp;#39;00:04:23:76:63:10&amp;#39; -j ACCEPT
+
+#	A&amp;#39; - OlivierG
+		iptables -t nat -I PREROUTING -s 192.168.2.69/32 -m mac --mac-source &amp;#39;00:0d:60:75:b8:75&amp;#39; -j ACCEPT
+		iptables -t nat -I PREROUTING -s 192.168.2.39/32 -m mac --mac-source &amp;#39;00:0C:F1:43:14:05&amp;#39; -j ACCEPT
+
+#	B - Olivier all
+	echo &amp;#34;	OlivierC&amp;#34;
+	iptables -t nat -I PREROUTING -s 192.168.2.63/32 -m mac --mac-source &amp;#39;00:90:F5:1E:51:A1&amp;#39; -j ACCEPT
+	iptables -t nat -I PREROUTING -s 172.16.1.63/32 -m mac --mac-source &amp;#39;00:90:F5:1E:51:A1&amp;#39; -j ACCEPT
+	# Wifi Olivier
+	iptables -t nat -I PREROUTING -m mac --mac-source &amp;#39;00:A0:C5:B1:DD:15&amp;#39; -j ACCEPT
+#	C - Steeve all
+	echo &amp;#34;	Steeve&amp;#34;
+		iptables -t nat -I PREROUTING -s 192.168.2.64/32 -m mac --mac-source &amp;#39;00:08:02:04:fa:d7&amp;#39; -j ACCEPT
+		iptables -t nat -I PREROUTING -m mac --mac-source &amp;#39;00:08:02:04:fa:d7&amp;#39; -j ACCEPT
+#	D - Portable Compaq
+	echo &amp;#34;	Portable Compaq&amp;#34;
+		iptables -t nat -I PREROUTING -s 192.168.2.65/32 -m mac --mac-source &amp;#39;00:50:8B:FA:B9:5B&amp;#39; \
+		-p tcp -m multiport --ports 443,110,25,119 -j ACCEPT
+ iptables -t nat -I PREROUTING -s 192.168.2.65/32 -m mac --mac-source &amp;#39;00:50:8B:FA:B9:5B&amp;#39; \
+ -p udp --dport 53 -j ACCEPT
+ iptables -t nat -I PREROUTING -s 192.168.2.65/32 -m mac --mac-source &amp;#39;00:50:8B:FA:B9:5B&amp;#39; \
+		-d $NET_DMZ -j ACCEPT
+
+#	D&amp;#39; Portable Toshiba
+	echo &amp;#34;	Portable Toshiba&amp;#34;
+		iptables -t nat -I PREROUTING -s 192.168.2.67/32 -m mac --mac-source &amp;#39;00:01:02:E7:36:E3&amp;#39; \
+ -p tcp -m multiport --ports 443,110,25,119 -j ACCEPT
+		iptables -t nat -I PREROUTING -s 192.168.2.67/32 -m mac --mac-source &amp;#39;00:01:02:E7:36:E3&amp;#39; \
+ -p udp --dport 53 -j ACCEPT
+		iptables -t nat -I PREROUTING -s 192.168.2.67/32 -m mac --mac-source &amp;#39;00:01:02:E7:36:E3&amp;#39; \
+ -d $NET_DMZ -j ACCEPT
+
+#	E - VUE Server
+	echo &amp;#34;	 VUE Server&amp;#34;
+	iptables -t nat -I PREROUTING -s $VUE -m mac --mac-source &amp;#39;00:0c:6e:c5:42:6c&amp;#39; -j ACCEPT
+	iptables -t nat -I PREROUTING -i $DMZ -d $VUE -j ACCEPT
+#	F- Linux Server Ground Floor
+	echo &amp;#34; Linux Server&amp;#34;
+	iptables -t nat -I PREROUTING -i $DMZ -d $LINUX -j ACCEPT
+
+#	F - Quentin Laptop
+	echo &amp;#34; Quentin&amp;#34;
+		iptables -t nat -I PREROUTING -s 172.16.1.65/32 -m mac --mac-source &amp;#39;00:0b:db:a1:c2:a5&amp;#39; -j ACCEPT
+		iptables -t nat -I PREROUTING -s 192.168.2.65/32 -m mac --mac-source &amp;#39;00:0b:db:a1:c2:a5&amp;#39; -j ACCEPT
+		iptables -t nat -I PREROUTING -s 192.168.2.65/32 -m mac --mac-source &amp;#39;00:a0:c5:b1:da:f8&amp;#39; -j ACCEPT
+
+#	F - Eva Laptop
+	echo &amp;#34; Eva is grounded&amp;#34;
+		#iptables -t nat -I PREROUTING -m mac --mac-source &amp;#39;00:02:3f:13:bb:21&amp;#39; -j ACCEPT
+
+#	G - Lionel Laptop
+	echo &amp;#34; Lionel&amp;#34;
+		iptables -t nat -I PREROUTING \
+		-m mac --mac-source &amp;#39;00:0D:60:2C:12:95&amp;#39; -j ACCEPT
+
+#	H - WIFI ROUTER
+	echo &amp;#34; WIFI ROUTER&amp;#34;
+		iptables -t nat -I PREROUTING \
+		-m mac --mac-source &amp;#39;00:0F:66:33:20:12&amp;#39; -j ACCEPT
+echo &amp;#34;############################## END ===&amp;gt; Firewall Rules ###################################&amp;#34;
+	iptables -t nat -I PREROUTING -s $LINUX -j ACCEPT
+	iptables -t nat -I PREROUTING -s $LINUX2 -j ACCEPT
+
+iptables -t nat -I PREROUTING -s 172.16.1.1/32 -j ACCEPT
+iptables -t nat -I PREROUTING -s 172.16.1.2/32 -j ACCEPT
+iptables -t nat -I PREROUTING -s 172.16.1.3/32 -j ACCEPT
+iptables -t nat -I PREROUTING -s 172.16.1.4/32 -j ACCEPT
+iptables -t nat -I PREROUTING -s 172.16.1.5/32 -j ACCEPT
+iptables -t nat -I PREROUTING -s 192.168.2.95/32 -j ACCEPT&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Symfony: Installation and Configuration of the PHP Framework</title><link>https://wiki.deimos.fr/Symfony_:_Installation_et_configuration_du_framework_PHP/</link><pubDate>Sun, 02 May 2010 20:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Symfony_:_Installation_et_configuration_du_framework_PHP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.symfony-project.org" rel="external" target="_blank">Symfony&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a free MVC framework written in PHP 5. As a framework, it facilitates and accelerates the development of Internet and Intranet websites and applications.&lt;/p></description></item><item><title>Mixing Apache Authentication</title><link>https://wiki.deimos.fr/Mixing_Apache_Authentication/</link><pubDate>Sun, 11 Apr 2010 15:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mixing_Apache_Authentication/</guid><description>&lt;h2 id="mixing-pam">Mixing PAM &lt;a href="#mixing-pam" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>How to mix PAM authentication (mod_auth_pam) and text file authentication (mod_auth) with Apache. First install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="523dc2c" class="language-bash ">
+ &lt;code>apt-get install libapache2-mod-auth-pam&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then configure your htaccess:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="91ed4dd" class="language-bash ">
+ &lt;code>AuthPAM_Enabled on
+AuthPAM_FallThrough on
+AuthAuthoritative Off
+AuthUserFile /etc/apache2/htpassword
+AuthType Basic
+AuthName &amp;#34;Restricted Access&amp;#34;
+Require valid-user&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If mod_auth_pam doesn&amp;rsquo;t find a valid user, it falls back to mod_auth authentication automatically.&lt;/p>
+&lt;p>Here is another example with webdav:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock linenos">
+ &lt;pre id="17f3a63" class="language-apache line-numbers">
+ &lt;code> Alias /webdav /var/www/ngs
+ &amp;lt;Location /webdav&amp;gt;
+ DAV On
+ AuthPAM_Enabled on
+ AuthBasicAuthoritative Off 
+ AuthPAM_FallThrough off 
+ AuthUserFile /dev/null
+ AuthType Basic
+ AuthName &amp;#34;Webdav Authentication&amp;#34;
+ Require group ngs 
+ &amp;lt;/Location&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="openbsd">OpenBSD &lt;a href="#openbsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On OpenBSD, I had to install &lt;a href="https://www.25thandclement.com/~william/projects/bsdauth.html" rel="external" target="_blank">mod_auth_bsd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p></description></item><item><title>WebDAV: Securing with SSL</title><link>https://wiki.deimos.fr/WebDav_:_S%C3%A9curiser_avec_SSL/</link><pubDate>Sun, 20 Dec 2009 10:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/WebDav_:_S%C3%A9curiser_avec_SSL/</guid><description>&lt;p>Here is documentation on how to secure your WebDAV!&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/how_to_set_up_webdav_with_mysql_authentication_on_apache2.pdf">How To Set Up WebDAV With MySQL Authentication On Apache2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/how_to_set_up_webdav_with_apache2.pdf">How To Set Up WebDAV With Apache2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/securewebdav.pdf">Documentation on Securing Webdav&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/Mixing_Apache_Authentication/">Mixing Apache Authentication&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>OpenID: Authentication Centralization</title><link>https://wiki.deimos.fr/OpenID_:_Centralisation_d'authentification/</link><pubDate>Mon, 30 Nov 2009 20:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenID_:_Centralisation_d'authentification/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/openidlogo.png" alt="OpenID Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The issue of single sign-on (SSO) has been a longstanding challenge in the IT world. It was primarily a concern for businesses, where users regularly access numerous applications in their daily work (workstations, email, time management tools, remote servers, etc.). You might say that average users also access many such applications for personal use. While this is true, until recently, remembering a few passwords on a personal machine didn&amp;rsquo;t justify the effort needed to implement an SSO solution. However, with the explosion of internet access and the proliferation of blogs, wikis, forums, and commercial websites, the question of simplifying the management of multiple accounts arises again. This is where OpenID comes in. After a brief overview of single sign-on, we&amp;rsquo;ll detail OpenID and then explore different possibilities for implementing an OpenID-based solution.&lt;/p></description></item><item><title>Memcached: Setting up a Cache Server for Apache</title><link>https://wiki.deimos.fr/Memcached_:_Mise_en_place_d'un_serveur_de_cache_pour_Apache/</link><pubDate>Fri, 27 Nov 2009 20:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Memcached_:_Mise_en_place_d'un_serveur_de_cache_pour_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Memcached is a caching server that helps accelerate client requests.&lt;/p>
+&lt;h2 id="setup">Setup &lt;a href="#setup" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s documentation for setting up a memcached cache server:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/installing_memcached_and_the_php5_memcache_module.pdf">Installing memcached And The PHP5 memcache Module&lt;/a>&lt;/p>
+&lt;h2 id="other">Other &lt;a href="#other" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To get statistics on memcached and calculate hits and ratios:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0962379" class="language-bash ">
+ &lt;code>echo -en &amp;#34;stats\r\n&amp;#34; &amp;#34;quit\r\n&amp;#34; | nc localhost 11211 | tr -s [:cntrl:] &amp;#34; &amp;#34;| cut -f42,48 -d&amp;#34; &amp;#34; | sed &amp;#34;s/\([0-9]*\)\s\([0-9]*\)/ \2\/\1*100/&amp;#34; | bc -l&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Weathermap4RRD: Creating Monitoring Maps</title><link>https://wiki.deimos.fr/Weathermap4RRD_:_faire_des_cartes_de_monitoring/</link><pubDate>Fri, 27 Nov 2009 17:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Weathermap4RRD_:_faire_des_cartes_de_monitoring/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Do you like looking at the network maps on Free or OVH websites? Would you like to have the same for your own network? That&amp;rsquo;s what we&amp;rsquo;ll do in this article, which is primarily aimed at network administrators.&lt;/p>
+&lt;p>For this article, we&amp;rsquo;ll be using Cacti and a variation of the original Weathermap: Weathermap4RRD. This fork is not based on MRTG like the original Weathermap, and we&amp;rsquo;ll take advantage of this difference.&lt;/p></description></item><item><title>Setting up SSL certificates with Apache 2</title><link>https://wiki.deimos.fr/Mise_en_place_de_certificats_SSL_sous_Apache_2/</link><pubDate>Thu, 24 Sep 2009 12:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_certificats_SSL_sous_Apache_2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SSL certificates are not always easy to understand and implement. Nevertheless, I will try to make it clear. For those who wish to be signed by a free certification authority, I invite you to visit the &lt;a href="https://www.cacert.org/" rel="external" target="_blank">CACert&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> website.&lt;/p></description></item><item><title>PhpLDAPadmin: Setting Up a Graphical Management Solution for OpenLDAP</title><link>https://wiki.deimos.fr/PhpLDAPadmin:_Mise_en_place_d'une_solution_de_management_graphique_pour_OpenLDAP/</link><pubDate>Mon, 11 May 2009 11:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/PhpLDAPadmin:_Mise_en_place_d'une_solution_de_management_graphique_pour_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Managing an OpenLDAP database is not always simple, especially when you don&amp;rsquo;t know all the fields by heart (and there are so many of them).&lt;/p>
+&lt;p>Here&amp;rsquo;s a fairly simple web-based interface to use. For those curious about other graphical interfaces (non-web), there are:&lt;/p>
+&lt;ul>
+&lt;li>The well-known but buggy GQ&lt;/li>
+&lt;li>The less known but very good &lt;a href="https://directory.apache.org/studio/" rel="external" target="_blank">Apache Directory Studio&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s use the magic command:&lt;/p></description></item><item><title>Securing Apache with mod_security</title><link>https://wiki.deimos.fr/S%C3%A9curiser_Apache_avec_mod_security/</link><pubDate>Sun, 18 Jan 2009 03:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/S%C3%A9curiser_Apache_avec_mod_security/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is what I&amp;rsquo;ve been looking for quite some time! A module specifically designed for Apache security.&lt;/p>
+&lt;p>This module increases the security level of an Apache web server or other servers if used with Apache in proxy mode. Modsecurity acts as an application firewall embedded in Apache. It protects web applications against common attacks (SQL injection, Cross Site Scripting, etc.)&lt;/p>
+&lt;p>I found this nice documentation, but like most docs, it&amp;rsquo;s missing some things. It&amp;rsquo;s not much but I&amp;rsquo;m adding it anyway.&lt;/p></description></item><item><title>Slotlimit: Apache Module to Limit Apache Resources</title><link>https://wiki.deimos.fr/Slotlimit_:_Module_d'apache_pour_limiter_les_ressources_d'Apache/</link><pubDate>Mon, 13 Oct 2008 19:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Slotlimit_:_Module_d'apache_pour_limiter_les_ressources_d'Apache/</guid><description>&lt;p>Here&amp;rsquo;s a very practical Apache module that limits your Apache resources:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/how_to_manage_apache_resources_limits_with_mod_slotlimit.pdf">How To Manage Apache Resources Limits With mod_slotlimit&lt;/a>&lt;/p></description></item><item><title>Testing Load on Servers and Web Applications</title><link>https://wiki.deimos.fr/Tester_le_load_sur_ses_serveurs_et_applications_web/</link><pubDate>Wed, 10 Sep 2008 15:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tester_le_load_sur_ses_serveurs_et_applications_web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A good way to see how your Web applications and server will behave under high load is by testing them with a simulated load. We tested several free software tools that do such testing to see which work best for what kinds of sites.&lt;/p>
+&lt;p>If you leave out the load-testing packages that are no longer maintained, non-free, or fail the installation process in some obscure way, you are left with five candidates: curl-loader, httperf, Siege, Tsung, and Apache JMeter.&lt;/p></description></item><item><title>Z-Push: Setting Up an ActiveSync Server with Postfix (or How to Set Up Push Mail)</title><link>https://wiki.deimos.fr/Z-Push_:_Avoir_un_serveur_ActiveSync_avec_Postfix_(ou_comment_faire_du_push_mail)/</link><pubDate>Thu, 24 Jul 2008 08:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Z-Push_:_Avoir_un_serveur_ActiveSync_avec_Postfix_(ou_comment_faire_du_push_mail)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Push server technology is very trendy nowadays, especially with the iPhone which now allows connections (just like Windows Mobile) to an Exchange-like push server. The problem is that for the open-source world, Exchange is not an option. I found a well-developed project on SourceForge called &lt;a href="https://z-push.sourceforge.net" rel="external" target="_blank">Z-Push&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> that works perfectly with Postfix.&lt;/p></description></item><item><title>PHP-syslog-ng: Interpretation of Syslog-ng logs in a web interface</title><link>https://wiki.deimos.fr/Php-syslog-ng_:_Interpr%C3%A9tation_des_logs_Syslog-ng_dans_une_interfa%C3%A7e_web/</link><pubDate>Wed, 23 Jul 2008 14:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Php-syslog-ng_:_Interpr%C3%A9tation_des_logs_Syslog-ng_dans_une_interfa%C3%A7e_web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://code.google.com/p/php-syslog-ng/" rel="external" target="_blank">php-syslog-ng&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a web application that allows you to format, search, and interpret logs. For searching, it requires logs to be in an SQL database, and for log interpretation, it&amp;rsquo;s specifically designed for Cisco logs.&lt;/p></description></item><item><title>Geolocation with Apache 2</title><link>https://wiki.deimos.fr/Geolocalisation_avec_Apache_2/</link><pubDate>Sun, 16 Mar 2008 08:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Geolocalisation_avec_Apache_2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This guide explains how to set up &lt;a href="https://www.maxmind.com/app/mod_geoip" rel="external" target="_blank">mod_geoip&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> with Apache2 on a Debian Etch system. mod_geoip looks up the IP address of the client end user. This allows you to redirect or block users based on their country. You can also use this technology for your &lt;a href="https://www.openx.org/" rel="external" target="_blank">OpenX&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> (formerly known as OpenAds or phpAdsNew) ad server to allow &lt;a href="https://en.wikipedia.org/wiki/Geo_targeting" rel="external" target="_blank">geo targeting&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Trac: Setting up a Tracking Solution</title><link>https://wiki.deimos.fr/Trac_:_Mise_en_place_d'une_solution_de_Tracking/</link><pubDate>Wed, 30 Jan 2008 17:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trac_:_Mise_en_place_d'une_solution_de_Tracking/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://trac.edgewall.org/" rel="external" target="_blank">Trac&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a wiki with tracking capabilities in a web environment. It works with Subversion and manages tickets. It also has many other very practical features to discover.&lt;/p></description></item><item><title>UploadTool: Setting up a file sharing tool via Apache</title><link>https://wiki.deimos.fr/UploadTool_:_Mise_en_place_d%27un_outil_d%27%C3%A9change_de_fichiers_via_Apache/</link><pubDate>Tue, 04 Sep 2007 08:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/UploadTool_:_Mise_en_place_d%27un_outil_d%27%C3%A9change_de_fichiers_via_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I was looking for a software for the company I work for, that allows file transfers with authentication but just at the upload level. So I found &lt;a href="https://uploadtool.sourceforge.net/" rel="external" target="_blank">UploadTool&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Load Balancing with Apache 2</title><link>https://wiki.deimos.fr/Load_Balancing_avec_Apache_2/</link><pubDate>Tue, 28 Aug 2007 05:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Load_Balancing_avec_Apache_2/</guid><description>&lt;p>Here is an effective way to create Load Balancing with several Apache servers:&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/apache_mod_proxy_balancer.pdf">Load Balancer Proxy Documentation for Apache&lt;/a>&lt;/p>
+&lt;p>And here is another documentation on setting up an Apache Server Cluster:&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/setup_web_server_cluster.pdf">Documentation on Setting up a Web Server with Apache, LVS and Heartbeat 2&lt;/a>&lt;/p></description></item><item><title>PhpPgAdmin: Installation and Configuration</title><link>https://wiki.deimos.fr/PhpPgAdmin_:_Installation_et_configuration/</link><pubDate>Fri, 10 Aug 2007 09:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/PhpPgAdmin_:_Installation_et_configuration/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PhpPgAdmin is equivalent to phpMyAdmin for those who know it. It allows you to administer PostgreSQL through a small web interface.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bb539d5" class="language-bash ">
+ &lt;code>apt-get install phppgadmin&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, to choose which web server to run on (otherwise we have to do it manually):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b9575ef" class="language-bash ">
+ &lt;code>dpkg-reconfigure phppgadmin&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To allow connections from an external machine, modify the file &lt;code>/etc/phppgadmin/apache.conf&lt;/code> and add:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ba38cba" class="language-bash ">
+ &lt;code>allow from all&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This is not the ideal configuration; it&amp;rsquo;s better to add only your IP:&lt;/p></description></item><item><title>Xen and vserver: monitoring VMs on a PHP page</title><link>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</link><pubDate>Mon, 14 May 2007 10:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I used this kind of script because it&amp;rsquo;s simpler to open a small web page to view VM activity rather than launching a bunch of commands.&lt;/p>
+&lt;h2 id="sudo">Sudo &lt;a href="#sudo" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You need sudo because by default Apache doesn&amp;rsquo;t have the necessary rights to execute these commands:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ea84b80" class="language-bash ">
+ &lt;code>apt-get install sudo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then edit &lt;code>/etc/sudoers&lt;/code> and add the following:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d994f26" class="language-bash ">
+ &lt;code>www-data ALL=NOPASSWD: /usr/sbin/vserver-stat,/usr/sbin/xm list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="php-and-script">Php and script &lt;a href="#php-and-script" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You obviously need to have Apache and PHP installed for this to work:&lt;/p></description></item></channel></rss>

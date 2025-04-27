@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSL on Tech Notebook</title><link>https://wiki.deimos.fr/tags/ssl/</link><description>Recent content in SSL on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/ssl/index.xml" rel="self" type="application/rss+xml"/><item><title>Managing SSL Certificates Signed by a Certificate Authority</title><link>https://wiki.deimos.fr/G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification/</link><pubDate>Tue, 17 Feb 2015 03:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/G%C3%A9rer_des_certificats_SSL_sign%C3%A9s_par_une_autorit%C3%A9_de_certification/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/startssl_logo.png" alt="StartSSL Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.startssl.com" rel="external" target="_blank">StartSSL Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>17/02/2015&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Nginx 1.2.1&lt;br />Lighttpd 1.4.31&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need SSL certificates for your company or for personal needs on your website. The drawback of self-generated and self-signed certificates is that the first time you visit your site, you&amp;rsquo;ll get a warning message.&lt;/p></description></item><item><title>HAProxy: Load Balance Your Traffic</title><link>https://wiki.deimos.fr/haproxy-load-balance-your-traffic/</link><pubDate>Wed, 21 Jan 2015 20:51:00 +0100</pubDate><guid>https://wiki.deimos.fr/haproxy-load-balance-your-traffic/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/haproxy-logo.png" alt="HAProxy" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.4.24&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://haproxy.1wt.eu/" rel="external" target="_blank">HAProxy Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>21/01/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/HAProxy" rel="external" target="_blank">HAProxy&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an open source TCP/HTTP load balancer, commonly used to improve the performance of web sites and services by spreading requests across multiple servers. Its name stands for High Availability Proxy. It is written in C and has a reputation for being fast, efficient (in terms of processor and memory usage) and stable.&lt;/p></description></item><item><title>Nginx: Installation and Configuration as an Apache Alternative</title><link>https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d'une_alternative_d'Apache/</link><pubDate>Fri, 29 Aug 2014 15:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nginx_:_Installation_et_configuration_d'une_alternative_d'Apache/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nginx-logo.png" alt="Nginx Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://nginx.org/" rel="external" target="_blank">Nginx Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>29/08/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Nginx" rel="external" target="_blank">Nginx&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> [engine x] is a web server (or HTTP) software written by Igor Sysoev, whose development began in 2002 for the needs of a high-traffic Russian site.&lt;/p></description></item><item><title>Nginx + Varnish: Cache even in HTTPS by offloading SSL</title><link>https://wiki.deimos.fr/Nginx_%20_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL/</link><pubDate>Thu, 16 Jan 2014 17:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nginx_%20_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nginx-logo.png" alt="Nginx Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://nginx.org/" rel="external" target="_blank">Nginx Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> &lt;a href="https://www.varnish-cache.org/" rel="external" target="_blank">Varnish Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>16/01/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You certainly know how that Varnish is a very good caching solution but the major problem is you can&amp;rsquo;t use it for SSL connections. Fortunately there is a solution called &amp;ldquo;Offload SSL&amp;rdquo; which decrypt the SSL, send it to the cache system and return crypted flow. This schema will help you more on understanding the purpose of it:&lt;/p></description></item><item><title>SSLH: Multiplexing SSL and SSH connections on the same port</title><link>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</link><pubDate>Sun, 10 Jun 2012 09:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.rutschle.net/tech/sslh.shtml" rel="external" target="_blank">SSLH&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is like a magic trick. It allows you, for example, to have both HTTPS and SSH on a WAN address on port 443. How is this possible? Can we have a single listening port for multiple services?&lt;/p></description></item><item><title>Lighttpd: Installation and configuration of an Apache alternative</title><link>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</link><pubDate>Tue, 10 May 2011 11:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LigHTTPd (or &amp;ldquo;lighty&amp;rdquo;) is a secure, fast, and flexible HTTP server.&lt;/p>
+&lt;p>Its speed comes from having a smaller memory footprint than other HTTP servers, as well as intelligent CPU load management.&lt;/p>
+&lt;p>Many languages like PHP, Perl, Ruby, and Python are supported via FastCGI.&lt;/p>
+&lt;p>The main disadvantage of LigHTTPd is that it has only one configuration file and doesn&amp;rsquo;t support .htaccess files (though there are alternatives): directives must be in the configuration file. This is also an advantage, as the server administrator only has one file to manage.&lt;/p></description></item><item><title>Vsftpd: Setting up virtual hosts with MySQL</title><link>https://wiki.deimos.fr/Vsftpd_:_Mise_en_place_d%27h%C3%B4tes_virtuels_avec_MySQL/</link><pubDate>Thu, 21 Jan 2010 13:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vsftpd_:_Mise_en_place_d%27h%C3%B4tes_virtuels_avec_MySQL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Vsftpd" rel="external" target="_blank">vsFTPd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, short for Very Secure FTP Daemon, is a free, simple, and secure FTP server.&lt;/p>
+&lt;p>It was developed with the best possible security in mind to address vulnerabilities in classic FTP servers.&lt;/p></description></item><item><title>WebDAV: Securing with SSL</title><link>https://wiki.deimos.fr/WebDav_:_S%C3%A9curiser_avec_SSL/</link><pubDate>Sun, 20 Dec 2009 10:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/WebDav_:_S%C3%A9curiser_avec_SSL/</guid><description>&lt;p>Here is documentation on how to secure your WebDAV!&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/how_to_set_up_webdav_with_mysql_authentication_on_apache2.pdf">How To Set Up WebDAV With MySQL Authentication On Apache2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/how_to_set_up_webdav_with_apache2.pdf">How To Set Up WebDAV With Apache2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/securewebdav.pdf">Documentation on Securing Webdav&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/Mixing_Apache_Authentication/">Mixing Apache Authentication&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Setting up SSL certificates with Apache 2</title><link>https://wiki.deimos.fr/Mise_en_place_de_certificats_SSL_sous_Apache_2/</link><pubDate>Thu, 24 Sep 2009 12:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_certificats_SSL_sous_Apache_2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SSL certificates are not always easy to understand and implement. Nevertheless, I will try to make it clear. For those who wish to be signed by a free certification authority, I invite you to visit the &lt;a href="https://www.cacert.org/" rel="external" target="_blank">CACert&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> website.&lt;/p></description></item><item><title>Setting up OpenSSL with Lighttpd</title><link>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</link><pubDate>Wed, 15 Apr 2009 07:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Adding security to your website is important. In this guide, we&amp;rsquo;ll see how to create and insert SSL certificates in Lighttpd.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We only need OpenSSL:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bc007ab" class="language-bash ">
+ &lt;code>apt-get install openssl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="generating-ssl-keys">Generating SSL keys &lt;a href="#generating-ssl-keys" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s create an ssl directory in the Lighttpd configuration folder, then generate the certificates:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e53f286" class="language-bash ">
+ &lt;code>mkdir /etc/lighttpd/ssl
+openssl req -new -x509 -keyout /etc/lighttpd/ssl/selfcert.pem -out /etc/lighttpd/ssl/selfcert.pem -days 3650 -nodes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>selfcert.pem: use the name that interests you (e.g., deimos.fr.pem)&lt;/li>
+&lt;li>3650: number of days the certificate is valid (10 years, we&amp;rsquo;re safe for a good while)&lt;/li>
+&lt;/ul>
+&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s enable the SSL module for Lighttpd:&lt;/p></description></item><item><title>Setting up a Courier POP3 server with SSL</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</link><pubDate>Thu, 10 Apr 2008 13:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to install a POP3 server so that your emails can be retrieved from a mail client or another server, then Courier POP3 is a good solution. Additionally, setting up SSL is recommended as it provides security.&lt;/p>
+&lt;p>For the POP3 server to be fully functional, you&amp;rsquo;ll obviously need it to be accompanied by a mail server (&lt;a href="https://wiki.deimos.fr/docs/servers/emails/">see documentation here&lt;/a>).&lt;/p>
+&lt;p>I have done this installation on OpenBSD, so this entire documentation will be for OpenBSD, but given the simplicity of the process, it&amp;rsquo;s very easily portable to other systems.&lt;/p></description></item><item><title>SSL: Certificate Management</title><link>https://wiki.deimos.fr/SSL_:_Gestion_des_certificats/</link><pubDate>Sun, 08 Jul 2007 21:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSL_:_Gestion_des_certificats/</guid><description>&lt;h2 id="problem-statement">Problem Statement &lt;a href="#problem-statement" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>After a year of good and loyal service, your &lt;strong>Courier (POP3 or IMAP)&lt;/strong> server fails due to a simple SSL problem! Yes, after a year, certificates expire!&lt;/p>
+&lt;h2 id="preparation">Preparation &lt;a href="#preparation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We need to generate new certificates. First, let&amp;rsquo;s go to the right location:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e920590" class="language-bash ">
+ &lt;code>cd /etc/courier/&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, we delete the old one:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c3380df" class="language-bash ">
+ &lt;code>rm pop3d.pem&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="generation">Generation &lt;a href="#generation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="automatic">Automatic &lt;a href="#automatic" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If you decide to simply renew this certificate every year, edit the &amp;ldquo;.cnf&amp;rdquo; file and fill it out correctly. Here&amp;rsquo;s an example:&lt;/p></description></item><item><title>Stunnel: Creating an SSL Tunnel</title><link>https://wiki.deimos.fr/Stunnel_:_Fabrication_d'un_tunnel_SSL/</link><pubDate>Tue, 26 Jun 2007 08:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Stunnel_:_Fabrication_d'un_tunnel_SSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you have software that doesn&amp;rsquo;t support SSL, and you want to secure network connections, you can encapsulate it in an SSL tunnel. This tunnel will encrypt data from end to end.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="edd0663" class="language-bash ">
+ &lt;code>apt-get install stunnel4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red-Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f8aef6e" class="language-bash ">
+ &lt;code>wget http://www.stunnel.org/download/stunnel/src/stunnel-4.20.tar.gz
+tar -xzvf stunnel-4.20.tar.gz
+cd stunnel-4.20
+./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="windows">Windows &lt;a href="#windows" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Download the client: &lt;a href="https://www.stunnel.org/download/binaries.html" rel="external" target="_blank">https://www.stunnel.org/download/binaries.html&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;br>
+&lt;em>On Windows, all configuration files are in &amp;ldquo;C:\Program Files\stunnel&amp;rdquo;, so adapt the examples below according to file paths&lt;/em>&lt;/p></description></item></channel></rss>

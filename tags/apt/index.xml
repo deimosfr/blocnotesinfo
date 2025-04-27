@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>APT on Tech Notebook</title><link>https://wiki.deimos.fr/tags/apt/</link><description>Recent content in APT on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/apt/index.xml" rel="self" type="application/rss+xml"/><item><title>APT: Adding Release Preferences for Specific Packages</title><link>https://wiki.deimos.fr/apt-ajouter-des-preferences-de-release-sur-certains-packages/</link><pubDate>Sun, 29 Dec 2013 17:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/apt-ajouter-des-preferences-de-release-sur-certains-packages/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>29/12/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have encountered a situation where you&amp;rsquo;re running the stable version of your system, but you&amp;rsquo;d like to use a more up-to-date package from testing, for example. This is possible! :-)&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="sourcelist">source.list &lt;a href="#sourcelist" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>I&amp;rsquo;ve chosen backuppc as an example. Let&amp;rsquo;s say I&amp;rsquo;m using the stable version, and I&amp;rsquo;d like to permanently install the testing version. I need to edit my &lt;code>/etc/apt/source.list&lt;/code> file so it contains what&amp;rsquo;s necessary to download from both stable and testing repositories:&lt;/p></description></item><item><title>Apt &amp; Aptitude: Useful Commands</title><link>https://wiki.deimos.fr/apt-aptitude-les-commandes-utiles/</link><pubDate>Tue, 07 May 2013 11:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/apt-aptitude-les-commandes-utiles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Being an Ubuntu/Debian user (yes, I use and advocate both), I have fallen in love with the Advanced Packaging Tool, also known as apt. Before Ubuntu, I played in the world of RPM hell, with distros such as Red Hat itself, Mandrake (as it was called back then), and even SuSE. I would find some piece of software, try to install it, only to find that it would choke, saying that it relied on some certain dependencies. I would install the dependencies, only to find conflicting versions with newer software. Hell indeed. So when I discovered the Debian way of installing software, I wondered why no one had mentioned it to me before. It was heaven. This is the way to software, I thought.&lt;/p></description></item><item><title>Apt-cacher-ng: Setting Up a Proxy for APT</title><link>https://wiki.deimos.fr/apt-cacher-ng-mise-en-place-d-un-proxy-pour-apt/</link><pubDate>Tue, 31 Aug 2010 07:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/apt-cacher-ng-mise-en-place-d-un-proxy-pour-apt/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Without having an amazing internet connection and using virtual machines, it quickly becomes tedious to wait ages to download the same packages for all these VMs. So I looked for a solution to have a kind of cache specifically for apt.&lt;/p>
+&lt;p>I found happiness with apt-cacher-ng which, from what I&amp;rsquo;ve read, is the most complete solution available today.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As usual, it&amp;rsquo;s simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0cea20d" class="language-bash ">
+ &lt;code>aptitude install apt-cacher-ng&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>My server has the IP &lt;strong>192.168.100.1&lt;/strong>. If you want to modify some small options, I invite you to look at the file &lt;code>/etc/apt-cacher-ng/acng.conf&lt;/code>.&lt;/p></description></item><item><title>Find all dependencies related to a package</title><link>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</link><pubDate>Wed, 24 Sep 2008 15:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes it&amp;rsquo;s very practical to find all dependencies of a package. Here&amp;rsquo;s a useful command for this purpose.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e871358" class="language-bash ">
+ &lt;code>apt-get install apt-rdepends&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example search:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e3a52f4" class="language-bash ">
+ &lt;code>$ apt-rdepends libapache2-mod-php5
+Reading package lists... Done
+Building dependency tree... Done
+libapache2-mod-php5
+ Depends: apache2-mpm-itk
+ Depends: apache2-mpm-prefork (&amp;gt;&amp;gt; 2.0.52)
+ Depends: apache2.2-common
+ Depends: libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libdb4.4
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libmagic1
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libxml2 (&amp;gt;= 2.6.27)
+ Depends: mime-support (&amp;gt;= 2.03-1)
+ Depends: php5-common (= 5.2.0-8&amp;#43;etch1)
+ Depends: ucf
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+apache2-mpm-itk
+ Depends: apache2.2-common (= 2.2.3-4&amp;#43;etch5)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcap1
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+apache2.2-common
+ Depends: apache2-utils
+ Depends: libmagic1
+ Depends: lsb-base
+ Depends: mime-support
+ Depends: net-tools
+ Depends: procps
+apache2-utils
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libuuid1
+libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libuuid1
+libc6
+ Depends: tzdata
+tzdata
+libuuid1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libaprutil1
+ Depends: libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.7)
+ Depends: libuuid1
+libdb4.4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libexpat1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libldap2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgnutls13 (&amp;gt;= 1.4.0-0)
+ Depends: libsasl2-2
+libgnutls13
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: liblzo1
+ Depends: libopencdk8 (&amp;gt;= 0.5.8)
+ Depends: libtasn1-3 (&amp;gt;= 0.3.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+libgcrypt11
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgpg-error0 (&amp;gt;= 1.2)
+libgpg-error0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+liblzo1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libopencdk8
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+zlib1g
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libtasn1-3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libsasl2-2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.2
+libdb4.2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpq4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+libcomerr2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libkrb53
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+libssl0.9.8
+ Depends: debconf (&amp;gt;= 0.5)
+ Depends: debconf-2.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+debconf
+ Depends: debconf-english
+ Depends: debconf-i18n
+ PreDepends: perl-base (&amp;gt;= 5.6.1-4)
+debconf-english
+ Depends: debconf
+debconf-i18n
+ Depends: debconf
+ Depends: liblocale-gettext-perl
+ Depends: libtext-charwidth-perl
+ Depends: libtext-iconv-perl
+ Depends: libtext-wrapi18n-perl
+liblocale-gettext-perl
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+ PreDepends: perl-base (&amp;gt;= 5.8.7-3)
+ PreDepends: perlapi-5.8.7
+perl-base
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+perlapi-5.8.7
+libtext-charwidth-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+perlapi-5.8.8
+libtext-iconv-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+libtext-wrapi18n-perl
+ Depends: libtext-charwidth-perl
+debconf-2.0
+libsqlite3-0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpcre3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libmagic1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+lsb-base
+ Depends: ncurses-bin
+ Depends: sed
+ncurses-bin
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libncurses5 (&amp;gt;= 5.4-5)
+libncurses5
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+sed
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+mime-support
+net-tools
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+procps
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libncurses5 (&amp;gt;= 5.4-5)
+ Depends: lsb-base (&amp;gt;= 3.0-10)
+libcap1
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-4)
+apache2-mpm-prefork
+ Depends: apache2.2-common (= 2.2.3-4)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libxml2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+php5-common
+ Depends: sed (&amp;gt;= 4.1.1-1)
+ucf
+ Depends: coreutils (&amp;gt;= 5.91)
+ Depends: debconf (&amp;gt;= 1.2.0)
+ Depends: debconf-2.0
+coreutils
+ PreDepends: libacl1 (&amp;gt;= 2.2.11-1)
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libselinux1 (&amp;gt;= 1.32)
+libacl1
+ Depends: libattr1 (&amp;gt;= 2.4.4-1)
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libattr1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libselinux1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libsepol1 (&amp;gt;= 1.14)
+libsepol1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Apt-file: Searching for Files That Prevent Compilation</title><link>https://wiki.deimos.fr/apt-file-recherche-de-fichiers-qui-empechent-une-compilation/</link><pubDate>Thu, 15 Feb 2007 08:58:00 +0100</pubDate><guid>https://wiki.deimos.fr/apt-file-recherche-de-fichiers-qui-empechent-une-compilation/</guid><description>&lt;p>Apt-file is a utility that quickly becomes indispensable from the first time it&amp;rsquo;s used. Here&amp;rsquo;s a small documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/apt-file.pdf">Apt-file Documentation&lt;/a>&lt;/p></description></item><item><title>Debian: GPG Error During apt-get update</title><link>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</link><pubDate>Sat, 05 Aug 2006 13:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</guid><description>&lt;div class="prism-codeblock ">
+ &lt;pre id="71fd62d" class="language-bash ">
+ &lt;code>W: GPG error: http://security.debian.org testing/updates Release:
+The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY key-number&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Is this type of message appearing? It&amp;rsquo;s quite annoying, especially since it happens every year. To solve this problem, follow these steps:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="aa25af8" class="language-bash ">
+ &lt;code>gpg --keyserver pgpkeys.mit.edu --recv-key key-number
+gpg -a --export key-number | apt-key add -&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

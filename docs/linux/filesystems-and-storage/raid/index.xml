@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Raid on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/filesystems-and-storage/raid/</link><description>Recent content in Raid on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/filesystems-and-storage/raid/index.xml" rel="self" type="application/rss+xml"/><item><title>Software RAID Configuration</title><link>https://wiki.deimos.fr/Configuration_d'un_Raid_logiciel/</link><pubDate>Fri, 08 Aug 2014 08:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_d'un_Raid_logiciel/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Not everyone can afford a RAID 5 card with proper disks. That&amp;rsquo;s why a small software RAID 5 can be a good solution, especially for home use!&lt;/p>
+&lt;h2 id="creating-a-raid">Creating a RAID &lt;a href="#creating-a-raid" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="raid-1">RAID 1 &lt;a href="#raid-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To create a RAID 1, it&amp;rsquo;s simple. You just need 2 disks with 2 partitions of the same size, then run this command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6066813" class="language-bash ">
+ &lt;code>mdadm --create --assume-clean --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>create: creating a raid&lt;/li>
+&lt;li>assume-clean: allows having a directly usable raid, without a complete synchronization. This requires being 100% sure that both disks/partitions are blank.&lt;/li>
+&lt;li>level: the type of raid (here RAID 1)&lt;/li>
+&lt;li>raid-devices: the number of disks used&lt;/li>
+&lt;/ul>
+&lt;h2 id="monitoring">Monitoring &lt;a href="#monitoring" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To see if everything is working properly, here are several solutions:&lt;/p></description></item><item><title>Optimization of extX filesystems and RAID under Linux</title><link>https://wiki.deimos.fr/Optimisation_des_filesystems_extX_et_du_RAID_sous_Linux/</link><pubDate>Wed, 13 Feb 2013 13:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Optimisation_des_filesystems_extX_et_du_RAID_sous_Linux/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>13/02/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>All file operations on Linux are managed by VFS. The VFS layer is a common kernel interface for applications to access files. VFS handles the communication with different drivers. The inode and dentry cache is also managed by VFS. VFS is therefore capable of managing different types of filesystems, even network ones, through a common interface.&lt;/p></description></item><item><title>Linux RAID Performance</title><link>https://wiki.deimos.fr/Linux_RAID_performances/</link><pubDate>Fri, 31 Aug 2012 20:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Linux_RAID_performances/</guid><description>&lt;p>I won&amp;rsquo;t discuss the different RAID types, but rather refer you to Wikipedia for that&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>. For using software RAID under Linux, &lt;a href="Configuration_d'un_Raid_logiciel.html">I recommend this documentation&lt;/a>&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>. We&amp;rsquo;ll focus on performance since that&amp;rsquo;s our topic here. RAID 0 is the most performant of all RAID types, but it obviously has data security issues if a disk fails.&lt;/p>
+&lt;p>The MTBF (Mean Time Between Failure) is also important for RAID systems. This is an estimate of how long the RAID will function properly before a disk is detected as failed.&lt;/p></description></item><item><title>Recovering Data from a RAID1 LVM</title><link>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_ses_donn%C3%A9es_depuis_un_RAID1_LVM/</link><pubDate>Fri, 02 Nov 2007 14:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_ses_donn%C3%A9es_depuis_un_RAID1_LVM/</guid><description>&lt;p>Here is documentation explaining how to recover your data from a LVM in RAID1!&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/recover_data_from_raid1_lvm_partitions.pdf">Documentation on Recovering Data From RAID1 LVM Partitions&lt;/a>&lt;/p></description></item></channel></rss>

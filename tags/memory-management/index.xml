@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Memory Management on Tech Notebook</title><link>https://wiki.deimos.fr/tags/memory-management/</link><description>Recent content in Memory Management on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/memory-management/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux Memory Management</title><link>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</link><pubDate>Mon, 06 May 2013 14:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="pages">Pages &lt;a href="#pages" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When looking at &lt;code>/proc/meminfo&lt;/code>, &amp;lsquo;Inactive Clean&amp;rsquo; pages correspond to free pages. If the kernel needs to allocate pages to a process, it can take these pages from the free page list or from inactive clean. Pages being used by processes are referenced as active pages. In the case of shared memory, a page can have multiple processes referencing it.&lt;/p></description></item><item><title>Adding Swap Space on Solaris</title><link>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</link><pubDate>Mon, 30 Jan 2012 12:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this documentation is to quickly describe how to create swap space on Solaris. There are other documentation sources such as &lt;a href="https://wiki.deimos.fr/Management_des_disques_sous_Solaris/">Disk Management in Solaris&lt;/a> that describe in depth how disks work on Solaris, but that&amp;rsquo;s not the goal here.&lt;/p>
+&lt;p>We&amp;rsquo;ll look at three methods to add swap space:&lt;/p>
+&lt;ul>
+&lt;li>On UFS&lt;/li>
+&lt;li>On ZFS&lt;/li>
+&lt;li>Using a swap file&lt;/li>
+&lt;/ul>
+&lt;h2 id="swap-on-ufs">Swap on UFS &lt;a href="#swap-on-ufs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to add swap space on a UFS disk, you&amp;rsquo;ll need to create a partition. Let&amp;rsquo;s first see what we have:&lt;/p></description></item><item><title>Removing User Limitations</title><link>https://wiki.deimos.fr/Enlever_les_limitation_utilisateurs/</link><pubDate>Tue, 21 Oct 2008 17:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Enlever_les_limitation_utilisateurs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At work, I experienced an issue with JVM memory where Xmx and Xms were set to 4.5GB, and part of the memory was going to swap until a Full GC triggered, at which point the reserved memory (RSS) that had gone to swap returned to RAM.&lt;/p>
+&lt;p>The warning messages I received were:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2974d4e" class="language- ">
+ &lt;code>pages faults&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>I searched quite a bit before finding a solution.&lt;/p>
+&lt;h2 id="removing-user-limitations">Removing User Limitations &lt;a href="#removing-user-limitations" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, for the JVM, you need to add an option at launch:&lt;/p></description></item><item><title>RAM Information</title><link>https://wiki.deimos.fr/Informations_sur_la_m%C3%A9moire_vive/</link><pubDate>Tue, 17 Oct 2006 09:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Informations_sur_la_m%C3%A9moire_vive/</guid><description>&lt;h2 id="memory-management-overview">Memory Management Overview &lt;a href="#memory-management-overview" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="evidence-of-memory-usage">Evidence of Memory Usage &lt;a href="#evidence-of-memory-usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>When a system has been running for some time, traditional tools like &amp;rsquo;top&amp;rsquo; often report a surprisingly small amount of free memory. For example, after about 3 hours, the machine on which I&amp;rsquo;m writing this shows less than 60 MB of free memory, although I have 512 MB on this system. But where has all this memory gone?&lt;/p>
+&lt;p>Most of it is used by the disk cache, which currently occupies around 290 MB. The &lt;em>top&lt;/em> command displays this amount under the &amp;ldquo;cached&amp;rdquo; column. Memory used for the cache is essentially free, in the sense that it can be quickly reclaimed if a running program (or one that has just been launched) needs it.&lt;/p></description></item></channel></rss>

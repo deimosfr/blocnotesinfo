@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>CVS on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/versionning/cvs/</link><description>Recent content in CVS on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/versionning/cvs/index.xml" rel="self" type="application/rss+xml"/><item><title>CVS Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</link><pubDate>Fri, 26 Dec 2008 18:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="17688ac" class="language-bash ">
+ &lt;code>apt-get install cvs xinetd&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3f2221f" class="language-bash ">
+ &lt;code>up2date cvs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="creating-admin-group-and-directories">Creating Admin Group and Directories &lt;a href="#creating-admin-group-and-directories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d5b93f" class="language-bash ">
+ &lt;code>adduser cvsadmin
+mkdir -p /home/cvsadmin/repository
+mkdir /home/cvsadmin/.lock
+chown -Rf :cvsadmin /home/cvsadmin
+chmod -Rf 775 /home/cvsadmin
+chmod -Rf 777 /home/cvsadmin/.lock
+ln -s /home/cvsadmin/repository /usr/local/cvsroot&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="repository-initialization">Repository Initialization &lt;a href="#repository-initialization" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9e8274c" class="language-bash ">
+ &lt;code>export CVSROOT=/usr/local/cvsroot
+cvs -d $CVSROOT init
+chown -Rf root:cvsadmin /home/cvsadmin/repository/* &amp;amp;&amp;amp; chmod -Rf 777 /home/cvsadmin/repository/*&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="activating-lock-files">Activating Lock Files &lt;a href="#activating-lock-files" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To ensure that lock files are stored in a directory writable by all, you need to modify the &lt;code>/usr/local/cvsroot-backup/CVSROOT/config&lt;/code> file as follows:&lt;/p></description></item><item><title>CVS: Using CVS</title><link>https://wiki.deimos.fr/CVS_:_Utilisation_de_CVS/</link><pubDate>Sun, 20 May 2007 20:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/CVS_:_Utilisation_de_CVS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>CVS&lt;/strong>, an acronym for &lt;strong>Concurrent Versions System&lt;/strong>, is free software (GPL license) for version management, successor to SCCS. Although it is still widely used in the open source software domain, it is now obsolete with the arrival of its successor Subversion. Since it helps sources converge towards the same destination, we say that CVS manages concurrent versions. It can function both in command line mode and through a graphical interface. It consists of client modules and one or more server modules for exchange areas.&lt;/p></description></item><item><title>Setting up ACLs for CVS</title><link>https://wiki.deimos.fr/Mise_en_place_des_ACLs_pour_CVS/</link><pubDate>Fri, 24 Nov 2006 09:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_des_ACLs_pour_CVS/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download the latest pre-patched version of CVSACL from the internet (&lt;a href="http://cvsacl.sourceforge.net" rel="external" target="_blank">http://cvsacl.sourceforge.net&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>), then extract it.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="805dfe8" class="language-bash ">
+ &lt;code>wget http://switch.dl.sourceforge.net/sourceforge/cvsacl/cvs-1.11.22-cvsacl-1.2.5-patched.tar.gz
+tar -xzvf cvs-1.11.22-cvsacl-1.2.5-patched.tar.gz&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Configuration, compilation and installation:&lt;/p></description></item></channel></rss>

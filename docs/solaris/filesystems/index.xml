@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Filesystems on Tech Notebook</title><link>https://wiki.deimos.fr/docs/solaris/filesystems/</link><description>Recent content in Filesystems on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/solaris/filesystems/index.xml" rel="self" type="application/rss+xml"/><item><title>ZFS: The Filesystem Par Excellence</title><link>https://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence/</link><pubDate>Wed, 02 Jan 2013 13:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/zfs_logo.jpg" alt="ZFS" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>ZFS or Z File System is an open-source filesystem under the CDDL license. The &amp;lsquo;Z&amp;rsquo; doesn&amp;rsquo;t officially stand for anything specific, but has been referred to in various ways in the press, such as Zettabyte (from the English unit zettabyte for data storage), or ZFS as &amp;ldquo;the last word in filesystems&amp;rdquo;.&lt;/p>
+&lt;p>Produced by Sun Microsystems for Solaris 10 and above, it was designed by Jeff Bonwick&amp;rsquo;s team. Announced for September 2004, it was integrated into Solaris on October 31, 2005, and on November 16, 2005, as a feature of OpenSolaris build 27. Sun announced that ZFS was integrated into the Solaris update dated June 2006, a year after the opening of the OpenSolaris community.&lt;/p></description></item><item><title>Tmpfs: Mounting a RAM filesystem on Solaris</title><link>https://wiki.deimos.fr/Tmpfs_:_monter_un_filesystem_en_RAM_sous_Solaris/</link><pubDate>Sun, 19 Feb 2012 09:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tmpfs_:_monter_un_filesystem_en_RAM_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>TmpFS (Temporary File System) is the generic name given to any temporary Unix file system. Any file created in such a filesystem disappears when the system is shut down.&lt;/p>
+&lt;p>The default implementation of tmpfs in Linux 2.6.x kernels is based on ramfs, which uses the caching mechanism to optimize memory management.
+It is also available on Solaris 10.&lt;/p>
+&lt;p>However, tmpfs additionally offers a memory size limit that is set at mount time and can be modified on-the-fly with the &amp;ldquo;remount&amp;rdquo; option for security purposes. Tmpfs also allows the system to use swap space when necessary, which provides an additional guarantee.&lt;/p></description></item><item><title>Adding Swap Space on Solaris</title><link>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</link><pubDate>Mon, 30 Jan 2012 12:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this documentation is to quickly describe how to create swap space on Solaris. There are other documentation sources such as &lt;a href="https://wiki.deimos.fr/Management_des_disques_sous_Solaris/">Disk Management in Solaris&lt;/a> that describe in depth how disks work on Solaris, but that&amp;rsquo;s not the goal here.&lt;/p>
+&lt;p>We&amp;rsquo;ll look at three methods to add swap space:&lt;/p>
+&lt;ul>
+&lt;li>On UFS&lt;/li>
+&lt;li>On ZFS&lt;/li>
+&lt;li>Using a swap file&lt;/li>
+&lt;/ul>
+&lt;h2 id="swap-on-ufs">Swap on UFS &lt;a href="#swap-on-ufs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to add swap space on a UFS disk, you&amp;rsquo;ll need to create a partition. Let&amp;rsquo;s first see what we have:&lt;/p></description></item><item><title>Disk Management in Solaris</title><link>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</link><pubDate>Mon, 30 Jan 2012 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Compared to Linux, Solaris is quite similar except for certain aspects which I will clarify here. This guide will not only cover Solaris but also include general information about disk architecture and filesystems.&lt;/p>
+&lt;h2 id="physical-operation">Physical Operation &lt;a href="#physical-operation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="files-inodes-and-blocks">Files, Inodes and Blocks &lt;a href="#files-inodes-and-blocks" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On your hard drive, where you store your data, there is a hierarchical structure:&lt;/p>
+&lt;ul>
+&lt;li>Directories and files&lt;/li>
+&lt;li>Inodes&lt;/li>
+&lt;li>Blocks&lt;/li>
+&lt;/ul>
+&lt;p>Inodes are what know exactly where each directory/file is located. When you create or call a file, it points to an inode. This inode is then able to identify which data block it belongs to (binary slice). Here&amp;rsquo;s a small explanation with an image:&lt;/p></description></item><item><title>Mount an ISO image on Solaris</title><link>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</link><pubDate>Tue, 15 Jun 2010 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Many software packages can be downloaded in the form of an ISO image. Rather than burning the image to a CD-ROM to access its contents, it is easy to mount the image directly into the filesystem using the lofiadm and mount commands.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Given an ISO image in &lt;code>/export/temp/software.iso&lt;/code>, a loopback file device (&lt;code>/dev/lofi/1&lt;/code>) is created with the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cb8756e" class="language-bash ">
+ &lt;code>lofiadm -a /export/temp/software.iso /dev/lofi/1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The lofi device creates a block device version of a file. This block device can be mounted to &lt;code>/mnt&lt;/code> with the following command:&lt;/p></description></item><item><title>ACL: Implementing NT-Style Permissions on Solaris</title><link>https://wiki.deimos.fr/ACL_Implementation_droits_type_NT_sur_Solaris/</link><pubDate>Wed, 10 Feb 2010 13:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/ACL_Implementation_droits_type_NT_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With respect to a computer filesystem, an access control list (&lt;a href="https://en.wikipedia.org/wiki/Access_control_list" rel="external" target="_blank">ACL&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>) is a list of permissions attached to an object. An ACL specifies which users or system processes are granted access to objects, as well as what operations are allowed to be performed on given objects. In a typical ACL, each entry in the list specifies a subject and an operation (e.g. the entry (Alice, delete) on the ACL for file WXY gives Alice permission to delete file WXY).&lt;/p></description></item><item><title>Multipathing Management on Solaris</title><link>https://wiki.deimos.fr/Multipathing_management_on_Solaris/</link><pubDate>Fri, 06 Nov 2009 16:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Multipathing_management_on_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Multipathing allows for connection to multiple links. For example, a disk array connected via fiber to machines can have 2 fibers per machine.&lt;/p>
+&lt;p>To manage this type of configuration, you need to use multipathing.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To check if your multipath is enabled, it&amp;rsquo;s simple. Look at your devices, they should look like this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d1b6073" class="language- ">
+ &lt;code>/dev/dsk/c3t2000002037CD9F72d0s0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>instead of this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ba6a140" class="language- ">
+ &lt;code>/dev/dsk/c1t1d0s0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If this is not the case, then perform the actions that follow.&lt;/p></description></item><item><title>Creating a RAID 1 (mirroring) on Solaris</title><link>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</link><pubDate>Wed, 11 Feb 2009 16:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The Solaris system includes the DiskSuite package that allows RAID 1 mirroring of a UFS filesystem using LVM. This tutorial explains how to achieve this.
+It goes without saying that you need two disks of the same capacity.&lt;/p>
+&lt;h2 id="procedure">Procedure &lt;a href="#procedure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are the necessary steps:
+Once we&amp;rsquo;re ready to mirror a disk, we display its partitions with the format command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a68044b" class="language-bash ">
+ &lt;code>Format
+ 
+Searching for disks...done
+ 
+ 
+AVAILABLE DISK SELECTIONS:
+ 0. c1t0d0 &amp;lt;SUN146G cyl 14087 alt 2 hd 24 sec 848&amp;gt; root
+ /pci@0/pci@0/pci@2/scsi@0/sd@0,0
+ 1. c1t1d0 &amp;lt;HITACHI-H101414SCSUN146G-SA25-136.73GB&amp;gt;
+ /pci@0/pci@0/pci@2/scsi@0/sd@1,0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We choose the 1st disk (if it&amp;rsquo;s the one to be duplicated), then:&lt;/p></description></item></channel></rss>

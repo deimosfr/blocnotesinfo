@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mail on Tech Notebook</title><link>https://wiki.deimos.fr/tags/mail/</link><description>Recent content in Mail on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/mail/index.xml" rel="self" type="application/rss+xml"/><item><title>Postfix: Limit Outgoing Mail Throttling</title><link>https://wiki.deimos.fr/Postfix:_limit_outgoing_mail_throttling/</link><pubDate>Thu, 06 Aug 2015 00:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Postfix:_limit_outgoing_mail_throttling/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/08/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you have a huge amount of mail to deliver, you can&amp;rsquo;t release the queue at once and let the server maximize the outgoing mail throughput! The result will be: you&amp;rsquo;ll get blacklisted from a lot of MX servers.&lt;/p></description></item><item><title>Postfix: hold outgoing mail transport</title><link>https://wiki.deimos.fr/Postfix:_hold_outgoing_mail_transport/</link><pubDate>Tue, 04 Mar 2014 17:35:00 +0200</pubDate><guid>https://wiki.deimos.fr/Postfix:_hold_outgoing_mail_transport/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>04/03/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you manage Postfix and have a trouble with your mail infrastructure, you may want to set in maintenance your Postfix without stopping the service. Here is a way to hold the queue, giving the time to analyze the problem and then release the queue.&lt;/p></description></item><item><title>Troubleshooting mails with Postfix</title><link>https://wiki.deimos.fr/R%C3%A9glage_de_probl%C3%A8mes/</link><pubDate>Fri, 05 Feb 2010 11:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9glage_de_probl%C3%A8mes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Postfix is great and handles high loads well, but when you need to debug mail problems, it can become less straightforward. Therefore, I&amp;rsquo;ll document here all the tips and tricks I&amp;rsquo;ve found.&lt;/p>
+&lt;h2 id="solutions">Solutions &lt;a href="#solutions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="verify-the-configuration">Verify the configuration &lt;a href="#verify-the-configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In Postfix, it&amp;rsquo;s not always obvious to find the problem, which is why they&amp;rsquo;ve been kind enough to include a command that will run checks:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6178902" class="language-bash ">
+ &lt;code>postfix check&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="mail-queue-congestion">Mail queue congestion &lt;a href="#mail-queue-congestion" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If you find yourself with a mail queue congestion problem (e.g., 30,000 emails in the queue), you can find out how many there are with the following command:&lt;/p></description></item><item><title>Setting up a Courier POP3 server with SSL</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</link><pubDate>Thu, 10 Apr 2008 13:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to install a POP3 server so that your emails can be retrieved from a mail client or another server, then Courier POP3 is a good solution. Additionally, setting up SSL is recommended as it provides security.&lt;/p>
+&lt;p>For the POP3 server to be fully functional, you&amp;rsquo;ll obviously need it to be accompanied by a mail server (&lt;a href="https://wiki.deimos.fr/docs/servers/emails/">see documentation here&lt;/a>).&lt;/p>
+&lt;p>I have done this installation on OpenBSD, so this entire documentation will be for OpenBSD, but given the simplicity of the process, it&amp;rsquo;s very easily portable to other systems.&lt;/p></description></item><item><title>SquirrelMail: Setting up a Simple yet Advanced Webmail</title><link>https://wiki.deimos.fr/Squirrelmail_:_Mise_en_place_d%27un_webmail_simple_mais_%C3%A9volu%C3%A9/</link><pubDate>Sun, 06 Apr 2008 20:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Squirrelmail_:_Mise_en_place_d%27un_webmail_simple_mais_%C3%A9volu%C3%A9/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SquirrelMail is a webmail client that I used for years before switching to RoundCube. While it&amp;rsquo;s not as visually attractive as RoundCube, it has the advantage of being both simple and feature-rich. The obvious prerequisites are a mail server like Postfix and a connection interface such as IMAP or POP.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it, it&amp;rsquo;s always very simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dd98c4a" class="language-bash ">
+ &lt;code>apt-get install squirrelmail&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To configure SquirrelMail, simply use the tool provided:&lt;/p></description></item><item><title>Dkfilter: Proxy SMTP (Signature Mails) Made by Yahoo</title><link>https://wiki.deimos.fr/Dkfilter_:_Proxy_SMTP_(signatures_mails)_made_by_Yahoo/</link><pubDate>Thu, 31 Jan 2008 07:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dkfilter_:_Proxy_SMTP_(signatures_mails)_made_by_Yahoo/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>DomainKeys is an anti-spam software application in development at &lt;a href="https://antispam.yahoo.com/domainkeys" rel="external" target="_blank">Yahoo&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> that uses a form of public key cryptography to authenticate the sender&amp;rsquo;s domain. &lt;strong>dkfilter is an SMTP-proxy designed for Postfix&lt;/strong>. It implements DomainKeys message signing and verification. It comprises two separate filters, an &amp;ldquo;outbound&amp;rdquo; filter for &lt;strong>signing outgoing email on port 587&lt;/strong>, and an &amp;ldquo;inbound&amp;rdquo; filter for &lt;strong>verifying signatures of incoming email on port 25&lt;/strong>. This document is to describe step by step how to install dkfilter for postfix to deploy domainkeys signing and verification.&lt;/p></description></item><item><title>Postsuper: Mass Deletion of Emails in the Queue</title><link>https://wiki.deimos.fr/Postsuper_:_Suppression_massive_de_mails_dans_la_queue/</link><pubDate>Tue, 15 Jan 2008 19:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Postsuper_:_Suppression_massive_de_mails_dans_la_queue/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Postsuper is a Postfix utility that allows you to delete emails in the queue. I needed it to delete around 40,000 emails that were error messages from the MAILER-DAEMON user, with approximately 300 emails in the batch that needed to be delivered.&lt;/p>
+&lt;h2 id="complete-deletion">Complete Deletion &lt;a href="#complete-deletion" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To delete all emails in the queue:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d763eac" class="language-bash ">
+ &lt;code>postsuper -d ALL&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="partial-deletion">Partial Deletion &lt;a href="#partial-deletion" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To delete all emails from the MAILER-DAEMON user, here&amp;rsquo;s the script (replace MAILER-DAEMON with another name if needed):&lt;/p></description></item><item><title>IMAP Mailbox Synchronization</title><link>https://wiki.deimos.fr/Synchronisation_de_boites_mails_IMAP/</link><pubDate>Mon, 23 Oct 2006 11:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Synchronisation_de_boites_mails_IMAP/</guid><description>&lt;h2 id="imap-mailbox-synchronization">IMAP Mailbox Synchronization &lt;a href="#imap-mailbox-synchronization" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>How do you synchronize a mailbox between two remote servers? A small tool called &lt;strong>Imapsync&lt;/strong> exists for this purpose!&lt;/p>
+
+&lt;div class="alert alert-warning d-flex" role="alert">
+ &lt;div class="flex-shrink-1 alert-icon">
+ 
+ &lt;span class="material-icons size-20 me-2">
+ warning
+ &lt;/span>&lt;/div>
+ 
+ &lt;div class="w-100">Warning: This software consumes a lot of CPU resources!&lt;/div>
+ &lt;/div>
+&lt;p>To install it, nothing complicated:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2ce8a62" class="language-bash ">
+ &lt;code>apt-get install imapsync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Next, let&amp;rsquo;s create a folder in our &lt;em>home&lt;/em> directory called &lt;em>.imapsync&lt;/em>.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="73495de" class="language-bash ">
+ &lt;code>mkdir ~/.imapsync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>In this folder, we&amp;rsquo;ll store the IMAP password for the account(s). The first file corresponds to the first server, and the second file to the second server:&lt;/p></description></item></channel></rss>

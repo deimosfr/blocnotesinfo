@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Filtering on Tech Notebook</title><link>https://wiki.deimos.fr/tags/filtering/</link><description>Recent content in Filtering on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/filtering/index.xml" rel="self" type="application/rss+xml"/><item><title>SpamAssassin Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_SpamAssassin/</link><pubDate>Mon, 15 Mar 2010 10:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_SpamAssassin/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install SpamAssassin, it&amp;rsquo;s very simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8db8482" class="language-bash ">
+ &lt;code>apt-get install spamassassin libmail-spf-query-perl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s my configuration file that you can adapt to your needs (&lt;code>/etc/spamassassin/local.cf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="97bf068" class="language-bash ">
+ &lt;code># SpamAssassin Configuration
+rewrite_header Subject *****SPAM*****
+use_bayes 1
+bayes_auto_learn 1
+required_score 5.0
+skip_rbl_checks 0
+report_safe 0
+
+#pyzor
+#use_pyzor 1
+#pyzor_path /usr/bin/pyzor
+
+#razor
+#use_razor2 1
+#razor_config /etc/razor/razor-agent.conf
+
+ok_locales en fr
+whitelist_from *@deimos.fr noreply@lists.silicon.fr
+blacklist_from *@mandrivaclub.com&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now, we need to enable SpamAssassin to start automatically. For this, in the file &lt;code>/etc/default/spamassassin&lt;/code>, change from:&lt;/p></description></item></channel></rss>

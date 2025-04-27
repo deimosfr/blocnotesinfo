@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Fifo on Tech Notebook</title><link>https://wiki.deimos.fr/tags/fifo/</link><description>Recent content in Fifo on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/fifo/index.xml" rel="self" type="application/rss+xml"/><item><title>Fifo and Cat: Share a Session with Multiple Users</title><link>https://wiki.deimos.fr/fifo-and-cat-share-session-with-multiple-users/</link><pubDate>Sun, 18 Mar 2007 09:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/fifo-and-cat-share-session-with-multiple-users/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This technique can be used to show a remote colleague or client what you&amp;rsquo;re working on on the server.&lt;/p>
+&lt;p>It&amp;rsquo;s just for visual sharing and not interactive like with screen (&lt;a href="https://wiki.deimos.fr/Screen_:_Les_commandes_les_plus_utilis%C3%A9es/">see this documentation&lt;/a>).&lt;/p>
+&lt;h2 id="creating-a-fifo-file">Creating a fifo file &lt;a href="#creating-a-fifo-file" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de88de" class="language-bash ">
+ &lt;code>mkfifo /tmp/sortieScript
+ls -l /tmp/sortieScript
+prw-r--r-- 1 yannick yannick 0 Jul 6 02:59 /tmp/sortieScript&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5459b0f" class="language- ">
+ &lt;code>mkfifo - Create named pipes (FIFOs) with the given NAMEs.
+A FIFO special file (a named pipe) is similar to a pipe, except that it is accessed as part of the file system.
+[...] the FIFO special file has no contents on the file system&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="reading-the-file-by-the-remote-user">Reading the file by the remote user &lt;a href="#reading-the-file-by-the-remote-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="77c0fd2" class="language-bash ">
+ &lt;code>cat /tmp/sortieScript&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Warning: as long as the file is not &amp;ldquo;catted&amp;rdquo;, it cannot be used by the following command&amp;hellip;&lt;/p></description></item></channel></rss>

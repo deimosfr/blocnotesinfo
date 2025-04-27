@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Coding &amp; Debug on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/coding-and-debug/</link><description>Recent content in Coding &amp; Debug on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/coding-and-debug/index.xml" rel="self" type="application/rss+xml"/><item><title>Patches: Creating and Applying Patches</title><link>https://wiki.deimos.fr/Patchs_:_Cr%C3%A9ation_et_applications_de_patchs/</link><pubDate>Tue, 07 May 2013 12:39:00 +0200</pubDate><guid>https://wiki.deimos.fr/Patchs_:_Cr%C3%A9ation_et_applications_de_patchs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When translating or modifying open-source software, it&amp;rsquo;s important to find a simple and effective way to redistribute your work. To do this, you need to distribute it in the lightest possible manner. The solution is to distribute only the difference between the original version and yours. In short, you need to create a patch.&lt;/p>
+&lt;h2 id="patching">Patching &lt;a href="#patching" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This term refers to the action of applying a patch to one or more files. By patching a file, you automatically make the necessary modifications to update it. The patch contains the list of differences between the old and new versions of the file(s). Result: this difference file is much lighter and can be applied in a single operation.&lt;/p></description></item><item><title>Strace and Ltrace: Trace System and Library Calls</title><link>https://wiki.deimos.fr/Strace_et_Ltrace_:_tracez_les_appels_syst%C3%A8mes_et_librairies/</link><pubDate>Fri, 20 Jan 2012 10:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Strace_et_Ltrace_:_tracez_les_appels_syst%C3%A8mes_et_librairies/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>strace is a debugging tool on Linux used to monitor system calls made by a program and all the signals it receives, similar to the &amp;ldquo;truss&amp;rdquo; tool on other Unix systems. It&amp;rsquo;s made possible through a Linux kernel feature called ptrace.&lt;/p>
+&lt;p>The most common use is to launch a program using strace, which displays a list of system calls made by the program. This is useful when a program continually crashes or doesn&amp;rsquo;t behave as expected. For example, using strace can reveal that the program is trying to access a file that doesn&amp;rsquo;t exist or can&amp;rsquo;t be read.&lt;/p></description></item><item><title>Perl Locale Issues</title><link>https://wiki.deimos.fr/Probl%C3%A8mes_de_locales_avec_Perl/</link><pubDate>Wed, 19 Nov 2008 07:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Probl%C3%A8mes_de_locales_avec_Perl/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Perl is great. However, error messages are not something we enjoy. If your environment variables are misconfigured or nothing is defined at the system level, you may encounter problems when launching Perl.&lt;/p>
+&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is what you might encounter when launching Perl:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0dd60b7" class="language-bash ">
+ &lt;code>perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = &amp;#34;fr_FR@euro&amp;#34;
+ are supported and installed on your system.
+perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;).
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>To solve the problem, make sure that &amp;ldquo;fr_FR@euro&amp;rdquo; is included in your system locales:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c7f9945" class="language-bash ">
+ &lt;code>dpkg-reconfigure locales&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>If it still doesn&amp;rsquo;t work, here&amp;rsquo;s what you can do:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d7e9c6e" class="language-bash ">
+ &lt;code>dpkg-reconfigure console-data&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>When it asks for the default locale, set it to &amp;ldquo;none&amp;rdquo;.&lt;/p></description></item><item><title>Generate a Configure File for Pre-make</title><link>https://wiki.deimos.fr/G%C3%A9n%C3%A9rer_un_fichier_configure_pour_pr%C3%A9-make/</link><pubDate>Thu, 10 May 2007 05:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/G%C3%A9n%C3%A9rer_un_fichier_configure_pour_pr%C3%A9-make/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As you probably already know, the three magic commands are:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>./configure&lt;/code>&lt;/li>
+&lt;li>&lt;code>make&lt;/code>&lt;/li>
+&lt;li>&lt;code>make install&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;p>This is nice and cool, but if you&amp;rsquo;re retrieving sources from SVN or CVS repositories, you might not always have the configure file. This is why you only need two simple commands to generate one:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b7079f7" class="language-bash ">
+ &lt;code>/usr/bin/autoheader ; /usr/bin/autoconf&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Failed Compilations</title><link>https://wiki.deimos.fr/Compilations_foireuses/</link><pubDate>Sat, 05 Aug 2006 19:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Compilations_foireuses/</guid><description>&lt;p>Another failed compilation? As usual, you&amp;rsquo;re missing a library. I&amp;rsquo;ve listed here the minimum packages you should have to avoid problems.&lt;/p>
+&lt;p>If you get a message like this during compilation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1739999" class="language-bash ">
+ &lt;code>checking for C compiler default output... configure: error: C compiler cannot create executables&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This is typically the kind of error you might encounter. Install the following packages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="29ee5f8" class="language-bash ">
+ &lt;code>gcc libc6 libc6-dev make autoconf&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Also consider:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fe06264" class="language-bash ">
+ &lt;code>glibc2 glibc2-dev&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For Debian users like me:&lt;/p></description></item></channel></rss>

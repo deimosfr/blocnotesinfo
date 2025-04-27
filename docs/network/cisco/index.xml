@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cisco on Tech Notebook</title><link>https://wiki.deimos.fr/docs/network/cisco/</link><description>Recent content in Cisco on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/network/cisco/index.xml" rel="self" type="application/rss+xml"/><item><title>Analyzing Network Equipment and Network Configurations</title><link>https://wiki.deimos.fr/analyser-les-configs-des-equipements-et-des-reseaux/</link><pubDate>Fri, 26 Dec 2008 18:40:00 +0100</pubDate><guid>https://wiki.deimos.fr/analyser-les-configs-des-equipements-et-des-reseaux/</guid><description>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/analyser_les_configs_des_equipements_et_des_reseaux.pdf">Analyzing Network Equipment and Network Configurations&lt;/a>&lt;/p></description></item><item><title>Configuring a Catalyst Switch</title><link>https://wiki.deimos.fr/Configuration_d'un_Switch_Catalyst/</link><pubDate>Tue, 20 Nov 2007 14:57:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configuration_d'un_Switch_Catalyst/</guid><description>&lt;h2 id="connections">Connections &lt;a href="#connections" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Start by connecting the serial port on the PC side and the console port on the switch.&lt;/p>
+&lt;h2 id="connection">Connection &lt;a href="#connection" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Launch HyperTerminal and choose a connection on com1 port, or another com port depending on the PC configuration.
+You need to choose 9600 Bauds
+The rest doesn&amp;rsquo;t matter much&amp;hellip;&lt;/p>
+&lt;h2 id="what-you-need-to-know">What You Need to Know &lt;a href="#what-you-need-to-know" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When launching the terminal, you&amp;rsquo;ll determine several things:&lt;/p>
+&lt;ul>
+&lt;li>The router name (for example: swpar5)&lt;/li>
+&lt;li>A secret&lt;/li>
+&lt;li>A password&lt;/li>
+&lt;li>A virtual terminal password&lt;/li>
+&lt;/ul>
+&lt;p>Then you need to switch to &amp;ldquo;enable&amp;rdquo; mode to be able to change the configuration&lt;/p></description></item><item><title>Capturing connections on an interface</title><link>https://wiki.deimos.fr/Dumper_les_connections_dune_interface/</link><pubDate>Wed, 23 May 2007 15:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dumper_les_connections_dune_interface/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Capturing (or dumping) means to capture network packets. In this article, we&amp;rsquo;ll look at how to capture TCP packets that pass through our Cisco device, particularly through a specific interface. Here&amp;rsquo;s how to proceed.&lt;/p>
+&lt;h2 id="creating-the-access-list">Creating the access list &lt;a href="#creating-the-access-list" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, create an &lt;strong>access list&lt;/strong> called &lt;strong>dumptcp&lt;/strong> to allow connections from a host to any of our interfaces. You can specify a particular one if you wish:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="40460a8" class="language-bash ">
+ &lt;code>access-list dumptcp permit ip host 192.168.0.104 any&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then we do the reverse so that the Cisco can respond:&lt;/p></description></item><item><title>Installation from Scratch of a Cisco Pix</title><link>https://wiki.deimos.fr/Installation_from_Scratch_d'un_Cisco_Pix/</link><pubDate>Wed, 23 May 2007 14:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_from_Scratch_d'un_Cisco_Pix/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The installation of a Cisco device is not very complicated, but if you&amp;rsquo;re not familiar with it, it&amp;rsquo;s not always obvious. That&amp;rsquo;s why I made this small guide, since it&amp;rsquo;s not something we do every day.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Connected via serial port? Let&amp;rsquo;s get started:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2e52088" class="language- ">
+ &lt;code>Pre-configure PIX Firewall now through interactive prompts [yes]?
+Enable password [&amp;lt;use current password&amp;gt;]: mot_de_passe
+Clock (UTC):
+ Year [2007]:
+ Month [May]:
+ Day [23]:
+ Time [02:57:33]: 12:01:00
+Inside IP address: 192.168.0.77
+Inside network mask: 255.255.255.0
+Host name: hk-pix-bak
+Domain name: mon_domaine
+IP address of host running PIX Device Manager: 192.168.0.104
+
+The following configuration will be used:
+Enable password: mot_de_passe
+Clock (UTC): 12:01:00 May 23 2007
+Inside IP address: 192.168.0.77
+Inside network mask: 255.255.255.0
+Host name: hk-pix-bak
+Domain name: mon_domaine
+IP address of host running PIX Device Manager: 192.168.0.104
+
+Use this configuration and write to flash? y&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To summarize:&lt;/p></description></item><item><title>Completely Reset a Cisco Configuration</title><link>https://wiki.deimos.fr/Resetter_completement_la_configuration_d'un_Cisco/</link><pubDate>Wed, 23 May 2007 13:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Resetter_completement_la_configuration_d'un_Cisco/</guid><description>&lt;h2 id="reset-a-cisco-pix-configuration">Reset a Cisco PIX Configuration &lt;a href="#reset-a-cisco-pix-configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To completely reset the configuration of a Cisco PIX, here is the solution:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e15dca9" class="language-bash ">
+ &lt;code>clear config all&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="90ccaf9" class="language-bash ">
+ &lt;code>write erase&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The installation can then restart:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8ed0900" class="language-bash ">
+ &lt;code> -----------------------------------------------------------------------
+ || ||
+ || ||
+ |||| ||||
+ ..:||||||:..:||||||:..
+ c i s c o S y s t e m s
+ Private Internet eXchange
+ -----------------------------------------------------------------------
+ Cisco PIX Firewall
+
+Cisco PIX Firewall Version 6.3(5)
+Licensed Features:
+Failover: Enabled
+VPN-DES: Enabled
+VPN-3DES-AES: Disabled
+Maximum Physical Interfaces: 6
+Maximum Interfaces: 10
+Cut-through Proxy: Enabled
+Guards: Enabled
+URL-filtering: Enabled
+Inside Hosts: Unlimited
+Throughput: Unlimited
+IKE peers: Unlimited
+
+This PIX has a Failover Only (FO) license.&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Basic Configuration of a Cisco PIX</title><link>https://wiki.deimos.fr/Configuration_de_base_d'un_Cisco_Pix/</link><pubDate>Wed, 08 Nov 2006 10:33:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configuration_de_base_d'un_Cisco_Pix/</guid><description>&lt;h2 id="cisco-basics">Cisco Basics &lt;a href="#cisco-basics" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In graphical mode it&amp;rsquo;s not too complicated, but in command line - oh boy - the PIX is challenging to configure!&lt;/p>
+&lt;p>It&amp;rsquo;s Cisco, so it uses proprietary commands but with a touch of Unix. For example, the grep command works :-)&lt;/p>
+&lt;p>Let&amp;rsquo;s get started. Connect and enter your password.&lt;/p>
+&lt;h3 id="the-basics">The Basics &lt;a href="#the-basics" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Switch to &lt;strong>enable&lt;/strong> mode to get admin privileges:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="56f931a" class="language-bash ">
+ &lt;code>en&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Then a &lt;strong>show running-config&lt;/strong> to see the current configuration:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d753f6b" class="language-bash ">
+ &lt;code>sh run&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Once you&amp;rsquo;ve viewed the configuration and decided to add something, do a &lt;strong>configure terminal&lt;/strong>:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c0a3020" class="language-bash ">
+ &lt;code>conf t&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>To exit the current mode:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ca2c0e6" class="language-bash ">
+ &lt;code>Ctrl&amp;#43;z or exit&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Are you sure? Then save to memory (&lt;strong>write memory&lt;/strong>):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4d50064" class="language-bash ">
+ &lt;code>wr m&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="adding-and-removing-commands">Adding and Removing Commands &lt;a href="#adding-and-removing-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>To add a NAT rule for example, copy the existing lines, then copy/paste:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9f2540f" class="language-bash ">
+ &lt;code>static (dmz,outside) tcp 193.252.19.3 2099 SRV-FRONT 2099 netmask 255.255.255.255 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>To delete this rule:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4172c6f" class="language-bash ">
+ &lt;code>no static (dmz,outside) tcp 193.252.19.3 2099 SRV-FRONT 2099 netmask 255.255.255.255 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="adding-an-admin-user">Adding an Admin User &lt;a href="#adding-an-admin-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To add a Cisco admin user:&lt;/p></description></item></channel></rss>

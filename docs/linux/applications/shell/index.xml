@@ -1,0 +1,1038 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shell on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/applications/shell/</link><description>Recent content in Shell on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/applications/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>Sed &amp; Awk: Some Examples of These Wonders</title><link>https://wiki.deimos.fr/Sed_%5C&amp;_Awk_:_Quelques_exemples_de_ces_merveilles/</link><pubDate>Wed, 01 Jan 2014 15:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sed_%5C&amp;_Awk_:_Quelques_exemples_de_ces_merveilles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sed &amp;amp; Awk, but what are they? These are two binaries for content filtering. For example, if you have a file and you want to output only specific lines, or even replace things in a file. Of course, what I&amp;rsquo;m telling you isn&amp;rsquo;t extraordinary, but combined with regex, it becomes very powerful.&lt;/p>
+&lt;h2 id="sed">Sed &lt;a href="#sed" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Display certain lines of a large file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="006d164" class="language-bash ">
+ &lt;code>sed -n &amp;#34;$LINE1,${LINE2}p;${LINEA2}q;&amp;#34; &amp;#34;$FILE&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Replace all occurrences of the word &amp;ldquo;stain&amp;rdquo; with the word &amp;ldquo;whiteness&amp;rdquo; in the file my_laundry, redirecting everything to the file my_clean_laundry:&lt;/p></description></item><item><title>Jobs: How to Use Jobs</title><link>https://wiki.deimos.fr/Jobs_:_Utilisation_des_jobs/</link><pubDate>Mon, 06 May 2013 20:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Jobs_:_Utilisation_des_jobs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Jobs allow you to have multiple tasks running in parallel. The advantage is that you don&amp;rsquo;t need to open multiple shells to launch multiple applications.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The &lt;code>jobs&lt;/code> command allows you to see exactly what is running in the background:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6f9c3e6" class="language-bash ">
+ &lt;code>jobs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="705429b" class="language- ">
+ &lt;code>[1] &amp;#43; running tail -f /var/log/syslog&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here we can see that there is a tail -f running.&lt;/p>
+&lt;p>If you want to launch a command so that it becomes a job (running in the background), start it like this:&lt;/p></description></item><item><title>Cpulimit: Limit CPU Usage</title><link>https://wiki.deimos.fr/Cpulimit:_limit_CPU_usage/</link><pubDate>Mon, 06 May 2013 13:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cpulimit:_limit_CPU_usage/</guid><description>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Software version&lt;/td>
+ &lt;td>1.7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://github.com/opsengine/cpulimit" rel="external" target="_blank">Cpulimit Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Cpulimit&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a tool which limits the CPU usage of a process (expressed in percentage, not in CPU time). It is useful to control batch jobs, when you don&amp;rsquo;t want them to eat too many CPU cycles. The goal is prevent a process from running for more than a specified time ratio. It does not change the nice value or other scheduling priority settings, but the real CPU usage. Also, it is able to adapt itself to the overall system load, dynamically and quickly.&lt;/p></description></item><item><title>Tmux: The Terminal Multiplexer Replacing Screen</title><link>https://wiki.deimos.fr/Tmux_:_le_multiplexeur_de_terminal_rempla%C3%A7ant_de_screen/</link><pubDate>Fri, 25 Jan 2013 07:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tmux_:_le_multiplexeur_de_terminal_rempla%C3%A7ant_de_screen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://tmux.sourceforge.net/" rel="external" target="_blank">Tmux&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> has many advantages over screen and serves as a terminal multiplexer. This functionality is extremely practical and even essential once you&amp;rsquo;ve started using it.&lt;/p></description></item><item><title>Screen: Most Used Commands</title><link>https://wiki.deimos.fr/Screen_:_Les_commandes_les_plus_utilis%C3%A9es/</link><pubDate>Wed, 11 May 2011 20:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Screen_:_Les_commandes_les_plus_utilis%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Screen is really great, but if you don&amp;rsquo;t use it every day, you can quickly lose track of the commands. Screen is used to keep a session open, possibly with an application running in it. When you exit the window and come back later, your application is still running and you can completely take control of it again.&lt;/p>
+&lt;p>I want to warn you, as I have seen many people do this, but screen is not equivalent to nohup!&lt;/p></description></item><item><title>Redirect a Service Output to a File</title><link>https://wiki.deimos.fr/Rediriger_l%5C%27output_d%5C%27un_service_vers_un_fichier/</link><pubDate>Sun, 01 May 2011 20:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rediriger_l%5C%27output_d%5C%27un_service_vers_un_fichier/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It can be useful to redirect a program&amp;rsquo;s output to a file. Here&amp;rsquo;s how to do it.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d483600" class="language-bash ">
+ &lt;code>yes &amp;#39;Y&amp;#39;|gdb -ex &amp;#39;p close(1)&amp;#39; -ex &amp;#39;p creat(&amp;#34;/tmp/output.txt&amp;#34;,0600)&amp;#39; -ex &amp;#39;q&amp;#39; -p pid&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This command uses the GDB debugger to attach to a running process and reassign the file handle to a file.&lt;/p>
+&lt;p>The two commands executed in GDB are:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="41e6814" class="language- ">
+ &lt;code>p close(1) which closes STDOUT&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>and&lt;/p></description></item><item><title>The find command or the power of search</title><link>https://wiki.deimos.fr/La_commande_find_ou_la_puissance_de_la_recherche/</link><pubDate>Wed, 09 Feb 2011 14:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/La_commande_find_ou_la_puissance_de_la_recherche/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The find command is one of the most effective advanced commands in system administration—it requires administrator privileges.&lt;/p>
+&lt;p>The find command is an extremely powerful tool with about fifty options, allowing searches defined according to very fine criteria: files, directories, symbolic links&amp;hellip; based on the name (case-sensitive or not), according to the owner, size, date, etc., in a single or multiple filesystem! It&amp;rsquo;s worth adding that its options are defined according to two categories: selection and execution. This gives you an idea of the full extent of this command&amp;rsquo;s power.&lt;/p></description></item><item><title>Execute Commands at Logout</title><link>https://wiki.deimos.fr/Ex%C3%A9cuter_des_commandes_au_logout/</link><pubDate>Fri, 11 Dec 2009 21:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ex%C3%A9cuter_des_commandes_au_logout/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It can sometimes be useful to run commands when logging out, such as disconnecting a VPN or similar tasks.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s an example that you can put in your &lt;code>.profile&lt;/code> file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c60a844" class="language-bash ">
+ &lt;code>trap cmd 0&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>ZSH: A Very Practical Shell</title><link>https://wiki.deimos.fr/ZSH_:_un_shell_tr%C3%A8s_pratique/</link><pubDate>Fri, 11 Dec 2009 21:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZSH_:_un_shell_tr%C3%A8s_pratique/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve been thinking about this for a while, but I was waiting to have a sufficiently nice ZSH configuration to publish it. After today&amp;rsquo;s mishap (running &lt;code>rm -Rf *&lt;/code> in the root directory), I decided to finish it quickly. So here&amp;rsquo;s my configuration which can still be optimized, but is already very good for everyday use :-).&lt;/p>
+&lt;p>It works on Linux, Mac, BSD, and Windows (Cygwin).&lt;/p>
+&lt;p>The content of the files below may not be completely up-to-date. If you want my latest ZSH configuration, here&amp;rsquo;s my git repository address: &lt;a href="https://www.deimos.fr/gitweb" rel="external" target="_blank">https://www.deimos.fr/gitweb&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item><item><title>Date: Advanced Usage of the Date Command</title><link>https://wiki.deimos.fr/Date_:_utilisation_avanc%C3%A9e_de_la_commande_date/</link><pubDate>Fri, 27 Nov 2009 20:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Date_:_utilisation_avanc%C3%A9e_de_la_commande_date/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The date command can be very useful for advanced date calculations.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Calculates the date 2 weeks ago from Saturday in the specified format:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="15727c4" class="language-bash ">
+ &lt;code>date -d &amp;#39;2 weeks ago Saturday&amp;#39; &amp;#43;%Y-%m-%d&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Unix alias for date command that lets you create timestamps in ISO 8601 format:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3543250" class="language-bash ">
+ &lt;code>alias timestamp=&amp;#39;date &amp;#34;&amp;#43;%Y%m%dT%H%M%S&amp;#34;&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Finding Broken Symbolic Links</title><link>https://wiki.deimos.fr/Trouver_des_liens_symboliques_cass%C3%A9s/</link><pubDate>Sun, 20 Sep 2009 16:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trouver_des_liens_symboliques_cass%C3%A9s/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>After a few years on heavily used servers, especially those with many users, you may end up with broken symbolic links. Here&amp;rsquo;s a solution to find them all at once.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To search for all broken links:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="48e800a" class="language-bash ">
+ &lt;code>find . -type l ! -exec test -e {} \; -print&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And to delete them in the same operation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5b64381" class="language-bash ">
+ &lt;code>find . -type l ! -exec test -e {} \; -print0 | xargs -0 rm&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Removing Superfluous Elements in Text Files</title><link>https://wiki.deimos.fr/Suppression_des_%C3%A9l%C3%A9ments_superflus_dans_un_fichier_texte/</link><pubDate>Sun, 20 Sep 2009 15:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Suppression_des_%C3%A9l%C3%A9ments_superflus_dans_un_fichier_texte/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The title of this documentation is admittedly ambiguous, but it&amp;rsquo;s difficult to be more specific. When you&amp;rsquo;re developing or writing text, unwanted characters may appear in your files, such as tabulations on empty lines, &amp;ldquo;^M&amp;rdquo; characters at the end of each line, or similar artifacts depending on the editor you&amp;rsquo;ve chosen.&lt;/p>
+&lt;p>Here&amp;rsquo;s how to save precious bytes :-p and most importantly, make your documents &amp;ldquo;clean&amp;rdquo;.&lt;/p>
+&lt;h2 id="removing-m-characters-at-the-end-of-lines">Removing ^M Characters at the End of Lines &lt;a href="#removing-m-characters-at-the-end-of-lines" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Have you used Windows Wordpad? Too bad, why not use a real OS? :-p Use this command on your file to clean it:&lt;/p></description></item><item><title>Batch Renaming Elements</title><link>https://wiki.deimos.fr/Renommer_en_masse_des_%C3%A9l%C3%A9ments/</link><pubDate>Sun, 20 Sep 2009 15:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Renommer_en_masse_des_%C3%A9l%C3%A9ments/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are some quick tips (albeit a bit crude) to make bulk modifications to elements.&lt;/p>
+&lt;h2 id="rename-all-uppercase-elements-to-lowercase">Rename All Uppercase Elements to Lowercase &lt;a href="#rename-all-uppercase-elements-to-lowercase" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="87b686d" class="language-bash ">
+ &lt;code>find . -type f&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="make-elements-sequential">Make Elements Sequential &lt;a href="#make-elements-sequential" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2a3098f" class="language-bash ">
+ &lt;code>for i in `seq -f %03g 5 50 111`; do echo $i ; done&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The seq command will give:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef64000" class="language- ">
+ &lt;code>foo01
+foo04
+foo07
+foo10&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Most Used Commands List</title><link>https://wiki.deimos.fr/Liste_des_commandes_les_plus_utilis%C3%A9es/</link><pubDate>Sat, 19 Sep 2009 21:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Liste_des_commandes_les_plus_utilis%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>While GUIs are nice on Linux systems, they are completely unnecessary on servers and only waste resources. This is why I&amp;rsquo;m providing a list of the most used commands as well as some practical usage tips.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="recalling-the-last-argument-from-the-previous-command">Recalling the Last Argument from the Previous Command &lt;a href="#recalling-the-last-argument-from-the-previous-command" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s a useful tip that lets you recall the last argument from the previously executed command. For example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5b4cf1c" class="language-bash ">
+ &lt;code>$ cd /root
+$ ls !$
+test1 test2&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="most-used-commands">Most Used Commands &lt;a href="#most-used-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/linux_commands_line.pdf">Linux commands line documentation&lt;/a>&lt;/p></description></item><item><title>Chat with Users on the Same Machine via Terminal</title><link>https://wiki.deimos.fr/Chatter_avec_les_personnes_connect%C3%A9_sur_une_m%C3%AAme_machine_via_terminal/</link><pubDate>Sat, 08 Aug 2009 09:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Chatter_avec_les_personnes_connect%C3%A9_sur_une_m%C3%AAme_machine_via_terminal/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve been looking several times for a way to chat with other people connected to the same machine as me. And since I&amp;rsquo;m tired of searching every time how to do it, I&amp;rsquo;m noting the solutions I found here.&lt;/p>
+&lt;h2 id="solutions">Solutions &lt;a href="#solutions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="chat-with-a-single-user">Chat with a single user &lt;a href="#chat-with-a-single-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Use the write command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7e38cb3" class="language-bash ">
+ &lt;code>write user_you_want_to_talk_to&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then type your message and press Enter to validate.&lt;/p>
+&lt;h3 id="chat-with-all-connected-users">Chat with all connected users &lt;a href="#chat-with-all-connected-users" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Use the wall command:&lt;/p></description></item><item><title>Find all dependencies related to a package</title><link>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</link><pubDate>Wed, 24 Sep 2008 15:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes it&amp;rsquo;s very practical to find all dependencies of a package. Here&amp;rsquo;s a useful command for this purpose.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e871358" class="language-bash ">
+ &lt;code>apt-get install apt-rdepends&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example search:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e3a52f4" class="language-bash ">
+ &lt;code>$ apt-rdepends libapache2-mod-php5
+Reading package lists... Done
+Building dependency tree... Done
+libapache2-mod-php5
+ Depends: apache2-mpm-itk
+ Depends: apache2-mpm-prefork (&amp;gt;&amp;gt; 2.0.52)
+ Depends: apache2.2-common
+ Depends: libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libdb4.4
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libmagic1
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libxml2 (&amp;gt;= 2.6.27)
+ Depends: mime-support (&amp;gt;= 2.03-1)
+ Depends: php5-common (= 5.2.0-8&amp;#43;etch1)
+ Depends: ucf
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+apache2-mpm-itk
+ Depends: apache2.2-common (= 2.2.3-4&amp;#43;etch5)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcap1
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+apache2.2-common
+ Depends: apache2-utils
+ Depends: libmagic1
+ Depends: lsb-base
+ Depends: mime-support
+ Depends: net-tools
+ Depends: procps
+apache2-utils
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libuuid1
+libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libuuid1
+libc6
+ Depends: tzdata
+tzdata
+libuuid1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libaprutil1
+ Depends: libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.7)
+ Depends: libuuid1
+libdb4.4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libexpat1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libldap2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgnutls13 (&amp;gt;= 1.4.0-0)
+ Depends: libsasl2-2
+libgnutls13
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: liblzo1
+ Depends: libopencdk8 (&amp;gt;= 0.5.8)
+ Depends: libtasn1-3 (&amp;gt;= 0.3.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+libgcrypt11
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgpg-error0 (&amp;gt;= 1.2)
+libgpg-error0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+liblzo1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libopencdk8
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+zlib1g
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libtasn1-3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libsasl2-2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.2
+libdb4.2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpq4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+libcomerr2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libkrb53
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+libssl0.9.8
+ Depends: debconf (&amp;gt;= 0.5)
+ Depends: debconf-2.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+debconf
+ Depends: debconf-english
+ Depends: debconf-i18n
+ PreDepends: perl-base (&amp;gt;= 5.6.1-4)
+debconf-english
+ Depends: debconf
+debconf-i18n
+ Depends: debconf
+ Depends: liblocale-gettext-perl
+ Depends: libtext-charwidth-perl
+ Depends: libtext-iconv-perl
+ Depends: libtext-wrapi18n-perl
+liblocale-gettext-perl
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+ PreDepends: perl-base (&amp;gt;= 5.8.7-3)
+ PreDepends: perlapi-5.8.7
+perl-base
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+perlapi-5.8.7
+libtext-charwidth-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+perlapi-5.8.8
+libtext-iconv-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+libtext-wrapi18n-perl
+ Depends: libtext-charwidth-perl
+debconf-2.0
+libsqlite3-0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpcre3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libmagic1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+lsb-base
+ Depends: ncurses-bin
+ Depends: sed
+ncurses-bin
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libncurses5 (&amp;gt;= 5.4-5)
+libncurses5
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+sed
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+mime-support
+net-tools
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+procps
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libncurses5 (&amp;gt;= 5.4-5)
+ Depends: lsb-base (&amp;gt;= 3.0-10)
+libcap1
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-4)
+apache2-mpm-prefork
+ Depends: apache2.2-common (= 2.2.3-4)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libxml2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+php5-common
+ Depends: sed (&amp;gt;= 4.1.1-1)
+ucf
+ Depends: coreutils (&amp;gt;= 5.91)
+ Depends: debconf (&amp;gt;= 1.2.0)
+ Depends: debconf-2.0
+coreutils
+ PreDepends: libacl1 (&amp;gt;= 2.2.11-1)
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libselinux1 (&amp;gt;= 1.32)
+libacl1
+ Depends: libattr1 (&amp;gt;= 2.4.4-1)
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libattr1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libselinux1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libsepol1 (&amp;gt;= 1.14)
+libsepol1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Locate Large Files and Directories</title><link>https://wiki.deimos.fr/find-and-du-locate-large-files-and-directories/</link><pubDate>Sun, 31 Aug 2008 10:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/find-and-du-locate-large-files-and-directories/</guid><description>&lt;h2 id="finding-large-directories">Finding Large Directories &lt;a href="#finding-large-directories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To find large directories, use the du command and sort the output.&lt;/p>
+&lt;p>For example, to output the 10 largest directories in /var, sorted in ascending size order, use the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="da73965" class="language-bash ">
+ &lt;code>du -ko /var&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To avoid crossing file system boundaries, that is, to see the directory usage in / but not in the other mounted files systems (/var, /opt, and so on), add the d option to the du command:&lt;/p></description></item><item><title>Pstree: List Processes as a Tree</title><link>https://wiki.deimos.fr/Pstree_:_lister_ses_process_sous_forme_d'arbre/</link><pubDate>Sun, 31 Aug 2008 08:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pstree_:_lister_ses_process_sous_forme_d'arbre/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;re using a system which has a lot of users, and you&amp;rsquo;d like to see who has started a particular script, daemon, or binary, then the pstree utility is very helpful. It draws a tree of all currently running processes - allowing you to see which processes are related.&lt;/p>
+&lt;p>In much the same way as the tree command isn&amp;rsquo;t likely to be generally useful, this command might seem a little pointless if you&amp;rsquo;re on a single-user machine, and you essentially start everything yourself. But even so it can be helpful to see where processes have come from.&lt;/p></description></item><item><title>How to Kill a Crashed Application or Handle a Frozen Screen</title><link>https://wiki.deimos.fr/Comment_tuer_une_application_qui_a_plant%C3%A9,_ou_comment_faire_face_%C3%A0_un_%C3%A9cran_%C2%AB_fig%C3%A9_%C2%BB_%5C?/</link><pubDate>Wed, 25 Jun 2008 20:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Comment_tuer_une_application_qui_a_plant%C3%A9,_ou_comment_faire_face_%C3%A0_un_%C3%A9cran_%C2%AB_fig%C3%A9_%C2%BB_%5C?/</guid><description>&lt;p>You might have been told that &amp;ldquo;Linux is great because it never crashes!&amp;rdquo; Well, here you are, helplessly staring at your frozen screen for the past 5 minutes, with an unresponsive keyboard and a mouse you&amp;rsquo;re shaking in all directions&amp;hellip; Don&amp;rsquo;t panic: there&amp;rsquo;s a way to solve the problem, and in a much less brutal way than using the Power or Reset buttons on your computer!&lt;/p>
+&lt;p>Several scenarios may occur:&lt;/p></description></item><item><title>Unix Toolbox: All Useful Commands</title><link>https://wiki.deimos.fr/Unix_Toolbox_:_Toutes_les_commandes_utiles/</link><pubDate>Sun, 20 Apr 2008 14:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Unix_Toolbox_:_Toutes_les_commandes_utiles/</guid><description>&lt;p>I wasn&amp;rsquo;t sure where to put this little gold mine, so here it is: &lt;a href="https://wiki.deimos.fr/pdf/unixtoolbox.pdf">Unix Toolbox PDF&lt;/a>. And here is the updated documentation:&lt;/p>
+&lt;p>&lt;a href="https://cb.vu/unixtoolbox.xhtml" rel="external" target="_blank">https://cb.vu/unixtoolbox.xhtml&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item><item><title>Differences between du and df</title><link>https://wiki.deimos.fr/Diff%C3%A9rences_entre_du_et_df/</link><pubDate>Wed, 19 Mar 2008 14:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Diff%C3%A9rences_entre_du_et_df/</guid><description>&lt;h2 id="issue">Issue &lt;a href="#issue" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You will certainly ask yourself one day: &amp;ldquo;What is the difference between the du command and the df command?&amp;rdquo;&lt;/p>
+&lt;p>According to the man page for du:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="141fc58" class="language-bash ">
+ &lt;code>du - estimate file space usage&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And df displays exactly the space taken on your hard drive. I encountered a case where on a 30 GB partition, I had this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ec30a63" class="language-bash ">
+ &lt;code>du -sh | grep /home : 13 G used
+df -h /home : 26 G used&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The df command is not wrong.&lt;/p></description></item><item><title>Command-line Burning</title><link>https://wiki.deimos.fr/Graver_en_ligne_de_commandes/</link><pubDate>Mon, 18 Feb 2008 07:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Graver_en_ligne_de_commandes/</guid><description>&lt;p>Here is documentation explaining how to burn CDs and DVDs using the command line. This is useful for automating backups, for example:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/gravure_de_cd_dvd_et_commandes_en_ligne.pdf">Documentation on CD/DVD burning and command line tools&lt;/a>&lt;/p></description></item><item><title>MOTD: Modifying the Console Opening Message</title><link>https://wiki.deimos.fr/Motd_:_Modification_du_message_d'ouverture_de_console/</link><pubDate>Fri, 24 Aug 2007 21:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Motd_:_Modification_du_message_d'ouverture_de_console/</guid><description>&lt;p>Don&amp;rsquo;t like your console opening message? I&amp;rsquo;ll show you how to change it. The file is located at:&lt;/p>
+&lt;p>&lt;code>/etc/motd&lt;/code>&lt;/p>
+&lt;p>There are plenty of small utilities that can create drawings and other interesting displays:&lt;/p>
+&lt;h2 id="cowsay">Cowsay &lt;a href="#cowsay" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Allows you to put text in a small drawing (by default a cow, but other drawings are available):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="555a43a" class="language-bash ">
+ &lt;code>sudo apt-get install cowsay&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="40a31fc" class="language-bash ">
+ &lt;code>echo Serveur Toto|cowsay -f eyes
+ls /usr/share/cowsay/cows&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="boxes">Boxes &lt;a href="#boxes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Allows you to place text in small drawings (mainly for adding comments in code lines):&lt;/p></description></item><item><title>Xterm: Customizing the Display</title><link>https://wiki.deimos.fr/Xterm_:_personnaliser_l'affichage/</link><pubDate>Sun, 27 May 2007 12:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xterm_:_personnaliser_l'affichage/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When using any shell with a highly customized interface, launching an Xterm terminal can sometimes result in ugly and unreadable colors.&lt;/p>
+&lt;p>I&amp;rsquo;d like to share my simple configuration file that I use daily.&lt;/p>
+&lt;h2 id="xdefaults">Xdefaults &lt;a href="#xdefaults" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply create a &lt;code>~/.Xdefaults&lt;/code> file and insert the following content:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5ce517f" class="language-bash ">
+ &lt;code>! Deimos Xterm file
+! Put the content in ~/.Xdefaults
+*xterm*background: black
+*xterm*foreground: white
+*loginShell: true
+ 
+! Use color for underline attribute
+*VT100*colorULMode: on
+*VT100*underLine: off
+ 
+! Use color for the bold attribute
+*VT100*colorBDMode: on
+ 
+! Love scrollback
+*VT100*saveLines: 5000
+*VT100*scrollBar: true&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now launch a graphical Xterm and the magic will happen :-)&lt;/p></description></item><item><title>Fifo and Cat: Share a Session with Multiple Users</title><link>https://wiki.deimos.fr/fifo-and-cat-share-session-with-multiple-users/</link><pubDate>Sun, 18 Mar 2007 09:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/fifo-and-cat-share-session-with-multiple-users/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This technique can be used to show a remote colleague or client what you&amp;rsquo;re working on on the server.&lt;/p>
+&lt;p>It&amp;rsquo;s just for visual sharing and not interactive like with screen (&lt;a href="https://wiki.deimos.fr/Screen_:_Les_commandes_les_plus_utilis%C3%A9es/">see this documentation&lt;/a>).&lt;/p>
+&lt;h2 id="creating-a-fifo-file">Creating a fifo file &lt;a href="#creating-a-fifo-file" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de88de" class="language-bash ">
+ &lt;code>mkfifo /tmp/sortieScript
+ls -l /tmp/sortieScript
+prw-r--r-- 1 yannick yannick 0 Jul 6 02:59 /tmp/sortieScript&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5459b0f" class="language- ">
+ &lt;code>mkfifo - Create named pipes (FIFOs) with the given NAMEs.
+A FIFO special file (a named pipe) is similar to a pipe, except that it is accessed as part of the file system.
+[...] the FIFO special file has no contents on the file system&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="reading-the-file-by-the-remote-user">Reading the file by the remote user &lt;a href="#reading-the-file-by-the-remote-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="77c0fd2" class="language-bash ">
+ &lt;code>cat /tmp/sortieScript&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Warning: as long as the file is not &amp;ldquo;catted&amp;rdquo;, it cannot be used by the following command&amp;hellip;&lt;/p></description></item><item><title>Kill and lsof: Killing the process listening on a specific port</title><link>https://wiki.deimos.fr/Kill_et_lsof_:_Tuer_le_processus_%C3%A9coutant_sur_le_port_voulu/</link><pubDate>Thu, 08 Mar 2007 08:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kill_et_lsof_:_Tuer_le_processus_%C3%A9coutant_sur_le_port_voulu/</guid><description>&lt;p>You have certainly already looked for ways to kill a process that&amp;rsquo;s listening on a specific port. Here&amp;rsquo;s an example for port 1390:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f084321" class="language-bash ">
+ &lt;code>kill $( lsof -i:1390 -t )&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Ivconv: Text Transcoding to Any Character Set</title><link>https://wiki.deimos.fr/Ivconv_:_Transcodage_de_texte_vers_n%27importe_quel_jeu_de_caract%C3%A8res/</link><pubDate>Thu, 08 Mar 2007 08:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ivconv_:_Transcodage_de_texte_vers_n%27importe_quel_jeu_de_caract%C3%A8res/</guid><description>&lt;p>Debian provides the iconv command that allows you to transcode text to and from any character set. Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6d0823d" class="language-bash ">
+ &lt;code>$ iconv -f utf8 -t iso8859-15 fichier_utf8.txt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This command will transcode from UTF-8 to ISO-8859-15. It&amp;rsquo;s very useful if you&amp;rsquo;ve developed a web page in UTF-8 and realized it too late.&lt;/p></description></item><item><title>Environment Variables</title><link>https://wiki.deimos.fr/Env_:_variables_d'environnements/</link><pubDate>Wed, 21 Feb 2007 15:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Env_:_variables_d'environnements/</guid><description>&lt;p>For environment variables, when you don&amp;rsquo;t use them often, it&amp;rsquo;s not always easy to remember the commands.&lt;/p>
+&lt;p>To display your PATH:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="19b224f" class="language-bash ">
+ &lt;code>echo $PATH&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To display all environment variables:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8c82b34" class="language-bash ">
+ &lt;code>env&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To add something to your PATH:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="61fa5de" class="language-bash ">
+ &lt;code>PATH=$PATH:/path/to/add&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To add a new environment variable:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="88216bf" class="language-bash ">
+ &lt;code>MYVAR=/toto
+export $MYVAR&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Check with the &lt;code>env&lt;/code> command and it works! :-)&lt;/p></description></item><item><title>Console Colorization</title><link>https://wiki.deimos.fr/Colorisations_dans_les_consoles/</link><pubDate>Tue, 03 Oct 2006 14:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Colorisations_dans_les_consoles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here we&amp;rsquo;ll see how to colorize certain elements in console terminals.&lt;/p>
+&lt;h2 id="man-pages">Man Pages &lt;a href="#man-pages" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To make the output of the man command more readable by adding color, you can do the following which involves using the most command instead of less for man pages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="07f500c" class="language-bash ">
+ &lt;code>sudo apt-get install most
+export PAGER=`which most`&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>(use the Alt Gr+7 characters to execute the command)&lt;/p>
+&lt;p>To permanently set the PAGER value:&lt;/p></description></item><item><title>Sipcalc: Subnet Calculator</title><link>https://wiki.deimos.fr/Sipcalc_:_Calculateur_de_sous_r%C3%A9seaux/</link><pubDate>Tue, 03 Oct 2006 13:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sipcalc_:_Calculateur_de_sous_r%C3%A9seaux/</guid><description>&lt;p>Subnets&amp;hellip; those famous subnets. When you don&amp;rsquo;t calculate them every day, it&amp;rsquo;s difficult to remember how to do it in 30 seconds. Here&amp;rsquo;s the solution:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="50b132b" class="language-bash ">
+ &lt;code>sudo apt-get install sipcalc&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Shell: Batch Renaming with Counter</title><link>https://wiki.deimos.fr/Shell_:_renommer_en_masse_avec_compteur/</link><pubDate>Sat, 05 Aug 2006 13:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Shell_:_renommer_en_masse_avec_compteur/</guid><description>&lt;p>Here&amp;rsquo;s a script that allows you to rename JPG files while adding a counter:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9cca115" class="language-bash ">
+ &lt;code>export j=0 # export is only useful if you&amp;#39;re working in interactive mode (not in a script)
+for i in *.JPG ; do
+ mv $i `echo $i | sed s/^/$j\ -\ /`
+ j=$((j&amp;#43;1))
+done&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here&amp;rsquo;s a faster method for renaming files:&lt;/p>
+&lt;p>Instead of typing:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8c01c00" class="language-bash ">
+ &lt;code>mv my_file.txt my_file.that_i_want_to_backup&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You can simply do:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5b90872" class="language-bash ">
+ &lt;code>mv my_file.{txt,that_i_want_to_backup}&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

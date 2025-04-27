@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Quorum on Tech Notebook</title><link>https://wiki.deimos.fr/tags/quorum/</link><description>Recent content in Quorum on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/quorum/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up a quorum server</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_quorum_server/</link><pubDate>Mon, 26 Jul 2010 12:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_quorum_server/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>THIS IS NEEDED ONLY FOR A 2 NODES CLUSTER WITHOUT A DISKS ARRAY!&lt;/strong>&lt;/p>
+&lt;p>You generally need it when you have 2 servers without a SAN, so you need a third machine with this service installed and launched for your quorum.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Normally the Quorum Server software is installed with the Sun Cluster Software.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Just configure the file &lt;code>/etc/scqsd/scqsd.conf&lt;/code> with this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f006c1a" class="language-bash ">
+ &lt;code>/usr/cluster/lib/sc/scqsd -d /var/scqsd -i quorum_name -p 9001&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>quorum_name: is the instance name of the quorum server&lt;/li>
+&lt;li>9001: is the default listening port of quorum server&lt;/li>
+&lt;/ul>
+&lt;p>After that, just launch the quorum server instance:&lt;/p></description></item></channel></rss>

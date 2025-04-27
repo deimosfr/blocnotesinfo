@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>X11 on Tech Notebook</title><link>https://wiki.deimos.fr/tags/x11/</link><description>Recent content in X11 on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/x11/index.xml" rel="self" type="application/rss+xml"/><item><title>Restart X</title><link>https://wiki.deimos.fr/redemarrer_x/</link><pubDate>Wed, 15 Apr 2009 21:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/redemarrer_x/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To restart X, there aren&amp;rsquo;t 36 solutions, but there is one in particular that I really like.&lt;/p>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s a keyboard shortcut:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fda81d2" class="language- ">
+ &lt;code>Ctrl &amp;#43; Alt &amp;#43; Backspace&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This avoids having to type, for example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c478ebf" class="language-bash ">
+ &lt;code>/etc/init.d/gdm restart&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>That&amp;rsquo;s it, X restarts :-). &lt;strong>Warning, this should only be done while in X, otherwise the PC will reboot :-(&lt;/strong>.&lt;/p>
+&lt;h3 id="problem-starting-from-ubuntu-904">Problem starting from Ubuntu 9.04 &lt;a href="#problem-starting-from-ubuntu-904" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s what you can read:&lt;/p></description></item><item><title>OpenSSH: Graphical Window Forwarding</title><link>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</link><pubDate>Mon, 12 Jan 2009 09:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is capable of exporting X windows from another machine (creating an SSH tunnel). For example, you can connect to a server that has X and you only have SSH access to the remote machine.&lt;/p>
+&lt;p>In your SSH configuration file (&lt;code>/etc/ssh/sshd_config&lt;/code>), set this to yes:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f29d961" class="language-bash ">
+ &lt;code>X11Forwarding yes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="launching-the-session">Launching the Session &lt;a href="#launching-the-session" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s an example session. Here we&amp;rsquo;ll export VNC which is running on the direct machine:&lt;/p></description></item><item><title>Export a Display or Forward an X11 Connection</title><link>https://wiki.deimos.fr/Exporter_un_display_ou_forwarder_une_connexion_X11/</link><pubDate>Sun, 31 Aug 2008 12:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Exporter_un_display_ou_forwarder_une_connexion_X11/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Such complicated names for something quite simple (though very practical).&lt;/p>
+&lt;ul>
+&lt;li>Exporting a display allows one user to transfer GUI applications to another user&lt;/li>
+&lt;li>Forwarding an X11 connection allows transferring GUI applications from one user to another&lt;/li>
+&lt;/ul>
+&lt;p>In short, you might think they&amp;rsquo;re the same thing! But not exactly.&lt;/p>
+&lt;h2 id="exporting-the-display">Exporting the Display &lt;a href="#exporting-the-display" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s say I&amp;rsquo;m connected as the user &amp;ldquo;deimos&amp;rdquo; and I launch a shell with the user &amp;ldquo;hostin&amp;rdquo;. I want to access the GUI of hostin. First, I authorize my deimos user to accept connections from any user:&lt;/p></description></item><item><title>Enabling and Disabling Screen Savers from Command Line</title><link>https://wiki.deimos.fr/Activer_Desactiver_ecran_veille_ligne_commande/</link><pubDate>Thu, 31 Jul 2008 10:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_Desactiver_ecran_veille_ligne_commande/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For my job, we got nice 42-inch LCD screens for monitoring. However, these are Toshiba models that don&amp;rsquo;t even include a timer for turning the displays on and off. Instead of manually turning them on and off every morning, I preferred to use screen saver activation and deactivation features to manage them automatically.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s a test that should turn off your screen, wait, and then turn it back on:&lt;/p></description></item></channel></rss>

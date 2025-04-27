@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Misc on Tech Notebook</title><link>https://wiki.deimos.fr/docs/solaris/misc/</link><description>Recent content in Misc on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/solaris/misc/index.xml" rel="self" type="application/rss+xml"/><item><title>Finding a Process Running on a Specific Port on Solaris</title><link>https://wiki.deimos.fr/Trouver_le_process_qui_tourne_sur_un_certain_port_sur_Solaris/</link><pubDate>Thu, 05 Aug 2010 13:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trouver_le_process_qui_tourne_sur_un_certain_port_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since &lt;code>netstat -auntpl&lt;/code> doesn&amp;rsquo;t exist on Solaris, I had to do some research to find out how to determine which process is listening on a specific port.&lt;/p>
+&lt;h2 id="solutions-1">Solutions 1 &lt;a href="#solutions-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ll need to create a small script:&lt;/p>
+&lt;p>(&lt;code>get_process_from_port.sh&lt;/code>)&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4fa8d23" class="language-bash ">
+ &lt;code>#!/bin/ksh
+
+line=&amp;#39;---------------------------------------------&amp;#39;
+pids=$(/usr/bin/ps -ef | sed 1d | awk &amp;#39;{print $2}&amp;#39;)
+
+if [ $# -eq 0 ]; then
+ read ans?&amp;#34;Enter port you would like to know pid for: &amp;#34;
+else
+ ans=$1
+fi
+
+for f in $pids
+do
+ /usr/proc/bin/pfiles $f 2&amp;gt;/dev/null | /usr/xpg4/bin/grep -q &amp;#34;port: $ans&amp;#34;
+ if [ $? -eq 0 ]; then
+ echo $line
+ echo &amp;#34;Port: $ans is being used by PID:\c&amp;#34;
+ /usr/bin/ps -ef -o pid -o args | egrep -v &amp;#34;grep|pfiles&amp;#34; | grep $f
+ fi
+done
+exit 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Run the script and enter the port number when prompted.&lt;/p></description></item><item><title>Managing Solaris Processes</title><link>https://wiki.deimos.fr/Manager_les_processes_Solaris/</link><pubDate>Mon, 12 Apr 2010 09:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/Manager_les_processes_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A process is any program that is running on the system. All processes are assigned a unique process identification (PID) number, which is used by the kernel to track and manage the process. The PID numbers are used by the root and regular users to identify and control their processes.&lt;/p>
+&lt;h2 id="prstat">prstat &lt;a href="#prstat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The prstat command examines and displays information about active processes on the system.&lt;/p>
+&lt;p>This command enables you to view information by specific processes, user identification (UID) numbers, central processing unit (CPU) IDs, or processor sets. By default, the prstat command displays information about all processes sorted by CPU usage. To use the prstat command, perform the command:&lt;/p></description></item><item><title>Changing Solaris Locales</title><link>https://wiki.deimos.fr/Changer_les_locales_de_Solaris/</link><pubDate>Mon, 08 Feb 2010 16:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Changer_les_locales_de_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may encounter messages like &amp;ldquo;couldn&amp;rsquo;t set locale correctly&amp;rdquo; which can quickly become annoying to see in the display.&lt;/p>
+&lt;h2 id="problem-explanation">Problem Explanation &lt;a href="#problem-explanation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This occurs because the locales installed on the machine do not match those in your shell&amp;rsquo;s environment variables.&lt;/p>
+&lt;p>To see what you have in your shell:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3776f44" class="language-bash ">
+ &lt;code>&amp;gt; env &lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And to see what&amp;rsquo;s available on the system, it&amp;rsquo;s just as simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1b0ecce" class="language-bash ">
+ &lt;code>&amp;gt; ls /usr/lib/locale
+C&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For my part, I live in France, so I need the locales for my country. I&amp;rsquo;m going to install the Western European locales. For this, you&amp;rsquo;ll need the Solaris DVD in the drive:&lt;/p></description></item><item><title>Monitoring Superuser Access</title><link>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</link><pubDate>Wed, 04 Feb 2009 18:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When the operating system is installed, a superuser is created, with an UID of 0. The usage of the su command is recorded in &lt;code>/var/adm/sulog&lt;/code>.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To record in the first place you need to do the following.
+In the file &lt;code>/etc/default/su&lt;/code>, uncomment the entry:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="11f017f" class="language-bash ">
+ &lt;code>SULOG=/var/adm/sulog.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Save it.&lt;/p>
+&lt;p>The entries look like this (&lt;code>/var/adm/sulog&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="48efe0e" class="language-bash ">
+ &lt;code>MO 02/18 14:21 &amp;#43; pts/0 nrocha-root
+TU 02/19 14:45 - pts/0 root-nrocha
+WE 02/20 19:47 &amp;#43; pts/0 amaria-nrocha&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>The first three columns show the time the event occurred.&lt;/li>
+&lt;li>The fourth column shows a - for failed access and a + for successful access.&lt;/li>
+&lt;li>The fifth column shows which port the access was made from.&lt;/li>
+&lt;li>The last column shows the name of the user who tried to switch users and the switched user.&lt;/li>
+&lt;/ul>
+&lt;p>Note: This procedure was tested on the Solaris 10 OS.&lt;/p></description></item><item><title>Changing Hostname on Solaris</title><link>https://wiki.deimos.fr/Changer_le_hostname_de_sa_solaris/</link><pubDate>Fri, 05 Dec 2008 14:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Changer_le_hostname_de_sa_solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>While there are things about Solaris that can be frustrating, this is one aspect where it&amp;rsquo;s impressive! You don&amp;rsquo;t need to restart your machine to change the hostname - it updates live. I have to admit that&amp;rsquo;s pretty cool.&lt;/p>
+&lt;h2 id="temporary-method">Temporary Method &lt;a href="#temporary-method" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the temporary method (which will be lost after reboot):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7fd31ba" class="language-bash ">
+ &lt;code>hostname machine_name&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And to verify:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="817dad2" class="language-bash ">
+ &lt;code>hostname&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="manual-method">Manual Method &lt;a href="#manual-method" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The method provided here doesn&amp;rsquo;t use any utilities.&lt;/p></description></item><item><title>Removing User Limitations</title><link>https://wiki.deimos.fr/Enlever_les_limitation_utilisateurs/</link><pubDate>Tue, 21 Oct 2008 17:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Enlever_les_limitation_utilisateurs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At work, I experienced an issue with JVM memory where Xmx and Xms were set to 4.5GB, and part of the memory was going to swap until a Full GC triggered, at which point the reserved memory (RSS) that had gone to swap returned to RAM.&lt;/p>
+&lt;p>The warning messages I received were:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2974d4e" class="language- ">
+ &lt;code>pages faults&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>I searched quite a bit before finding a solution.&lt;/p>
+&lt;h2 id="removing-user-limitations">Removing User Limitations &lt;a href="#removing-user-limitations" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, for the JVM, you need to add an option at launch:&lt;/p></description></item><item><title>How to Determine Your System Architecture</title><link>https://wiki.deimos.fr/Connaitre_son_architecture/</link><pubDate>Wed, 08 Aug 2007 12:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_son_architecture/</guid><description>&lt;p>Here&amp;rsquo;s a simple but very useful trick. The &lt;code>isainfo&lt;/code> command allows you to determine the architecture of a machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="190584a" class="language-bash ">
+ &lt;code>$ isainfo -v
+64-bit amd64 applications
+ pause sse2 sse fxsr amd_3dnowx amd_3dnow amd_mmx mmx cmov amd_sysc cx8 
+ tsc fpu 
+32-bit i386 applications
+ pause sse2 sse fxsr amd_3dnowx amd_3dnow amd_mmx mmx cmov amd_sysc cx8 
+ tsc fpu&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>I can see here that my system is 64-bit and also has compatibility for 32-bit applications.&lt;/p></description></item><item><title>Some information about the machine</title><link>https://wiki.deimos.fr/Quelques_infos_sur_la_b%C3%A9cane/</link><pubDate>Fri, 16 Mar 2007 14:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Quelques_infos_sur_la_b%C3%A9cane/</guid><description>&lt;p>To know the available CPUs on the machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="45f71f8" class="language-bash ">
+ &lt;code>psrinfo -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To have all the information about the machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="78f29a8" class="language-bash ">
+ &lt;code>sysdef&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Get Unix Format Time on Solaris</title><link>https://wiki.deimos.fr/Obtenir_l'heure_au_format_Unix_sous_Solaris/</link><pubDate>Tue, 06 Mar 2007 16:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Obtenir_l'heure_au_format_Unix_sous_Solaris/</guid><description>&lt;h2 id="getting-unix-format-time-on-solaris">Getting Unix Format Time on Solaris &lt;a href="#getting-unix-format-time-on-solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a little script to obtain Unix format on Solaris (Epoch Time):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="eabf39e" class="language-bash ">
+ &lt;code>#!/bin/sh
+/usr/bin/truss /usr/bin/date 2&amp;gt;&amp;amp;1 | nawk -F= &amp;#39;/^time\(\)/ {gsub(/ /,&amp;#34;&amp;#34;,$2);print $2}&amp;#39;
+exit $?&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And finally, let&amp;rsquo;s see it in action:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f8e6970" class="language-bash ">
+ &lt;code># ./edate
+1149276150&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Monitor Your Solaris Users</title><link>https://wiki.deimos.fr/Monitorer_ses_Solaris_Users/</link><pubDate>Fri, 01 Dec 2006 10:35:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_ses_Solaris_Users/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>All systems should be monitored routinely for unauthorized user access. You can determine who is or who has been logged into the system by executing commands and examining log files.&lt;/p>
+&lt;h2 id="who">who &lt;a href="#who" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If a user is logged in remotely, the who command displays the remote host name, or Internet Protocol (IP) address in the last column of the output.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3df6f39" class="language-bash ">
+ &lt;code>who&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="051bb1b" class="language- ">
+ &lt;code>root console Oct 17 08:21	(:0)
+root pts/4 Oct 17 08:21	(:0.0)
+root pts/5 Oct 17 08:21	(:0.0)
+user5 pts/6 Oct 17 09:20	(sys-03)
+root pts/7 Oct 17 09:20	(:0.0)
+user3 pts/8 Oct 17 09:21	(localhost)&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="rusers">rusers &lt;a href="#rusers" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The rusers command produces output similar to that of the who command, but it displays a list of the users logged in on local and remote hosts. The list displays the user&amp;rsquo;s name and the host&amp;rsquo;s name in the order in which the responses are received from the hosts.&lt;/p></description></item><item><title>OpenBoot PROM, BIOS Management</title><link>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</link><pubDate>Wed, 29 Nov 2006 09:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The PROM is the equivalent of the BIOS or EFI on a standard x86 system.&lt;/p>
+&lt;h2 id="approach">Approach &lt;a href="#approach" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To know your PROM version:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="818bf32" class="language-bash ">
+ &lt;code>/usr/platform/`uname -m`/sbin/prtdiag -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c1ab015" class="language-bash ">
+ &lt;code>prtconf -V&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="nvram">NVRAM &lt;a href="#nvram" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The NVRAM can be modified by a user to change some options on the machine:&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/sun-prom-nvram.gif" alt="NVRAM" loading="lazy">
+
+&lt;/p>
+&lt;p>Once the NVRAM is stored on the chipset, during the PROM call at boot, it will check the user&amp;rsquo;s preferences at the NVRAM level in order to apply them.&lt;/p></description></item><item><title>Patching Solaris</title><link>https://wiki.deimos.fr/Patcher_sa_Solaris/</link><pubDate>Tue, 28 Nov 2006 18:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Patcher_sa_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I won&amp;rsquo;t go into detailed explanation of what a patch is, but you should know that by applying patches (fixes), you can eliminate bugs and security vulnerabilities.&lt;/p>
+&lt;h2 id="detecting-patches">Detecting Patches &lt;a href="#detecting-patches" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a5f6c69" class="language-bash ">
+ &lt;code>showrev -p&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a8b8e99" class="language- ">
+ &lt;code>Patch: 106793-01 Obsoletes: Requires: Incompatibles: Packages: SUNWhea . . .&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="16a7229" class="language-bash ">
+ &lt;code>patchadd -p&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="259048f" class="language- ">
+ &lt;code>Patch: 106793-01 Obsoletes: Requires: Incompatibles: Packages: SUNWhea 
+. . .&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>These versions should be identical. If they&amp;rsquo;re not, it means a patch has been applied.&lt;/p></description></item></channel></rss>

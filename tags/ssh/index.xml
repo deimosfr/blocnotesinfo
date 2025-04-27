@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSH on Tech Notebook</title><link>https://wiki.deimos.fr/tags/ssh/</link><description>Recent content in SSH on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansible: A Powerful Agentless Configuration Management and Orchestrator Solution</title><link>https://wiki.deimos.fr/ansible-a-powerful-agentless-configuration-management-and-orchestrator-solution/</link><pubDate>Thu, 26 Feb 2015 07:09:00 +0100</pubDate><guid>https://wiki.deimos.fr/ansible-a-powerful-agentless-configuration-management-and-orchestrator-solution/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/ansible_logo.png" alt="Ansible" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.ansible.com" rel="external" target="_blank">Ansible Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>26/02/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Ansible is an IT automation tool. It can configure systems, deploy software, and orchestrate more advanced IT tasks such as continuous deployments or zero downtime rolling updates.&lt;/p></description></item><item><title>OpenSSH: SSH Key Exchange</title><link>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</link><pubDate>Fri, 25 Oct 2013 09:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SSH key exchange is great for logging in without having to type your password. It&amp;rsquo;s also very simple to set up.&lt;/p>
+&lt;h2 id="basic">Basic &lt;a href="#basic" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, the user account to which the client will connect (for example &lt;strong>root&lt;/strong>) must have the .ssh directory present:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37cae9e" class="language-bash ">
+ &lt;code>mkdir .ssh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="client">Client &lt;a href="#client" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the client, you need to generate a key pair, &lt;strong>unless you already have one (~/.ssh/id_dsa.pub)&lt;/strong>:&lt;/p></description></item><item><title>Rsync: Incremental Backup</title><link>https://wiki.deimos.fr/Rsync_:_Sauvegarde_incr%C3%A9mentale/</link><pubDate>Fri, 06 Sep 2013 08:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rsync_:_Sauvegarde_incr%C3%A9mentale/</guid><description>&lt;h2 id="scripts-and-programs">Scripts and Programs &lt;a href="#scripts-and-programs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are scripts and programs available to facilitate the use of this solution:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.mikerubel.org/computers/rsync_snapshots/" rel="external" target="_blank">Easy Automated Snapshot-Style Backups with Linux and Rsync&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.rsnapshot.org/" rel="external" target="_blank">rsnapshot&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="a-manual-example">A Manual Example &lt;a href="#a-manual-example" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You want to copy your disk/backup a partition.&lt;br>
+Assuming you have created a partition on another disk and mounted it (in this example &lt;code>/mnt/usbharddrivemain&lt;/code>):&lt;/p></description></item><item><title>OpenSSH FAQ</title><link>https://wiki.deimos.fr/FAQ_OpenSSH/</link><pubDate>Wed, 08 May 2013 19:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/FAQ_OpenSSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is not always simple, which is why a small documentation is useful.&lt;/p>
+&lt;h2 id="faq">FAQ &lt;a href="#faq" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="fatal-timeout-before-authentication-for-ip">fatal: Timeout before authentication for @ip &lt;a href="#fatal-timeout-before-authentication-for-ip" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Your DNS on your SSH server might not be up to date. Check them.&lt;/p>
+&lt;h3 id="some-clients-take-a-long-time-to-connect">Some clients take a long time to connect &lt;a href="#some-clients-take-a-long-time-to-connect" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the SSH server, it is very likely that the server is trying to resolve names, which is not always possible or practical. The solution is to disable this (&lt;code>/etc/ssh/sshd_config&lt;/code>):&lt;/p></description></item><item><title>Belier: Script Your SSH Connection</title><link>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</link><pubDate>Mon, 06 May 2013 09:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/belier_logo.png" alt="Belier" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.ohmytux.com/belier/" rel="external" target="_blank">Belier Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Belier&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> allows opening a shell or executing a command on a remote computer through an SSH connection. The main feature of Belier is its ability to cross several intermediate computers before completing the job.&lt;/p></description></item><item><title>Lshell: Limiting Shell Capabilities</title><link>https://wiki.deimos.fr/Lshell_:_limiter_les_possibilit%C3%A9s_du_shell/</link><pubDate>Thu, 28 Mar 2013 10:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lshell_:_limiter_les_possibilit%C3%A9s_du_shell/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://lshell.ghantoos.org/" rel="external" target="_blank">Lshell&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a lightweight shell that allows restricting access to various commands and paths on your filesystems. It&amp;rsquo;s ideal for controlling what users can do on your machine.&lt;/p></description></item><item><title>AutoSSH: Automatically Reconnect SSH Tunnels</title><link>https://wiki.deimos.fr/Autossh_:_reconnecter_automatiquement_un_tunnel_SSH/</link><pubDate>Wed, 20 Mar 2013 10:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Autossh_:_reconnecter_automatiquement_un_tunnel_SSH/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/openssh_logo.png" alt="AutoSSH" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.harding.motd.ca/autossh/" rel="external" target="_blank">AutoSSH Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>20/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If like me you need to maintain a permanent tunnel, and you want it to automatically reconnect in case of disconnection, you need to use a tool like AutoSSH. I&amp;rsquo;ll skip the details of its complete operation, but you should know that it can work in 2 ways:&lt;/p></description></item><item><title>Tmux: The Terminal Multiplexer Replacing Screen</title><link>https://wiki.deimos.fr/Tmux_:_le_multiplexeur_de_terminal_rempla%C3%A7ant_de_screen/</link><pubDate>Fri, 25 Jan 2013 07:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tmux_:_le_multiplexeur_de_terminal_rempla%C3%A7ant_de_screen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://tmux.sourceforge.net/" rel="external" target="_blank">Tmux&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> has many advantages over screen and serves as a terminal multiplexer. This functionality is extremely practical and even essential once you&amp;rsquo;ve started using it.&lt;/p></description></item><item><title>Bypassing HTTPS Proxies for SSH</title><link>https://wiki.deimos.fr/Outrepasser_les_proxy_HTTPS_pour_SSH/</link><pubDate>Mon, 30 Jul 2012 11:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Outrepasser_les_proxy_HTTPS_pour_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Those workplace proxies can be really annoying! But there are always solutions!&lt;/p>
+&lt;p>So here&amp;rsquo;s the situation: I want to access a remote machine via SSH, but only ports 80 and 443 are allowed. Even if you configure the SSH server on port 443, you&amp;rsquo;ll notice it doesn&amp;rsquo;t work.&lt;/p>
+&lt;p>A solution? Yes: connect-proxy.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="seveur">Seveur &lt;a href="#seveur" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, simply modify the sshd_config file to make SSH listen on port 443:&lt;/p></description></item><item><title>SSLH: Multiplexing SSL and SSH connections on the same port</title><link>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</link><pubDate>Sun, 10 Jun 2012 09:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.rutschle.net/tech/sslh.shtml" rel="external" target="_blank">SSLH&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is like a magic trick. It allows you, for example, to have both HTTPS and SSH on a WAN address on port 443. How is this possible? Can we have a single listening port for multiple services?&lt;/p></description></item><item><title>Proxychains: Proxy Any Outbound Connection</title><link>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</link><pubDate>Mon, 14 May 2012 09:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Ah, those proxy servers at work or school! They can be quite troublesome! Sometimes you really need temporary access to the outside world. Depending on the commands you use, you may or may not have the ability to configure proxy usage by modifying a configuration file, an environment variable, etc.&lt;/p>
+&lt;p>The benefit of &lt;a href="https://proxychains.sourceforge.net/" rel="external" target="_blank">proxychains&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is that configuration is done only once, in its own configuration file. Then you use the syntax &lt;code>proxychains &amp;lt;command&amp;gt; &amp;lt;args&amp;gt;&lt;/code> and your command will use the proxy specified in the proxychains configuration file!&lt;/p></description></item><item><title>OpenSSH: Creating an SSH SOCKS Proxy</title><link>https://wiki.deimos.fr/OpenSSH_:_Cr%C3%A9er_un_proxy_socks_en_SSH/</link><pubDate>Sat, 18 Feb 2012 12:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Cr%C3%A9er_un_proxy_socks_en_SSH/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/ssh_socks.png" alt="SSH Socks" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This tutorial will be brief, but it&amp;rsquo;s highly effective. The utility of creating a SOCKS proxy via SSH is to be able to route any traffic through an external connection once the SSH connection is established. You simply use the proxy that SSH creates and you&amp;rsquo;re ready to go.&lt;/p>
+&lt;p>With &lt;a href="https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/">SSLH&lt;/a> as a frontend, you have an almost ultimate tool.&lt;/p>
+&lt;p>For more advanced techniques, I also recommend checking out &lt;a href="https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/">the documentation on proxychains&lt;/a>.&lt;/p></description></item><item><title>Reverse Tunneling with OpenSSH</title><link>https://wiki.deimos.fr/Faire_du_reverse_Tunelling_avec_OpenSSH/</link><pubDate>Fri, 03 Feb 2012 16:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_du_reverse_Tunelling_avec_OpenSSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is going to be really powerful! What am I proposing? Reverse tunneling? Yes! Imagine being able to traverse NAT. You&amp;rsquo;re already starting to salivate, so let&amp;rsquo;s not delay any further!&lt;/p>
+&lt;h2 id="setup-scenario">Setup scenario &lt;a href="#setup-scenario" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Here is the machine I want to connect to: 192.168.20.55&lt;/li>
+&lt;li>The machine from which I&amp;rsquo;m going to launch the connection: 138.47.99.99 (WAN IP)&lt;/li>
+&lt;/ul>
+&lt;p>This will give us:
+Destination (192.168.20.55) &amp;lt;- |NAT| &amp;lt;- Source (138.47.99.99)&lt;/p></description></item><item><title>Ajaxterm: Using a Terminal via Web</title><link>https://wiki.deimos.fr/ajaxterm-utiliser-un-terminal-en-web/</link><pubDate>Fri, 22 Apr 2011 13:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajaxterm-utiliser-un-terminal-en-web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://antony.lesuisse.org/software/ajaxterm/" rel="external" target="_blank">Ajaxterm&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> allows you to have a terminal through a web page. For example, if you&amp;rsquo;re at a restricted site that doesn&amp;rsquo;t allow you to use SSH, there&amp;rsquo;s a good chance you can still use HTTPS. This is where Ajaxterm becomes handy, as it allows you to connect to the machine hosting Ajaxterm.&lt;/p></description></item><item><title>OpenSSH : Tunneling VPN</title><link>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</link><pubDate>Fri, 14 May 2010 22:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since version 4.3 of OpenSSH, the option to create IP tunnels has been added.&lt;/p>
+&lt;p>First, you need to check the OpenSSH version on both the server and client.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cd7213d" class="language-bash ">
+ &lt;code>ssh -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You need root privileges on both machines. There are operations to perform, both at the configuration and network levels.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="openbsd">OpenBSD &lt;a href="#openbsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>The first thing to do is to tell OpenSSH to authorize tunnels by adding this directive:&lt;/p></description></item><item><title>Packet Filter: Fighting Against Brute Force Attacks</title><link>https://wiki.deimos.fr/Packet_Filter:_Lutter_contre_le_bruteforce/</link><pubDate>Fri, 16 Apr 2010 07:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Packet_Filter:_Lutter_contre_le_bruteforce/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ve probably seen brute force connection attempts in your connection logs (sshd, httpd, ftpd, etc.). This is annoying, fills up your logs, and makes your server work harder than it needs to.&lt;/p>
+&lt;p>Fortunately, Daniel Hartmeier thought of you and added convenient options to his famous PacketFilter firewall, affectionately nicknamed PF. These options are &amp;lsquo;max-src-conn-rate&amp;rsquo; and &amp;lsquo;max-src-conn&amp;rsquo;, which are used in combination with &amp;lsquo;overload&amp;rsquo;. These options are available in PF starting with OpenBSD 3.7, FreeBSD 6.0, and NetBSD 2.0.&lt;/p></description></item><item><title>Enabling SSH on the Fonera+</title><link>https://wiki.deimos.fr/activer-le-ssh-sur-sa-fonera-plus/</link><pubDate>Wed, 06 May 2009 20:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/activer-le-ssh-sur-sa-fonera-plus/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The Fonera is a small device based on OpenWRT that allows you to distribute WiFi (HotSpot). To learn more, I invite you to visit the official website. In short, it is possible to play a bit more with the basic functions, which is why I tackled SSH access on this device.&lt;/p>
+&lt;p>&lt;strong>Important: Any firmware modification can take 10 minutes to update. So don&amp;rsquo;t reboot before that!&lt;/strong>&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>A web server&lt;/li>
+&lt;/ul>
+&lt;p>Apache will do fine&amp;hellip; (on Mac: /Library/WebServer/Documents)&lt;/p></description></item><item><title>OpenSSH: Graphical Window Forwarding</title><link>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</link><pubDate>Mon, 12 Jan 2009 09:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is capable of exporting X windows from another machine (creating an SSH tunnel). For example, you can connect to a server that has X and you only have SSH access to the remote machine.&lt;/p>
+&lt;p>In your SSH configuration file (&lt;code>/etc/ssh/sshd_config&lt;/code>), set this to yes:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f29d961" class="language-bash ">
+ &lt;code>X11Forwarding yes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="launching-the-session">Launching the Session &lt;a href="#launching-the-session" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s an example session. Here we&amp;rsquo;ll export VNC which is running on the direct machine:&lt;/p></description></item><item><title>Export a Display or Forward an X11 Connection</title><link>https://wiki.deimos.fr/Exporter_un_display_ou_forwarder_une_connexion_X11/</link><pubDate>Sun, 31 Aug 2008 12:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Exporter_un_display_ou_forwarder_une_connexion_X11/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Such complicated names for something quite simple (though very practical).&lt;/p>
+&lt;ul>
+&lt;li>Exporting a display allows one user to transfer GUI applications to another user&lt;/li>
+&lt;li>Forwarding an X11 connection allows transferring GUI applications from one user to another&lt;/li>
+&lt;/ul>
+&lt;p>In short, you might think they&amp;rsquo;re the same thing! But not exactly.&lt;/p>
+&lt;h2 id="exporting-the-display">Exporting the Display &lt;a href="#exporting-the-display" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s say I&amp;rsquo;m connected as the user &amp;ldquo;deimos&amp;rdquo; and I launch a shell with the user &amp;ldquo;hostin&amp;rdquo;. I want to access the GUI of hostin. First, I authorize my deimos user to accept connections from any user:&lt;/p></description></item><item><title>SSH: Setting up SSH Server on a Minimal Solaris Installation</title><link>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</link><pubDate>Sat, 05 Apr 2008 10:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</guid><description>&lt;p>If you need to manage a Solaris 10 box with a minimal install, and SSH is not available, you can install it off of the 2nd CD. Rather than figure out the path to your CDROM (see this article), it was easier in our case to just tar up the needed packages and FTP them to our Solaris box:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de8f50" class="language-bash ">
+ &lt;code>root@srv-3 Product # cp -R SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr 
+SUNWsshu /home/srv-1/sshpkg/
+root@srv-3 Product # cd /home/srv-1/sshpkg/
+root@srv-3 sshpkg # ls
+SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr SUNWsshu
+root@srv-3 sshpkg # tar -cf ../ssh.tar *
+root@srv-3 sshpkg # tar -tf ../ssh.tar
+SUNWsshcu/
+SUNWsshcu/archive/
+.
+.
+.
+SUNWsshu/reloc/
+SUNWsshu/reloc/usr/
+SUNWsshu/reloc/usr/bin/
+SUNWsshu/reloc/usr/lib/
+SUNWsshu/reloc/usr/lib/ssh/
+root@srv-3 sshpkg #&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>On the Solaris side, FTP these to /tmp, then from tmp:&lt;/p></description></item><item><title>Chroot SSH Accounts</title><link>https://wiki.deimos.fr/Chrooter_des_comptes_SSH/</link><pubDate>Tue, 01 Apr 2008 10:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Chrooter_des_comptes_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The OpenSSH version (4.8p1 for the GNU/Linux port) features a new configuration option: &lt;code>ChrootDirectory&lt;/code>.
+This has been made possible by a new SFTP subsystem statically linked to sshd.&lt;/p>
+&lt;p>This makes it easy to replace a basic FTP service without the hassle of configuring encryption and/or bothering with FTP passive and active modes when operating through a NAT router. This is also simpler than packages such as rssh, scponly or other patches because it does not require setting up and maintaining (i.e. security updates) a chroot environment.&lt;/p></description></item><item><title>Setting up an SSH Bouncer Server for Your SSH Connections</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_de_rebond_pour_ses_connections_SSH/</link><pubDate>Sat, 08 Mar 2008 07:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_de_rebond_pour_ses_connections_SSH/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For what follows, I&amp;rsquo;ll base this on a standard Kubuntu 7.10 installation. We&amp;rsquo;ll need the following packages:&lt;/p>
+&lt;ul>
+&lt;li>sshfs&lt;/li>
+&lt;li>tsocks&lt;/li>
+&lt;li>afuse&lt;/li>
+&lt;/ul>
+&lt;p>If you choose to use aptitude for your installation, proceed as follows:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="68574ec" class="language-bash ">
+ &lt;code>sudo aptitude install fuse tsocks afuse&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The installation shouldn&amp;rsquo;t pose any insurmountable problems, so I won&amp;rsquo;t elaborate further on this subject.&lt;/p>
+&lt;p>However, you must ensure that your user (in my case deimos) belongs to the fuse group:&lt;/p></description></item><item><title>Installing Rsync on Windows</title><link>https://wiki.deimos.fr/Installer_Rsync_sur_Windows/</link><pubDate>Tue, 26 Feb 2008 15:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_Rsync_sur_Windows/</guid><description>&lt;h2 id="installing-cygwin-on-windows">Installing Cygwin on Windows &lt;a href="#installing-cygwin-on-windows" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download: &lt;a href="https://www.cygwin.com/" rel="external" target="_blank">https://www.cygwin.com/&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p>
+&lt;p>During installation, choose a download site in France (if available).&lt;/p>
+&lt;p>Packages to install: rsync, openssh, and cygwin (cygrunsrv, cygwin)&lt;/p></description></item><item><title>Modify the firmware with FrancoFON</title><link>https://wiki.deimos.fr/Modifier_le_firmware_par_le_FrancoFON/</link><pubDate>Tue, 01 Jan 2008 17:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_le_firmware_par_le_FrancoFON/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;d like to modify the original firmware to have more functionality. That&amp;rsquo;s why I opted for this firmware. Unfortunately, at the time of writing this article, it&amp;rsquo;s not possible to run this firmware on a Fonera+. Here&amp;rsquo;s what it adds compared to the base firmware:&lt;/p>
+&lt;ul>
+&lt;li>Improved firewall management&lt;/li>
+&lt;li>Simplified port redirection&lt;/li>
+&lt;li>DHCP address management for the private network&lt;/li>
+&lt;li>Blacklisting of certain sites for the public network&lt;/li>
+&lt;li>Adding/removing DNS&lt;/li>
+&lt;li>Antenna power adjustment&lt;/li>
+&lt;li>Remote reboot&lt;/li>
+&lt;li>Management of dyndns accounts&lt;/li>
+&lt;li>Hosts file management&lt;/li>
+&lt;li>Live view of connections to private and public networks&lt;/li>
+&lt;li>Comparison of the Fonera version with the latest available version&lt;/li>
+&lt;li>Hidden SSID management for the private network&lt;/li>
+&lt;li>Language management (English, French, Romanian for now)&lt;/li>
+&lt;li>Ability to update firmware from a server other than the FrancoFON server&lt;/li>
+&lt;li>Ability to configure the Fonera in pppoe with the @ and / characters required by some ISPs, up to 64 characters&lt;/li>
+&lt;li>Opening/closing SSH&lt;/li>
+&lt;li>Opening/closing console access via ethernet&lt;/li>
+&lt;li>Script to know the number of Foneras using the FrancoFON firmware&lt;/li>
+&lt;li>Ability to block clients on public and private signals by MAC address with scheduler&lt;/li>
+&lt;li>Ability to connect the Fonera to a WiFi AP to use its internet connection (autonomous &amp;ldquo;Fonera mode&amp;rdquo;, also called &amp;ldquo;Ponte2&amp;rdquo;)&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You must have SSH installed on your Fonera. Use this documentation:
+&lt;a href="https://wiki.deimos.fr/activer-le-ssh-sur-sa-fonera-plus/">Enable SSH on your Fonera+&lt;/a>&lt;/p></description></item><item><title>OpenSSH: Using Putty and an HTTP proxy to ssh anywhere through firewalls</title><link>https://wiki.deimos.fr/OpenSSH:_Using_Putty_and_an_HTTP_proxy_to_ssh_anywhere_through_firewalls/</link><pubDate>Thu, 06 Dec 2007 11:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_Using_Putty_and_an_HTTP_proxy_to_ssh_anywhere_through_firewalls/</guid><description>&lt;p>Do you ever have the situation (say at work using windows) where you would like to connect to a machine over ssh (say at home using Linux/UNIX) but it&amp;rsquo;s not possible because of firewall rules? There might be an http-proxy server available that you could use.&lt;/p>
+&lt;p>Be aware that applying this trick might be technically possible but not permitted. Probably best to discuss it with someone in your organization first.&lt;/p></description></item><item><title>OpenSSH: Using Stepstones</title><link>https://wiki.deimos.fr/OpenSSH:_using_stepstones/</link><pubDate>Thu, 06 Dec 2007 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_using_stepstones/</guid><description>&lt;p>You might be working in an environment where you always ssh from your machine to the middle machine and then connect to the destination machine. What a waste of time, let&amp;rsquo;s see how you could automate it. The middle machine is frequently referred to as stepstone host.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/openssh_using_stepstones.pdf">OpenSSH using stepstones&lt;/a>&lt;/p></description></item><item><title>Restarting difficult services</title><link>https://wiki.deimos.fr/Red%C3%A9marrer_certains_services_difficiles/</link><pubDate>Wed, 14 Nov 2007 09:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Red%C3%A9marrer_certains_services_difficiles/</guid><description>&lt;p>As you&amp;rsquo;ve probably noticed, there are some services like SSH that don&amp;rsquo;t have a simple solution to stop the service.&lt;/p>
+&lt;p>That&amp;rsquo;s why I&amp;rsquo;m giving you this solution. For example with SSH, if I want to restart it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51ce67d" class="language-bash ">
+ &lt;code>kill -HUP `cat /var/run/sshd.pid`&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>It&amp;rsquo;s as simple as that. Now you can manually restart it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dcdf609" class="language-bash ">
+ &lt;code>/usr/sbin/sshd&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>MySecureShell: Setting up a Secure File Transfer Solution</title><link>https://wiki.deimos.fr/MySecureShell%C2%A0:%C2%A0Mise_en_place_d%27une_solution_s%C3%A9curis%C3%A9e_de_transfert_de_fichiers/</link><pubDate>Tue, 02 Oct 2007 20:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/MySecureShell%C2%A0:%C2%A0Mise_en_place_d%27une_solution_s%C3%A9curis%C3%A9e_de_transfert_de_fichiers/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It was about time this documentation arrived! Although I am one of the founders and developers of &lt;a href="https://mysecureshell.sourceforge.net" rel="external" target="_blank">MySecureShell&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, creating a quick and simpler guide than the one on the website was a bit daunting. But I finally found this magnificent documentation.&lt;/p></description></item><item><title>OpenSSH: SSH Connection Multiplexing</title><link>https://wiki.deimos.fr/OpenSSH:_Multiplexage_des_connexions_SSH/</link><pubDate>Mon, 14 May 2007 19:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_Multiplexage_des_connexions_SSH/</guid><description>&lt;p>Since version 4.0, OpenSSH allows multiplexing several connections into one, which speeds up the connection time for subsequent logins.&lt;/p>
+&lt;p>This tip requires OpenSSH version 4.2 or higher to work.&lt;/p>
+&lt;p>Just add this to your &lt;code>~/.ssh/config&lt;/code> file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="49fbdc0" class="language-bash ">
+ &lt;code>Host *
+ControlMaster auto
+ControlPath ~/.ssh/master-%r@%h:%p&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All new connections to a host where you are already connected will go through this existing connection. In addition to speeding up connection time, this has the advantage of not prompting for passwords on subsequent connections.&lt;/p></description></item><item><title>Rdiff-backup: Incremental Remote Backups</title><link>https://wiki.deimos.fr/Rdiff-backup_:_Sauvegardes_distantes_incr%C3%A9mentielles/</link><pubDate>Sun, 28 Jan 2007 21:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rdiff-backup_:_Sauvegardes_distantes_incr%C3%A9mentielles/</guid><description>&lt;p>rdiff-backup is a simple and efficient utility. It can be used to make a remote backup of a directory via SSH. The differences are then saved in archives. &lt;a href="https://www.nongnu.org/rdiff-backup/" rel="external" target="_blank">rdiff-backup Main page&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item><item><title>OpenSSH HPN (High Performance): Implementation and Installation</title><link>https://wiki.deimos.fr/OpenSSH_HPN_%28High_Performance_Enabled%29_:_Impl%C3%A9mentation_et_installation/</link><pubDate>Wed, 27 Dec 2006 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_HPN_%28High_Performance_Enabled%29_:_Impl%C3%A9mentation_et_installation/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the introduction provided by the &lt;a href="https://www.psc.edu/networking/projects/hpn-ssh/" rel="external" target="_blank">website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p>
+&lt;p>SCP and the underlying SSH2 protocol implementation in &lt;a href="https://www.openssh.com" rel="external" target="_blank">OpenSSH&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is network performance limited by statically defined internal flow control buffers. These buffers often end up acting as a bottleneck for network throughput of SCP, especially on long and high bandwidth network links. Modifying the SSH code to allow the buffers to be defined at runtime eliminates this bottleneck. We have created a patch that will remove the bottlenecks in OpenSSH and is fully interoperable with other servers and clients. In addition, HPN clients will be able to download faster from non-HPN servers, and HPN servers will be able to receive uploads faster from non-HPN clients. However, the host receiving the data must have a properly tuned TCP/IP stack. Please refer to this tuning page for more information.&lt;/p></description></item><item><title>Fanout: Run the Same Command on Multiple Machines Simultaneously</title><link>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</link><pubDate>Tue, 03 Oct 2006 15:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</guid><description>&lt;p>These two tools by William Stearns can quickly become essential when managing multiple machines&amp;hellip;&lt;/p>
+&lt;p>As indicated in the title, these tools allow you to run commands simultaneously on multiple machines, and even interactively (with fanterm).&lt;/p>
+&lt;p>I didn&amp;rsquo;t find anything in the repositories or as a .deb package. So I &amp;ldquo;alienated&amp;rdquo; the rpm:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="56a8047" class="language-bash ">
+ &lt;code>wget http://www.stearns.org/fanout/fanout-0.6.1-0.noarch.rpm
+sudo alien fanout-0.6.1-0.noarch.rpm
+sudo dpkg -i fanout_0.6.1-1_all.deb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For SSH on non-standard ports, I used the config file (see man ssh_config)&lt;/p></description></item><item><title>AutoFS: Mounting and Unmounting Shares</title><link>https://wiki.deimos.fr/AutoFS_:_montage_et_d%C3%A9montage_de_partages/</link><pubDate>Thu, 26 Sep 2013 07:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/AutoFS_:_montage_et_d%C3%A9montage_de_partages/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You already installed Linux on your networked desktop PC and now you want to work with files stored on some other PCs in your network. This is where autofs comes into play. This tutorial shows how to configure autofs to use CIFS to access Windows or Samba shares from Linux Desktop PCs. It also includes a tailored configuration file.&lt;/p>
+&lt;p>If autofs Version 4.0 or newer is already installed, you should find these files:&lt;/p></description></item></channel></rss>

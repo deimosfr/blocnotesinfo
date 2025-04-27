@@ -1,0 +1,1015 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Red Hat on Tech Notebook</title><link>https://wiki.deimos.fr/categories/red-hat/</link><description>Recent content in Red Hat on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/red-hat/index.xml" rel="self" type="application/rss+xml"/><item><title>Optimizing Hard Disk Performance on Linux</title><link>https://wiki.deimos.fr/Optimiser_les_performances_des_disques_dur_sur_Linux/</link><pubDate>Thu, 02 Jan 2014 14:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Optimiser_les_performances_des_disques_dur_sur_Linux/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br />Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>02/01/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Physical hard drives are currently the slowest components in our machines, whether they are mechanical hard drives with platters or even SSDs! But there are ways to optimize their performance according to specific needs. In this article, we&amp;rsquo;ll look at several aspects that should help you understand why bottlenecks can occur, how to avoid them, and solutions for benchmarking.&lt;/p></description></item><item><title>MCollective: Run Actions in Parallel on Remote Machines</title><link>https://wiki.deimos.fr/MCollective:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante/</link><pubDate>Tue, 14 May 2013 14:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/MCollective:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mcollective-logo.png" alt="Mcollective" loading="lazy">
+
+&lt;/p>
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.0.0&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7 / RedHat 6.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://marionette-collective.org/" rel="external" target="_blank">MCollective Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Mcollective, short for &amp;ldquo;Marionette Collective&amp;rdquo;, is software written by R.I. Pienaar. The goal is to facilitate the management of numerous machines from a central point. It can be compared to tools like Fabric or Capistrano because it allows you to launch many actions in parallel on remote machines, but it differs on a notable point: it does not rely on SSH. Indeed, the program relies on middleware and provides features that make you not just any admin, but THE ultimate admin.&lt;/p></description></item><item><title>DHCP: Installation and Configuration of a DHCP Server</title><link>https://wiki.deimos.fr/DHCP_:_Installation_et_configuration_d'un_serveur_DHCP/</link><pubDate>Fri, 15 Mar 2013 22:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/DHCP_:_Installation_et_configuration_d'un_serveur_DHCP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>Dynamic Host Configuration Protocol&lt;/strong> (DHCP) is a network protocol designed to automatically configure TCP/IP parameters for a station, particularly by automatically assigning an IP address and subnet mask. DHCP can also configure the default gateway address, DNS name servers, and NBNS name servers (known as WINS servers on Microsoft networks).&lt;/p>
+&lt;p>The initial design of Internet Protocol (IP) assumed pre-configuration of each computer connected to the network with the appropriate TCP/IP parameters - this is known as &lt;em>static&lt;/em> addressing. On large or extended networks where changes occur frequently, static addressing creates a heavy maintenance burden and risks of errors. Additionally, assigned addresses cannot be used even when the computer that holds them is not in service. This is a typical problem for Internet Service Providers (ISPs), who generally have more customers than IP addresses available, but never have all customers connected simultaneously.&lt;/p></description></item><item><title>SoSReport: Generate and analyze machine reports</title><link>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</link><pubDate>Fri, 15 Mar 2013 15:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/red_hat_logo.png" alt="SOS Report" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/sosreport/sosreport" rel="external" target="_blank">Sosreport Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>CentOS 6.4&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;ve ever contacted Red Hat support, you probably know that they systematically request a sosreport. It&amp;rsquo;s a very practical tool for the support team as it collects command results, log files, configuration files, and other information often essential for diagnosing a problem. Personally, I&amp;rsquo;ve installed it on CentOS and it works very well.&lt;/p></description></item><item><title>Kerberos: Setting up a Kerberos Server</title><link>https://wiki.deimos.fr/Kerberos_:_Mise_en_place_d'un_serveur_Kerberos/</link><pubDate>Sat, 06 Oct 2012 01:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kerberos_:_Mise_en_place_d'un_serveur_Kerberos/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/logo_kerberos_consortium.gif" alt="Kerberos" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6&lt;br />Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/10/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Kerberos is a network authentication protocol that relies on a secret key mechanism (symmetric encryption) and the use of tickets, rather than clear text passwords, thus avoiding the risk of fraudulent interception of user passwords. Created at the Massachusetts Institute of Technology (MIT), it bears the Greek name for Cerberus, guardian of the Underworld. Kerberos was first implemented on Unix systems.&lt;/p></description></item><item><title>Memory Caches</title><link>https://wiki.deimos.fr/Les_caches_m%C3%A9moire/</link><pubDate>Wed, 12 Sep 2012 16:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_caches_m%C3%A9moire/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br />Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>12/09/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="page-allocation">Page Allocation &lt;a href="#page-allocation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Delaying memory allocation when a process requests it is good for performance. Due to reference locality, most programs that request large memory allocations don&amp;rsquo;t allocate all of it at once. For program memory allocation, it will be done gradually to avoid using more than necessary.&lt;/p></description></item><item><title>Memory Addressing and Allocation</title><link>https://wiki.deimos.fr/L%27adressage_m%C3%A9moire_et_son_allocation/</link><pubDate>Tue, 11 Sep 2012 16:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/L%27adressage_m%C3%A9moire_et_son_allocation/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br />Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>11/09/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="memory-addressing">Memory Addressing &lt;a href="#memory-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For better efficiency, a computer&amp;rsquo;s memory is divided into blocks (chunks) called pages. Page size may vary depending on the processor architecture (32 or 64 bits). RAM is divided into page frames. One page frame can contain one page. When a process wants to access a memory address, a translation from the page to the page frame must be performed. If this information is not already in memory, the kernel must perform a search to manually load this page into the page frame.&lt;/p></description></item><item><title>Creating a RedHat Package from a Tar File</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_package_RedHat_depuis_un_tar/</link><pubDate>Thu, 02 Aug 2012 11:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_package_RedHat_depuis_un_tar/</guid><description>&lt;table class="table table-striped table-hover">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>Red Hat 6.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://www.redhat.com" rel="external" target="_blank">Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>02/08/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are many methods for creating packages available on the web, but many of them are obsolete and often don&amp;rsquo;t allow for simple implementation. That&amp;rsquo;s why I&amp;rsquo;ll show you a technique to build a package in 5 minutes.&lt;/p></description></item><item><title>Satellite: Deploying Red Hat OS via Red Hat Satellite</title><link>https://wiki.deimos.fr/Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite/</link><pubDate>Fri, 22 Jun 2012 06:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Satellite_:_D%C3%A9ploiement_d%27OS_Red_Hat_via_Red_Hat_Satellite/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.4.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.redhat.com/products/enterprise-linux/rhn-satellite/" rel="external" target="_blank">Red Hat Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>22/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A &lt;a href="https://www.fr.redhat.com/red_hat_network/" rel="external" target="_blank">Red Hat Satellite&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> server is a solution that allows you to automatically deploy Red Hat OS via PXE/DHCP. You can then manage different installation profiles, manage updates, and perform a variety of simplified administrative tasks.&lt;/p></description></item><item><title>Creating a Red Hat Kickstart to Automate Installations</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_Kickstart_Red_Hat_pour_automatiser_les_installation/</link><pubDate>Thu, 07 Jun 2012 07:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_Kickstart_Red_Hat_pour_automatiser_les_installation/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Automating Red Hat installations quickly becomes essential if you have many machines to deploy. This is why the Kickstart method exists, allowing you to boot from virtually any media.&lt;/p></description></item><item><title>My Python Scripts That Can Serve as Exercises</title><link>https://wiki.deimos.fr/Mes_scripts_Python_qui_peuvent_servir_d'exercices/</link><pubDate>Wed, 06 Jun 2012 13:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mes_scripts_Python_qui_peuvent_servir_d'exercices/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/python-logo.png" alt="Python" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.7 / 3.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.python.org/" rel="external" target="_blank">Python Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s not always easy to start learning a programming language, especially when you&amp;rsquo;ve never studied it in school! That&amp;rsquo;s why I&amp;rsquo;m offering some small scripts that I created right after going through some books. The scripts should increase in difficulty more or less progressively.&lt;/p></description></item><item><title>Network: Creating Bonding</title><link>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</link><pubDate>Wed, 18 Apr 2012 18:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Channel bonding, also known as Port Trucking, allows applying a series of predefined policies on a group of network links combined into one. This group of network interfaces gives you the ability to perform load balancing and especially fault tolerance. Seven operation modes are available to combine necessity and flexibility. In this article, we will explore the possibilities offered and their implementation.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Two prerequisites appear at the network switch level, where the interfaces are connected:&lt;/p></description></item><item><title>Kexec: Optimize Your Boot Times</title><link>https://wiki.deimos.fr/Kexec_:_optimisez_vos_temps_de_boot/</link><pubDate>Thu, 15 Mar 2012 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kexec_:_optimisez_vos_temps_de_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Kexec is a tool that allows rebooting a machine without going through the hardware layer. It will stop all services, shut down the init processes (sysV) to reach the bootloader. Then it will start normally, bypassing the hardware reboot phase.&lt;/p>
+&lt;p>This technique can be very useful on High Availability systems where downtime is critical.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Debian, you need to install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bf4f5b1" class="language-bash ">
+ &lt;code>aptitude install kexec-tools&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Red Hat, you need to have this package installed:&lt;/p></description></item><item><title>Yum: Package Management in Red Hat</title><link>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</link><pubDate>Fri, 02 Mar 2012 19:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Yum, which stands for Yellow dog Updater Modified, is a package manager for Linux distributions like Fedora and Red Hat Enterprise Linux, created by Yellow Dog Linux.&lt;/p>
+&lt;p>It allows you to manage the installation and updating of software installed on a distribution. It&amp;rsquo;s a layer on top of RPM that handles downloads and dependencies, similar to Debian&amp;rsquo;s APT or Mandriva&amp;rsquo;s Urpmi.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Installing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3aa0288" class="language-bash ">
+ &lt;code>yum install &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Reinstalling a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="53caaae" class="language-bash ">
+ &lt;code>yum reinstall &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a local RPM:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e002e93" class="language-bash ">
+ &lt;code>yum localinstall &amp;lt;package.rpm&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Removing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7c7dc35" class="language-bash ">
+ &lt;code>yum remove &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Updating packages or a specific package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51a281e" class="language-bash ">
+ &lt;code>yum update &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Getting information about a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c079b69" class="language-bash ">
+ &lt;code>yum info &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a package group:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="db4834e" class="language-bash ">
+ &lt;code>yum groupinstall &amp;lt;group&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Viewing available packages (installed or not):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d0179a7" class="language-bash ">
+ &lt;code>yum list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p></description></item><item><title>Installing a Red Hat 4 Cluster</title><link>https://wiki.deimos.fr/Installation_d%5C%27un_cluster_Red_Hat_4/</link><pubDate>Sun, 26 Feb 2012 13:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_d%5C%27un_cluster_Red_Hat_4/</guid><description>&lt;p>&lt;strong>To install Red Hat Enterprise with Cluster Suite, take CDs or DVD and boot from it.&lt;/strong>&lt;/p>
+&lt;p>We are going to see step by step the interesting components.&lt;/p>
+&lt;h2 id="language">Language &lt;a href="#language" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="27ce21c" class="language- ">
+ &lt;code>Set the English language and not French to have more verbose output during future problems.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="keyboard">Keyboard &lt;a href="#keyboard" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="67d9665" class="language- ">
+ &lt;code>Keep the French keyboard&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="partitioning-do-the-same-partitioning-on-all-the-cluster-nodes">Partitioning (do the same partitioning on all the cluster nodes) &lt;a href="#partitioning-do-the-same-partitioning-on-all-the-cluster-nodes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Location&lt;/th>
+ &lt;th>Type&lt;/th>
+ &lt;th>Size&lt;/th>
+ &lt;th>LVM Name&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>/boot&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>128 MB&lt;/td>
+ &lt;td>&lt;strong>NO LVM!!!&lt;/strong>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>LVM&lt;/td>
+ &lt;td>Group&lt;/td>
+ &lt;td>Full Size (space left)&lt;/td>
+ &lt;td>VolGroup00&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>racine&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/var&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>var&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/usr&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>10240 MB&lt;/td>
+ &lt;td>usr&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/tmp&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>2048 MB&lt;/td>
+ &lt;td>tmp&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>swap&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;td>4096 MB&lt;/td>
+ &lt;td>swap&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>/home&lt;/td>
+ &lt;td>ext3&lt;/td>
+ &lt;td>Space left&lt;/td>
+ &lt;td>home&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="list-of-packages-installation">List of packages installation &lt;a href="#list-of-packages-installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a886811" class="language- ">
+ &lt;code>base
+base-x
+kde-desktop or gnome-desktop
+editors (only vim)
+mail-server (- spamassassin)
+development-tools
+compat-arch-development
+admin-tools (&amp;#43; sysstem-boot-config)
+system-tools
+compat-arch-support&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>After rebooting, install these packages from the cluster suite (cdrom/RedHat/RPMS). Warning: pay attention for SMP; if not SMP servers, do not install it, install other relative packages.&lt;/p></description></item><item><title>Adding Red Hat DVD as a Repository</title><link>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</link><pubDate>Tue, 21 Feb 2012 16:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You don&amp;rsquo;t have a Red Hat subscription or simply no internet connection to connect to the NRH, yet you have the installation DVD that contains all the packages you need!&lt;/p>
+&lt;p>Here&amp;rsquo;s how to add the DVD to the repository.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dvd">DVD &lt;a href="#dvd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a file in /etc/yum.repos.d/redhatcd.repo&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6736735" class="language-bash ">
+ &lt;code>cp /media/RHEL/media.repo /etc/yum.repos.d/redhatcd.repo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And adapt it with this content:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0cde3f7" class="language-bash ">
+ &lt;code>[InstallMedia]
+name=Red Hat Enterprise Linux 6.1
+mediaid=1305068199.328169
+metadata_expire=-1
+gpgcheck=0
+cost=500
+baseurl=file:///media/RHEL/Server&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now we&amp;rsquo;ll clear the cache:&lt;/p></description></item><item><title>Restore permissions on Red Hat</title><link>https://wiki.deimos.fr/Restaurer_les_permissions_d%5C%27une_Red_Hat/</link><pubDate>Sat, 04 Feb 2012 17:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Restaurer_les_permissions_d%5C%27une_Red_Hat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A colleague of mine made a serious mistake (running &lt;code>chown -Rf mysql&lt;/code> on &lt;code>/&lt;/code>!). This caused a huge mess, and we had to find a solution to restore the correct permissions.&lt;/p>
+&lt;p>Fortunately, Red Hat anticipated these kinds of errors and included the &lt;code>--setperms&lt;/code> and &lt;code>--setugids&lt;/code> options in the &lt;code>rpm&lt;/code> command to repair permissions on installed packages. Basically, this gives you a way to repair your machine.&lt;/p>
+&lt;p>So if you also made a mistake like this, know that there is a solution on Red Hat.&lt;/p></description></item><item><title>SystemTap: Profile and Quickly Use Kernel Features</title><link>https://wiki.deimos.fr/SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel/</link><pubDate>Sat, 31 Dec 2011 14:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/systemtaplogo.png" alt="SystemTap" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SystemTap is a software tool that simplifies information gathering on a Linux system. It allows you to analyze and diagnose performance or functionality issues. It eliminates the need for kernel recompilation, rebooting, and other steps typically required for low-level data collection.&lt;/p>
+&lt;p>SystemTap provides a command-line interface similar to awk and a C-like scripting language that allows you to write tools directly for a live kernel. Beyond tracing/probing, it&amp;rsquo;s useful for complex tasks requiring real-time analysis and programmatic responses to events.&lt;/p></description></item><item><title>OProfile: Profile Your System</title><link>https://wiki.deimos.fr/OProfile_:_profilez_votre_syst%C3%A8me/</link><pubDate>Wed, 28 Dec 2011 19:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/OProfile_:_profilez_votre_syst%C3%A8me/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/oprofile_logo.png" alt="OProfile" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="profiling">Profiling &lt;a href="#profiling" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>&lt;a href="https://oprofile.sourceforge.net" rel="external" target="_blank">OProfile&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a tool used for profiling.&lt;/p>
+&lt;p>Profiling is the process of examining data from various existing data sources (databases, files, etc.) and collecting statistics and information about this data. It is very similar to data analysis.&lt;/p></description></item><item><title>Gnuplot: Graph Data Easily</title><link>https://wiki.deimos.fr/Gnuplot_:_grapher_des_donn%C3%A9es_facilement/</link><pubDate>Mon, 26 Dec 2011 20:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gnuplot_:_grapher_des_donn%C3%A9es_facilement/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/gnuplot_logo.png" alt="Gnuplot" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Gnuplot is a flexible program that can produce graphical representations in two or three dimensions of numerical functions or data. The program works on all major computers and operating systems and can send graphics to the screen or into files in many formats. Gnuplot also uses the Levenberg-Marquardt algorithm to fit parameters of a numerical function to experimental data.&lt;/p>
+&lt;p>The program is distributed under a free software license that allows copying and modifying the source code of the program. Modified versions of the program can only be distributed as patch files. The program has no connection to the GNU project and does not use the copyleft GPL license.&lt;/p></description></item><item><title>SNMP: The Network Management Protocol</title><link>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</link><pubDate>Sun, 25 Dec 2011 20:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Network management systems are based on three main elements: a supervisor, nodes, and agents. In SNMP terminology, the term &amp;ldquo;manager&amp;rdquo; is more commonly used than &amp;ldquo;supervisor&amp;rdquo;. The supervisor is the console that allows the network administrator to execute management requests. Agents are entities located at each interface, connecting the managed equipment (node) to the network and allowing information to be retrieved on different objects.&lt;/p>
+&lt;p>Switches, hubs, routers, workstations, and servers (physical or virtual) are examples of equipment containing manageable objects. These manageable objects can be hardware information, configuration parameters, performance statistics, and other objects that are directly related to the current behavior of the equipment in question. These objects are classified in a tree-like database called MIB (Management Information Base). SNMP enables communication between the supervisor and agents to collect the desired objects in the MIB.&lt;/p></description></item><item><title>RPM: Build a Binary RPM Package from Sources on Red Hat</title><link>https://wiki.deimos.fr/RPM_:_Build_a_binary_RPM_package_from_sources_on_Red_Hat/</link><pubDate>Wed, 08 Jun 2011 14:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/RPM_:_Build_a_binary_RPM_package_from_sources_on_Red_Hat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Building an RPM is not a complicated task, even from source files. In my job I had to compile &lt;a href="https://www.openonload.org/" rel="external" target="_blank">Open On Load&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> kernel module and package it.&lt;/p></description></item><item><title>Setting up a Synchronization Solution between ActiveDirectory and OpenLDAP</title><link>https://wiki.deimos.fr/Mise_en_place_d'une_solution_de_Syncronisation_entre_ActiveDirectory_et_OpenLDAP/</link><pubDate>Mon, 12 Apr 2010 08:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'une_solution_de_Syncronisation_entre_ActiveDirectory_et_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This documentation is quite technically advanced, which is why &lt;strong>you need some basic knowledge&lt;/strong> before attempting it. I recommend reading this &lt;a href="./LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP">documentation&lt;/a> first.&lt;/p>
+&lt;p>For authentication, we want to use an OpenLDAP directory as a &lt;strong>cache/backup of an Active Directory (AD) server&lt;/strong>. Authentication will be performed from different applications and Unix-type machines. The goal is also to be able to continue authenticating in case of an AD crash.&lt;/p>
+&lt;p>Note: Because objectively, in case of a crash, here are the approximate reinstallation and restore times:&lt;/p></description></item><item><title>Linux: Launching Daemons at Boot</title><link>https://wiki.deimos.fr/Linux_:_Lancement_des_d%C3%A9mons_au_boot/</link><pubDate>Tue, 05 May 2009 07:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Linux_:_Lancement_des_d%C3%A9mons_au_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To launch daemons at boot time, you need to act differently depending on the distribution. But before starting, the script must already exist in &lt;code>/etc/init.d&lt;/code>.&lt;/p>
+&lt;h2 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2f59d39" class="language-bash ">
+ &lt;code>update-rc.d&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You can test with the &lt;code>-n&lt;/code> argument:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b024a83" class="language-bash ">
+ &lt;code>update-rc.d -n name_of_service defaults&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Once you&amp;rsquo;re ready, execute:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="533c0de" class="language-bash ">
+ &lt;code>update-rc.d name_of_service defaults&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And if you want to remove it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7b60073" class="language-bash ">
+ &lt;code>update-rc.d -f name_of_service remove&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Run this command:&lt;/p></description></item><item><title>Dkfilter: Proxy SMTP (Signature Mails) Made by Yahoo</title><link>https://wiki.deimos.fr/Dkfilter_:_Proxy_SMTP_(signatures_mails)_made_by_Yahoo/</link><pubDate>Thu, 31 Jan 2008 07:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dkfilter_:_Proxy_SMTP_(signatures_mails)_made_by_Yahoo/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>DomainKeys is an anti-spam software application in development at &lt;a href="https://antispam.yahoo.com/domainkeys" rel="external" target="_blank">Yahoo&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> that uses a form of public key cryptography to authenticate the sender&amp;rsquo;s domain. &lt;strong>dkfilter is an SMTP-proxy designed for Postfix&lt;/strong>. It implements DomainKeys message signing and verification. It comprises two separate filters, an &amp;ldquo;outbound&amp;rdquo; filter for &lt;strong>signing outgoing email on port 587&lt;/strong>, and an &amp;ldquo;inbound&amp;rdquo; filter for &lt;strong>verifying signatures of incoming email on port 25&lt;/strong>. This document is to describe step by step how to install dkfilter for postfix to deploy domainkeys signing and verification.&lt;/p></description></item><item><title>Creating a RedHat DVD from CDs</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</link><pubDate>Fri, 17 Aug 2007 15:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As of this writing, the current RHEL release (5) is only available on CDs, not DVD. It is possible to create a bootable DVD ISO from these CDs using Chris Kloiber&amp;rsquo;s mkdvdiso.sh script.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="script-mkdvdisosh">Script mkdvdiso.sh &lt;a href="#script-mkdvdisosh" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Insert this in a mkdvdiso.sh file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="14014b1" class="language-bash ">
+ &lt;code>#!/bin/bash
+ 
+# by Chris Kloiber &amp;lt;ckloiber@redhat.com&amp;gt;
+ 
+# A quick hack that will create a bootable DVD iso of a Red Hat Linux
+# Distribution. Feed it either a directory containing the downloaded
+# iso files of a distribution, or point it at a directory containing
+# the &amp;#34;RedHat&amp;#34;, &amp;#34;isolinux&amp;#34;, and &amp;#34;images&amp;#34; directories.
+ 
+# This version only works with &amp;#34;isolinux&amp;#34; based Red Hat Linux versions.
+ 
+# Lots of disk space required to work, 3X the distribution size at least.
+ 
+# GPL version 2 applies. No warranties, yadda, yadda. Have fun.
+ 
+ 
+if [ $# -lt 2 ]; then
+	echo &amp;#34;Usage: `basename $0` source /destination/DVD.iso&amp;#34;
+	echo &amp;#34;&amp;#34;
+	echo &amp;#34; The &amp;#39;source&amp;#39; can be either a directory containing a single&amp;#34;
+	echo &amp;#34; set of isos, or an exploded tree like an ftp site.&amp;#34;
+	exit 1
+fi
+ 
+cleanup() {
+[ ${LOOP:=/tmp/loop} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;LOOP mount point = /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $LOOP ] &amp;amp;&amp;amp; rm -rf $LOOP 
+[ ${DVD:=~/mkrhdvd} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;DVD data location is /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $DVD ] &amp;amp;&amp;amp; rm -rf $DVD 
+}
+ 
+cleanup
+mkdir -p $LOOP
+mkdir -p $DVD
+ 
+if [ !`ls $1/*.iso 2&amp;gt;&amp;amp;1&amp;gt;/dev/null ; echo $?` ]; then
+	echo &amp;#34;Found ISO CD images...&amp;#34;
+	CDS=`expr 0`
+	DISKS=&amp;#34;1&amp;#34;
+ 
+	for f in `ls $1/*.iso`; do
+		mount -o loop $f $LOOP
+		cp -av $LOOP/* $DVD
+		if [ -f $LOOP/.discinfo ]; then
+			cp -av $LOOP/.discinfo $DVD
+			CDS=`expr $CDS &amp;#43; 1`
+			if [ $CDS != 1 ] ; then
+ 	DISKS=`echo ${DISKS},${CDS}`
+ 	fi
+		fi
+		umount $LOOP
+	done
+	if [ -e $DVD/.discinfo ]; then
+		awk &amp;#39;{ if ( NR == 4 ) { print disks } else { print ; } }&amp;#39; disks=&amp;#34;$DISKS&amp;#34; $DVD/.discinfo &amp;gt; $DVD/.discinfo.new
+		mv $DVD/.discinfo.new $DVD/.discinfo
+	fi
+else
+	echo &amp;#34;Found FTP-like tree...&amp;#34;
+	cp -av $1/* $DVD
+	[ -e $1/.discinfo ] &amp;amp;&amp;amp; cp -av $1/.discinfo $DVD
+fi
+ 
+rm -rf $DVD/isolinux/boot.cat
+find $DVD -name TRANS.TBL | xargs rm -f
+ 
+cd $DVD
+mkisofs -J -R -v -T -o $2 -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
+/usr/lib/anaconda-runtime/implantisomd5 --force $2
+ 
+cleanup
+echo &amp;#34;&amp;#34;
+echo &amp;#34;Process Complete!&amp;#34;
+echo &amp;#34;&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="install-the-anaconda-runtime">Install the anaconda-runtime &lt;a href="#install-the-anaconda-runtime" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Prerequisite package and its dependencies:&lt;/p></description></item><item><title>Network Recycle Bin</title><link>https://wiki.deimos.fr/Corbeille_r%C3%A9seau/</link><pubDate>Sun, 22 Oct 2006 20:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Corbeille_r%C3%A9seau/</guid><description>&lt;p>There is a network recycle bin for each share. To set this up, here are the files to configure with the necessary options. My tests were done on a Red Hat Enterprise 4 with Samba 3. This configuration only works with Samba 3. For earlier versions, it&amp;rsquo;s a .recycle file with a different content. But let&amp;rsquo;s proceed with the configuration:&lt;/p>
+&lt;p>Edit the &lt;code>smb.conf&lt;/code> file and add these lines:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="28560fd" class="language-bash ">
+ &lt;code>vfs objects = recycle
+recycle:exclude = *.tmp *.temp *.o *.obj ~$*
+recycle:keeptree = True
+recycle:touch = True
+recycle:versions = True
+recycle:noversions = .doc|.xls|.ppt
+recycle:repository = .recycle
+recycle:maxsize = 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>A small script in the crontab to remove items older than 1 week and you&amp;rsquo;re good to go :-)&lt;/p></description></item></channel></rss>

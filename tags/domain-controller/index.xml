@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Domain Controller on Tech Notebook</title><link>https://wiki.deimos.fr/tags/domain-controller/</link><description>Recent content in Domain Controller on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/domain-controller/index.xml" rel="self" type="application/rss+xml"/><item><title>Installing and configuring Samba as a Domain Controller</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_Contr%C3%B4leur_de_domaine/</link><pubDate>Wed, 07 Nov 2012 09:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_Contr%C3%B4leur_de_domaine/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is very versatile and can emulate a domain controller (similar to Windows NT4).&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a typical configuration for this type of environment with an OpenLDAP backend:&lt;/p>
+&lt;p>(&lt;code>/etc/samba/smb.conf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="351759b" class="language-bash ">
+ &lt;code>[global]
+ workgroup = deimos.fr
+ netbios name= %h
+ server string = Controleur du domaine deimos.fr
+ log level = 2
+ #log file = /var/log/samba/smbd.log
+ log file = /var/log/samba/%m.log
+ max log size = 5000
+ security = user
+ encrypt passwords = yes
+ obey pam restrictions = No
+ socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+ local master = yes
+ os level = 65
+ domain master = yes
+ preferred master = yes
+ domain logons = yes
+ logon script = netlogon.vbs
+ logon path =
+ logon drive =
+ logon home =
+ wins support = yes
+ dns proxy = no
+ unix extensions = no
+
+# LDAP
+# Pour que Samba puisse lire et écrire dans l&amp;#39;annuaire : smbpasswd -w mypassword
+ ldap suffix = dc=deimos.fr,dc=local
+ ldap machine suffix = ou=hosts
+ ldap user suffix = ou=users
+ ldap group suffix = ou=groups
+ ldap admin dn = uid=samba,ou=utilisateurs,dc=local
+ ldap ssl = Start_tls
+ ldap passwd sync = yes
+ passdb backend = ldapsam:&amp;#34;ldap://ldap-slave1 ldap://ldap-slave2&amp;#34;
+
+[netlogon]
+ comment = Network Logon Service
+ path = /mnt/netlogon
+ browseable = no
+ writable = no
+ share modes = no
+
+[homes]
+ path = /datas/users/%U
+ valid users = %U
+ comment = %U personnal folder
+ browseable = no
+ writable = yes
+
+[partage]
+ path = /mnt/partage
+ comment = partage
+ browseable = yes
+ create mask = 0700
+ directory mask = 0700
+ create mode = 0700
+ directory mode = 0700
+ writable = yes
+ #valid users = @&amp;#34;utilisateurs du domaine&amp;#34;
+
+[commons]
+ path = /mnt/commons
+ comment = commons
+ browseable = yes
+ writable = yes
+ valid users = @&amp;#34;utilisateurs du domaine&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="resources">Resources &lt;a href="#resources" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/samba_domaincontroller.pdf">Documentation on installing a Samba Domain&lt;/a>&lt;/p></description></item></channel></rss>

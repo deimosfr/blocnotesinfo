@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on Tech Notebook</title><link>https://wiki.deimos.fr/categories/tools/</link><description>Recent content in Tools on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Vim: Essential Commands and Quick Reference Card</title><link>https://wiki.deimos.fr/Vim_:_Les_indispendables_&amp;_Quick_Reference_Card/</link><pubDate>Tue, 07 May 2013 13:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vim_:_Les_indispendables_&amp;_Quick_Reference_Card/</guid><description>&lt;h2 id="references">References &lt;a href="#references" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are some useful commands that I don&amp;rsquo;t always remember:&lt;/p>
+&lt;p>Replace text in the current line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f1e880c" class="language- ">
+ &lt;code>:s/original/destination/g&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Replace text throughout the document:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5284345" class="language- ">
+ &lt;code>:%s/original/destination/g&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Remove unnecessary spaces and tabs at the end of lines:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b42663a" class="language- ">
+ &lt;code>:%s/\s\&amp;#43;$//&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here are also the &lt;a href="https://wiki.deimos.fr/pdf/vimqrc.pdf">Quick Reference Card&lt;/a> and &lt;a href="https://wiki.deimos.fr/pdf/vimqrcfr.pdf">the same in French&lt;/a> :-).&lt;/p>
+&lt;h2 id="the-functions">The Functions &lt;a href="#the-functions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is what I consider essential in VIM for good file editing and better navigation:&lt;/p></description></item><item><title>GS: Merge Multiple PDFs Into One</title><link>https://wiki.deimos.fr/GS_:_Assembler_plusieurs_PDF_pour_n'en_fait_qu'un/</link><pubDate>Sat, 28 Nov 2009 16:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/GS_:_Assembler_plusieurs_PDF_pour_n'en_fait_qu'un/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need to merge multiple PDF files to get only one. Here is the solution.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c677f30" class="language-bash ">
+ &lt;code>gs -q -sPAPERSIZE=letter -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=out.pdf `ls *.pdf`&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This command merges all PDF files in the current directory into one PDF file (the out.pdf file).&lt;/p></description></item><item><title>Fanout: Run the Same Command on Multiple Machines Simultaneously</title><link>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</link><pubDate>Tue, 03 Oct 2006 15:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</guid><description>&lt;p>These two tools by William Stearns can quickly become essential when managing multiple machines&amp;hellip;&lt;/p>
+&lt;p>As indicated in the title, these tools allow you to run commands simultaneously on multiple machines, and even interactively (with fanterm).&lt;/p>
+&lt;p>I didn&amp;rsquo;t find anything in the repositories or as a .deb package. So I &amp;ldquo;alienated&amp;rdquo; the rpm:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="56a8047" class="language-bash ">
+ &lt;code>wget http://www.stearns.org/fanout/fanout-0.6.1-0.noarch.rpm
+sudo alien fanout-0.6.1-0.noarch.rpm
+sudo dpkg -i fanout_0.6.1-1_all.deb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For SSH on non-standard ports, I used the config file (see man ssh_config)&lt;/p></description></item></channel></rss>

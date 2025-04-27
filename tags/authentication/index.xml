@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Authentication on Tech Notebook</title><link>https://wiki.deimos.fr/tags/authentication/</link><description>Recent content in Authentication on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/authentication/index.xml" rel="self" type="application/rss+xml"/><item><title>Yubikey: Configure Your Yubikey with PAM</title><link>https://wiki.deimos.fr/Yubikey_:_Configure_your_yubikey_with_pam/</link><pubDate>Wed, 22 Apr 2015 16:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Yubikey_:_Configure_your_yubikey_with_pam/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/yubikey.png" alt="Yubikey" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7/8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.yubico.com/" rel="external" target="_blank">Yubikey Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>22/04/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve bought Yubikeys to manage several things. They permit 2 different kinds of authentication per key. The authentication methods are:&lt;/p></description></item><item><title>OpenSSH: SSH Key Exchange</title><link>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</link><pubDate>Fri, 25 Oct 2013 09:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SSH key exchange is great for logging in without having to type your password. It&amp;rsquo;s also very simple to set up.&lt;/p>
+&lt;h2 id="basic">Basic &lt;a href="#basic" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, the user account to which the client will connect (for example &lt;strong>root&lt;/strong>) must have the .ssh directory present:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37cae9e" class="language-bash ">
+ &lt;code>mkdir .ssh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="client">Client &lt;a href="#client" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the client, you need to generate a key pair, &lt;strong>unless you already have one (~/.ssh/id_dsa.pub)&lt;/strong>:&lt;/p></description></item><item><title>OpenSSH FAQ</title><link>https://wiki.deimos.fr/FAQ_OpenSSH/</link><pubDate>Wed, 08 May 2013 19:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/FAQ_OpenSSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is not always simple, which is why a small documentation is useful.&lt;/p>
+&lt;h2 id="faq">FAQ &lt;a href="#faq" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="fatal-timeout-before-authentication-for-ip">fatal: Timeout before authentication for @ip &lt;a href="#fatal-timeout-before-authentication-for-ip" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Your DNS on your SSH server might not be up to date. Check them.&lt;/p>
+&lt;h3 id="some-clients-take-a-long-time-to-connect">Some clients take a long time to connect &lt;a href="#some-clients-take-a-long-time-to-connect" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the SSH server, it is very likely that the server is trying to resolve names, which is not always possible or practical. The solution is to disable this (&lt;code>/etc/ssh/sshd_config&lt;/code>):&lt;/p></description></item><item><title>LDAP: Installation and Configuration of an LDAP Directory</title><link>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</link><pubDate>Thu, 28 Mar 2013 10:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/openldap-logo.png" alt="OpenLDAP" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.4.23+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.openldap.org/" rel="external" target="_blank">OpenLDAP Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/LDAP" rel="external" target="_blank">Lightweight Directory Access Protocol (LDAP)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a protocol that allows querying and modification of directory services. This protocol is based on TCP/IP. An LDAP directory typically follows the X.500 model defined by ITU-T: it is a tree structure where each node consists of attributes associated with their values.&lt;/p></description></item><item><title>LemonLDAP::NG: More than just SSO</title><link>https://wiki.deimos.fr/LemonLDAP::NG_:_Plus_qu'un_simple_SSO/</link><pubDate>Sat, 16 Mar 2013 08:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/LemonLDAP::NG_:_Plus_qu'un_simple_SSO/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/lemonldap_logo.png" alt="LemonDAP::NG" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://lemonldap-ng.org" rel="external" target="_blank">LemonLDAP::NG Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>16/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Apache 2.2&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LemonLDAP::NG was created by Éric German for the French Ministry of Finance. Initially named LevonLDAP, in tribute to Novell, it was designed to be compatible with Novell&amp;rsquo;s single sign-on (SSO) authentication system. It is based on the book &amp;ldquo;Writing Apache Modules with Perl and C The Apache API and mod_perl&amp;rdquo; by Doug MacEachern and Lincoln Stein (O&amp;rsquo;Reilly).&lt;/p></description></item><item><title>Installing and configuring Samba as a Domain Controller</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_Contr%C3%B4leur_de_domaine/</link><pubDate>Wed, 07 Nov 2012 09:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_Contr%C3%B4leur_de_domaine/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is very versatile and can emulate a domain controller (similar to Windows NT4).&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a typical configuration for this type of environment with an OpenLDAP backend:&lt;/p>
+&lt;p>(&lt;code>/etc/samba/smb.conf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="351759b" class="language-bash ">
+ &lt;code>[global]
+ workgroup = deimos.fr
+ netbios name= %h
+ server string = Controleur du domaine deimos.fr
+ log level = 2
+ #log file = /var/log/samba/smbd.log
+ log file = /var/log/samba/%m.log
+ max log size = 5000
+ security = user
+ encrypt passwords = yes
+ obey pam restrictions = No
+ socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+ local master = yes
+ os level = 65
+ domain master = yes
+ preferred master = yes
+ domain logons = yes
+ logon script = netlogon.vbs
+ logon path =
+ logon drive =
+ logon home =
+ wins support = yes
+ dns proxy = no
+ unix extensions = no
+
+# LDAP
+# Pour que Samba puisse lire et écrire dans l&amp;#39;annuaire : smbpasswd -w mypassword
+ ldap suffix = dc=deimos.fr,dc=local
+ ldap machine suffix = ou=hosts
+ ldap user suffix = ou=users
+ ldap group suffix = ou=groups
+ ldap admin dn = uid=samba,ou=utilisateurs,dc=local
+ ldap ssl = Start_tls
+ ldap passwd sync = yes
+ passdb backend = ldapsam:&amp;#34;ldap://ldap-slave1 ldap://ldap-slave2&amp;#34;
+
+[netlogon]
+ comment = Network Logon Service
+ path = /mnt/netlogon
+ browseable = no
+ writable = no
+ share modes = no
+
+[homes]
+ path = /datas/users/%U
+ valid users = %U
+ comment = %U personnal folder
+ browseable = no
+ writable = yes
+
+[partage]
+ path = /mnt/partage
+ comment = partage
+ browseable = yes
+ create mask = 0700
+ directory mask = 0700
+ create mode = 0700
+ directory mode = 0700
+ writable = yes
+ #valid users = @&amp;#34;utilisateurs du domaine&amp;#34;
+
+[commons]
+ path = /mnt/commons
+ comment = commons
+ browseable = yes
+ writable = yes
+ valid users = @&amp;#34;utilisateurs du domaine&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="resources">Resources &lt;a href="#resources" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/samba_domaincontroller.pdf">Documentation on installing a Samba Domain&lt;/a>&lt;/p></description></item><item><title>Apache SSO Authentication on AD Backend via Kerberos</title><link>https://wiki.deimos.fr/Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos/</link><pubDate>Mon, 29 Oct 2012 07:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/logo_kerberos_consortium.gif" alt="Kerberos" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6 and Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>29/10/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this article is to explain how to implement strong SSO (Single Sign-On) authentication for a web application hosted on a local network Linux server with Apache via Kerberos on Windows 2003/2008 Server. Clients will be Windows or Linux machines participating in the AD (Active Directory) domain using a web browser.&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup>&lt;/p></description></item><item><title>Kerberos: Setting up a Kerberos Server</title><link>https://wiki.deimos.fr/Kerberos_:_Mise_en_place_d'un_serveur_Kerberos/</link><pubDate>Sat, 06 Oct 2012 01:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kerberos_:_Mise_en_place_d'un_serveur_Kerberos/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/logo_kerberos_consortium.gif" alt="Kerberos" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6&lt;br />Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/10/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Kerberos is a network authentication protocol that relies on a secret key mechanism (symmetric encryption) and the use of tickets, rather than clear text passwords, thus avoiding the risk of fraudulent interception of user passwords. Created at the Massachusetts Institute of Technology (MIT), it bears the Greek name for Cerberus, guardian of the Underworld. Kerberos was first implemented on Unix systems.&lt;/p></description></item><item><title>PAM Time: Setting Login Restrictions</title><link>https://wiki.deimos.fr/Pam_time:_Mettre_des_restrictions_sur_les_logins/</link><pubDate>Fri, 06 May 2011 20:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pam_time:_Mettre_des_restrictions_sur_les_logins/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>pam_time is able to make several kinds of restrictions like:&lt;/p>
+&lt;ul>
+&lt;li>Time Based Restrictions&lt;/li>
+&lt;li>Access Based Restrictions&lt;/li>
+&lt;/ul>
+&lt;p>I&amp;rsquo;ll explain here how to use those options.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="time-based-restrictions">Time Based Restrictions &lt;a href="#time-based-restrictions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>These examples will limit the login times of certain users. See &lt;code>/etc/security/time.conf&lt;/code> for more information/examples. In order to place time restrictions on user logins, the following must be placed in &lt;code>/etc/pam.d/login&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3cc4e59" class="language-bash ">
+ &lt;code>account required /lib/security/pam_time.so&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The remaining lines should be placed in &lt;code>/etc/security/time.conf&lt;/code>.&lt;/p></description></item><item><title>Apache 2 Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27Apache_2/</link><pubDate>Wed, 06 Apr 2011 08:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d%5C%27Apache_2/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Apache is one of the most widely used web servers in the world, if not THE most used web server in the world.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c2de30" class="language-bash ">
+ &lt;code>apt-get install apache2&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="choose-a-default-charset">Choose a Default Charset &lt;a href="#choose-a-default-charset" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In the configuration file &lt;code>/etc/apache2/apache2.conf&lt;/code> or &lt;code>/etc/apache2/conf.d/charset&lt;/code>, insert this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="52f003d" class="language-bash ">
+ &lt;code>AddDefaultCharset .latin9&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then reload Apache:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="82a2415" class="language-bash ">
+ &lt;code>/etc/init.d/apache2 reload&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="authentication">Authentication &lt;a href="#authentication" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="ldap">LDAP &lt;a href="#ldap" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>For LDAP authentication, you need to install this:&lt;/p></description></item><item><title>PAM Cracklib: Configure Password Complexity</title><link>https://wiki.deimos.fr/Pam_cracklib_:_Choisir_la_complexit%C3%A9_des_mots_de_passe/</link><pubDate>Sun, 06 Feb 2011 08:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pam_cracklib_:_Choisir_la_complexit%C3%A9_des_mots_de_passe/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;re tired of users choosing passwords that are too simple on your systems, compromising security in the process, there&amp;rsquo;s a solution. PAM Cracklib allows you to specify the minimum size of passwords, the number of lowercase letters, uppercase letters, digits, and more.&lt;/p>
+&lt;p>It&amp;rsquo;s almost essential, especially if you rely on a backend like LDAP.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installation is straightforward:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5efdee3" class="language-bash ">
+ &lt;code>aptitude install libpam-cracklib&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We only have one file to edit, which greatly simplifies things. Since we&amp;rsquo;re using Debian, they&amp;rsquo;ve made our lives easier - we just need to uncomment some lines that already come with clear explanations!&lt;/p></description></item><item><title>Mixing Apache Authentication</title><link>https://wiki.deimos.fr/Mixing_Apache_Authentication/</link><pubDate>Sun, 11 Apr 2010 15:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mixing_Apache_Authentication/</guid><description>&lt;h2 id="mixing-pam">Mixing PAM &lt;a href="#mixing-pam" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>How to mix PAM authentication (mod_auth_pam) and text file authentication (mod_auth) with Apache. First install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="523dc2c" class="language-bash ">
+ &lt;code>apt-get install libapache2-mod-auth-pam&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then configure your htaccess:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="91ed4dd" class="language-bash ">
+ &lt;code>AuthPAM_Enabled on
+AuthPAM_FallThrough on
+AuthAuthoritative Off
+AuthUserFile /etc/apache2/htpassword
+AuthType Basic
+AuthName &amp;#34;Restricted Access&amp;#34;
+Require valid-user&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If mod_auth_pam doesn&amp;rsquo;t find a valid user, it falls back to mod_auth authentication automatically.&lt;/p>
+&lt;p>Here is another example with webdav:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock linenos">
+ &lt;pre id="17f3a63" class="language-apache line-numbers">
+ &lt;code> Alias /webdav /var/www/ngs
+ &amp;lt;Location /webdav&amp;gt;
+ DAV On
+ AuthPAM_Enabled on
+ AuthBasicAuthoritative Off 
+ AuthPAM_FallThrough off 
+ AuthUserFile /dev/null
+ AuthType Basic
+ AuthName &amp;#34;Webdav Authentication&amp;#34;
+ Require group ngs 
+ &amp;lt;/Location&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="openbsd">OpenBSD &lt;a href="#openbsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On OpenBSD, I had to install &lt;a href="https://www.25thandclement.com/~william/projects/bsdauth.html" rel="external" target="_blank">mod_auth_bsd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p></description></item><item><title>PAM-script: Execute Scripts at Authentication, Session Open and Close</title><link>https://wiki.deimos.fr/PAM-script_:_Executer_des_scripts_%C3%A0_l%27authentification,_l%27ouverture_et_la_fermeture_de_session/</link><pubDate>Sun, 14 Mar 2010 19:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM-script_:_Executer_des_scripts_%C3%A0_l%27authentification,_l%27ouverture_et_la_fermeture_de_session/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need to run some operations at authentication, session opening or closing. Here is a PAM module I&amp;rsquo;ve found that allows this functionality.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download the module from &lt;a href="https://freshmeat.net/projects/pam_script/" rel="external" target="_blank">the Freshmeat project&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and extract it:&lt;/p></description></item><item><title>WebDAV: Securing with SSL</title><link>https://wiki.deimos.fr/WebDav_:_S%C3%A9curiser_avec_SSL/</link><pubDate>Sun, 20 Dec 2009 10:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/WebDav_:_S%C3%A9curiser_avec_SSL/</guid><description>&lt;p>Here is documentation on how to secure your WebDAV!&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/how_to_set_up_webdav_with_mysql_authentication_on_apache2.pdf">How To Set Up WebDAV With MySQL Authentication On Apache2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/how_to_set_up_webdav_with_apache2.pdf">How To Set Up WebDAV With Apache2&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/pdf/securewebdav.pdf">Documentation on Securing Webdav&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://wiki.deimos.fr/Mixing_Apache_Authentication/">Mixing Apache Authentication&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>CAS: Setting Up an SSO Server</title><link>https://wiki.deimos.fr/CAS_:_Mise_en_place_d'un_serveur_SSO/</link><pubDate>Thu, 08 Oct 2009 16:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/CAS_:_Mise_en_place_d'un_serveur_SSO/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Single_sign_on" rel="external" target="_blank">Single sign-on (SSO)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a property of access control of multiple, related, but independent software systems. With this property a user logs in once and gains access to all systems without being prompted to log in again at each of them. Single sign-off is the reverse property whereby a single action of signing out terminates access to multiple software systems.&lt;/p></description></item><item><title>PAM: Install pam_mkhomedir for Automatic User Home Directory Creation</title><link>https://wiki.deimos.fr/PAM_:_Installer_pam_mkhomedir_pour_la_cr%C3%A9ation_automatique_des_home_utilisateurs/</link><pubDate>Tue, 06 Oct 2009 08:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_:_Installer_pam_mkhomedir_pour_la_cr%C3%A9ation_automatique_des_home_utilisateurs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may be in a situation like mine where you have your Solaris connected to an LDAP server or similar, and you&amp;rsquo;re facing the problem of automatic home directory creation for users who connect. After 2-3 hours of struggles, I finally managed to compile and configure everything.&lt;/p>
+&lt;p>Here&amp;rsquo;s my documentation to save time for others who might face the same issue.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, you&amp;rsquo;ll need a small package to avoid errors like this:&lt;/p></description></item><item><title>Setting up OpenLDAP Client</title><link>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</link><pubDate>Wed, 23 Sep 2009 09:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_du_client_OpenLDAP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenLDAP is unfortunately not available as standard on Solaris, however it is possible to install it via pkg-get.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Configure the &lt;code>/etc/pam.conf&lt;/code> file:&lt;/li>
+&lt;/ul>
+&lt;p>For each line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c0ea0a" class="language-bash ">
+ &lt;code>service auth required pam_unix_auth.so.1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>replace &amp;ldquo;required&amp;rdquo; with &amp;ldquo;sufficient&amp;rdquo; and add behind the line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6af2348" class="language-bash ">
+ &lt;code>service auth sufficient pam_ldap.so.1 try_first_pass&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This should result in something like this (&lt;code>/etc/pam.conf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b261686" class="language-bash ">
+ &lt;code>#
+#ident &amp;#34;@(#)pam.conf 1.28 04/04/21 SMI&amp;#34;
+#
+# Copyright 2004 Sun Microsystems, Inc. All rights reserved.
+# Use is subject to license terms.
+#
+# PAM configuration
+#
+# Unless explicitly defined, all services use the modules
+# defined in the &amp;#34;other&amp;#34; section.
+#
+# Modules are defined with relative pathnames, i.e., they are
+# relative to /usr/lib/security/$ISA. Absolute path names, as
+# present in this file in previous releases are still acceptable.
+#
+# Authentication management
+#
+# login service (explicit because of pam_dial_auth)
+#
+login auth requisite pam_authtok_get.so.1
+login auth required pam_dhkeys.so.1
+login auth required pam_unix_cred.so.1
+login auth sufficient pam_ldap.so.1 try_first_pass
+login auth sufficient pam_unix_auth.so.1
+login auth required pam_dial_auth.so.1
+#
+# rlogin service (explicit because of pam_rhost_auth)
+#
+rlogin auth sufficient pam_rhosts_auth.so.1
+rlogin auth requisite pam_authtok_get.so.1
+rlogin auth required pam_dhkeys.so.1
+rlogin auth required pam_unix_cred.so.1
+rlogin auth sufficient pam_ldap.so.1 try_first_pass
+rlogin auth sufficient pam_unix_auth.so.1
+#
+# Kerberized rlogin service
+#
+krlogin auth required pam_unix_cred.so.1
+krlogin auth binding pam_krb5.so.1
+krlogin auth sufficient pam_ldap.so.1
+krlogin auth sufficient pam_unix_auth.so.1
+#
+# rsh service (explicit because of pam_rhost_auth,
+# and pam_unix_auth for meaningful pam_setcred)
+#
+rsh auth sufficient pam_rhosts_auth.so.1
+rsh auth required pam_unix_cred.so.1
+#
+# Kerberized rsh service
+#
+krsh auth required pam_unix_cred.so.1
+krsh auth binding pam_krb5.so.1
+krsh auth sufficient pam_ldap.so.1
+krsh auth sufficient pam_unix_auth.so.1
+#
+# Kerberized telnet service
+#
+ktelnet auth required pam_unix_cred.so.1
+ktelnet auth binding pam_krb5.so.1
+ktelnet auth sufficient pam_ldap.so.1
+ktelnet auth sufficient pam_unix_auth.so.1
+#
+# PPP service (explicit because of pam_dial_auth)
+#
+ppp auth requisite pam_authtok_get.so.1
+ppp auth required pam_dhkeys.so.1
+ppp auth required pam_unix_cred.so.1
+ppp auth sufficient pam_ldap.so.1
+ppp auth sufficient pam_unix_auth.so.1
+ppp auth required pam_dial_auth.so.1
+#
+# Default definitions for Authentication management
+# Used when service name is not explicitly mentioned for authentication
+#
+other auth requisite pam_authtok_get.so.1
+other auth required pam_dhkeys.so.1
+other auth required pam_unix_cred.so.1
+other auth sufficient pam_ldap.so.1
+other auth sufficient pam_unix_auth.so.1
+#
+# passwd command (explicit because of a different authentication module)
+#
+passwd auth required pam_passwd_auth.so.1
+#
+# cron service (explicit because of non-usage of pam_roles.so.1)
+#
+cron account required pam_unix_account.so.1
+#
+# Default definition for Account management
+# Used when service name is not explicitly mentioned for account management
+#
+other account requisite pam_roles.so.1
+other account required pam_unix_account.so.1
+#
+# Default definition for Session management
+# Used when service name is not explicitly mentioned for session management
+#
+other session required pam_unix_session.so.1
+#
+# Default definition for Password management
+# Used when service name is not explicitly mentioned for password management
+#
+other password required pam_dhkeys.so.1
+other password requisite pam_authtok_get.so.1
+other password requisite pam_authtok_check.so.1
+other password required pam_authtok_store.so.1
+#
+# Support for Kerberos V5 authentication and example configurations can
+# be found in the pam_krb5(5) man page under the &amp;#34;EXAMPLES&amp;#34; section.
+#&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Configure the &lt;code>/etc/nsswitch.ldap&lt;/code> file&lt;/li>
+&lt;/ul>
+&lt;p>Keep &amp;ldquo;ldap&amp;rdquo; only where it&amp;rsquo;s useful: for now on the passwd: and group: lines.
+For the rest, use the content of the &lt;code>/etc/nsswitch.dns&lt;/code> file.
+This gives:&lt;/p></description></item><item><title>WebDAV with Lighttpd</title><link>https://wiki.deimos.fr/Webdav_avec_Lighttpd/</link><pubDate>Wed, 19 Aug 2009 07:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Webdav_avec_Lighttpd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>WebDAV is great once you&amp;rsquo;ve tried it. We&amp;rsquo;ll see how to set it up with Lighttpd. I need it to upload images for my photo album.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For the installation, it&amp;rsquo;s straightforward:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dc03161" class="language-bash ">
+ &lt;code>apt-get install lighttpd-mod-webdav&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s enable our newly installed module:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bcde39c" class="language-bash ">
+ &lt;code>lighty-enable-mod auth
+lighty-enable-mod webdav&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Edit the Lighttpd configuration file and uncomment this section:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef2676a" class="language-perl ">
+ &lt;code>server.modules &amp;lt;nowiki&amp;gt;=&amp;lt;/nowiki&amp;gt; (
+...
+ &amp;#34;mod_webdav&amp;#34;,
+...
+)&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We&amp;rsquo;ll add the folder we want to have WebDAV access to below.&lt;/p></description></item><item><title>Setting up a FreeRadius server</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_FreeRadius/</link><pubDate>Tue, 13 Jan 2009 11:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_FreeRadius/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/FreeRADIUS" rel="external" target="_blank">FreeRADIUS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an open-source RADIUS server.&lt;/p>
+&lt;p>It offers an alternative to other enterprise RADIUS servers, and is one of the most modular and feature-rich RADIUS servers available today. It is considered the most widely used server in the world.&lt;/p></description></item><item><title>Installation and Configuration of Samba in User Mode (Authentication on an OpenLDAP Server)</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22_%28Authentification_sur_un_serveur_OpenLDAP%29/</link><pubDate>Tue, 02 Dec 2008 07:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22_%28Authentification_sur_un_serveur_OpenLDAP%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is free software under the GPL license that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources on these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs running DOS and early Windows versions sometimes had to install a TCP/IP stack and a set of Unix-origin software: an NFS client, FTP, telnet, lpr, etc. This was cumbersome and penalizing for the PCs of that time, and it also forced their users to develop a double set of habits, adding Unix habits to those of Windows. Samba therefore adopts the opposite approach.&lt;/p></description></item><item><title>Installation and Configuration of Samba in ADS Mode (Authentication on an AD Server)</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22ADS%22_%28Authentification_sur_un_serveur_AD%29/</link><pubDate>Tue, 02 Dec 2008 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22ADS%22_%28Authentification_sur_un_serveur_AD%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is free software under GPL license supporting the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access the resources of these systems and vice-versa.&lt;/p>
+&lt;p>Previously, PCs equipped with DOS and early Windows versions sometimes had to install a TCP/IP stack and a set of Unix-originated software: NFS client, FTP, telnet, lpr, etc. This was heavy and penalizing for the PCs of that time, and it also forced their users to adopt dual habits, adding those of UNIX to those of Windows. Samba therefore adopts the opposite approach.&lt;/p></description></item><item><title>DaloRADIUS: Setting up a FreeRadius server with DaloRADIUS web interface</title><link>https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d'un_serveur_FreeRadius_avec_interface_web_Daloradius/</link><pubDate>Wed, 24 Sep 2008 12:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d'un_serveur_FreeRadius_avec_interface_web_Daloradius/</guid><description>&lt;p>Here is documentation that allows you to set up FreeRadius with MySQL account management and a web interface with DaloRADIUS:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/authentication_authorization_accounting_with_freeradius_mysql_backend_web_based_management_with_daloradius.pdf">Authentication Authorization Accounting with FreeRadius MySQL backend web based Management with DaloRADIUS&lt;/a>&lt;/p></description></item><item><title>PAM (Pluggable Authentication Module): Choosing Authentication Methods</title><link>https://wiki.deimos.fr/PAM_%28Pluggable_Authentification_Module%29_:_Choisir_ses_m%C3%A9thodes_d%27authentifications/</link><pubDate>Sun, 06 Apr 2008 07:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_%28Pluggable_Authentification_Module%29_:_Choisir_ses_m%C3%A9thodes_d%27authentifications/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PAM is THE standard authentication system used in Linux. The power of this tool is unlimited, but it&amp;rsquo;s not always well documented which tends to work against it. As an introduction, let&amp;rsquo;s first look at the motivations that led to the creation of PAM. Originally, in Unix (and in early versions of Linux), the file that centralized user management was &lt;code>/etc/passwd&lt;/code>. It contained many sensitive pieces of information, including encrypted passwords. To use a Unix machine, the first thing to do was to authenticate via the login program (the last program launched by init). This program was developed to parse the &lt;code>/etc/passwd&lt;/code> file.&lt;/p></description></item><item><title>PAM Mount and SshFS with Password Authentication</title><link>https://wiki.deimos.fr/PAM_Mount_et_SshFS_avec_authentification_par_mot_de_passe/</link><pubDate>Wed, 26 Mar 2008 18:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/PAM_Mount_et_SshFS_avec_authentification_par_mot_de_passe/</guid><description>&lt;p>Here is documentation about SSHFS and PAM:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/pam_mount_and_sshfs_with_password_authentication.pdf">Documentation on PAM mount and SSHFS with password authentication&lt;/a>&lt;/p></description></item><item><title>Authenticating Solaris Accounts on Active Directory</title><link>https://wiki.deimos.fr/Authentification_de_comptes_Solaris_sur_un_Active_Directory/</link><pubDate>Sat, 08 Sep 2007 11:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Authentification_de_comptes_Solaris_sur_un_Active_Directory/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Implementation of authentication on Solaris from an Active Directory (AD).&lt;/p>
+&lt;p>What this implementation allows for user management on a machine:&lt;/p>
+&lt;ul>
+&lt;li>Solaris accounts need to be created with an identifier identical to the AD one, with disk space.&lt;/li>
+&lt;li>Password verification is done via AD.&lt;/li>
+&lt;/ul>
+&lt;p>This document is based on a scenario of implementing this type of authentication on Solaris 9.&lt;/p>
+&lt;p>The concepts described here apply to all UNIX operating systems that support Kerberos version 5 protocol.&lt;/p></description></item></channel></rss>

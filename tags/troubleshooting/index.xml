@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Troubleshooting on Tech Notebook</title><link>https://wiki.deimos.fr/tags/troubleshooting/</link><description>Recent content in Troubleshooting on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/troubleshooting/index.xml" rel="self" type="application/rss+xml"/><item><title>Postfix: hold outgoing mail transport</title><link>https://wiki.deimos.fr/Postfix:_hold_outgoing_mail_transport/</link><pubDate>Tue, 04 Mar 2014 17:35:00 +0200</pubDate><guid>https://wiki.deimos.fr/Postfix:_hold_outgoing_mail_transport/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>04/03/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you manage Postfix and have a trouble with your mail infrastructure, you may want to set in maintenance your Postfix without stopping the service. Here is a way to hold the queue, giving the time to analyze the problem and then release the queue.&lt;/p></description></item><item><title>SoSReport: Generate and analyze machine reports</title><link>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</link><pubDate>Fri, 15 Mar 2013 15:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/red_hat_logo.png" alt="SOS Report" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/sosreport/sosreport" rel="external" target="_blank">Sosreport Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>CentOS 6.4&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;ve ever contacted Red Hat support, you probably know that they systematically request a sosreport. It&amp;rsquo;s a very practical tool for the support team as it collects command results, log files, configuration files, and other information often essential for diagnosing a problem. Personally, I&amp;rsquo;ve installed it on CentOS and it works very well.&lt;/p></description></item><item><title>Make Network Card LEDs Flash</title><link>https://wiki.deimos.fr/Faire_clignoter_les_LEDs_d%27une_carte_r%C3%A9seau/</link><pubDate>Mon, 27 Aug 2012 06:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_clignoter_les_LEDs_d%27une_carte_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s sometimes useful to be able to locate a network card when you&amp;rsquo;re communicating with someone on the other side of the planet, who is in front of a machine you&amp;rsquo;re connected to remotely and they need to plug in a cable but don&amp;rsquo;t know which interface to use.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to make the eth0 interface flash for 10 seconds:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6bfc6a9" class="language-bash ">
+ &lt;code>ethtool -p eth0 10&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Strace and Ltrace: Trace System and Library Calls</title><link>https://wiki.deimos.fr/Strace_et_Ltrace_:_tracez_les_appels_syst%C3%A8mes_et_librairies/</link><pubDate>Fri, 20 Jan 2012 10:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Strace_et_Ltrace_:_tracez_les_appels_syst%C3%A8mes_et_librairies/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>strace is a debugging tool on Linux used to monitor system calls made by a program and all the signals it receives, similar to the &amp;ldquo;truss&amp;rdquo; tool on other Unix systems. It&amp;rsquo;s made possible through a Linux kernel feature called ptrace.&lt;/p>
+&lt;p>The most common use is to launch a program using strace, which displays a list of system calls made by the program. This is useful when a program continually crashes or doesn&amp;rsquo;t behave as expected. For example, using strace can reveal that the program is trying to access a file that doesn&amp;rsquo;t exist or can&amp;rsquo;t be read.&lt;/p></description></item><item><title>DTrace: Real-time Problem Detection</title><link>https://wiki.deimos.fr/DTrace_:_d%C3%A9tection_de_probl%C3%A8mes_en_temps_r%C3%A9el/</link><pubDate>Fri, 26 Dec 2008 18:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/DTrace_:_d%C3%A9tection_de_probl%C3%A8mes_en_temps_r%C3%A9el/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/DTrace" rel="external" target="_blank">DTrace&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a tracing system designed by Sun Microsystems for real-time problem detection at both kernel and application levels. It has been available since November 2003 and was integrated as part of Solaris 10 in January 2005. DTrace is the first component of the OpenSolaris project whose code was released under the Common Development and Distribution License (CDDL).&lt;/p></description></item><item><title>DNS FQDN Name Resolution in Local Network</title><link>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</link><pubDate>Wed, 17 Dec 2008 23:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</guid><description>&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have noticed that on Ubuntu, there is a problem resolving FQDN (Fully Qualified Domain Names) for your local DNS servers.&lt;/p>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply edit the &lt;code>/etc/nsswitch.conf&lt;/code> file and replace this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="248f0d3" class="language-bash ">
+ &lt;code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>With:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3c42fbf" class="language-bash ">
+ &lt;code>hosts: files dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And just like magic, everything works! :-)&lt;/p></description></item><item><title>No space left on device while there is space available</title><link>https://wiki.deimos.fr/No_space_left_on_device_alors_qu%5C%27il_y_a_de_la_place/</link><pubDate>Mon, 13 Oct 2008 20:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/No_space_left_on_device_alors_qu%5C%27il_y_a_de_la_place/</guid><description>&lt;h2 id="the-problem">The problem &lt;a href="#the-problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes the system can no longer write to a partition and reports &amp;ldquo;No Space Left On Device&amp;rdquo; even though &amp;ldquo;df -h&amp;rdquo; shows that there is enough space available.&lt;/p>
+&lt;p>For example, I can no longer write at all to my &amp;ldquo;/var&amp;rdquo; partition. Let&amp;rsquo;s check the space with df -h:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d6f54e3" class="language-bash ">
+ &lt;code>Sys. de fich. Tail. Occ. Disp. %Occ. Monté sur
+/dev/sda3 9,7G 2,4G 6,9G 26% /
+tmpfs 498M 0 498M 0% /lib/init/rw
+tmpfs 498M 0 498M 0% /dev/shm
+/dev/sda1 122M 9,9M 106M 9% /boot
+/dev/sda6 132G 3,6G 121G 3% /mnt/datas
+/dev/sda5 4,9G 4,0G 629M 87% /var&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="the-solution">The solution &lt;a href="#the-solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>BUT WHY??? After some reflection and research&amp;hellip; OF COURSE! The inodes!!!&lt;/p></description></item><item><title>Debugging a JVM Crash</title><link>https://wiki.deimos.fr/Debugger_un_crash_de_JVM/</link><pubDate>Sun, 20 Apr 2008 11:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debugger_un_crash_de_JVM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have an application that has problems such as crashing, but the port and process remain up anyway. This happened to me particularly with Atlassian&amp;rsquo;s Confluence wiki.&lt;/p>
+&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The application crashes, yet it still remains up at the process and port level. Therefore, we need to debug the JVM.&lt;/p>
+&lt;p>I won&amp;rsquo;t explain in detail how a JVM works, but here are the basics:&lt;/p>
+&lt;ul>
+&lt;li>The minimum memory allocated to an application is defined by the Xms option. At startup, the application will consume the value of Xms (in this case 1GB).&lt;/li>
+&lt;li>The maximum memory allocated to the application is defined by the Xmx option. The application will therefore reserve (in this case) 1GB of RAM that can be used &lt;strong>only&lt;/strong> by the JVM.&lt;/li>
+&lt;li>For choosing Xms and Xmx values, it&amp;rsquo;s sufficient to check the memory consumption (generally the application provides this information).&lt;/li>
+&lt;li>Garbage Collections (GC or memory purging) happen regularly when reaching approximately 90% to 95% of Xmx. This frees up memory space from stored objects. The disadvantage is that when this Full GC operates, the application temporarily freezes. During this period, it&amp;rsquo;s no longer possible to access the application. Full GCs may chain together if the Xmx is too low since they launch too frequently, which can completely freeze the application.&lt;/li>
+&lt;/ul>
+&lt;h2 id="changing-boot-options">Changing Boot Options &lt;a href="#changing-boot-options" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s an example of how to enable loggc which will allow us to see if the JVM is doing too many GCs, or performing a Full GC:&lt;/p></description></item><item><title>BIOS Beep Codes and Their Meanings</title><link>https://wiki.deimos.fr/Signification_des_bips_%C3%A9mis_par_le_Bios/</link><pubDate>Wed, 09 Apr 2008 10:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Signification_des_bips_%C3%A9mis_par_le_Bios/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Many of you have probably wondered about the meaning of beeps when a computer fails to boot properly. Here&amp;rsquo;s a list of what those beeps mean.&lt;/p>
+&lt;h2 id="meanings">Meanings &lt;a href="#meanings" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>1 short beep&lt;/strong>: Refresh failure. The system has problems accessing RAM for refresh operations. The issue is often due to a RAM or motherboard problem.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>2 short beeps&lt;/strong>: Parity error. Parity error in the first 64KB of memory. Problem with either RAM or the motherboard.&lt;/p></description></item><item><title>Differences between du and df</title><link>https://wiki.deimos.fr/Diff%C3%A9rences_entre_du_et_df/</link><pubDate>Wed, 19 Mar 2008 14:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Diff%C3%A9rences_entre_du_et_df/</guid><description>&lt;h2 id="issue">Issue &lt;a href="#issue" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You will certainly ask yourself one day: &amp;ldquo;What is the difference between the du command and the df command?&amp;rdquo;&lt;/p>
+&lt;p>According to the man page for du:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="141fc58" class="language-bash ">
+ &lt;code>du - estimate file space usage&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And df displays exactly the space taken on your hard drive. I encountered a case where on a 30 GB partition, I had this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ec30a63" class="language-bash ">
+ &lt;code>du -sh | grep /home : 13 G used
+df -h /home : 26 G used&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The df command is not wrong.&lt;/p></description></item><item><title>Recovering your OpenBSD after a bad manipulation</title><link>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_son_OpenBSD_apr%C3%A8s_une_mauvaise_manip/</link><pubDate>Sun, 20 Jan 2008 07:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_son_OpenBSD_apr%C3%A8s_une_mauvaise_manip/</guid><description>&lt;h2 id="1-concrete-case">1. Concrete case &lt;a href="#1-concrete-case" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>While manipulating my external partitions, I accidentally executed:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bcc0a4a" class="language-bash ">
+ &lt;code># rm -fr /dev&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>At boot time I get:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="42151d5" class="language-bash ">
+ &lt;code>&amp;#34;/dev/console not found&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>How to fix this problem?&lt;/p>
+&lt;h2 id="2-solutions">2. Solutions &lt;a href="#2-solutions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>A simple method with minimal manipulation is to boot from a ramdisk (your /bsd.rd file that you should have, or an installation CD) and perform an Upgrade.&lt;/p>
+&lt;p>This won&amp;rsquo;t overwrite your configuration files, just the files provided in the base system excluding etc42.tgz and xetc42.tgz.&lt;/p></description></item><item><title>Initramfs: Fixing Kernel Boot Issues with Initramfs</title><link>https://wiki.deimos.fr/Initramfs_:_corriger_les_petits_probl%C3%A8mes_de_boot_kernel_gr%C3%A2ce_%C3%A0_initramfs/</link><pubDate>Tue, 18 Sep 2007 22:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Initramfs_:_corriger_les_petits_probl%C3%A8mes_de_boot_kernel_gr%C3%A2ce_%C3%A0_initramfs/</guid><description>&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I just installed a server with many SATA disks. The machine has 4.5TB of storage spread across 2 Areca ARC-1280ML controllers. The Debian/etch installation went without issues using kernel 2.6.18-5-686. After installing the system on 2 disks connected to the motherboard (ICH5R controller using the ata_piix driver), RAID5 volumes are created on the Areca cards (arcmsr driver). However, boot stops at an initramfs command prompt, unable to find the root partition:&lt;/p></description></item><item><title>Apt-file: Searching for Files That Prevent Compilation</title><link>https://wiki.deimos.fr/apt-file-recherche-de-fichiers-qui-empechent-une-compilation/</link><pubDate>Thu, 15 Feb 2007 08:58:00 +0100</pubDate><guid>https://wiki.deimos.fr/apt-file-recherche-de-fichiers-qui-empechent-une-compilation/</guid><description>&lt;p>Apt-file is a utility that quickly becomes indispensable from the first time it&amp;rsquo;s used. Here&amp;rsquo;s a small documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/apt-file.pdf">Apt-file Documentation&lt;/a>&lt;/p></description></item><item><title>Failed Compilations</title><link>https://wiki.deimos.fr/Compilations_foireuses/</link><pubDate>Sat, 05 Aug 2006 19:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Compilations_foireuses/</guid><description>&lt;p>Another failed compilation? As usual, you&amp;rsquo;re missing a library. I&amp;rsquo;ve listed here the minimum packages you should have to avoid problems.&lt;/p>
+&lt;p>If you get a message like this during compilation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1739999" class="language-bash ">
+ &lt;code>checking for C compiler default output... configure: error: C compiler cannot create executables&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This is typically the kind of error you might encounter. Install the following packages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="29ee5f8" class="language-bash ">
+ &lt;code>gcc libc6 libc6-dev make autoconf&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Also consider:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fe06264" class="language-bash ">
+ &lt;code>glibc2 glibc2-dev&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For Debian users like me:&lt;/p></description></item></channel></rss>

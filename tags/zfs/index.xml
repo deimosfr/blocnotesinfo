@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ZFS on Tech Notebook</title><link>https://wiki.deimos.fr/tags/zfs/</link><description>Recent content in ZFS on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/zfs/index.xml" rel="self" type="application/rss+xml"/><item><title>BTRFS: Using the Ext4 Replacement</title><link>https://wiki.deimos.fr/BTRFS_:_Utilisation_du_rempla%C3%A7ant_de_l%27Ext4/</link><pubDate>Thu, 05 Jul 2012 21:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/BTRFS_:_Utilisation_du_rempla%C3%A7ant_de_l%27Ext4/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/btrfs_logo.png" alt="BTRFS" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>0.19&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://btrfs.wiki.kernel.org" rel="external" target="_blank">BTRFS Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Kernel used:&lt;br>3.2.0-2-amd64&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://btrfs.wiki.kernel.org/" rel="external" target="_blank">BTRFS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is the perfect replacement for the aging ExtX filesystem. For those familiar with &lt;a href="zfs:_le_filesystem_par_excellence/" rel="external" target="_blank">the ZFS filesystem&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, BTRFS draws heavily from it.&lt;/p></description></item><item><title>Adding Swap Space on Solaris</title><link>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</link><pubDate>Mon, 30 Jan 2012 12:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this documentation is to quickly describe how to create swap space on Solaris. There are other documentation sources such as &lt;a href="https://wiki.deimos.fr/Management_des_disques_sous_Solaris/">Disk Management in Solaris&lt;/a> that describe in depth how disks work on Solaris, but that&amp;rsquo;s not the goal here.&lt;/p>
+&lt;p>We&amp;rsquo;ll look at three methods to add swap space:&lt;/p>
+&lt;ul>
+&lt;li>On UFS&lt;/li>
+&lt;li>On ZFS&lt;/li>
+&lt;li>Using a swap file&lt;/li>
+&lt;/ul>
+&lt;h2 id="swap-on-ufs">Swap on UFS &lt;a href="#swap-on-ufs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to add swap space on a UFS disk, you&amp;rsquo;ll need to create a partition. Let&amp;rsquo;s first see what we have:&lt;/p></description></item><item><title>ZFS On Linux: Setting up ZFS on Linux</title><link>https://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux/</link><pubDate>Tue, 06 Dec 2011 20:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/zfs-linux.png" alt="ZFS on Linux Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If like me you&amp;rsquo;re a fan of this filesystem and find it a shame that it&amp;rsquo;s not natively available on Linux, there are currently several solutions to have this filesystem:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.oracle.com" rel="external" target="_blank">Solaris&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>/OpenSolaris: This is where ZFS comes from, but it remains a proprietary OS&lt;/li>
+&lt;li>&lt;a href="https://www.freebsd.org/" rel="external" target="_blank">FreeBSD&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: The first port of ZFS appeared on FreeBSD, but we&amp;rsquo;re looking to use Linux here&lt;/li>
+&lt;li>&lt;a href="https://www.debian.org/ports/kfreebsd-gnu/" rel="external" target="_blank">Kfreebsd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: not really Linux (although Debian), but a FreeBSD kernel that allows ZFS to run with a Debian-style layer on top&lt;/li>
+&lt;li>&lt;a href="https://zfs-fuse.net/" rel="external" target="_blank">ZFS on Fuse&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: works on Linux, slow (because it runs on FUSE) but historically the first to be released for Linux (so supposedly the most mature)&lt;/li>
+&lt;li>&lt;a href="https://zfsonlinux.org" rel="external" target="_blank">ZFS on Linux&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: newer, but has the advantage of running as a Linux kernel module&lt;/li>
+&lt;/ul>
+&lt;p>I chose this last solution because I wanted to keep a Linux machine (Debian/Ubuntu) and have ZFS.&lt;/p></description></item><item><title>Installing FreeBSD on ZFS</title><link>https://wiki.deimos.fr/Installation_FreeBSD_sur_ZFS/</link><pubDate>Tue, 21 Sep 2010 21:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_FreeBSD_sur_ZFS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I love ZFS and for building a large NAS, I need FreeBSD which is capable of implementing ZFS and, most importantly, using it on the root partition as well.&lt;/p>
+&lt;p>For this purpose, I needed 5 disks of the same capacity and the FreeBSD DVD (I emphasize the DVD because the livefs or CD versions don&amp;rsquo;t contain everything needed to boot from ZFS).&lt;/p>
+&lt;h2 id="disk-formatting">Disk Formatting &lt;a href="#disk-formatting" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="creating-partitions">Creating Partitions &lt;a href="#creating-partitions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Boot from the FreeBSD DVD and launch the Fixit menu.&lt;/p></description></item><item><title>ACL: Implementing NT-Style Permissions on Solaris</title><link>https://wiki.deimos.fr/ACL_Implementation_droits_type_NT_sur_Solaris/</link><pubDate>Wed, 10 Feb 2010 13:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/ACL_Implementation_droits_type_NT_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With respect to a computer filesystem, an access control list (&lt;a href="https://en.wikipedia.org/wiki/Access_control_list" rel="external" target="_blank">ACL&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>) is a list of permissions attached to an object. An ACL specifies which users or system processes are granted access to objects, as well as what operations are allowed to be performed on given objects. In a typical ACL, each entry in the list specifies a subject and an operation (e.g. the entry (Alice, delete) on the ACL for file WXY gives Alice permission to delete file WXY).&lt;/p></description></item><item><title>Installing HA Zones with ZFS and Solaris Cluster</title><link>https://wiki.deimos.fr/Installation_de_Zones_HA_avec_ZFS_et_Solaris_Cluster/</link><pubDate>Mon, 30 Nov 2009 21:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_de_Zones_HA_avec_ZFS_et_Solaris_Cluster/</guid><description>&lt;p>Here is excellent and quick-to-implement documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/installing_ha_containers_with_zfs_using_the_solaris_10_os_and_solaris_cluster_3.2_software.pdf">Installing HA Containers With ZFS Using the Solaris 10 OS and Solaris Cluster 3.2 Software&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/zone-cluster-virtual-cluster.pdf">Zone Cluster - How to Deploy virtual Clusters and why&lt;/a>&lt;/p></description></item><item><title>Creating a RAID 1 (mirroring) on Solaris</title><link>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</link><pubDate>Wed, 11 Feb 2009 16:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Creation_d'un_Raid_1_(mirroring)_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The Solaris system includes the DiskSuite package that allows RAID 1 mirroring of a UFS filesystem using LVM. This tutorial explains how to achieve this.
+It goes without saying that you need two disks of the same capacity.&lt;/p>
+&lt;h2 id="procedure">Procedure &lt;a href="#procedure" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here are the necessary steps:
+Once we&amp;rsquo;re ready to mirror a disk, we display its partitions with the format command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a68044b" class="language-bash ">
+ &lt;code>Format
+ 
+Searching for disks...done
+ 
+ 
+AVAILABLE DISK SELECTIONS:
+ 0. c1t0d0 &amp;lt;SUN146G cyl 14087 alt 2 hd 24 sec 848&amp;gt; root
+ /pci@0/pci@0/pci@2/scsi@0/sd@0,0
+ 1. c1t1d0 &amp;lt;HITACHI-H101414SCSUN146G-SA25-136.73GB&amp;gt;
+ /pci@0/pci@0/pci@2/scsi@0/sd@1,0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We choose the 1st disk (if it&amp;rsquo;s the one to be duplicated), then:&lt;/p></description></item></channel></rss>

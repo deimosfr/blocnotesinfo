@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Filesystems on Tech Notebook</title><link>https://wiki.deimos.fr/docs/bsd/filesystems/</link><description>Recent content in Filesystems on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/bsd/filesystems/index.xml" rel="self" type="application/rss+xml"/><item><title>MFS: Using a RAM Filesystem</title><link>https://wiki.deimos.fr/MFS_:_Utiliser_un_filesystem_en_RAM/</link><pubDate>Mon, 05 Jan 2009 02:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/MFS_:_Utiliser_un_filesystem_en_RAM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MFS allows you to place a partition in RAM. The advantage is speed. The disadvantage is that you lose all modifications made to it after each reboot. With a simple rsync setup, this can be resolved, which I&amp;rsquo;ll show you how to do.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="partition-tmp">Partition /tmp &lt;a href="#partition-tmp" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The tmp directory is interesting to move into RAM since the data there is temporary anyway and doesn&amp;rsquo;t need to be stored on the filesystem. Edit the fstab file:&lt;/p></description></item><item><title>Mounting a Filesystem in Multiple Places Simultaneously</title><link>https://wiki.deimos.fr/Montage_d%27un_filesystem_%C3%A0_plusieurs_endroits_simultan%C3%A9es/</link><pubDate>Tue, 28 Oct 2008 21:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Montage_d%27un_filesystem_%C3%A0_plusieurs_endroits_simultan%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Some might say: &amp;ldquo;There&amp;rsquo;s no need for this, just use symbolic links with ln -s&amp;rdquo;. But I disagree - it&amp;rsquo;s really not the same thing. This approach allows you to have a global view of a particular directory.&lt;/p>
+&lt;p>For example, if I want to mount &lt;code>/var/jails&lt;/code> in &lt;code>/jails&lt;/code>, it&amp;rsquo;s possible and here&amp;rsquo;s the result once done:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b47b57" class="language-bash ">
+ &lt;code>Filesystem Size Used Avail Capacity Mounted on
+/dev/ad4s1a 989M 129M 782M 14% /
+devfs 1.0K 1.0K 0B 100% /dev
+/dev/ad4s1d 224G 1.4G 204G 1% /usr
+/dev/ad4s1e 224G 4.0M 206G 0% /var
+/var/jails 224G 4.0M 206G 0% /jails&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="commands">Commands &lt;a href="#commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Linux&lt;/th>
+ &lt;th>BSD&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>mount &amp;ndash;bind /folder1 /folder2&lt;/td>
+ &lt;td>mount -t nullfs /folder1 /folder2&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item></channel></rss>

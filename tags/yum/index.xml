@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>YUM on Tech Notebook</title><link>https://wiki.deimos.fr/tags/yum/</link><description>Recent content in YUM on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/yum/index.xml" rel="self" type="application/rss+xml"/><item><title>Yum: Package Management in Red Hat</title><link>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</link><pubDate>Fri, 02 Mar 2012 19:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Yum, which stands for Yellow dog Updater Modified, is a package manager for Linux distributions like Fedora and Red Hat Enterprise Linux, created by Yellow Dog Linux.&lt;/p>
+&lt;p>It allows you to manage the installation and updating of software installed on a distribution. It&amp;rsquo;s a layer on top of RPM that handles downloads and dependencies, similar to Debian&amp;rsquo;s APT or Mandriva&amp;rsquo;s Urpmi.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Installing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3aa0288" class="language-bash ">
+ &lt;code>yum install &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Reinstalling a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="53caaae" class="language-bash ">
+ &lt;code>yum reinstall &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a local RPM:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e002e93" class="language-bash ">
+ &lt;code>yum localinstall &amp;lt;package.rpm&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Removing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7c7dc35" class="language-bash ">
+ &lt;code>yum remove &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Updating packages or a specific package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51a281e" class="language-bash ">
+ &lt;code>yum update &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Getting information about a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c079b69" class="language-bash ">
+ &lt;code>yum info &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a package group:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="db4834e" class="language-bash ">
+ &lt;code>yum groupinstall &amp;lt;group&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Viewing available packages (installed or not):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d0179a7" class="language-bash ">
+ &lt;code>yum list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p></description></item><item><title>Adding Red Hat DVD as a Repository</title><link>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</link><pubDate>Tue, 21 Feb 2012 16:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You don&amp;rsquo;t have a Red Hat subscription or simply no internet connection to connect to the NRH, yet you have the installation DVD that contains all the packages you need!&lt;/p>
+&lt;p>Here&amp;rsquo;s how to add the DVD to the repository.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dvd">DVD &lt;a href="#dvd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a file in /etc/yum.repos.d/redhatcd.repo&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6736735" class="language-bash ">
+ &lt;code>cp /media/RHEL/media.repo /etc/yum.repos.d/redhatcd.repo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And adapt it with this content:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0cde3f7" class="language-bash ">
+ &lt;code>[InstallMedia]
+name=Red Hat Enterprise Linux 6.1
+mediaid=1305068199.328169
+metadata_expire=-1
+gpgcheck=0
+cost=500
+baseurl=file:///media/RHEL/Server&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now we&amp;rsquo;ll clear the cache:&lt;/p></description></item></channel></rss>

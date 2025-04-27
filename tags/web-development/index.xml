@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web Development on Tech Notebook</title><link>https://wiki.deimos.fr/tags/web-development/</link><description>Recent content in Web Development on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/web-development/index.xml" rel="self" type="application/rss+xml"/><item><title>Advanced WordPress Usage</title><link>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_de_Wordpress/</link><pubDate>Tue, 07 May 2013 07:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_de_Wordpress/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>WordPress is great, but it also has limitations that can quickly become annoying. There are ways to overcome these limitations, which I&amp;rsquo;m going to explain here.&lt;/p>
+&lt;h2 id="nginx-configuration">Nginx Configuration &lt;a href="#nginx-configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For WordPress configuration under Nginx, here&amp;rsquo;s an example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock linenos">
+ &lt;pre id="a03c2d2" class="language-nginx line-numbers">
+ &lt;code>server {
+ include listen_port.conf;
+ listen 443 ssl;
+
+ ssl_certificate /etc/nginx/ssl/deimos.fr/server-unified.crt;
+ ssl_certificate_key /etc/nginx/ssl/deimos.fr/server.key;
+ ssl_session_timeout 5m;
+
+ server_name blog.deimos.fr;
+ root /usr/share/nginx/www/deimos.fr/blog;
+ index index.php;
+
+ access_log /var/log/nginx/blog.deimos.fr_access.log;
+ error_log /var/log/nginx/blog.deimos.fr_error.log;
+
+ location / {
+ try_files $uri $uri/ /index.php?$args;
+ }
+
+ location ~ \.php$ {
+ fastcgi_cache mycache;
+ fastcgi_cache_key $request_method$host$request_uri;
+ fastcgi_cache_valid any 1h;
+ include fastcgi_params;
+ fastcgi_pass unix:/var/run/php5-fpm.sock;
+ fastcgi_intercept_errors on;
+ }
+
+ # Drop config
+ include drop.conf;
+
+ # BEGIN W3TC Browser Cache
+ gzip on;
+ gzip_types text/css application/x-javascript text/x-component text/richtext image/svg&amp;#43;xml text/plain text/xsd text/xsl text/xml image/x-icon;
+ location ~ \.(css|js|htc)$ {
+ expires 31536000s;
+ add_header Pragma &amp;#34;public&amp;#34;;
+ add_header Cache-Control &amp;#34;public, must-revalidate, proxy-revalidate&amp;#34;;
+ add_header X-Powered-By &amp;#34;W3 Total Cache/0.9.2.4&amp;#34;;
+ }
+
+ location ~ \.(html|htm|rtf|rtx|svg|svgz|txt|xsd|xsl|xml)$ {
+ expires 3600s;
+ add_header Pragma &amp;#34;public&amp;#34;;
+ add_header Cache-Control &amp;#34;public, must-revalidate, proxy-revalidate&amp;#34;;
+ add_header X-Powered-By &amp;#34;W3 Total Cache/0.9.2.4&amp;#34;;
+ }
+
+ location ~ \.(asf|asx|wax|wmv|wmx|avi|bmp|class|divx|doc|docx|eot|exe|gif|gz|gzip|ico|jpg|jpeg|jpe|mdb|mid|midi|mov|qt|mp3|m4a|mp4|m4v|mpeg|mpg|mpe|mpp|otf|odb|odc|odf|odg|odp|ods|odt|ogg|pdf|png|pot|pps|ppt|pptx|ra|ram|svg|svgz|swf|tar|tif|tiff|ttf|ttc|wav|wma|wri|xla|xls|xlsx|xlt|xlw|zip)$ {
+ expires 31536000s;
+ add_header Pragma &amp;#34;public&amp;#34;;
+ add_header Cache-Control &amp;#34;public, must-revalidate, proxy-revalidate&amp;#34;;
+ add_header X-Powered-By &amp;#34;W3 Total Cache/0.9.2.4&amp;#34;;
+ }
+ # END W3TC Browser Cache
+
+ # BEGIN W3TC Minify core
+ rewrite ^/wp-content/w3tc/min/w3tc_rewrite_test$ /wp-content/w3tc/min/index.php?w3tc_rewrite_test=1 last;
+ rewrite ^/wp-content/w3tc/min/(.&amp;#43;\.(css|js))$ /wp-content/w3tc/min/index.php?file=$1 last;
+ # END W3TC Minify core
+}
+}&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="using-javascript-in-a-post">Using JavaScript in a Post &lt;a href="#using-javascript-in-a-post" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I want to use JavaScript here to prevent my email address from being captured by spam robots. We first need to insert this in a post:&lt;/p></description></item><item><title>WordPress: Useful Extensions</title><link>https://wiki.deimos.fr/Wordpress_:_les_extentions_pratiques/</link><pubDate>Mon, 12 Apr 2010 20:35:00 +0200</pubDate><guid>https://wiki.deimos.fr/Wordpress_:_les_extentions_pratiques/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>WordPress is, in my opinion, THE ultimate blogging platform. Like Firefox, it really shines with its plugins. Here&amp;rsquo;s my list of plugins that I currently use or have used in the past that I find interesting.&lt;/p>
+&lt;h2 id="tips">Tips &lt;a href="#tips" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="adding-file-extensions-for-upload">Adding File Extensions for Upload &lt;a href="#adding-file-extensions-for-upload" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You may have noticed that you can&amp;rsquo;t upload just anything to WordPress, which can be frustrating. By looking into the source code, you can add more extensions. For example, I needed to add the ogv format:&lt;/p></description></item><item><title>Creating a Favicon for a Website</title><link>https://wiki.deimos.fr/Cr%C3%A9er_une_favicon_pour_un_site_web/</link><pubDate>Mon, 30 Nov 2009 20:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_une_favicon_pour_un_site_web/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A favicon is the small icon you see at the top of your browser, next to the URL. If you have a 16x16 size image, you can use the following method to convert it to the right format.&lt;/p>
+&lt;h2 id="converting-an-image">Converting an Image &lt;a href="#converting-an-image" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e451a6e" class="language-bash ">
+ &lt;code>convert -colors 256 -resize 16x16 face.jpg face.ppm &amp;amp;&amp;amp; ppmtowinicon -output favicon.ico face.ppm&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Preventing your website from being indexed (disabling robot scans)</title><link>https://wiki.deimos.fr/preventing_indexed_website/</link><pubDate>Sat, 19 Sep 2009 21:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/preventing_indexed_website/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&amp;ldquo;Robots.txt&amp;rdquo; is a regular text file that through its name, has special meaning to the majority of &amp;ldquo;honorable&amp;rdquo; robots on the web. By defining a few rules in this text file, you can instruct robots to not crawl and index certain files, directories within your site, or at all. For example, you may not want Google to crawl the &lt;code>/images&lt;/code> directory of your site, as it&amp;rsquo;s both meaningless to you and a waste of your site&amp;rsquo;s bandwidth. &amp;ldquo;Robots.txt&amp;rdquo; lets you tell Google just that.&lt;/p></description></item><item><title>SQL Injections</title><link>https://wiki.deimos.fr/Les_injections_SQL/</link><pubDate>Sat, 24 May 2008 16:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_injections_SQL/</guid><description>&lt;h2 id="sql-injections">SQL Injections &lt;a href="#sql-injections" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SQL injection vulnerabilities are among the most common in web applications. Dynamic websites interact with databases that store user information. In some cases, it&amp;rsquo;s possible to manipulate queries to these databases to access often sensitive information.&lt;/p>
+&lt;p>Note: this document was written in 2006; some versions and configurations of the software mentioned may differ from those specified here. Please refer to the official project websites in case of problems.&lt;/p></description></item></channel></rss>

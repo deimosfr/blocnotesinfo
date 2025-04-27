@@ -1,0 +1,2077 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network on Tech Notebook</title><link>https://wiki.deimos.fr/categories/network/</link><description>Recent content in Network on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Postfix: Limit Outgoing Mail Throttling</title><link>https://wiki.deimos.fr/Postfix:_limit_outgoing_mail_throttling/</link><pubDate>Thu, 06 Aug 2015 00:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Postfix:_limit_outgoing_mail_throttling/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/08/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you have a huge amount of mail to deliver, you can&amp;rsquo;t release the queue at once and let the server maximize the outgoing mail throughput! The result will be: you&amp;rsquo;ll get blacklisted from a lot of MX servers.&lt;/p></description></item><item><title>HAProxy: Load Balance Your Traffic</title><link>https://wiki.deimos.fr/haproxy-load-balance-your-traffic/</link><pubDate>Wed, 21 Jan 2015 20:51:00 +0100</pubDate><guid>https://wiki.deimos.fr/haproxy-load-balance-your-traffic/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/haproxy-logo.png" alt="HAProxy" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.4.24&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://haproxy.1wt.eu/" rel="external" target="_blank">HAProxy Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>21/01/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/HAProxy" rel="external" target="_blank">HAProxy&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an open source TCP/HTTP load balancer, commonly used to improve the performance of web sites and services by spreading requests across multiple servers. Its name stands for High Availability Proxy. It is written in C and has a reputation for being fast, efficient (in terms of processor and memory usage) and stable.&lt;/p></description></item><item><title>Fail2ban: Implementing automated iptables rules to counter bruteforce attacks</title><link>https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce/</link><pubDate>Fri, 22 Aug 2014 09:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show malicious signs &amp;ndash; too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured. Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc).&lt;/p></description></item><item><title>Postfix: hold outgoing mail transport</title><link>https://wiki.deimos.fr/Postfix:_hold_outgoing_mail_transport/</link><pubDate>Tue, 04 Mar 2014 17:35:00 +0200</pubDate><guid>https://wiki.deimos.fr/Postfix:_hold_outgoing_mail_transport/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>04/03/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you manage Postfix and have a trouble with your mail infrastructure, you may want to set in maintenance your Postfix without stopping the service. Here is a way to hold the queue, giving the time to analyze the problem and then release the queue.&lt;/p></description></item><item><title>Queueing Theory</title><link>https://wiki.deimos.fr/Th%C3%A9orie_des_files_d%5C%27attentes/</link><pubDate>Fri, 26 Jul 2013 13:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/Th%C3%A9orie_des_files_d%5C%27attentes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Th%C3%A9orie_des_files_d%27attente" rel="external" target="_blank">Queueing theory&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a mathematical theory in the field of probability, which studies optimal solutions for managing waiting lines, or queues. A queue is necessary and will create itself if not anticipated, in all cases where supply is less than demand, even temporarily. It can apply to different situations: management of aircraft taking off or landing, waiting of customers and administrators at counters, or storage of computer programs before processing. This field of research, born in 1917 from the work of Danish engineer Erlang on the management of Copenhagen telephone networks between 1909 and 1920, studies in particular arrival systems in a queue, the different priorities of each new arrival, as well as statistical modeling of execution times. It is thanks to the contributions of mathematicians Khintchine, Palm, Kendall, Pollaczek and Kolmogorov that the theory really developed.&lt;/p></description></item><item><title>Unbound: Implementing a Next Generation DNS Server</title><link>https://wiki.deimos.fr/Unbound_:_Mise_en_place_d%27un_serveur_DNS_nouvelle_g%C3%A9n%C3%A9ration/</link><pubDate>Thu, 18 Jul 2013 18:38:00 +0200</pubDate><guid>https://wiki.deimos.fr/Unbound_:_Mise_en_place_d%27un_serveur_DNS_nouvelle_g%C3%A9n%C3%A9ration/</guid><description>&lt;p>Unbound is a next-generation DNS server that provides secure connections between DNS servers. It&amp;rsquo;s also designed for high availability and small usages:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/installing_and_using_the_unbound_name_server.pdf">Documentation on Installing And Using The Unbound Name Server&lt;/a>&lt;/p></description></item><item><title>OpenSSH FAQ</title><link>https://wiki.deimos.fr/FAQ_OpenSSH/</link><pubDate>Wed, 08 May 2013 19:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/FAQ_OpenSSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is not always simple, which is why a small documentation is useful.&lt;/p>
+&lt;h2 id="faq">FAQ &lt;a href="#faq" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="fatal-timeout-before-authentication-for-ip">fatal: Timeout before authentication for @ip &lt;a href="#fatal-timeout-before-authentication-for-ip" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Your DNS on your SSH server might not be up to date. Check them.&lt;/p>
+&lt;h3 id="some-clients-take-a-long-time-to-connect">Some clients take a long time to connect &lt;a href="#some-clients-take-a-long-time-to-connect" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the SSH server, it is very likely that the server is trying to resolve names, which is not always possible or practical. The solution is to disable this (&lt;code>/etc/ssh/sshd_config&lt;/code>):&lt;/p></description></item><item><title>Basic IPTables Commands</title><link>https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/</link><pubDate>Mon, 06 May 2013 15:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/</guid><description>&lt;h2 id="basic-commands">Basic Commands &lt;a href="#basic-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several operations you can do with iptables. You start with &lt;strong>three default chains INPUT, OUTPUT and FORWARD that you cannot delete&lt;/strong>. Let&amp;rsquo;s look at the operations to administer chains:&lt;/p>
+&lt;p>Creating a new chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e91b022" class="language-bash ">
+ &lt;code>iptables -N chain&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Delete an empty chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7ec3f6e" class="language-bash ">
+ &lt;code>iptables -X chain&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Change the default rule for a starting chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9136141" class="language-bash ">
+ &lt;code>iptables -P chain status&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="13f784a" class="language-bash ">
+ &lt;code>iptables -P INPUT DROP&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p></description></item><item><title>Configure Network on Solaris</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris/</link><pubDate>Mon, 06 May 2013 14:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris can be challenging! Especially when you come from a Linux/BSD world and find that all the network commands are strange.&lt;/p>
+&lt;h2 id="detecting-network-cards">Detecting Network Cards &lt;a href="#detecting-network-cards" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To detect network cards that are present and especially connected, here&amp;rsquo;s a very useful command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c390117" class="language-bash ">
+ &lt;code>$ dladm show-dev
+igb0 link: up speed: 1000 Mbps duplex: full
+igb1 link: up speed: 1000 Mbps duplex: full
+igb2 link: up speed: 1000 Mbps duplex: full
+igb3 link: up speed: 1000 Mbps duplex: full
+clprivnet0 link: unknown speed: 0 Mbps duplex: unknown&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Or you can use &lt;code>dladm show-links&lt;/code> to get more detailed information about the connection status.&lt;/p></description></item><item><title>Trickle: Limit Your Application Bandwidth</title><link>https://wiki.deimos.fr/Trickle_:_limit_your_application_bandwidth/</link><pubDate>Mon, 06 May 2013 13:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trickle_:_limit_your_application_bandwidth/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.07&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://monkey.org/~marius/pages/?page=trickle" rel="external" target="_blank">Trickle Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>trickle is a portable lightweight userspace bandwidth shaper. It can run in collaborative mode (together with trickled) or in stand alone mode.&lt;/p></description></item><item><title>AutoSSH: Automatically Reconnect SSH Tunnels</title><link>https://wiki.deimos.fr/Autossh_:_reconnecter_automatiquement_un_tunnel_SSH/</link><pubDate>Wed, 20 Mar 2013 10:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Autossh_:_reconnecter_automatiquement_un_tunnel_SSH/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/openssh_logo.png" alt="AutoSSH" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.harding.motd.ca/autossh/" rel="external" target="_blank">AutoSSH Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>20/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If like me you need to maintain a permanent tunnel, and you want it to automatically reconnect in case of disconnection, you need to use a tool like AutoSSH. I&amp;rsquo;ll skip the details of its complete operation, but you should know that it can work in 2 ways:&lt;/p></description></item><item><title>Configure Network on NetBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_NetBSD/</link><pubDate>Fri, 15 Mar 2013 22:32:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_NetBSD/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/netbsd-logo.png" alt="NetBSD" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>6.0.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.netbsd.org/" rel="external" target="_blank">NetBSD Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The network is an essential part of system configuration. I will cover some aspects of it here.&lt;/p></description></item><item><title>Shinken: Installation and Configuration of Nagios' Successor</title><link>https://wiki.deimos.fr/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios/</link><pubDate>Thu, 03 Jan 2013 07:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/shinken_logo.png" alt="Shinken" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.shinken-monitoring.org" rel="external" target="_blank">Shinken Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>03/01/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Shinken&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is an application for system and network monitoring. It monitors specified hosts and services, alerting when systems malfunction and when they recover. It is free software under the GNU AGPL license. It is fully compatible with Nagios and aims to provide distributed and highly available monitoring that&amp;rsquo;s easy to set up. Starting as a proof of concept for distributed architectures in Nagios, the program quickly demonstrated much better performance and flexibility than its predecessor.&lt;/p></description></item><item><title>Make Network Card LEDs Flash</title><link>https://wiki.deimos.fr/Faire_clignoter_les_LEDs_d%27une_carte_r%C3%A9seau/</link><pubDate>Mon, 27 Aug 2012 06:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_clignoter_les_LEDs_d%27une_carte_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s sometimes useful to be able to locate a network card when you&amp;rsquo;re communicating with someone on the other side of the planet, who is in front of a machine you&amp;rsquo;re connected to remotely and they need to plug in a cable but don&amp;rsquo;t know which interface to use.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to make the eth0 interface flash for 10 seconds:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6bfc6a9" class="language-bash ">
+ &lt;code>ethtool -p eth0 10&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Bypassing HTTPS Proxies for SSH</title><link>https://wiki.deimos.fr/Outrepasser_les_proxy_HTTPS_pour_SSH/</link><pubDate>Mon, 30 Jul 2012 11:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Outrepasser_les_proxy_HTTPS_pour_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Those workplace proxies can be really annoying! But there are always solutions!&lt;/p>
+&lt;p>So here&amp;rsquo;s the situation: I want to access a remote machine via SSH, but only ports 80 and 443 are allowed. Even if you configure the SSH server on port 443, you&amp;rsquo;ll notice it doesn&amp;rsquo;t work.&lt;/p>
+&lt;p>A solution? Yes: connect-proxy.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="seveur">Seveur &lt;a href="#seveur" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, simply modify the sshd_config file to make SSH listen on port 443:&lt;/p></description></item><item><title>TinyProxy: Setting up a Simple and Fast Proxy</title><link>https://wiki.deimos.fr/TinyProxy:_Mise_en_place_d'un_proxy_simple_et_rapide/</link><pubDate>Fri, 27 Jul 2012 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/TinyProxy:_Mise_en_place_d'un_proxy_simple_et_rapide/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/tinyproxy_logo.png" alt="TinyProxy" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.8.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://banu.com/tinyproxy/" rel="external" target="_blank">TinyProxy Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>27/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>TinyProxy is a proxy server, similar to Squid, but designed to be lightweight. I use it at work on my machine for all my applications. The advantage is having the proxy configuration for wget, apt, etc., pointing to localhost. This way, in the TinyProxy configuration, you only need to configure the proxy server you want to connect to, and all your applications will be redirected without having to reconfigure them every time there&amp;rsquo;s a change :-)&lt;/p></description></item><item><title>Rename Network Interfaces to ethX</title><link>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</link><pubDate>Mon, 16 Jul 2012 21:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ve probably noticed that the recent trend in some Linux distributions is to name network cards not by ethX, but by their chipset. So we end up with em0, em1 or whatever&amp;hellip;&lt;/p>
+&lt;p>This idea probably came from Solaris, but personally, I don&amp;rsquo;t see the benefit, especially since it&amp;rsquo;s more of a hindrance when you want to standardize an IT infrastructure. The purpose of this article is to show how to return to the good old ethX interfaces. I recommend reading &lt;a href="https://wiki.deimos.fr/Udev_:_Utilisation_d'un_socket_pour_parler_avec_les_devices_kernel/">the article on Udev&lt;/a> before starting this one, to better understand certain aspects.&lt;/p></description></item><item><title>SSLH: Multiplexing SSL and SSH connections on the same port</title><link>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</link><pubDate>Sun, 10 Jun 2012 09:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.rutschle.net/tech/sslh.shtml" rel="external" target="_blank">SSLH&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is like a magic trick. It allows you, for example, to have both HTTPS and SSH on a WAN address on port 443. How is this possible? Can we have a single listening port for multiple services?&lt;/p></description></item><item><title>Squid: Installation and Configuration of Squid</title><link>https://wiki.deimos.fr/Squid_:_Installation_et_configuration_de_Squid/</link><pubDate>Wed, 06 Jun 2012 08:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Squid_:_Installation_et_configuration_de_Squid/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/squid_logo.png" alt="Squid" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>FreeBSD 9&lt;br>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.squid-cache.org/" rel="external" target="_blank">Squid Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A Squid server is a proxy server capable of using FTP, HTTP, Gopher, and HTTPS protocols. Unlike conventional proxy servers, a Squid server handles all requests in a single, non-blocking input/output process.&lt;/p></description></item><item><title>SASL: Secure Remote Email Sending with Postfix Server (SASL+TLS)</title><link>https://wiki.deimos.fr/SASL_:_Envoie_de_mails_%C3%A0_distance_s%C3%A9curis%C3%A9_avec_son_serveur_Postfix_%28SASL%20TLS%29/</link><pubDate>Wed, 06 Jun 2012 08:27:00 +0200</pubDate><guid>https://wiki.deimos.fr/SASL_:_Envoie_de_mails_%C3%A0_distance_s%C3%A9curis%C3%A9_avec_son_serveur_Postfix_%28SASL%20TLS%29/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.7.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For several years now, most mail servers no longer authorize sending emails from outside to prevent becoming an open relay. It&amp;rsquo;s therefore necessary to add an additional layer called &lt;a href="https://en.wikipedia.org/wiki/SASL" rel="external" target="_blank">SASL&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>PowerDNS: Creating a DNS Cache Server</title><link>https://wiki.deimos.fr/PowerDNS:_Cr%C3%A9er_un_serveur_de_cache_DNS/</link><pubDate>Tue, 15 May 2012 14:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/PowerDNS:_Cr%C3%A9er_un_serveur_de_cache_DNS/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/powerdns_logo.png" alt="PowerDNS" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.9.22&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.powerdns.com" rel="external" target="_blank">PowerDNS Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PowerDNS is (as its name suggests) a DNS server. It&amp;rsquo;s a direct competitor to Bind. It aims to be less RAM-intensive and offers more flexible configuration options than Bind.&lt;/p></description></item><item><title>Netcat: File Transfer</title><link>https://wiki.deimos.fr/Netcat_:_Transfert_de_fichiers/</link><pubDate>Mon, 14 May 2012 16:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat_:_Transfert_de_fichiers/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Netcat (nc) is a &amp;ldquo;&amp;hellip;simple Unix utility which reads and writes data across network connections, using TCP or UDP protocol. It is designed to be a reliable back-end tool that can be used directly or easily driven by other programs and scripts. At the same time, it is a feature-rich network debugging and exploration tool, since it can create almost any kind of connection you would need and has several interesting built-in capabilities.&amp;rdquo;&lt;/p></description></item><item><title>Setting up VLAN</title><link>https://wiki.deimos.fr/Mise_en_place_de_VLAN/</link><pubDate>Mon, 07 May 2012 20:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_VLAN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A Virtual Local Area Network, commonly known as &lt;a href="https://en.wikipedia.org/wiki/VLAN" rel="external" target="_blank">VLAN&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, is a logically independent computer network. Multiple VLANs can coexist on the same network switch.&lt;/p></description></item><item><title>Netcat: Creating a Listening Port</title><link>https://wiki.deimos.fr/Netcat_:_Cr%C3%A9er_un_port_d%27%C3%A9coute/</link><pubDate>Fri, 27 Apr 2012 07:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat_:_Cr%C3%A9er_un_port_d%27%C3%A9coute/</guid><description>&lt;h2 id="creating-a-listening-port">Creating a Listening Port &lt;a href="#creating-a-listening-port" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Having a server that listens is good, but when testing with a firewall and you don&amp;rsquo;t necessarily have the listening port behind it yet, you can simply use the Netcat command.&lt;/p>
+&lt;p>This command will act as if it were a server-type service that starts listening:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="45f3a6f" class="language-bash ">
+ &lt;code>nc -l numero_du_port&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c57b2d9" class="language-bash ">
+ &lt;code>nc -lp numero_du_port&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The command varies depending on the version of netcat.&lt;/p></description></item><item><title>Network: Creating Bonding</title><link>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</link><pubDate>Wed, 18 Apr 2012 18:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Channel bonding, also known as Port Trucking, allows applying a series of predefined policies on a group of network links combined into one. This group of network interfaces gives you the ability to perform load balancing and especially fault tolerance. Seven operation modes are available to combine necessity and flexibility. In this article, we will explore the possibilities offered and their implementation.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Two prerequisites appear at the network switch level, where the interfaces are connected:&lt;/p></description></item><item><title>Cisco VPN Client: Installation on Red Hat 6</title><link>https://wiki.deimos.fr/Cisco_VPN_Client_:_Installation_sur_une_Red_Hat_6/</link><pubDate>Fri, 06 Apr 2012 00:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cisco_VPN_Client_:_Installation_sur_une_Red_Hat_6/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbycisco.jpg" alt="Cisco" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>4.8.02&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.cisco.com/" rel="external" target="_blank">Cisco Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/04/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installing the Cisco VPN Client on Linux can be quite challenging! That&amp;rsquo;s why I decided to create this documentation where you just need to copy and paste the commands.&lt;/p></description></item><item><title>Proxy: Creating a proxy with Apache</title><link>https://wiki.deimos.fr/Proxy:%C2%A0Cr%C3%A9er_un_proxy_avec_Apache/</link><pubDate>Thu, 29 Mar 2012 07:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Proxy:%C2%A0Cr%C3%A9er_un_proxy_avec_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With Apache&amp;rsquo;s mod_proxy, there are several use cases. I will propose two scenarios here.&lt;/p>
+&lt;h3 id="scenario-1">Scenario 1 &lt;a href="#scenario-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s the situation! I&amp;rsquo;m in a computer school where (like in many schools) only port 80 is open, and the class isn&amp;rsquo;t always interesting.&lt;/p>
+&lt;p>So what can you do to access your SSH server, play World of Warcraft, or download heavily from eMule?&lt;/p>
+&lt;p>Well, Uncle Tom has a super pattern for you who wants to break the laws: the APACHE MOD_PROXY PLATINUM EDITION!&lt;/p></description></item><item><title>Reboot Your Freebox Server 6 via Command Line</title><link>https://wiki.deimos.fr/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande/</link><pubDate>Sat, 24 Mar 2012 23:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since version 6 of the Freebox, there is a web interface (&lt;a href="https://mafreebox.freebox.fr" rel="external" target="_blank">https://mafreebox.freebox.fr&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>) that allows you to control several options, including rebooting it. We will use this capability to restart it via the command line. For this purpose, I&amp;rsquo;m using &lt;a href="https://www.admin-linux.fr/?p=5049" rel="external" target="_blank">a script that was obtained from admin-linux.fr&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Load Balancing Multiple WAN Connections</title><link>https://wiki.deimos.fr/Load_balancer_plusieurs_connections_WAN/</link><pubDate>Mon, 20 Feb 2012 18:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Load_balancer_plusieurs_connections_WAN/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/load_balancer_linux.png" alt="Load balancer linux" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If one ISP Provider bandwidth is not enough for your needs, you can have multiple lines and load balance between them on Linux.
+This documentation has been done on Debian and works like a charm :-).&lt;/p>
+&lt;p>It contains 3 network interfaces:&lt;/p>
+&lt;ol>
+&lt;li>Is plugged in a special DMZ VLAN (eth0)&lt;/li>
+&lt;li>The second is plugged on a dedicated VLANS to ISP1 Provider (eth1)&lt;/li>
+&lt;li>The third is plugged on a dedicated VLANS to ISP2 Provider (eth2)&lt;/li>
+&lt;/ol>
+&lt;p>Internet traffic is load balanced between the two Internet accesses. In the current configuration the weight assigned to ISP1 is 3 and ISP2 1 (it means that 3 times more traffic passes through ISP1 than ISP2).&lt;/p></description></item><item><title>OpenSSH: Creating an SSH SOCKS Proxy</title><link>https://wiki.deimos.fr/OpenSSH_:_Cr%C3%A9er_un_proxy_socks_en_SSH/</link><pubDate>Sat, 18 Feb 2012 12:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Cr%C3%A9er_un_proxy_socks_en_SSH/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/ssh_socks.png" alt="SSH Socks" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This tutorial will be brief, but it&amp;rsquo;s highly effective. The utility of creating a SOCKS proxy via SSH is to be able to route any traffic through an external connection once the SSH connection is established. You simply use the proxy that SSH creates and you&amp;rsquo;re ready to go.&lt;/p>
+&lt;p>With &lt;a href="https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/">SSLH&lt;/a> as a frontend, you have an almost ultimate tool.&lt;/p>
+&lt;p>For more advanced techniques, I also recommend checking out &lt;a href="https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/">the documentation on proxychains&lt;/a>.&lt;/p></description></item><item><title>Reverse Tunneling with OpenSSH</title><link>https://wiki.deimos.fr/Faire_du_reverse_Tunelling_avec_OpenSSH/</link><pubDate>Fri, 03 Feb 2012 16:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_du_reverse_Tunelling_avec_OpenSSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is going to be really powerful! What am I proposing? Reverse tunneling? Yes! Imagine being able to traverse NAT. You&amp;rsquo;re already starting to salivate, so let&amp;rsquo;s not delay any further!&lt;/p>
+&lt;h2 id="setup-scenario">Setup scenario &lt;a href="#setup-scenario" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Here is the machine I want to connect to: 192.168.20.55&lt;/li>
+&lt;li>The machine from which I&amp;rsquo;m going to launch the connection: 138.47.99.99 (WAN IP)&lt;/li>
+&lt;/ul>
+&lt;p>This will give us:
+Destination (192.168.20.55) &amp;lt;- |NAT| &amp;lt;- Source (138.47.99.99)&lt;/p></description></item><item><title>MRTG: Network-Focused Monitoring</title><link>https://wiki.deimos.fr/MRTG_:_Monitoring_ax%C3%A9_r%C3%A9seau/</link><pubDate>Sun, 25 Dec 2011 20:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/MRTG_:_Monitoring_ax%C3%A9_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MRTG Multi Router Traffic Grapher (MRTG) is software developed under the GNU/GPL license at the initiative of Tobias Oetiker. This software allows you to create graphs of network traffic. It uses the SNMP protocol to query network equipment such as routers, switches, or servers that have an MIB.&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mrtg.jpg" alt="MRTG" loading="lazy">
+
+&lt;/p>
+&lt;p>Today, the creators of MRTG have abandoned their project and moved on to &lt;a href="https://wiki.deimos.fr/docs/servers/monitoring/cacti/">Cacti&lt;/a>, which is a much more powerful but also much more complex product.&lt;/p></description></item><item><title>SNMP: The Network Management Protocol</title><link>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</link><pubDate>Sun, 25 Dec 2011 20:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Network management systems are based on three main elements: a supervisor, nodes, and agents. In SNMP terminology, the term &amp;ldquo;manager&amp;rdquo; is more commonly used than &amp;ldquo;supervisor&amp;rdquo;. The supervisor is the console that allows the network administrator to execute management requests. Agents are entities located at each interface, connecting the managed equipment (node) to the network and allowing information to be retrieved on different objects.&lt;/p>
+&lt;p>Switches, hubs, routers, workstations, and servers (physical or virtual) are examples of equipment containing manageable objects. These manageable objects can be hardware information, configuration parameters, performance statistics, and other objects that are directly related to the current behavior of the equipment in question. These objects are classified in a tree-like database called MIB (Management Information Base). SNMP enables communication between the supervisor and agents to collect the desired objects in the MIB.&lt;/p></description></item><item><title>IPMP Configuration</title><link>https://wiki.deimos.fr/Configuration_de_l'IPMP/</link><pubDate>Wed, 06 Apr 2011 09:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_de_l'IPMP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>IP Network Multipathing (IPMP) enables you to detect interface failures and transparently switch network access for a system with multiple interfaces on the same IP link. IPMP also allows load balancing of packets for systems with multiple interfaces.&lt;/p>
+&lt;p>The equivalent on Linux is called bonding and on BSD, it&amp;rsquo;s called trunking.&lt;/p>
+&lt;p>IPMP improves the reliability, availability, and network performance of systems with multiple physical interfaces. Sometimes a physical interface or the networking hardware connected to that interface fails or requires maintenance. Traditionally, it is then impossible to contact the system through any of the IP addresses associated with the failed interface. Additionally, any existing connections to the system using those IP addresses are disrupted.&lt;/p></description></item><item><title>Rancid Search: Setting Up a Search Tool for Rancid</title><link>https://wiki.deimos.fr/Rancid_Search_:_Mise_en_place_d'un_outil_de_recherche_pour_Rancid/</link><pubDate>Wed, 02 Mar 2011 06:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rancid_Search_:_Mise_en_place_d'un_outil_de_recherche_pour_Rancid/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may already be familiar with &lt;a href="https://www.shrubbery.net/rancid/" rel="external" target="_blank">Rancid&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> which allows you to backup your precious Cisco equipment and store them in a &lt;a href="https://wiki.deimos.fr/docs/servers/versionning/">VCS&lt;/a>. At work, my network team complained about not being able to search through all Cisco equipment at once. Imagine multiple devices with some containing more than 25,000 lines of ACLs and other VPN configurations. To search for information, they first had to know which equipment to connect to, then search through the configuration. In short, it was not always an easy task to read through, time-consuming, and without regex search capability.&lt;/p></description></item><item><title>Introduction to Packet Filter</title><link>https://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter/</link><pubDate>Mon, 13 Dec 2010 17:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_%C3%A0_Packet_Filter/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Packet_Filter" rel="external" target="_blank">Packet Filter&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> (or PF) is the official software firewall for &lt;strong>OpenBSD&lt;/strong>, originally written by Daniel Hartmeier. It is a free Open Source software.&lt;/p></description></item><item><title>Upgrading the Soekris BIOS</title><link>https://wiki.deimos.fr/Upgrader_le_BIOS_de_la_Soekris/</link><pubDate>Wed, 01 Dec 2010 21:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Upgrader_le_BIOS_de_la_Soekris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I strongly recommend upgrading the BIOS whenever an update is available: &lt;a href="https://www.soekris.com/downloads.htm" rel="external" target="_blank">https://www.soekris.com/downloads.htm&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p>
+&lt;p>Since it&amp;rsquo;s not necessarily obvious how to do it, I&amp;rsquo;ll explain the process.&lt;/p></description></item><item><title>VLAN: Creating a VLAN Interface on OpenBSD</title><link>https://wiki.deimos.fr/VLAN_:_Cr%C3%A9er_une_interface_VLAN_sous_OpenBSD/</link><pubDate>Wed, 04 Aug 2010 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/VLAN_:_Cr%C3%A9er_une_interface_VLAN_sous_OpenBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A virtual local area network, commonly called &lt;a href="https://fr.wikipedia.org/wiki/VLAN" rel="external" target="_blank">VLAN (for Virtual LAN)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, is an independent logical computer network. Many VLANs can coexist on the same network switch.&lt;/p></description></item><item><title>Pound: Installation and Configuration of a Reverse Proxy</title><link>https://wiki.deimos.fr/Pound_:_Installation_et_Configuration_d'un_Reverse_Proxy/</link><pubDate>Sat, 15 May 2010 07:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Pound_:_Installation_et_Configuration_d'un_Reverse_Proxy/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/pound_logo.gif" alt="Pound Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A &lt;a href="https://en.wikipedia.org/wiki/Reverse_proxy" rel="external" target="_blank">reverse proxy&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a type of proxy server, usually placed in front of web servers. It differs in its usage from traditional proxy servers.&lt;/p></description></item><item><title>OpenSSH : Tunneling VPN</title><link>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</link><pubDate>Fri, 14 May 2010 22:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since version 4.3 of OpenSSH, the option to create IP tunnels has been added.&lt;/p>
+&lt;p>First, you need to check the OpenSSH version on both the server and client.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cd7213d" class="language-bash ">
+ &lt;code>ssh -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You need root privileges on both machines. There are operations to perform, both at the configuration and network levels.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="openbsd">OpenBSD &lt;a href="#openbsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>The first thing to do is to tell OpenSSH to authorize tunnels by adding this directive:&lt;/p></description></item><item><title>Packet Filter: Fighting Against Brute Force Attacks</title><link>https://wiki.deimos.fr/Packet_Filter:_Lutter_contre_le_bruteforce/</link><pubDate>Fri, 16 Apr 2010 07:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Packet_Filter:_Lutter_contre_le_bruteforce/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ve probably seen brute force connection attempts in your connection logs (sshd, httpd, ftpd, etc.). This is annoying, fills up your logs, and makes your server work harder than it needs to.&lt;/p>
+&lt;p>Fortunately, Daniel Hartmeier thought of you and added convenient options to his famous PacketFilter firewall, affectionately nicknamed PF. These options are &amp;lsquo;max-src-conn-rate&amp;rsquo; and &amp;lsquo;max-src-conn&amp;rsquo;, which are used in combination with &amp;lsquo;overload&amp;rsquo;. These options are available in PF starting with OpenBSD 3.7, FreeBSD 6.0, and NetBSD 2.0.&lt;/p></description></item><item><title>Check Connections Per IP</title><link>https://wiki.deimos.fr/Connaitre_le_nombre_de_connections_par_IP/</link><pubDate>Sun, 06 Dec 2009 16:35:00 +0100</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_nombre_de_connections_par_IP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a command line to run on your server if you think your server is under attack. It prints out a list of open connections to your server and sorts them by amount.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c9d5e9" class="language-bash ">
+ &lt;code>netstat -ntu &lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="bsd">BSD &lt;a href="#bsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="94fb764" class="language-bash ">
+ &lt;code>netstat -na &lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Clearing DNS Cache on Mac OS X</title><link>https://wiki.deimos.fr/Vider_son_cache_DNS_sur_Mac_OS_X/</link><pubDate>Sun, 06 Dec 2009 16:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vider_son_cache_DNS_sur_Mac_OS_X/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Just like on Windows systems, there&amp;rsquo;s a solution to clear the DNS cache on Mac OS X.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9995f6e" class="language-bash ">
+ &lt;code>dscacheutil -flushcache&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Modifying Network Card Parameters</title><link>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_des_cartes_r%C3%A9seaux/</link><pubDate>Sat, 28 Nov 2009 16:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_des_cartes_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Project Brussels from the OpenSolaris project revamped how link properties are managed, and their push to get rid of ndd and device-specific properties is now well underway!&lt;/p>
+&lt;h2 id="show-properties">Show properties &lt;a href="#show-properties" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Link properties are actually pretty cool, and they can be displayed with the dladm utilities &amp;ldquo;show-linkprop&amp;rdquo; option:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="980ca91" class="language-bash ">
+ &lt;code>$ dladm show-linkprop e1000g0
+
+LINK PROPERTY PERM VALUE DEFAULT POSSIBLE
+e1000g0 speed r- 0 0 --
+e1000g0 autopush -- -- -- --
+e1000g0 zone rw -- -- --
+e1000g0 duplex r- half half half,full
+e1000g0 state r- down up up,down
+e1000g0 adv_autoneg_cap rw 1 1 1,0
+e1000g0 mtu rw 1500 1500 --
+e1000g0 flowctrl rw bi bi no,tx,rx,bi
+e1000g0 adv_1000fdx_cap r- 1 1 1,0
+e1000g0 en_1000fdx_cap rw 1 1 1,0
+e1000g0 adv_1000hdx_cap r- 0 1 1,0
+e1000g0 en_1000hdx_cap r- 0 1 1,0
+e1000g0 adv_100fdx_cap r- 1 1 1,0
+e1000g0 en_100fdx_cap rw 1 1 1,0
+e1000g0 adv_100hdx_cap r- 1 1 1,0
+e1000g0 en_100hdx_cap rw 1 1 1,0
+e1000g0 adv_10fdx_cap r- 1 1 1,0
+e1000g0 en_10fdx_cap rw 1 1 1,0
+e1000g0 adv_10hdx_cap r- 1 1 1,0
+e1000g0 en_10hdx_cap rw 1 1 1,0
+e1000g0 maxbw rw -- -- --
+e1000g0 cpus rw -- -- --
+e1000g0 priority rw high high low,medium,high&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>As you can see in the above output, the typical speed, duplex, mtu and flowctrl properties are listed. In addition to those, the &amp;ldquo;maxbw&amp;rdquo; and &amp;ldquo;cpus&amp;rdquo; properties that were introduced with the recent crossbow putback are visible. The &amp;ldquo;maxbw&amp;rdquo; property is especially useful, since it allows you to limit how much bandwidth is available to an interface. Here is an example that caps bandwidth for an interface at 2Mb/s:&lt;/p></description></item><item><title>Bwm-ng: Measure Bandwidth Consumption in Real Time</title><link>https://wiki.deimos.fr/Bwm-ng_:_Mesurer_la_consommation_de_bande_passante_en_temps_r%C3%A9el/</link><pubDate>Sat, 28 Nov 2009 16:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bwm-ng_:_Mesurer_la_consommation_de_bande_passante_en_temps_r%C3%A9el/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes, you need to measure the current total bandwidth. bwm-ng is your friend :-)&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian, it&amp;rsquo;s easy:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="aadbe55" class="language-bash ">
+ &lt;code>apt-get install bwm-ng&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply run the command to get it working directly:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6d59a14" class="language-bash ">
+ &lt;code>$ bwm-ng
+ bwm-ng v0.6 (probing every 0.500s), press &amp;#39;h&amp;#39; for help
+ input: /proc/net/dev type: rate
+ | iface Rx Tx Total
+ ==============================================================================
+ lo: 0.00 KB/s 0.00 KB/s 0.00 KB/s
+ eth0: 2275.89 KB/s 57.56 KB/s 2333.45 KB/s
+ ------------------------------------------------------------------------------
+ total: 2275.89 KB/s 57.56 KB/s 2333.45 KB/s&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Netcat: Usage</title><link>https://wiki.deimos.fr/Netcat:%C2%A0utilisation/</link><pubDate>Fri, 27 Nov 2009 21:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat:%C2%A0utilisation/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Netcat is often referred to as a &amp;ldquo;Swiss Army knife&amp;rdquo; utility, and for a good reason. Just like the multi-function usefulness of the venerable Swiss Army pocket knife, netcat&amp;rsquo;s functionality is as helpful. Some of its features include port scanning, transferring files, port listening and it can be used a backdoor.&lt;/p>
+&lt;p>In 2006 netcat was ranked #4 in &amp;ldquo;[1] Top 100 Network Security Tools&amp;rdquo; survey, so it&amp;rsquo;s definitely a tool to know.&lt;/p></description></item><item><title>Securing a Bind Architecture</title><link>https://wiki.deimos.fr/Securing_a_Bind_architecture/</link><pubDate>Fri, 20 Nov 2009 20:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/Securing_a_Bind_architecture/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The figure below shows the general operation of DNS queries in an architecture with multiple DNS servers. Some of these servers (IP 192.168.69.1, 192.168.66.1, and 194.54.3.68) are associated with managing names for a fictional domain &lt;code>test.fr&lt;/code>. Another private DNS server (IP 10.59.1.3) is associated with managing a fictional private domain (invisible from the Internet) called &lt;code>here.local&lt;/code>. Two arbitrary external DNS servers located on the Internet are also represented.&lt;/p></description></item><item><title>Modifying the firmware with OpenWrt</title><link>https://wiki.deimos.fr/Modifier_le_firmware_par_le_OpenWrt/</link><pubDate>Fri, 03 Jul 2009 01:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_le_firmware_par_le_OpenWrt/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As you know, some time ago, I tried to install &lt;strong>OpenWrt on a Fonera+&lt;/strong> (the larger one with two Ethernet connectors). After persisting, I finally managed to get something partially functional: recompiling the Fon firmware and getting both Ethernet ports working. However, WiFi still remains a problem.&lt;/p>
+&lt;p>After a period of working on my Frankenstein-modified Foneras, I decided to try again with another approach: using the Fon binary firmware and activating a serial console. The first step was to get a binary update for the Fonera+ in the form of the file foneraplus_1.1.1.1.fon.&lt;/p></description></item><item><title>Oreon: Setting up a simplified and more elegant solution for Nagios</title><link>https://wiki.deimos.fr/Oreon_:_Mise_en_place_d%27une_solution_simplifi%C3%A9e_et_plus_%C3%A9l%C3%A9gante_pour_Nagios/</link><pubDate>Mon, 11 May 2009 12:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Oreon_:_Mise_en_place_d%27une_solution_simplifi%C3%A9e_et_plus_%C3%A9l%C3%A9gante_pour_Nagios/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Oreon is a network monitoring and supervision software based on the most efficient Open Source information retrieval engine: Nagios.&lt;/p>
+&lt;p>Today Oreon no longer exists and is called Centreon.&lt;/p>
+&lt;p>The objective of this project is to provide a new interface for Nagios, capable of giving it new functionalities while keeping the logic of its existing mechanisms. All within a modern, scalable interface designed for everyone.&lt;/p>
+&lt;p>The Oreon project benefits from a constantly growing community and unwavering investment, which allows it to make its solution increasingly robust and constantly offer innovative new tools.&lt;/p></description></item><item><title>Mounting a Windows Share from Samba</title><link>https://wiki.deimos.fr/Monter_un_partage_Windows_depuis_Samba/</link><pubDate>Sun, 19 Apr 2009 16:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_un_partage_Windows_depuis_Samba/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Mounting Windows shares from a Linux machine with Samba is straightforward with older Windows versions. However, for versions integrating NT technology (starting with Windows 2000), you might encounter problems like:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5f56a44" class="language- ">
+ &lt;code>params.c:Parameter() - Ignoring badly formed line in configuration file: &amp;#43;########## Domains ###########
+cli_negprot: SMB signing is mandatory and we have disabled it.
+30432: protocol negotiation failed
+SMB connection failed&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Or sometimes:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8077576" class="language- ">
+ &lt;code>smb_add_request: request [f65480c0, mid=24160] timed out!
+smb_add_request: request [f6548ec0, mid=24161] timed out!
+smb_add_request: request [f6548ec0, mid=24162] timed out!
+smb_add_request: request [f6548ec0, mid=24163] timed out!
+smb_add_request: request [f6548ec0, mid=24164] timed out!&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This can be problematic when you need to perform this operation quickly. That&amp;rsquo;s why I&amp;rsquo;m sharing the solution.&lt;/p></description></item><item><title>Load Balancing and Fail Over for Web Services</title><link>https://wiki.deimos.fr/Load_Balancing_et_Fail_Over_pour_les_services_Web/</link><pubDate>Wed, 18 Feb 2009 18:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Load_Balancing_et_Fail_Over_pour_les_services_Web/</guid><description>&lt;p>For comprehensive documentation on load balancing with failover for web services, please refer to our detailed HAProxy guide:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/haproxy-load-balance-your-traffic/">HAProxy: Load Balance Your Traffic&lt;/a>&lt;/p>
+&lt;p>This guide covers setup and configuration for HTTP load balancing, MySQL/MariaDB balancing, and SSL offloading.&lt;/p></description></item><item><title>NTOP: Installation and Configuration of NTOP (Network TOP)</title><link>https://wiki.deimos.fr/NTOP:_Installation_et_configuration_d'NTOP_(Network_TOP)/</link><pubDate>Thu, 05 Feb 2009 06:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/NTOP:_Installation_et_configuration_d'NTOP_(Network_TOP)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is a tool to collect network information with simple configurations. Users may use a web browser to access the current network views that include charts and statistics.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>ntop is available on most Linux distributions. Below are the steps tested on Ubuntu 8.10 Linux. I am sure that ntop is available for RPM based distro like CentOS.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fa806cc" class="language-bash ">
+ &lt;code>apt-get install ntop
+/etc/init.d/ntop -i eth0 start&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Replace eth0 with the network interface name. The system will maintain a database of the network information in the &lt;code>/var/lib/ntop&lt;/code> directory. Create the default admin user with:&lt;/p></description></item><item><title>BGP Protocol and its Security</title><link>https://wiki.deimos.fr/Protocole_BGP_et_sa_s%C3%A9curit%C3%A9/</link><pubDate>Tue, 03 Feb 2009 19:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Protocole_BGP_et_sa_s%C3%A9curit%C3%A9/</guid><description>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Border_Gateway_Protocol" rel="external" target="_blank">Border Gateway Protocol (BGP)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a routing protocol used particularly on the Internet. Its objective is to exchange networks (IP address + mask) with its neighbors through TCP sessions (on port 179).&lt;/p></description></item><item><title>Setting up a FreeRadius server</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_FreeRadius/</link><pubDate>Tue, 13 Jan 2009 11:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_FreeRadius/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/FreeRADIUS" rel="external" target="_blank">FreeRADIUS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an open-source RADIUS server.&lt;/p>
+&lt;p>It offers an alternative to other enterprise RADIUS servers, and is one of the most modular and feature-rich RADIUS servers available today. It is considered the most widely used server in the world.&lt;/p></description></item><item><title>OpenSSH: Graphical Window Forwarding</title><link>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</link><pubDate>Mon, 12 Jan 2009 09:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is capable of exporting X windows from another machine (creating an SSH tunnel). For example, you can connect to a server that has X and you only have SSH access to the remote machine.&lt;/p>
+&lt;p>In your SSH configuration file (&lt;code>/etc/ssh/sshd_config&lt;/code>), set this to yes:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f29d961" class="language-bash ">
+ &lt;code>X11Forwarding yes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="launching-the-session">Launching the Session &lt;a href="#launching-the-session" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s an example session. Here we&amp;rsquo;ll export VNC which is running on the direct machine:&lt;/p></description></item><item><title>Analyzing Network Equipment and Network Configurations</title><link>https://wiki.deimos.fr/analyser-les-configs-des-equipements-et-des-reseaux/</link><pubDate>Fri, 26 Dec 2008 18:40:00 +0100</pubDate><guid>https://wiki.deimos.fr/analyser-les-configs-des-equipements-et-des-reseaux/</guid><description>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/analyser_les_configs_des_equipements_et_des_reseaux.pdf">Analyzing Network Equipment and Network Configurations&lt;/a>&lt;/p></description></item><item><title>DNS FQDN Name Resolution in Local Network</title><link>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</link><pubDate>Wed, 17 Dec 2008 23:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</guid><description>&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have noticed that on Ubuntu, there is a problem resolving FQDN (Fully Qualified Domain Names) for your local DNS servers.&lt;/p>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply edit the &lt;code>/etc/nsswitch.conf&lt;/code> file and replace this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="248f0d3" class="language-bash ">
+ &lt;code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>With:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3c42fbf" class="language-bash ">
+ &lt;code>hosts: files dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And just like magic, everything works! :-)&lt;/p></description></item><item><title>Setting up VNC server on Solaris</title><link>https://wiki.deimos.fr/Mise_en_place_de_vncserver_sur_Solaris/</link><pubDate>Wed, 03 Dec 2008 15:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_vncserver_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris, my love! You who never have packages and are never very convenient to use! In short, my difficult love! And yes, VNC server is doable! Recompiling manually is too difficult and time-consuming, so I opted for packages. But even that isn&amp;rsquo;t all roses!&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Add this line to your profile:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5ad5131" class="language-bash ">
+ &lt;code>PATH=$PATH:/usr/openwin/bin:/usr/X11/bin&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="method-2">Method 2 &lt;a href="#method-2" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For prerequisites, you need pkg-get! Then let&amp;rsquo;s get started:&lt;/p></description></item><item><title>Rinetd: Simply and Quickly Forward to Other Machines</title><link>https://wiki.deimos.fr/Rinetd_:_Forwarder_simplement_et_rapidement_vers_d'autres_machines/</link><pubDate>Thu, 25 Sep 2008 12:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rinetd_:_Forwarder_simplement_et_rapidement_vers_d'autres_machines/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>In the past we&amp;rsquo;ve examined the use of firewall rules for forwarding incoming connections from one machine to another. But there is a simpler approach using the rinetd package. Read on to learn about this tool.&lt;/p>
+&lt;p>The rinetd package contains a simple tool which may be configured to listen for connections upon a machine, and silently redirect them to a new destination. In short it acts as a simple to configure TCP proxy.&lt;/p></description></item><item><title>Hidden (or Covert) Channels</title><link>https://wiki.deimos.fr/Canaux_cach%C3%A9s_%5C%28ou_furtifs%5C%29/</link><pubDate>Thu, 25 Sep 2008 11:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Canaux_cach%C3%A9s_%5C%28ou_furtifs%5C%29/</guid><description>&lt;p>Why worry about hidden channels? As a good paranoid, one answer could be: &amp;ldquo;they are everywhere!!!&amp;rdquo; In the case of a mild paranoia crisis, the solution would be systematic use of encryption (and cryptography by extension). Nevertheless, this cannot satisfy all needs:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/canaux_caches.pdf">Hidden (or Covert) Channels&lt;/a>&lt;/p></description></item><item><title>Network Flows</title><link>https://wiki.deimos.fr/Les_flux_r%C3%A9seaux/</link><pubDate>Wed, 24 Sep 2008 11:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_flux_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Network flows about network denial of service attacks is the subject addressed here. Indeed, network flows allow for very simple detection of distributed denial of service attacks due to the quantity of flows generated by the zombie army attacking you.&lt;/p>
+&lt;p>In this article, we&amp;rsquo;ll present other applications of these network flows: intrusion detection or policy violation, detection of hidden channels, or even worm proliferation to name just a few examples. While the detection of distributed denial of service is something relatively specific to operators and Internet service providers, are the other applications well suited to an internal network?&lt;/p></description></item><item><title>Kernel and Network: Pushing the Limits of Connectivity</title><link>https://wiki.deimos.fr/Noyau_et_r%C3%A9seau_:_repousser_les_limites_de_la_connectivit%C3%A9/</link><pubDate>Wed, 10 Sep 2008 16:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Noyau_et_r%C3%A9seau_:_repousser_les_limites_de_la_connectivit%C3%A9/</guid><description>&lt;p>In this documentation, you will find information on:&lt;/p>
+&lt;ul>
+&lt;li>Bonding&lt;/li>
+&lt;li>Universal TUN/TAP device&lt;/li>
+&lt;li>PPP&lt;/li>
+&lt;li>Traffic Shaper&lt;/li>
+&lt;li>IP Advanced router&lt;/li>
+&lt;li>IP Tunneling and GRE&lt;/li>
+&lt;li>IP ARP daemon, TCP Explicit Congestion Notification and TCP syncookie&lt;/li>
+&lt;li>IPSEC, IPV6 and IPVS&lt;/li>
+&lt;li>Vlan Tagging and Ethernet Bridging&lt;/li>
+&lt;li>QOS&lt;/li>
+&lt;/ul>
+&lt;p>As you&amp;rsquo;ll understand, this is a very comprehensive document, but it requires very good system and network knowledge:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/le_noyau_et_le_r%C3%A9seau_-_comment_repousser_les_limites_de_la_connectivit%C3%A9_.pdf">Kernel and Network - How to Push the Limits of Connectivity&lt;/a>&lt;/p></description></item><item><title>SafeSquid: Setting Up a Content Filtering Proxy</title><link>https://wiki.deimos.fr/SafeSquid_:_Mise_en_place_d'un_proxy_filtrant_le_contenu/</link><pubDate>Sun, 31 Aug 2008 10:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/SafeSquid_:_Mise_en_place_d'un_proxy_filtrant_le_contenu/</guid><description>&lt;p>Protecting children from inappropriate internet content is important, which is why tools like SafeSquid were created. Here&amp;rsquo;s some documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/deploying_a_content_filtering_proxy_server_to_distribute_controlled_internet_access_with_safesquid.pdf">Documentation on Deploying A Content Filtering Proxy Server To Distribute Controlled Internet Access With SafeSquid&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/how_to_set_up_internet_access_control_and_internet_filtering_with_safesquid_proxy_server.pdf">How To Set Up Internet Access Control And Internet Filtering With SafeSquid Proxy Server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/how_to_control_access_to_unwanted_websites_using_url_blacklist_with_safesquid_proxy_server.pdf">How To Control Access To Unwanted Websites Using URL Blacklist With SafeSquid Proxy Server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/how_to_control_download_of_files_and_mime_types_in_safesquid_proxy_server.pdf">How To Control Download Of Files And Mime Types In SafeSquid Proxy Server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/how_to_block_ads_and_banners_in_safesquid_proxy_server.pdf">How To Block Ads And Banners In SafeSquid Proxy Server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/enhance_security_by_removing_activex_control_codes_from_web_pages_with_safesquid_proxy_server.pdf">Enhance Security By Removing ActiveX Control Codes From Web Pages With SafeSquid Proxy Server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/how_to_block_cookies_from_unwanted_websites_with_safesquid_proxy_server.pdf">How To Block Cookies From Unwanted Websites With SafeSquid Proxy Server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/how_to_block_webpages_based_on_keywords_or_phrases_with_safesquid_proxy_server.pdf">How To Block WebPages Based On Keywords Or Phrases With SafeSquid Proxy Server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/how_to_control_or_block_instant_messengers_with_safesquid_proxy_server.pdf">How To Control Or Block Instant Messengers With SafeSquid Proxy Server&lt;/a>&lt;/p></description></item><item><title>FTP: Automate Transfers</title><link>https://wiki.deimos.fr/FTP_:_Automatiser_des_transferts/</link><pubDate>Tue, 22 Jul 2008 07:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/FTP_:_Automatiser_des_transferts/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s sometimes convenient to automate certain tasks like uploading files or other operations.&lt;/p>
+&lt;h2 id="ftp">FTP &lt;a href="#ftp" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With the universal ftp command, here&amp;rsquo;s an example that you can place in a shell script:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6b049a1" class="language-bash ">
+ &lt;code>transfertFile()
+{
+ inputFile=$1
+ 
+ ftp -n &amp;lt;&amp;lt;end
+ prompt
+ open $Hostname $Port
+ user $Login $Password
+ ascii
+ put $inputFile
+ bye
+end
+}&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="ncftp">NCFTP &lt;a href="#ncftp" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With the ncftp utility, it&amp;rsquo;s even simpler since it works with just one line:&lt;/p></description></item><item><title>Secondary MX: Setup</title><link>https://wiki.deimos.fr/MX_Secondaire:_mise_en_place/</link><pubDate>Fri, 23 May 2008 07:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/MX_Secondaire:_mise_en_place/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When there&amp;rsquo;s only one mail server handling emails for a domain, if it becomes unavailable, emails sent by third parties to the primary server will be stored in the spool (outgoing queue) of the remote server for a few days in the best case, or immediately returned with an error message (depending on the problem or the configuration of the remote server).&lt;/p>
+&lt;p>Since problems and unavailability are inherent in modern computing, it&amp;rsquo;s necessary to set up a system that can, at least in a degraded mode, transparently recover emails for the sender.&lt;/p></description></item><item><title>Setting up a WiFi Hotspot</title><link>https://wiki.deimos.fr/Monter_un_Hotspot_Wifi/</link><pubDate>Fri, 23 May 2008 07:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_un_Hotspot_Wifi/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>One of the things, if not THE thing I was dying to do in my new apartment, was to set up a real hotspot, as I explained in the two news posts below. Well, it&amp;rsquo;s now up and running. I don&amp;rsquo;t know yet if I&amp;rsquo;ll make a full article about it or if I&amp;rsquo;ll just give tips as I go along, but in the meantime, here&amp;rsquo;s what it looks like:&lt;/p></description></item><item><title>Setting up a complete antispam server</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_antispam_complet/</link><pubDate>Fri, 23 May 2008 06:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_antispam_complet/</guid><description>&lt;p>Here is a very complete and easy to implement documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/the_perfect_spamsnake.pdf">Documentation on a complete antispam solution&lt;/a>&lt;/p></description></item><item><title>Setting up a Courier POP3 server with SSL</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</link><pubDate>Thu, 10 Apr 2008 13:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to install a POP3 server so that your emails can be retrieved from a mail client or another server, then Courier POP3 is a good solution. Additionally, setting up SSL is recommended as it provides security.&lt;/p>
+&lt;p>For the POP3 server to be fully functional, you&amp;rsquo;ll obviously need it to be accompanied by a mail server (&lt;a href="https://wiki.deimos.fr/docs/servers/emails/">see documentation here&lt;/a>).&lt;/p>
+&lt;p>I have done this installation on OpenBSD, so this entire documentation will be for OpenBSD, but given the simplicity of the process, it&amp;rsquo;s very easily portable to other systems.&lt;/p></description></item><item><title>Setting up Nagios NRPE on Solaris 10</title><link>https://wiki.deimos.fr/Mise_en_place_de_Nagios_NRPE_sur_Solaris_10/</link><pubDate>Sat, 05 Apr 2008 10:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Nagios_NRPE_sur_Solaris_10/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Traditionally Linux is the platform of choice for running Nagios however Solaris takes some beating for performance and reliability. Installing Nagios on Solaris is pretty straightforward however there are some tricks to make the install smoother.&lt;/p>
+&lt;p>Usually our installation comprises Nagios 2.0, Nagios Plugins 1.4.2 and NRPE 2.4 so we&amp;rsquo;ll cover these here.&lt;/p>
+&lt;p>Our target system is a Sun Ultra 60 so we&amp;rsquo;re using the SPARC version of Solaris 10. The same principles should apply to Solaris on Intel though.&lt;/p></description></item><item><title>SSH: Setting up SSH Server on a Minimal Solaris Installation</title><link>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</link><pubDate>Sat, 05 Apr 2008 10:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</guid><description>&lt;p>If you need to manage a Solaris 10 box with a minimal install, and SSH is not available, you can install it off of the 2nd CD. Rather than figure out the path to your CDROM (see this article), it was easier in our case to just tar up the needed packages and FTP them to our Solaris box:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de8f50" class="language-bash ">
+ &lt;code>root@srv-3 Product # cp -R SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr 
+SUNWsshu /home/srv-1/sshpkg/
+root@srv-3 Product # cd /home/srv-1/sshpkg/
+root@srv-3 sshpkg # ls
+SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr SUNWsshu
+root@srv-3 sshpkg # tar -cf ../ssh.tar *
+root@srv-3 sshpkg # tar -tf ../ssh.tar
+SUNWsshcu/
+SUNWsshcu/archive/
+.
+.
+.
+SUNWsshu/reloc/
+SUNWsshu/reloc/usr/
+SUNWsshu/reloc/usr/bin/
+SUNWsshu/reloc/usr/lib/
+SUNWsshu/reloc/usr/lib/ssh/
+root@srv-3 sshpkg #&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>On the Solaris side, FTP these to /tmp, then from tmp:&lt;/p></description></item><item><title>Configure Network on OpenBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_OpenBSD/</link><pubDate>Mon, 17 Mar 2008 07:22:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_OpenBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I won&amp;rsquo;t go into too much detail, as that&amp;rsquo;s what the OpenBSD website is for. This is just a quick reference for recalling how to rapidly configure networking.&lt;/p>
+&lt;h2 id="basic-configuration">Basic Configuration &lt;a href="#basic-configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="ifconfig">ifconfig &lt;a href="#ifconfig" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To list available network cards and view defined IP addresses:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="11981fe" class="language-bash ">
+ &lt;code>$ ifconfig
+lo0: flags=8049&amp;lt;UP,LOOPBACK,RUNNING,MULTICAST&amp;gt; mtu 33224
+ inet 127.0.0.1 netmask 0xff000000
+ inet6 ::1 prefixlen 128
+ inet6 fe80::1%lo0 prefixlen 64 scopeid 0x5
+lo1: flags=8008&amp;lt;LOOPBACK,MULTICAST&amp;gt; mtu 33224
+fxp0: flags=8843&amp;lt;UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST&amp;gt; mtu 1500
+ address: 00:04:ac:dd:39:6a
+ media: Ethernet autoselect (100baseTX full-duplex)
+ status: active
+ inet 10.0.0.38 netmask 0xffffff00 broadcast 10.0.0.255
+ inet6 fe80::204:acff:fedd:396a%fxp0 prefixlen 64 scopeid 0x1
+pflog0: flags=0&amp;lt;&amp;gt; mtu 33224
+pfsync0: flags=0&amp;lt;&amp;gt; mtu 2020
+sl0: flags=c010&amp;lt;POINTOPOINT,LINK2,MULTICAST&amp;gt; mtu 296
+sl1: flags=c010&amp;lt;POINTOPOINT,LINK2,MULTICAST&amp;gt; mtu 296
+ppp0: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1500
+ppp1: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1500
+tun0: flags=10&amp;lt;POINTOPOINT&amp;gt; mtu 3000
+tun1: flags=10&amp;lt;POINTOPOINT&amp;gt; mtu 3000
+enc0: flags=0&amp;lt;&amp;gt; mtu 1536
+bridge0: flags=0&amp;lt;&amp;gt; mtu 1500
+bridge1: flags=0&amp;lt;&amp;gt; mtu 1500
+vlan0: flags=0&amp;lt;&amp;gt; mtu 1500
+ address: 00:00:00:00:00:00
+vlan1: flags=0&amp;lt;&amp;gt; mtu 1500
+ address: 00:00:00:00:00:00
+gre0: flags=9010&amp;lt;POINTOPOINT,LINK0,MULTICAST&amp;gt; mtu 1450
+carp0: flags=0&amp;lt;&amp;gt; mtu 1500
+carp1: flags=0&amp;lt;&amp;gt; mtu 1500
+gif0: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280
+gif1: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280
+gif2: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280
+gif3: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here&amp;rsquo;s a listing of available interfaces with their explanations:&lt;/p></description></item><item><title>Iperf: Testing End-to-End Bandwidth</title><link>https://wiki.deimos.fr/Iperf_:_Tester_sa_bande_passante_de_bout_en_bout/</link><pubDate>Mon, 04 Feb 2008 10:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Iperf_:_Tester_sa_bande_passante_de_bout_en_bout/</guid><description>&lt;h2 id="iperf">Iperf &lt;a href="#iperf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Iperf is a computer software tool for measuring various variables of an IP network connection. Iperf is developed by the National Laboratory for Applied Network Research (&lt;a href="https://www.nlanr.net/" rel="external" target="_blank">NLANR&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>). Based on a client/server architecture and available on different operating systems, Iperf is an important tool for network administrators.&lt;/p></description></item><item><title>TCP Flags</title><link>https://wiki.deimos.fr/Les_Flags_TCP/</link><pubDate>Sun, 20 Jan 2008 08:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_Flags_TCP/</guid><description>&lt;h2 id="tcp-flags-explained">TCP Flags Explained &lt;a href="#tcp-flags-explained" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;re not used to analyzing network packet behavior, it&amp;rsquo;s easy to forget what certain TCP flag abbreviations mean:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>FIN&lt;/strong> - Finish; end of session&lt;/li>
+&lt;li>&lt;strong>SYN&lt;/strong> - Synchronize; indicates request to start session&lt;/li>
+&lt;li>&lt;strong>RST&lt;/strong> - Reset; drop a connection&lt;/li>
+&lt;li>&lt;strong>PUSH&lt;/strong> - Push; packet is sent immediately&lt;/li>
+&lt;li>&lt;strong>ACK&lt;/strong> - Acknowledgement&lt;/li>
+&lt;li>&lt;strong>URG&lt;/strong> - Urgent&lt;/li>
+&lt;li>&lt;strong>ECE&lt;/strong> - Explicit Congestion Notification Echo&lt;/li>
+&lt;li>&lt;strong>CWR&lt;/strong> - Congestion Window Reduced&lt;/li>
+&lt;/ul></description></item><item><title>Securing OpenSSH</title><link>https://wiki.deimos.fr/Securiser_OpenSSH/</link><pubDate>Fri, 11 Jan 2008 23:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Securiser_OpenSSH/</guid><description>&lt;p>Here is documentation to secure your OpenSSH server:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/securing_openssh_server_-part_1-.pdf">Securing OpenSSH Server - Part 1&lt;/a>&lt;/p></description></item><item><title>Modify the firmware with FrancoFON</title><link>https://wiki.deimos.fr/Modifier_le_firmware_par_le_FrancoFON/</link><pubDate>Tue, 01 Jan 2008 17:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_le_firmware_par_le_FrancoFON/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;d like to modify the original firmware to have more functionality. That&amp;rsquo;s why I opted for this firmware. Unfortunately, at the time of writing this article, it&amp;rsquo;s not possible to run this firmware on a Fonera+. Here&amp;rsquo;s what it adds compared to the base firmware:&lt;/p>
+&lt;ul>
+&lt;li>Improved firewall management&lt;/li>
+&lt;li>Simplified port redirection&lt;/li>
+&lt;li>DHCP address management for the private network&lt;/li>
+&lt;li>Blacklisting of certain sites for the public network&lt;/li>
+&lt;li>Adding/removing DNS&lt;/li>
+&lt;li>Antenna power adjustment&lt;/li>
+&lt;li>Remote reboot&lt;/li>
+&lt;li>Management of dyndns accounts&lt;/li>
+&lt;li>Hosts file management&lt;/li>
+&lt;li>Live view of connections to private and public networks&lt;/li>
+&lt;li>Comparison of the Fonera version with the latest available version&lt;/li>
+&lt;li>Hidden SSID management for the private network&lt;/li>
+&lt;li>Language management (English, French, Romanian for now)&lt;/li>
+&lt;li>Ability to update firmware from a server other than the FrancoFON server&lt;/li>
+&lt;li>Ability to configure the Fonera in pppoe with the @ and / characters required by some ISPs, up to 64 characters&lt;/li>
+&lt;li>Opening/closing SSH&lt;/li>
+&lt;li>Opening/closing console access via ethernet&lt;/li>
+&lt;li>Script to know the number of Foneras using the FrancoFON firmware&lt;/li>
+&lt;li>Ability to block clients on public and private signals by MAC address with scheduler&lt;/li>
+&lt;li>Ability to connect the Fonera to a WiFi AP to use its internet connection (autonomous &amp;ldquo;Fonera mode&amp;rdquo;, also called &amp;ldquo;Ponte2&amp;rdquo;)&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You must have SSH installed on your Fonera. Use this documentation:
+&lt;a href="https://wiki.deimos.fr/activer-le-ssh-sur-sa-fonera-plus/">Enable SSH on your Fonera+&lt;/a>&lt;/p></description></item><item><title>DNS Protocol Security Audits</title><link>https://wiki.deimos.fr/Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS/</link><pubDate>Sun, 23 Dec 2007 23:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS/</guid><description>&lt;h2 id="introduction-to-dns-protocol-security">Introduction to DNS Protocol Security &lt;a href="#introduction-to-dns-protocol-security" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>DNS is used in most local networks; however, it was developed with strong performance constraints at the expense of security, to avoid degrading regular traffic due to the substantial number of queries associated with the nature of this protocol.&lt;/p>
+&lt;p>DNS (&lt;a href="https://fr.wikipedia.org/wiki/Domain_Name_System" rel="external" target="_blank">Domain Naming System&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>) is one of the key protocols of the Internet, along with several major routing protocols, notably BGPv4 (&lt;a href="https://fr.wikipedia.org/wiki/Border_Gateway_Protocol" rel="external" target="_blank">Border Gateway Protocol&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>). It is also used in most current local networks with, depending on the chosen topology, one or more internal DNS server(s).&lt;/p></description></item><item><title>Installation and Configuration of Cacti</title><link>https://wiki.deimos.fr/installation_et_configuration_de_cacti/</link><pubDate>Wed, 12 Dec 2007 11:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/installation_et_configuration_de_cacti/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Before starting, you should know that the installation of &lt;a href="https://cacti.net/" rel="external" target="_blank">cacti&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> requires a &lt;a href="https://wiki.deimos.fr/docs/servers/databases/mysql-mariadb/">MySQL database&lt;/a>, a &lt;a href="https://wiki.deimos.fr/docs/servers/web/apache/">web server&lt;/a> (apache with PHP) and the SNMP protocol.&lt;/p>
+&lt;p>Cacti is used for specialized network monitoring since the MRTG team abandoned this project to work on Cacti. That said, Cacti doesn&amp;rsquo;t just monitor networks, you can monitor all types of services.&lt;/p></description></item><item><title>OpenSSH: Using Putty and an HTTP proxy to ssh anywhere through firewalls</title><link>https://wiki.deimos.fr/OpenSSH:_Using_Putty_and_an_HTTP_proxy_to_ssh_anywhere_through_firewalls/</link><pubDate>Thu, 06 Dec 2007 11:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_Using_Putty_and_an_HTTP_proxy_to_ssh_anywhere_through_firewalls/</guid><description>&lt;p>Do you ever have the situation (say at work using windows) where you would like to connect to a machine over ssh (say at home using Linux/UNIX) but it&amp;rsquo;s not possible because of firewall rules? There might be an http-proxy server available that you could use.&lt;/p>
+&lt;p>Be aware that applying this trick might be technically possible but not permitted. Probably best to discuss it with someone in your organization first.&lt;/p></description></item><item><title>OpenSSH: Using Stepstones</title><link>https://wiki.deimos.fr/OpenSSH:_using_stepstones/</link><pubDate>Thu, 06 Dec 2007 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_using_stepstones/</guid><description>&lt;p>You might be working in an environment where you always ssh from your machine to the middle machine and then connect to the destination machine. What a waste of time, let&amp;rsquo;s see how you could automate it. The middle machine is frequently referred to as stepstone host.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/openssh_using_stepstones.pdf">OpenSSH using stepstones&lt;/a>&lt;/p></description></item><item><title>Fight Spam More Effectively - Additional Rules</title><link>https://wiki.deimos.fr/Lutter_un_peu_plus_contre_le_SPAM_-_R%C3%A8gles_suppl%C3%A9mentaires/</link><pubDate>Thu, 22 Nov 2007 07:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lutter_un_peu_plus_contre_le_SPAM_-_R%C3%A8gles_suppl%C3%A9mentaires/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Install Razor, Pyzor and Configure SpamAssassin.&lt;/p>
+&lt;p>Razor and Pyzor are spamfilters that use a collaborative filtering network. To install them, run:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3487e5c" class="language-bash ">
+ &lt;code>apt-get install razor pyzor&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Now we have to tell SpamAssassin to use these programs. Edit &lt;code>/etc/spamassassin/local.cf&lt;/code> so that it looks like this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f49624c" class="language-bash ">
+ &lt;code># SpamAssassin Configuration
+rewrite_header Subject *****SPAM*****
+use_bayes 1
+bayes_auto_learn 1
+required_score 5.0
+skip_rbl_checks 0
+report_safe 0
+
+#pyzor
+use_pyzor 1
+pyzor_path /usr/bin/pyzor
+
+#razor
+use_razor2 1
+razor_config /etc/razor/razor-agent.conf
+
+ok_locales en fr
+whitelist_from *@deimos.fr noreply@lists.silicon.fr
+blacklist_from *@mandrivaclub.com&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Note: Here is an &lt;a href="https://www.yrex.com/spam/spamconfig.php" rel="external" target="_blank">automatic SpamAssasin Configuration Generator&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Configuring a Catalyst Switch</title><link>https://wiki.deimos.fr/Configuration_d'un_Switch_Catalyst/</link><pubDate>Tue, 20 Nov 2007 14:57:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configuration_d'un_Switch_Catalyst/</guid><description>&lt;h2 id="connections">Connections &lt;a href="#connections" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Start by connecting the serial port on the PC side and the console port on the switch.&lt;/p>
+&lt;h2 id="connection">Connection &lt;a href="#connection" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Launch HyperTerminal and choose a connection on com1 port, or another com port depending on the PC configuration.
+You need to choose 9600 Bauds
+The rest doesn&amp;rsquo;t matter much&amp;hellip;&lt;/p>
+&lt;h2 id="what-you-need-to-know">What You Need to Know &lt;a href="#what-you-need-to-know" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When launching the terminal, you&amp;rsquo;ll determine several things:&lt;/p>
+&lt;ul>
+&lt;li>The router name (for example: swpar5)&lt;/li>
+&lt;li>A secret&lt;/li>
+&lt;li>A password&lt;/li>
+&lt;li>A virtual terminal password&lt;/li>
+&lt;/ul>
+&lt;p>Then you need to switch to &amp;ldquo;enable&amp;rdquo; mode to be able to change the configuration&lt;/p></description></item><item><title>Trunking: Creating Trunking (bonding) on OpenBSD</title><link>https://wiki.deimos.fr/Trunking_:_Cr%C3%A9er_du_trunking_%28bonding%29_sur_OpenBSD/</link><pubDate>Thu, 15 Nov 2007 15:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trunking_:_Cr%C3%A9er_du_trunking_%28bonding%29_sur_OpenBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The following is used on OpenBSD since version 3.9 to combine two physical interfaces (fxp1, fxp2) into a single virtual interface (trunk0). This method allows one to take the feeds from a traditional two-output tap and present a single virtual interface to NSM applications.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Modify the interface and put yours:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e7b5d2e" class="language-bash ">
+ &lt;code>ifconfig fxp1 up
+ifconfig fxp2 up
+ifconfig trunk0 trunkport fxp1 up
+ifconfig trunk0 trunkport fxp2 up
+ifconfig trunk0 trunkproto roundrobin up&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="modes">Modes &lt;a href="#modes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If you don&amp;rsquo;t need roundrobin, choose the mode that you would like:&lt;/p></description></item><item><title>OpenFire: Installation of OpenFire</title><link>https://wiki.deimos.fr/OpenFire_:_Installation_d'OpenFire/</link><pubDate>Mon, 12 Nov 2007 15:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenFire_:_Installation_d'OpenFire/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenFire is currently the most functional Jabber server available. It offers very interesting features, though some are paid.&lt;/p>
+&lt;p>It&amp;rsquo;s still very integratable with technologies such as LDAP, Oracle, or MySQL.&lt;/p>
+&lt;h2 id="download">Download &lt;a href="#download" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it, it&amp;rsquo;s really not difficult. We download it from &lt;a href="https://www.igniterealtime.org/projects/openfire" rel="external" target="_blank">the official website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p></description></item><item><title>Setting up DHCP Failover</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_DHCP_Failover/</link><pubDate>Tue, 06 Nov 2007 18:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_DHCP_Failover/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve been running a DHCP server on my home network for eons now, and today I decided I&amp;rsquo;d move it on to my OpenBSD firewall cluster. It probably really shouldn&amp;rsquo;t be there but I already run a handful of other internal services there, like DNS, and NTP.&lt;/p>
+&lt;p>I assume you already have a working &lt;a href="https://www.openbsd.org/faq/faq6.html#DHCP" rel="external" target="_blank">dhcpd configuration&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> for your single server, if you don&amp;rsquo;t, then you can get a basic DHCP configuration from the OpenBSD FAQ.&lt;/p></description></item><item><title>Introduction and Architecture of Setting Up a SUN Cluster</title><link>https://wiki.deimos.fr/Introduction_et_Architechture_de_mise_en_place_d'un_Cluster_SUN/</link><pubDate>Thu, 11 Oct 2007 06:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_et_Architechture_de_mise_en_place_d'un_Cluster_SUN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The SUN Cluster Suite is also called SunPlex. I could not explain all here, and you should know well clustering basics.&lt;/p>
+&lt;h3 id="types-of-clusters">Types of Clusters &lt;a href="#types-of-clusters" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>There are 2 types of clusters:&lt;/p>
+&lt;ul>
+&lt;li>Cluster HA: High Availability Cluster&lt;/li>
+&lt;li>Cluster HPC: High Performance Computing&lt;/li>
+&lt;/ul>
+&lt;h3 id="definitions">Definitions &lt;a href="#definitions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Scalable: Add instances for the same application (e.g. Apache)&lt;/li>
+&lt;li>Unaware applications: non-clustered applications&lt;/li>
+&lt;li>SPOF: Single Point of Failure (e.g. Only one network card is on a node instead of two)&lt;/li>
+&lt;li>RGM: Resources Group Manager&lt;/li>
+&lt;li>Data Service: it&amp;rsquo;s an agent generated by RGM&lt;/li>
+&lt;li>IPMP: It controls network failures (&amp;gt; SunPlex v3.0) (Similar to Bonding on Linux)&lt;/li>
+&lt;li>DPM: Disk Path Monitoring (hard drive monitoring&amp;hellip;works with I/O access, so if no traffic runs on the drive, no error can be found)&lt;/li>
+&lt;li>Application Traffic Striping: Virtual private IP address (must be network class B &amp;lt; SunPlex v3.1)&lt;/li>
+&lt;li>SCI: This is a shared memory technology for clusters. With this each node can view the memory of each other.&lt;/li>
+&lt;li>Containers: Zones + RGM&lt;/li>
+&lt;li>Amnesia: Amnesia occurs when a node is booting but can&amp;rsquo;t join the cluster because another node hasn&amp;rsquo;t authorized it. So it&amp;rsquo;s waiting for authorization.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solaris-zone">Solaris Zone &lt;a href="#solaris-zone" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>A Solaris zone is a virtual zone that encapsulates a service (e.g. Apache). The advantage is that we can manage the maximum processor percentage or the maximum memory that the service can use. Many other features are available. A zone can be clustered &amp;gt; SunPlex v3.1; for older versions, you can cluster the global zone.&lt;/p></description></item><item><title>Scapy: Data Frames and Packets</title><link>https://wiki.deimos.fr/Scapy_:_Trames_et_paquets_de_donn%C3%A9es/</link><pubDate>Tue, 09 Oct 2007 06:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Scapy_:_Trames_et_paquets_de_donn%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Scapy is a utility that allows you to forge, receive and send packets or data frames over a network for a multitude of protocols. In this introduction, you&amp;rsquo;ll discover this Python utility that enables traffic capture, network mapping, ARP cache poisoning, VLAN hopping, or passive operating system fingerprinting.&lt;/p>
+&lt;p>Scapy is a program developed in Python by Philippe Biondi (EADS CCR); it notably allows you to forge, receive and transmit packets and/or data frames via a network to or from an IT infrastructure for a multitude of different network protocols (IP, TCP, UDP, ARP, SNMP, ICMP, DNS, DHCP, &amp;hellip;) with precision and speed.&lt;/p></description></item><item><title>QoS (Quality Of Service) with PF</title><link>https://wiki.deimos.fr/Faire_de_la_QOS_(Quality_Of_Service)_avec_PF/</link><pubDate>Sun, 07 Oct 2007 10:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_de_la_QOS_(Quality_Of_Service)_avec_PF/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Hierarchical Fair Service Curve (HFSC) alias QOS:
+Quality of Service (QoS) is an attempt to give priority to a packet type or data connection on a per session basis. Hierarchical Fair Service Curve takes QoS to the next level over CBQ by focusing on guaranteed real-time, adaptive best-effort, and hierarchical link-sharing service.&lt;/p>
+&lt;p>Though this may sound difficult, it is really easy to use once you understand the basics.&lt;/p></description></item><item><title>OpenSPF: Setting up OpenSPF</title><link>https://wiki.deimos.fr/OpenSPF:_Mise_en_place_d'OpenSPF/</link><pubDate>Thu, 04 Oct 2007 16:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSPF:_Mise_en_place_d'OpenSPF/</guid><description>&lt;p>OpenSPF is the open source version of SPF. In terms of functionality, they are the same. Here is documentation explaining how to implement this type of solution:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/openspf_postfix.pdf">OpenSPF on Postfix Documentation&lt;/a>&lt;/p></description></item><item><title>Smokeping: Monitoring Latency</title><link>https://wiki.deimos.fr/Smokeping_:_Monitorer_la_latence/</link><pubDate>Fri, 14 Sep 2007 16:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Smokeping_:_Monitorer_la_latence/</guid><description>&lt;p>Smokeping allows you to monitor latency of services, applications, and more.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/monitoring_network_latency_with_smokeping.pdf">Documentation on Monitoring Network Latency With Smokeping&lt;/a>&lt;/p></description></item><item><title>Man in the Middle</title><link>https://wiki.deimos.fr/Man_In_The_Middle/</link><pubDate>Fri, 03 Aug 2007 16:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Man_In_The_Middle/</guid><description>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/man_in_the_middle.pdf">Man In The Middle&lt;/a>&lt;/p></description></item><item><title>Altering ARP Tables</title><link>https://wiki.deimos.fr/alteration-de-tables-arp/</link><pubDate>Fri, 03 Aug 2007 16:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/alteration-de-tables-arp/</guid><description>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/altering_arp_tables_v_1.00.pdf">Altering ARP Tables&lt;/a>&lt;/p></description></item><item><title>Shatter Attack Technique</title><link>https://wiki.deimos.fr/La_Technique_de_l%5C%27Attaque_Shatter/</link><pubDate>Fri, 03 Aug 2007 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/La_Technique_de_l%5C%27Attaque_Shatter/</guid><description>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/shatter_fr.pdf">Shatter Attack Technique&lt;/a>&lt;/p></description></item><item><title>Netcat: Remote Partition Backup</title><link>https://wiki.deimos.fr/Netcat_:_Sauvegarde_de_partions_%C3%A0_distance/</link><pubDate>Thu, 02 Aug 2007 14:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat_:_Sauvegarde_de_partions_%C3%A0_distance/</guid><description>&lt;h2 id="remote-backups">Remote Backups &lt;a href="#remote-backups" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For a simple but efficient way to perform remote backups, you can use the dd and netcat commands.&lt;/p>
+&lt;p>Netcat is available in two flavors ;-):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b3eceee" class="language-bash ">
+ &lt;code>emerge gnu-netcat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2fbcd36" class="language-bash ">
+ &lt;code>emerge netcat&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To create an image of your entire hda1 partition, start netcat in passive (listening) mode on the remote machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c65ba8b" class="language-bash ">
+ &lt;code>netcat -l -p 10000 &amp;gt; image.gz&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>On your machine, run dd to read the partition, gzip to compress it, and netcat to transfer the image to the other machine:&lt;/p></description></item><item><title>Nfqueue: Filter Thousands of IP Addresses (e.g., by Country)</title><link>https://wiki.deimos.fr/Nfqueue_:_Filtrer_des_milliers_d'adresses_IP_(ex:_par_pays)/</link><pubDate>Thu, 05 Jul 2007 05:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nfqueue_:_Filtrer_des_milliers_d'adresses_IP_(ex:_par_pays)/</guid><description>&lt;p>Here is documentation on the NFQUEUE module for Iptables:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/iptables_filtering_traffic_thousands_ip.pdf">Iptables filtering traffic thousands IP&lt;/a>&lt;/p></description></item><item><title>Stunnel: Creating an SSL Tunnel</title><link>https://wiki.deimos.fr/Stunnel_:_Fabrication_d'un_tunnel_SSL/</link><pubDate>Tue, 26 Jun 2007 08:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Stunnel_:_Fabrication_d'un_tunnel_SSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you have software that doesn&amp;rsquo;t support SSL, and you want to secure network connections, you can encapsulate it in an SSL tunnel. This tunnel will encrypt data from end to end.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="edd0663" class="language-bash ">
+ &lt;code>apt-get install stunnel4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red-Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f8aef6e" class="language-bash ">
+ &lt;code>wget http://www.stunnel.org/download/stunnel/src/stunnel-4.20.tar.gz
+tar -xzvf stunnel-4.20.tar.gz
+cd stunnel-4.20
+./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="windows">Windows &lt;a href="#windows" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Download the client: &lt;a href="https://www.stunnel.org/download/binaries.html" rel="external" target="_blank">https://www.stunnel.org/download/binaries.html&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;br>
+&lt;em>On Windows, all configuration files are in &amp;ldquo;C:\Program Files\stunnel&amp;rdquo;, so adapt the examples below according to file paths&lt;/em>&lt;/p></description></item><item><title>Capturing connections on an interface</title><link>https://wiki.deimos.fr/Dumper_les_connections_dune_interface/</link><pubDate>Wed, 23 May 2007 15:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dumper_les_connections_dune_interface/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Capturing (or dumping) means to capture network packets. In this article, we&amp;rsquo;ll look at how to capture TCP packets that pass through our Cisco device, particularly through a specific interface. Here&amp;rsquo;s how to proceed.&lt;/p>
+&lt;h2 id="creating-the-access-list">Creating the access list &lt;a href="#creating-the-access-list" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, create an &lt;strong>access list&lt;/strong> called &lt;strong>dumptcp&lt;/strong> to allow connections from a host to any of our interfaces. You can specify a particular one if you wish:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="40460a8" class="language-bash ">
+ &lt;code>access-list dumptcp permit ip host 192.168.0.104 any&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then we do the reverse so that the Cisco can respond:&lt;/p></description></item><item><title>Installation from Scratch of a Cisco Pix</title><link>https://wiki.deimos.fr/Installation_from_Scratch_d'un_Cisco_Pix/</link><pubDate>Wed, 23 May 2007 14:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_from_Scratch_d'un_Cisco_Pix/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The installation of a Cisco device is not very complicated, but if you&amp;rsquo;re not familiar with it, it&amp;rsquo;s not always obvious. That&amp;rsquo;s why I made this small guide, since it&amp;rsquo;s not something we do every day.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Connected via serial port? Let&amp;rsquo;s get started:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2e52088" class="language- ">
+ &lt;code>Pre-configure PIX Firewall now through interactive prompts [yes]?
+Enable password [&amp;lt;use current password&amp;gt;]: mot_de_passe
+Clock (UTC):
+ Year [2007]:
+ Month [May]:
+ Day [23]:
+ Time [02:57:33]: 12:01:00
+Inside IP address: 192.168.0.77
+Inside network mask: 255.255.255.0
+Host name: hk-pix-bak
+Domain name: mon_domaine
+IP address of host running PIX Device Manager: 192.168.0.104
+
+The following configuration will be used:
+Enable password: mot_de_passe
+Clock (UTC): 12:01:00 May 23 2007
+Inside IP address: 192.168.0.77
+Inside network mask: 255.255.255.0
+Host name: hk-pix-bak
+Domain name: mon_domaine
+IP address of host running PIX Device Manager: 192.168.0.104
+
+Use this configuration and write to flash? y&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To summarize:&lt;/p></description></item><item><title>Completely Reset a Cisco Configuration</title><link>https://wiki.deimos.fr/Resetter_completement_la_configuration_d'un_Cisco/</link><pubDate>Wed, 23 May 2007 13:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Resetter_completement_la_configuration_d'un_Cisco/</guid><description>&lt;h2 id="reset-a-cisco-pix-configuration">Reset a Cisco PIX Configuration &lt;a href="#reset-a-cisco-pix-configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To completely reset the configuration of a Cisco PIX, here is the solution:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e15dca9" class="language-bash ">
+ &lt;code>clear config all&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="90ccaf9" class="language-bash ">
+ &lt;code>write erase&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The installation can then restart:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8ed0900" class="language-bash ">
+ &lt;code> -----------------------------------------------------------------------
+ || ||
+ || ||
+ |||| ||||
+ ..:||||||:..:||||||:..
+ c i s c o S y s t e m s
+ Private Internet eXchange
+ -----------------------------------------------------------------------
+ Cisco PIX Firewall
+
+Cisco PIX Firewall Version 6.3(5)
+Licensed Features:
+Failover: Enabled
+VPN-DES: Enabled
+VPN-3DES-AES: Disabled
+Maximum Physical Interfaces: 6
+Maximum Interfaces: 10
+Cut-through Proxy: Enabled
+Guards: Enabled
+URL-filtering: Enabled
+Inside Hosts: Unlimited
+Throughput: Unlimited
+IKE peers: Unlimited
+
+This PIX has a Failover Only (FO) license.&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>OpenSSH: SSH Connection Multiplexing</title><link>https://wiki.deimos.fr/OpenSSH:_Multiplexage_des_connexions_SSH/</link><pubDate>Mon, 14 May 2007 19:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_Multiplexage_des_connexions_SSH/</guid><description>&lt;p>Since version 4.0, OpenSSH allows multiplexing several connections into one, which speeds up the connection time for subsequent logins.&lt;/p>
+&lt;p>This tip requires OpenSSH version 4.2 or higher to work.&lt;/p>
+&lt;p>Just add this to your &lt;code>~/.ssh/config&lt;/code> file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="49fbdc0" class="language-bash ">
+ &lt;code>Host *
+ControlMaster auto
+ControlPath ~/.ssh/master-%r@%h:%p&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All new connections to a host where you are already connected will go through this existing connection. In addition to speeding up connection time, this has the advantage of not prompting for passwords on subsequent connections.&lt;/p></description></item><item><title>Configuring a Local Network on Debian and Ubuntu</title><link>https://wiki.deimos.fr/Configuration_d%27un_r%C3%A9seau_local_sur_Debian_et_Ubuntu/</link><pubDate>Wed, 18 Apr 2007 14:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_d%27un_r%C3%A9seau_local_sur_Debian_et_Ubuntu/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Not always easy to remember what to put in these damn files, right? Here are some simple examples.&lt;/p>
+&lt;h2 id="configuring-network-interfaces">Configuring Network Interfaces &lt;a href="#configuring-network-interfaces" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Edit the file &lt;code>/etc/network/interfaces&lt;/code>.&lt;/p>
+&lt;h3 id="static-ip-addressing">Static IP Addressing &lt;a href="#static-ip-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For example, here&amp;rsquo;s how I configure my eth0 interface:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b464be6" class="language-bash ">
+ &lt;code>auto lo eth0
+iface lo inet loopback
+
+# Interface eth0
+iface eth0 inet static
+ address 192.168.0.1
+ netmask 255.255.255.0
+ broadcast 192.168.0.255
+ network 192.168.0.0
+ gateway 192.168.0.138&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="dynamic-ip-addressing">Dynamic IP Addressing &lt;a href="#dynamic-ip-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If I want dynamic addressing, it&amp;rsquo;s even simpler:&lt;/p></description></item><item><title>Nagios: 2 Load Balancing</title><link>https://wiki.deimos.fr/Nagios_:_2_Load_Balancing/</link><pubDate>Tue, 02 Jan 2007 10:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nagios_:_2_Load_Balancing/</guid><description>&lt;p>Here is documentation on how to implement load balancing with Nagios:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/nagios2_loadbalancing.pdf">Nagios2 load balancing PDF&lt;/a>&lt;/p></description></item><item><title>SPF (Sender Policy Framework): Prevention of Email Address Forgery</title><link>https://wiki.deimos.fr/SPF_%28Sender_Policy_Framework%29_:_Pr%C3%A9vention_de_la_contrefa%C3%A7on_d%27adresses_mails/</link><pubDate>Thu, 28 Dec 2006 22:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/SPF_%28Sender_Policy_Framework%29_:_Pr%C3%A9vention_de_la_contrefa%C3%A7on_d%27adresses_mails/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SPF stands for Sender Policy Framework. SPF aims to be an anti-counterfeiting standard to prevent email address forgery.&lt;/p>
+&lt;p>SPF was born in 2003. Its creator, Meng Weng Wong, took the best features of Reverse MX and DMP (Designated Mailer Protocol) to create SPF.&lt;/p>
+&lt;p>SPF uses the return path (MAIL FROM) present in the message header, since all MTAs work with these fields. However, there is a new concept proposed by Microsoft: PRA, which stands for Purported Responsible Address. The PRA corresponds to the end-user address that an MUA (like Thunderbird) uses.&lt;/p></description></item><item><title>Penetration Testing</title><link>https://wiki.deimos.fr/Tests_d'intrusion/</link><pubDate>Tue, 28 Nov 2006 22:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tests_d'intrusion/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Once a network is installed and configured, it continuously evolves. New systems are added, old and faithful machines disappear - everything changes constantly. Users can also make modifications to the network without the administrator&amp;rsquo;s knowledge.&lt;/p>
+&lt;p>To verify the state of a network, an administrator must behave like a hacker and attempt to penetrate their own defenses. This article presents the methodology to follow.&lt;/p>
+&lt;p>It&amp;rsquo;s important to test the security of your own network by putting yourself in the hacker&amp;rsquo;s position to discover potential vulnerabilities. These tests are broken down into several steps:&lt;/p></description></item><item><title>Basic Configuration of a Cisco PIX</title><link>https://wiki.deimos.fr/Configuration_de_base_d'un_Cisco_Pix/</link><pubDate>Wed, 08 Nov 2006 10:33:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configuration_de_base_d'un_Cisco_Pix/</guid><description>&lt;h2 id="cisco-basics">Cisco Basics &lt;a href="#cisco-basics" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>In graphical mode it&amp;rsquo;s not too complicated, but in command line - oh boy - the PIX is challenging to configure!&lt;/p>
+&lt;p>It&amp;rsquo;s Cisco, so it uses proprietary commands but with a touch of Unix. For example, the grep command works :-)&lt;/p>
+&lt;p>Let&amp;rsquo;s get started. Connect and enter your password.&lt;/p>
+&lt;h3 id="the-basics">The Basics &lt;a href="#the-basics" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Switch to &lt;strong>enable&lt;/strong> mode to get admin privileges:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="56f931a" class="language-bash ">
+ &lt;code>en&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Then a &lt;strong>show running-config&lt;/strong> to see the current configuration:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d753f6b" class="language-bash ">
+ &lt;code>sh run&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Once you&amp;rsquo;ve viewed the configuration and decided to add something, do a &lt;strong>configure terminal&lt;/strong>:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c0a3020" class="language-bash ">
+ &lt;code>conf t&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>To exit the current mode:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ca2c0e6" class="language-bash ">
+ &lt;code>Ctrl&amp;#43;z or exit&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Are you sure? Then save to memory (&lt;strong>write memory&lt;/strong>):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4d50064" class="language-bash ">
+ &lt;code>wr m&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="adding-and-removing-commands">Adding and Removing Commands &lt;a href="#adding-and-removing-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>To add a NAT rule for example, copy the existing lines, then copy/paste:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9f2540f" class="language-bash ">
+ &lt;code>static (dmz,outside) tcp 193.252.19.3 2099 SRV-FRONT 2099 netmask 255.255.255.255 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>To delete this rule:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4172c6f" class="language-bash ">
+ &lt;code>no static (dmz,outside) tcp 193.252.19.3 2099 SRV-FRONT 2099 netmask 255.255.255.255 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="adding-an-admin-user">Adding an Admin User &lt;a href="#adding-an-admin-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To add a Cisco admin user:&lt;/p></description></item><item><title>IMAP Mailbox Synchronization</title><link>https://wiki.deimos.fr/Synchronisation_de_boites_mails_IMAP/</link><pubDate>Mon, 23 Oct 2006 11:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Synchronisation_de_boites_mails_IMAP/</guid><description>&lt;h2 id="imap-mailbox-synchronization">IMAP Mailbox Synchronization &lt;a href="#imap-mailbox-synchronization" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>How do you synchronize a mailbox between two remote servers? A small tool called &lt;strong>Imapsync&lt;/strong> exists for this purpose!&lt;/p>
+
+&lt;div class="alert alert-warning d-flex" role="alert">
+ &lt;div class="flex-shrink-1 alert-icon">
+ 
+ &lt;span class="material-icons size-20 me-2">
+ warning
+ &lt;/span>&lt;/div>
+ 
+ &lt;div class="w-100">Warning: This software consumes a lot of CPU resources!&lt;/div>
+ &lt;/div>
+&lt;p>To install it, nothing complicated:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2ce8a62" class="language-bash ">
+ &lt;code>apt-get install imapsync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Next, let&amp;rsquo;s create a folder in our &lt;em>home&lt;/em> directory called &lt;em>.imapsync&lt;/em>.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="73495de" class="language-bash ">
+ &lt;code>mkdir ~/.imapsync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>In this folder, we&amp;rsquo;ll store the IMAP password for the account(s). The first file corresponds to the first server, and the second file to the second server:&lt;/p></description></item><item><title>Swaks - Swiss Army Knife SMTP</title><link>https://wiki.deimos.fr/Swaks_-_Swiss_Army_Knife_SMTP/</link><pubDate>Tue, 03 Oct 2006 13:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Swaks_-_Swiss_Army_Knife_SMTP/</guid><description>&lt;p>You may know Netcat, the &amp;ldquo;TCP/IP Swiss Army Knife&amp;rdquo;, now here&amp;rsquo;s &lt;a href="https://jetmore.org/john/code/#swaks" rel="external" target="_blank">Swaks&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, the &amp;ldquo;SMTP Swiss Army Knife&amp;rdquo; :)&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e6b8889" class="language-bash ">
+ &lt;code>apt-get install swaks&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The description is accurate, I can&amp;rsquo;t say it better&amp;hellip; you can do almost anything with it.
+Just read the man page to get ideas for how to use it.&lt;/p></description></item><item><title>Sipcalc: Subnet Calculator</title><link>https://wiki.deimos.fr/Sipcalc_:_Calculateur_de_sous_r%C3%A9seaux/</link><pubDate>Tue, 03 Oct 2006 13:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sipcalc_:_Calculateur_de_sous_r%C3%A9seaux/</guid><description>&lt;p>Subnets&amp;hellip; those famous subnets. When you don&amp;rsquo;t calculate them every day, it&amp;rsquo;s difficult to remember how to do it in 30 seconds. Here&amp;rsquo;s the solution:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="50b132b" class="language-bash ">
+ &lt;code>sudo apt-get install sipcalc&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>VNC: Listen Mode on Linux</title><link>https://wiki.deimos.fr/VNC_:_Mode_Listen_sous_Linux/</link><pubDate>Sat, 05 Aug 2006 19:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/VNC_:_Mode_Listen_sous_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Yes, in Windows, listen mode is easy! But on Linux, where is the &amp;ldquo;Run listening mode&amp;rdquo; icon? ;-)&lt;/p>
+&lt;p>It&amp;rsquo;s actually quite simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6add64b" class="language-bash ">
+ &lt;code>xvnc4viewer -listen -Shared&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The &amp;ldquo;Shared&amp;rdquo; option allows &lt;strong>multiple users to connect simultaneously&lt;/strong>.&lt;/p>
+&lt;p>On the client side, you need to open incoming port &lt;strong>5500&lt;/strong> and you&amp;rsquo;re good to go.&lt;/p></description></item><item><title>Switching to Case-Sensitive File System on Mac OS X</title><link>https://wiki.deimos.fr/switch_mac_os_case_sensitive/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wiki.deimos.fr/switch_mac_os_case_sensitive/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Mac OS X, the default file system is case-insensitive. However, you can switch to a case-sensitive file system if needed. This is particularly useful for certain applications or development environments that require case sensitivity.&lt;/p>
+
+&lt;div class="alert alert-warning d-flex" role="alert">
+ &lt;div class="flex-shrink-1 alert-icon">
+ 
+ &lt;span class="material-icons size-20 me-2">
+ warning
+ &lt;/span>&lt;/div>
+ 
+ &lt;div class="w-100">Switching to a case-sensitive file system can cause issues with applications that expect a case-insensitive file system. This is why moving to a case-sensitive file system is not recommended.&lt;/div>
+ &lt;/div>
+&lt;p>Instead, it is preferable to create a dedicated volume (not a partition) with a case-sensitive file system. This way, you can keep your main volume case-insensitive while having a separate volume for applications that require case sensitivity. The other advantage is that you won&amp;rsquo;t encounter any issue with TimeMachine backups and restoring your system (you can&amp;rsquo;t restore a case-sensitive volume to a case-insensitive one without a long and painful procedure).&lt;/p></description></item><item><title>AutoFS: Mounting and Unmounting Shares</title><link>https://wiki.deimos.fr/AutoFS_:_montage_et_d%C3%A9montage_de_partages/</link><pubDate>Thu, 26 Sep 2013 07:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/AutoFS_:_montage_et_d%C3%A9montage_de_partages/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You already installed Linux on your networked desktop PC and now you want to work with files stored on some other PCs in your network. This is where autofs comes into play. This tutorial shows how to configure autofs to use CIFS to access Windows or Samba shares from Linux Desktop PCs. It also includes a tailored configuration file.&lt;/p>
+&lt;p>If autofs Version 4.0 or newer is already installed, you should find these files:&lt;/p></description></item></channel></rss>

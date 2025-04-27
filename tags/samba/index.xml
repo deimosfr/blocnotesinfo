@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Samba on Tech Notebook</title><link>https://wiki.deimos.fr/tags/samba/</link><description>Recent content in Samba on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/samba/index.xml" rel="self" type="application/rss+xml"/><item><title>ACL: Implementing NT-type Permissions on Linux</title><link>https://wiki.deimos.fr/ACL:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Linux/</link><pubDate>Mon, 06 May 2013 15:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/ACL:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Linux/</guid><description>&lt;p>An ACL, or Access Control List, is simply defined as a list of permissions on a file, directory, or tree structure, added to the &amp;ldquo;classic&amp;rdquo; permissions (technically, POSIX.1 permissions) of that file. These permissions concern defined users and/or groups. ACL management under GNU/Linux is inspired by the POSIX 1003.1e standard (project 17) but does not fully comply with it.&lt;/p>
+&lt;p>With ACLs, you can extend the number of users and groups that have rights to the same file. Remember that in the UNIX world, each file can normally only indicate permissions for a single user and a single group, which are opposed to a single category corresponding to &amp;ldquo;all others&amp;rdquo; (or &amp;ldquo;the rest of the world&amp;rdquo;). With ACLs, you can (among other things) add other users and groups to a file and define their rights separately. This brings the system closer to the permission system used on NT platforms (although many differences remain).&lt;/p></description></item><item><title>Installing and configuring Samba as a Domain Controller</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_Contr%C3%B4leur_de_domaine/</link><pubDate>Wed, 07 Nov 2012 09:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_Contr%C3%B4leur_de_domaine/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is very versatile and can emulate a domain controller (similar to Windows NT4).&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a typical configuration for this type of environment with an OpenLDAP backend:&lt;/p>
+&lt;p>(&lt;code>/etc/samba/smb.conf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="351759b" class="language-bash ">
+ &lt;code>[global]
+ workgroup = deimos.fr
+ netbios name= %h
+ server string = Controleur du domaine deimos.fr
+ log level = 2
+ #log file = /var/log/samba/smbd.log
+ log file = /var/log/samba/%m.log
+ max log size = 5000
+ security = user
+ encrypt passwords = yes
+ obey pam restrictions = No
+ socket options = TCP_NODELAY SO_RCVBUF=8192 SO_SNDBUF=8192
+ local master = yes
+ os level = 65
+ domain master = yes
+ preferred master = yes
+ domain logons = yes
+ logon script = netlogon.vbs
+ logon path =
+ logon drive =
+ logon home =
+ wins support = yes
+ dns proxy = no
+ unix extensions = no
+
+# LDAP
+# Pour que Samba puisse lire et écrire dans l&amp;#39;annuaire : smbpasswd -w mypassword
+ ldap suffix = dc=deimos.fr,dc=local
+ ldap machine suffix = ou=hosts
+ ldap user suffix = ou=users
+ ldap group suffix = ou=groups
+ ldap admin dn = uid=samba,ou=utilisateurs,dc=local
+ ldap ssl = Start_tls
+ ldap passwd sync = yes
+ passdb backend = ldapsam:&amp;#34;ldap://ldap-slave1 ldap://ldap-slave2&amp;#34;
+
+[netlogon]
+ comment = Network Logon Service
+ path = /mnt/netlogon
+ browseable = no
+ writable = no
+ share modes = no
+
+[homes]
+ path = /datas/users/%U
+ valid users = %U
+ comment = %U personnal folder
+ browseable = no
+ writable = yes
+
+[partage]
+ path = /mnt/partage
+ comment = partage
+ browseable = yes
+ create mask = 0700
+ directory mask = 0700
+ create mode = 0700
+ directory mode = 0700
+ writable = yes
+ #valid users = @&amp;#34;utilisateurs du domaine&amp;#34;
+
+[commons]
+ path = /mnt/commons
+ comment = commons
+ browseable = yes
+ writable = yes
+ valid users = @&amp;#34;utilisateurs du domaine&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="resources">Resources &lt;a href="#resources" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/samba_domaincontroller.pdf">Documentation on installing a Samba Domain&lt;/a>&lt;/p></description></item><item><title>Trick Samba Share Size Display</title><link>https://wiki.deimos.fr/trick-samba-share-size-display/</link><pubDate>Thu, 16 Feb 2012 10:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/trick-samba-share-size-display/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A colleague of mine found himself in a rather delicate situation. Let me explain the scenario:&lt;/p>
+&lt;ul>
+&lt;li>2 mount points in /mnt, with one nested inside the other&lt;/li>
+&lt;li>1 share on the primary mount point&lt;/li>
+&lt;/ul>
+&lt;p>When the primary mount point is full, you can&amp;rsquo;t copy anything anymore, even if the second nested mount point still has free space. For those who still don&amp;rsquo;t understand:&lt;/p>
+&lt;ul>
+&lt;li>/mnt/: 30 MB remaining&lt;/li>
+&lt;li>/mnt/disk1: 10 GB remaining&lt;/li>
+&lt;li>share: /mnt/&lt;/li>
+&lt;/ul>
+&lt;p>The share tells me that it can&amp;rsquo;t copy more than 30 MB, even into /share/disk1.&lt;/p></description></item><item><title>Installation and Configuration of Samba in 'User' Mode</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22/</link><pubDate>Thu, 06 Oct 2011 12:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is a free software licensed under the GPL that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources from these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs with DOS and early versions of Windows sometimes needed to install a TCP/IP stack and a set of Unix applications: an NFS client, FTP, telnet, lpr, etc. This was cumbersome and penalizing for PCs of that time, and it also forced users to adopt two sets of habits, adding those of UNIX to those of Windows. Samba therefore adopts the opposite approach.&lt;/p></description></item><item><title>Problems with saving Office, Adobe... file types</title><link>https://wiki.deimos.fr/problemes_d%5C%27enregistrements_de_fichiers_de_type_office,_adobe...</link><pubDate>Tue, 21 Sep 2010 21:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/problemes_d%5C%27enregistrements_de_fichiers_de_type_office,_adobe...</guid><description>&lt;h2 id="solving-office-files-saving-issues">Solving Office files saving issues &lt;a href="#solving-office-files-saving-issues" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you encounter problems saving office files on Samba shares, it&amp;rsquo;s likely due to &lt;strong>Oplock&lt;/strong>. Oplock is a feature increasingly used by software developers as it allows much faster saving than normal.&lt;/p>
+&lt;p>It seems that this problem occurs from version &lt;strong>3.0.6&lt;/strong> of Samba.&lt;/p>
+&lt;p>To avoid these issues, you need to disable this feature. Here&amp;rsquo;s what you need to insert in the Samba configuration file in the &amp;ldquo;&lt;strong>Global&lt;/strong>&amp;rdquo; section:&lt;/p></description></item><item><title>Mounting a Windows Share from Samba</title><link>https://wiki.deimos.fr/Monter_un_partage_Windows_depuis_Samba/</link><pubDate>Sun, 19 Apr 2009 16:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_un_partage_Windows_depuis_Samba/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Mounting Windows shares from a Linux machine with Samba is straightforward with older Windows versions. However, for versions integrating NT technology (starting with Windows 2000), you might encounter problems like:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5f56a44" class="language- ">
+ &lt;code>params.c:Parameter() - Ignoring badly formed line in configuration file: &amp;#43;########## Domains ###########
+cli_negprot: SMB signing is mandatory and we have disabled it.
+30432: protocol negotiation failed
+SMB connection failed&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Or sometimes:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8077576" class="language- ">
+ &lt;code>smb_add_request: request [f65480c0, mid=24160] timed out!
+smb_add_request: request [f6548ec0, mid=24161] timed out!
+smb_add_request: request [f6548ec0, mid=24162] timed out!
+smb_add_request: request [f6548ec0, mid=24163] timed out!
+smb_add_request: request [f6548ec0, mid=24164] timed out!&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This can be problematic when you need to perform this operation quickly. That&amp;rsquo;s why I&amp;rsquo;m sharing the solution.&lt;/p></description></item><item><title>Installation and Configuration of Samba in User Mode (Authentication on an OpenLDAP Server)</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22_%28Authentification_sur_un_serveur_OpenLDAP%29/</link><pubDate>Tue, 02 Dec 2008 07:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22_%28Authentification_sur_un_serveur_OpenLDAP%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is free software under the GPL license that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources on these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs running DOS and early Windows versions sometimes had to install a TCP/IP stack and a set of Unix-origin software: an NFS client, FTP, telnet, lpr, etc. This was cumbersome and penalizing for the PCs of that time, and it also forced their users to develop a double set of habits, adding Unix habits to those of Windows. Samba therefore adopts the opposite approach.&lt;/p></description></item><item><title>Installation and Configuration of Samba in ADS Mode (Authentication on an AD Server)</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22ADS%22_%28Authentification_sur_un_serveur_AD%29/</link><pubDate>Tue, 02 Dec 2008 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22ADS%22_%28Authentification_sur_un_serveur_AD%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is free software under GPL license supporting the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access the resources of these systems and vice-versa.&lt;/p>
+&lt;p>Previously, PCs equipped with DOS and early Windows versions sometimes had to install a TCP/IP stack and a set of Unix-originated software: NFS client, FTP, telnet, lpr, etc. This was heavy and penalizing for the PCs of that time, and it also forced their users to adopt dual habits, adding those of UNIX to those of Windows. Samba therefore adopts the opposite approach.&lt;/p></description></item><item><title>Setting up a Unix systems specialized Home server</title><link>https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_de_Home_sp%C3%A9cialis%C3%A9_syst%C3%A8mes_Unix/</link><pubDate>Mon, 21 Jul 2008 12:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_de_Home_sp%C3%A9cialis%C3%A9_syst%C3%A8mes_Unix/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This article will show how to have a simultaneous dedicated profile on multiple machines.&lt;/p>
+&lt;p>Here are the goals of this tutorial:&lt;/p>
+&lt;ul>
+&lt;li>Account centralization with LDAP (this should already be done).&lt;/li>
+&lt;li>Each user will have a single personal unix profile on every unix server.&lt;/li>
+&lt;li>The profile is the same everywhere with a share system.&lt;/li>
+&lt;li>They will have paths, aliases and environment vars easier to set via a perl script.&lt;/li>
+&lt;li>The profile will be the same for every user (global environment) plus their personal customizations.&lt;/li>
+&lt;li>Users on Windows will have their Unix profile on a shared drive.&lt;/li>
+&lt;li>A special easy environment for Java is also possible.&lt;/li>
+&lt;/ul>
+&lt;h2 id="set-global-environment">Set global environment &lt;a href="#set-global-environment" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="global-profile">Global Profile &lt;a href="#global-profile" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>This file will be loaded every time when a user logs on. You can add anything if you want it to be loaded. Here is the &lt;code>/etc/profile&lt;/code> file:&lt;/p></description></item><item><title>Installation and Configuration of Samba in "Share" Mode</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22Share%22/</link><pubDate>Mon, 27 Aug 2007 15:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22Share%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is an open source software licensed under the GPL that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources from these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs equipped with DOS and early versions of Windows sometimes had to install a TCP/IP stack and a set of Unix-originated software: NFS client, FTP, telnet, lpr, etc. This was heavy and penalizing for PCs of that time, and it also forced users to adopt a double set of habits, adding those of UNIX to those of Windows. Samba takes the opposite approach.&lt;/p></description></item><item><title>Network Recycle Bin</title><link>https://wiki.deimos.fr/Corbeille_r%C3%A9seau/</link><pubDate>Sun, 22 Oct 2006 20:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Corbeille_r%C3%A9seau/</guid><description>&lt;p>There is a network recycle bin for each share. To set this up, here are the files to configure with the necessary options. My tests were done on a Red Hat Enterprise 4 with Samba 3. This configuration only works with Samba 3. For earlier versions, it&amp;rsquo;s a .recycle file with a different content. But let&amp;rsquo;s proceed with the configuration:&lt;/p>
+&lt;p>Edit the &lt;code>smb.conf&lt;/code> file and add these lines:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="28560fd" class="language-bash ">
+ &lt;code>vfs objects = recycle
+recycle:exclude = *.tmp *.temp *.o *.obj ~$*
+recycle:keeptree = True
+recycle:touch = True
+recycle:versions = True
+recycle:noversions = .doc|.xls|.ppt
+recycle:repository = .recycle
+recycle:maxsize = 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>A small script in the crontab to remove items older than 1 week and you&amp;rsquo;re good to go :-)&lt;/p></description></item><item><title>AutoFS: Mounting and Unmounting Shares</title><link>https://wiki.deimos.fr/AutoFS_:_montage_et_d%C3%A9montage_de_partages/</link><pubDate>Thu, 26 Sep 2013 07:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/AutoFS_:_montage_et_d%C3%A9montage_de_partages/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You already installed Linux on your networked desktop PC and now you want to work with files stored on some other PCs in your network. This is where autofs comes into play. This tutorial shows how to configure autofs to use CIFS to access Windows or Samba shares from Linux Desktop PCs. It also includes a tailored configuration file.&lt;/p>
+&lt;p>If autofs Version 4.0 or newer is already installed, you should find these files:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Console on Tech Notebook</title><link>https://wiki.deimos.fr/tags/console/</link><description>Recent content in Console on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/console/index.xml" rel="self" type="application/rss+xml"/><item><title>Activating the Serial Port on FreeBSD</title><link>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sous_FreeBSD/</link><pubDate>Sat, 19 May 2012 23:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sous_FreeBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>By default, the serial port is not activated. If you have a Soekris device, for example, it&amp;rsquo;s essential to activate it. Let&amp;rsquo;s see how to do this.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To activate the standard output on the serial port (only stdout):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7c79418" class="language-bash ">
+ &lt;code>echo &amp;#34;-h&amp;#34; &amp;gt; /boot.config&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Alternatively, you can choose to activate the serial port only if no keyboard is connected to the machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="33a2463" class="language-bash ">
+ &lt;code>echo &amp;#34;-P&amp;#34; &amp;gt; /boot.config&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Next, you&amp;rsquo;ll need to configure the stdin part (keyboard) by enabling this line by changing it to &amp;ldquo;on&amp;rdquo;:&lt;/p></description></item><item><title>Activating the Serial Port on Linux</title><link>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sur_Linux/</link><pubDate>Mon, 14 May 2012 17:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sur_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s often convenient to access a machine via the serial port. Unfortunately, we usually realize this too late. Here&amp;rsquo;s how to activate it.&lt;/p>
+&lt;p>For usage information, please refer to the documentation on Minicom.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Modify the following lines to ensure that the console part loads correctly during the Grub boot:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ &lt;div class="prism-codeblock anchorlinenos hl_lines linenos">
+ &lt;pre id="9e74958" class="language-bash line-numbers linkable-line-numbers" data-line="8,16,17" data-line-offset="1">
+ &lt;code># If you change this file, run &amp;#39;update-grub&amp;#39; afterwards to update
+# /boot/grub/grub.cfg.
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2&amp;gt; /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet&amp;#34;
+GRUB_CMDLINE_LINUX=&amp;#34;console=tty0 console=ttyS0,9600n8&amp;#34;
+
+# Uncomment to enable BadRAM filtering, modify to suit your needs
+# This works with Linux (no patch required) and with any kernel that obtains
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM=&amp;#34;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&amp;#34;
+
+# Uncomment to disable graphical terminal (grub-pc only)
+GRUB_TERMINAL=console
+GRUB_SERIAL_COMMAND=&amp;#34;serial --speed=9600 --unit=0 --word=8 --parity=no --stop=1&amp;#34;
+
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `vbeinfo&amp;#39;
+#GRUB_GFXMODE=640x480
+
+# Uncomment if you don&amp;#39;t want GRUB to pass &amp;#34;root=UUID=xxx&amp;#34; parameter to Linux
+#GRUB_DISABLE_LINUX_UUID=true
+
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_LINUX_RECOVERY=&amp;#34;true&amp;#34;
+
+# Uncomment to get a beep at grub start
+#GRUB_INIT_TUNE=&amp;#34;480 440 1&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then update Grub:&lt;/p></description></item><item><title>Connect to Debian via Serial Port</title><link>https://wiki.deimos.fr/Se_connecter_par_port_serie_sur_sa_debian/</link><pubDate>Fri, 20 May 2011 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Se_connecter_par_port_serie_sur_sa_debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This documentation helps you set up a connection to a Linux machine via a serial port. It also explains how to configure minicom.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ae4dd60" class="language-bash ">
+ &lt;code>apt-get install minicom&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>First, we need to determine your COM port configuration:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="35eac8a" class="language-bash ">
+ &lt;code>$ dmesg | grep tty
+[ 0.004000] console [tty0] enabled
+[ 1.629013] tty ttye7: hash matches
+[ 1.629021] tty ttyba: hash matches
+[ 12.843809] usb 5-2: pl2303 converter now attached to ttyUSB0
+[ 129.343389] type=1503 audit(1230854350.490:5): operation=&amp;#34;inode_permission&amp;#34; requested_mask=&amp;#34;w::&amp;#34; denied_mask=&amp;#34;w::&amp;#34; fsuid=0 name=&amp;#34;/dev/ttyUSB0&amp;#34; pid=6609 profile=&amp;#34;/usr/sbin/cupsd&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We can see that ttyUSB0 is detected here.&lt;/p></description></item><item><title>Activating the Numeric Keypad</title><link>https://wiki.deimos.fr/activer-le-pave-numerique/</link><pubDate>Tue, 22 Jan 2008 08:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/activer-le-pave-numerique/</guid><description>&lt;p>To have the numlock activated in console and under X:&lt;/p>
+&lt;ul>
+&lt;li>In console mode:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9427678" class="language-bash ">
+ &lt;code>echo &amp;#34;LEDS=&amp;#43;num&amp;#34; &amp;gt;&amp;gt; /etc/console-tools/config&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>In X Window System:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b03e63" class="language-bash ">
+ &lt;code>apt-get install numlockx&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>MOTD: Modifying the Console Opening Message</title><link>https://wiki.deimos.fr/Motd_:_Modification_du_message_d'ouverture_de_console/</link><pubDate>Fri, 24 Aug 2007 21:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Motd_:_Modification_du_message_d'ouverture_de_console/</guid><description>&lt;p>Don&amp;rsquo;t like your console opening message? I&amp;rsquo;ll show you how to change it. The file is located at:&lt;/p>
+&lt;p>&lt;code>/etc/motd&lt;/code>&lt;/p>
+&lt;p>There are plenty of small utilities that can create drawings and other interesting displays:&lt;/p>
+&lt;h2 id="cowsay">Cowsay &lt;a href="#cowsay" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Allows you to put text in a small drawing (by default a cow, but other drawings are available):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="555a43a" class="language-bash ">
+ &lt;code>sudo apt-get install cowsay&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="40a31fc" class="language-bash ">
+ &lt;code>echo Serveur Toto|cowsay -f eyes
+ls /usr/share/cowsay/cows&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="boxes">Boxes &lt;a href="#boxes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Allows you to place text in small drawings (mainly for adding comments in code lines):&lt;/p></description></item><item><title>Console Colorization</title><link>https://wiki.deimos.fr/Colorisations_dans_les_consoles/</link><pubDate>Tue, 03 Oct 2006 14:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Colorisations_dans_les_consoles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here we&amp;rsquo;ll see how to colorize certain elements in console terminals.&lt;/p>
+&lt;h2 id="man-pages">Man Pages &lt;a href="#man-pages" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To make the output of the man command more readable by adding color, you can do the following which involves using the most command instead of less for man pages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="07f500c" class="language-bash ">
+ &lt;code>sudo apt-get install most
+export PAGER=`which most`&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>(use the Alt Gr+7 characters to execute the command)&lt;/p>
+&lt;p>To permanently set the PAGER value:&lt;/p></description></item></channel></rss>

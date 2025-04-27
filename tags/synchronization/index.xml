@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Synchronization on Tech Notebook</title><link>https://wiki.deimos.fr/tags/synchronization/</link><description>Recent content in Synchronization on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/synchronization/index.xml" rel="self" type="application/rss+xml"/><item><title>Unison: Backup like rsync but bidirectional</title><link>https://wiki.deimos.fr/Unison_:_Sauvegarde_comme_rsync_mais_bidirectionnelle/</link><pubDate>Fri, 13 May 2011 17:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Unison_:_Sauvegarde_comme_rsync_mais_bidirectionnelle/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Unison_(file_synchronizer)" rel="external" target="_blank">Unison&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a popular file synchronization software that also offers functionality for creating and managing directory backups. The synchronization is bidirectional (meaning that modifications in one directory are reflected in the other and vice-versa), making it useful for keeping directories in sync between two different machines.&lt;/p></description></item><item><title>Modifying NTP Synchronization Servers on Windows</title><link>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</link><pubDate>Fri, 30 Oct 2009 07:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I have a Windows Server 2008 DC and I wanted to use my internal time server on a Linux box running ntpd.&lt;/p>
+&lt;p>After a little hunting around, I found the command required to set Windows up to use the correct time peer.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fd71ead" class="language-bash ">
+ &lt;code>w32tm /config /update /manualpeerlist:&amp;#34;0.pool.ntp.org,0x8 1.pool.ntp.org,0x8&amp;#34; /syncfromflags:MANUAL&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>After making this change, you need to restart the Windows Time Service by issuing the following 2 commands:&lt;/p></description></item><item><title>IMAP Mailbox Synchronization</title><link>https://wiki.deimos.fr/Synchronisation_de_boites_mails_IMAP/</link><pubDate>Mon, 23 Oct 2006 11:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Synchronisation_de_boites_mails_IMAP/</guid><description>&lt;h2 id="imap-mailbox-synchronization">IMAP Mailbox Synchronization &lt;a href="#imap-mailbox-synchronization" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>How do you synchronize a mailbox between two remote servers? A small tool called &lt;strong>Imapsync&lt;/strong> exists for this purpose!&lt;/p>
+
+&lt;div class="alert alert-warning d-flex" role="alert">
+ &lt;div class="flex-shrink-1 alert-icon">
+ 
+ &lt;span class="material-icons size-20 me-2">
+ warning
+ &lt;/span>&lt;/div>
+ 
+ &lt;div class="w-100">Warning: This software consumes a lot of CPU resources!&lt;/div>
+ &lt;/div>
+&lt;p>To install it, nothing complicated:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2ce8a62" class="language-bash ">
+ &lt;code>apt-get install imapsync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Next, let&amp;rsquo;s create a folder in our &lt;em>home&lt;/em> directory called &lt;em>.imapsync&lt;/em>.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="73495de" class="language-bash ">
+ &lt;code>mkdir ~/.imapsync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>In this folder, we&amp;rsquo;ll store the IMAP password for the account(s). The first file corresponds to the first server, and the second file to the second server:&lt;/p></description></item></channel></rss>

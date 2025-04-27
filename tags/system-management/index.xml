@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Management on Tech Notebook</title><link>https://wiki.deimos.fr/tags/system-management/</link><description>Recent content in System Management on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/system-management/index.xml" rel="self" type="application/rss+xml"/><item><title>SWAP: Creating Dynamic Swap</title><link>https://wiki.deimos.fr/SWAP_:_Cr%C3%A9ation_de_swap_dynamique/</link><pubDate>Sat, 19 Sep 2009 21:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/SWAP_:_Cr%C3%A9ation_de_swap_dynamique/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Creating a swap partition is quite straightforward but extremely useful when you&amp;rsquo;re running out of RAM.&lt;/p>
+&lt;h2 id="creating-swap">Creating Swap &lt;a href="#creating-swap" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="on-a-partition">On a Partition &lt;a href="#on-a-partition" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Use fdisk on the target partition:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ee700a7" class="language-bash ">
+ &lt;code>fdisk /dev/hdc1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then create a primary partition with the key combination &lt;strong>&amp;ldquo;n p 1&amp;rdquo;&lt;/strong>. Next, change the ID to indicate it&amp;rsquo;s a swap partition with &lt;strong>&amp;ldquo;t 82&amp;rdquo;&lt;/strong>.&lt;/p>
+&lt;p>Save everything with the &amp;ldquo;w&amp;rdquo; key. To finish setting up our partition, we need to initialize it:&lt;/p></description></item><item><title>Restart X</title><link>https://wiki.deimos.fr/redemarrer_x/</link><pubDate>Wed, 15 Apr 2009 21:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/redemarrer_x/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To restart X, there aren&amp;rsquo;t 36 solutions, but there is one in particular that I really like.&lt;/p>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s a keyboard shortcut:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fda81d2" class="language- ">
+ &lt;code>Ctrl &amp;#43; Alt &amp;#43; Backspace&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This avoids having to type, for example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c478ebf" class="language-bash ">
+ &lt;code>/etc/init.d/gdm restart&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>That&amp;rsquo;s it, X restarts :-). &lt;strong>Warning, this should only be done while in X, otherwise the PC will reboot :-(&lt;/strong>.&lt;/p>
+&lt;h3 id="problem-starting-from-ubuntu-904">Problem starting from Ubuntu 9.04 &lt;a href="#problem-starting-from-ubuntu-904" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s what you can read:&lt;/p></description></item></channel></rss>

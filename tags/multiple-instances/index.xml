@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Multiple Instances on Tech Notebook</title><link>https://wiki.deimos.fr/tags/multiple-instances/</link><description>Recent content in Multiple Instances on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/multiple-instances/index.xml" rel="self" type="application/rss+xml"/><item><title>Running Multiple MySQL Instances on Solaris</title><link>https://wiki.deimos.fr/Lancer_plusieurs_instances_de_MySQL_sur_Solaris/</link><pubDate>Fri, 29 Jan 2010 06:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lancer_plusieurs_instances_de_MySQL_sur_Solaris/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Download MySQL&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d66a35" class="language-bash ">
+ &lt;code>wget http://dev.mysql.com/get/Downloads/MySQL-5.1/mysql-5.1.41-solaris10-x86_64.pkg.gz/from/http://mir2.ovh.net/ftp.mysql.com/&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Create the MySQL user&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2bf9848" class="language-bash ">
+ &lt;code>groupadd mysql
+useradd -g mysql -s /bin/false -d /var/empty mysql&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Verify that the user is properly created&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9a060f8" class="language-bash ">
+ &lt;code># finger mysql
+Login name: mysql
+Directory: /var/empty Shell: /bin/sh
+Never logged in.
+No unread mail
+No Plan.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Decompress the MySQL archive and install it&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7cb8898" class="language-bash ">
+ &lt;code>gunzip mysql-5.1.41-solaris10-x86_64.pkg.gz
+pkgadd -d mysql-5.1.41-solaris10-x86_64.pkg&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="mycnf">my.cnf &lt;a href="#mycnf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create two distinct configuration files by changing:&lt;/p></description></item></channel></rss>

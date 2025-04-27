@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Xen on Tech Notebook</title><link>https://wiki.deimos.fr/tags/xen/</link><description>Recent content in Xen on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/xen/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up Xen</title><link>https://wiki.deimos.fr/Mise_en_place_de_Xen/</link><pubDate>Sun, 13 Dec 2009 16:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Xen allows multiple operating systems (and their applications) to run in isolation on the same physical machine. Guest operating systems share the host machine&amp;rsquo;s resources.&lt;/p>
+&lt;p>Xen is a &amp;ldquo;paravirtualizer&amp;rdquo; or &amp;ldquo;hypervisor&amp;rdquo; for virtual machines. Guest operating systems are &amp;ldquo;aware&amp;rdquo; of the underlying Xen system and need to be &amp;ldquo;ported&amp;rdquo; (adapted) to work on Xen. Linux, NetBSD, FreeBSD, and Plan 9 can already run on Xen.&lt;/p>
+&lt;p>Xen 3 can also run unmodified systems like Windows on processors that support VT technology.&lt;/p></description></item><item><title>Converting VMware Images to Xen</title><link>https://wiki.deimos.fr/Convertion_dimages_Vmware_vers_Xen/</link><pubDate>Fri, 11 Dec 2009 21:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertion_dimages_Vmware_vers_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At work, I received some new toys. The particularity of these machines is that they are equipped with &amp;ldquo;Dual-Core Intel Xeon 5140 Processor (2.33 GHz, 1333 FSB)&amp;rdquo; CPUs, and the special feature of these CPUs is that in small print at the bottom of their spec sheet, you can read &amp;ldquo;NOTE: Intel Xeon Processor 5100/5000 sequence are 64-bit, Dual-Core, 4MB L2 Cache, and support Intel VT technology.&amp;rdquo; And that&amp;rsquo;s awesome.&lt;/p></description></item><item><title>Ganeti: Xen Cluster Management</title><link>https://wiki.deimos.fr/Ganeti_:_Management_d'un_Cluster_Xen/</link><pubDate>Fri, 27 Nov 2009 21:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ganeti_:_Management_d'un_Cluster_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://code.google.com/p/ganeti/" rel="external" target="_blank">Ganeti&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a virtual server management software tool built on top of Xen virtual machine monitor and other Open Source software.&lt;/p>
+&lt;p>However, Ganeti requires pre-installed virtualization software on your servers in order to function. Once installed, the tool will take over the management part of the virtual instances (Xen DomU), e.g. disk creation management, operating system installation for these instances (in co-operation with OS-specific install scripts), and startup, shutdown, failover between physical systems. It has been designed to facilitate cluster management of virtual servers and to provide fast and simple recovery after physical failures using commodity hardware.&lt;/p></description></item><item><title>Converting a VMware Disk Image for Qemu or Xen</title><link>https://wiki.deimos.fr/Convertir_une_image_disque_Vmware_pour_Qemu_ou_Xen/</link><pubDate>Fri, 25 Apr 2008 08:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertir_une_image_disque_Vmware_pour_Qemu_ou_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve switched to the new Ubuntu, great! Except for one thing: VMware doesn&amp;rsquo;t work yet, you have to wait for a patch, etc&amp;hellip; but I don&amp;rsquo;t have time to wait!&lt;/p>
+&lt;p>VMware is nice and pretty, but it&amp;rsquo;s becoming annoying. So I decided to use KVM and QTqemu for the graphical interface. And here I am, ready to convert my VMware images.&lt;/p>
+&lt;h2 id="conversion">Conversion &lt;a href="#conversion" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For conversion, we&amp;rsquo;ll first use VMware for preparation and then qemu for the actual conversion:&lt;/p></description></item><item><title>Migrating from Xen to KVM</title><link>https://wiki.deimos.fr/Migration_Xen_vers_KVM/</link><pubDate>Fri, 18 Apr 2008 22:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Migration_Xen_vers_KVM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have, like me, surrendered to the joys of user-friendly virtualization to manage some of your projects, for testing, or just to show off&amp;hellip; In short, you used the tools from the &amp;ldquo;xen-tools&amp;rdquo; package on your Debian machine, particularly &lt;code>/usr/bin/xen-create-image&lt;/code> to create your DomU instances.&lt;/p>
+&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Over time, maintaining your various modules with the xenified kernel of your Dom0 has become tedious, so you decided to switch to KVM, &amp;ldquo;it&amp;rsquo;s so simple&amp;rdquo; (except, of course, if you&amp;rsquo;re using a precompiled Debian kernel).&lt;/p></description></item><item><title>Xen Conversion P2V</title><link>https://wiki.deimos.fr/Xen_convertion_P2V/</link><pubDate>Tue, 04 Mar 2008 17:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_convertion_P2V/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>How to remedy the physical deterioration of a server (oldpc) by migrating the OS into a brand new Xen HVM domU.&lt;/p>
+&lt;h2 id="2-preparing-space-for-oldpc-on-the-xen-server">2 Preparing space for oldpc on the xen server &lt;a href="#2-preparing-space-for-oldpc-on-the-xen-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Create a disk image (20 GB size):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="994b296" class="language-bash ">
+ &lt;code>dd if=/dev/zero of=/vieuxpc/vieuxpc.hda.img bs=1024k count=20000&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Create a loop device corresponding to the entire disk image:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bfe1525" class="language-bash ">
+ &lt;code>losetup /dev/loop0 /vieuxpc/vieuxpc.hda.img&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Partition the image:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="57a5fb5" class="language-bash ">
+ &lt;code>fdisk /dev/loop0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>List the created partitions:&lt;/p></description></item><item><title>Xen with Bonding + VLAN Tagging</title><link>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</link><pubDate>Sun, 27 Jan 2008 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As powerful and flexible as it may be, Xen&amp;rsquo;s network configuration often feels like an obstacle course as soon as you stray a bit from the beaten path.&lt;/p>
+&lt;p>Recently, I had to set up a Xen-based solution in a somewhat special network topology. Each server where Xen was deployed had 2 ethernet adapters, each with 2 gigabit ethernet interfaces. The goal was to maximize the use of the different ethernet interfaces while providing both fault tolerance and load balancing. To make things even more interesting, the network was segmented into VLANs, each VLAN segmenting the network by function (DMZ, LAN, ADMIN, etc.).&lt;/p></description></item><item><title>Port forwarding from dom0 to bridged domU with IPVS</title><link>https://wiki.deimos.fr/Port_forwarding_depuis_dom0_vers_bridged_domU_avec_IPVS/</link><pubDate>Sun, 16 Sep 2007 21:32:00 +0200</pubDate><guid>https://wiki.deimos.fr/Port_forwarding_depuis_dom0_vers_bridged_domU_avec_IPVS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Those following zone0&amp;rsquo;s adventures know: Netfilter sucks badly when it comes to forwarding simple ports from a dom0 to a bridged domU. That&amp;rsquo;s just how it is, we don&amp;rsquo;t know where it comes from, maybe from 64-bit, maybe from BSD domUs, maybe from the Xen kernel, maybe, maybe, maybe. Anyway, after many hours of tweaking, debugging, tcpdump and so on, we decided on &lt;a href="https://www.linuxvirtualserver.org/software/ipvs.html" rel="external" target="_blank">IPVS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>. I&amp;rsquo;ve posted the results of our experiences here, so if you also want to set up a simple port forwarding between Xen domains, you won&amp;rsquo;t have to waste an entire Saturday and miss the techno-parade.&lt;/p></description></item><item><title>Xen and vserver: monitoring VMs on a PHP page</title><link>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</link><pubDate>Mon, 14 May 2007 10:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_et_vserver_:_monitoring_des_VM_sur_une_page_PHP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I used this kind of script because it&amp;rsquo;s simpler to open a small web page to view VM activity rather than launching a bunch of commands.&lt;/p>
+&lt;h2 id="sudo">Sudo &lt;a href="#sudo" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You need sudo because by default Apache doesn&amp;rsquo;t have the necessary rights to execute these commands:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ea84b80" class="language-bash ">
+ &lt;code>apt-get install sudo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then edit &lt;code>/etc/sudoers&lt;/code> and add the following:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d994f26" class="language-bash ">
+ &lt;code>www-data ALL=NOPASSWD: /usr/sbin/vserver-stat,/usr/sbin/xm list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="php-and-script">Php and script &lt;a href="#php-and-script" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You obviously need to have Apache and PHP installed for this to work:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mdadm on Tech Notebook</title><link>https://wiki.deimos.fr/tags/mdadm/</link><description>Recent content in Mdadm on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/mdadm/index.xml" rel="self" type="application/rss+xml"/><item><title>Software RAID Configuration</title><link>https://wiki.deimos.fr/Configuration_d'un_Raid_logiciel/</link><pubDate>Fri, 08 Aug 2014 08:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_d'un_Raid_logiciel/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Not everyone can afford a RAID 5 card with proper disks. That&amp;rsquo;s why a small software RAID 5 can be a good solution, especially for home use!&lt;/p>
+&lt;h2 id="creating-a-raid">Creating a RAID &lt;a href="#creating-a-raid" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="raid-1">RAID 1 &lt;a href="#raid-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To create a RAID 1, it&amp;rsquo;s simple. You just need 2 disks with 2 partitions of the same size, then run this command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6066813" class="language-bash ">
+ &lt;code>mdadm --create --assume-clean --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>create: creating a raid&lt;/li>
+&lt;li>assume-clean: allows having a directly usable raid, without a complete synchronization. This requires being 100% sure that both disks/partitions are blank.&lt;/li>
+&lt;li>level: the type of raid (here RAID 1)&lt;/li>
+&lt;li>raid-devices: the number of disks used&lt;/li>
+&lt;/ul>
+&lt;h2 id="monitoring">Monitoring &lt;a href="#monitoring" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To see if everything is working properly, here are several solutions:&lt;/p></description></item></channel></rss>

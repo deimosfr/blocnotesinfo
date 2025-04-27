@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Admin on Tech Notebook</title><link>https://wiki.deimos.fr/tags/admin/</link><description>Recent content in Admin on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/admin/index.xml" rel="self" type="application/rss+xml"/><item><title>Monitoring Superuser Access</title><link>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</link><pubDate>Wed, 04 Feb 2009 18:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When the operating system is installed, a superuser is created, with an UID of 0. The usage of the su command is recorded in &lt;code>/var/adm/sulog&lt;/code>.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To record in the first place you need to do the following.
+In the file &lt;code>/etc/default/su&lt;/code>, uncomment the entry:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="11f017f" class="language-bash ">
+ &lt;code>SULOG=/var/adm/sulog.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Save it.&lt;/p>
+&lt;p>The entries look like this (&lt;code>/var/adm/sulog&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="48efe0e" class="language-bash ">
+ &lt;code>MO 02/18 14:21 &amp;#43; pts/0 nrocha-root
+TU 02/19 14:45 - pts/0 root-nrocha
+WE 02/20 19:47 &amp;#43; pts/0 amaria-nrocha&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>The first three columns show the time the event occurred.&lt;/li>
+&lt;li>The fourth column shows a - for failed access and a + for successful access.&lt;/li>
+&lt;li>The fifth column shows which port the access was made from.&lt;/li>
+&lt;li>The last column shows the name of the user who tried to switch users and the switched user.&lt;/li>
+&lt;/ul>
+&lt;p>Note: This procedure was tested on the Solaris 10 OS.&lt;/p></description></item></channel></rss>

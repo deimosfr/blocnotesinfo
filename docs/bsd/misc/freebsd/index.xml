@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FreeBSD on Tech Notebook</title><link>https://wiki.deimos.fr/docs/bsd/misc/freebsd/</link><description>Recent content in FreeBSD on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/bsd/misc/freebsd/index.xml" rel="self" type="application/rss+xml"/><item><title>Installing FreeBSD on ZFS</title><link>https://wiki.deimos.fr/Installation_FreeBSD_sur_ZFS/</link><pubDate>Tue, 21 Sep 2010 21:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_FreeBSD_sur_ZFS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I love ZFS and for building a large NAS, I need FreeBSD which is capable of implementing ZFS and, most importantly, using it on the root partition as well.&lt;/p>
+&lt;p>For this purpose, I needed 5 disks of the same capacity and the FreeBSD DVD (I emphasize the DVD because the livefs or CD versions don&amp;rsquo;t contain everything needed to boot from ZFS).&lt;/p>
+&lt;h2 id="disk-formatting">Disk Formatting &lt;a href="#disk-formatting" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="creating-partitions">Creating Partitions &lt;a href="#creating-partitions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Boot from the FreeBSD DVD and launch the Fixit menu.&lt;/p></description></item><item><title>Monitoring CPU Temperature on FreeBSD</title><link>https://wiki.deimos.fr/Monitorer_la_temperature_des_processeurs_sous_FreeBSD/</link><pubDate>Sun, 12 Sep 2010 06:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monitorer_la_temperature_des_processeurs_sous_FreeBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to monitor the temperature of all your CPU cores on FreeBSD.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Fortunately, there&amp;rsquo;s nothing to install. We&amp;rsquo;ll simply load the temperature module:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9db2712" class="language-bash ">
+ &lt;code>kldload coretemp&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If you want to enable it each time your machine boots:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="67000ed" class="language-bash ">
+ &lt;code># /boot/loader.conf
+coretemp_load=&amp;#34;YES&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>PS: For AMD users, there are also the k8temp and amdtemp modules available.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Now, you can easily check your temperatures:&lt;/p></description></item><item><title>Creating an Apple Time Machine Network on FreeBSD</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_Apple_Time_Machine_r%C3%A9seaux_sous_FreeBSD/</link><pubDate>Wed, 28 Jan 2009 02:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_Apple_Time_Machine_r%C3%A9seaux_sous_FreeBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s a quick guide on how to set up Time Machine on Mac OS X to back up to a networked machine running FreeBSD.&lt;/p>
+&lt;h2 id="on-the-freebsd-server">On the FreeBSD server &lt;a href="#on-the-freebsd-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Build &amp;amp; Install net/netatalk from ports.&lt;/li>
+&lt;li>Edit &lt;code>/usr/local/etc/AppleVolumes.default&lt;/code>&lt;/li>
+&lt;li>Append: &amp;ldquo;/your_time_machine_path TimeMachine allow:your_user_name cnidscheme:cdb options:usedots&amp;rdquo; and replace your path and your username in the proper places.&lt;/li>
+&lt;li>Optionally, remove the &amp;ldquo;~&amp;rdquo; already present in that file if you don&amp;rsquo;t want to share users home directories.&lt;/li>
+&lt;li>Add &amp;ldquo;netatalk_enable=&amp;ldquo;YES&amp;rdquo;&amp;rdquo; and &amp;ldquo;afpd_enable=&amp;ldquo;YES&amp;rdquo;&amp;rdquo; to &lt;code>/etc/rc.conf&lt;/code>.&lt;/li>
+&lt;li>&lt;code>/usr/local/etc/rc.d/netatalk start&lt;/code> (nothing will be printed).&lt;/li>
+&lt;/ul>
+&lt;h2 id="mac-os-x-machine-client-running-leopard-of-course">Mac OS X machine client (running Leopard, of course) &lt;a href="#mac-os-x-machine-client-running-leopard-of-course" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Mount your remote volume. Command+K on the Finder and then type: &amp;ldquo;afp://&lt;machine IP address or local hostname if you have a local DNS server>&amp;rdquo;. You can&amp;rsquo;t type the machine name because we&amp;rsquo;re not using multicast DNS.&lt;/li>
+&lt;li>Build a sparse bundle image using &amp;ldquo;Disk utility&amp;rdquo; (HFS+ case-sensitive formatted). Usually, the size should be something that gives you enough room for expansion. If you want to backup your whole MacBook/iMac/etc. disk, you can set the sparse bundle image size the same as the disk your are backing up.&lt;/li>
+&lt;li>The name of this image is important. It should be &amp;ldquo;Your_Computer_Name_MACAddress.sparsebundle&amp;rdquo;. Check your computer name from the &amp;ldquo;Sharing&amp;rdquo; section of &amp;ldquo;System Preferences&amp;rdquo; and the MAC address comes from the interface you&amp;rsquo;ll be using to do the backup. I really recommend using your Wired interface. Check the MAC address via ifconfig(1) or via the &amp;ldquo;Network&amp;rdquo; section of &amp;ldquo;System Preferences&amp;rdquo;. E.g., if you&amp;rsquo;re John Doe, have a MacBook and your MAC address is 00:01:02:03:04:05, your file should be named &amp;ldquo;John Doe&amp;rsquo;s MacBook_000102030405.sparsebundle&amp;rdquo;.&lt;/li>
+&lt;li>On the Terminal, type &amp;ldquo;defaults write com.apple.systempreferences TMShowUnsupportedNetworkVolumes 1&amp;rdquo;. This is the crucial thing.&lt;/li>
+&lt;li>Go to &amp;ldquo;System Preferences&amp;rdquo;, &amp;ldquo;Time Machine&amp;rdquo; and enable it. The networked volume will now show up on the list.&lt;/li>
+&lt;li>Before selecting the volume on which you&amp;rsquo;ll dump the backup, copy the sparse bundle file you&amp;rsquo;ve created to your networked volume called &amp;ldquo;TimeMachine&amp;rdquo;.&lt;/li>
+&lt;li>Select the networked Volume from the Time Machine volumes list.&lt;/li>
+&lt;li>Initiate the backup!&lt;/li>
+&lt;/ul>
+&lt;p>Enjoy!&lt;/p></description></item></channel></rss>

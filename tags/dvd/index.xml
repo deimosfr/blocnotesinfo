@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DVD on Tech Notebook</title><link>https://wiki.deimos.fr/tags/dvd/</link><description>Recent content in DVD on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/dvd/index.xml" rel="self" type="application/rss+xml"/><item><title>Adding Red Hat DVD as a Repository</title><link>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</link><pubDate>Tue, 21 Feb 2012 16:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You don&amp;rsquo;t have a Red Hat subscription or simply no internet connection to connect to the NRH, yet you have the installation DVD that contains all the packages you need!&lt;/p>
+&lt;p>Here&amp;rsquo;s how to add the DVD to the repository.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dvd">DVD &lt;a href="#dvd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a file in /etc/yum.repos.d/redhatcd.repo&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6736735" class="language-bash ">
+ &lt;code>cp /media/RHEL/media.repo /etc/yum.repos.d/redhatcd.repo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And adapt it with this content:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0cde3f7" class="language-bash ">
+ &lt;code>[InstallMedia]
+name=Red Hat Enterprise Linux 6.1
+mediaid=1305068199.328169
+metadata_expire=-1
+gpgcheck=0
+cost=500
+baseurl=file:///media/RHEL/Server&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now we&amp;rsquo;ll clear the cache:&lt;/p></description></item><item><title>Hdiutil: Creating a DVD ISO from a VIDEO TS folder</title><link>https://wiki.deimos.fr/Hdiutil_:_Cr%C3%A9er_un_ISO_DVD_depuis_un_dossier_VIDEO_TS/</link><pubDate>Sat, 28 Nov 2009 16:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Hdiutil_:_Cr%C3%A9er_un_ISO_DVD_depuis_un_dossier_VIDEO_TS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may sometimes need to create a DVD from a VIDEO_TS folder. This is the solution.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a04ccd6" class="language-bash ">
+ &lt;code>$ hdiutil makehybrid -udf -udf-volume-name DVD_NAME -o MY_DVD.iso /path/&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>&lt;code>/path/&lt;/code> is the root folder of the DVD, not the VIDEO_TS folder.&lt;/p></description></item><item><title>Command-line Burning</title><link>https://wiki.deimos.fr/Graver_en_ligne_de_commandes/</link><pubDate>Mon, 18 Feb 2008 07:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Graver_en_ligne_de_commandes/</guid><description>&lt;p>Here is documentation explaining how to burn CDs and DVDs using the command line. This is useful for automating backups, for example:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/gravure_de_cd_dvd_et_commandes_en_ligne.pdf">Documentation on CD/DVD burning and command line tools&lt;/a>&lt;/p></description></item><item><title>Creating a RedHat DVD from CDs</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</link><pubDate>Fri, 17 Aug 2007 15:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As of this writing, the current RHEL release (5) is only available on CDs, not DVD. It is possible to create a bootable DVD ISO from these CDs using Chris Kloiber&amp;rsquo;s mkdvdiso.sh script.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="script-mkdvdisosh">Script mkdvdiso.sh &lt;a href="#script-mkdvdisosh" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Insert this in a mkdvdiso.sh file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="14014b1" class="language-bash ">
+ &lt;code>#!/bin/bash
+ 
+# by Chris Kloiber &amp;lt;ckloiber@redhat.com&amp;gt;
+ 
+# A quick hack that will create a bootable DVD iso of a Red Hat Linux
+# Distribution. Feed it either a directory containing the downloaded
+# iso files of a distribution, or point it at a directory containing
+# the &amp;#34;RedHat&amp;#34;, &amp;#34;isolinux&amp;#34;, and &amp;#34;images&amp;#34; directories.
+ 
+# This version only works with &amp;#34;isolinux&amp;#34; based Red Hat Linux versions.
+ 
+# Lots of disk space required to work, 3X the distribution size at least.
+ 
+# GPL version 2 applies. No warranties, yadda, yadda. Have fun.
+ 
+ 
+if [ $# -lt 2 ]; then
+	echo &amp;#34;Usage: `basename $0` source /destination/DVD.iso&amp;#34;
+	echo &amp;#34;&amp;#34;
+	echo &amp;#34; The &amp;#39;source&amp;#39; can be either a directory containing a single&amp;#34;
+	echo &amp;#34; set of isos, or an exploded tree like an ftp site.&amp;#34;
+	exit 1
+fi
+ 
+cleanup() {
+[ ${LOOP:=/tmp/loop} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;LOOP mount point = /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $LOOP ] &amp;amp;&amp;amp; rm -rf $LOOP 
+[ ${DVD:=~/mkrhdvd} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;DVD data location is /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $DVD ] &amp;amp;&amp;amp; rm -rf $DVD 
+}
+ 
+cleanup
+mkdir -p $LOOP
+mkdir -p $DVD
+ 
+if [ !`ls $1/*.iso 2&amp;gt;&amp;amp;1&amp;gt;/dev/null ; echo $?` ]; then
+	echo &amp;#34;Found ISO CD images...&amp;#34;
+	CDS=`expr 0`
+	DISKS=&amp;#34;1&amp;#34;
+ 
+	for f in `ls $1/*.iso`; do
+		mount -o loop $f $LOOP
+		cp -av $LOOP/* $DVD
+		if [ -f $LOOP/.discinfo ]; then
+			cp -av $LOOP/.discinfo $DVD
+			CDS=`expr $CDS &amp;#43; 1`
+			if [ $CDS != 1 ] ; then
+ 	DISKS=`echo ${DISKS},${CDS}`
+ 	fi
+		fi
+		umount $LOOP
+	done
+	if [ -e $DVD/.discinfo ]; then
+		awk &amp;#39;{ if ( NR == 4 ) { print disks } else { print ; } }&amp;#39; disks=&amp;#34;$DISKS&amp;#34; $DVD/.discinfo &amp;gt; $DVD/.discinfo.new
+		mv $DVD/.discinfo.new $DVD/.discinfo
+	fi
+else
+	echo &amp;#34;Found FTP-like tree...&amp;#34;
+	cp -av $1/* $DVD
+	[ -e $1/.discinfo ] &amp;amp;&amp;amp; cp -av $1/.discinfo $DVD
+fi
+ 
+rm -rf $DVD/isolinux/boot.cat
+find $DVD -name TRANS.TBL | xargs rm -f
+ 
+cd $DVD
+mkisofs -J -R -v -T -o $2 -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
+/usr/lib/anaconda-runtime/implantisomd5 --force $2
+ 
+cleanup
+echo &amp;#34;&amp;#34;
+echo &amp;#34;Process Complete!&amp;#34;
+echo &amp;#34;&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="install-the-anaconda-runtime">Install the anaconda-runtime &lt;a href="#install-the-anaconda-runtime" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Prerequisite package and its dependencies:&lt;/p></description></item></channel></rss>

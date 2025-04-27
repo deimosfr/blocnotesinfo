@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Scripting on Tech Notebook</title><link>https://wiki.deimos.fr/tags/scripting/</link><description>Recent content in Scripting on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/scripting/index.xml" rel="self" type="application/rss+xml"/><item><title>My Perl Scripts That Can Serve as Exercises</title><link>https://wiki.deimos.fr/Mes_scripts_Perl_qui_peuvent_servir_d'exercices/</link><pubDate>Wed, 06 Jun 2012 13:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mes_scripts_Perl_qui_peuvent_servir_d'exercices/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s not always easy to start with a programming language, especially when you&amp;rsquo;ve never studied it in school! That&amp;rsquo;s why I&amp;rsquo;m offering some small scripts I made right after going through some books. These scripts should increase in difficulty as you go along.&lt;/p>
+&lt;h2 id="ps-java-and-xmx">PS, Java and XMX &lt;a href="#ps-java-and-xmx" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For work, I had to create a script for Solaris that lists users, PIDs, launch dates for Java processes, and some other information. The goal was to display XMX values without the entire Java command inserted, or other unnecessary information for the people who were going to use this script. Here is my first Perl script:&lt;/p></description></item><item><title>Introduction to Shell Scripting</title><link>https://wiki.deimos.fr/Introduction_au_Script_Shell/</link><pubDate>Tue, 03 May 2011 11:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_au_Script_Shell/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Bourne-again shell is the free command interpreter of the GNU project. Its name is a play on words (Bourne again / born again) referring to the historic Unix shell, the Bourne shell. Based on the latter, it brings many improvements, notably from the Korn shell and the C shell.&lt;/p>
+&lt;p>The original author is Brian Fox of the Free Software Foundation, later succeeded by Chet Ramey. The original Bourne shell was written by Steve Bourne.&lt;/p></description></item><item><title>Different Shell Script Loops</title><link>https://wiki.deimos.fr/Les_diff%C3%A9rentes_boucles_du_shell_script/</link><pubDate>Tue, 21 Oct 2008 15:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_diff%C3%A9rentes_boucles_du_shell_script/</guid><description>&lt;h2 id="1-if">1. if &lt;a href="#1-if" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Conditional binary structure: depending on whether a condition is true or false, we execute a block or we don&amp;rsquo;t.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="91cc772" class="language-bash ">
+ &lt;code>if condition ; then
+ instruction
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If the condition is true, then instruction (which can be a block of instructions) is executed.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="29ded5a" class="language-bash ">
+ &lt;code>if condition ; then
+ instruction1
+else
+ instruction2
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For the same construction but with multiple conditions:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4cd5041" class="language-bash ">
+ &lt;code>if [condition1] || [condition2] ; then
+ instruction1
+else
+ instruction2
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If the condition is true, then instruction1 is executed and the second is ignored, otherwise instruction2 is executed and the first is ignored.&lt;/p></description></item><item><title>Debugging a Shell Script</title><link>https://wiki.deimos.fr/Debugger_un_script_shell/</link><pubDate>Wed, 05 Mar 2008 09:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debugger_un_script_shell/</guid><description>&lt;p>Shell scripts are often criticized for not having an integrated debugger. But this is false!&lt;/p>
+&lt;p>When programming in bash, there are command line options to see what is being read and then executed in a script.&lt;/p>
+&lt;h2 id="example">Example &lt;a href="#example" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s say we have the script MyScript.sh:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="908b808" class="language-bash ">
+ &lt;code>#!/bin/sh
+touch unFichier
+if [ -f ./unFichier ]; then
+ rm ./unFichier
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If we execute it this way:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37370e2" class="language-bash ">
+ &lt;code>/bin/bash -v -x ./MyScript.sh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We&amp;rsquo;ll get output like this:&lt;/p></description></item><item><title>Shell: Batch Renaming with Counter</title><link>https://wiki.deimos.fr/Shell_:_renommer_en_masse_avec_compteur/</link><pubDate>Sat, 05 Aug 2006 13:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Shell_:_renommer_en_masse_avec_compteur/</guid><description>&lt;p>Here&amp;rsquo;s a script that allows you to rename JPG files while adding a counter:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9cca115" class="language-bash ">
+ &lt;code>export j=0 # export is only useful if you&amp;#39;re working in interactive mode (not in a script)
+for i in *.JPG ; do
+ mv $i `echo $i | sed s/^/$j\ -\ /`
+ j=$((j&amp;#43;1))
+done&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here&amp;rsquo;s a faster method for renaming files:&lt;/p>
+&lt;p>Instead of typing:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8c01c00" class="language-bash ">
+ &lt;code>mv my_file.txt my_file.that_i_want_to_backup&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You can simply do:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5b90872" class="language-bash ">
+ &lt;code>mv my_file.{txt,that_i_want_to_backup}&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

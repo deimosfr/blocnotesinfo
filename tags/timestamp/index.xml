@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Timestamp on Tech Notebook</title><link>https://wiki.deimos.fr/tags/timestamp/</link><description>Recent content in Timestamp on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/timestamp/index.xml" rel="self" type="application/rss+xml"/><item><title>Converting Unix Timestamp to Date</title><link>https://wiki.deimos.fr/Conversion_de_Timestamp_en_Date/</link><pubDate>Fri, 11 Dec 2009 21:38:00 +0200</pubDate><guid>https://wiki.deimos.fr/Conversion_de_Timestamp_en_Date/</guid><description>&lt;p>How to convert a Unix timestamp to a readable date using command line tools.&lt;/p>
+&lt;h2 id="using-perl">Using Perl &lt;a href="#using-perl" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="190a488" class="language-bash ">
+ &lt;code>TIMESTAMP=1173279767
+perl -e &amp;#34;print scalar(localtime($TIMESTAMP))&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="using-perl-with-ctime-module">Using Perl with ctime module &lt;a href="#using-perl-with-ctime-module" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3c8b575" class="language-bash ">
+ &lt;code>TIMESTAMP=1173279767
+perl -e &amp;#34;require &amp;#39;ctime.pl&amp;#39;; print &amp;amp;ctime($TIMESTAMP);&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="using-shell-with-awk">Using Shell with awk &lt;a href="#using-shell-with-awk" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d6db0e4" class="language-bash ">
+ &lt;code>echo 1173279767 | awk &amp;#39;{print strftime(&amp;#34;%c&amp;#34;,$1)}&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="using-shell-with-date">Using Shell with date &lt;a href="#using-shell-with-date" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="90facc8" class="language-bash ">
+ &lt;code>TIMESTAMP=1173279767
+date -d &amp;#34;1970-01-01 $TIMESTAMP sec GMT&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Or even simpler:&lt;/p></description></item></channel></rss>

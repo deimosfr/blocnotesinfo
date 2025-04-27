@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Network on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/network/</link><description>Recent content in Network on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/network/index.xml" rel="self" type="application/rss+xml"/><item><title>Dnsmasq and dhclient: use a specific DNS for a specific domain</title><link>https://wiki.deimos.fr/Dnsmasq_and_dhclient:_use_a_specific_DNS_for_a_specific_domain/</link><pubDate>Sun, 27 Jul 2014 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dnsmasq_and_dhclient:_use_a_specific_DNS_for_a_specific_domain/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Software version&lt;/td>
+ &lt;td>isc-dhcp-client 4.3.0 dnsmasq 2.71&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>Debian 8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>27/07/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>My use case is specific but not isolated. When I&amp;rsquo;m at work, I&amp;rsquo;m connected to my VPN at home. I have a specific DNS at home for my domain in deimos.lan and this is very useful to avoid me to remind all the IP of the services I have.&lt;/p></description></item><item><title>Trickle: Limit Your Application Bandwidth</title><link>https://wiki.deimos.fr/Trickle_:_limit_your_application_bandwidth/</link><pubDate>Mon, 06 May 2013 13:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trickle_:_limit_your_application_bandwidth/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.07&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://monkey.org/~marius/pages/?page=trickle" rel="external" target="_blank">Trickle Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>trickle is a portable lightweight userspace bandwidth shaper. It can run in collaborative mode (together with trickled) or in stand alone mode.&lt;/p></description></item><item><title>Make Network Card LEDs Flash</title><link>https://wiki.deimos.fr/Faire_clignoter_les_LEDs_d%27une_carte_r%C3%A9seau/</link><pubDate>Mon, 27 Aug 2012 06:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_clignoter_les_LEDs_d%27une_carte_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s sometimes useful to be able to locate a network card when you&amp;rsquo;re communicating with someone on the other side of the planet, who is in front of a machine you&amp;rsquo;re connected to remotely and they need to plug in a cable but don&amp;rsquo;t know which interface to use.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to make the eth0 interface flash for 10 seconds:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6bfc6a9" class="language-bash ">
+ &lt;code>ethtool -p eth0 10&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Rename Network Interfaces to ethX</title><link>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</link><pubDate>Mon, 16 Jul 2012 21:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ve probably noticed that the recent trend in some Linux distributions is to name network cards not by ethX, but by their chipset. So we end up with em0, em1 or whatever&amp;hellip;&lt;/p>
+&lt;p>This idea probably came from Solaris, but personally, I don&amp;rsquo;t see the benefit, especially since it&amp;rsquo;s more of a hindrance when you want to standardize an IT infrastructure. The purpose of this article is to show how to return to the good old ethX interfaces. I recommend reading &lt;a href="https://wiki.deimos.fr/Udev_:_Utilisation_d'un_socket_pour_parler_avec_les_devices_kernel/">the article on Udev&lt;/a> before starting this one, to better understand certain aspects.&lt;/p></description></item><item><title>Proxychains: Proxy Any Outbound Connection</title><link>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</link><pubDate>Mon, 14 May 2012 09:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Ah, those proxy servers at work or school! They can be quite troublesome! Sometimes you really need temporary access to the outside world. Depending on the commands you use, you may or may not have the ability to configure proxy usage by modifying a configuration file, an environment variable, etc.&lt;/p>
+&lt;p>The benefit of &lt;a href="https://proxychains.sourceforge.net/" rel="external" target="_blank">proxychains&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is that configuration is done only once, in its own configuration file. Then you use the syntax &lt;code>proxychains &amp;lt;command&amp;gt; &amp;lt;args&amp;gt;&lt;/code> and your command will use the proxy specified in the proxychains configuration file!&lt;/p></description></item><item><title>IP: Network Interface Management Command</title><link>https://wiki.deimos.fr/IP_:_La_commande_de_gestion_de_sa_carte_r%C3%A9seau/</link><pubDate>Thu, 03 May 2012 14:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/IP_:_La_commande_de_gestion_de_sa_carte_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The &amp;ldquo;ip&amp;rdquo; command is gradually replacing the ifconfig command due to its enhanced functionality. With the arrival of RHEL6, this transition is becoming more evident. In this article, we&amp;rsquo;ll see how to use this command effectively.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>View the status of all interfaces:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ec3625c" class="language-bash ">
+ &lt;code>&amp;gt; ip link show
+1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 16436 qdisc noqueue state UNKNOWN 
+ link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ link/ether 08:00:27:9a:b6:35 brd ff:ff:ff:ff:ff:ff&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>View the status of a specific interface (eth0 in this case):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="39e4508" class="language-bash ">
+ &lt;code>&amp;gt; ip link show eth0
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ link/ether 08:00:27:9a:b6:35 brd ff:ff:ff:ff:ff:ff&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>View the status of a specific interface (eth0) with IPv4 information only (-4):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="092047b" class="language-bash ">
+ &lt;code>&amp;gt; ip -4 addr show eth0
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ inet 10.0.1.9/24 brd 10.0.1.255 scope global eth0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>View detailed statistics for interface eth0:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37ec870" class="language-bash ">
+ &lt;code>&amp;gt; ip -s link show eth0
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ link/ether 08:00:27:9a:b6:35 brd ff:ff:ff:ff:ff:ff
+ RX: bytes packets errors dropped overrun mcast 
+ 28627 284 0 0 0 0 
+ TX: bytes packets errors dropped carrier collsns 
+ 40732 128 0 0 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Create a virtual IP address (VIP):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fde3678" class="language-bash ">
+ &lt;code>ip addr add 192.168.0.1/24 dev eth0 label eth0:0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Remove a virtual IP address (VIP):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3642396" class="language-bash ">
+ &lt;code>ip addr del 192.168.0.1/24 dev eth0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Add a VLAN and VIP on the VLAN (VLAN 90 on bond0):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b00ea7" class="language-bash ">
+ &lt;code>ip link add link bond0 name bond0:90 type vlan id 90
+ip link set dev bond0:90 up
+ip addr add 192.168.0.1/24 dev bond0:90&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Network: Creating Bonding</title><link>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</link><pubDate>Wed, 18 Apr 2012 18:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9seau_:_cr%C3%A9er_un_bonding/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Channel bonding, also known as Port Trucking, allows applying a series of predefined policies on a group of network links combined into one. This group of network interfaces gives you the ability to perform load balancing and especially fault tolerance. Seven operation modes are available to combine necessity and flexibility. In this article, we will explore the possibilities offered and their implementation.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Two prerequisites appear at the network switch level, where the interfaces are connected:&lt;/p></description></item><item><title>Cisco VPN Client: Installation on Red Hat 6</title><link>https://wiki.deimos.fr/Cisco_VPN_Client_:_Installation_sur_une_Red_Hat_6/</link><pubDate>Fri, 06 Apr 2012 00:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cisco_VPN_Client_:_Installation_sur_une_Red_Hat_6/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbycisco.jpg" alt="Cisco" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>4.8.02&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>RHEL 6.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.cisco.com/" rel="external" target="_blank">Cisco Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/04/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installing the Cisco VPN Client on Linux can be quite challenging! That&amp;rsquo;s why I decided to create this documentation where you just need to copy and paste the commands.&lt;/p></description></item><item><title>Displaying Active Machines on the Current Network</title><link>https://wiki.deimos.fr/afficher-les-machines-allumees-sur-le-reseau-courant/</link><pubDate>Fri, 11 Dec 2009 19:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/afficher-les-machines-allumees-sur-le-reseau-courant/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several solutions to find which hosts are up on your network. A simple solution is to use nmap.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to do it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4a03f97" class="language-bash ">
+ &lt;code>nmap -sP your network/submask | awk &amp;#34;/^Host/&amp;#34;&amp;#39;{ print $2 }&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Check Connections Per IP</title><link>https://wiki.deimos.fr/Connaitre_le_nombre_de_connections_par_IP/</link><pubDate>Sun, 06 Dec 2009 16:35:00 +0100</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_nombre_de_connections_par_IP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a command line to run on your server if you think your server is under attack. It prints out a list of open connections to your server and sorts them by amount.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c9d5e9" class="language-bash ">
+ &lt;code>netstat -ntu &lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="bsd">BSD &lt;a href="#bsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="94fb764" class="language-bash ">
+ &lt;code>netstat -na &lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Bwm-ng: Measure Bandwidth Consumption in Real Time</title><link>https://wiki.deimos.fr/Bwm-ng_:_Mesurer_la_consommation_de_bande_passante_en_temps_r%C3%A9el/</link><pubDate>Sat, 28 Nov 2009 16:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Bwm-ng_:_Mesurer_la_consommation_de_bande_passante_en_temps_r%C3%A9el/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes, you need to measure the current total bandwidth. bwm-ng is your friend :-)&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian, it&amp;rsquo;s easy:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="aadbe55" class="language-bash ">
+ &lt;code>apt-get install bwm-ng&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply run the command to get it working directly:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6d59a14" class="language-bash ">
+ &lt;code>$ bwm-ng
+ bwm-ng v0.6 (probing every 0.500s), press &amp;#39;h&amp;#39; for help
+ input: /proc/net/dev type: rate
+ | iface Rx Tx Total
+ ==============================================================================
+ lo: 0.00 KB/s 0.00 KB/s 0.00 KB/s
+ eth0: 2275.89 KB/s 57.56 KB/s 2333.45 KB/s
+ ------------------------------------------------------------------------------
+ total: 2275.89 KB/s 57.56 KB/s 2333.45 KB/s&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>DNS FQDN Name Resolution in Local Network</title><link>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</link><pubDate>Wed, 17 Dec 2008 23:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9solution_noms_DNS_FQDN_en_local/</guid><description>&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have noticed that on Ubuntu, there is a problem resolving FQDN (Fully Qualified Domain Names) for your local DNS servers.&lt;/p>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply edit the &lt;code>/etc/nsswitch.conf&lt;/code> file and replace this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="248f0d3" class="language-bash ">
+ &lt;code>hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>With:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3c42fbf" class="language-bash ">
+ &lt;code>hosts: files dns mdns4&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And just like magic, everything works! :-)&lt;/p></description></item><item><title>Kernel and Network: Pushing the Limits of Connectivity</title><link>https://wiki.deimos.fr/Noyau_et_r%C3%A9seau_:_repousser_les_limites_de_la_connectivit%C3%A9/</link><pubDate>Wed, 10 Sep 2008 16:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Noyau_et_r%C3%A9seau_:_repousser_les_limites_de_la_connectivit%C3%A9/</guid><description>&lt;p>In this documentation, you will find information on:&lt;/p>
+&lt;ul>
+&lt;li>Bonding&lt;/li>
+&lt;li>Universal TUN/TAP device&lt;/li>
+&lt;li>PPP&lt;/li>
+&lt;li>Traffic Shaper&lt;/li>
+&lt;li>IP Advanced router&lt;/li>
+&lt;li>IP Tunneling and GRE&lt;/li>
+&lt;li>IP ARP daemon, TCP Explicit Congestion Notification and TCP syncookie&lt;/li>
+&lt;li>IPSEC, IPV6 and IPVS&lt;/li>
+&lt;li>Vlan Tagging and Ethernet Bridging&lt;/li>
+&lt;li>QOS&lt;/li>
+&lt;/ul>
+&lt;p>As you&amp;rsquo;ll understand, this is a very comprehensive document, but it requires very good system and network knowledge:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/le_noyau_et_le_r%C3%A9seau_-_comment_repousser_les_limites_de_la_connectivit%C3%A9_.pdf">Kernel and Network - How to Push the Limits of Connectivity&lt;/a>&lt;/p></description></item><item><title>Iperf: Testing End-to-End Bandwidth</title><link>https://wiki.deimos.fr/Iperf_:_Tester_sa_bande_passante_de_bout_en_bout/</link><pubDate>Mon, 04 Feb 2008 10:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Iperf_:_Tester_sa_bande_passante_de_bout_en_bout/</guid><description>&lt;h2 id="iperf">Iperf &lt;a href="#iperf" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Iperf is a computer software tool for measuring various variables of an IP network connection. Iperf is developed by the National Laboratory for Applied Network Research (&lt;a href="https://www.nlanr.net/" rel="external" target="_blank">NLANR&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>). Based on a client/server architecture and available on different operating systems, Iperf is an important tool for network administrators.&lt;/p></description></item><item><title>IPv6: Complete Removal, IPv4 Only on Debian</title><link>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</link><pubDate>Tue, 21 Aug 2007 21:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When installing a new Debian 4.0 distribution, IPv6 support is enabled by default. This can cause some problems or even simply slow down your system. Indeed, all applications will use IPv6 support for name resolution before or after trying with IPv4.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is the case for mplayer used to read an audio or video stream:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a04aba1" class="language-bash ">
+ &lt;code>[...]
+Resolving live.radio-gresivaudan.org for AF_INET6...
+Couldn&amp;#39;t resolve name for AF_INET6: live.radio-gresivaudan.org
+Resolving live.radio-gresivaudan.org for AF_INET...
+Connecting to server live.radio-gresivaudan.org[217.117.157.190]: 8000...
+[...]&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>There is a simple method to disable IPv6 support. You just need to prevent the system from loading the corresponding module. Edit the file &lt;code>/etc/modprobe.d/blacklist&lt;/code> and add the line:&lt;/p></description></item><item><title>Configuring a Local Network on Debian and Ubuntu</title><link>https://wiki.deimos.fr/Configuration_d%27un_r%C3%A9seau_local_sur_Debian_et_Ubuntu/</link><pubDate>Wed, 18 Apr 2007 14:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_d%27un_r%C3%A9seau_local_sur_Debian_et_Ubuntu/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Not always easy to remember what to put in these damn files, right? Here are some simple examples.&lt;/p>
+&lt;h2 id="configuring-network-interfaces">Configuring Network Interfaces &lt;a href="#configuring-network-interfaces" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Edit the file &lt;code>/etc/network/interfaces&lt;/code>.&lt;/p>
+&lt;h3 id="static-ip-addressing">Static IP Addressing &lt;a href="#static-ip-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For example, here&amp;rsquo;s how I configure my eth0 interface:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="b464be6" class="language-bash ">
+ &lt;code>auto lo eth0
+iface lo inet loopback
+
+# Interface eth0
+iface eth0 inet static
+ address 192.168.0.1
+ netmask 255.255.255.0
+ broadcast 192.168.0.255
+ network 192.168.0.0
+ gateway 192.168.0.138&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="dynamic-ip-addressing">Dynamic IP Addressing &lt;a href="#dynamic-ip-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If I want dynamic addressing, it&amp;rsquo;s even simpler:&lt;/p></description></item><item><title>Ifrename: Renaming Network Cards Without Using Udev</title><link>https://wiki.deimos.fr/Ifrename_:_renomer_ses_cartes_r%C3%A9seaux_sans_utiliser_udev/</link><pubDate>Thu, 05 Apr 2007 15:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ifrename_:_renomer_ses_cartes_r%C3%A9seaux_sans_utiliser_udev/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you have multiple ethernet devices on a system, it&amp;rsquo;s useful to make sure they are always given the device names that you expect. This can be helpful when you&amp;rsquo;re managing upgrades - or for situations where you accidentally setup a system with eth1 plugged into a switch rather than eth0.&lt;/p>
+&lt;p>There are several different ways of managing the naming of devices if you&amp;rsquo;re using a dynamic /dev system such as udev or hotplug - but the simplest system which works for most cases is provided by the ifrename package.&lt;/p></description></item></channel></rss>

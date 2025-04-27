@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Configuration on Tech Notebook</title><link>https://wiki.deimos.fr/tags/system-configuration/</link><description>Recent content in System Configuration on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/system-configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuring Network on FreeBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</link><pubDate>Mon, 02 Jul 2012 10:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbyfreebsd.png" alt="FreeBSD" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>FreeBSD 9&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.freebsd.org" rel="external" target="_blank">FreeBSD Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>02/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The network is an essential part of system configuration, so I&amp;rsquo;ll cover some aspects of it here.&lt;/p></description></item><item><title>Setting up quotas on Linux</title><link>https://wiki.deimos.fr/Mise_en_place_des_quotas_sous_Linux/</link><pubDate>Fri, 23 May 2008 14:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_des_quotas_sous_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The assignment of quotas in a file system is a tool that allows control of disk space usage. Quotas consist of setting a space limit for a user or a group of users.&lt;/p>
+&lt;p>For the creation of these quotas, &lt;strong>2 types of limits&lt;/strong> are defined:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>The soft limit&lt;/strong>: indicates the maximum amount of space that a user can occupy on the file system. If this limit is reached, the user receives warning messages about exceeding their assigned quota. When used in combination with grace periods, if the user continues to exceed the soft limit after the grace period has elapsed, they will face the same restriction as when reaching a hard limit.&lt;/p></description></item><item><title>IPv6: Complete Removal, IPv4 Only on Debian</title><link>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</link><pubDate>Tue, 21 Aug 2007 21:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When installing a new Debian 4.0 distribution, IPv6 support is enabled by default. This can cause some problems or even simply slow down your system. Indeed, all applications will use IPv6 support for name resolution before or after trying with IPv4.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is the case for mplayer used to read an audio or video stream:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a04aba1" class="language-bash ">
+ &lt;code>[...]
+Resolving live.radio-gresivaudan.org for AF_INET6...
+Couldn&amp;#39;t resolve name for AF_INET6: live.radio-gresivaudan.org
+Resolving live.radio-gresivaudan.org for AF_INET...
+Connecting to server live.radio-gresivaudan.org[217.117.157.190]: 8000...
+[...]&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>There is a simple method to disable IPv6 support. You just need to prevent the system from loading the corresponding module. Edit the file &lt;code>/etc/modprobe.d/blacklist&lt;/code> and add the line:&lt;/p></description></item></channel></rss>

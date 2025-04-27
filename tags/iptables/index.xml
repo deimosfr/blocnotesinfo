@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Iptables on Tech Notebook</title><link>https://wiki.deimos.fr/tags/iptables/</link><description>Recent content in Iptables on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/iptables/index.xml" rel="self" type="application/rss+xml"/><item><title>Fail2ban: Implementing automated iptables rules to counter bruteforce attacks</title><link>https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce/</link><pubDate>Fri, 22 Aug 2014 09:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show malicious signs &amp;ndash; too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured. Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc).&lt;/p></description></item><item><title>Basic IPTables Commands</title><link>https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/</link><pubDate>Mon, 06 May 2013 15:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/</guid><description>&lt;h2 id="basic-commands">Basic Commands &lt;a href="#basic-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several operations you can do with iptables. You start with &lt;strong>three default chains INPUT, OUTPUT and FORWARD that you cannot delete&lt;/strong>. Let&amp;rsquo;s look at the operations to administer chains:&lt;/p>
+&lt;p>Creating a new chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e91b022" class="language-bash ">
+ &lt;code>iptables -N chain&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Delete an empty chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7ec3f6e" class="language-bash ">
+ &lt;code>iptables -X chain&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Change the default rule for a starting chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9136141" class="language-bash ">
+ &lt;code>iptables -P chain status&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="13f784a" class="language-bash ">
+ &lt;code>iptables -P INPUT DROP&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p></description></item><item><title>Launch Firewall Rules Before Interfaces Come Up</title><link>https://wiki.deimos.fr/Lancer_les_r%C3%A8gles_de_Firewalling_avant_que_les_interfaces_deviennent_up/</link><pubDate>Wed, 24 Sep 2008 11:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lancer_les_r%C3%A8gles_de_Firewalling_avant_que_les_interfaces_deviennent_up/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There used to be a script to do it automatically via init.d files, but now the suggested method is to use ifup.d networking scripts, which are executed on state changes of the network interfaces. So I submit here my simple script, which does the trick for me nicely.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Drop this script into &lt;code>/etc/network/if-pre-up.d&lt;/code> in a file called iptables:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dc57b7d" class="language-bash ">
+ &lt;code>#!/bin/sh
+
+# Load iptables rules before interfaces are brought online
+# This ensures that we are always protected by the firewall
+#
+# Note: if bad rules are inadvertently (or purposely) saved it could block
+# access to the server except via the serial tty interface.
+#
+
+RESTORE=/sbin/iptables-restore
+STAT=/usr/bin/stat
+IPSTATE=/etc/iptables.conf
+
+test -x $RESTORE || exit 0
+test -x $STAT || exit 0
+
+# Check permissions and ownership (rw------- for root)
+if test `$STAT --format=&amp;#34;%a&amp;#34;` $IPSTATE -ne &amp;#34;600&amp;#34;; then
+ echo &amp;#34;Permissions for $IPSTATE must be 600 (rw-------)&amp;#34;
+ exit 0
+fi
+
+# Since only the owner can read/write to the file, we can trust that it is
+# secure. We need not worry about group permissions since they should be
+# zeroed per our previous check; but we must make sure root owns it.
+if test `$STAT --format=&amp;#34;%u&amp;#34;` $IPSTATE -ne &amp;#34;0&amp;#34;; then
+ echo &amp;#34;The superuser must have ownership for $IPSTATE (uid 0)&amp;#34;
+ exit 0
+fi
+
+# Now we are ready to restore the tables
+$RESTORE &amp;lt; $IPSTATE&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then make sure you make the script executable:&lt;/p></description></item><item><title>Nfqueue: Filter Thousands of IP Addresses (e.g., by Country)</title><link>https://wiki.deimos.fr/Nfqueue_:_Filtrer_des_milliers_d'adresses_IP_(ex:_par_pays)/</link><pubDate>Thu, 05 Jul 2007 05:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nfqueue_:_Filtrer_des_milliers_d'adresses_IP_(ex:_par_pays)/</guid><description>&lt;p>Here is documentation on the NFQUEUE module for Iptables:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/iptables_filtering_traffic_thousands_ip.pdf">Iptables filtering traffic thousands IP&lt;/a>&lt;/p></description></item><item><title>Kernel: Module Compilation</title><link>https://wiki.deimos.fr/Kernel_:_Compilation_des_modules/</link><pubDate>Sun, 27 Aug 2006 22:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kernel_:_Compilation_des_modules/</guid><description>&lt;p>Iptables is nowadays the Linux firewall of choice. However, when you&amp;rsquo;re a beginner, it&amp;rsquo;s not always easy to know what each module corresponds to.&lt;/p>
+&lt;h2 id="minimum-requirements">Minimum Requirements &lt;a href="#minimum-requirements" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>What do you need to recompile at minimum for the kernel?&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef63fda" class="language-bash ">
+ &lt;code>CONFIG_PACKET - Direct communication with network interfaces
+CONFIG_NETFILTER - Kernel management, necessary for Netfilter
+CONFIG_IP_NF_CONNTRACK - Necessary for NAT and Masquerade
+CONFIG_IP_NF_NETFILTER - Adds NETFILTER table
+CONFIG_IP_NF_IPTABLES - Required for iptables user space utility
+CONFIG_IP_NF_MANGLE - Adds MANGLE table
+CONFIG_IP_NF_NAT - Adds NAT table&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>&lt;strong>Rule not to add:&lt;/strong>&lt;/p></description></item></channel></rss>

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Networking on Tech Notebook</title><link>https://wiki.deimos.fr/categories/networking/</link><description>Recent content in Networking on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/networking/index.xml" rel="self" type="application/rss+xml"/><item><title>MFi: Install a Ubiquiti server to manage powerstrips</title><link>https://wiki.deimos.fr/MFi:_install_a_Ubiquiti_server_to_manage_powerstrips/</link><pubDate>Sun, 27 Jul 2014 13:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/MFi:_install_a_Ubiquiti_server_to_manage_powerstrips/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.0.24&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.ubnt.com" rel="external" target="_blank">Ubiquiti Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>27/07/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Ubiquiti brings software that are easy to install on Windows and Mac OS. However as it is strongly recommended to let this software always up, it&amp;rsquo;s preferable to have a Linux version to run it in a container or a virtual machine. That&amp;rsquo;s why I decided to install it for a powerstrip mPower on Debian inside LXC. The documentation is very poor, that&amp;rsquo;s why I made this one for those who want to do like me.&lt;/p></description></item><item><title>MariaDB Galera Cluster: Multi-Master Replication</title><link>https://wiki.deimos.fr/MariaDB_Galera_Cluster_:_la_r%C3%A9plication_multi_maitres/</link><pubDate>Sat, 19 Apr 2014 05:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/MariaDB_Galera_Cluster_:_la_r%C3%A9plication_multi_maitres/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/galeracluster_logo.png" alt="MariaDB" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://mariadb.org/" rel="external" target="_blank">MariaDB Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>19/04/2014&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Galera 23.2.4(r147)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you have already set up MySQL replication, you know that you&amp;rsquo;re limited to 2 master nodes maximum. Many actions must be done manually, making it difficult to have something that&amp;rsquo;s both scalable and accessible for simultaneous writes, since by default writes are synchronous.&lt;/p></description></item><item><title>OpenSSH: SSH Key Exchange</title><link>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</link><pubDate>Fri, 25 Oct 2013 09:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SSH key exchange is great for logging in without having to type your password. It&amp;rsquo;s also very simple to set up.&lt;/p>
+&lt;h2 id="basic">Basic &lt;a href="#basic" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, the user account to which the client will connect (for example &lt;strong>root&lt;/strong>) must have the .ssh directory present:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37cae9e" class="language-bash ">
+ &lt;code>mkdir .ssh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="client">Client &lt;a href="#client" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the client, you need to generate a key pair, &lt;strong>unless you already have one (~/.ssh/id_dsa.pub)&lt;/strong>:&lt;/p></description></item><item><title>iSCSI: Setting up an iSCSI Server</title><link>https://wiki.deimos.fr/ISCSI_:_Mise_en_place_d'un_serveur_iSCSI/</link><pubDate>Tue, 04 Jun 2013 14:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/ISCSI_:_Mise_en_place_d'un_serveur_iSCSI/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/iscsi_logo.gif" alt="ISCSI" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/ISCSI" rel="external" target="_blank">iSCSI&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> (internet SCSI) is an application layer protocol that enables the transport of SCSI commands over a TCP/IP network.&lt;/p>
+&lt;p>This documentation was created on Red Hat 5 and is compatible with Red Hat 6.&lt;/p></description></item><item><title>Belier: Script Your SSH Connection</title><link>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</link><pubDate>Mon, 06 May 2013 09:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/belier_logo.png" alt="Belier" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.ohmytux.com/belier/" rel="external" target="_blank">Belier Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Belier&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> allows opening a shell or executing a command on a remote computer through an SSH connection. The main feature of Belier is its ability to cross several intermediate computers before completing the job.&lt;/p></description></item><item><title>Configuring Network on FreeBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</link><pubDate>Mon, 02 Jul 2012 10:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbyfreebsd.png" alt="FreeBSD" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>FreeBSD 9&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.freebsd.org" rel="external" target="_blank">FreeBSD Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>02/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The network is an essential part of system configuration, so I&amp;rsquo;ll cover some aspects of it here.&lt;/p></description></item><item><title>Proxychains: Proxy Any Outbound Connection</title><link>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</link><pubDate>Mon, 14 May 2012 09:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Ah, those proxy servers at work or school! They can be quite troublesome! Sometimes you really need temporary access to the outside world. Depending on the commands you use, you may or may not have the ability to configure proxy usage by modifying a configuration file, an environment variable, etc.&lt;/p>
+&lt;p>The benefit of &lt;a href="https://proxychains.sourceforge.net/" rel="external" target="_blank">proxychains&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is that configuration is done only once, in its own configuration file. Then you use the syntax &lt;code>proxychains &amp;lt;command&amp;gt; &amp;lt;args&amp;gt;&lt;/code> and your command will use the proxy specified in the proxychains configuration file!&lt;/p></description></item><item><title>VServer: Setting Up VServer</title><link>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</link><pubDate>Tue, 24 May 2011 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Linux-VServer is a security context isolator combined with segmented routing, chroot, extended quotas, and other standard tools.&lt;/p>
+&lt;p>Initially launched by Jacques Gélinas as the CTX patch, Linux-VServer consists of a patch for the Linux kernel that allows multiple applications to run in different security contexts on the same host machine. Linux-VServer is also equipped with a set of tools to install/manage these contexts.&lt;/p>
+&lt;p>This project allows one or more operating environments (operating systems without the kernel) to run on a distribution, meaning you can run one or more distributions on a single distribution.&lt;/p></description></item><item><title>Installing pfSense on Soekris</title><link>https://wiki.deimos.fr/Installer_pfSense_sur_Soekris/</link><pubDate>Fri, 03 Dec 2010 23:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_pfSense_sur_Soekris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I spent too much time trying to find how to install pfSense on a Soekris net5501. Why? Because no PXE versions exist or are easily installable, and also due to configuration and connection issues. To help others save time and for my own reference, I&amp;rsquo;ve decided to write this article.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s say I have a hard drive to install pfSense on. I connected it to my Ubuntu Desktop laptop through a USB external 2.5&amp;quot; box and used KVM/QEMU. Here are the required packages:&lt;/p></description></item><item><title>Displaying Active Machines on the Current Network</title><link>https://wiki.deimos.fr/afficher-les-machines-allumees-sur-le-reseau-courant/</link><pubDate>Fri, 11 Dec 2009 19:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/afficher-les-machines-allumees-sur-le-reseau-courant/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several solutions to find which hosts are up on your network. A simple solution is to use nmap.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to do it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4a03f97" class="language-bash ">
+ &lt;code>nmap -sP your network/submask | awk &amp;#34;/^Host/&amp;#34;&amp;#39;{ print $2 }&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>AOE: Setting Up an ATA Over Ethernet Server</title><link>https://wiki.deimos.fr/aoe-mise-en-place-d-un-serveur-ata-over-ethernet/</link><pubDate>Sat, 28 Nov 2009 15:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/aoe-mise-en-place-d-un-serveur-ata-over-ethernet/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/ATA_over_Ethernet" rel="external" target="_blank">ATA over Ethernet (AoE)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a network layer protocol that allows ATA commands to be transported over an Ethernet network.&lt;/p>
+&lt;h2 id="resources">Resources &lt;a href="#resources" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/using_ata_over_ethernet_aoe.pdf">Using ATA Over Ethernet (AoE) On Debian Lenny (Initiator And Target)&lt;/a>&lt;/p></description></item><item><title>Enabling SSH on the Fonera+</title><link>https://wiki.deimos.fr/activer-le-ssh-sur-sa-fonera-plus/</link><pubDate>Wed, 06 May 2009 20:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/activer-le-ssh-sur-sa-fonera-plus/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The Fonera is a small device based on OpenWRT that allows you to distribute WiFi (HotSpot). To learn more, I invite you to visit the official website. In short, it is possible to play a bit more with the basic functions, which is why I tackled SSH access on this device.&lt;/p>
+&lt;p>&lt;strong>Important: Any firmware modification can take 10 minutes to update. So don&amp;rsquo;t reboot before that!&lt;/strong>&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>A web server&lt;/li>
+&lt;/ul>
+&lt;p>Apache will do fine&amp;hellip; (on Mac: /Library/WebServer/Documents)&lt;/p></description></item><item><title>Make Unsupported Network Cards Work with Solaris</title><link>https://wiki.deimos.fr/make-unsupported-network-cards-work-with-solaris/</link><pubDate>Sun, 21 Dec 2008 16:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/make-unsupported-network-cards-work-with-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I recently faced an issue with network card recognition for my home server. I have two D-Link DGE-530T gigabit network cards, and unfortunately, they don&amp;rsquo;t work out of the box with Solaris. No need to panic though - as the drivers exist under BSD license, they have been ported and some even packaged.&lt;/p>
+&lt;p>This was my case for these DLINK cards. I&amp;rsquo;ll share the approach I followed to get my two cards working, and I&amp;rsquo;ll provide reference links in case you have other network cards that need to be recognized.&lt;/p></description></item><item><title>DaloRADIUS: Setting up a FreeRadius server with DaloRADIUS web interface</title><link>https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d'un_serveur_FreeRadius_avec_interface_web_Daloradius/</link><pubDate>Wed, 24 Sep 2008 12:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d'un_serveur_FreeRadius_avec_interface_web_Daloradius/</guid><description>&lt;p>Here is documentation that allows you to set up FreeRadius with MySQL account management and a web interface with DaloRADIUS:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/authentication_authorization_accounting_with_freeradius_mysql_backend_web_based_management_with_daloradius.pdf">Authentication Authorization Accounting with FreeRadius MySQL backend web based Management with DaloRADIUS&lt;/a>&lt;/p></description></item><item><title>Launch Firewall Rules Before Interfaces Come Up</title><link>https://wiki.deimos.fr/Lancer_les_r%C3%A8gles_de_Firewalling_avant_que_les_interfaces_deviennent_up/</link><pubDate>Wed, 24 Sep 2008 11:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lancer_les_r%C3%A8gles_de_Firewalling_avant_que_les_interfaces_deviennent_up/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There used to be a script to do it automatically via init.d files, but now the suggested method is to use ifup.d networking scripts, which are executed on state changes of the network interfaces. So I submit here my simple script, which does the trick for me nicely.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Drop this script into &lt;code>/etc/network/if-pre-up.d&lt;/code> in a file called iptables:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dc57b7d" class="language-bash ">
+ &lt;code>#!/bin/sh
+
+# Load iptables rules before interfaces are brought online
+# This ensures that we are always protected by the firewall
+#
+# Note: if bad rules are inadvertently (or purposely) saved it could block
+# access to the server except via the serial tty interface.
+#
+
+RESTORE=/sbin/iptables-restore
+STAT=/usr/bin/stat
+IPSTATE=/etc/iptables.conf
+
+test -x $RESTORE || exit 0
+test -x $STAT || exit 0
+
+# Check permissions and ownership (rw------- for root)
+if test `$STAT --format=&amp;#34;%a&amp;#34;` $IPSTATE -ne &amp;#34;600&amp;#34;; then
+ echo &amp;#34;Permissions for $IPSTATE must be 600 (rw-------)&amp;#34;
+ exit 0
+fi
+
+# Since only the owner can read/write to the file, we can trust that it is
+# secure. We need not worry about group permissions since they should be
+# zeroed per our previous check; but we must make sure root owns it.
+if test `$STAT --format=&amp;#34;%u&amp;#34;` $IPSTATE -ne &amp;#34;0&amp;#34;; then
+ echo &amp;#34;The superuser must have ownership for $IPSTATE (uid 0)&amp;#34;
+ exit 0
+fi
+
+# Now we are ready to restore the tables
+$RESTORE &amp;lt; $IPSTATE&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then make sure you make the script executable:&lt;/p></description></item><item><title>Introduction to IDS and SNORT</title><link>https://wiki.deimos.fr/Introduction_aux_IDS_et_%C3%A0_SNORT/</link><pubDate>Sat, 24 May 2008 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_aux_IDS_et_%C3%A0_SNORT/</guid><description>&lt;h2 id="introduction-to-ids-and-snort">Introduction to IDS and SNORT &lt;a href="#introduction-to-ids-and-snort" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Intrusion Detection Systems (IDS) are increasingly common and play an important and growing role in the security of today&amp;rsquo;s information systems. SNORT is one of these intrusion detection systems with the distinction of being open source software under the GPL license.&lt;/p>
+&lt;p>&lt;em>Note: This document was written in 2006. Some versions and configurations of the software mentioned may differ from those shown here; please refer to the official project websites in case of issues.&lt;/em>&lt;/p></description></item><item><title>Xen with Bonding + VLAN Tagging</title><link>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</link><pubDate>Sun, 27 Jan 2008 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As powerful and flexible as it may be, Xen&amp;rsquo;s network configuration often feels like an obstacle course as soon as you stray a bit from the beaten path.&lt;/p>
+&lt;p>Recently, I had to set up a Xen-based solution in a somewhat special network topology. Each server where Xen was deployed had 2 ethernet adapters, each with 2 gigabit ethernet interfaces. The goal was to maximize the use of the different ethernet interfaces while providing both fault tolerance and load balancing. To make things even more interesting, the network was segmented into VLANs, each VLAN segmenting the network by function (DMZ, LAN, ADMIN, etc.).&lt;/p></description></item><item><title>Strengthening Linux Kernel Security Functions</title><link>https://wiki.deimos.fr/Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux/</link><pubDate>Thu, 15 Nov 2007 21:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This article offers an overview of various security mechanisms related to the kernels of GNU/Linux operating systems to ensure the integrity protection of your environment. In this first part, you&amp;rsquo;ll find an introduction to these mechanisms as well as to GNU/Linux system kernels in general.&lt;/p>
+&lt;h2 id="presentation">Presentation &lt;a href="#presentation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The growing enthusiasm of users for the Linux operating system, particularly from security experts or system administrators, is largely due to the robustness and advanced features this operating system offers. The kernel, the core of the system, manages most of the security-related functions in the environment.&lt;/p></description></item><item><title>ARP Spoofing in a Switched Network</title><link>https://wiki.deimos.fr/arp-spoofing-dans-un-reseau-switche/</link><pubDate>Fri, 03 Aug 2007 16:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/arp-spoofing-dans-un-reseau-switche/</guid><description>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/arp_spoofing_in_switched_lans_fr.pdf">ARP Spoofing in a Switched Network&lt;/a>&lt;/p></description></item><item><title>OpenSSH HPN (High Performance): Implementation and Installation</title><link>https://wiki.deimos.fr/OpenSSH_HPN_%28High_Performance_Enabled%29_:_Impl%C3%A9mentation_et_installation/</link><pubDate>Wed, 27 Dec 2006 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_HPN_%28High_Performance_Enabled%29_:_Impl%C3%A9mentation_et_installation/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the introduction provided by the &lt;a href="https://www.psc.edu/networking/projects/hpn-ssh/" rel="external" target="_blank">website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p>
+&lt;p>SCP and the underlying SSH2 protocol implementation in &lt;a href="https://www.openssh.com" rel="external" target="_blank">OpenSSH&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is network performance limited by statically defined internal flow control buffers. These buffers often end up acting as a bottleneck for network throughput of SCP, especially on long and high bandwidth network links. Modifying the SSH code to allow the buffers to be defined at runtime eliminates this bottleneck. We have created a patch that will remove the bottlenecks in OpenSSH and is fully interoperable with other servers and clients. In addition, HPN clients will be able to download faster from non-HPN servers, and HPN servers will be able to receive uploads faster from non-HPN clients. However, the host receiving the data must have a properly tuned TCP/IP stack. Please refer to this tuning page for more information.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Resource Management on Tech Notebook</title><link>https://wiki.deimos.fr/tags/resource-management/</link><description>Recent content in Resource Management on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/resource-management/index.xml" rel="self" type="application/rss+xml"/><item><title>Ulimit: Using System Limits</title><link>https://wiki.deimos.fr/Ulimit_:_Utiliser_les_limites_syst%C3%A8mes/</link><pubDate>Tue, 03 Jul 2012 10:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ulimit_:_Utiliser_les_limites_syst%C3%A8mes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The ulimit programs allow to limit system-wide resource use using a normal configuration file - &lt;code>/etc/security/limits.conf&lt;/code>. This can help a lot in system administration, e.g. when a user starts too many processes and therefore makes the system unresponsive for other users.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cc48f25" class="language-bash ">
+ &lt;code>ulimit -a&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0ece5e8" class="language- ">
+ &lt;code>core file size (blocks, -c) 0
+data seg size (kbytes, -d) unlimited
+scheduling priority (-e) 0
+file size (blocks, -f) unlimited
+pending signals (-i) 7671
+max locked memory (kbytes, -l) 64
+max memory size (kbytes, -m) 811664
+open files (-n) 1024
+pipe size (512 bytes, -p) 8
+POSIX message queues (bytes, -q) 819200
+real-time priority (-r) 0
+stack size (kbytes, -s) 8192
+cpu time (seconds, -t) unlimited
+max user processes (-u) 7671
+virtual memory (kbytes, -v) 1175120
+file locks (-x) unlimited&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All these settings can be manipulated. A good example is this forkbomb that forks as many processes as possible and can crash systems where no user limits are set&lt;/p></description></item></channel></rss>

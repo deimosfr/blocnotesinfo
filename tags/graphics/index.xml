@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Graphics on Tech Notebook</title><link>https://wiki.deimos.fr/tags/graphics/</link><description>Recent content in Graphics on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/graphics/index.xml" rel="self" type="application/rss+xml"/><item><title>Wacom: Setting up the Wacom Bamboo</title><link>https://wiki.deimos.fr/Wacom_:_Mise_en_place_de_la_Wacom_Bamboo/</link><pubDate>Wed, 01 Oct 2008 12:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Wacom_:_Mise_en_place_de_la_Wacom_Bamboo/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Wow! You just bought a Wacom Bamboo and want it to work well on your Ubuntu! No problem!&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Install the necessary packages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="322a48a" class="language-bash ">
+ &lt;code>sudo apt-get install xserver-xorg-input-wacom wacom-tools&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Backup your xorg configuration:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="80f7b8a" class="language-bash ">
+ &lt;code>sudo cp /etc/X11/xorg.conf /etc/X11/xorg.conf.bak&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Add the following to the module section:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8073034" class="language-bash ">
+ &lt;code>Section &amp;#34;Module&amp;#34;
+	....
+ Load &amp;#34;wacom&amp;#34;
+ ...
+EndSection&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then add the following configuration:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1a1f287" class="language-bash ">
+ &lt;code>Section &amp;#34;InputDevice&amp;#34;
+ Driver &amp;#34;wacom&amp;#34;
+ Identifier &amp;#34;stylus&amp;#34;
+ #Option &amp;#34;Device&amp;#34; &amp;#34;/dev/ttyS0&amp;#34; # SERIAL Tablet
+ Option &amp;#34;Device&amp;#34; &amp;#34;/dev/input/wacom&amp;#34; # USB Tablet
+ Option &amp;#34;Type&amp;#34; &amp;#34;stylus&amp;#34; # Stylus pen tip
+ Option &amp;#34;USB&amp;#34; &amp;#34;on&amp;#34; # USB Tablet
+ Option &amp;#34;Mode&amp;#34; &amp;#34;absolute&amp;#34; # Position on the tablet
+ #Option &amp;#34;ForceDevice&amp;#34; &amp;#34;ISDV4&amp;#34; # Tablet PC ONLY
+ #Option &amp;#34;HistorySize&amp;#34; &amp;#34;64&amp;#34; # Buffer size
+ Option &amp;#34;Tilt&amp;#34; &amp;#34;on&amp;#34; # Tilt
+ #Option &amp;#34;TiltInvert&amp;#34; &amp;#34;on&amp;#34; # Tilt inversion
+ Option &amp;#34;Threshold&amp;#34; &amp;#34;5&amp;#34; # pressure sensitivity
+
+EndSection
+
+Section &amp;#34;InputDevice&amp;#34;
+ Driver &amp;#34;wacom&amp;#34;
+ Identifier &amp;#34;eraser&amp;#34;
+ #Option &amp;#34;Device&amp;#34; &amp;#34;/dev/ttyS0&amp;#34; # SERIAL Tablet
+ Option &amp;#34;Device&amp;#34; &amp;#34;/dev/input/wacom&amp;#34; # USB Tablet
+ Option &amp;#34;Type&amp;#34; &amp;#34;eraser&amp;#34; # pen eraser tip
+ Option &amp;#34;USB&amp;#34; &amp;#34;on&amp;#34; # USB Tablet
+ Option &amp;#34;Mode&amp;#34; &amp;#34;absolute&amp;#34; # Position on the tablet
+ #Option &amp;#34;ForceDevice&amp;#34; &amp;#34;ISDV4&amp;#34; # Tablet PC ONLY
+ #Option &amp;#34;HistorySize&amp;#34; &amp;#34;64&amp;#34; # Buffer size
+ Option &amp;#34;Tilt&amp;#34; &amp;#34;on&amp;#34; # Tilt
+ #Option &amp;#34;TiltInvert&amp;#34; &amp;#34;on&amp;#34; # Tilt inversion
+ Option &amp;#34;Threshold&amp;#34; &amp;#34;5&amp;#34; # pressure sensitivity
+EndSection
+
+Section &amp;#34;InputDevice&amp;#34;
+ Driver &amp;#34;wacom&amp;#34;
+ Identifier &amp;#34;cursor&amp;#34;
+ #Option &amp;#34;Device&amp;#34; &amp;#34;/dev/ttyS0&amp;#34; # SERIAL Tablet
+ Option &amp;#34;Device&amp;#34; &amp;#34;/dev/input/wacom&amp;#34; # USB Tablet
+ Option &amp;#34;Type&amp;#34; &amp;#34;cursor&amp;#34;
+ Option &amp;#34;USB&amp;#34; &amp;#34;on&amp;#34; # USB Tablet
+ Option &amp;#34;Mode&amp;#34; &amp;#34;absolute&amp;#34; # Position on the tablet
+ #Option &amp;#34;ForceDevice&amp;#34; &amp;#34;ISDV4&amp;#34; # Tablet PC ONLY
+ #Option &amp;#34;HistorySize&amp;#34; &amp;#34;64&amp;#34; # Buffer size
+EndSection&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>In the ServerLayout section:&lt;/p></description></item></channel></rss>

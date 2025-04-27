@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Bash on Tech Notebook</title><link>https://wiki.deimos.fr/tags/bash/</link><description>Recent content in Bash on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/bash/index.xml" rel="self" type="application/rss+xml"/><item><title>Reboot Your Freebox Server 6 via Command Line</title><link>https://wiki.deimos.fr/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande/</link><pubDate>Sat, 24 Mar 2012 23:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since version 6 of the Freebox, there is a web interface (&lt;a href="https://mafreebox.freebox.fr" rel="external" target="_blank">https://mafreebox.freebox.fr&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>) that allows you to control several options, including rebooting it. We will use this capability to restart it via the command line. For this purpose, I&amp;rsquo;m using &lt;a href="https://www.admin-linux.fr/?p=5049" rel="external" target="_blank">a script that was obtained from admin-linux.fr&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Introduction to Shell Scripting</title><link>https://wiki.deimos.fr/Introduction_au_Script_Shell/</link><pubDate>Tue, 03 May 2011 11:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_au_Script_Shell/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Bourne-again shell is the free command interpreter of the GNU project. Its name is a play on words (Bourne again / born again) referring to the historic Unix shell, the Bourne shell. Based on the latter, it brings many improvements, notably from the Korn shell and the C shell.&lt;/p>
+&lt;p>The original author is Brian Fox of the Free Software Foundation, later succeeded by Chet Ramey. The original Bourne shell was written by Steve Bourne.&lt;/p></description></item><item><title>Measuring Execution Time of One or Multiple Commands</title><link>https://wiki.deimos.fr/Connaitre_le_temps_d%27ex%C3%A9cution_d%27une_ou_plusieurs_commandes/</link><pubDate>Thu, 19 Nov 2009 06:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_temps_d%27ex%C3%A9cution_d%27une_ou_plusieurs_commandes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need to know exactly the time it takes to execute some commands. The &lt;code>time&lt;/code> command is perfect for this purpose.&lt;/p>
+&lt;p>This command is a bash builtin.&lt;/p>
+&lt;h2 id="examples">Examples &lt;a href="#examples" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The last semicolon &lt;code>;&lt;/code> is important. For example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="534c7bb" class="language-bash ">
+ &lt;code>time { rm -rf /folder/bar &amp;amp;&amp;amp; mkdir -p /folder/bar ; echo &amp;#34;done&amp;#34; ; }&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This will give you the time taken to execute the entire block of commands as a single unit.&lt;/p></description></item><item><title>Freeze a Machine by CPU Overload</title><link>https://wiki.deimos.fr/Faire_freezer_une_machine_par_overload_CPU/</link><pubDate>Sun, 20 Sep 2009 15:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_freezer_une_machine_par_overload_CPU/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a solution to max out your CPU so much that your machine will freeze.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply run this in a terminal:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c588ae8" class="language-bash ">
+ &lt;code>:(){ :|:&amp;amp; };:&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Different Shell Script Loops</title><link>https://wiki.deimos.fr/Les_diff%C3%A9rentes_boucles_du_shell_script/</link><pubDate>Tue, 21 Oct 2008 15:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_diff%C3%A9rentes_boucles_du_shell_script/</guid><description>&lt;h2 id="1-if">1. if &lt;a href="#1-if" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Conditional binary structure: depending on whether a condition is true or false, we execute a block or we don&amp;rsquo;t.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="91cc772" class="language-bash ">
+ &lt;code>if condition ; then
+ instruction
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If the condition is true, then instruction (which can be a block of instructions) is executed.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="29ded5a" class="language-bash ">
+ &lt;code>if condition ; then
+ instruction1
+else
+ instruction2
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For the same construction but with multiple conditions:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4cd5041" class="language-bash ">
+ &lt;code>if [condition1] || [condition2] ; then
+ instruction1
+else
+ instruction2
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If the condition is true, then instruction1 is executed and the second is ignored, otherwise instruction2 is executed and the first is ignored.&lt;/p></description></item><item><title>Debugging a Shell Script</title><link>https://wiki.deimos.fr/Debugger_un_script_shell/</link><pubDate>Wed, 05 Mar 2008 09:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debugger_un_script_shell/</guid><description>&lt;p>Shell scripts are often criticized for not having an integrated debugger. But this is false!&lt;/p>
+&lt;p>When programming in bash, there are command line options to see what is being read and then executed in a script.&lt;/p>
+&lt;h2 id="example">Example &lt;a href="#example" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Let&amp;rsquo;s say we have the script MyScript.sh:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="908b808" class="language-bash ">
+ &lt;code>#!/bin/sh
+touch unFichier
+if [ -f ./unFichier ]; then
+ rm ./unFichier
+fi&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If we execute it this way:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37370e2" class="language-bash ">
+ &lt;code>/bin/bash -v -x ./MyScript.sh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We&amp;rsquo;ll get output like this:&lt;/p></description></item><item><title>Shell: Batch Renaming with Counter</title><link>https://wiki.deimos.fr/Shell_:_renommer_en_masse_avec_compteur/</link><pubDate>Sat, 05 Aug 2006 13:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Shell_:_renommer_en_masse_avec_compteur/</guid><description>&lt;p>Here&amp;rsquo;s a script that allows you to rename JPG files while adding a counter:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9cca115" class="language-bash ">
+ &lt;code>export j=0 # export is only useful if you&amp;#39;re working in interactive mode (not in a script)
+for i in *.JPG ; do
+ mv $i `echo $i | sed s/^/$j\ -\ /`
+ j=$((j&amp;#43;1))
+done&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here&amp;rsquo;s a faster method for renaming files:&lt;/p>
+&lt;p>Instead of typing:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8c01c00" class="language-bash ">
+ &lt;code>mv my_file.txt my_file.that_i_want_to_backup&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You can simply do:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5b90872" class="language-bash ">
+ &lt;code>mv my_file.{txt,that_i_want_to_backup}&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

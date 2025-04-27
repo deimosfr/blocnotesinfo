@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NVRAM on Tech Notebook</title><link>https://wiki.deimos.fr/tags/nvram/</link><description>Recent content in NVRAM on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/nvram/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenBoot PROM, BIOS Management</title><link>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</link><pubDate>Wed, 29 Nov 2006 09:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The PROM is the equivalent of the BIOS or EFI on a standard x86 system.&lt;/p>
+&lt;h2 id="approach">Approach &lt;a href="#approach" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To know your PROM version:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="818bf32" class="language-bash ">
+ &lt;code>/usr/platform/`uname -m`/sbin/prtdiag -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c1ab015" class="language-bash ">
+ &lt;code>prtconf -V&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="nvram">NVRAM &lt;a href="#nvram" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The NVRAM can be modified by a user to change some options on the machine:&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/sun-prom-nvram.gif" alt="NVRAM" loading="lazy">
+
+&lt;/p>
+&lt;p>Once the NVRAM is stored on the chipset, during the PROM call at boot, it will check the user&amp;rsquo;s preferences at the NVRAM level in order to apply them.&lt;/p></description></item></channel></rss>

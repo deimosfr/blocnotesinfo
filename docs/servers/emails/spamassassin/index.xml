@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spamassassin on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/emails/spamassassin/</link><description>Recent content in Spamassassin on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/emails/spamassassin/index.xml" rel="self" type="application/rss+xml"/><item><title>SpamAssassin Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_SpamAssassin/</link><pubDate>Mon, 15 Mar 2010 10:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_SpamAssassin/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install SpamAssassin, it&amp;rsquo;s very simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8db8482" class="language-bash ">
+ &lt;code>apt-get install spamassassin libmail-spf-query-perl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s my configuration file that you can adapt to your needs (&lt;code>/etc/spamassassin/local.cf&lt;/code>):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="97bf068" class="language-bash ">
+ &lt;code># SpamAssassin Configuration
+rewrite_header Subject *****SPAM*****
+use_bayes 1
+bayes_auto_learn 1
+required_score 5.0
+skip_rbl_checks 0
+report_safe 0
+
+#pyzor
+#use_pyzor 1
+#pyzor_path /usr/bin/pyzor
+
+#razor
+#use_razor2 1
+#razor_config /etc/razor/razor-agent.conf
+
+ok_locales en fr
+whitelist_from *@deimos.fr noreply@lists.silicon.fr
+blacklist_from *@mandrivaclub.com&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now, we need to enable SpamAssassin to start automatically. For this, in the file &lt;code>/etc/default/spamassassin&lt;/code>, change from:&lt;/p></description></item><item><title>FuzzyOcr Plugin: Image Spam Detection (OCR Detection)</title><link>https://wiki.deimos.fr/FuzzyOcr_Plugin_:_D%C3%A9tection_des_spams_image_%28OCR_Detection%29/</link><pubDate>Thu, 10 Apr 2008 10:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/FuzzyOcr_Plugin_:_D%C3%A9tection_des_spams_image_%28OCR_Detection%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The most widely used anti-spam tool in the open-source world is SpamAssassin. Its operation is similar to that of the amavisd-new service. It collects results obtained from a collection of other tools and passes them to the amavisd-new service, which makes a decision about the message based on its total score.&lt;/p>
+&lt;p>From a system perspective, implementing SpamAssassin is very simple. Just use the Debian/testing package, which is well maintained. This situation is particularly interesting because the collection of libraries and tools dependent on SpamAssassin is very large. The command:&lt;/p></description></item><item><title>Fight Spam More Effectively - Additional Rules</title><link>https://wiki.deimos.fr/Lutter_un_peu_plus_contre_le_SPAM_-_R%C3%A8gles_suppl%C3%A9mentaires/</link><pubDate>Thu, 22 Nov 2007 07:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lutter_un_peu_plus_contre_le_SPAM_-_R%C3%A8gles_suppl%C3%A9mentaires/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Install Razor, Pyzor and Configure SpamAssassin.&lt;/p>
+&lt;p>Razor and Pyzor are spamfilters that use a collaborative filtering network. To install them, run:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3487e5c" class="language-bash ">
+ &lt;code>apt-get install razor pyzor&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Now we have to tell SpamAssassin to use these programs. Edit &lt;code>/etc/spamassassin/local.cf&lt;/code> so that it looks like this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f49624c" class="language-bash ">
+ &lt;code># SpamAssassin Configuration
+rewrite_header Subject *****SPAM*****
+use_bayes 1
+bayes_auto_learn 1
+required_score 5.0
+skip_rbl_checks 0
+report_safe 0
+
+#pyzor
+use_pyzor 1
+pyzor_path /usr/bin/pyzor
+
+#razor
+use_razor2 1
+razor_config /etc/razor/razor-agent.conf
+
+ok_locales en fr
+whitelist_from *@deimos.fr noreply@lists.silicon.fr
+blacklist_from *@mandrivaclub.com&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Note: Here is an &lt;a href="https://www.yrex.com/spam/spamconfig.php" rel="external" target="_blank">automatic SpamAssasin Configuration Generator&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Spam Reinjection for Testing</title><link>https://wiki.deimos.fr/R%C3%A9injection_de_Spams_pour_tests/</link><pubDate>Tue, 03 Oct 2006 13:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/R%C3%A9injection_de_Spams_pour_tests/</guid><description>&lt;p>I need to reinject spam for testing on a server&amp;hellip; but using the simple &lt;code>mail&lt;/code> command is not sufficient to reinject messages with their headers&amp;hellip;&lt;/p>
+&lt;p>We&amp;rsquo;ll use the sendmail command (even for Postfix):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ec1a089" class="language-bash ">
+ &lt;code>for i in message.*; do cat &amp;#34;$i&amp;#34; | sendmail -f from@domain.tld to@domain.tld ;done&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The Postfix sendmail command implements the Postfix to Sendmail compatibility interface:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="98b8dbe" class="language-bash ">
+ &lt;code>-f sender
+Set the envelope sender address. This is the address where delivery problems are sent to, unless the message contains an Errors-To: message header.&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To get &amp;ldquo;fresh&amp;rdquo; spam samples, you can use &lt;a href="https://www.spamarchive.org/" rel="external" target="_blank">SpamArchive.org&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item></channel></rss>

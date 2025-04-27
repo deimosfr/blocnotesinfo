@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kernel on Tech Notebook</title><link>https://wiki.deimos.fr/tags/kernel/</link><description>Recent content in Kernel on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/kernel/index.xml" rel="self" type="application/rss+xml"/><item><title>Recompile your kernel</title><link>https://wiki.deimos.fr/Recompiler_son_du_noyau_(Kernel)/</link><pubDate>Thu, 10 Nov 2016 23:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Recompiler_son_du_noyau_(Kernel)/</guid><description>&lt;h2 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="centos">CentOS &lt;a href="#centos" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/centos-kernel.pdf">CentOS Kernel 2.6&lt;/a>&lt;/p>
+&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here is a list of packages needed to recompile the kernel:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2f087a2" class="language-bash ">
+ &lt;code>aptitude install bzip2 libncurses5-dev fakeroot kernel-package&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Let&amp;rsquo;s go to &lt;code>/usr/src&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef8909b" class="language-bash ">
+ &lt;code>cd /usr/src&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, go to &lt;a href="https://www.kernel.org" rel="external" target="_blank">www.kernel.org&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and download the latest version in &amp;ldquo;&lt;strong>Full&lt;/strong>&amp;rdquo; of the latest kernel. Here, it&amp;rsquo;s version 4.8.4, then we extract it:&lt;/p></description></item><item><title>Process Latency and Kernel Timing</title><link>https://wiki.deimos.fr/Latence_des_process_et_kernel_timing/</link><pubDate>Sun, 05 Jan 2014 04:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Latence_des_process_et_kernel_timing/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/01/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="the-clocks">The Clocks &lt;a href="#the-clocks" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several clocks that allow you to obtain or manipulate time operations:&lt;/p></description></item><item><title>Optimizing Hard Disk Performance on Linux</title><link>https://wiki.deimos.fr/Optimiser_les_performances_des_disques_dur_sur_Linux/</link><pubDate>Thu, 02 Jan 2014 14:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Optimiser_les_performances_des_disques_dur_sur_Linux/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br />Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>02/01/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Physical hard drives are currently the slowest components in our machines, whether they are mechanical hard drives with platters or even SSDs! But there are ways to optimize their performance according to specific needs. In this article, we&amp;rsquo;ll look at several aspects that should help you understand why bottlenecks can occur, how to avoid them, and solutions for benchmarking.&lt;/p></description></item><item><title>Linux Memory Management</title><link>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</link><pubDate>Mon, 06 May 2013 14:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="pages">Pages &lt;a href="#pages" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When looking at &lt;code>/proc/meminfo&lt;/code>, &amp;lsquo;Inactive Clean&amp;rsquo; pages correspond to free pages. If the kernel needs to allocate pages to a process, it can take these pages from the free page list or from inactive clean. Pages being used by processes are referenced as active pages. In the case of shared memory, a page can have multiple processes referencing it.&lt;/p></description></item><item><title>Memory Caches</title><link>https://wiki.deimos.fr/Les_caches_m%C3%A9moire/</link><pubDate>Wed, 12 Sep 2012 16:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_caches_m%C3%A9moire/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br />Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>12/09/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="page-allocation">Page Allocation &lt;a href="#page-allocation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Delaying memory allocation when a process requests it is good for performance. Due to reference locality, most programs that request large memory allocations don&amp;rsquo;t allocate all of it at once. For program memory allocation, it will be done gradually to avoid using more than necessary.&lt;/p></description></item><item><title>Memory Addressing and Allocation</title><link>https://wiki.deimos.fr/L%27adressage_m%C3%A9moire_et_son_allocation/</link><pubDate>Tue, 11 Sep 2012 16:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/L%27adressage_m%C3%A9moire_et_son_allocation/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br />Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>11/09/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="memory-addressing">Memory Addressing &lt;a href="#memory-addressing" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For better efficiency, a computer&amp;rsquo;s memory is divided into blocks (chunks) called pages. Page size may vary depending on the processor architecture (32 or 64 bits). RAM is divided into page frames. One page frame can contain one page. When a process wants to access a memory address, a translation from the page to the page frame must be performed. If this information is not already in memory, the kernel must perform a search to manually load this page into the page frame.&lt;/p></description></item><item><title>Linux Process and Scheduler Management</title><link>https://wiki.deimos.fr/Gestion_des_process_et_des_schedulers/</link><pubDate>Tue, 04 Sep 2012 13:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gestion_des_process_et_des_schedulers/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>04/09/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="processes">Processes &lt;a href="#processes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To list processes, it&amp;rsquo;s very simple:&lt;/p></description></item><item><title>Udev: Using a Socket to Communicate with Kernel Devices</title><link>https://wiki.deimos.fr/Udev_:_Utilisation_d'un_socket_pour_parler_avec_les_devices_kernel/</link><pubDate>Thu, 05 Jul 2012 09:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Udev_:_Utilisation_d'un_socket_pour_parler_avec_les_devices_kernel/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>udev is a device manager that replaces devfs on Linux kernels series 2.6. Its main function is to manage devices in the &lt;code>/dev&lt;/code> directory.&lt;/p>
+&lt;p>udev runs in user mode and communicates with hotplug which runs in kernel mode. It uses and stores information it has discovered in &lt;code>/sys&lt;/code>. When hardware is detected, udev can assign a device name, create symbolic links, or execute a program when an action occurs on one or more devices.&lt;/p></description></item><item><title>GRUB: Using a Bootloader</title><link>https://wiki.deimos.fr/Grub_:_Utilisation_d'un_bootloader/</link><pubDate>Wed, 25 Apr 2012 12:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Grub_:_Utilisation_d'un_bootloader/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/grub_logo.png" alt="Grub" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1 &amp;amp; 2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Linux&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.gnu.org/software/grub/" rel="external" target="_blank">Grub Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>25/04/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>GNU GRUB (acronym for &amp;ldquo;GRand Unified Bootloader&amp;rdquo;) is a boot loader program for computers. It executes when the computer is powered on, after internal control sequences and before the actual operating system, since its role is to organize the loading process. When the computer hosts several systems (known as multi-boot), it allows the user to choose which system to start.&lt;/p></description></item><item><title>Sysctl: Configuring Kernel Options in Linux</title><link>https://wiki.deimos.fr/Sysctl_:_configurer_les_options_kernel_sous_Linux/</link><pubDate>Sun, 12 Feb 2012 14:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sysctl_:_configurer_les_options_kernel_sous_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Sysctl" rel="external" target="_blank">Sysctl&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an interface that allows you to examine and dynamically modify parameters of BSD and Linux operating systems. The implementation is very different between these two systems.&lt;/p></description></item><item><title>SystemTap: Profile and Quickly Use Kernel Features</title><link>https://wiki.deimos.fr/SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel/</link><pubDate>Sat, 31 Dec 2011 14:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/systemtaplogo.png" alt="SystemTap" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SystemTap is a software tool that simplifies information gathering on a Linux system. It allows you to analyze and diagnose performance or functionality issues. It eliminates the need for kernel recompilation, rebooting, and other steps typically required for low-level data collection.&lt;/p>
+&lt;p>SystemTap provides a command-line interface similar to awk and a C-like scripting language that allows you to write tools directly for a live kernel. Beyond tracing/probing, it&amp;rsquo;s useful for complex tasks requiring real-time analysis and programmatic responses to events.&lt;/p></description></item><item><title>OProfile: Profile Your System</title><link>https://wiki.deimos.fr/OProfile_:_profilez_votre_syst%C3%A8me/</link><pubDate>Wed, 28 Dec 2011 19:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/OProfile_:_profilez_votre_syst%C3%A8me/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/oprofile_logo.png" alt="OProfile" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="profiling">Profiling &lt;a href="#profiling" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>&lt;a href="https://oprofile.sourceforge.net" rel="external" target="_blank">OProfile&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a tool used for profiling.&lt;/p>
+&lt;p>Profiling is the process of examining data from various existing data sources (databases, files, etc.) and collecting statistics and information about this data. It is very similar to data analysis.&lt;/p></description></item><item><title>Modifying the firmware with OpenWrt</title><link>https://wiki.deimos.fr/Modifier_le_firmware_par_le_OpenWrt/</link><pubDate>Fri, 03 Jul 2009 01:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_le_firmware_par_le_OpenWrt/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As you know, some time ago, I tried to install &lt;strong>OpenWrt on a Fonera+&lt;/strong> (the larger one with two Ethernet connectors). After persisting, I finally managed to get something partially functional: recompiling the Fon firmware and getting both Ethernet ports working. However, WiFi still remains a problem.&lt;/p>
+&lt;p>After a period of working on my Frankenstein-modified Foneras, I decided to try again with another approach: using the Fon binary firmware and activating a serial console. The first step was to get a binary update for the Fonera+ in the form of the file foneraplus_1.1.1.1.fon.&lt;/p></description></item><item><title>Securing Your Kernel with Grsecurity and PaX</title><link>https://wiki.deimos.fr/S%C3%A9curisation_de_son_noyau_avec_Grsecurity_et_PaX/</link><pubDate>Tue, 03 Feb 2009 07:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/S%C3%A9curisation_de_son_noyau_avec_Grsecurity_et_PaX/</guid><description>&lt;h2 id="grsecurity--pax">Grsecurity &amp;amp; PaX &lt;a href="#grsecurity--pax" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Are buffer overflows and script kiddies something you&amp;rsquo;re concerned about? To counter these types of problems, there exists a kernel patch. There are many solutions to protect against &amp;ldquo;classic&amp;rdquo; attacks which are complex for professionals (but not impossible). Here is THE kernel patch that helps us protect our systems. There&amp;rsquo;s even a learning phase to help with system configuration, resulting in a highly secured solution.&lt;/p></description></item><item><title>Managing Zombie Processes in Linux</title><link>https://wiki.deimos.fr/Gestion_des_process_zombies_sous_Linux/</link><pubDate>Fri, 26 Dec 2008 19:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gestion_des_process_zombies_sous_Linux/</guid><description>&lt;p>Since Linux Kernel version 2.6.26, there is FINALLY the possibility to kill Zombie processes:&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/l-task-killable-pdf.pdf">TASK_KILLABLE: New process state in Linux&lt;/a>&lt;/p></description></item><item><title>Kernel and Network: Pushing the Limits of Connectivity</title><link>https://wiki.deimos.fr/Noyau_et_r%C3%A9seau_:_repousser_les_limites_de_la_connectivit%C3%A9/</link><pubDate>Wed, 10 Sep 2008 16:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Noyau_et_r%C3%A9seau_:_repousser_les_limites_de_la_connectivit%C3%A9/</guid><description>&lt;p>In this documentation, you will find information on:&lt;/p>
+&lt;ul>
+&lt;li>Bonding&lt;/li>
+&lt;li>Universal TUN/TAP device&lt;/li>
+&lt;li>PPP&lt;/li>
+&lt;li>Traffic Shaper&lt;/li>
+&lt;li>IP Advanced router&lt;/li>
+&lt;li>IP Tunneling and GRE&lt;/li>
+&lt;li>IP ARP daemon, TCP Explicit Congestion Notification and TCP syncookie&lt;/li>
+&lt;li>IPSEC, IPV6 and IPVS&lt;/li>
+&lt;li>Vlan Tagging and Ethernet Bridging&lt;/li>
+&lt;li>QOS&lt;/li>
+&lt;/ul>
+&lt;p>As you&amp;rsquo;ll understand, this is a very comprehensive document, but it requires very good system and network knowledge:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/le_noyau_et_le_r%C3%A9seau_-_comment_repousser_les_limites_de_la_connectivit%C3%A9_.pdf">Kernel and Network - How to Push the Limits of Connectivity&lt;/a>&lt;/p></description></item><item><title>Activating Kernel Modules</title><link>https://wiki.deimos.fr/Activer_modules_son_kernel/</link><pubDate>Sun, 04 May 2008 06:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_modules_son_kernel/</guid><description>&lt;h2 id="bsd-systems">BSD Systems &lt;a href="#bsd-systems" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the type of command you can use to disable ACPI (among other features) in your BSD kernel:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7073c27" class="language-bash ">
+ &lt;code>config -ef /bsd
+disable acpi
+quit&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To re-enable it, simply replace &lt;code>disable&lt;/code> with &lt;code>enable&lt;/code>.&lt;/p></description></item><item><title>Strengthening Linux Kernel Security Functions</title><link>https://wiki.deimos.fr/Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux/</link><pubDate>Thu, 15 Nov 2007 21:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This article offers an overview of various security mechanisms related to the kernels of GNU/Linux operating systems to ensure the integrity protection of your environment. In this first part, you&amp;rsquo;ll find an introduction to these mechanisms as well as to GNU/Linux system kernels in general.&lt;/p>
+&lt;h2 id="presentation">Presentation &lt;a href="#presentation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The growing enthusiasm of users for the Linux operating system, particularly from security experts or system administrators, is largely due to the robustness and advanced features this operating system offers. The kernel, the core of the system, manages most of the security-related functions in the environment.&lt;/p></description></item><item><title>Modifying Your Generic Kernel</title><link>https://wiki.deimos.fr/Modifier_son_kernel_g%C3%A9n%C3%A9rique/</link><pubDate>Tue, 13 Nov 2007 09:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_son_kernel_g%C3%A9n%C3%A9rique/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For those coming from the Linux world, they&amp;rsquo;ll find that this is super simple on BSD. In my case, I have a multicore server, and after installing BSD, it only detects one core. It&amp;rsquo;s a shame to run with just one core when you have several. I&amp;rsquo;ll explain here the procedure to switch to multicore, but this works with other kernel modifications as well!&lt;/p>
+&lt;h2 id="single-core-to-multicore">Single Core to Multicore &lt;a href="#single-core-to-multicore" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>During installation, you need to select the &amp;ldquo;bsd.mp&amp;rdquo; kernel. When the machine reboots after installation, it boots on the single-core kernel. We will therefore move the current kernel and replace it with the multicore one. To do this, it&amp;rsquo;s very simple:&lt;/p></description></item><item><title>Initramfs: Fixing Kernel Boot Issues with Initramfs</title><link>https://wiki.deimos.fr/Initramfs_:_corriger_les_petits_probl%C3%A8mes_de_boot_kernel_gr%C3%A2ce_%C3%A0_initramfs/</link><pubDate>Tue, 18 Sep 2007 22:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Initramfs_:_corriger_les_petits_probl%C3%A8mes_de_boot_kernel_gr%C3%A2ce_%C3%A0_initramfs/</guid><description>&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I just installed a server with many SATA disks. The machine has 4.5TB of storage spread across 2 Areca ARC-1280ML controllers. The Debian/etch installation went without issues using kernel 2.6.18-5-686. After installing the system on 2 disks connected to the motherboard (ICH5R controller using the ata_piix driver), RAID5 volumes are created on the Areca cards (arcmsr driver). However, boot stops at an initramfs command prompt, unable to find the root partition:&lt;/p></description></item><item><title>Modifying Source Version</title><link>https://wiki.deimos.fr/Modifier_la_version_des_sources/</link><pubDate>Wed, 20 Jun 2007 15:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_la_version_des_sources/</guid><description>&lt;ul>
+&lt;li>You have recompiled your own little kernel, GREAT!&lt;/li>
+&lt;li>Your kernel is called &amp;ldquo;2.6.21-a_bibi&amp;rdquo;&lt;/li>
+&lt;li>You want to recompile a software that relies on the source/headers of your kernel and &amp;ldquo;BAM!&amp;rdquo; it doesn&amp;rsquo;t work: &amp;ldquo;The sources you are using do not match your kernel! You must be kidding!!!&amp;rdquo; and so on.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>I say NO ladies and gentlemen!&lt;/strong>&lt;/p>
+&lt;p>All you need to do is modify your sources to fool your kernel!&lt;/p>
+&lt;p>Here is the content of the file &lt;strong>version.h&lt;/strong> located in &lt;strong>&amp;lt;source_path&amp;gt;/include/linux/version.h&lt;/strong>:&lt;/p></description></item><item><title>Kernel: Module Compilation</title><link>https://wiki.deimos.fr/Kernel_:_Compilation_des_modules/</link><pubDate>Sun, 27 Aug 2006 22:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kernel_:_Compilation_des_modules/</guid><description>&lt;p>Iptables is nowadays the Linux firewall of choice. However, when you&amp;rsquo;re a beginner, it&amp;rsquo;s not always easy to know what each module corresponds to.&lt;/p>
+&lt;h2 id="minimum-requirements">Minimum Requirements &lt;a href="#minimum-requirements" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>What do you need to recompile at minimum for the kernel?&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef63fda" class="language-bash ">
+ &lt;code>CONFIG_PACKET - Direct communication with network interfaces
+CONFIG_NETFILTER - Kernel management, necessary for Netfilter
+CONFIG_IP_NF_CONNTRACK - Necessary for NAT and Masquerade
+CONFIG_IP_NF_NETFILTER - Adds NETFILTER table
+CONFIG_IP_NF_IPTABLES - Required for iptables user space utility
+CONFIG_IP_NF_MANGLE - Adds MANGLE table
+CONFIG_IP_NF_NAT - Adds NAT table&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>&lt;strong>Rule not to add:&lt;/strong>&lt;/p></description></item></channel></rss>

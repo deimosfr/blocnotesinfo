@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Disk Images on Tech Notebook</title><link>https://wiki.deimos.fr/tags/disk-images/</link><description>Recent content in Disk Images on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/disk-images/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating Blank Images for Testing Filesystems</title><link>https://wiki.deimos.fr/Cr%C3%A9er_des_images_vierges_pour_tester_des_filesystems/</link><pubDate>Wed, 20 Jun 2007 08:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_des_images_vierges_pour_tester_des_filesystems/</guid><description>&lt;p>If, like me, you want to test a new filesystem or hardware speed without risking damage to one of your partitions, here&amp;rsquo;s a small tip that allows you to create a blank disk image to work with:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d60cb4" class="language-bash ">
+ &lt;code>dd if=/dev/zero of=./mon_image.img bs=1M count=128&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="29440af" class="language-bash ">
+ &lt;code>dd if=/dev/zero of=./10M.img bs=10m count=1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The second line is more for BSD systems.&lt;/p>
+&lt;p>Here, I&amp;rsquo;ll have a 128 MB image. Change the last number if you want a different size.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>File Sharing on Tech Notebook</title><link>https://wiki.deimos.fr/tags/file-sharing/</link><description>Recent content in File Sharing on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/file-sharing/index.xml" rel="self" type="application/rss+xml"/><item><title>Trick Samba Share Size Display</title><link>https://wiki.deimos.fr/trick-samba-share-size-display/</link><pubDate>Thu, 16 Feb 2012 10:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/trick-samba-share-size-display/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A colleague of mine found himself in a rather delicate situation. Let me explain the scenario:&lt;/p>
+&lt;ul>
+&lt;li>2 mount points in /mnt, with one nested inside the other&lt;/li>
+&lt;li>1 share on the primary mount point&lt;/li>
+&lt;/ul>
+&lt;p>When the primary mount point is full, you can&amp;rsquo;t copy anything anymore, even if the second nested mount point still has free space. For those who still don&amp;rsquo;t understand:&lt;/p>
+&lt;ul>
+&lt;li>/mnt/: 30 MB remaining&lt;/li>
+&lt;li>/mnt/disk1: 10 GB remaining&lt;/li>
+&lt;li>share: /mnt/&lt;/li>
+&lt;/ul>
+&lt;p>The share tells me that it can&amp;rsquo;t copy more than 30 MB, even into /share/disk1.&lt;/p></description></item><item><title>Installation and Configuration of Samba in 'User' Mode</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22/</link><pubDate>Thu, 06 Oct 2011 12:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is a free software licensed under the GPL that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources from these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs with DOS and early versions of Windows sometimes needed to install a TCP/IP stack and a set of Unix applications: an NFS client, FTP, telnet, lpr, etc. This was cumbersome and penalizing for PCs of that time, and it also forced users to adopt two sets of habits, adding those of UNIX to those of Windows. Samba therefore adopts the opposite approach.&lt;/p></description></item><item><title>Mounting a Windows Share from Samba</title><link>https://wiki.deimos.fr/Monter_un_partage_Windows_depuis_Samba/</link><pubDate>Sun, 19 Apr 2009 16:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_un_partage_Windows_depuis_Samba/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Mounting Windows shares from a Linux machine with Samba is straightforward with older Windows versions. However, for versions integrating NT technology (starting with Windows 2000), you might encounter problems like:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5f56a44" class="language- ">
+ &lt;code>params.c:Parameter() - Ignoring badly formed line in configuration file: &amp;#43;########## Domains ###########
+cli_negprot: SMB signing is mandatory and we have disabled it.
+30432: protocol negotiation failed
+SMB connection failed&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Or sometimes:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8077576" class="language- ">
+ &lt;code>smb_add_request: request [f65480c0, mid=24160] timed out!
+smb_add_request: request [f6548ec0, mid=24161] timed out!
+smb_add_request: request [f6548ec0, mid=24162] timed out!
+smb_add_request: request [f6548ec0, mid=24163] timed out!
+smb_add_request: request [f6548ec0, mid=24164] timed out!&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This can be problematic when you need to perform this operation quickly. That&amp;rsquo;s why I&amp;rsquo;m sharing the solution.&lt;/p></description></item><item><title>UploadTool: Setting up a file sharing tool via Apache</title><link>https://wiki.deimos.fr/UploadTool_:_Mise_en_place_d%27un_outil_d%27%C3%A9change_de_fichiers_via_Apache/</link><pubDate>Tue, 04 Sep 2007 08:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/UploadTool_:_Mise_en_place_d%27un_outil_d%27%C3%A9change_de_fichiers_via_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I was looking for a software for the company I work for, that allows file transfers with authentication but just at the upload level. So I found &lt;a href="https://uploadtool.sourceforge.net/" rel="external" target="_blank">UploadTool&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Installation and Configuration of Samba in "Share" Mode</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22Share%22/</link><pubDate>Mon, 27 Aug 2007 15:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22Share%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is an open source software licensed under the GPL that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources from these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs equipped with DOS and early versions of Windows sometimes had to install a TCP/IP stack and a set of Unix-originated software: NFS client, FTP, telnet, lpr, etc. This was heavy and penalizing for PCs of that time, and it also forced users to adopt a double set of habits, adding those of UNIX to those of Windows. Samba takes the opposite approach.&lt;/p></description></item></channel></rss>

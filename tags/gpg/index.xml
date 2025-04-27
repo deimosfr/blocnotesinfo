@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GPG on Tech Notebook</title><link>https://wiki.deimos.fr/tags/gpg/</link><description>Recent content in GPG on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/gpg/index.xml" rel="self" type="application/rss+xml"/><item><title>Debian: GPG Error During apt-get update</title><link>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</link><pubDate>Sat, 05 Aug 2006 13:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</guid><description>&lt;div class="prism-codeblock ">
+ &lt;pre id="71fd62d" class="language-bash ">
+ &lt;code>W: GPG error: http://security.debian.org testing/updates Release:
+The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY key-number&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Is this type of message appearing? It&amp;rsquo;s quite annoying, especially since it happens every year. To solve this problem, follow these steps:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="aa25af8" class="language-bash ">
+ &lt;code>gpg --keyserver pgpkeys.mit.edu --recv-key key-number
+gpg -a --export key-number | apt-key add -&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

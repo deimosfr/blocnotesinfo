@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sudo on Tech Notebook</title><link>https://wiki.deimos.fr/tags/sudo/</link><description>Recent content in Sudo on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/sudo/index.xml" rel="self" type="application/rss+xml"/><item><title>Sudo: Running commands as root without being root</title><link>https://wiki.deimos.fr/Sudo_:_Ex%C3%A9cuter_des_commandes_en_root_sans_l%27%C3%AAtre/</link><pubDate>Sun, 20 Sep 2009 18:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sudo_:_Ex%C3%A9cuter_des_commandes_en_root_sans_l%27%C3%AAtre/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sudo is frequently used and very practical because it allows occasional execution of commands as root without being logged in as root. It has several security options for usage.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s super simple as usual:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ea84b80" class="language-bash ">
+ &lt;code>apt-get install sudo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Edit the &lt;code>/etc/sudoers&lt;/code> file and adapt according to your needs&amp;hellip;&lt;/p>
+&lt;h3 id="give-all-rights-to-a-person">Give all rights to a person &lt;a href="#give-all-rights-to-a-person" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Warning: this operation is equivalent to giving all root rights to a person. They will be able to change the root password, see everything, delete everything. If you wish to apply this type of rights, add this:&lt;/p></description></item><item><title>Quickly Grant User Access to Cluster Commands</title><link>https://wiki.deimos.fr/Autoriser_rapidement_un_utilisateur_%C3%A0_avoir_acc%C3%A8s_aux_commandes_cluster/</link><pubDate>Thu, 31 May 2007 10:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Autoriser_rapidement_un_utilisateur_%C3%A0_avoir_acc%C3%A8s_aux_commandes_cluster/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We often need users to have access to specific commands without being root, and for cluster management, if you have dedicated administrators, it&amp;rsquo;s quite useful. Here&amp;rsquo;s a simple way to give them the necessary permissions&amp;hellip;&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To give a user permissions to simply use cluster commands, here are the files to modify:&lt;/p>
+&lt;ul>
+&lt;li>/etc/sudoers:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="830d9f0" class="language- ">
+ &lt;code># Cmnd alias specification
+Cmnd_Alias CLUSTAT = /usr/sbin/clustat
+Cmnd_Alias CLUSVCADM = /usr/sbin/clusvcadm
+Cmnd_Alias MOUNT = /bin/mount
+Cmnd_Alias UMOUNT = /bin/umount
+
+# Defaults specification
+
+# User privilege specification
+root ALL=(ALL) ALL
+my_user ALL=NOPASSWD:CLUSTAT,NOPASSWD:CLUSVCADM,NOPASSWD:MOUNT,NOPASSWD:UMOUNT&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>~/.bashrc (for the user)&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="47f04f3" class="language-bash ">
+ &lt;code># User specific aliases and functions
+alias clustat=&amp;#39;sudo /usr/sbin/clustat&amp;#39;
+alias clusvcadm=&amp;#39;sudo /usr/sbin/clusvcadm&amp;#39;
+alias mount=&amp;#39;sudo /bin/mount&amp;#39;
+alias umount=&amp;#39;sudo /bin/umount&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With my user account, I can simply run the commands and they will be executed as root:&lt;/p></description></item></channel></rss>

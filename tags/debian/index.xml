@@ -1,0 +1,2045 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Debian on Tech Notebook</title><link>https://wiki.deimos.fr/tags/debian/</link><description>Recent content in Debian on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/debian/index.xml" rel="self" type="application/rss+xml"/><item><title>Recompile your kernel</title><link>https://wiki.deimos.fr/Recompiler_son_du_noyau_(Kernel)/</link><pubDate>Thu, 10 Nov 2016 23:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Recompiler_son_du_noyau_(Kernel)/</guid><description>&lt;h2 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="centos">CentOS &lt;a href="#centos" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/centos-kernel.pdf">CentOS Kernel 2.6&lt;/a>&lt;/p>
+&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here is a list of packages needed to recompile the kernel:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2f087a2" class="language-bash ">
+ &lt;code>aptitude install bzip2 libncurses5-dev fakeroot kernel-package&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Let&amp;rsquo;s go to &lt;code>/usr/src&lt;/code>:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef8909b" class="language-bash ">
+ &lt;code>cd /usr/src&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, go to &lt;a href="https://www.kernel.org" rel="external" target="_blank">www.kernel.org&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> and download the latest version in &amp;ldquo;&lt;strong>Full&lt;/strong>&amp;rdquo; of the latest kernel. Here, it&amp;rsquo;s version 4.8.4, then we extract it:&lt;/p></description></item><item><title>LXC: Install and configure the Linux Containers</title><link>https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers/</link><pubDate>Sun, 22 Feb 2015 00:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>0.8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://lxc.sourceforge.net/" rel="external" target="_blank">LXC Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>22/02/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LXC is the userspace control package for Linux Containers, a lightweight virtual system mechanism sometimes described as &amp;ldquo;chroot on steroids&amp;rdquo;.&lt;/p></description></item><item><title>MFi: Install a Ubiquiti server to manage powerstrips</title><link>https://wiki.deimos.fr/MFi:_install_a_Ubiquiti_server_to_manage_powerstrips/</link><pubDate>Sun, 27 Jul 2014 13:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/MFi:_install_a_Ubiquiti_server_to_manage_powerstrips/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.0.24&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.ubnt.com" rel="external" target="_blank">Ubiquiti Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>27/07/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Ubiquiti brings software that are easy to install on Windows and Mac OS. However as it is strongly recommended to let this software always up, it&amp;rsquo;s preferable to have a Linux version to run it in a container or a virtual machine. That&amp;rsquo;s why I decided to install it for a powerstrip mPower on Debian inside LXC. The documentation is very poor, that&amp;rsquo;s why I made this one for those who want to do like me.&lt;/p></description></item><item><title>Systemd: How to Debug on Boot Failure</title><link>https://wiki.deimos.fr/Systemd:_how_to_debug_on_boot_fail/</link><pubDate>Sun, 27 Jul 2014 12:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Systemd:_how_to_debug_on_boot_fail/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Systemd" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>208-6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>27/07/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>systemd&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a system and service manager for Linux, compatible with SysV and LSB init scripts. Systemd provides aggressive parallelization capabilities, uses socket and D-Bus activation for starting services, offers on-demand starting of daemons, keeps track of processes using Linux control groups, supports snapshotting and restoring of the system state, maintains mount and automount points and implements an elaborate transactional dependency-based service control logic.&lt;/p></description></item><item><title>MariaDB: Migration from MySQL</title><link>https://wiki.deimos.fr/MariaDB_:_Migration_depuis_MySQL/</link><pubDate>Tue, 01 Apr 2014 06:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/MariaDB_:_Migration_depuis_MySQL/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mariadb-logo.png" alt="MariaDB" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://mariadb.org/" rel="external" target="_blank">MariaDB Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>01/04/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MariaDB is a community-developed fork of the MySQL relational database management system, the impetus being the community maintenance of its free status under the GNU GPL. As a fork of a leading open source software system, it is notable for being led by its original developers and triggered by concerns over direction by an acquiring commercial company Oracle. Contributors are required to share their copyright with Monty Program AB.&lt;/p></description></item><item><title>Infinality fonts for retina display</title><link>https://wiki.deimos.fr/Infinality_fonts_for_retina_display/</link><pubDate>Mon, 17 Feb 2014 08:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Infinality_fonts_for_retina_display/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.infinality.net/blog/" rel="external" target="_blank">Infinality Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>17/02/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Big resolution with small screens is more and more common and we&amp;rsquo;re facing a problem on fonts visualization. We have a lot of non adapted fonts for retina display, even if most of them are not so bad. The solution is to install additional fonts to replace the default one. One of the best one I&amp;rsquo;ve seen is &lt;a href="https://www.infinality.net/blog/" rel="external" target="_blank">Infinality fonts&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>!&lt;/p></description></item><item><title>Nginx + Varnish: Cache even in HTTPS by offloading SSL</title><link>https://wiki.deimos.fr/Nginx_%20_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL/</link><pubDate>Thu, 16 Jan 2014 17:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nginx_%20_Varnish_:_Cache_even_in_HTTPS_by_offloading_SSL/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nginx-logo.png" alt="Nginx Logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://nginx.org/" rel="external" target="_blank">Nginx Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> &lt;a href="https://www.varnish-cache.org/" rel="external" target="_blank">Varnish Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>16/01/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You certainly know how that Varnish is a very good caching solution but the major problem is you can&amp;rsquo;t use it for SSL connections. Fortunately there is a solution called &amp;ldquo;Offload SSL&amp;rdquo; which decrypt the SSL, send it to the cache system and return crypted flow. This schema will help you more on understanding the purpose of it:&lt;/p></description></item><item><title>APT: Adding Release Preferences for Specific Packages</title><link>https://wiki.deimos.fr/apt-ajouter-des-preferences-de-release-sur-certains-packages/</link><pubDate>Sun, 29 Dec 2013 17:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/apt-ajouter-des-preferences-de-release-sur-certains-packages/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>29/12/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have encountered a situation where you&amp;rsquo;re running the stable version of your system, but you&amp;rsquo;d like to use a more up-to-date package from testing, for example. This is possible! :-)&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="sourcelist">source.list &lt;a href="#sourcelist" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>I&amp;rsquo;ve chosen backuppc as an example. Let&amp;rsquo;s say I&amp;rsquo;m using the stable version, and I&amp;rsquo;d like to permanently install the testing version. I need to edit my &lt;code>/etc/apt/source.list&lt;/code> file so it contains what&amp;rsquo;s necessary to download from both stable and testing repositories:&lt;/p></description></item><item><title>PuppetDB: Enhance Your Puppet Functionality</title><link>https://wiki.deimos.fr/PuppetDB_:_Augmentez_les_fonctionnalit%C3%A9s_de_votre_Puppet/</link><pubDate>Mon, 28 Oct 2013 10:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/PuppetDB_:_Augmentez_les_fonctionnalit%C3%A9s_de_votre_Puppet/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/puppet-short.png" alt="Puppet" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.5.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://puppetlabs.com/" rel="external" target="_blank">Puppet Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/10/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PuppetDB&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> allows you to retrieve data collected by &lt;a href="./puppet_:_solution_de_gestion_de_fichier_de_configuration.html">Puppet&lt;/a> such as facts and to use exported resources among other things. This data can then be used by other programs, such as the &lt;a href="./Puppet_Dashboard_:_Mise_en_place_d'une_interface_graphique_pour_Puppet.html">dashboard&lt;/a>, or your own tools through an API. You can install the PuppetDB server on your PuppetMaster or on a separate server.&lt;sup id="fnref:2">&lt;a href="#fn:2" class="footnote-ref" role="doc-noteref">2&lt;/a>&lt;/sup>&lt;/p></description></item><item><title>OpenSSH: SSH Key Exchange</title><link>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</link><pubDate>Fri, 25 Oct 2013 09:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SSH key exchange is great for logging in without having to type your password. It&amp;rsquo;s also very simple to set up.&lt;/p>
+&lt;h2 id="basic">Basic &lt;a href="#basic" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, the user account to which the client will connect (for example &lt;strong>root&lt;/strong>) must have the .ssh directory present:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37cae9e" class="language-bash ">
+ &lt;code>mkdir .ssh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="client">Client &lt;a href="#client" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the client, you need to generate a key pair, &lt;strong>unless you already have one (~/.ssh/id_dsa.pub)&lt;/strong>:&lt;/p></description></item><item><title>Firefox Sync Server: Create Your Own Sync Server</title><link>https://wiki.deimos.fr/Firefox_Sync_Server_create_your_own_Sync_Server/</link><pubDate>Thu, 05 Sep 2013 14:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Firefox_Sync_Server_create_your_own_Sync_Server/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/firefox_sync_logo.png" alt="Firefox Sync Server" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://docs.services.mozilla.com/howtos/run-sync.html" rel="external" target="_blank">Firefox Sync Server Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/09/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>MariaDB 5.5&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Firefox Sync, originally branded Mozilla Weave, is a browser synchronization feature that allows users to partially synchronize bookmarks, browsing history, preferences, passwords, filled forms, add-ons and the last 25 opened tabs across multiple computers.&lt;/p></description></item><item><title>Glances: All in One Monitoring Shell Tool</title><link>https://wiki.deimos.fr/glances-all-in-one-monitoring-shell-tool/</link><pubDate>Sun, 11 Aug 2013 19:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/glances-all-in-one-monitoring-shell-tool/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/glances-logo.png" alt="Glances" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.6.1/Latest&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/nicolargo/glances" rel="external" target="_blank">Glances Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>11/08/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://github.com/nicolargo/glances" rel="external" target="_blank">Glances&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a cross-platform curses-based monitoring tool written in Python.&lt;/p></description></item><item><title>How to install and configure a monitoring machine for supervision</title><link>https://wiki.deimos.fr/How_to_install_and_configure_a_monitoring_machine_for_supervision/</link><pubDate>Thu, 08 Aug 2013 07:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/How_to_install_and_configure_a_monitoring_machine_for_supervision/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/nagios_logo.png" alt="Nagios" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>08/08/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The goal of this documentation is how to quickly setup a monitoring machine on Nagios/Shinken:&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/monito_screen.png" alt="Monito screen" loading="lazy">
+
+&lt;/p>
+&lt;p>The idea is to have a machine that nobody never touch once installed. It&amp;rsquo;s always boring to plug a keyboard and a mouse when somethings goes wrong on this kind of machine. That&amp;rsquo;s why we&amp;rsquo;ll see how to setup a minimal installation with all requirements to satisfy those needs.&lt;/p></description></item><item><title>How to use old Debian repository for unmaintained Debian versions</title><link>https://wiki.deimos.fr/How_to_use_old_Debian_repository_for_unmaintained_Debian_versions/</link><pubDate>Fri, 05 Jul 2013 08:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/How_to_use_old_Debian_repository_for_unmaintained_Debian_versions/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian X&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/07/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installing old Debian to prepare a migration is quite good when repositories are still available. But for old unmaintained versions of Debian, we need to change some things.&lt;/p></description></item><item><title>Switch audio output to another USB device</title><link>https://wiki.deimos.fr/Swith_audio_output_to_another_USB_device/</link><pubDate>Thu, 23 May 2013 15:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Swith_audio_output_to_another_USB_device/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>23/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I&amp;rsquo;ve recently bought an Enermax keyboard (Caesar) and have input and output audio directly on the keyboard! That&amp;rsquo;s great and better when it works. Unfortunately, as I have a minimal OS, it doesn&amp;rsquo;t work out of the box. So here is how I could achieve it.&lt;/p>
+&lt;p>I will present 2 ways to make it work and I personally use the manual way.&lt;/p></description></item><item><title>Integrit: Add an integrity control tool on your Debian</title><link>https://wiki.deimos.fr/Integrit_:_Add_an_integrity_control_tool_on_your_Debian/</link><pubDate>Tue, 07 May 2013 14:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Integrit_:_Add_an_integrity_control_tool_on_your_Debian/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Integrit" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>4.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://sourceforge.net/projects/integrit/" rel="external" target="_blank">Integrit Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Integrit&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a simple yet secure alternative to products like tripwire. It has a small memory footprint, uses up-to-date cryptographic algorithms, and has features that make sense (like including the MD5 checksum of newly generated databases in the report&lt;/p></description></item><item><title>Apt &amp; Aptitude: Useful Commands</title><link>https://wiki.deimos.fr/apt-aptitude-les-commandes-utiles/</link><pubDate>Tue, 07 May 2013 11:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/apt-aptitude-les-commandes-utiles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Being an Ubuntu/Debian user (yes, I use and advocate both), I have fallen in love with the Advanced Packaging Tool, also known as apt. Before Ubuntu, I played in the world of RPM hell, with distros such as Red Hat itself, Mandrake (as it was called back then), and even SuSE. I would find some piece of software, try to install it, only to find that it would choke, saying that it relied on some certain dependencies. I would install the dependencies, only to find conflicting versions with newer software. Hell indeed. So when I discovered the Debian way of installing software, I wondered why no one had mentioned it to me before. It was heaven. This is the way to software, I thought.&lt;/p></description></item><item><title>Automate Debian Installation</title><link>https://wiki.deimos.fr/Automatiser_une_installation_de_Debian/</link><pubDate>Tue, 07 May 2013 11:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Automatiser_une_installation_de_Debian/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>7.0&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s not always easy to set up 10 identical servers. That&amp;rsquo;s why this section will help you have a clean and controlled installation.&lt;/p></description></item><item><title>Installation and Configuration of Postfix and Courier</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Postfix_et_Courrier/</link><pubDate>Tue, 07 May 2013 07:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Postfix_et_Courrier/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix.png" alt="Postfix Architecture" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an email server and free software developed by Wietse Venema. It handles the delivery of electronic messages. It was designed as a faster, easier to administer, and more secure alternative to the historical Sendmail.&lt;/p></description></item><item><title>Debian: Reinstalling a Server Almost Identically</title><link>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</link><pubDate>Mon, 06 May 2013 15:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</guid><description>&lt;h2 id="principle">Principle &lt;a href="#principle" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>From a reference server, I want to quickly install another server with exactly the same packages.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We&amp;rsquo;ll extract the list of installed packages from the reference server:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="120d0f6" class="language-bash ">
+ &lt;code>dpkg --get-selections &amp;gt; my_packages.txt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then reinstall everything from this package list:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a6b7719" class="language-bash ">
+ &lt;code>dpkg --clear-selections
+dpkg --set-selections &amp;lt; my_packages.txt
+apt-get update
+apt-get dselect-upgrade
+apt-get dist-upgrade
+apt-get upgrade&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Belier: Script Your SSH Connection</title><link>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</link><pubDate>Mon, 06 May 2013 09:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/belier_logo.png" alt="Belier" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.ohmytux.com/belier/" rel="external" target="_blank">Belier Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Belier&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> allows opening a shell or executing a command on a remote computer through an SSH connection. The main feature of Belier is its ability to cross several intermediate computers before completing the job.&lt;/p></description></item><item><title>Jenkins: Setting up a continuous integration tool</title><link>https://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue/</link><pubDate>Fri, 12 Apr 2013 09:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/jenkins_logo.png" alt="Jenkins" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.447&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://jenkins-ci.org/" rel="external" target="_blank">Jenkins&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>12/04/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Jenkins is an open source continuous integration tool, forked from the Hudson tool after disagreements between its author, Kohsuke Kawaguchi, and Oracle. Written in Java, Jenkins runs in a servlet container such as Apache Tomcat, or standalone with its own embedded web server.&lt;/p></description></item><item><title>LDAP: Installation and Configuration of an LDAP Directory</title><link>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</link><pubDate>Thu, 28 Mar 2013 10:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/openldap-logo.png" alt="OpenLDAP" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.4.23+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.openldap.org/" rel="external" target="_blank">OpenLDAP Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/LDAP" rel="external" target="_blank">Lightweight Directory Access Protocol (LDAP)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a protocol that allows querying and modification of directory services. This protocol is based on TCP/IP. An LDAP directory typically follows the X.500 model defined by ITU-T: it is a tree structure where each node consists of attributes associated with their values.&lt;/p></description></item><item><title>Shinken: Installation and Configuration of Nagios' Successor</title><link>https://wiki.deimos.fr/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios/</link><pubDate>Thu, 03 Jan 2013 07:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Shinken_:_Installation_et_configuration_du_successeur_de_Nagios/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/shinken_logo.png" alt="Shinken" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.shinken-monitoring.org" rel="external" target="_blank">Shinken Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>03/01/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Shinken&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is an application for system and network monitoring. It monitors specified hosts and services, alerting when systems malfunction and when they recover. It is free software under the GNU AGPL license. It is fully compatible with Nagios and aims to provide distributed and highly available monitoring that&amp;rsquo;s easy to set up. Starting as a proof of concept for distributed architectures in Nagios, the program quickly demonstrated much better performance and flexibility than its predecessor.&lt;/p></description></item><item><title>Checking File Integrity on Debian</title><link>https://wiki.deimos.fr/V%C3%A9rifier_l%27int%C3%A9grit%C3%A9_des_fichiers_sur_sa_Debian/</link><pubDate>Wed, 29 Aug 2012 12:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/V%C3%A9rifier_l%27int%C3%A9grit%C3%A9_des_fichiers_sur_sa_Debian/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian_logo.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>29/08/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For some context, I had a former colleague who found himself working in a company with many compromised servers that had been owned for years with no immediate possibility of replacing them. Knowing that binaries had been modified, he had to verify the integrity of all systems. For this purpose, he created a small script to check everything.&lt;/p></description></item><item><title>TinyProxy: Setting up a Simple and Fast Proxy</title><link>https://wiki.deimos.fr/TinyProxy:_Mise_en_place_d'un_proxy_simple_et_rapide/</link><pubDate>Fri, 27 Jul 2012 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/TinyProxy:_Mise_en_place_d'un_proxy_simple_et_rapide/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/tinyproxy_logo.png" alt="TinyProxy" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.8.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://banu.com/tinyproxy/" rel="external" target="_blank">TinyProxy Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>27/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>TinyProxy is a proxy server, similar to Squid, but designed to be lightweight. I use it at work on my machine for all my applications. The advantage is having the proxy configuration for wget, apt, etc., pointing to localhost. This way, in the TinyProxy configuration, you only need to configure the proxy server you want to connect to, and all your applications will be redirected without having to reconfigure them every time there&amp;rsquo;s a change :-)&lt;/p></description></item><item><title>Rename Network Interfaces to ethX</title><link>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</link><pubDate>Mon, 16 Jul 2012 21:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Renommer_les_interfaces_r%C3%A9seaux_en_ethX/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ve probably noticed that the recent trend in some Linux distributions is to name network cards not by ethX, but by their chipset. So we end up with em0, em1 or whatever&amp;hellip;&lt;/p>
+&lt;p>This idea probably came from Solaris, but personally, I don&amp;rsquo;t see the benefit, especially since it&amp;rsquo;s more of a hindrance when you want to standardize an IT infrastructure. The purpose of this article is to show how to return to the good old ethX interfaces. I recommend reading &lt;a href="https://wiki.deimos.fr/Udev_:_Utilisation_d'un_socket_pour_parler_avec_les_devices_kernel/">the article on Udev&lt;/a> before starting this one, to better understand certain aspects.&lt;/p></description></item><item><title>SSLH: Multiplexing SSL and SSH connections on the same port</title><link>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</link><pubDate>Sun, 10 Jun 2012 09:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.rutschle.net/tech/sslh.shtml" rel="external" target="_blank">SSLH&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is like a magic trick. It allows you, for example, to have both HTTPS and SSH on a WAN address on port 443. How is this possible? Can we have a single listening port for multiple services?&lt;/p></description></item><item><title>Squid: Installation and Configuration of Squid</title><link>https://wiki.deimos.fr/Squid_:_Installation_et_configuration_de_Squid/</link><pubDate>Wed, 06 Jun 2012 08:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Squid_:_Installation_et_configuration_de_Squid/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/squid_logo.png" alt="Squid" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>FreeBSD 9&lt;br>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.squid-cache.org/" rel="external" target="_blank">Squid Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/06/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A Squid server is a proxy server capable of using FTP, HTTP, Gopher, and HTTPS protocols. Unlike conventional proxy servers, a Squid server handles all requests in a single, non-blocking input/output process.&lt;/p></description></item><item><title>PowerDNS: Creating a DNS Cache Server</title><link>https://wiki.deimos.fr/PowerDNS:_Cr%C3%A9er_un_serveur_de_cache_DNS/</link><pubDate>Tue, 15 May 2012 14:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/PowerDNS:_Cr%C3%A9er_un_serveur_de_cache_DNS/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/powerdns_logo.png" alt="PowerDNS" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.9.22&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.powerdns.com" rel="external" target="_blank">PowerDNS Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/05/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PowerDNS is (as its name suggests) a DNS server. It&amp;rsquo;s a direct competitor to Bind. It aims to be less RAM-intensive and offers more flexible configuration options than Bind.&lt;/p></description></item><item><title>Activating the Serial Port on Linux</title><link>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sur_Linux/</link><pubDate>Mon, 14 May 2012 17:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sur_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s often convenient to access a machine via the serial port. Unfortunately, we usually realize this too late. Here&amp;rsquo;s how to activate it.&lt;/p>
+&lt;p>For usage information, please refer to the documentation on Minicom.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Modify the following lines to ensure that the console part loads correctly during the Grub boot:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ &lt;div class="prism-codeblock anchorlinenos hl_lines linenos">
+ &lt;pre id="9e74958" class="language-bash line-numbers linkable-line-numbers" data-line="8,16,17" data-line-offset="1">
+ &lt;code># If you change this file, run &amp;#39;update-grub&amp;#39; afterwards to update
+# /boot/grub/grub.cfg.
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2&amp;gt; /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet&amp;#34;
+GRUB_CMDLINE_LINUX=&amp;#34;console=tty0 console=ttyS0,9600n8&amp;#34;
+
+# Uncomment to enable BadRAM filtering, modify to suit your needs
+# This works with Linux (no patch required) and with any kernel that obtains
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM=&amp;#34;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&amp;#34;
+
+# Uncomment to disable graphical terminal (grub-pc only)
+GRUB_TERMINAL=console
+GRUB_SERIAL_COMMAND=&amp;#34;serial --speed=9600 --unit=0 --word=8 --parity=no --stop=1&amp;#34;
+
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `vbeinfo&amp;#39;
+#GRUB_GFXMODE=640x480
+
+# Uncomment if you don&amp;#39;t want GRUB to pass &amp;#34;root=UUID=xxx&amp;#34; parameter to Linux
+#GRUB_DISABLE_LINUX_UUID=true
+
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_LINUX_RECOVERY=&amp;#34;true&amp;#34;
+
+# Uncomment to get a beep at grub start
+#GRUB_INIT_TUNE=&amp;#34;480 440 1&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then update Grub:&lt;/p></description></item><item><title>Proxychains: Proxy Any Outbound Connection</title><link>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</link><pubDate>Mon, 14 May 2012 09:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Ah, those proxy servers at work or school! They can be quite troublesome! Sometimes you really need temporary access to the outside world. Depending on the commands you use, you may or may not have the ability to configure proxy usage by modifying a configuration file, an environment variable, etc.&lt;/p>
+&lt;p>The benefit of &lt;a href="https://proxychains.sourceforge.net/" rel="external" target="_blank">proxychains&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is that configuration is done only once, in its own configuration file. Then you use the syntax &lt;code>proxychains &amp;lt;command&amp;gt; &amp;lt;args&amp;gt;&lt;/code> and your command will use the proxy specified in the proxychains configuration file!&lt;/p></description></item><item><title>Installing Debian on a Mac in Single Boot</title><link>https://wiki.deimos.fr/Installer_Debian_sur_un_Mac_en_single_boot/</link><pubDate>Wed, 02 May 2012 20:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_Debian_sur_un_Mac_en_single_boot/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian_logo.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org/" rel="external" target="_blank">Debian&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/02/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are many methods for installing Debian on a Mac, some of which are less elegant than others. One approach that worked for me, but is quite messy, involves having an HFS+ partition with refit and Linux partitions that need to be synchronized with EFI (MBR -&amp;gt; EFI) with each new partition.&lt;/p></description></item><item><title>Proxy: Creating a proxy with Apache</title><link>https://wiki.deimos.fr/Proxy:%C2%A0Cr%C3%A9er_un_proxy_avec_Apache/</link><pubDate>Thu, 29 Mar 2012 07:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Proxy:%C2%A0Cr%C3%A9er_un_proxy_avec_Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With Apache&amp;rsquo;s mod_proxy, there are several use cases. I will propose two scenarios here.&lt;/p>
+&lt;h3 id="scenario-1">Scenario 1 &lt;a href="#scenario-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s the situation! I&amp;rsquo;m in a computer school where (like in many schools) only port 80 is open, and the class isn&amp;rsquo;t always interesting.&lt;/p>
+&lt;p>So what can you do to access your SSH server, play World of Warcraft, or download heavily from eMule?&lt;/p>
+&lt;p>Well, Uncle Tom has a super pattern for you who wants to break the laws: the APACHE MOD_PROXY PLATINUM EDITION!&lt;/p></description></item><item><title>Kexec: Optimize Your Boot Times</title><link>https://wiki.deimos.fr/Kexec_:_optimisez_vos_temps_de_boot/</link><pubDate>Thu, 15 Mar 2012 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Kexec_:_optimisez_vos_temps_de_boot/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Kexec is a tool that allows rebooting a machine without going through the hardware layer. It will stop all services, shut down the init processes (sysV) to reach the bootloader. Then it will start normally, bypassing the hardware reboot phase.&lt;/p>
+&lt;p>This technique can be very useful on High Availability systems where downtime is critical.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Debian, you need to install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bf4f5b1" class="language-bash ">
+ &lt;code>aptitude install kexec-tools&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Red Hat, you need to have this package installed:&lt;/p></description></item><item><title>MRTG: Network-Focused Monitoring</title><link>https://wiki.deimos.fr/MRTG_:_Monitoring_ax%C3%A9_r%C3%A9seau/</link><pubDate>Sun, 25 Dec 2011 20:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/MRTG_:_Monitoring_ax%C3%A9_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MRTG Multi Router Traffic Grapher (MRTG) is software developed under the GNU/GPL license at the initiative of Tobias Oetiker. This software allows you to create graphs of network traffic. It uses the SNMP protocol to query network equipment such as routers, switches, or servers that have an MIB.&lt;/p>
+&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mrtg.jpg" alt="MRTG" loading="lazy">
+
+&lt;/p>
+&lt;p>Today, the creators of MRTG have abandoned their project and moved on to &lt;a href="https://wiki.deimos.fr/docs/servers/monitoring/cacti/">Cacti&lt;/a>, which is a much more powerful but also much more complex product.&lt;/p></description></item><item><title>SNMP: The Network Management Protocol</title><link>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</link><pubDate>Sun, 25 Dec 2011 20:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/SNMP_:_Le_protocole_de_gestion_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Network management systems are based on three main elements: a supervisor, nodes, and agents. In SNMP terminology, the term &amp;ldquo;manager&amp;rdquo; is more commonly used than &amp;ldquo;supervisor&amp;rdquo;. The supervisor is the console that allows the network administrator to execute management requests. Agents are entities located at each interface, connecting the managed equipment (node) to the network and allowing information to be retrieved on different objects.&lt;/p>
+&lt;p>Switches, hubs, routers, workstations, and servers (physical or virtual) are examples of equipment containing manageable objects. These manageable objects can be hardware information, configuration parameters, performance statistics, and other objects that are directly related to the current behavior of the equipment in question. These objects are classified in a tree-like database called MIB (Management Information Base). SNMP enables communication between the supervisor and agents to collect the desired objects in the MIB.&lt;/p></description></item><item><title>ZFS On Linux: Setting up ZFS on Linux</title><link>https://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux/</link><pubDate>Tue, 06 Dec 2011 20:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/zfs-linux.png" alt="ZFS on Linux Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If like me you&amp;rsquo;re a fan of this filesystem and find it a shame that it&amp;rsquo;s not natively available on Linux, there are currently several solutions to have this filesystem:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.oracle.com" rel="external" target="_blank">Solaris&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>/OpenSolaris: This is where ZFS comes from, but it remains a proprietary OS&lt;/li>
+&lt;li>&lt;a href="https://www.freebsd.org/" rel="external" target="_blank">FreeBSD&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: The first port of ZFS appeared on FreeBSD, but we&amp;rsquo;re looking to use Linux here&lt;/li>
+&lt;li>&lt;a href="https://www.debian.org/ports/kfreebsd-gnu/" rel="external" target="_blank">Kfreebsd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: not really Linux (although Debian), but a FreeBSD kernel that allows ZFS to run with a Debian-style layer on top&lt;/li>
+&lt;li>&lt;a href="https://zfs-fuse.net/" rel="external" target="_blank">ZFS on Fuse&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: works on Linux, slow (because it runs on FUSE) but historically the first to be released for Linux (so supposedly the most mature)&lt;/li>
+&lt;li>&lt;a href="https://zfsonlinux.org" rel="external" target="_blank">ZFS on Linux&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: newer, but has the advantage of running as a Linux kernel module&lt;/li>
+&lt;/ul>
+&lt;p>I chose this last solution because I wanted to keep a Linux machine (Debian/Ubuntu) and have ZFS.&lt;/p></description></item><item><title>NTP: Creating an NTP Server</title><link>https://wiki.deimos.fr/NTP_:_Cr%C3%A9ation_d%27un_serveur_NTP/</link><pubDate>Thu, 06 Oct 2011 11:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/NTP_:_Cr%C3%A9ation_d%27un_serveur_NTP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The NTP server is a time server. It provides time based on atomic clock references.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Super quick:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9efd17a" class="language-bash ">
+ &lt;code>apt-get install ntp&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="solaris">Solaris &lt;a href="#solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On Solaris, NTP is normally installed by default. Otherwise, search for packages containing &lt;em>ntpd&lt;/em>.
+You will need to copy the server configuration file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0a56674" class="language-bash ">
+ &lt;code>cp /etc/inet/ntp.server /etc/inet/ntp.conf&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is some information before diving into configuration files:&lt;/p>
+&lt;ul>
+&lt;li>stratum: indicates that it&amp;rsquo;s not very reliable data&lt;/li>
+&lt;li>127.127.1.0: time given by the machine (BIOS)&lt;/li>
+&lt;li>peer: defines a server of the same stratum as the server (same level/same geographic location), which allows for more reliability. Using 1 server + peers provides a more refined configuration than having only geographically distant servers.&lt;/li>
+&lt;/ul>
+&lt;h3 id="debian-1">Debian &lt;a href="#debian-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Here&amp;rsquo;s the configuration file for a time server (&lt;code>/etc/inet/ntp.conf&lt;/code>):&lt;/p></description></item><item><title>Connect to Debian via Serial Port</title><link>https://wiki.deimos.fr/Se_connecter_par_port_serie_sur_sa_debian/</link><pubDate>Fri, 20 May 2011 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Se_connecter_par_port_serie_sur_sa_debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This documentation helps you set up a connection to a Linux machine via a serial port. It also explains how to configure minicom.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Debian:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ae4dd60" class="language-bash ">
+ &lt;code>apt-get install minicom&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>First, we need to determine your COM port configuration:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="35eac8a" class="language-bash ">
+ &lt;code>$ dmesg | grep tty
+[ 0.004000] console [tty0] enabled
+[ 1.629013] tty ttye7: hash matches
+[ 1.629021] tty ttyba: hash matches
+[ 12.843809] usb 5-2: pl2303 converter now attached to ttyUSB0
+[ 129.343389] type=1503 audit(1230854350.490:5): operation=&amp;#34;inode_permission&amp;#34; requested_mask=&amp;#34;w::&amp;#34; denied_mask=&amp;#34;w::&amp;#34; fsuid=0 name=&amp;#34;/dev/ttyUSB0&amp;#34; pid=6609 profile=&amp;#34;/usr/sbin/cupsd&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We can see that ttyUSB0 is detected here.&lt;/p></description></item><item><title>Smartmontools: Hard Drive Monitoring</title><link>https://wiki.deimos.fr/Smartmontool_:_Surveillance_des_disques_dur/</link><pubDate>Fri, 14 Jan 2011 20:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Smartmontool_:_Surveillance_des_disques_dur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Smartmontools is a tool for analyzing hard drives and their most critical physical characteristics. It consists of two parts: smartd daemon, which checks parameters every 30 minutes and writes the results to &lt;code>/var/log/syslog&lt;/code>, and the smartctl command which requires root privileges and is used to display all the information.&lt;/p>
+&lt;h2 id="activation--installation-of-smartmontools">Activation / Installation of smartmontools &lt;a href="#activation--installation-of-smartmontools" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Installation requires root privileges. The package name varies depending on your Debian version. The example below is for Sarge.&lt;/p></description></item><item><title>Apt-cacher-ng: Setting Up a Proxy for APT</title><link>https://wiki.deimos.fr/apt-cacher-ng-mise-en-place-d-un-proxy-pour-apt/</link><pubDate>Tue, 31 Aug 2010 07:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/apt-cacher-ng-mise-en-place-d-un-proxy-pour-apt/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Without having an amazing internet connection and using virtual machines, it quickly becomes tedious to wait ages to download the same packages for all these VMs. So I looked for a solution to have a kind of cache specifically for apt.&lt;/p>
+&lt;p>I found happiness with apt-cacher-ng which, from what I&amp;rsquo;ve read, is the most complete solution available today.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As usual, it&amp;rsquo;s simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0cea20d" class="language-bash ">
+ &lt;code>aptitude install apt-cacher-ng&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>My server has the IP &lt;strong>192.168.100.1&lt;/strong>. If you want to modify some small options, I invite you to look at the file &lt;code>/etc/apt-cacher-ng/acng.conf&lt;/code>.&lt;/p></description></item><item><title>Disable Screen Standby on Debian</title><link>https://wiki.deimos.fr/D%C3%A9sactiver_la_mise_en_veille_de_l%27%C3%A9cran_sur_Debian/</link><pubDate>Sun, 27 Jun 2010 07:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/D%C3%A9sactiver_la_mise_en_veille_de_l%27%C3%A9cran_sur_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is a simple but sometimes useful feature. By default, Debian turns the screen black after 30 minutes and locks the screen after 60 minutes.&lt;/p>
+&lt;p>It&amp;rsquo;s possible to disable all of these features.&lt;/p>
+&lt;h2 id="instructions">Instructions &lt;a href="#instructions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Edit the &lt;code>/etc/console-tools/config&lt;/code> file and change these lines:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8552157" class="language-bash ">
+ &lt;code>BLANK_TIME=0
+POWERDOWN_TIME=0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Reboot and you&amp;rsquo;re all set! :-)&lt;/p></description></item><item><title>TFTP: PXE Server, OS Deployment under Linux</title><link>https://wiki.deimos.fr/TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux/</link><pubDate>Thu, 20 May 2010 05:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/TFTP_:_PXE_Serveur,_d%C3%A9ploiement_d%27OS_sous_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>PXE boot (Pre-boot eXecution Environment) allows a workstation to boot from the network an operating system that is stored on a server.&lt;/p>
+&lt;p>It also allows automatic and remote installation of servers with various operating systems.&lt;/p>
+&lt;p>To enable PXE, you first need to configure it in the BIOS. The option is frequently found in a menu related to the network card.&lt;/p>
+&lt;p>PXE booting is performed in several steps:&lt;/p>
+&lt;ul>
+&lt;li>Search for an IP address on a DHCP server as well as the file to boot&lt;/li>
+&lt;li>Download the boot file from a Trivial FTP server&lt;/li>
+&lt;li>Execute the boot file&lt;/li>
+&lt;/ul>
+&lt;p>It should be noted that the size of the boot file does not allow for directly booting a Linux kernel, for example, but requires that the boot software download and execute it itself.&lt;/p></description></item><item><title>Recompile a Software the Debian Way</title><link>https://wiki.deimos.fr/Recompiler_un_soft_%C3%A0_la_sauce_Debian/</link><pubDate>Sun, 28 Mar 2010 20:27:00 +0200</pubDate><guid>https://wiki.deimos.fr/Recompiler_un_soft_%C3%A0_la_sauce_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes you need to recompile some software. But when using Debian packages, it&amp;rsquo;s not always easy because you want to keep the Debian conveniences. The solution is apt-get source :-)&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We will need these packages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6cba0ad" class="language-bash ">
+ &lt;code>aptitude install dpkg-dev&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="example">Example &lt;a href="#example" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For example, I want to install nginx but recompile it with an additional option. I download the sources as follows:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c682a2a" class="language-bash ">
+ &lt;code>apt-get source nginx&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then I have a directory containing the sources and I reconfigure my sources with ./configure.&lt;/p></description></item><item><title>Setting up Xen</title><link>https://wiki.deimos.fr/Mise_en_place_de_Xen/</link><pubDate>Sun, 13 Dec 2009 16:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Xen allows multiple operating systems (and their applications) to run in isolation on the same physical machine. Guest operating systems share the host machine&amp;rsquo;s resources.&lt;/p>
+&lt;p>Xen is a &amp;ldquo;paravirtualizer&amp;rdquo; or &amp;ldquo;hypervisor&amp;rdquo; for virtual machines. Guest operating systems are &amp;ldquo;aware&amp;rdquo; of the underlying Xen system and need to be &amp;ldquo;ported&amp;rdquo; (adapted) to work on Xen. Linux, NetBSD, FreeBSD, and Plan 9 can already run on Xen.&lt;/p>
+&lt;p>Xen 3 can also run unmodified systems like Windows on processors that support VT technology.&lt;/p></description></item><item><title>Advanced Usage of Debian Packages</title><link>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_des_packages_Debian/</link><pubDate>Fri, 11 Dec 2009 21:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_des_packages_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Quite possibly the most distinguishing feature of Debian-based Linux distributions (such as Ubuntu, Mepis, Knoppix, etc) is their package system – APT. Also known as the Advanced Package Tool, APT was first introduced in Debian 2.1 in 1999. APT is not so much a specific program as it is a collection of separate, related packages.&lt;/p>
+&lt;p>With APT, Linux gained the ability to install and manage software packages in a much simpler and more efficient way than was previously possible. Before its introduction, most software had to be installed either by manually compiling the source code, or using individual packages with no automatic dependency handling (such as RPM files). This could mean hours of &amp;ldquo;dependency hell&amp;rdquo; even to install a fairly trivial program.&lt;/p></description></item><item><title>AOE: Setting Up an ATA Over Ethernet Server</title><link>https://wiki.deimos.fr/aoe-mise-en-place-d-un-serveur-ata-over-ethernet/</link><pubDate>Sat, 28 Nov 2009 15:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/aoe-mise-en-place-d-un-serveur-ata-over-ethernet/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/ATA_over_Ethernet" rel="external" target="_blank">ATA over Ethernet (AoE)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a network layer protocol that allows ATA commands to be transported over an Ethernet network.&lt;/p>
+&lt;h2 id="resources">Resources &lt;a href="#resources" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/using_ata_over_ethernet_aoe.pdf">Using ATA Over Ethernet (AoE) On Debian Lenny (Initiator And Target)&lt;/a>&lt;/p></description></item><item><title>Creating an iSCSI Share Between Solaris and Debian</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_partage_iSCSI_entre_Solaris_et_Debian/</link><pubDate>Sat, 28 Nov 2009 15:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_partage_iSCSI_entre_Solaris_et_Debian/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Technology is beautiful, isn&amp;rsquo;t it! Here&amp;rsquo;s a guide to create an iSCSI share between Solaris and Debian. Be careful with performance as this remains iSCSI - I don&amp;rsquo;t recommend it for production environments unless you know what you&amp;rsquo;re doing.&lt;/p>
+&lt;p>In this setup, Solaris will be our server and Debian our client.&lt;/p>
+&lt;h2 id="2-installation">2 Installation &lt;a href="#2-installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="21-solaris">2.1 Solaris &lt;a href="#21-solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s verify that we have the required packages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="021e662" class="language-bash ">
+ &lt;code>$ pkginfo | grep iscsi
+system SUNWiscsir Sun iSCSI Device Driver (root)
+system SUNWiscsitgtr Sun iSCSI Target (Root)
+system SUNWiscsitgtu Sun iSCSI Target (Usr)
+system SUNWiscsiu Sun iSCSI Management Utilities (usr)&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="22-debian">2.2 Debian &lt;a href="#22-debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s install Open iSCSI:&lt;/p></description></item><item><title>Netcat: Usage</title><link>https://wiki.deimos.fr/Netcat:%C2%A0utilisation/</link><pubDate>Fri, 27 Nov 2009 21:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Netcat:%C2%A0utilisation/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Netcat is often referred to as a &amp;ldquo;Swiss Army knife&amp;rdquo; utility, and for a good reason. Just like the multi-function usefulness of the venerable Swiss Army pocket knife, netcat&amp;rsquo;s functionality is as helpful. Some of its features include port scanning, transferring files, port listening and it can be used a backdoor.&lt;/p>
+&lt;p>In 2006 netcat was ranked #4 in &amp;ldquo;[1] Top 100 Network Security Tools&amp;rdquo; survey, so it&amp;rsquo;s definitely a tool to know.&lt;/p></description></item><item><title>MediaTomb: Setting up a multimedia (UPnP) server</title><link>https://wiki.deimos.fr/MediaTomb_:_Mise_en_place_d%27un_serveur_multim%C3%A9dia_%28UPnP%29/</link><pubDate>Thu, 23 Apr 2009 19:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/MediaTomb_:_Mise_en_place_d%27un_serveur_multim%C3%A9dia_%28UPnP%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MediaTomb is a multimedia server capable of streaming movies, music, and photos. It&amp;rsquo;s very practical for game consoles like Xbox360 or PlayStation 3, but has many other uses as well.&lt;/p>
+&lt;p>For example, if you have a machine that contains movies but isn&amp;rsquo;t connected to your TV screen, you need something to relay the content. This is where a PlayStation 3, for instance, comes in. However, it needs to know where to find the movies, so you need to install a UPnP server on your machine.&lt;/p></description></item><item><title>Load Balancing and Fail Over for Web Services</title><link>https://wiki.deimos.fr/Load_Balancing_et_Fail_Over_pour_les_services_Web/</link><pubDate>Wed, 18 Feb 2009 18:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Load_Balancing_et_Fail_Over_pour_les_services_Web/</guid><description>&lt;p>For comprehensive documentation on load balancing with failover for web services, please refer to our detailed HAProxy guide:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/haproxy-load-balance-your-traffic/">HAProxy: Load Balance Your Traffic&lt;/a>&lt;/p>
+&lt;p>This guide covers setup and configuration for HTTP load balancing, MySQL/MariaDB balancing, and SSL offloading.&lt;/p></description></item><item><title>CVS Installation and Configuration</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</link><pubDate>Fri, 26 Dec 2008 18:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_CVS/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="17688ac" class="language-bash ">
+ &lt;code>apt-get install cvs xinetd&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="red-hat">Red Hat &lt;a href="#red-hat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3f2221f" class="language-bash ">
+ &lt;code>up2date cvs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="creating-admin-group-and-directories">Creating Admin Group and Directories &lt;a href="#creating-admin-group-and-directories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d5b93f" class="language-bash ">
+ &lt;code>adduser cvsadmin
+mkdir -p /home/cvsadmin/repository
+mkdir /home/cvsadmin/.lock
+chown -Rf :cvsadmin /home/cvsadmin
+chmod -Rf 775 /home/cvsadmin
+chmod -Rf 777 /home/cvsadmin/.lock
+ln -s /home/cvsadmin/repository /usr/local/cvsroot&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="repository-initialization">Repository Initialization &lt;a href="#repository-initialization" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9e8274c" class="language-bash ">
+ &lt;code>export CVSROOT=/usr/local/cvsroot
+cvs -d $CVSROOT init
+chown -Rf root:cvsadmin /home/cvsadmin/repository/* &amp;amp;&amp;amp; chmod -Rf 777 /home/cvsadmin/repository/*&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="activating-lock-files">Activating Lock Files &lt;a href="#activating-lock-files" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To ensure that lock files are stored in a directory writable by all, you need to modify the &lt;code>/usr/local/cvsroot-backup/CVSROOT/config&lt;/code> file as follows:&lt;/p></description></item><item><title>Perl Locale Issues</title><link>https://wiki.deimos.fr/Probl%C3%A8mes_de_locales_avec_Perl/</link><pubDate>Wed, 19 Nov 2008 07:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Probl%C3%A8mes_de_locales_avec_Perl/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Perl is great. However, error messages are not something we enjoy. If your environment variables are misconfigured or nothing is defined at the system level, you may encounter problems when launching Perl.&lt;/p>
+&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is what you might encounter when launching Perl:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0dd60b7" class="language-bash ">
+ &lt;code>perl: warning: Setting locale failed.
+perl: warning: Please check that your locale settings:
+	LANGUAGE = (unset),
+	LC_ALL = (unset),
+	LANG = &amp;#34;fr_FR@euro&amp;#34;
+ are supported and installed on your system.
+perl: warning: Falling back to the standard locale (&amp;#34;C&amp;#34;).
+locale: Cannot set LC_CTYPE to default locale: No such file or directory
+locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+locale: Cannot set LC_ALL to default locale: No such file or directory&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="solution">Solution &lt;a href="#solution" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>To solve the problem, make sure that &amp;ldquo;fr_FR@euro&amp;rdquo; is included in your system locales:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c7f9945" class="language-bash ">
+ &lt;code>dpkg-reconfigure locales&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>If it still doesn&amp;rsquo;t work, here&amp;rsquo;s what you can do:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d7e9c6e" class="language-bash ">
+ &lt;code>dpkg-reconfigure console-data&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>When it asks for the default locale, set it to &amp;ldquo;none&amp;rdquo;.&lt;/p></description></item><item><title>Rinetd: Simply and Quickly Forward to Other Machines</title><link>https://wiki.deimos.fr/Rinetd_:_Forwarder_simplement_et_rapidement_vers_d'autres_machines/</link><pubDate>Thu, 25 Sep 2008 12:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rinetd_:_Forwarder_simplement_et_rapidement_vers_d'autres_machines/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>In the past we&amp;rsquo;ve examined the use of firewall rules for forwarding incoming connections from one machine to another. But there is a simpler approach using the rinetd package. Read on to learn about this tool.&lt;/p>
+&lt;p>The rinetd package contains a simple tool which may be configured to listen for connections upon a machine, and silently redirect them to a new destination. In short it acts as a simple to configure TCP proxy.&lt;/p></description></item><item><title>Find all dependencies related to a package</title><link>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</link><pubDate>Wed, 24 Sep 2008 15:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Trouver_toutes_les_d%C3%A9pendances_li%C3%A9es_%C3%A0_un_package/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes it&amp;rsquo;s very practical to find all dependencies of a package. Here&amp;rsquo;s a useful command for this purpose.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installation:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e871358" class="language-bash ">
+ &lt;code>apt-get install apt-rdepends&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example search:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e3a52f4" class="language-bash ">
+ &lt;code>$ apt-rdepends libapache2-mod-php5
+Reading package lists... Done
+Building dependency tree... Done
+libapache2-mod-php5
+ Depends: apache2-mpm-itk
+ Depends: apache2-mpm-prefork (&amp;gt;&amp;gt; 2.0.52)
+ Depends: apache2.2-common
+ Depends: libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libdb4.4
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libmagic1
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libxml2 (&amp;gt;= 2.6.27)
+ Depends: mime-support (&amp;gt;= 2.03-1)
+ Depends: php5-common (= 5.2.0-8&amp;#43;etch1)
+ Depends: ucf
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+apache2-mpm-itk
+ Depends: apache2.2-common (= 2.2.3-4&amp;#43;etch5)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcap1
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+apache2.2-common
+ Depends: apache2-utils
+ Depends: libmagic1
+ Depends: lsb-base
+ Depends: mime-support
+ Depends: net-tools
+ Depends: procps
+apache2-utils
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+ Depends: libuuid1
+libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libuuid1
+libc6
+ Depends: tzdata
+tzdata
+libuuid1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libaprutil1
+ Depends: libapr1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.7)
+ Depends: libuuid1
+libdb4.4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libexpat1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libldap2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgnutls13 (&amp;gt;= 1.4.0-0)
+ Depends: libsasl2-2
+libgnutls13
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: liblzo1
+ Depends: libopencdk8 (&amp;gt;= 0.5.8)
+ Depends: libtasn1-3 (&amp;gt;= 0.3.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+libgcrypt11
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgpg-error0 (&amp;gt;= 1.2)
+libgpg-error0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+liblzo1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libopencdk8
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libgcrypt11 (&amp;gt;= 1.2.2)
+ Depends: libgpg-error0 (&amp;gt;= 1.4)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+zlib1g
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libtasn1-3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libsasl2-2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.2
+libdb4.2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpq4
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+ Depends: libkrb53 (&amp;gt;= 1.4.2)
+ Depends: libssl0.9.8 (&amp;gt;= 0.9.8c-1)
+libcomerr2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libkrb53
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libcomerr2 (&amp;gt;= 1.33-3)
+libssl0.9.8
+ Depends: debconf (&amp;gt;= 0.5)
+ Depends: debconf-2.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+debconf
+ Depends: debconf-english
+ Depends: debconf-i18n
+ PreDepends: perl-base (&amp;gt;= 5.6.1-4)
+debconf-english
+ Depends: debconf
+debconf-i18n
+ Depends: debconf
+ Depends: liblocale-gettext-perl
+ Depends: libtext-charwidth-perl
+ Depends: libtext-iconv-perl
+ Depends: libtext-wrapi18n-perl
+liblocale-gettext-perl
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+ PreDepends: perl-base (&amp;gt;= 5.8.7-3)
+ PreDepends: perlapi-5.8.7
+perl-base
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+perlapi-5.8.7
+libtext-charwidth-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+perlapi-5.8.8
+libtext-iconv-perl
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: perl-base (&amp;gt;= 5.8.8-6)
+ Depends: perlapi-5.8.8
+libtext-wrapi18n-perl
+ Depends: libtext-charwidth-perl
+debconf-2.0
+libsqlite3-0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libpcre3
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libmagic1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+lsb-base
+ Depends: ncurses-bin
+ Depends: sed
+ncurses-bin
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libncurses5 (&amp;gt;= 5.4-5)
+libncurses5
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+sed
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+mime-support
+net-tools
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-21)
+procps
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libncurses5 (&amp;gt;= 5.4-5)
+ Depends: lsb-base (&amp;gt;= 3.0-10)
+libcap1
+ Depends: libc6 (&amp;gt;= 2.3.2.ds1-4)
+apache2-mpm-prefork
+ Depends: apache2.2-common (= 2.2.3-4)
+ Depends: libapr1
+ Depends: libaprutil1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libdb4.4
+ Depends: libexpat1 (&amp;gt;= 1.95.8)
+ Depends: libldap2 (&amp;gt;= 2.1.17-1)
+ Depends: libpcre3 (&amp;gt;= 4.5)
+ Depends: libpq4 (&amp;gt;= 8.1.4)
+ Depends: libsqlite3-0 (&amp;gt;= 3.3.8)
+ Depends: libuuid1
+libbz2-1.0
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libxml2
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: zlib1g (&amp;gt;= 1:1.2.1)
+php5-common
+ Depends: sed (&amp;gt;= 4.1.1-1)
+ucf
+ Depends: coreutils (&amp;gt;= 5.91)
+ Depends: debconf (&amp;gt;= 1.2.0)
+ Depends: debconf-2.0
+coreutils
+ PreDepends: libacl1 (&amp;gt;= 2.2.11-1)
+ PreDepends: libc6 (&amp;gt;= 2.3.6-6)
+ PreDepends: libselinux1 (&amp;gt;= 1.32)
+libacl1
+ Depends: libattr1 (&amp;gt;= 2.4.4-1)
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+libattr1
+ Depends: libc6 (&amp;gt;= 2.3.5-1)
+libselinux1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)
+ Depends: libsepol1 (&amp;gt;= 1.14)
+libsepol1
+ Depends: libc6 (&amp;gt;= 2.3.6-6)&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Replacing an installed RedHat with Debian without formatting</title><link>https://wiki.deimos.fr/Remplacer_une_RedHat_install%C3%A9e_par_une_Debian_sans_formater/</link><pubDate>Sun, 31 Aug 2008 12:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Remplacer_une_RedHat_install%C3%A9e_par_une_Debian_sans_formater/</guid><description>&lt;p>Here is a fun documentation that explains how to remove the nasty RedHat distro and replace it with the sublime Debian distribution, all without deleting any data:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/how_to_remotely_install_debian_over_a_rh_based_distro.pdf">How To Remotely Install Debian Over A RH Based Distro&lt;/a>&lt;/p></description></item><item><title>Migrating from Xen to KVM</title><link>https://wiki.deimos.fr/Migration_Xen_vers_KVM/</link><pubDate>Fri, 18 Apr 2008 22:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Migration_Xen_vers_KVM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may have, like me, surrendered to the joys of user-friendly virtualization to manage some of your projects, for testing, or just to show off&amp;hellip; In short, you used the tools from the &amp;ldquo;xen-tools&amp;rdquo; package on your Debian machine, particularly &lt;code>/usr/bin/xen-create-image&lt;/code> to create your DomU instances.&lt;/p>
+&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Over time, maintaining your various modules with the xenified kernel of your Dom0 has become tedious, so you decided to switch to KVM, &amp;ldquo;it&amp;rsquo;s so simple&amp;rdquo; (except, of course, if you&amp;rsquo;re using a precompiled Debian kernel).&lt;/p></description></item><item><title>Xen with Bonding + VLAN Tagging</title><link>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</link><pubDate>Sun, 27 Jan 2008 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As powerful and flexible as it may be, Xen&amp;rsquo;s network configuration often feels like an obstacle course as soon as you stray a bit from the beaten path.&lt;/p>
+&lt;p>Recently, I had to set up a Xen-based solution in a somewhat special network topology. Each server where Xen was deployed had 2 ethernet adapters, each with 2 gigabit ethernet interfaces. The goal was to maximize the use of the different ethernet interfaces while providing both fault tolerance and load balancing. To make things even more interesting, the network was segmented into VLANs, each VLAN segmenting the network by function (DMZ, LAN, ADMIN, etc.).&lt;/p></description></item><item><title>Creating a Debian Repository</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_repository_Debian/</link><pubDate>Tue, 11 Dec 2007 20:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_repository_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I am a co-designer of the MySecureShell project. The problem is that getting your project accepted in the official Debian/Ubuntu repositories requires significant effort. Therefore, while waiting, we decided to create our own repository. Here, I will describe the steps to create your own repository.&lt;/p>
+&lt;h2 id="preparation">Preparation &lt;a href="#preparation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This article assumes that the packages to be made available on the repository are already generated. Assuming the package is called &amp;ldquo;mysecureshell&amp;rdquo;, you should have the following files:&lt;/p></description></item><item><title>Apt-file: Searching for Files That Prevent Compilation</title><link>https://wiki.deimos.fr/apt-file-recherche-de-fichiers-qui-empechent-une-compilation/</link><pubDate>Thu, 15 Feb 2007 08:58:00 +0100</pubDate><guid>https://wiki.deimos.fr/apt-file-recherche-de-fichiers-qui-empechent-une-compilation/</guid><description>&lt;p>Apt-file is a utility that quickly becomes indispensable from the first time it&amp;rsquo;s used. Here&amp;rsquo;s a small documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/apt-file.pdf">Apt-file Documentation&lt;/a>&lt;/p></description></item><item><title>Debian: Changing Default Tools (e.g., Editor)</title><link>https://wiki.deimos.fr/Debian_:_Modification_des_outils_par_d%C3%A9faut_%28ex:_Editor%29/</link><pubDate>Tue, 28 Nov 2006 07:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Modification_des_outils_par_d%C3%A9faut_%28ex:_Editor%29/</guid><description>&lt;p>A nice command exists in Debian to modify your preferences. To change the default editor, for example, do this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c93c85" class="language-bash ">
+ &lt;code>update-alternatives --config editor&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Otherwise, manually, you can do this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="22cf64d" class="language-bash ">
+ &lt;code>export EDITOR=vim
+visudo&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Debian: No More Dependency Errors When Configuring From Source</title><link>https://wiki.deimos.fr/Debian_:_Fini_les_erreurs_de_d%C3%A9pendances_quand_vous_voulez_configurer_des_sources/</link><pubDate>Tue, 28 Nov 2006 07:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Fini_les_erreurs_de_d%C3%A9pendances_quand_vous_voulez_configurer_des_sources/</guid><description>&lt;p>Imagine you want to install the latest version of xyz from source on your Debian system. You run ./configure and&amp;hellip; BLAM!!! You get a ton of errors because of libraries that aren&amp;rsquo;t installed.&lt;/p>
+&lt;p>Well, this won&amp;rsquo;t happen anymore, thanks to a very user-friendly utility called auto-apt.&lt;/p>
+&lt;p>To install it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9b7071c" class="language-bash ">
+ &lt;code>apt-get install auto-apt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, enjoy the pleasure of ./configure without errors. To use it, just type:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="95f8c7d" class="language-bash ">
+ &lt;code>auto-apt run ./configure&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>instead. That&amp;rsquo;s all. If apt detects an error due to a missing file, it will kindly offer to install it for you.&lt;/p></description></item><item><title>Debian: GPG Error During apt-get update</title><link>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</link><pubDate>Sat, 05 Aug 2006 13:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</guid><description>&lt;div class="prism-codeblock ">
+ &lt;pre id="71fd62d" class="language-bash ">
+ &lt;code>W: GPG error: http://security.debian.org testing/updates Release:
+The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY key-number&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Is this type of message appearing? It&amp;rsquo;s quite annoying, especially since it happens every year. To solve this problem, follow these steps:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="aa25af8" class="language-bash ">
+ &lt;code>gpg --keyserver pgpkeys.mit.edu --recv-key key-number
+gpg -a --export key-number | apt-key add -&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

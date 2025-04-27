@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Services on Tech Notebook</title><link>https://wiki.deimos.fr/tags/services/</link><description>Recent content in Services on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/services/index.xml" rel="self" type="application/rss+xml"/><item><title>MCollective: Run Actions in Parallel on Remote Machines</title><link>https://wiki.deimos.fr/MCollective:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante/</link><pubDate>Tue, 14 May 2013 14:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/MCollective:_lancez_des_actions_en_parall%C3%A8le_sur_des_machines_distante/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mcollective-logo.png" alt="Mcollective" loading="lazy">
+
+&lt;/p>
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.0.0&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7 / RedHat 6.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://marionette-collective.org/" rel="external" target="_blank">MCollective Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Mcollective, short for &amp;ldquo;Marionette Collective&amp;rdquo;, is software written by R.I. Pienaar. The goal is to facilitate the management of numerous machines from a central point. It can be compared to tools like Fabric or Capistrano because it allows you to launch many actions in parallel on remote machines, but it differs on a notable point: it does not rely on SSH. Indeed, the program relies on middleware and provides features that make you not just any admin, but THE ultimate admin.&lt;/p></description></item><item><title>Redirect a Service Output to a File</title><link>https://wiki.deimos.fr/Rediriger_l%5C%27output_d%5C%27un_service_vers_un_fichier/</link><pubDate>Sun, 01 May 2011 20:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rediriger_l%5C%27output_d%5C%27un_service_vers_un_fichier/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It can be useful to redirect a program&amp;rsquo;s output to a file. Here&amp;rsquo;s how to do it.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d483600" class="language-bash ">
+ &lt;code>yes &amp;#39;Y&amp;#39;|gdb -ex &amp;#39;p close(1)&amp;#39; -ex &amp;#39;p creat(&amp;#34;/tmp/output.txt&amp;#34;,0600)&amp;#39; -ex &amp;#39;q&amp;#39; -p pid&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This command uses the GDB debugger to attach to a running process and reassign the file handle to a file.&lt;/p>
+&lt;p>The two commands executed in GDB are:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="41e6814" class="language- ">
+ &lt;code>p close(1) which closes STDOUT&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>and&lt;/p></description></item><item><title>SMF: Service Management Facility</title><link>https://wiki.deimos.fr/SMF_:_Service_Management_Facility/</link><pubDate>Wed, 03 Feb 2010 21:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/SMF_:_Service_Management_Facility/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SMF services are listed by categories:&lt;/p>
+&lt;ul>
+&lt;li>application&lt;/li>
+&lt;li>device&lt;/li>
+&lt;li>legacy&lt;/li>
+&lt;li>milestone&lt;/li>
+&lt;li>network&lt;/li>
+&lt;li>platform&lt;/li>
+&lt;li>site&lt;/li>
+&lt;li>system&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c087bf0" class="language- ">
+ &lt;code>svc:/system/filesystem/root:default&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>The prefix svc indicates that it&amp;rsquo;s a service managed by SMF&lt;/li>
+&lt;li>The category of the service is &amp;ldquo;system&amp;rdquo;&lt;/li>
+&lt;li>The service itself is a filesystem&lt;/li>
+&lt;li>The instance of the service is the root of the file system&lt;/li>
+&lt;li>The word &amp;ldquo;default&amp;rdquo; identifies the first, in this case only, instance of the service&lt;/li>
+&lt;/ul>
+&lt;p>Another example:&lt;/p></description></item><item><title>Restarting difficult services</title><link>https://wiki.deimos.fr/Red%C3%A9marrer_certains_services_difficiles/</link><pubDate>Wed, 14 Nov 2007 09:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Red%C3%A9marrer_certains_services_difficiles/</guid><description>&lt;p>As you&amp;rsquo;ve probably noticed, there are some services like SSH that don&amp;rsquo;t have a simple solution to stop the service.&lt;/p>
+&lt;p>That&amp;rsquo;s why I&amp;rsquo;m giving you this solution. For example with SSH, if I want to restart it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51ce67d" class="language-bash ">
+ &lt;code>kill -HUP `cat /var/run/sshd.pid`&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>It&amp;rsquo;s as simple as that. Now you can manually restart it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dcdf609" class="language-bash ">
+ &lt;code>/usr/sbin/sshd&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

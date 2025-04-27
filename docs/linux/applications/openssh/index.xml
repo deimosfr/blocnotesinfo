@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenSSH on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/applications/openssh/</link><description>Recent content in OpenSSH on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/applications/openssh/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenSSH FAQ</title><link>https://wiki.deimos.fr/FAQ_OpenSSH/</link><pubDate>Wed, 08 May 2013 19:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/FAQ_OpenSSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is not always simple, which is why a small documentation is useful.&lt;/p>
+&lt;h2 id="faq">FAQ &lt;a href="#faq" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="fatal-timeout-before-authentication-for-ip">fatal: Timeout before authentication for @ip &lt;a href="#fatal-timeout-before-authentication-for-ip" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Your DNS on your SSH server might not be up to date. Check them.&lt;/p>
+&lt;h3 id="some-clients-take-a-long-time-to-connect">Some clients take a long time to connect &lt;a href="#some-clients-take-a-long-time-to-connect" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the SSH server, it is very likely that the server is trying to resolve names, which is not always possible or practical. The solution is to disable this (&lt;code>/etc/ssh/sshd_config&lt;/code>):&lt;/p></description></item><item><title>Belier: Script Your SSH Connection</title><link>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</link><pubDate>Mon, 06 May 2013 09:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/belier_logo.png" alt="Belier" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.ohmytux.com/belier/" rel="external" target="_blank">Belier Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Belier&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> allows opening a shell or executing a command on a remote computer through an SSH connection. The main feature of Belier is its ability to cross several intermediate computers before completing the job.&lt;/p></description></item><item><title>Bypassing HTTPS Proxies for SSH</title><link>https://wiki.deimos.fr/Outrepasser_les_proxy_HTTPS_pour_SSH/</link><pubDate>Mon, 30 Jul 2012 11:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Outrepasser_les_proxy_HTTPS_pour_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Those workplace proxies can be really annoying! But there are always solutions!&lt;/p>
+&lt;p>So here&amp;rsquo;s the situation: I want to access a remote machine via SSH, but only ports 80 and 443 are allowed. Even if you configure the SSH server on port 443, you&amp;rsquo;ll notice it doesn&amp;rsquo;t work.&lt;/p>
+&lt;p>A solution? Yes: connect-proxy.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="seveur">Seveur &lt;a href="#seveur" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, simply modify the sshd_config file to make SSH listen on port 443:&lt;/p></description></item><item><title>Reverse Tunneling with OpenSSH</title><link>https://wiki.deimos.fr/Faire_du_reverse_Tunelling_avec_OpenSSH/</link><pubDate>Fri, 03 Feb 2012 16:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_du_reverse_Tunelling_avec_OpenSSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is going to be really powerful! What am I proposing? Reverse tunneling? Yes! Imagine being able to traverse NAT. You&amp;rsquo;re already starting to salivate, so let&amp;rsquo;s not delay any further!&lt;/p>
+&lt;h2 id="setup-scenario">Setup scenario &lt;a href="#setup-scenario" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Here is the machine I want to connect to: 192.168.20.55&lt;/li>
+&lt;li>The machine from which I&amp;rsquo;m going to launch the connection: 138.47.99.99 (WAN IP)&lt;/li>
+&lt;/ul>
+&lt;p>This will give us:
+Destination (192.168.20.55) &amp;lt;- |NAT| &amp;lt;- Source (138.47.99.99)&lt;/p></description></item><item><title>Creating a VPN with OpenSSH</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_VPN_avec_OpenSSH/</link><pubDate>Sat, 26 Jul 2008 12:20:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_VPN_avec_OpenSSH/</guid><description>&lt;h2 id="1-introduction">1 Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Most SSH clients have the ability to perform local and remote port forwarding. This is a pretty neat use of SSH if you haven&amp;rsquo;t ever seen it before. OpenSSH can take it one step further and provide a full VPN solution encrypting all network traffic on all ports between two machines. This is pretty powerful stuff. This is useful for a quick-and-dirty way to encrypt all traffic between two machines. For a longer term solution, you might want to check out how to configure IPsec or use OpenVPN. All three solutions have some really cool features and benefits.&lt;/p></description></item><item><title>Chroot SSH Accounts</title><link>https://wiki.deimos.fr/Chrooter_des_comptes_SSH/</link><pubDate>Tue, 01 Apr 2008 10:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Chrooter_des_comptes_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The OpenSSH version (4.8p1 for the GNU/Linux port) features a new configuration option: &lt;code>ChrootDirectory&lt;/code>.
+This has been made possible by a new SFTP subsystem statically linked to sshd.&lt;/p>
+&lt;p>This makes it easy to replace a basic FTP service without the hassle of configuring encryption and/or bothering with FTP passive and active modes when operating through a NAT router. This is also simpler than packages such as rssh, scponly or other patches because it does not require setting up and maintaining (i.e. security updates) a chroot environment.&lt;/p></description></item><item><title>Setting up an SSH Bouncer Server for Your SSH Connections</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_de_rebond_pour_ses_connections_SSH/</link><pubDate>Sat, 08 Mar 2008 07:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_de_rebond_pour_ses_connections_SSH/</guid><description>&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For what follows, I&amp;rsquo;ll base this on a standard Kubuntu 7.10 installation. We&amp;rsquo;ll need the following packages:&lt;/p>
+&lt;ul>
+&lt;li>sshfs&lt;/li>
+&lt;li>tsocks&lt;/li>
+&lt;li>afuse&lt;/li>
+&lt;/ul>
+&lt;p>If you choose to use aptitude for your installation, proceed as follows:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="68574ec" class="language-bash ">
+ &lt;code>sudo aptitude install fuse tsocks afuse&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The installation shouldn&amp;rsquo;t pose any insurmountable problems, so I won&amp;rsquo;t elaborate further on this subject.&lt;/p>
+&lt;p>However, you must ensure that your user (in my case deimos) belongs to the fuse group:&lt;/p></description></item><item><title>Securing OpenSSH</title><link>https://wiki.deimos.fr/Securiser_OpenSSH/</link><pubDate>Fri, 11 Jan 2008 23:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/Securiser_OpenSSH/</guid><description>&lt;p>Here is documentation to secure your OpenSSH server:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/securing_openssh_server_-part_1-.pdf">Securing OpenSSH Server - Part 1&lt;/a>&lt;/p></description></item><item><title>Fanout: Run the Same Command on Multiple Machines Simultaneously</title><link>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</link><pubDate>Tue, 03 Oct 2006 15:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</guid><description>&lt;p>These two tools by William Stearns can quickly become essential when managing multiple machines&amp;hellip;&lt;/p>
+&lt;p>As indicated in the title, these tools allow you to run commands simultaneously on multiple machines, and even interactively (with fanterm).&lt;/p>
+&lt;p>I didn&amp;rsquo;t find anything in the repositories or as a .deb package. So I &amp;ldquo;alienated&amp;rdquo; the rpm:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="56a8047" class="language-bash ">
+ &lt;code>wget http://www.stearns.org/fanout/fanout-0.6.1-0.noarch.rpm
+sudo alien fanout-0.6.1-0.noarch.rpm
+sudo dpkg -i fanout_0.6.1-1_all.deb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For SSH on non-standard ports, I used the config file (see man ssh_config)&lt;/p></description></item></channel></rss>

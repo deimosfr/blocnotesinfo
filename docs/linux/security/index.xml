@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Security on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/security/</link><description>Recent content in Security on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/security/index.xml" rel="self" type="application/rss+xml"/><item><title>Fail2ban: Implementing automated iptables rules to counter bruteforce attacks</title><link>https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce/</link><pubDate>Fri, 22 Aug 2014 09:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Fail2ban scans log files (e.g. /var/log/apache/error_log) and bans IPs that show malicious signs &amp;ndash; too many password failures, seeking for exploits, etc. Generally Fail2Ban is then used to update firewall rules to reject the IP addresses for a specified amount of time, although any arbitrary other action (e.g. sending an email) could also be configured. Out of the box Fail2Ban comes with filters for various services (apache, courier, ssh, etc).&lt;/p></description></item><item><title>Acct: The Ultimate Keyfinder</title><link>https://wiki.deimos.fr/Acct_Le_keyfinder_par_excellence/</link><pubDate>Mon, 06 May 2013 13:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/Acct_Le_keyfinder_par_excellence/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>In a production environment, it can be useful to know what each person is doing. This is particularly helpful when a mistake happens and nobody admits to it (yes, it happens). Novice hackers (aka script kiddies) who call themselves hackers because they&amp;rsquo;ve put a keylogger on a machine might also be interested in this. However, the purpose is obviously not the same.&lt;/p>
+&lt;p>Two commands are useful:&lt;/p>
+&lt;ul>
+&lt;li>sa: obtains statistics on process launches&lt;/li>
+&lt;li>lastcomm: obtains a list of commands launched by users&lt;/li>
+&lt;/ul>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The installation is done as follows:&lt;/p></description></item><item><title>Lshell: Limiting Shell Capabilities</title><link>https://wiki.deimos.fr/Lshell_:_limiter_les_possibilit%C3%A9s_du_shell/</link><pubDate>Thu, 28 Mar 2013 10:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lshell_:_limiter_les_possibilit%C3%A9s_du_shell/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://lshell.ghantoos.org/" rel="external" target="_blank">Lshell&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a lightweight shell that allows restricting access to various commands and paths on your filesystems. It&amp;rsquo;s ideal for controlling what users can do on your machine.&lt;/p></description></item><item><title>Ulimit: Using System Limits</title><link>https://wiki.deimos.fr/Ulimit_:_Utiliser_les_limites_syst%C3%A8mes/</link><pubDate>Tue, 03 Jul 2012 10:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ulimit_:_Utiliser_les_limites_syst%C3%A8mes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The ulimit programs allow to limit system-wide resource use using a normal configuration file - &lt;code>/etc/security/limits.conf&lt;/code>. This can help a lot in system administration, e.g. when a user starts too many processes and therefore makes the system unresponsive for other users.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cc48f25" class="language-bash ">
+ &lt;code>ulimit -a&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0ece5e8" class="language- ">
+ &lt;code>core file size (blocks, -c) 0
+data seg size (kbytes, -d) unlimited
+scheduling priority (-e) 0
+file size (blocks, -f) unlimited
+pending signals (-i) 7671
+max locked memory (kbytes, -l) 64
+max memory size (kbytes, -m) 811664
+open files (-n) 1024
+pipe size (512 bytes, -p) 8
+POSIX message queues (bytes, -q) 819200
+real-time priority (-r) 0
+stack size (kbytes, -s) 8192
+cpu time (seconds, -t) unlimited
+max user processes (-u) 7671
+virtual memory (kbytes, -v) 1175120
+file locks (-x) unlimited&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All these settings can be manipulated. A good example is this forkbomb that forks as many processes as possible and can crash systems where no user limits are set&lt;/p></description></item><item><title>Secure Your Architecture with SELinux</title><link>https://wiki.deimos.fr/Securiser_son_architecture_avec_SELinux/</link><pubDate>Thu, 06 Oct 2011 12:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Securiser_son_architecture_avec_SELinux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Selinux" rel="external" target="_blank">Security-Enhanced Linux, abbreviated as SELinux&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, is a LSM (Linux security module) that allows defining a MAC (mandatory access control) access policy to elements of a Linux-based system. Initiated by the NSA based on work conducted with SCC and the University of Utah in the USA (DTMach prototypes, DTOS, FLASK project), its architecture separates policy enforcement from its definition. It notably allows classifying applications of a system into different groups with finer access levels. It also allows assigning a confidentiality level for accessing system objects, such as file descriptors, according to an MLS (Multi Level Security) security model. SELinux uses the Bell LaPadula model with SCC Type enforcement for integrity. It is free software, with some parts licensed under GNU GPL or BSD.&lt;/p></description></item><item><title>Force User to Change Password at First Login</title><link>https://wiki.deimos.fr/Forcer_un_utilisateur_%C3%A0_changer_son_mot_de_passe_%C3%A0_la_premi%C3%A8re_connexion/</link><pubDate>Sun, 14 Mar 2010 20:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Forcer_un_utilisateur_%C3%A0_changer_son_mot_de_passe_%C3%A0_la_premi%C3%A8re_connexion/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Indeed, I was looking for how to force a user to change their password during their first login session. Well, nothing obvious except that if we set an account to expire, the user will then be forced to change their password.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you are root, you can specify the user whose account you want to expire as follows:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9ee6efa" class="language-bash ">
+ &lt;code>chsh -s /bin/MySecureShell username&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And otherwise, a user can change their shell themselves like this:&lt;/p></description></item><item><title>Encrypt and Decrypt a File with OpenSSL</title><link>https://wiki.deimos.fr/Crypter_et_d%C3%A9crypter_un_fichier_avec_OpenSSL/</link><pubDate>Fri, 11 Dec 2009 20:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Crypter_et_d%C3%A9crypter_un_fichier_avec_OpenSSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The OpenSSL Project is a collaborative effort to develop a robust, commercial-grade, full-featured, and Open Source toolkit implementing the Secure Sockets Layer (SSL v2/v3) and Transport Layer Security (TLS v1) protocols as well as a full-strength general purpose cryptography library. The project is managed by a worldwide community of volunteers that use the Internet to communicate, plan, and develop the OpenSSL toolkit and its related documentation.&lt;/p>
+&lt;p>OpenSSL is based on the excellent SSLeay library developed by Eric A. Young and Tim J. Hudson. The OpenSSL toolkit is licensed under an Apache-style licence, which basically means that you are free to get and use it for commercial and non-commercial purposes subject to some simple license conditions.&lt;/p></description></item><item><title>Freeze a Machine by CPU Overload</title><link>https://wiki.deimos.fr/Faire_freezer_une_machine_par_overload_CPU/</link><pubDate>Sun, 20 Sep 2009 15:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_freezer_une_machine_par_overload_CPU/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a solution to max out your CPU so much that your machine will freeze.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply run this in a terminal:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c588ae8" class="language-bash ">
+ &lt;code>:(){ :|:&amp;amp; };:&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Encrypting a Password with MD5</title><link>https://wiki.deimos.fr/Crypter_un_mot_de_passe_en_MD5/</link><pubDate>Wed, 17 Dec 2008 16:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Crypter_un_mot_de_passe_en_MD5/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MD5 hashing allows you to verify the integrity of a file. In short, it creates a fingerprint that helps you verify (after a transfer, for example) whether the file arrived correctly and is not corrupted.&lt;/p>
+&lt;p>Today, MD5 encryption has been broken, and it&amp;rsquo;s possible to simulate a fake fingerprint. Therefore, you should be careful about how you use it. Personally, I use it to verify the integrity of downloaded files (as it&amp;rsquo;s a very common method). For example, when I download Sun Cluster, I verify the MD5 hash to ensure the installation is complete and not corrupted.&lt;/p></description></item><item><title>GnuPG: Encrypt Your Emails</title><link>https://wiki.deimos.fr/GnuPG:_Crypter_vos_emails/</link><pubDate>Wed, 10 Sep 2008 16:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/GnuPG:_Crypter_vos_emails/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this article is to show you how to encrypt your emails. For &lt;a href="https://www.mozilla.org" rel="external" target="_blank">Mozilla Thunderbird&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, there is the &lt;a href="https://enigmail.mozdev.org/home/index.php" rel="external" target="_blank">Enigmail&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> plugin. If you don&amp;rsquo;t have an email client, don&amp;rsquo;t want one and prefer webmail&amp;hellip; that&amp;rsquo;s a shame.&lt;/p></description></item><item><title>Xinetd: Securing Services</title><link>https://wiki.deimos.fr/Xinetd_:_S%C3%A9curiser_ses_services/</link><pubDate>Tue, 06 Mar 2007 09:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xinetd_:_S%C3%A9curiser_ses_services/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>xinetd - eXtended InterNET services daemon - provides good security against intrusion and reduces the risks of Denial of Services (DoS) attacks. Like the well-known couple (inetd+tcpd), it enables the configuration of access rights for a given machine, but it can do much more. In this article, we will discover its many features.&lt;/p>
+&lt;p>The classical inetd helps controlling network connections to a computer. When a request comes to a port managed by inetd, then inetd forwards it to a program called tcpd. Tcpd decides, according to the rules contained in the hosts.{allow, deny} files, whether or not to grant the request. If the request is allowed, then the corresponding server process (e.g., ftp) can be started. This mechanism is also referred to as tcp_wrapper.&lt;/p></description></item></channel></rss>

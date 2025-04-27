@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Networking on Tech Notebook</title><link>https://wiki.deimos.fr/tags/networking/</link><description>Recent content in Networking on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/networking/index.xml" rel="self" type="application/rss+xml"/><item><title>Dnsmasq and dhclient: use a specific DNS for a specific domain</title><link>https://wiki.deimos.fr/Dnsmasq_and_dhclient:_use_a_specific_DNS_for_a_specific_domain/</link><pubDate>Sun, 27 Jul 2014 13:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dnsmasq_and_dhclient:_use_a_specific_DNS_for_a_specific_domain/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Software version&lt;/td>
+ &lt;td>isc-dhcp-client 4.3.0 dnsmasq 2.71&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>Debian 8&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>27/07/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>My use case is specific but not isolated. When I&amp;rsquo;m at work, I&amp;rsquo;m connected to my VPN at home. I have a specific DNS at home for my domain in deimos.lan and this is very useful to avoid me to remind all the IP of the services I have.&lt;/p></description></item><item><title>ZNC: Use a Bouncer to Get History</title><link>https://wiki.deimos.fr/ZNC:_use_a_bouncer_to_get_history/</link><pubDate>Mon, 14 Apr 2014 10:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZNC:_use_a_bouncer_to_get_history/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/znc.png" alt="ZNC" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>0.206-2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://wiki.znc.in/ZNC" rel="external" target="_blank">ZNC Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>14/04/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A &lt;a href="https://en.wikipedia.org/wiki/BNC_%28software%29" rel="external" target="_blank">BNC&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> (short for bouncer) is a piece of software that is used to relay traffic and connections in computer networks, much like a proxy. Using a BNC allows a user to hide the original source of the user&amp;rsquo;s connection, providing privacy as well as the ability to route traffic through a specific location. A BNC can also be used to hide the true target to which a user connects.&lt;/p></description></item><item><title>Basic IPTables Commands</title><link>https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/</link><pubDate>Mon, 06 May 2013 15:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/</guid><description>&lt;h2 id="basic-commands">Basic Commands &lt;a href="#basic-commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several operations you can do with iptables. You start with &lt;strong>three default chains INPUT, OUTPUT and FORWARD that you cannot delete&lt;/strong>. Let&amp;rsquo;s look at the operations to administer chains:&lt;/p>
+&lt;p>Creating a new chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e91b022" class="language-bash ">
+ &lt;code>iptables -N chain&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Delete an empty chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7ec3f6e" class="language-bash ">
+ &lt;code>iptables -X chain&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Change the default rule for a starting chain:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9136141" class="language-bash ">
+ &lt;code>iptables -P chain status&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="13f784a" class="language-bash ">
+ &lt;code>iptables -P INPUT DROP&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p></description></item><item><title>DHCP: Installation and Configuration of a DHCP Server</title><link>https://wiki.deimos.fr/DHCP_:_Installation_et_configuration_d'un_serveur_DHCP/</link><pubDate>Fri, 15 Mar 2013 22:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/DHCP_:_Installation_et_configuration_d'un_serveur_DHCP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>Dynamic Host Configuration Protocol&lt;/strong> (DHCP) is a network protocol designed to automatically configure TCP/IP parameters for a station, particularly by automatically assigning an IP address and subnet mask. DHCP can also configure the default gateway address, DNS name servers, and NBNS name servers (known as WINS servers on Microsoft networks).&lt;/p>
+&lt;p>The initial design of Internet Protocol (IP) assumed pre-configuration of each computer connected to the network with the appropriate TCP/IP parameters - this is known as &lt;em>static&lt;/em> addressing. On large or extended networks where changes occur frequently, static addressing creates a heavy maintenance burden and risks of errors. Additionally, assigned addresses cannot be used even when the computer that holds them is not in service. This is a typical problem for Internet Service Providers (ISPs), who generally have more customers than IP addresses available, but never have all customers connected simultaneously.&lt;/p></description></item><item><title>Configuring Network on FreeBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</link><pubDate>Mon, 02 Jul 2012 10:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbyfreebsd.png" alt="FreeBSD" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>FreeBSD 9&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.freebsd.org" rel="external" target="_blank">FreeBSD Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>02/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The network is an essential part of system configuration, so I&amp;rsquo;ll cover some aspects of it here.&lt;/p></description></item><item><title>Setting up VLAN</title><link>https://wiki.deimos.fr/Mise_en_place_de_VLAN/</link><pubDate>Mon, 07 May 2012 20:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_VLAN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A Virtual Local Area Network, commonly known as &lt;a href="https://en.wikipedia.org/wiki/VLAN" rel="external" target="_blank">VLAN&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, is a logically independent computer network. Multiple VLANs can coexist on the same network switch.&lt;/p></description></item><item><title>IP: Network Interface Management Command</title><link>https://wiki.deimos.fr/IP_:_La_commande_de_gestion_de_sa_carte_r%C3%A9seau/</link><pubDate>Thu, 03 May 2012 14:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/IP_:_La_commande_de_gestion_de_sa_carte_r%C3%A9seau/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The &amp;ldquo;ip&amp;rdquo; command is gradually replacing the ifconfig command due to its enhanced functionality. With the arrival of RHEL6, this transition is becoming more evident. In this article, we&amp;rsquo;ll see how to use this command effectively.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>View the status of all interfaces:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ec3625c" class="language-bash ">
+ &lt;code>&amp;gt; ip link show
+1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu 16436 qdisc noqueue state UNKNOWN 
+ link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ link/ether 08:00:27:9a:b6:35 brd ff:ff:ff:ff:ff:ff&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>View the status of a specific interface (eth0 in this case):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="39e4508" class="language-bash ">
+ &lt;code>&amp;gt; ip link show eth0
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ link/ether 08:00:27:9a:b6:35 brd ff:ff:ff:ff:ff:ff&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>View the status of a specific interface (eth0) with IPv4 information only (-4):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="092047b" class="language-bash ">
+ &lt;code>&amp;gt; ip -4 addr show eth0
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ inet 10.0.1.9/24 brd 10.0.1.255 scope global eth0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>View detailed statistics for interface eth0:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37ec870" class="language-bash ">
+ &lt;code>&amp;gt; ip -s link show eth0
+2: eth0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu 1500 qdisc pfifo_fast state UP qlen 1000
+ link/ether 08:00:27:9a:b6:35 brd ff:ff:ff:ff:ff:ff
+ RX: bytes packets errors dropped overrun mcast 
+ 28627 284 0 0 0 0 
+ TX: bytes packets errors dropped carrier collsns 
+ 40732 128 0 0 0 0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Create a virtual IP address (VIP):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fde3678" class="language-bash ">
+ &lt;code>ip addr add 192.168.0.1/24 dev eth0 label eth0:0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Remove a virtual IP address (VIP):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3642396" class="language-bash ">
+ &lt;code>ip addr del 192.168.0.1/24 dev eth0&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Add a VLAN and VIP on the VLAN (VLAN 90 on bond0):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b00ea7" class="language-bash ">
+ &lt;code>ip link add link bond0 name bond0:90 type vlan id 90
+ip link set dev bond0:90 up
+ip addr add 192.168.0.1/24 dev bond0:90&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Installation and Configuration of Samba in 'User' Mode</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22/</link><pubDate>Thu, 06 Oct 2011 12:53:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22User%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is a free software licensed under the GPL that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources from these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs with DOS and early versions of Windows sometimes needed to install a TCP/IP stack and a set of Unix applications: an NFS client, FTP, telnet, lpr, etc. This was cumbersome and penalizing for PCs of that time, and it also forced users to adopt two sets of habits, adding those of UNIX to those of Windows. Samba therefore adopts the opposite approach.&lt;/p></description></item><item><title>VServer: Setting Up VServer</title><link>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</link><pubDate>Tue, 24 May 2011 16:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/VServer_:_Mise_en_place_de_VServer/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Linux-VServer is a security context isolator combined with segmented routing, chroot, extended quotas, and other standard tools.&lt;/p>
+&lt;p>Initially launched by Jacques Gélinas as the CTX patch, Linux-VServer consists of a patch for the Linux kernel that allows multiple applications to run in different security contexts on the same host machine. Linux-VServer is also equipped with a set of tools to install/manage these contexts.&lt;/p>
+&lt;p>This project allows one or more operating environments (operating systems without the kernel) to run on a distribution, meaning you can run one or more distributions on a single distribution.&lt;/p></description></item><item><title>IPMP Configuration</title><link>https://wiki.deimos.fr/Configuration_de_l'IPMP/</link><pubDate>Wed, 06 Apr 2011 09:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_de_l'IPMP/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>IP Network Multipathing (IPMP) enables you to detect interface failures and transparently switch network access for a system with multiple interfaces on the same IP link. IPMP also allows load balancing of packets for systems with multiple interfaces.&lt;/p>
+&lt;p>The equivalent on Linux is called bonding and on BSD, it&amp;rsquo;s called trunking.&lt;/p>
+&lt;p>IPMP improves the reliability, availability, and network performance of systems with multiple physical interfaces. Sometimes a physical interface or the networking hardware connected to that interface fails or requires maintenance. Traditionally, it is then impossible to contact the system through any of the IP addresses associated with the failed interface. Additionally, any existing connections to the system using those IP addresses are disrupted.&lt;/p></description></item><item><title>OpenSSH : Tunneling VPN</title><link>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</link><pubDate>Fri, 14 May 2010 22:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since version 4.3 of OpenSSH, the option to create IP tunnels has been added.&lt;/p>
+&lt;p>First, you need to check the OpenSSH version on both the server and client.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cd7213d" class="language-bash ">
+ &lt;code>ssh -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You need root privileges on both machines. There are operations to perform, both at the configuration and network levels.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="openbsd">OpenBSD &lt;a href="#openbsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>The first thing to do is to tell OpenSSH to authorize tunnels by adding this directive:&lt;/p></description></item><item><title>AOE: Setting Up an ATA Over Ethernet Server</title><link>https://wiki.deimos.fr/aoe-mise-en-place-d-un-serveur-ata-over-ethernet/</link><pubDate>Sat, 28 Nov 2009 15:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/aoe-mise-en-place-d-un-serveur-ata-over-ethernet/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/ATA_over_Ethernet" rel="external" target="_blank">ATA over Ethernet (AoE)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a network layer protocol that allows ATA commands to be transported over an Ethernet network.&lt;/p>
+&lt;h2 id="resources">Resources &lt;a href="#resources" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/using_ata_over_ethernet_aoe.pdf">Using ATA Over Ethernet (AoE) On Debian Lenny (Initiator And Target)&lt;/a>&lt;/p></description></item><item><title>NTOP: Installation and Configuration of NTOP (Network TOP)</title><link>https://wiki.deimos.fr/NTOP:_Installation_et_configuration_d'NTOP_(Network_TOP)/</link><pubDate>Thu, 05 Feb 2009 06:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/NTOP:_Installation_et_configuration_d'NTOP_(Network_TOP)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is a tool to collect network information with simple configurations. Users may use a web browser to access the current network views that include charts and statistics.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>ntop is available on most Linux distributions. Below are the steps tested on Ubuntu 8.10 Linux. I am sure that ntop is available for RPM based distro like CentOS.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fa806cc" class="language-bash ">
+ &lt;code>apt-get install ntop
+/etc/init.d/ntop -i eth0 start&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Replace eth0 with the network interface name. The system will maintain a database of the network information in the &lt;code>/var/lib/ntop&lt;/code> directory. Create the default admin user with:&lt;/p></description></item><item><title>XenServer 4.1: Changing the Management Interface</title><link>https://wiki.deimos.fr/XenServer_4.1_:_Changer_l'interface_de_Management/</link><pubDate>Wed, 04 Feb 2009 18:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/XenServer_4.1_:_Changer_l'interface_de_Management/</guid><description>&lt;p>The other day I installed a XenServer 4.1 server. Unfortunately, I selected the wrong management interface during installation, choosing eth0 instead of eth1.&lt;/p>
+&lt;p>The question was: how to change the management interface on XenServer 4.1?&lt;/p>
+&lt;h2 id="retrieving-the-uuid-of-the-interface">Retrieving the UUID of the interface &lt;a href="#retrieving-the-uuid-of-the-interface" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, we need to retrieve the UUID of the interface (they call it &amp;ldquo;PIF&amp;rdquo;):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c5795a1" class="language-bash ">
+ &lt;code>[root@xenserver-backup2 ~]# xe pif-list 
+uuid ( RO) : f34c8861-94d7-c3da-0437-3a068b273db5
+ device ( RO): eth3
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): c7c6e869-f611-11ad-871e-c130bbb9d13f
+
+
+uuid ( RO) : ffcba213-30dd-09d2-ee7e-0708507516f0
+ device ( RO): eth2
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): 55efa2d9-768b-52a0-4595-cebf771ce602
+
+
+uuid ( RO) : 7e5946e3-3c11-ebec-2636-713a69ce60ae
+ device ( RO): eth1
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): 7755aae6-a565-6e0a-a6b0-49cef6abee5e
+
+
+uuid ( RO) : b726e0f2-7b58-3489-dca7-0269630f8d4e
+ device ( RO): eth0
+ currently-attached ( RO): false
+ VLAN ( RO): -1
+ network-uuid ( RO): ae8ca5b4-9fa1-912a-7cca-55f4060a782c&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configure-ip-options">Configure IP options &lt;a href="#configure-ip-options" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Then we assign IP options with a command like this:&lt;/p></description></item><item><title>VirtualBox: VMware Alternative</title><link>https://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware/</link><pubDate>Wed, 28 Jan 2009 03:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/VirtualBox_:_Alternative_%C3%A0_Vmware/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>VirtualBox is a virtual machine created by InnoTek for Windows, 32 and 64-bit GNU/Linux, and Mac OS X hosts supporting Windows (including Vista), Linux 2.x, OS/2 Warp, OpenBSD, and FreeBSD as guest systems. After several years of development, VirtualBox was released under the GNU GPL license in January 2007.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Once you&amp;rsquo;ve downloaded the version, installation is quite simple:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="935b9c1" class="language-bash ">
+ &lt;code>dpkg -i virtualbox*.deb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then you&amp;rsquo;ll need the bridge utilities:&lt;/p></description></item><item><title>Launch Firewall Rules Before Interfaces Come Up</title><link>https://wiki.deimos.fr/Lancer_les_r%C3%A8gles_de_Firewalling_avant_que_les_interfaces_deviennent_up/</link><pubDate>Wed, 24 Sep 2008 11:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lancer_les_r%C3%A8gles_de_Firewalling_avant_que_les_interfaces_deviennent_up/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There used to be a script to do it automatically via init.d files, but now the suggested method is to use ifup.d networking scripts, which are executed on state changes of the network interfaces. So I submit here my simple script, which does the trick for me nicely.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Drop this script into &lt;code>/etc/network/if-pre-up.d&lt;/code> in a file called iptables:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dc57b7d" class="language-bash ">
+ &lt;code>#!/bin/sh
+
+# Load iptables rules before interfaces are brought online
+# This ensures that we are always protected by the firewall
+#
+# Note: if bad rules are inadvertently (or purposely) saved it could block
+# access to the server except via the serial tty interface.
+#
+
+RESTORE=/sbin/iptables-restore
+STAT=/usr/bin/stat
+IPSTATE=/etc/iptables.conf
+
+test -x $RESTORE || exit 0
+test -x $STAT || exit 0
+
+# Check permissions and ownership (rw------- for root)
+if test `$STAT --format=&amp;#34;%a&amp;#34;` $IPSTATE -ne &amp;#34;600&amp;#34;; then
+ echo &amp;#34;Permissions for $IPSTATE must be 600 (rw-------)&amp;#34;
+ exit 0
+fi
+
+# Since only the owner can read/write to the file, we can trust that it is
+# secure. We need not worry about group permissions since they should be
+# zeroed per our previous check; but we must make sure root owns it.
+if test `$STAT --format=&amp;#34;%u&amp;#34;` $IPSTATE -ne &amp;#34;0&amp;#34;; then
+ echo &amp;#34;The superuser must have ownership for $IPSTATE (uid 0)&amp;#34;
+ exit 0
+fi
+
+# Now we are ready to restore the tables
+$RESTORE &amp;lt; $IPSTATE&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then make sure you make the script executable:&lt;/p></description></item><item><title>Xen with Bonding + VLAN Tagging</title><link>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</link><pubDate>Sun, 27 Jan 2008 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Xen_avec_Bonding_+_Vlan_Tagging/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As powerful and flexible as it may be, Xen&amp;rsquo;s network configuration often feels like an obstacle course as soon as you stray a bit from the beaten path.&lt;/p>
+&lt;p>Recently, I had to set up a Xen-based solution in a somewhat special network topology. Each server where Xen was deployed had 2 ethernet adapters, each with 2 gigabit ethernet interfaces. The goal was to maximize the use of the different ethernet interfaces while providing both fault tolerance and load balancing. To make things even more interesting, the network was segmented into VLANs, each VLAN segmenting the network by function (DMZ, LAN, ADMIN, etc.).&lt;/p></description></item><item><title>Configuring a Catalyst Switch</title><link>https://wiki.deimos.fr/Configuration_d'un_Switch_Catalyst/</link><pubDate>Tue, 20 Nov 2007 14:57:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configuration_d'un_Switch_Catalyst/</guid><description>&lt;h2 id="connections">Connections &lt;a href="#connections" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Start by connecting the serial port on the PC side and the console port on the switch.&lt;/p>
+&lt;h2 id="connection">Connection &lt;a href="#connection" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Launch HyperTerminal and choose a connection on com1 port, or another com port depending on the PC configuration.
+You need to choose 9600 Bauds
+The rest doesn&amp;rsquo;t matter much&amp;hellip;&lt;/p>
+&lt;h2 id="what-you-need-to-know">What You Need to Know &lt;a href="#what-you-need-to-know" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When launching the terminal, you&amp;rsquo;ll determine several things:&lt;/p>
+&lt;ul>
+&lt;li>The router name (for example: swpar5)&lt;/li>
+&lt;li>A secret&lt;/li>
+&lt;li>A password&lt;/li>
+&lt;li>A virtual terminal password&lt;/li>
+&lt;/ul>
+&lt;p>Then you need to switch to &amp;ldquo;enable&amp;rdquo; mode to be able to change the configuration&lt;/p></description></item><item><title>Scapy: Data Frames and Packets</title><link>https://wiki.deimos.fr/Scapy_:_Trames_et_paquets_de_donn%C3%A9es/</link><pubDate>Tue, 09 Oct 2007 06:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Scapy_:_Trames_et_paquets_de_donn%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Scapy is a utility that allows you to forge, receive and send packets or data frames over a network for a multitude of protocols. In this introduction, you&amp;rsquo;ll discover this Python utility that enables traffic capture, network mapping, ARP cache poisoning, VLAN hopping, or passive operating system fingerprinting.&lt;/p>
+&lt;p>Scapy is a program developed in Python by Philippe Biondi (EADS CCR); it notably allows you to forge, receive and transmit packets and/or data frames via a network to or from an IT infrastructure for a multitude of different network protocols (IP, TCP, UDP, ARP, SNMP, ICMP, DNS, DHCP, &amp;hellip;) with precision and speed.&lt;/p></description></item><item><title>Installation and Configuration of Samba in "Share" Mode</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22Share%22/</link><pubDate>Mon, 27 Aug 2007 15:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Samba_en_mode_%22Share%22/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Samba is an open source software licensed under the GPL that supports the SMB/CIFS protocol. This protocol is used by Microsoft for sharing various resources (files, printers, etc.) between computers running Windows. Samba allows Unix systems to access resources from these systems and vice versa.&lt;/p>
+&lt;p>Previously, PCs equipped with DOS and early versions of Windows sometimes had to install a TCP/IP stack and a set of Unix-originated software: NFS client, FTP, telnet, lpr, etc. This was heavy and penalizing for PCs of that time, and it also forced users to adopt a double set of habits, adding those of UNIX to those of Windows. Samba takes the opposite approach.&lt;/p></description></item><item><title>IPv6: Complete Removal, IPv4 Only on Debian</title><link>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</link><pubDate>Tue, 21 Aug 2007 21:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/IPv6_:_Suppression_compl%C3%A8te,_IPv4_seulement/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When installing a new Debian 4.0 distribution, IPv6 support is enabled by default. This can cause some problems or even simply slow down your system. Indeed, all applications will use IPv6 support for name resolution before or after trying with IPv4.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is the case for mplayer used to read an audio or video stream:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a04aba1" class="language-bash ">
+ &lt;code>[...]
+Resolving live.radio-gresivaudan.org for AF_INET6...
+Couldn&amp;#39;t resolve name for AF_INET6: live.radio-gresivaudan.org
+Resolving live.radio-gresivaudan.org for AF_INET...
+Connecting to server live.radio-gresivaudan.org[217.117.157.190]: 8000...
+[...]&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>There is a simple method to disable IPv6 support. You just need to prevent the system from loading the corresponding module. Edit the file &lt;code>/etc/modprobe.d/blacklist&lt;/code> and add the line:&lt;/p></description></item><item><title>Nfqueue: Filter Thousands of IP Addresses (e.g., by Country)</title><link>https://wiki.deimos.fr/Nfqueue_:_Filtrer_des_milliers_d'adresses_IP_(ex:_par_pays)/</link><pubDate>Thu, 05 Jul 2007 05:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Nfqueue_:_Filtrer_des_milliers_d'adresses_IP_(ex:_par_pays)/</guid><description>&lt;p>Here is documentation on the NFQUEUE module for Iptables:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/iptables_filtering_traffic_thousands_ip.pdf">Iptables filtering traffic thousands IP&lt;/a>&lt;/p></description></item><item><title>Capturing connections on an interface</title><link>https://wiki.deimos.fr/Dumper_les_connections_dune_interface/</link><pubDate>Wed, 23 May 2007 15:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dumper_les_connections_dune_interface/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Capturing (or dumping) means to capture network packets. In this article, we&amp;rsquo;ll look at how to capture TCP packets that pass through our Cisco device, particularly through a specific interface. Here&amp;rsquo;s how to proceed.&lt;/p>
+&lt;h2 id="creating-the-access-list">Creating the access list &lt;a href="#creating-the-access-list" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, create an &lt;strong>access list&lt;/strong> called &lt;strong>dumptcp&lt;/strong> to allow connections from a host to any of our interfaces. You can specify a particular one if you wish:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="40460a8" class="language-bash ">
+ &lt;code>access-list dumptcp permit ip host 192.168.0.104 any&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then we do the reverse so that the Cisco can respond:&lt;/p></description></item><item><title>Ifrename: Renaming Network Cards Without Using Udev</title><link>https://wiki.deimos.fr/Ifrename_:_renomer_ses_cartes_r%C3%A9seaux_sans_utiliser_udev/</link><pubDate>Thu, 05 Apr 2007 15:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ifrename_:_renomer_ses_cartes_r%C3%A9seaux_sans_utiliser_udev/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you have multiple ethernet devices on a system, it&amp;rsquo;s useful to make sure they are always given the device names that you expect. This can be helpful when you&amp;rsquo;re managing upgrades - or for situations where you accidentally setup a system with eth1 plugged into a switch rather than eth0.&lt;/p>
+&lt;p>There are several different ways of managing the naming of devices if you&amp;rsquo;re using a dynamic /dev system such as udev or hotplug - but the simplest system which works for most cases is provided by the ifrename package.&lt;/p></description></item><item><title>Swaks - Swiss Army Knife SMTP</title><link>https://wiki.deimos.fr/Swaks_-_Swiss_Army_Knife_SMTP/</link><pubDate>Tue, 03 Oct 2006 13:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Swaks_-_Swiss_Army_Knife_SMTP/</guid><description>&lt;p>You may know Netcat, the &amp;ldquo;TCP/IP Swiss Army Knife&amp;rdquo;, now here&amp;rsquo;s &lt;a href="https://jetmore.org/john/code/#swaks" rel="external" target="_blank">Swaks&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, the &amp;ldquo;SMTP Swiss Army Knife&amp;rdquo; :)&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e6b8889" class="language-bash ">
+ &lt;code>apt-get install swaks&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The description is accurate, I can&amp;rsquo;t say it better&amp;hellip; you can do almost anything with it.
+Just read the man page to get ideas for how to use it.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Binary Logs on Tech Notebook</title><link>https://wiki.deimos.fr/tags/binary-logs/</link><description>Recent content in Binary Logs on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/binary-logs/index.xml" rel="self" type="application/rss+xml"/><item><title>Purging MySQL Binary Logs</title><link>https://wiki.deimos.fr/Purger_les_mysql-bin_logs/</link><pubDate>Fri, 02 Dec 2011 08:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Purger_les_mysql-bin_logs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Slow query logs and binary logs are essential for several purposes in MySQL. In this documentation, we&amp;rsquo;ll see how to manage them. This is particularly useful when you&amp;rsquo;re running low on disk space.&lt;/p>
+&lt;h2 id="slow-query-logs">Slow Query Logs &lt;a href="#slow-query-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction-1">Introduction &lt;a href="#introduction-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Slow query logs are simply standard logs. They can be managed like standard server logs.&lt;/p>
+&lt;h3 id="flush-logs">Flush Logs &lt;a href="#flush-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To flush logs, simply run this command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="668effd" class="language-bash ">
+ &lt;code>echo &amp;#34;&amp;#34; &amp;gt; slow-query.log&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="rotate-logs">Rotate Logs &lt;a href="#rotate-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5823ebd" class="language-bash ">
+ &lt;code>mv slow-query.log slow-query.log.old
+mysqladmin flush-logs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="binary-logs">Binary Logs &lt;a href="#binary-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction-2">Introduction &lt;a href="#introduction-2" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You might find a large number of bin files in the MySQL data directory called &amp;ldquo;server-bin.n&amp;rdquo; or mysql-bin.00000n, where n is an incrementing number. Usually &lt;code>/var/lib/mysql&lt;/code> stores the binary log files. The binary log contains all statements that update data or potentially could have updated it. For example, a DELETE or UPDATE which matched no rows. Statements are stored in the form of events that describe the modifications. The binary log also contains information about how long each statement that updated data took to execute.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenSSH on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/network/openssh/</link><description>Recent content in OpenSSH on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/network/openssh/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenSSH: SSH Key Exchange</title><link>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</link><pubDate>Fri, 25 Oct 2013 09:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/_Echange_de_clefs_SSH/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SSH key exchange is great for logging in without having to type your password. It&amp;rsquo;s also very simple to set up.&lt;/p>
+&lt;h2 id="basic">Basic &lt;a href="#basic" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the server, the user account to which the client will connect (for example &lt;strong>root&lt;/strong>) must have the .ssh directory present:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="37cae9e" class="language-bash ">
+ &lt;code>mkdir .ssh&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="client">Client &lt;a href="#client" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On the client, you need to generate a key pair, &lt;strong>unless you already have one (~/.ssh/id_dsa.pub)&lt;/strong>:&lt;/p></description></item><item><title>OpenSSH: Creating an SSH SOCKS Proxy</title><link>https://wiki.deimos.fr/OpenSSH_:_Cr%C3%A9er_un_proxy_socks_en_SSH/</link><pubDate>Sat, 18 Feb 2012 12:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Cr%C3%A9er_un_proxy_socks_en_SSH/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/ssh_socks.png" alt="SSH Socks" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This tutorial will be brief, but it&amp;rsquo;s highly effective. The utility of creating a SOCKS proxy via SSH is to be able to route any traffic through an external connection once the SSH connection is established. You simply use the proxy that SSH creates and you&amp;rsquo;re ready to go.&lt;/p>
+&lt;p>With &lt;a href="https://wiki.deimos.fr/SSLH:_Multiplexer_les_connections_SSL_et_SSH_sur_le_m%C3%AAme_port/">SSLH&lt;/a> as a frontend, you have an almost ultimate tool.&lt;/p>
+&lt;p>For more advanced techniques, I also recommend checking out &lt;a href="https://wiki.deimos.fr/Proxychains_:_proxyfier_n%27importe_quelle_connexion_vers_l%27ext%C3%A9rieur/">the documentation on proxychains&lt;/a>.&lt;/p></description></item><item><title>OpenSSH : Tunneling VPN</title><link>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</link><pubDate>Fri, 14 May 2010 22:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Tunneling_VPN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Since version 4.3 of OpenSSH, the option to create IP tunnels has been added.&lt;/p>
+&lt;p>First, you need to check the OpenSSH version on both the server and client.&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cd7213d" class="language-bash ">
+ &lt;code>ssh -v&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You need root privileges on both machines. There are operations to perform, both at the configuration and network levels.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="server">Server &lt;a href="#server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;h4 id="openbsd">OpenBSD &lt;a href="#openbsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h4>&lt;p>The first thing to do is to tell OpenSSH to authorize tunnels by adding this directive:&lt;/p></description></item><item><title>OpenSSH: Graphical Window Forwarding</title><link>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</link><pubDate>Mon, 12 Jan 2009 09:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_:_Export_de_fen%C3%AAtre_graphiques/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenSSH is capable of exporting X windows from another machine (creating an SSH tunnel). For example, you can connect to a server that has X and you only have SSH access to the remote machine.&lt;/p>
+&lt;p>In your SSH configuration file (&lt;code>/etc/ssh/sshd_config&lt;/code>), set this to yes:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f29d961" class="language-bash ">
+ &lt;code>X11Forwarding yes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="launching-the-session">Launching the Session &lt;a href="#launching-the-session" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s an example session. Here we&amp;rsquo;ll export VNC which is running on the direct machine:&lt;/p></description></item><item><title>OpenSSH: Using Stepstones</title><link>https://wiki.deimos.fr/OpenSSH:_using_stepstones/</link><pubDate>Thu, 06 Dec 2007 11:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_using_stepstones/</guid><description>&lt;p>You might be working in an environment where you always ssh from your machine to the middle machine and then connect to the destination machine. What a waste of time, let&amp;rsquo;s see how you could automate it. The middle machine is frequently referred to as stepstone host.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/openssh_using_stepstones.pdf">OpenSSH using stepstones&lt;/a>&lt;/p></description></item><item><title>OpenSSH: SSH Connection Multiplexing</title><link>https://wiki.deimos.fr/OpenSSH:_Multiplexage_des_connexions_SSH/</link><pubDate>Mon, 14 May 2007 19:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH:_Multiplexage_des_connexions_SSH/</guid><description>&lt;p>Since version 4.0, OpenSSH allows multiplexing several connections into one, which speeds up the connection time for subsequent logins.&lt;/p>
+&lt;p>This tip requires OpenSSH version 4.2 or higher to work.&lt;/p>
+&lt;p>Just add this to your &lt;code>~/.ssh/config&lt;/code> file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="49fbdc0" class="language-bash ">
+ &lt;code>Host *
+ControlMaster auto
+ControlPath ~/.ssh/master-%r@%h:%p&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>All new connections to a host where you are already connected will go through this existing connection. In addition to speeding up connection time, this has the advantage of not prompting for passwords on subsequent connections.&lt;/p></description></item><item><title>OpenSSH HPN (High Performance): Implementation and Installation</title><link>https://wiki.deimos.fr/OpenSSH_HPN_%28High_Performance_Enabled%29_:_Impl%C3%A9mentation_et_installation/</link><pubDate>Wed, 27 Dec 2006 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenSSH_HPN_%28High_Performance_Enabled%29_:_Impl%C3%A9mentation_et_installation/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the introduction provided by the &lt;a href="https://www.psc.edu/networking/projects/hpn-ssh/" rel="external" target="_blank">website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p>
+&lt;p>SCP and the underlying SSH2 protocol implementation in &lt;a href="https://www.openssh.com" rel="external" target="_blank">OpenSSH&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is network performance limited by statically defined internal flow control buffers. These buffers often end up acting as a bottleneck for network throughput of SCP, especially on long and high bandwidth network links. Modifying the SSH code to allow the buffers to be defined at runtime eliminates this bottleneck. We have created a patch that will remove the bottlenecks in OpenSSH and is fully interoperable with other servers and clients. In addition, HPN clients will be able to download faster from non-HPN servers, and HPN servers will be able to receive uploads faster from non-HPN clients. However, the host receiving the data must have a properly tuned TCP/IP stack. Please refer to this tuning page for more information.&lt;/p></description></item></channel></rss>

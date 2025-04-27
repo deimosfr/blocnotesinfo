@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Server on Tech Notebook</title><link>https://wiki.deimos.fr/tags/server/</link><description>Recent content in Server on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/server/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting Up a Git Server and Client</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_et_client_Git/</link><pubDate>Mon, 02 Feb 2015 20:33:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_et_client_Git/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/git-logo.png" alt="Git Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Git" rel="external" target="_blank">Git&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a distributed version control system. It&amp;rsquo;s free software created by Linus Torvalds, the creator of the Linux kernel, and distributed under GNU GPL version 2.&lt;/p></description></item><item><title>Debian: Reinstalling a Server Almost Identically</title><link>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</link><pubDate>Mon, 06 May 2013 15:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</guid><description>&lt;h2 id="principle">Principle &lt;a href="#principle" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>From a reference server, I want to quickly install another server with exactly the same packages.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We&amp;rsquo;ll extract the list of installed packages from the reference server:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="120d0f6" class="language-bash ">
+ &lt;code>dpkg --get-selections &amp;gt; my_packages.txt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then reinstall everything from this package list:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a6b7719" class="language-bash ">
+ &lt;code>dpkg --clear-selections
+dpkg --set-selections &amp;lt; my_packages.txt
+apt-get update
+apt-get dselect-upgrade
+apt-get dist-upgrade
+apt-get upgrade&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>LDAP: Installation and Configuration of an LDAP Directory</title><link>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</link><pubDate>Thu, 28 Mar 2013 10:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/openldap-logo.png" alt="OpenLDAP" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.4.23+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.openldap.org/" rel="external" target="_blank">OpenLDAP Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/LDAP" rel="external" target="_blank">Lightweight Directory Access Protocol (LDAP)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a protocol that allows querying and modification of directory services. This protocol is based on TCP/IP. An LDAP directory typically follows the X.500 model defined by ITU-T: it is a tree structure where each node consists of attributes associated with their values.&lt;/p></description></item><item><title>Munin: Monitor your servers in a very simple way</title><link>https://wiki.deimos.fr/Munin_:_Surveiller_ses_serveurs_de_fa%C3%A7ons_tr%C3%A8s_simple/</link><pubDate>Fri, 27 Nov 2009 21:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Munin_:_Surveiller_ses_serveurs_de_fa%C3%A7ons_tr%C3%A8s_simple/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://munin.projects.linpro.no/wiki/PluginCat" rel="external" target="_blank">Munin&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a relatively unknown monitoring tool, but unlike Cacti, it is very very simple to use and install. It is also full of surprising features.&lt;/p></description></item><item><title>Modifying NTP Synchronization Servers on Windows</title><link>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</link><pubDate>Fri, 30 Oct 2009 07:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I have a Windows Server 2008 DC and I wanted to use my internal time server on a Linux box running ntpd.&lt;/p>
+&lt;p>After a little hunting around, I found the command required to set Windows up to use the correct time peer.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fd71ead" class="language-bash ">
+ &lt;code>w32tm /config /update /manualpeerlist:&amp;#34;0.pool.ntp.org,0x8 1.pool.ntp.org,0x8&amp;#34; /syncfromflags:MANUAL&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>After making this change, you need to restart the Windows Time Service by issuing the following 2 commands:&lt;/p></description></item><item><title>Installation and Configuration of a Bind9 Secondary (Slave) Server</title><link>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave)/</link><pubDate>Sun, 04 Oct 2009 19:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_d'un_serveur_Bind9_secondaire_(Slave)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you want to set up your own DNS server, you must have a secondary server. If you don&amp;rsquo;t have other machines, you can use Gandi, otherwise follow this guide.&lt;/p>
+&lt;p>&lt;strong>Don&amp;rsquo;t forget to declare the secondary server on the primary server.&lt;/strong>&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On the secondary server:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d5080ef" class="language-bash ">
+ &lt;code>apt-get install bind9&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For OpenBSD, nothing to do, it&amp;rsquo;s already installed by default.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Before beginning, &lt;strong>declare your secondary servers in your domain name records (update NS records + ACL in named.conf)&lt;/strong>, otherwise notifications won&amp;rsquo;t work.&lt;/p></description></item><item><title>IRC: Setting up an IRC server with UnrealIRCD and Anope Services</title><link>https://wiki.deimos.fr/IRC_:_Mise_en_place_d'un_serveur_IRC_avec_UnrealIRCD_et_Anope_Services/</link><pubDate>Wed, 18 Feb 2009 18:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/IRC_:_Mise_en_place_d'un_serveur_IRC_avec_UnrealIRCD_et_Anope_Services/</guid><description>&lt;p>Here is a well-prepared documentation that allows you to create an IRC server:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/ircserver.pdf">Documentation on setting up an IRC server&lt;/a>&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/principes_et_structure_des_r%C3%A9seaux_irc.pdf">Principles and structure of IRC networks&lt;/a>&lt;/p></description></item><item><title>Setting up a Courier POP3 server with SSL</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</link><pubDate>Thu, 10 Apr 2008 13:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_serveur_Courier_POP3_avec_SSL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to install a POP3 server so that your emails can be retrieved from a mail client or another server, then Courier POP3 is a good solution. Additionally, setting up SSL is recommended as it provides security.&lt;/p>
+&lt;p>For the POP3 server to be fully functional, you&amp;rsquo;ll obviously need it to be accompanied by a mail server (&lt;a href="https://wiki.deimos.fr/docs/servers/emails/">see documentation here&lt;/a>).&lt;/p>
+&lt;p>I have done this installation on OpenBSD, so this entire documentation will be for OpenBSD, but given the simplicity of the process, it&amp;rsquo;s very easily portable to other systems.&lt;/p></description></item><item><title>SSH: Setting up SSH Server on a Minimal Solaris Installation</title><link>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</link><pubDate>Sat, 05 Apr 2008 10:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/SSH_:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/</guid><description>&lt;p>If you need to manage a Solaris 10 box with a minimal install, and SSH is not available, you can install it off of the 2nd CD. Rather than figure out the path to your CDROM (see this article), it was easier in our case to just tar up the needed packages and FTP them to our Solaris box:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de8f50" class="language-bash ">
+ &lt;code>root@srv-3 Product # cp -R SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr 
+SUNWsshu /home/srv-1/sshpkg/
+root@srv-3 Product # cd /home/srv-1/sshpkg/
+root@srv-3 sshpkg # ls
+SUNWsshcu SUNWsshdr SUNWsshdu SUNWsshr SUNWsshu
+root@srv-3 sshpkg # tar -cf ../ssh.tar *
+root@srv-3 sshpkg # tar -tf ../ssh.tar
+SUNWsshcu/
+SUNWsshcu/archive/
+.
+.
+.
+SUNWsshu/reloc/
+SUNWsshu/reloc/usr/
+SUNWsshu/reloc/usr/bin/
+SUNWsshu/reloc/usr/lib/
+SUNWsshu/reloc/usr/lib/ssh/
+root@srv-3 sshpkg #&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>On the Solaris side, FTP these to /tmp, then from tmp:&lt;/p></description></item><item><title>OpenFire: Installation of OpenFire</title><link>https://wiki.deimos.fr/OpenFire_:_Installation_d'OpenFire/</link><pubDate>Mon, 12 Nov 2007 15:03:00 +0200</pubDate><guid>https://wiki.deimos.fr/OpenFire_:_Installation_d'OpenFire/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>OpenFire is currently the most functional Jabber server available. It offers very interesting features, though some are paid.&lt;/p>
+&lt;p>It&amp;rsquo;s still very integratable with technologies such as LDAP, Oracle, or MySQL.&lt;/p>
+&lt;h2 id="download">Download &lt;a href="#download" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install it, it&amp;rsquo;s really not difficult. We download it from &lt;a href="https://www.igniterealtime.org/projects/openfire" rel="external" target="_blank">the official website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Power Management on Tech Notebook</title><link>https://wiki.deimos.fr/tags/power-management/</link><description>Recent content in Power Management on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/power-management/index.xml" rel="self" type="application/rss+xml"/><item><title>Modifying CPU Frequency</title><link>https://wiki.deimos.fr/Modifier_la_fr%C3%A9quence_de_son_processeur/</link><pubDate>Sun, 02 Aug 2009 15:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_la_fr%C3%A9quence_de_son_processeur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>So, you have an irritatingly loud CPU fan which is making you consider whether or not launching your laptop through the nearest window is a good idea. And you want to save the planet too! Well, before you do that, why not give CPU frequency scaling a go. Look at laptop mode!&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ll need to install the package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4636d00" class="language-bash ">
+ &lt;code>apt-get install laptop-mode-tools&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If you&amp;rsquo;re on ubuntu, you can look at &lt;strong>ubuntu-laptop-mode package&lt;/strong>.&lt;/p></description></item><item><title>Enabling and Disabling Screen Savers from Command Line</title><link>https://wiki.deimos.fr/Activer_Desactiver_ecran_veille_ligne_commande/</link><pubDate>Thu, 31 Jul 2008 10:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_Desactiver_ecran_veille_ligne_commande/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For my job, we got nice 42-inch LCD screens for monitoring. However, these are Toshiba models that don&amp;rsquo;t even include a timer for turning the displays on and off. Instead of manually turning them on and off every morning, I preferred to use screen saver activation and deactivation features to manage them automatically.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s a test that should turn off your screen, wait, and then turn it back on:&lt;/p></description></item><item><title>Deploying Power Management on a Server for its Clients</title><link>https://wiki.deimos.fr/D%C3%A9ployement_de_la_gestion_d%27%C3%A9nergie_sur_un_serveur_pour_ses_clients/</link><pubDate>Mon, 05 May 2008 09:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/D%C3%A9ployement_de_la_gestion_d%27%C3%A9nergie_sur_un_serveur_pour_ses_clients/</guid><description>&lt;h2 id="batch-script">Batch Script &lt;a href="#batch-script" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is the small batch script:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f1425ef" class="language-batch ">
+ &lt;code>Powercfg.exe /CREATE &amp;#34;myPowerScheme&amp;#34;
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /monitor-timeout-dc 20
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /monitor-timeout-ac 20
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /disk-timeout-dc 0
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /disk-timeout-ac 0
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /standby-timeout-dc 0
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /standby-timeout-ac 0
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /hibernate-timeout-dc 0
+Powercfg.exe /CHANGE &amp;#34;myPowerScheme&amp;#34; /hibernate-timeout-ac 0
+Powercfg.exe /SETACTIVE &amp;#34;myPowerScheme&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here I just want the monitor to turn off automatically after 20 minutes.&lt;/p></description></item></channel></rss>

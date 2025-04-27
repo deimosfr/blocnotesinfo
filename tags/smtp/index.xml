@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Smtp on Tech Notebook</title><link>https://wiki.deimos.fr/tags/smtp/</link><description>Recent content in Smtp on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/smtp/index.xml" rel="self" type="application/rss+xml"/><item><title>Postfix: Limit Outgoing Mail Throttling</title><link>https://wiki.deimos.fr/Postfix:_limit_outgoing_mail_throttling/</link><pubDate>Thu, 06 Aug 2015 00:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Postfix:_limit_outgoing_mail_throttling/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/08/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you have a huge amount of mail to deliver, you can&amp;rsquo;t release the queue at once and let the server maximize the outgoing mail throughput! The result will be: you&amp;rsquo;ll get blacklisted from a lot of MX servers.&lt;/p></description></item><item><title>Installation and Configuration of Postfix and Courier</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_Postfix_et_Courrier/</link><pubDate>Tue, 07 May 2013 07:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_Postfix_et_Courrier/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix.png" alt="Postfix Architecture" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an email server and free software developed by Wietse Venema. It handles the delivery of electronic messages. It was designed as a faster, easier to administer, and more secure alternative to the historical Sendmail.&lt;/p></description></item><item><title>Simulate a black hole for a domain with Postfix</title><link>https://wiki.deimos.fr/Simulate_a_black_hole_for_a_domain_with_Postfix/</link><pubDate>Tue, 07 May 2013 05:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Simulate_a_black_hole_for_a_domain_with_Postfix/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/postfix_logo.png" alt="Postfix" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.10&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.postfix.org/" rel="external" target="_blank">Postfix Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you manage outgoing emails through SMTP, you may sometimes need to test if a service is able to send correctly emails and itself check that there were no issue during sending. You can create a black hole for a specific domain and Postfix will answer from the same manner as if it is ok. It also permits to test Postfix sending capacities on a server.&lt;/p></description></item><item><title>Dkfilter: Proxy SMTP (Signature Mails) Made by Yahoo</title><link>https://wiki.deimos.fr/Dkfilter_:_Proxy_SMTP_(signatures_mails)_made_by_Yahoo/</link><pubDate>Thu, 31 Jan 2008 07:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Dkfilter_:_Proxy_SMTP_(signatures_mails)_made_by_Yahoo/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>DomainKeys is an anti-spam software application in development at &lt;a href="https://antispam.yahoo.com/domainkeys" rel="external" target="_blank">Yahoo&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> that uses a form of public key cryptography to authenticate the sender&amp;rsquo;s domain. &lt;strong>dkfilter is an SMTP-proxy designed for Postfix&lt;/strong>. It implements DomainKeys message signing and verification. It comprises two separate filters, an &amp;ldquo;outbound&amp;rdquo; filter for &lt;strong>signing outgoing email on port 587&lt;/strong>, and an &amp;ldquo;inbound&amp;rdquo; filter for &lt;strong>verifying signatures of incoming email on port 25&lt;/strong>. This document is to describe step by step how to install dkfilter for postfix to deploy domainkeys signing and verification.&lt;/p></description></item><item><title>Swaks - Swiss Army Knife SMTP</title><link>https://wiki.deimos.fr/Swaks_-_Swiss_Army_Knife_SMTP/</link><pubDate>Tue, 03 Oct 2006 13:40:00 +0200</pubDate><guid>https://wiki.deimos.fr/Swaks_-_Swiss_Army_Knife_SMTP/</guid><description>&lt;p>You may know Netcat, the &amp;ldquo;TCP/IP Swiss Army Knife&amp;rdquo;, now here&amp;rsquo;s &lt;a href="https://jetmore.org/john/code/#swaks" rel="external" target="_blank">Swaks&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, the &amp;ldquo;SMTP Swiss Army Knife&amp;rdquo; :)&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e6b8889" class="language-bash ">
+ &lt;code>apt-get install swaks&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The description is accurate, I can&amp;rsquo;t say it better&amp;hellip; you can do almost anything with it.
+Just read the man page to get ideas for how to use it.&lt;/p></description></item></channel></rss>

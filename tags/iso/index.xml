@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ISO on Tech Notebook</title><link>https://wiki.deimos.fr/tags/iso/</link><description>Recent content in ISO on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/iso/index.xml" rel="self" type="application/rss+xml"/><item><title>Mount an ISO image on Solaris</title><link>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</link><pubDate>Tue, 15 Jun 2010 07:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Monter_une_image_ISO_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Many software packages can be downloaded in the form of an ISO image. Rather than burning the image to a CD-ROM to access its contents, it is easy to mount the image directly into the filesystem using the lofiadm and mount commands.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Given an ISO image in &lt;code>/export/temp/software.iso&lt;/code>, a loopback file device (&lt;code>/dev/lofi/1&lt;/code>) is created with the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="cb8756e" class="language-bash ">
+ &lt;code>lofiadm -a /export/temp/software.iso /dev/lofi/1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The lofi device creates a block device version of a file. This block device can be mounted to &lt;code>/mnt&lt;/code> with the following command:&lt;/p></description></item><item><title>Hdiutil: Creating a DVD ISO from a VIDEO TS folder</title><link>https://wiki.deimos.fr/Hdiutil_:_Cr%C3%A9er_un_ISO_DVD_depuis_un_dossier_VIDEO_TS/</link><pubDate>Sat, 28 Nov 2009 16:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Hdiutil_:_Cr%C3%A9er_un_ISO_DVD_depuis_un_dossier_VIDEO_TS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may sometimes need to create a DVD from a VIDEO_TS folder. This is the solution.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a04ccd6" class="language-bash ">
+ &lt;code>$ hdiutil makehybrid -udf -udf-volume-name DVD_NAME -o MY_DVD.iso /path/&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>&lt;code>/path/&lt;/code> is the root folder of the DVD, not the VIDEO_TS folder.&lt;/p></description></item><item><title>Jumpstart: Automating Solaris Installations Without Networks</title><link>https://wiki.deimos.fr/Jumpstart:_automatiser_les_installations_Solaris_sans_r%C3%A9seaux/</link><pubDate>Fri, 21 Aug 2009 15:17:00 +0200</pubDate><guid>https://wiki.deimos.fr/Jumpstart:_automatiser_les_installations_Solaris_sans_r%C3%A9seaux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For my job, I had to automate Solaris installations. Jumpstart exists for this purpose. The problem is that in a new datacenter, you don&amp;rsquo;t always have what you need. That&amp;rsquo;s the real issue. That&amp;rsquo;s why I researched documentation on the internet, which often doesn&amp;rsquo;t work properly, and I&amp;rsquo;ll try to create a comprehensible guide that works (hopefully).&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ll need a fresh Solaris installation on which you&amp;rsquo;ll do minimal configuration. Also install anything else you&amp;rsquo;re interested in.&lt;/p></description></item><item><title>Creating a RedHat DVD from CDs</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</link><pubDate>Fri, 17 Aug 2007 15:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_DVD_RedHat_%C3%A0_partir_des_CD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>As of this writing, the current RHEL release (5) is only available on CDs, not DVD. It is possible to create a bootable DVD ISO from these CDs using Chris Kloiber&amp;rsquo;s mkdvdiso.sh script.&lt;/p>
+&lt;h2 id="method-1">Method 1 &lt;a href="#method-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="script-mkdvdisosh">Script mkdvdiso.sh &lt;a href="#script-mkdvdisosh" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Insert this in a mkdvdiso.sh file:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="14014b1" class="language-bash ">
+ &lt;code>#!/bin/bash
+ 
+# by Chris Kloiber &amp;lt;ckloiber@redhat.com&amp;gt;
+ 
+# A quick hack that will create a bootable DVD iso of a Red Hat Linux
+# Distribution. Feed it either a directory containing the downloaded
+# iso files of a distribution, or point it at a directory containing
+# the &amp;#34;RedHat&amp;#34;, &amp;#34;isolinux&amp;#34;, and &amp;#34;images&amp;#34; directories.
+ 
+# This version only works with &amp;#34;isolinux&amp;#34; based Red Hat Linux versions.
+ 
+# Lots of disk space required to work, 3X the distribution size at least.
+ 
+# GPL version 2 applies. No warranties, yadda, yadda. Have fun.
+ 
+ 
+if [ $# -lt 2 ]; then
+	echo &amp;#34;Usage: `basename $0` source /destination/DVD.iso&amp;#34;
+	echo &amp;#34;&amp;#34;
+	echo &amp;#34; The &amp;#39;source&amp;#39; can be either a directory containing a single&amp;#34;
+	echo &amp;#34; set of isos, or an exploded tree like an ftp site.&amp;#34;
+	exit 1
+fi
+ 
+cleanup() {
+[ ${LOOP:=/tmp/loop} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;LOOP mount point = /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $LOOP ] &amp;amp;&amp;amp; rm -rf $LOOP 
+[ ${DVD:=~/mkrhdvd} = &amp;#34;/&amp;#34; ] &amp;amp;&amp;amp; echo &amp;#34;DVD data location is /, dying!&amp;#34; &amp;amp;&amp;amp; exit
+[ -d $DVD ] &amp;amp;&amp;amp; rm -rf $DVD 
+}
+ 
+cleanup
+mkdir -p $LOOP
+mkdir -p $DVD
+ 
+if [ !`ls $1/*.iso 2&amp;gt;&amp;amp;1&amp;gt;/dev/null ; echo $?` ]; then
+	echo &amp;#34;Found ISO CD images...&amp;#34;
+	CDS=`expr 0`
+	DISKS=&amp;#34;1&amp;#34;
+ 
+	for f in `ls $1/*.iso`; do
+		mount -o loop $f $LOOP
+		cp -av $LOOP/* $DVD
+		if [ -f $LOOP/.discinfo ]; then
+			cp -av $LOOP/.discinfo $DVD
+			CDS=`expr $CDS &amp;#43; 1`
+			if [ $CDS != 1 ] ; then
+ 	DISKS=`echo ${DISKS},${CDS}`
+ 	fi
+		fi
+		umount $LOOP
+	done
+	if [ -e $DVD/.discinfo ]; then
+		awk &amp;#39;{ if ( NR == 4 ) { print disks } else { print ; } }&amp;#39; disks=&amp;#34;$DISKS&amp;#34; $DVD/.discinfo &amp;gt; $DVD/.discinfo.new
+		mv $DVD/.discinfo.new $DVD/.discinfo
+	fi
+else
+	echo &amp;#34;Found FTP-like tree...&amp;#34;
+	cp -av $1/* $DVD
+	[ -e $1/.discinfo ] &amp;amp;&amp;amp; cp -av $1/.discinfo $DVD
+fi
+ 
+rm -rf $DVD/isolinux/boot.cat
+find $DVD -name TRANS.TBL | xargs rm -f
+ 
+cd $DVD
+mkisofs -J -R -v -T -o $2 -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table .
+/usr/lib/anaconda-runtime/implantisomd5 --force $2
+ 
+cleanup
+echo &amp;#34;&amp;#34;
+echo &amp;#34;Process Complete!&amp;#34;
+echo &amp;#34;&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="install-the-anaconda-runtime">Install the anaconda-runtime &lt;a href="#install-the-anaconda-runtime" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Prerequisite package and its dependencies:&lt;/p></description></item><item><title>Ivconv: Text Transcoding to Any Character Set</title><link>https://wiki.deimos.fr/Ivconv_:_Transcodage_de_texte_vers_n%27importe_quel_jeu_de_caract%C3%A8res/</link><pubDate>Thu, 08 Mar 2007 08:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ivconv_:_Transcodage_de_texte_vers_n%27importe_quel_jeu_de_caract%C3%A8res/</guid><description>&lt;p>Debian provides the iconv command that allows you to transcode text to and from any character set. Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6d0823d" class="language-bash ">
+ &lt;code>$ iconv -f utf8 -t iso8859-15 fichier_utf8.txt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This command will transcode from UTF-8 to ISO-8859-15. It&amp;rsquo;s very useful if you&amp;rsquo;ve developed a web page in UTF-8 and realized it too late.&lt;/p></description></item></channel></rss>

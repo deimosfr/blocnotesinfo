@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Time on Tech Notebook</title><link>https://wiki.deimos.fr/tags/time/</link><description>Recent content in Time on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/time/index.xml" rel="self" type="application/rss+xml"/><item><title>Measuring Execution Time of One or Multiple Commands</title><link>https://wiki.deimos.fr/Connaitre_le_temps_d%27ex%C3%A9cution_d%27une_ou_plusieurs_commandes/</link><pubDate>Thu, 19 Nov 2009 06:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_temps_d%27ex%C3%A9cution_d%27une_ou_plusieurs_commandes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need to know exactly the time it takes to execute some commands. The &lt;code>time&lt;/code> command is perfect for this purpose.&lt;/p>
+&lt;p>This command is a bash builtin.&lt;/p>
+&lt;h2 id="examples">Examples &lt;a href="#examples" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The last semicolon &lt;code>;&lt;/code> is important. For example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="534c7bb" class="language-bash ">
+ &lt;code>time { rm -rf /folder/bar &amp;amp;&amp;amp; mkdir -p /folder/bar ; echo &amp;#34;done&amp;#34; ; }&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This will give you the time taken to execute the entire block of commands as a single unit.&lt;/p></description></item><item><title>Modifying NTP Synchronization Servers on Windows</title><link>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</link><pubDate>Fri, 30 Oct 2009 07:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I have a Windows Server 2008 DC and I wanted to use my internal time server on a Linux box running ntpd.&lt;/p>
+&lt;p>After a little hunting around, I found the command required to set Windows up to use the correct time peer.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fd71ead" class="language-bash ">
+ &lt;code>w32tm /config /update /manualpeerlist:&amp;#34;0.pool.ntp.org,0x8 1.pool.ntp.org,0x8&amp;#34; /syncfromflags:MANUAL&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>After making this change, you need to restart the Windows Time Service by issuing the following 2 commands:&lt;/p></description></item><item><title>Get Unix Format Time on Solaris</title><link>https://wiki.deimos.fr/Obtenir_l'heure_au_format_Unix_sous_Solaris/</link><pubDate>Tue, 06 Mar 2007 16:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Obtenir_l'heure_au_format_Unix_sous_Solaris/</guid><description>&lt;h2 id="getting-unix-format-time-on-solaris">Getting Unix Format Time on Solaris &lt;a href="#getting-unix-format-time-on-solaris" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a little script to obtain Unix format on Solaris (Epoch Time):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="eabf39e" class="language-bash ">
+ &lt;code>#!/bin/sh
+/usr/bin/truss /usr/bin/date 2&amp;gt;&amp;amp;1 | nawk -F= &amp;#39;/^time\(\)/ {gsub(/ /,&amp;#34;&amp;#34;,$2);print $2}&amp;#39;
+exit $?&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And finally, let&amp;rsquo;s see it in action:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f8e6970" class="language-bash ">
+ &lt;code># ./edate
+1149276150&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

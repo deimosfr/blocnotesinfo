@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kernel on Tech Notebook</title><link>https://wiki.deimos.fr/docs/bsd/kernel/</link><description>Recent content in Kernel on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/bsd/kernel/index.xml" rel="self" type="application/rss+xml"/><item><title>Activating the Serial Port on FreeBSD</title><link>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sous_FreeBSD/</link><pubDate>Sat, 19 May 2012 23:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sous_FreeBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>By default, the serial port is not activated. If you have a Soekris device, for example, it&amp;rsquo;s essential to activate it. Let&amp;rsquo;s see how to do this.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To activate the standard output on the serial port (only stdout):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7c79418" class="language-bash ">
+ &lt;code>echo &amp;#34;-h&amp;#34; &amp;gt; /boot.config&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Alternatively, you can choose to activate the serial port only if no keyboard is connected to the machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="33a2463" class="language-bash ">
+ &lt;code>echo &amp;#34;-P&amp;#34; &amp;gt; /boot.config&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Next, you&amp;rsquo;ll need to configure the stdin part (keyboard) by enabling this line by changing it to &amp;ldquo;on&amp;rdquo;:&lt;/p></description></item><item><title>Activating Kernel Modules</title><link>https://wiki.deimos.fr/Activer_modules_son_kernel/</link><pubDate>Sun, 04 May 2008 06:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_modules_son_kernel/</guid><description>&lt;h2 id="bsd-systems">BSD Systems &lt;a href="#bsd-systems" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the type of command you can use to disable ACPI (among other features) in your BSD kernel:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7073c27" class="language-bash ">
+ &lt;code>config -ef /bsd
+disable acpi
+quit&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To re-enable it, simply replace &lt;code>disable&lt;/code> with &lt;code>enable&lt;/code>.&lt;/p></description></item><item><title>Modifying Your Generic Kernel</title><link>https://wiki.deimos.fr/Modifier_son_kernel_g%C3%A9n%C3%A9rique/</link><pubDate>Tue, 13 Nov 2007 09:15:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_son_kernel_g%C3%A9n%C3%A9rique/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For those coming from the Linux world, they&amp;rsquo;ll find that this is super simple on BSD. In my case, I have a multicore server, and after installing BSD, it only detects one core. It&amp;rsquo;s a shame to run with just one core when you have several. I&amp;rsquo;ll explain here the procedure to switch to multicore, but this works with other kernel modifications as well!&lt;/p>
+&lt;h2 id="single-core-to-multicore">Single Core to Multicore &lt;a href="#single-core-to-multicore" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>During installation, you need to select the &amp;ldquo;bsd.mp&amp;rdquo; kernel. When the machine reboots after installation, it boots on the single-core kernel. We will therefore move the current kernel and replace it with the multicore one. To do this, it&amp;rsquo;s very simple:&lt;/p></description></item></channel></rss>

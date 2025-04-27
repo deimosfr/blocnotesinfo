@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Conversion on Tech Notebook</title><link>https://wiki.deimos.fr/tags/conversion/</link><description>Recent content in Conversion on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/conversion/index.xml" rel="self" type="application/rss+xml"/><item><title>Video Conversions</title><link>https://wiki.deimos.fr/Conversions_videos/</link><pubDate>Sun, 02 May 2010 21:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Conversions_videos/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>mencoder is one of the most used applications along with ffmpeg to convert or encode videos.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Depending on what you will use, select only the one you wish:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d4e35db" class="language-bash ">
+ &lt;code>apt-get install mencoder ffmpeg&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If you want to create OGV (OGG/Theora) videos for HTML5, you need to install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="58cf76e" class="language-bash ">
+ &lt;code>aptitude install ffmpeg2theora&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="convert-a-wmv-to-a-avi">Convert a .wmv to a .avi &lt;a href="#convert-a-wmv-to-a-avi" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9a06af7" class="language-bash ">
+ &lt;code>mencoder &amp;#34;/path/to/file.wmv&amp;#34; -ofps 23.976 -ovc lavc -oac copy -o &amp;#34;/path/to/file.avi&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="convert-a-mp4-to-a-avi">Convert a .mp4 to a .avi &lt;a href="#convert-a-mp4-to-a-avi" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d96aaa1" class="language-bash ">
+ &lt;code>ffmpeg -i &amp;#34;/path/to/file.mp4&amp;#34; &amp;#34;/path/to/file.avi&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And to convert an avi to mp4 and change to iPhone resolution:&lt;/p></description></item><item><title>Converting VMware Images to Xen</title><link>https://wiki.deimos.fr/Convertion_dimages_Vmware_vers_Xen/</link><pubDate>Fri, 11 Dec 2009 21:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertion_dimages_Vmware_vers_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>At work, I received some new toys. The particularity of these machines is that they are equipped with &amp;ldquo;Dual-Core Intel Xeon 5140 Processor (2.33 GHz, 1333 FSB)&amp;rdquo; CPUs, and the special feature of these CPUs is that in small print at the bottom of their spec sheet, you can read &amp;ldquo;NOTE: Intel Xeon Processor 5100/5000 sequence are 64-bit, Dual-Core, 4MB L2 Cache, and support Intel VT technology.&amp;rdquo; And that&amp;rsquo;s awesome.&lt;/p></description></item><item><title>Filesystem Conversion</title><link>https://wiki.deimos.fr/Conversion_de_filesystems/</link><pubDate>Fri, 08 May 2009 06:39:00 +0200</pubDate><guid>https://wiki.deimos.fr/Conversion_de_filesystems/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes you need to convert your filesystem to a more recent one when possible, without having to reformat everything.&lt;/p>
+&lt;h2 id="ext3---ext4">EXT3 -&amp;gt; EXT4 &lt;a href="#ext3---ext4" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s obvious that the partition to be converted must be unmounted beforehand. Here, I&amp;rsquo;ll use an LVM partition in ext3 to convert it to ext4:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e013435" class="language-bash ">
+ &lt;code>tune2fs -O extents,uninit_bg,dir_index /dev/mapper/lvm-home
+fsck -pf /dev/mapper/lvm-home&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If you&amp;rsquo;re modifying the boot partition, you need to boot from a live CD for example, then run this command to revalidate grub:&lt;/p></description></item><item><title>Converting WMA to MP3</title><link>https://wiki.deimos.fr/Convertir_du_WMA_en_MP3/</link><pubDate>Tue, 30 Jan 2007 14:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Convertir_du_WMA_en_MP3/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To convert WMA format (thanks Microsoft) to MP3 format, you will need &amp;ldquo;lame&amp;rdquo;, &amp;ldquo;mplayer&amp;rdquo;, and &amp;ldquo;perl&amp;rdquo;. You must have the unofficial package repositories configured in Debian to install lame.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To install everything once you have the unofficial package repositories configured:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0083a91" class="language-bash ">
+ &lt;code>apt-get install lame mplayer perl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then create a file named convert.pl and insert these lines:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dc5a503" class="language-perl ">
+ &lt;code>#! /usr/bin/perl
+### WMA TO MP3 CONVERTER
+###
+$dir=`pwd`;
+chop($dir);
+opendir(checkdir,&amp;#34;$dir&amp;#34;);
+
+while ($file=readdir(checkdir)) {
+$orig_file=$file;
+
+if ($orig_file !~ /\.wma$/i) {next};
+
+print &amp;#34;Conversion in progress: $orig_file\n&amp;#34;;
+
+$new_wav_file=$orig_file;$new_wav_file=~s/\.wma/\.wav/;
+$new_mp3_file=$orig_file;$new_mp3_file=~s/\.wma/\.mp3/;
+
+$convert_to_wav=&amp;#34;mplayer \&amp;#34;./$orig_file\&amp;#34; -ao pcm -aofile \&amp;#34;./$new_wav_file\&amp;#34;&amp;#34;;
+$convert_to_mp3=&amp;#34;lame -h \&amp;#34;./$new_wav_file\&amp;#34; \&amp;#34;./$new_mp3_file\&amp;#34;&amp;#34;;
+$remove_wav=&amp;#34;rm -rf \&amp;#34;./$new_wav_file\&amp;#34;&amp;#34;;
+
+print &amp;#34;EXEC 1: $convert_to_wav\n&amp;#34;;
+$cmd=`$convert_to_wav`;
+print &amp;#34;EXEC 2: $convert_to_mp3\n&amp;#34;;
+$cmd=`$convert_to_mp3`;
+print &amp;#34;REMOVE WAV: $remove_wav\n&amp;#34;;
+$cmd=`$remove_wav`;
+print &amp;#34;\n\n&amp;#34;;
+
+}
+
+print &amp;#34;Done....&amp;#34;;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then set the appropriate permissions:&lt;/p></description></item></channel></rss>

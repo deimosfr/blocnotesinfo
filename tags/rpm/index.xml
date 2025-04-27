@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rpm on Tech Notebook</title><link>https://wiki.deimos.fr/tags/rpm/</link><description>Recent content in Rpm on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/rpm/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating a RedHat Package from a Tar File</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_package_RedHat_depuis_un_tar/</link><pubDate>Thu, 02 Aug 2012 11:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_package_RedHat_depuis_un_tar/</guid><description>&lt;table class="table table-striped table-hover">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>Operating System&lt;/td>
+ &lt;td>Red Hat 6.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Website&lt;/td>
+ &lt;td>&lt;a href="https://www.redhat.com" rel="external" target="_blank">Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>Last Update&lt;/td>
+ &lt;td>02/08/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are many methods for creating packages available on the web, but many of them are obsolete and often don&amp;rsquo;t allow for simple implementation. That&amp;rsquo;s why I&amp;rsquo;ll show you a technique to build a package in 5 minutes.&lt;/p></description></item><item><title>Yum: Package Management in Red Hat</title><link>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</link><pubDate>Fri, 02 Mar 2012 19:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Yum_:_utilisation_des_packages_sous_RedHat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Yum, which stands for Yellow dog Updater Modified, is a package manager for Linux distributions like Fedora and Red Hat Enterprise Linux, created by Yellow Dog Linux.&lt;/p>
+&lt;p>It allows you to manage the installation and updating of software installed on a distribution. It&amp;rsquo;s a layer on top of RPM that handles downloads and dependencies, similar to Debian&amp;rsquo;s APT or Mandriva&amp;rsquo;s Urpmi.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>Installing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="3aa0288" class="language-bash ">
+ &lt;code>yum install &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Reinstalling a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="53caaae" class="language-bash ">
+ &lt;code>yum reinstall &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a local RPM:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e002e93" class="language-bash ">
+ &lt;code>yum localinstall &amp;lt;package.rpm&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Removing a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7c7dc35" class="language-bash ">
+ &lt;code>yum remove &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Updating packages or a specific package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="51a281e" class="language-bash ">
+ &lt;code>yum update &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Getting information about a package:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c079b69" class="language-bash ">
+ &lt;code>yum info &amp;lt;package&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Installing a package group:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="db4834e" class="language-bash ">
+ &lt;code>yum groupinstall &amp;lt;group&amp;gt;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Viewing available packages (installed or not):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d0179a7" class="language-bash ">
+ &lt;code>yum list&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p></description></item><item><title>Restore permissions on Red Hat</title><link>https://wiki.deimos.fr/Restaurer_les_permissions_d%5C%27une_Red_Hat/</link><pubDate>Sat, 04 Feb 2012 17:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Restaurer_les_permissions_d%5C%27une_Red_Hat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A colleague of mine made a serious mistake (running &lt;code>chown -Rf mysql&lt;/code> on &lt;code>/&lt;/code>!). This caused a huge mess, and we had to find a solution to restore the correct permissions.&lt;/p>
+&lt;p>Fortunately, Red Hat anticipated these kinds of errors and included the &lt;code>--setperms&lt;/code> and &lt;code>--setugids&lt;/code> options in the &lt;code>rpm&lt;/code> command to repair permissions on installed packages. Basically, this gives you a way to repair your machine.&lt;/p>
+&lt;p>So if you also made a mistake like this, know that there is a solution on Red Hat.&lt;/p></description></item><item><title>RPM: Build a Binary RPM Package from Sources on Red Hat</title><link>https://wiki.deimos.fr/RPM_:_Build_a_binary_RPM_package_from_sources_on_Red_Hat/</link><pubDate>Wed, 08 Jun 2011 14:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/RPM_:_Build_a_binary_RPM_package_from_sources_on_Red_Hat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Building an RPM is not a complicated task, even from source files. In my job I had to compile &lt;a href="https://www.openonload.org/" rel="external" target="_blank">Open On Load&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> kernel module and package it.&lt;/p></description></item></channel></rss>

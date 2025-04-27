@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>XenServer on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/virtualization/xenserver/</link><description>Recent content in XenServer on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/virtualization/xenserver/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting up Xen</title><link>https://wiki.deimos.fr/Mise_en_place_de_Xen/</link><pubDate>Sun, 13 Dec 2009 16:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_de_Xen/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Xen allows multiple operating systems (and their applications) to run in isolation on the same physical machine. Guest operating systems share the host machine&amp;rsquo;s resources.&lt;/p>
+&lt;p>Xen is a &amp;ldquo;paravirtualizer&amp;rdquo; or &amp;ldquo;hypervisor&amp;rdquo; for virtual machines. Guest operating systems are &amp;ldquo;aware&amp;rdquo; of the underlying Xen system and need to be &amp;ldquo;ported&amp;rdquo; (adapted) to work on Xen. Linux, NetBSD, FreeBSD, and Plan 9 can already run on Xen.&lt;/p>
+&lt;p>Xen 3 can also run unmodified systems like Windows on processors that support VT technology.&lt;/p></description></item><item><title>XenServer 5.0: Tips &amp; Tricks</title><link>https://wiki.deimos.fr/XenServer_5.0_:_Astuces/</link><pubDate>Fri, 08 May 2009 15:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/XenServer_5.0_:_Astuces/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Xen can be very temperamental, especially the Citrix version with the incomplete XenCenter. That&amp;rsquo;s why, here are some tips to help you navigate through difficult situations.&lt;/p>
+&lt;h2 id="adding-boot-options-in-xencenter-startup-options">Adding Boot Options in XenCenter &amp;ldquo;Startup Options&amp;rdquo; &lt;a href="#adding-boot-options-in-xencenter-startup-options" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To add this option, which is missing when creating a VM using a template.&lt;/p>
+&lt;p>You need to access the server console and check the UUID of the concerned VM:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="26e5ec7" class="language-bash ">
+ &lt;code>xe vm-list &lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Retrieve the UUID preceding the VM: uuid=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx&lt;/p></description></item><item><title>XenServer 5.0: Configuring XenServer with SUN Hardware</title><link>https://wiki.deimos.fr/XenServer_5.0_:_Configuration_d%27un_XenServer_avec_du_mat%C3%A9riel_SUN/</link><pubDate>Sun, 19 Apr 2009 09:28:00 +0200</pubDate><guid>https://wiki.deimos.fr/XenServer_5.0_:_Configuration_d%27un_XenServer_avec_du_mat%C3%A9riel_SUN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To perform installation on multiple XenServer, I needed to set up multiple hardware devices connected via Fiber channel. I completed two installations, both with this kind of hardware:&lt;/p>
+&lt;ul>
+&lt;li>SUN X4150&lt;/li>
+&lt;li>SUN X4600&lt;/li>
+&lt;li>SUN StorageTek ST2540&lt;/li>
+&lt;li>SUN StorageTek ST6140&lt;/li>
+&lt;/ul>
+&lt;h2 id="hardware-connectivity">Hardware Connectivity &lt;a href="#hardware-connectivity" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To setup connectivity, I used fiber channel. To make it work, you need to have Fiber Channel Switch and if possible, redundancy (so, 2 switches).&lt;/p>
+&lt;p>Having this kind of configuration creates multiple multipath links. This is very beneficial for fault tolerance and load balancing.&lt;/p></description></item><item><title>XenServer 4.1: Changing the Management Interface</title><link>https://wiki.deimos.fr/XenServer_4.1_:_Changer_l'interface_de_Management/</link><pubDate>Wed, 04 Feb 2009 18:58:00 +0200</pubDate><guid>https://wiki.deimos.fr/XenServer_4.1_:_Changer_l'interface_de_Management/</guid><description>&lt;p>The other day I installed a XenServer 4.1 server. Unfortunately, I selected the wrong management interface during installation, choosing eth0 instead of eth1.&lt;/p>
+&lt;p>The question was: how to change the management interface on XenServer 4.1?&lt;/p>
+&lt;h2 id="retrieving-the-uuid-of-the-interface">Retrieving the UUID of the interface &lt;a href="#retrieving-the-uuid-of-the-interface" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, we need to retrieve the UUID of the interface (they call it &amp;ldquo;PIF&amp;rdquo;):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c5795a1" class="language-bash ">
+ &lt;code>[root@xenserver-backup2 ~]# xe pif-list 
+uuid ( RO) : f34c8861-94d7-c3da-0437-3a068b273db5
+ device ( RO): eth3
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): c7c6e869-f611-11ad-871e-c130bbb9d13f
+
+
+uuid ( RO) : ffcba213-30dd-09d2-ee7e-0708507516f0
+ device ( RO): eth2
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): 55efa2d9-768b-52a0-4595-cebf771ce602
+
+
+uuid ( RO) : 7e5946e3-3c11-ebec-2636-713a69ce60ae
+ device ( RO): eth1
+ currently-attached ( RO): true
+ VLAN ( RO): -1
+ network-uuid ( RO): 7755aae6-a565-6e0a-a6b0-49cef6abee5e
+
+
+uuid ( RO) : b726e0f2-7b58-3489-dca7-0269630f8d4e
+ device ( RO): eth0
+ currently-attached ( RO): false
+ VLAN ( RO): -1
+ network-uuid ( RO): ae8ca5b4-9fa1-912a-7cca-55f4060a782c&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configure-ip-options">Configure IP options &lt;a href="#configure-ip-options" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Then we assign IP options with a command like this:&lt;/p></description></item></channel></rss>

@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Debian on Tech Notebook</title><link>https://wiki.deimos.fr/docs/linux/misc/debian/</link><description>Recent content in Debian on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/linux/misc/debian/index.xml" rel="self" type="application/rss+xml"/><item><title>Cron-apt: Automatic Security Updates Installation</title><link>https://wiki.deimos.fr/Cron-apt_:_Installation_des_mises_%C3%A0_jour_de_s%C3%A9curit%C3%A9_automatique/</link><pubDate>Sun, 18 May 2014 11:34:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cron-apt_:_Installation_des_mises_%C3%A0_jour_de_s%C3%A9curit%C3%A9_automatique/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>My goal is to install security updates automatically. Obviously this kind of approach is not really recommended, but on a Debian stable system where only security updates are installed, we minimize the risks.&lt;/p>
+&lt;p>So I started looking for a tool to do this kind of thing and found cron-apt.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6af967b" class="language-bash ">
+ &lt;code>aptitude install cron-apt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Now that it&amp;rsquo;s installed, let&amp;rsquo;s create a file that will contain only the Debian security repositories:&lt;/p></description></item><item><title>How to use old Debian repository for unmaintained Debian versions</title><link>https://wiki.deimos.fr/How_to_use_old_Debian_repository_for_unmaintained_Debian_versions/</link><pubDate>Fri, 05 Jul 2013 08:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/How_to_use_old_Debian_repository_for_unmaintained_Debian_versions/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian X&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/07/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installing old Debian to prepare a migration is quite good when repositories are still available. But for old unmaintained versions of Debian, we need to change some things.&lt;/p></description></item><item><title>Integrit: Add an integrity control tool on your Debian</title><link>https://wiki.deimos.fr/Integrit_:_Add_an_integrity_control_tool_on_your_Debian/</link><pubDate>Tue, 07 May 2013 14:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Integrit_:_Add_an_integrity_control_tool_on_your_Debian/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Integrit" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>4.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://sourceforge.net/projects/integrit/" rel="external" target="_blank">Integrit Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Integrit&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a simple yet secure alternative to products like tripwire. It has a small memory footprint, uses up-to-date cryptographic algorithms, and has features that make sense (like including the MD5 checksum of newly generated databases in the report&lt;/p></description></item><item><title>Automate Debian Installation</title><link>https://wiki.deimos.fr/Automatiser_une_installation_de_Debian/</link><pubDate>Tue, 07 May 2013 11:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Automatiser_une_installation_de_Debian/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>7.0&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s not always easy to set up 10 identical servers. That&amp;rsquo;s why this section will help you have a clean and controlled installation.&lt;/p></description></item><item><title>Debian: Reinstalling a Server Almost Identically</title><link>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</link><pubDate>Mon, 06 May 2013 15:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/</guid><description>&lt;h2 id="principle">Principle &lt;a href="#principle" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>From a reference server, I want to quickly install another server with exactly the same packages.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We&amp;rsquo;ll extract the list of installed packages from the reference server:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="120d0f6" class="language-bash ">
+ &lt;code>dpkg --get-selections &amp;gt; my_packages.txt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then reinstall everything from this package list:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="a6b7719" class="language-bash ">
+ &lt;code>dpkg --clear-selections
+dpkg --set-selections &amp;lt; my_packages.txt
+apt-get update
+apt-get dselect-upgrade
+apt-get dist-upgrade
+apt-get upgrade&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Checking File Integrity on Debian</title><link>https://wiki.deimos.fr/V%C3%A9rifier_l%27int%C3%A9grit%C3%A9_des_fichiers_sur_sa_Debian/</link><pubDate>Wed, 29 Aug 2012 12:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/V%C3%A9rifier_l%27int%C3%A9grit%C3%A9_des_fichiers_sur_sa_Debian/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian_logo.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>29/08/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For some context, I had a former colleague who found himself working in a company with many compromised servers that had been owned for years with no immediate possibility of replacing them. Knowing that binaries had been modified, he had to verify the integrity of all systems. For this purpose, he created a small script to check everything.&lt;/p></description></item><item><title>Installing Debian on a Mac in Single Boot</title><link>https://wiki.deimos.fr/Installer_Debian_sur_un_Mac_en_single_boot/</link><pubDate>Wed, 02 May 2012 20:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installer_Debian_sur_un_Mac_en_single_boot/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian_logo.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org/" rel="external" target="_blank">Debian&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/02/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are many methods for installing Debian on a Mac, some of which are less elegant than others. One approach that worked for me, but is quite messy, involves having an HFS+ partition with refit and Linux partitions that need to be synchronized with EFI (MBR -&amp;gt; EFI) with each new partition.&lt;/p></description></item><item><title>Recompile a Software the Debian Way</title><link>https://wiki.deimos.fr/Recompiler_un_soft_%C3%A0_la_sauce_Debian/</link><pubDate>Sun, 28 Mar 2010 20:27:00 +0200</pubDate><guid>https://wiki.deimos.fr/Recompiler_un_soft_%C3%A0_la_sauce_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes you need to recompile some software. But when using Debian packages, it&amp;rsquo;s not always easy because you want to keep the Debian conveniences. The solution is apt-get source :-)&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We will need these packages:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6cba0ad" class="language-bash ">
+ &lt;code>aptitude install dpkg-dev&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="example">Example &lt;a href="#example" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For example, I want to install nginx but recompile it with an additional option. I download the sources as follows:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c682a2a" class="language-bash ">
+ &lt;code>apt-get source nginx&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then I have a directory containing the sources and I reconfigure my sources with ./configure.&lt;/p></description></item><item><title>Advanced Usage of Debian Packages</title><link>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_des_packages_Debian/</link><pubDate>Fri, 11 Dec 2009 21:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_des_packages_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Quite possibly the most distinguishing feature of Debian-based Linux distributions (such as Ubuntu, Mepis, Knoppix, etc) is their package system – APT. Also known as the Advanced Package Tool, APT was first introduced in Debian 2.1 in 1999. APT is not so much a specific program as it is a collection of separate, related packages.&lt;/p>
+&lt;p>With APT, Linux gained the ability to install and manage software packages in a much simpler and more efficient way than was previously possible. Before its introduction, most software had to be installed either by manually compiling the source code, or using individual packages with no automatic dependency handling (such as RPM files). This could mean hours of &amp;ldquo;dependency hell&amp;rdquo; even to install a fairly trivial program.&lt;/p></description></item><item><title>Modifying CPU Frequency</title><link>https://wiki.deimos.fr/Modifier_la_fr%C3%A9quence_de_son_processeur/</link><pubDate>Sun, 02 Aug 2009 15:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Modifier_la_fr%C3%A9quence_de_son_processeur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>So, you have an irritatingly loud CPU fan which is making you consider whether or not launching your laptop through the nearest window is a good idea. And you want to save the planet too! Well, before you do that, why not give CPU frequency scaling a go. Look at laptop mode!&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You&amp;rsquo;ll need to install the package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4636d00" class="language-bash ">
+ &lt;code>apt-get install laptop-mode-tools&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If you&amp;rsquo;re on ubuntu, you can look at &lt;strong>ubuntu-laptop-mode package&lt;/strong>.&lt;/p></description></item><item><title>Broadcom Drivers and Debian</title><link>https://wiki.deimos.fr/Drivers_Broadcom_et_Debian/</link><pubDate>Mon, 16 Feb 2009 18:55:00 +0200</pubDate><guid>https://wiki.deimos.fr/Drivers_Broadcom_et_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Troublesome drivers! Thanks to manufacturers who provide drivers with problematic licenses. In short, with Debian version 5, network cards with Broadcom chipsets stopped working properly.&lt;/p>
+&lt;p>No problem, here&amp;rsquo;s the solution.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply install this package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1b5a56e" class="language-bash ">
+ &lt;code>apt-get install firmware-bnx2&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>A quick reboot and you&amp;rsquo;re all set!&lt;/p>
+&lt;h2 id="resources">Resources &lt;a href="#resources" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="http://forum.hardware.fr/hfr/OSAlternatifs/reseaux-securite/activer-broadcom-debian-sujet_67918_1.htm" rel="external" target="_blank">http://forum.hardware.fr/hfr/OSAlternatifs/reseaux-securite/activer-broadcom-debian-sujet_67918_1.htm&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/p></description></item><item><title>Creating a Debian Repository</title><link>https://wiki.deimos.fr/Cr%C3%A9er_un_repository_Debian/</link><pubDate>Tue, 11 Dec 2007 20:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_un_repository_Debian/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I am a co-designer of the MySecureShell project. The problem is that getting your project accepted in the official Debian/Ubuntu repositories requires significant effort. Therefore, while waiting, we decided to create our own repository. Here, I will describe the steps to create your own repository.&lt;/p>
+&lt;h2 id="preparation">Preparation &lt;a href="#preparation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This article assumes that the packages to be made available on the repository are already generated. Assuming the package is called &amp;ldquo;mysecureshell&amp;rdquo;, you should have the following files:&lt;/p></description></item><item><title>Debian: Changing Default Tools (e.g., Editor)</title><link>https://wiki.deimos.fr/Debian_:_Modification_des_outils_par_d%C3%A9faut_%28ex:_Editor%29/</link><pubDate>Tue, 28 Nov 2006 07:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Modification_des_outils_par_d%C3%A9faut_%28ex:_Editor%29/</guid><description>&lt;p>A nice command exists in Debian to modify your preferences. To change the default editor, for example, do this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1c93c85" class="language-bash ">
+ &lt;code>update-alternatives --config editor&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Otherwise, manually, you can do this:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="22cf64d" class="language-bash ">
+ &lt;code>export EDITOR=vim
+visudo&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Debian: No More Dependency Errors When Configuring From Source</title><link>https://wiki.deimos.fr/Debian_:_Fini_les_erreurs_de_d%C3%A9pendances_quand_vous_voulez_configurer_des_sources/</link><pubDate>Tue, 28 Nov 2006 07:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Fini_les_erreurs_de_d%C3%A9pendances_quand_vous_voulez_configurer_des_sources/</guid><description>&lt;p>Imagine you want to install the latest version of xyz from source on your Debian system. You run ./configure and&amp;hellip; BLAM!!! You get a ton of errors because of libraries that aren&amp;rsquo;t installed.&lt;/p>
+&lt;p>Well, this won&amp;rsquo;t happen anymore, thanks to a very user-friendly utility called auto-apt.&lt;/p>
+&lt;p>To install it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9b7071c" class="language-bash ">
+ &lt;code>apt-get install auto-apt&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then, enjoy the pleasure of ./configure without errors. To use it, just type:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="95f8c7d" class="language-bash ">
+ &lt;code>auto-apt run ./configure&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>instead. That&amp;rsquo;s all. If apt detects an error due to a missing file, it will kindly offer to install it for you.&lt;/p></description></item><item><title>Debian: GPG Error During apt-get update</title><link>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</link><pubDate>Sat, 05 Aug 2006 13:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d'apt-get_update/</guid><description>&lt;div class="prism-codeblock ">
+ &lt;pre id="71fd62d" class="language-bash ">
+ &lt;code>W: GPG error: http://security.debian.org testing/updates Release:
+The following signatures couldn&amp;#39;t be verified because the public key is not available: NO_PUBKEY key-number&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Is this type of message appearing? It&amp;rsquo;s quite annoying, especially since it happens every year. To solve this problem, follow these steps:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="aa25af8" class="language-bash ">
+ &lt;code>gpg --keyserver pgpkeys.mit.edu --recv-key key-number
+gpg -a --export key-number | apt-key add -&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item></channel></rss>

@@ -1,0 +1,1255 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>System Administration on Tech Notebook</title><link>https://wiki.deimos.fr/categories/system-administration/</link><description>Recent content in System Administration on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/categories/system-administration/index.xml" rel="self" type="application/rss+xml"/><item><title>Activating the Serial Port on FreeBSD</title><link>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sous_FreeBSD/</link><pubDate>Sat, 19 May 2012 23:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sous_FreeBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>By default, the serial port is not activated. If you have a Soekris device, for example, it&amp;rsquo;s essential to activate it. Let&amp;rsquo;s see how to do this.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To activate the standard output on the serial port (only stdout):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7c79418" class="language-bash ">
+ &lt;code>echo &amp;#34;-h&amp;#34; &amp;gt; /boot.config&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Alternatively, you can choose to activate the serial port only if no keyboard is connected to the machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="33a2463" class="language-bash ">
+ &lt;code>echo &amp;#34;-P&amp;#34; &amp;gt; /boot.config&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Next, you&amp;rsquo;ll need to configure the stdin part (keyboard) by enabling this line by changing it to &amp;ldquo;on&amp;rdquo;:&lt;/p></description></item><item><title>KVM: Setting Up KVM</title><link>https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM/</link><pubDate>Tue, 03 Mar 2015 09:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/KVM_:_Mise_en_place_de_KVM/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/kvm-logo.png" alt="KVM" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>0.12.5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.linux-kvm.org/" rel="external" target="_blank">KVM Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>03/03/2015&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>KVM (for Kernel-based Virtual Machine) is a full virtualization solution for Linux on x86 hardware containing virtualization extensions (Intel VT or AMD-V). It consists of a loadable kernel module, kvm.ko, that provides the core virtualization infrastructure and a processor specific module, kvm-intel.ko or kvm-amd.ko. KVM also requires a modified QEMU although work is underway to get the required changes upstream.&lt;/p></description></item><item><title>LVM: Working with Logical Volume Management</title><link>https://wiki.deimos.fr/LVM_:_Utilisation_des_LVM/</link><pubDate>Mon, 15 Sep 2014 11:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/LVM_:_Utilisation_des_LVM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Logical Volume Management (LVM) is a method and software for partitioning, concatenating, and utilizing storage spaces on a server. It allows flexible management, security, and online optimization of storage spaces in UNIX/Linux-type operating systems.&lt;/p>
+&lt;p>We also refer to it as Volume Manager.&lt;/p>
+&lt;p>Since LVM is not very simple to use, and since I don&amp;rsquo;t handle it every day either, I thought a small documentation was essential. I&amp;rsquo;ll fill it in as needed.&lt;/p></description></item><item><title>Software RAID Configuration</title><link>https://wiki.deimos.fr/Configuration_d'un_Raid_logiciel/</link><pubDate>Fri, 08 Aug 2014 08:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_d'un_Raid_logiciel/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Not everyone can afford a RAID 5 card with proper disks. That&amp;rsquo;s why a small software RAID 5 can be a good solution, especially for home use!&lt;/p>
+&lt;h2 id="creating-a-raid">Creating a RAID &lt;a href="#creating-a-raid" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="raid-1">RAID 1 &lt;a href="#raid-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To create a RAID 1, it&amp;rsquo;s simple. You just need 2 disks with 2 partitions of the same size, then run this command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6066813" class="language-bash ">
+ &lt;code>mdadm --create --assume-clean --verbose /dev/md0 --level=1 --raid-devices=2 /dev/sdb1 /dev/sdc1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>create: creating a raid&lt;/li>
+&lt;li>assume-clean: allows having a directly usable raid, without a complete synchronization. This requires being 100% sure that both disks/partitions are blank.&lt;/li>
+&lt;li>level: the type of raid (here RAID 1)&lt;/li>
+&lt;li>raid-devices: the number of disks used&lt;/li>
+&lt;/ul>
+&lt;h2 id="monitoring">Monitoring &lt;a href="#monitoring" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To see if everything is working properly, here are several solutions:&lt;/p></description></item><item><title>Monit: Easily Use Triggers on Your System</title><link>https://wiki.deimos.fr/monit-easily-use-triggers-on-your-system/</link><pubDate>Wed, 28 May 2014 09:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/monit-easily-use-triggers-on-your-system/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/monit_logo.png" alt="Monit" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.4-2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://mmonit.com" rel="external" target="_blank">Monit Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>28/05/2014&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://mmonit.com/monit/documentation/monit.html" rel="external" target="_blank">Monit&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a utility for managing and monitoring processes, programs, files, directories and filesystems on a Unix system. Monit conducts automatic maintenance and repair and can execute meaningful causal actions in error situations. E.g. Monit can start a process if it does not run, restart a process if it does not respond and stop a process if it uses too much resources. You can use Monit to monitor files, directories and filesystems for changes, such as timestamps changes, checksum changes or size changes.&lt;/p></description></item><item><title>Glances: All in One Monitoring Shell Tool</title><link>https://wiki.deimos.fr/glances-all-in-one-monitoring-shell-tool/</link><pubDate>Sun, 11 Aug 2013 19:26:00 +0200</pubDate><guid>https://wiki.deimos.fr/glances-all-in-one-monitoring-shell-tool/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/glances-logo.png" alt="Glances" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>1.6.1/Latest&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/nicolargo/glances" rel="external" target="_blank">Glances Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>11/08/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://github.com/nicolargo/glances" rel="external" target="_blank">Glances&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a cross-platform curses-based monitoring tool written in Python.&lt;/p></description></item><item><title>How to use old Debian repository for unmaintained Debian versions</title><link>https://wiki.deimos.fr/How_to_use_old_Debian_repository_for_unmaintained_Debian_versions/</link><pubDate>Fri, 05 Jul 2013 08:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/How_to_use_old_Debian_repository_for_unmaintained_Debian_versions/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/debian.png" alt="Debian" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian X&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.debian.org" rel="external" target="_blank">Debian Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/07/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Installing old Debian to prepare a migration is quite good when repositories are still available. But for old unmaintained versions of Debian, we need to change some things.&lt;/p></description></item><item><title>Integrit: Add an integrity control tool on your Debian</title><link>https://wiki.deimos.fr/Integrit_:_Add_an_integrity_control_tool_on_your_Debian/</link><pubDate>Tue, 07 May 2013 14:44:00 +0200</pubDate><guid>https://wiki.deimos.fr/Integrit_:_Add_an_integrity_control_tool_on_your_Debian/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Integrit" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>4.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://sourceforge.net/projects/integrit/" rel="external" target="_blank">Integrit Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>07/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Integrit&lt;sup id="fnref:1">&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref">1&lt;/a>&lt;/sup> is a simple yet secure alternative to products like tripwire. It has a small memory footprint, uses up-to-date cryptographic algorithms, and has features that make sense (like including the MD5 checksum of newly generated databases in the report&lt;/p></description></item><item><title>Apt &amp; Aptitude: Useful Commands</title><link>https://wiki.deimos.fr/apt-aptitude-les-commandes-utiles/</link><pubDate>Tue, 07 May 2013 11:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/apt-aptitude-les-commandes-utiles/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Being an Ubuntu/Debian user (yes, I use and advocate both), I have fallen in love with the Advanced Packaging Tool, also known as apt. Before Ubuntu, I played in the world of RPM hell, with distros such as Red Hat itself, Mandrake (as it was called back then), and even SuSE. I would find some piece of software, try to install it, only to find that it would choke, saying that it relied on some certain dependencies. I would install the dependencies, only to find conflicting versions with newer software. Hell indeed. So when I discovered the Debian way of installing software, I wondered why no one had mentioned it to me before. It was heaven. This is the way to software, I thought.&lt;/p></description></item><item><title>Clone a Hard Drive</title><link>https://wiki.deimos.fr/Cloner_un_disque_dur/</link><pubDate>Tue, 07 May 2013 09:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cloner_un_disque_dur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To clone a disk under Windows, you need to pull out all the tools, and if it&amp;rsquo;s bootable, then hold on tight&amp;hellip; how much does it cost? Obviously, Windows purist pirates will tell me they download a cracked version.&lt;/p>
+&lt;p>Why use such tools and break the law when free and amazing tools exist? Let&amp;rsquo;s take a look at some options&amp;hellip;&lt;/p>
+&lt;h2 id="solutions">Solutions &lt;a href="#solutions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dd">dd &lt;a href="#dd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>dd is the ultimate solution. To duplicate a disk with a progress bar:&lt;/p></description></item><item><title>ACL: Implementing NT-type Permissions on Linux</title><link>https://wiki.deimos.fr/ACL:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Linux/</link><pubDate>Mon, 06 May 2013 15:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/ACL:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Linux/</guid><description>&lt;p>An ACL, or Access Control List, is simply defined as a list of permissions on a file, directory, or tree structure, added to the &amp;ldquo;classic&amp;rdquo; permissions (technically, POSIX.1 permissions) of that file. These permissions concern defined users and/or groups. ACL management under GNU/Linux is inspired by the POSIX 1003.1e standard (project 17) but does not fully comply with it.&lt;/p>
+&lt;p>With ACLs, you can extend the number of users and groups that have rights to the same file. Remember that in the UNIX world, each file can normally only indicate permissions for a single user and a single group, which are opposed to a single category corresponding to &amp;ldquo;all others&amp;rdquo; (or &amp;ldquo;the rest of the world&amp;rdquo;). With ACLs, you can (among other things) add other users and groups to a file and define their rights separately. This brings the system closer to the permission system used on NT platforms (although many differences remain).&lt;/p></description></item><item><title>Linux Memory Management</title><link>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</link><pubDate>Mon, 06 May 2013 14:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>06/05/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="pages">Pages &lt;a href="#pages" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When looking at &lt;code>/proc/meminfo&lt;/code>, &amp;lsquo;Inactive Clean&amp;rsquo; pages correspond to free pages. If the kernel needs to allocate pages to a process, it can take these pages from the free page list or from inactive clean. Pages being used by processes are referenced as active pages. In the case of shared memory, a page can have multiple processes referencing it.&lt;/p></description></item><item><title>Configure Network on Solaris</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris/</link><pubDate>Mon, 06 May 2013 14:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris can be challenging! Especially when you come from a Linux/BSD world and find that all the network commands are strange.&lt;/p>
+&lt;h2 id="detecting-network-cards">Detecting Network Cards &lt;a href="#detecting-network-cards" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To detect network cards that are present and especially connected, here&amp;rsquo;s a very useful command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c390117" class="language-bash ">
+ &lt;code>$ dladm show-dev
+igb0 link: up speed: 1000 Mbps duplex: full
+igb1 link: up speed: 1000 Mbps duplex: full
+igb2 link: up speed: 1000 Mbps duplex: full
+igb3 link: up speed: 1000 Mbps duplex: full
+clprivnet0 link: unknown speed: 0 Mbps duplex: unknown&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Or you can use &lt;code>dladm show-links&lt;/code> to get more detailed information about the connection status.&lt;/p></description></item><item><title>Configure Network on NetBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_NetBSD/</link><pubDate>Fri, 15 Mar 2013 22:32:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_NetBSD/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/netbsd-logo.png" alt="NetBSD" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>6.0.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.netbsd.org/" rel="external" target="_blank">NetBSD Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The network is an essential part of system configuration. I will cover some aspects of it here.&lt;/p></description></item><item><title>SoSReport: Generate and analyze machine reports</title><link>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</link><pubDate>Fri, 15 Mar 2013 15:22:00 +0200</pubDate><guid>https://wiki.deimos.fr/Sosreport:%C2%A0g%C3%A9n%C3%A9rez%C2%A0et%C2%A0analysez%C2%A0des%C2%A0rapports%C2%A0de%C2%A0machine/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/red_hat_logo.png" alt="SOS Report" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.2&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.4&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://github.com/sosreport/sosreport" rel="external" target="_blank">Sosreport Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>15/03/2013&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>CentOS 6.4&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you&amp;rsquo;ve ever contacted Red Hat support, you probably know that they systematically request a sosreport. It&amp;rsquo;s a very practical tool for the support team as it collects command results, log files, configuration files, and other information often essential for diagnosing a problem. Personally, I&amp;rsquo;ve installed it on CentOS and it works very well.&lt;/p></description></item><item><title>Linux Process and Scheduler Management</title><link>https://wiki.deimos.fr/Gestion_des_process_et_des_schedulers/</link><pubDate>Tue, 04 Sep 2012 13:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gestion_des_process_et_des_schedulers/</guid><description>&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>04/09/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="processes">Processes &lt;a href="#processes" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To list processes, it&amp;rsquo;s very simple:&lt;/p></description></item><item><title>Configuring Network on FreeBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</link><pubDate>Mon, 02 Jul 2012 10:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbyfreebsd.png" alt="FreeBSD" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>FreeBSD 9&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.freebsd.org" rel="external" target="_blank">FreeBSD Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>02/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The network is an essential part of system configuration, so I&amp;rsquo;ll cover some aspects of it here.&lt;/p></description></item><item><title>Activating the Serial Port on Linux</title><link>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sur_Linux/</link><pubDate>Mon, 14 May 2012 17:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sur_Linux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s often convenient to access a machine via the serial port. Unfortunately, we usually realize this too late. Here&amp;rsquo;s how to activate it.&lt;/p>
+&lt;p>For usage information, please refer to the documentation on Minicom.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Modify the following lines to ensure that the console part loads correctly during the Grub boot:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ &lt;div class="prism-codeblock anchorlinenos hl_lines linenos">
+ &lt;pre id="9e74958" class="language-bash line-numbers linkable-line-numbers" data-line="8,16,17" data-line-offset="1">
+ &lt;code># If you change this file, run &amp;#39;update-grub&amp;#39; afterwards to update
+# /boot/grub/grub.cfg.
+
+GRUB_DEFAULT=0
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2&amp;gt; /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT=&amp;#34;quiet&amp;#34;
+GRUB_CMDLINE_LINUX=&amp;#34;console=tty0 console=ttyS0,9600n8&amp;#34;
+
+# Uncomment to enable BadRAM filtering, modify to suit your needs
+# This works with Linux (no patch required) and with any kernel that obtains
+# the memory map information from GRUB (GNU Mach, kernel of FreeBSD ...)
+#GRUB_BADRAM=&amp;#34;0x01234567,0xfefefefe,0x89abcdef,0xefefefef&amp;#34;
+
+# Uncomment to disable graphical terminal (grub-pc only)
+GRUB_TERMINAL=console
+GRUB_SERIAL_COMMAND=&amp;#34;serial --speed=9600 --unit=0 --word=8 --parity=no --stop=1&amp;#34;
+
+# The resolution used on graphical terminal
+# note that you can use only modes which your graphic card supports via VBE
+# you can see them in real GRUB with the command `vbeinfo&amp;#39;
+#GRUB_GFXMODE=640x480
+
+# Uncomment if you don&amp;#39;t want GRUB to pass &amp;#34;root=UUID=xxx&amp;#34; parameter to Linux
+#GRUB_DISABLE_LINUX_UUID=true
+
+# Uncomment to disable generation of recovery mode menu entries
+#GRUB_DISABLE_LINUX_RECOVERY=&amp;#34;true&amp;#34;
+
+# Uncomment to get a beep at grub start
+#GRUB_INIT_TUNE=&amp;#34;480 440 1&amp;#34;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then update Grub:&lt;/p></description></item><item><title>Adding Red Hat DVD as a Repository</title><link>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</link><pubDate>Tue, 21 Feb 2012 16:21:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You don&amp;rsquo;t have a Red Hat subscription or simply no internet connection to connect to the NRH, yet you have the installation DVD that contains all the packages you need!&lt;/p>
+&lt;p>Here&amp;rsquo;s how to add the DVD to the repository.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="dvd">DVD &lt;a href="#dvd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Create a file in /etc/yum.repos.d/redhatcd.repo&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6736735" class="language-bash ">
+ &lt;code>cp /media/RHEL/media.repo /etc/yum.repos.d/redhatcd.repo&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And adapt it with this content:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0cde3f7" class="language-bash ">
+ &lt;code>[InstallMedia]
+name=Red Hat Enterprise Linux 6.1
+mediaid=1305068199.328169
+metadata_expire=-1
+gpgcheck=0
+cost=500
+baseurl=file:///media/RHEL/Server&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Now we&amp;rsquo;ll clear the cache:&lt;/p></description></item><item><title>Automating Installation of Many Packages</title><link>https://wiki.deimos.fr/Automatiser_l'installation_de_beaucoup_de_packages/</link><pubDate>Wed, 15 Feb 2012 18:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Automatiser_l'installation_de_beaucoup_de_packages/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Pkgadd isn&amp;rsquo;t particularly user-friendly; it has plenty of options but they&amp;rsquo;re a bit too hidden for my taste. For work, I needed to deploy approximately 1000 packages on several machines. However, with each package installation, I had to enter &amp;lsquo;y&amp;rsquo; and press enter, which quickly becomes tedious.&lt;/p>
+&lt;p>To solve this problem, I looked at the man page and found the &lt;code>-n&lt;/code> argument, which is useful since it lets you bypass interactive mode. The drawback is that it doesn&amp;rsquo;t work perfectly. So I searched a bit on the internet and found the response file. This is a file where we pass options. These options are tested during a package installation, and here we force them by default to avoid being bothered.&lt;/p></description></item><item><title>How to Check the Number of Active CPU Cores on Solaris</title><link>https://wiki.deimos.fr/Connaitre_le_nombre_de_cores_CPU_actifs_sur_Solaris/</link><pubDate>Mon, 06 Feb 2012 10:10:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_nombre_de_cores_CPU_actifs_sur_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On certain machines (especially HP), it&amp;rsquo;s very practical for licensing issues to be able to limit the number of cores. Afterwards, it&amp;rsquo;s important to verify that the state is what you expect.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To get the list of active cores:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+
+ 
+ 
+
+ &lt;div class="prism-codeblock hl_lines linenos">
+ &lt;pre id="7f00d31" class="language-bash line-numbers" data-line="2,4" data-line-offset="1">
+ &lt;code>&amp;gt; psrinfo -pv
+The physical processor has 1 virtual processor (0) x86 (chipid 0x0 GenuineIntel family 6 model 44 step 2 clock 2800 MHz)
+ Intel(r) Xeon(r) CPU X5660 @ 2.80GHz
+The physical processor has 1 virtual processor (1) x86 (chipid 0x1 GenuineIntel family 6 model 44 step 2 clock 2800 MHz)
+ Intel(r) Xeon(r) CPU X5660 @ 2.80GHz&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here we can see that I only have one virtual CPU per processor (so 2 total).&lt;/p></description></item><item><title>Adding Swap Space on Solaris</title><link>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</link><pubDate>Mon, 30 Jan 2012 12:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/ajout-de-swap-sous-solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The purpose of this documentation is to quickly describe how to create swap space on Solaris. There are other documentation sources such as &lt;a href="https://wiki.deimos.fr/Management_des_disques_sous_Solaris/">Disk Management in Solaris&lt;/a> that describe in depth how disks work on Solaris, but that&amp;rsquo;s not the goal here.&lt;/p>
+&lt;p>We&amp;rsquo;ll look at three methods to add swap space:&lt;/p>
+&lt;ul>
+&lt;li>On UFS&lt;/li>
+&lt;li>On ZFS&lt;/li>
+&lt;li>Using a swap file&lt;/li>
+&lt;/ul>
+&lt;h2 id="swap-on-ufs">Swap on UFS &lt;a href="#swap-on-ufs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you want to add swap space on a UFS disk, you&amp;rsquo;ll need to create a partition. Let&amp;rsquo;s first see what we have:&lt;/p></description></item><item><title>Disk Management in Solaris</title><link>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</link><pubDate>Mon, 30 Jan 2012 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Compared to Linux, Solaris is quite similar except for certain aspects which I will clarify here. This guide will not only cover Solaris but also include general information about disk architecture and filesystems.&lt;/p>
+&lt;h2 id="physical-operation">Physical Operation &lt;a href="#physical-operation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="files-inodes-and-blocks">Files, Inodes and Blocks &lt;a href="#files-inodes-and-blocks" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On your hard drive, where you store your data, there is a hierarchical structure:&lt;/p>
+&lt;ul>
+&lt;li>Directories and files&lt;/li>
+&lt;li>Inodes&lt;/li>
+&lt;li>Blocks&lt;/li>
+&lt;/ul>
+&lt;p>Inodes are what know exactly where each directory/file is located. When you create or call a file, it points to an inode. This inode is then able to identify which data block it belongs to (binary slice). Here&amp;rsquo;s a small explanation with an image:&lt;/p></description></item><item><title>Secure Your Architecture with SELinux</title><link>https://wiki.deimos.fr/Securiser_son_architecture_avec_SELinux/</link><pubDate>Thu, 06 Oct 2011 12:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/Securiser_son_architecture_avec_SELinux/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://en.wikipedia.org/wiki/Selinux" rel="external" target="_blank">Security-Enhanced Linux, abbreviated as SELinux&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, is a LSM (Linux security module) that allows defining a MAC (mandatory access control) access policy to elements of a Linux-based system. Initiated by the NSA based on work conducted with SCC and the University of Utah in the USA (DTMach prototypes, DTOS, FLASK project), its architecture separates policy enforcement from its definition. It notably allows classifying applications of a system into different groups with finer access levels. It also allows assigning a confidentiality level for accessing system objects, such as file descriptors, according to an MLS (Multi Level Security) security model. SELinux uses the Bell LaPadula model with SCC Type enforcement for integrity. It is free software, with some parts licensed under GNU GPL or BSD.&lt;/p></description></item><item><title>Smartmontools: Hard Drive Monitoring</title><link>https://wiki.deimos.fr/Smartmontool_:_Surveillance_des_disques_dur/</link><pubDate>Fri, 14 Jan 2011 20:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Smartmontool_:_Surveillance_des_disques_dur/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Smartmontools is a tool for analyzing hard drives and their most critical physical characteristics. It consists of two parts: smartd daemon, which checks parameters every 30 minutes and writes the results to &lt;code>/var/log/syslog&lt;/code>, and the smartctl command which requires root privileges and is used to display all the information.&lt;/p>
+&lt;h2 id="activation--installation-of-smartmontools">Activation / Installation of smartmontools &lt;a href="#activation--installation-of-smartmontools" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="debian">Debian &lt;a href="#debian" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Installation requires root privileges. The package name varies depending on your Debian version. The example below is for Sarge.&lt;/p></description></item><item><title>Managing Solaris Processes</title><link>https://wiki.deimos.fr/Manager_les_processes_Solaris/</link><pubDate>Mon, 12 Apr 2010 09:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/Manager_les_processes_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>A process is any program that is running on the system. All processes are assigned a unique process identification (PID) number, which is used by the kernel to track and manage the process. The PID numbers are used by the root and regular users to identify and control their processes.&lt;/p>
+&lt;h2 id="prstat">prstat &lt;a href="#prstat" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The prstat command examines and displays information about active processes on the system.&lt;/p>
+&lt;p>This command enables you to view information by specific processes, user identification (UID) numbers, central processing unit (CPU) IDs, or processor sets. By default, the prstat command displays information about all processes sorted by CPU usage. To use the prstat command, perform the command:&lt;/p></description></item><item><title>SMF: Service Management Facility</title><link>https://wiki.deimos.fr/SMF_:_Service_Management_Facility/</link><pubDate>Wed, 03 Feb 2010 21:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/SMF_:_Service_Management_Facility/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>SMF services are listed by categories:&lt;/p>
+&lt;ul>
+&lt;li>application&lt;/li>
+&lt;li>device&lt;/li>
+&lt;li>legacy&lt;/li>
+&lt;li>milestone&lt;/li>
+&lt;li>network&lt;/li>
+&lt;li>platform&lt;/li>
+&lt;li>site&lt;/li>
+&lt;li>system&lt;/li>
+&lt;/ul>
+&lt;p>Example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c087bf0" class="language- ">
+ &lt;code>svc:/system/filesystem/root:default&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>The prefix svc indicates that it&amp;rsquo;s a service managed by SMF&lt;/li>
+&lt;li>The category of the service is &amp;ldquo;system&amp;rdquo;&lt;/li>
+&lt;li>The service itself is a filesystem&lt;/li>
+&lt;li>The instance of the service is the root of the file system&lt;/li>
+&lt;li>The word &amp;ldquo;default&amp;rdquo; identifies the first, in this case only, instance of the service&lt;/li>
+&lt;/ul>
+&lt;p>Another example:&lt;/p></description></item><item><title>Configuration and Usage of Solaris Zones (Containers)</title><link>https://wiki.deimos.fr/Configuration_et_utilisation_des_Zones_Solaris_(Containers)/</link><pubDate>Fri, 11 Dec 2009 21:43:00 +0200</pubDate><guid>https://wiki.deimos.fr/Configuration_et_utilisation_des_Zones_Solaris_(Containers)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Zones or Containers are:&lt;/p>
+&lt;ul>
+&lt;li>Virtual instance of Solaris&lt;/li>
+&lt;li>Software partition for the OS&lt;/li>
+&lt;/ul>
+&lt;p>A large SunFire server with hardware domains allows many isolated systems to be created. Zones achieve this in software and is far more flexible - it is easy to move individual CPUs between zones as needed, or to configure a more sophisticated way to share CPUs and memory.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are two general zone types to pick from during zone creation. They are,&lt;/p></description></item><item><title>Displaying Active Machines on the Current Network</title><link>https://wiki.deimos.fr/afficher-les-machines-allumees-sur-le-reseau-courant/</link><pubDate>Fri, 11 Dec 2009 19:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/afficher-les-machines-allumees-sur-le-reseau-courant/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>There are several solutions to find which hosts are up on your network. A simple solution is to use nmap.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s how to do it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="4a03f97" class="language-bash ">
+ &lt;code>nmap -sP your network/submask | awk &amp;#34;/^Host/&amp;#34;&amp;#39;{ print $2 }&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Munin: Monitor your servers in a very simple way</title><link>https://wiki.deimos.fr/Munin_:_Surveiller_ses_serveurs_de_fa%C3%A7ons_tr%C3%A8s_simple/</link><pubDate>Fri, 27 Nov 2009 21:42:00 +0200</pubDate><guid>https://wiki.deimos.fr/Munin_:_Surveiller_ses_serveurs_de_fa%C3%A7ons_tr%C3%A8s_simple/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://munin.projects.linpro.no/wiki/PluginCat" rel="external" target="_blank">Munin&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a relatively unknown monitoring tool, but unlike Cacti, it is very very simple to use and install. It is also full of surprising features.&lt;/p></description></item><item><title>Measuring Execution Time of One or Multiple Commands</title><link>https://wiki.deimos.fr/Connaitre_le_temps_d%27ex%C3%A9cution_d%27une_ou_plusieurs_commandes/</link><pubDate>Thu, 19 Nov 2009 06:45:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_temps_d%27ex%C3%A9cution_d%27une_ou_plusieurs_commandes/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You may need to know exactly the time it takes to execute some commands. The &lt;code>time&lt;/code> command is perfect for this purpose.&lt;/p>
+&lt;p>This command is a bash builtin.&lt;/p>
+&lt;h2 id="examples">Examples &lt;a href="#examples" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The last semicolon &lt;code>;&lt;/code> is important. For example:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="534c7bb" class="language-bash ">
+ &lt;code>time { rm -rf /folder/bar &amp;amp;&amp;amp; mkdir -p /folder/bar ; echo &amp;#34;done&amp;#34; ; }&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This will give you the time taken to execute the entire block of commands as a single unit.&lt;/p></description></item><item><title>Create Your Own Graphs</title><link>https://wiki.deimos.fr/create-your-own-graphs/</link><pubDate>Thu, 29 Oct 2009 07:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/create-your-own-graphs/</guid><description>&lt;p>Ahhhh Cacti! It&amp;rsquo;s wonderful when it works!
+Yes, yes, those beautiful graphs look great. However, it&amp;rsquo;s true that when you want to create your own graph, that&amp;rsquo;s a different story! So I found this comprehensive documentation that works perfectly as long as you follow it to the letter!&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/tuto_cacti_dim_shell.pdf">Documentation on creating a graph in Cacti&lt;/a>&lt;/p>
+&lt;p>Now that you know how to create graphs, here are some scripts I made a while ago.&lt;/p></description></item><item><title>Freeze a Machine by CPU Overload</title><link>https://wiki.deimos.fr/Faire_freezer_une_machine_par_overload_CPU/</link><pubDate>Sun, 20 Sep 2009 15:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Faire_freezer_une_machine_par_overload_CPU/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a solution to max out your CPU so much that your machine will freeze.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Simply run this in a terminal:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c588ae8" class="language-bash ">
+ &lt;code>:(){ :|:&amp;amp; };:&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Understanding Time Management in Linux</title><link>https://wiki.deimos.fr/Comprendre_la_gestion_du_temps_sous_Linux/</link><pubDate>Tue, 03 Feb 2009 19:13:00 +0100</pubDate><guid>https://wiki.deimos.fr/Comprendre_la_gestion_du_temps_sous_Linux/</guid><description>&lt;p>Here&amp;rsquo;s a document that helps understand how priorities work in relation to time allocation in Linux:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/temps_r%C3%A9el_sous_linux.pdf">Real-time in Linux&lt;/a>&lt;/p></description></item><item><title>Managing Zombie Processes in Linux</title><link>https://wiki.deimos.fr/Gestion_des_process_zombies_sous_Linux/</link><pubDate>Fri, 26 Dec 2008 19:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Gestion_des_process_zombies_sous_Linux/</guid><description>&lt;p>Since Linux Kernel version 2.6.26, there is FINALLY the possibility to kill Zombie processes:&lt;br>
+&lt;a href="https://wiki.deimos.fr/pdf/l-task-killable-pdf.pdf">TASK_KILLABLE: New process state in Linux&lt;/a>&lt;/p></description></item><item><title>Understanding Load Average</title><link>https://wiki.deimos.fr/Comprendre_le_fonctionnement_du_Load_Average/</link><pubDate>Sun, 30 Nov 2008 20:50:00 +0100</pubDate><guid>https://wiki.deimos.fr/Comprendre_le_fonctionnement_du_Load_Average/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The &lt;a href="https://fr.wikipedia.org/wiki/Load_average" rel="external" target="_blank">load average&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> refers, in UNIX systems, to an average of the system load, a measure of the amount of work the system is doing during the considered period. This is available via the top or uptime commands.&lt;/p></description></item><item><title>Locate Large Files and Directories</title><link>https://wiki.deimos.fr/find-and-du-locate-large-files-and-directories/</link><pubDate>Sun, 31 Aug 2008 10:59:00 +0200</pubDate><guid>https://wiki.deimos.fr/find-and-du-locate-large-files-and-directories/</guid><description>&lt;h2 id="finding-large-directories">Finding Large Directories &lt;a href="#finding-large-directories" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To find large directories, use the du command and sort the output.&lt;/p>
+&lt;p>For example, to output the 10 largest directories in /var, sorted in ascending size order, use the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="da73965" class="language-bash ">
+ &lt;code>du -ko /var&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To avoid crossing file system boundaries, that is, to see the directory usage in / but not in the other mounted files systems (/var, /opt, and so on), add the d option to the du command:&lt;/p></description></item><item><title>Activating Kernel Modules</title><link>https://wiki.deimos.fr/Activer_modules_son_kernel/</link><pubDate>Sun, 04 May 2008 06:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/Activer_modules_son_kernel/</guid><description>&lt;h2 id="bsd-systems">BSD Systems &lt;a href="#bsd-systems" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the type of command you can use to disable ACPI (among other features) in your BSD kernel:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7073c27" class="language-bash ">
+ &lt;code>config -ef /bsd
+disable acpi
+quit&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>To re-enable it, simply replace &lt;code>disable&lt;/code> with &lt;code>enable&lt;/code>.&lt;/p></description></item><item><title>Configure Network on OpenBSD</title><link>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_OpenBSD/</link><pubDate>Mon, 17 Mar 2008 07:22:00 +0100</pubDate><guid>https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_OpenBSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I won&amp;rsquo;t go into too much detail, as that&amp;rsquo;s what the OpenBSD website is for. This is just a quick reference for recalling how to rapidly configure networking.&lt;/p>
+&lt;h2 id="basic-configuration">Basic Configuration &lt;a href="#basic-configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="ifconfig">ifconfig &lt;a href="#ifconfig" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To list available network cards and view defined IP addresses:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="11981fe" class="language-bash ">
+ &lt;code>$ ifconfig
+lo0: flags=8049&amp;lt;UP,LOOPBACK,RUNNING,MULTICAST&amp;gt; mtu 33224
+ inet 127.0.0.1 netmask 0xff000000
+ inet6 ::1 prefixlen 128
+ inet6 fe80::1%lo0 prefixlen 64 scopeid 0x5
+lo1: flags=8008&amp;lt;LOOPBACK,MULTICAST&amp;gt; mtu 33224
+fxp0: flags=8843&amp;lt;UP,BROADCAST,RUNNING,SIMPLEX,MULTICAST&amp;gt; mtu 1500
+ address: 00:04:ac:dd:39:6a
+ media: Ethernet autoselect (100baseTX full-duplex)
+ status: active
+ inet 10.0.0.38 netmask 0xffffff00 broadcast 10.0.0.255
+ inet6 fe80::204:acff:fedd:396a%fxp0 prefixlen 64 scopeid 0x1
+pflog0: flags=0&amp;lt;&amp;gt; mtu 33224
+pfsync0: flags=0&amp;lt;&amp;gt; mtu 2020
+sl0: flags=c010&amp;lt;POINTOPOINT,LINK2,MULTICAST&amp;gt; mtu 296
+sl1: flags=c010&amp;lt;POINTOPOINT,LINK2,MULTICAST&amp;gt; mtu 296
+ppp0: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1500
+ppp1: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1500
+tun0: flags=10&amp;lt;POINTOPOINT&amp;gt; mtu 3000
+tun1: flags=10&amp;lt;POINTOPOINT&amp;gt; mtu 3000
+enc0: flags=0&amp;lt;&amp;gt; mtu 1536
+bridge0: flags=0&amp;lt;&amp;gt; mtu 1500
+bridge1: flags=0&amp;lt;&amp;gt; mtu 1500
+vlan0: flags=0&amp;lt;&amp;gt; mtu 1500
+ address: 00:00:00:00:00:00
+vlan1: flags=0&amp;lt;&amp;gt; mtu 1500
+ address: 00:00:00:00:00:00
+gre0: flags=9010&amp;lt;POINTOPOINT,LINK0,MULTICAST&amp;gt; mtu 1450
+carp0: flags=0&amp;lt;&amp;gt; mtu 1500
+carp1: flags=0&amp;lt;&amp;gt; mtu 1500
+gif0: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280
+gif1: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280
+gif2: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280
+gif3: flags=8010&amp;lt;POINTOPOINT,MULTICAST&amp;gt; mtu 1280&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Here&amp;rsquo;s a listing of available interfaces with their explanations:&lt;/p></description></item><item><title>Fetchmail - The Ultimate Mail Collector</title><link>https://wiki.deimos.fr/fetchmail-the-ultimate-mail-collector/</link><pubDate>Mon, 07 Jan 2008 14:48:00 +0200</pubDate><guid>https://wiki.deimos.fr/fetchmail-the-ultimate-mail-collector/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Fetchmail is an IMAP, POP2, POP3, etc. collector.&lt;br>
+It allows you to retrieve emails from different mailboxes and consolidate them in your personal mailbox.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For installation, the usual steps:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0583a22" class="language-bash ">
+ &lt;code>apt-get install fetchmail&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="for-a-single-user">For a single user &lt;a href="#for-a-single-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s create a .fetchmailrc file in our home directory:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="75486b2" class="language-bash ">
+ &lt;code>touch ~/.fetchmailrc&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>And insert these lines (for POP3):&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="8ad4232" class="language- ">
+ &lt;code>poll pop.myprovider.com with proto POP3
+user &amp;#39;address@email.com&amp;#39; there with password &amp;#39;PASSWORD&amp;#39; is &amp;#39;USER&amp;#39; here options fetchall&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="for-multiple-users">For multiple users &lt;a href="#for-multiple-users" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>If you want to create a file that will fetch (yes, the verb 😉) emails for multiple users with a single file, create the file &amp;ldquo;/etc/fetchmailrc&amp;rdquo; and insert lines like this:&lt;/p></description></item><item><title>Migration: Migrating Linux accounts to BSD</title><link>https://wiki.deimos.fr/Migration_:_Migrer_des_comptes_linux_vers_BSD/</link><pubDate>Fri, 23 Nov 2007 11:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Migration_:_Migrer_des_comptes_linux_vers_BSD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here is a solution that allows you to easily migrate Linux accounts to BSD. &lt;strong>The only constraint is that you must not have two identical logins or identifiers after this migration.&lt;/strong>&lt;/p>
+&lt;h2 id="linux">Linux &lt;a href="#linux" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Commands to execute (as root) on your Linux machine for exporting:&lt;/p>
+&lt;ul>
+&lt;li>Gathering data from /etc/passwd and /etc/shadow files:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0f336fd" class="language-bash ">
+ &lt;code>pwunconv&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Transforming the /etc/passwd file to be usable by BSD systems (grep -v &amp;lsquo;root|daemon&amp;rsquo; excludes root and daemon users):&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9d9bba0" class="language-bash ">
+ &lt;code>cat /etc/passwd | grep -v &amp;#39;^root\|^daemon&amp;#39; | awk -F: &amp;#39;{printf(&amp;#34;%s:%s:%s:%s::0:0:%s:%s:%s\n&amp;#34;, $1,$2,$3,$4,$5,$6,$7);}&amp;#39; &amp;gt; ~/linux_passwd&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>Separate the data from /etc/passwd and /etc/shadow again:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="9d952b7" class="language-bash ">
+ &lt;code>pwconv&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="bsd">BSD &lt;a href="#bsd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Retrieve the generated file on your BSD system, then for importing:&lt;/p></description></item><item><title>Initramfs: Fixing Kernel Boot Issues with Initramfs</title><link>https://wiki.deimos.fr/Initramfs_:_corriger_les_petits_probl%C3%A8mes_de_boot_kernel_gr%C3%A2ce_%C3%A0_initramfs/</link><pubDate>Tue, 18 Sep 2007 22:19:00 +0200</pubDate><guid>https://wiki.deimos.fr/Initramfs_:_corriger_les_petits_probl%C3%A8mes_de_boot_kernel_gr%C3%A2ce_%C3%A0_initramfs/</guid><description>&lt;h2 id="problem">Problem &lt;a href="#problem" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I just installed a server with many SATA disks. The machine has 4.5TB of storage spread across 2 Areca ARC-1280ML controllers. The Debian/etch installation went without issues using kernel 2.6.18-5-686. After installing the system on 2 disks connected to the motherboard (ICH5R controller using the ata_piix driver), RAID5 volumes are created on the Areca cards (arcmsr driver). However, boot stops at an initramfs command prompt, unable to find the root partition:&lt;/p></description></item><item><title>How to Check BIOS Version Without Rebooting</title><link>https://wiki.deimos.fr/Connaitre_sa_version_du_Bios_sans_rebooter/</link><pubDate>Wed, 29 Aug 2007 19:46:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_sa_version_du_Bios_sans_rebooter/</guid><description>&lt;p>Sometimes when you have old machines, you might want to know if flashing the BIOS would allow you to use a larger disk. From a remote system, the following command (run as root) will give you plenty of information:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="0d1cdd4" class="language-bash ">
+ &lt;code>dd if=/dev/mem bs=32k skip=31 count=1 | strings -n 8 | grep -i bios
+1&amp;#43;0 records in
+1&amp;#43;0 records out
+32768 bytes transferred in 0.011551 seconds (2836813 bytes/sec)
+Award SoftwareIBM COMPATIBLE 486 BIOS COPYRIGHT Award Software Inc.oftware Inc. Aw
+Award Modular BIOS v4.51PG&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="explanation">Explanation &lt;a href="#explanation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On an x86 system, the BIOS is traditionally accessible in the last 64KB of the first MB of memory. The dd command is instructed to read from RAM starting at the first byte, skipping 31 blocks of 32KB each, and displaying the 32nd block.&lt;/p></description></item><item><title>How to Determine Your System Architecture</title><link>https://wiki.deimos.fr/Connaitre_son_architecture/</link><pubDate>Wed, 08 Aug 2007 12:30:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_son_architecture/</guid><description>&lt;p>Here&amp;rsquo;s a simple but very useful trick. The &lt;code>isainfo&lt;/code> command allows you to determine the architecture of a machine:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="190584a" class="language-bash ">
+ &lt;code>$ isainfo -v
+64-bit amd64 applications
+ pause sse2 sse fxsr amd_3dnowx amd_3dnow amd_mmx mmx cmov amd_sysc cx8 
+ tsc fpu 
+32-bit i386 applications
+ pause sse2 sse fxsr amd_3dnowx amd_3dnow amd_mmx mmx cmov amd_sysc cx8 
+ tsc fpu&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>I can see here that my system is 64-bit and also has compatibility for 32-bit applications.&lt;/p></description></item><item><title>How to Check the Page Size of Your Machine</title><link>https://wiki.deimos.fr/Connaitre_le_page_size_de_sa_machine/</link><pubDate>Wed, 09 May 2007 13:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Connaitre_le_page_size_de_sa_machine/</guid><description>&lt;h2 id="determining-the-page-size">Determining the Page Size &lt;a href="#determining-the-page-size" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Most operating systems allow programs to determine what the page size is so that they can allocate memory more efficiently.&lt;/p>
+&lt;h3 id="unix-and-posix-based-operating-systems">UNIX and POSIX-based Operating Systems &lt;a href="#unix-and-posix-based-operating-systems" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>UNIX and POSIX-based systems use the C function sysconf().&lt;/p>
+&lt;p>Edit a test.c file and paste it:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="fc4196b" class="language-c ">
+ &lt;code>#include &amp;lt;stdio.h&amp;gt; // printf(3)
+#include &amp;lt;unistd.h&amp;gt; // sysconf(3)
+
+int
+main(void)
+{
+ printf(&amp;#34;The page size for this system is %ld bytes\n&amp;#34;, sysconf(_SC_PAGESIZE)); //_SC_PAGE_SIZE is OK too.
+ return 0;
+}&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Then compile it with gcc:&lt;/p></description></item><item><title>Fifo and Cat: Share a Session with Multiple Users</title><link>https://wiki.deimos.fr/fifo-and-cat-share-session-with-multiple-users/</link><pubDate>Sun, 18 Mar 2007 09:29:00 +0200</pubDate><guid>https://wiki.deimos.fr/fifo-and-cat-share-session-with-multiple-users/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This technique can be used to show a remote colleague or client what you&amp;rsquo;re working on on the server.&lt;/p>
+&lt;p>It&amp;rsquo;s just for visual sharing and not interactive like with screen (&lt;a href="https://wiki.deimos.fr/Screen_:_Les_commandes_les_plus_utilis%C3%A9es/">see this documentation&lt;/a>).&lt;/p>
+&lt;h2 id="creating-a-fifo-file">Creating a fifo file &lt;a href="#creating-a-fifo-file" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="7de88de" class="language-bash ">
+ &lt;code>mkfifo /tmp/sortieScript
+ls -l /tmp/sortieScript
+prw-r--r-- 1 yannick yannick 0 Jul 6 02:59 /tmp/sortieScript&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5459b0f" class="language- ">
+ &lt;code>mkfifo - Create named pipes (FIFOs) with the given NAMEs.
+A FIFO special file (a named pipe) is similar to a pipe, except that it is accessed as part of the file system.
+[...] the FIFO special file has no contents on the file system&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="reading-the-file-by-the-remote-user">Reading the file by the remote user &lt;a href="#reading-the-file-by-the-remote-user" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="77c0fd2" class="language-bash ">
+ &lt;code>cat /tmp/sortieScript&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Warning: as long as the file is not &amp;ldquo;catted&amp;rdquo;, it cannot be used by the following command&amp;hellip;&lt;/p></description></item><item><title>Hdparm: Optimizing Disk Access</title><link>https://wiki.deimos.fr/Hdparm_:_Optimiser_les_acc%C3%A8s_disques/</link><pubDate>Wed, 18 Oct 2006 09:14:00 +0200</pubDate><guid>https://wiki.deimos.fr/Hdparm_:_Optimiser_les_acc%C3%A8s_disques/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>When you copy large files from one hard drive to another or copy the contents of a CD-ROM to a hard drive, you may have noticed a significant slowdown in your system. During the transfer, music might begin to crackle, for example, or DVD-ROM playback is particularly slow.&lt;/p>
+&lt;ul>
+&lt;li>Considerations&lt;/li>
+&lt;/ul>
+&lt;p>Throughout this article, we consider that your hard drive is the master on the first IDE interface, meaning it is connected to the entry point &lt;code>/dev/hda&lt;/code>.&lt;/p></description></item><item><title>Fanout: Run the Same Command on Multiple Machines Simultaneously</title><link>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</link><pubDate>Tue, 03 Oct 2006 15:52:00 +0200</pubDate><guid>https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/</guid><description>&lt;p>These two tools by William Stearns can quickly become essential when managing multiple machines&amp;hellip;&lt;/p>
+&lt;p>As indicated in the title, these tools allow you to run commands simultaneously on multiple machines, and even interactively (with fanterm).&lt;/p>
+&lt;p>I didn&amp;rsquo;t find anything in the repositories or as a .deb package. So I &amp;ldquo;alienated&amp;rdquo; the rpm:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="56a8047" class="language-bash ">
+ &lt;code>wget http://www.stearns.org/fanout/fanout-0.6.1-0.noarch.rpm
+sudo alien fanout-0.6.1-0.noarch.rpm
+sudo dpkg -i fanout_0.6.1-1_all.deb&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>For SSH on non-standard ports, I used the config file (see man ssh_config)&lt;/p></description></item></channel></rss>

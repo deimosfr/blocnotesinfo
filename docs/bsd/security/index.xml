@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Security on Tech Notebook</title><link>https://wiki.deimos.fr/docs/bsd/security/</link><description>Recent content in Security on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/bsd/security/index.xml" rel="self" type="application/rss+xml"/><item><title>Encrypting Swap Partition</title><link>https://wiki.deimos.fr/Encrypter_sa_swap/</link><pubDate>Wed, 01 Aug 2007 22:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Encrypter_sa_swap/</guid><description>&lt;p>Since OpenBSD 3.7, swap is automatically encrypted. If you&amp;rsquo;re using an earlier version and wish to enable encryption, there are two solutions:&lt;/p>
+&lt;h2 id="without-rebooting">Without Rebooting &lt;a href="#without-rebooting" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To enable swap encryption without rebooting, use the following command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="c3166a9" class="language-bash ">
+ &lt;code>sysctl -w vm.swapencrypt.enable=1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="with-rebooting">With Rebooting &lt;a href="#with-rebooting" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To enable swap encryption permanently (requires a reboot), edit the &lt;code>/etc/sysctl.conf&lt;/code> file and uncomment this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b90011" class="language-bash ">
+ &lt;code>vm.swapencrypt.enable=1&lt;/code>
+ &lt;/pre>
+ &lt;/div></description></item><item><title>Jailctl: Creating Chroot Environments (Jails)</title><link>https://wiki.deimos.fr/Jailctl_:_Cr%C3%A9ation_de_chroot_%28jails%29/</link><pubDate>Sun, 15 Apr 2007 21:50:00 +0200</pubDate><guid>https://wiki.deimos.fr/Jailctl_:_Cr%C3%A9ation_de_chroot_%28jails%29/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Jailctl is a shell tool for creating/launching/stopping/updating/backing up/restoring/destroying jails.
+By jail, we mean here a &amp;ldquo;virtual server&amp;rdquo; and not simply a method for isolating a service.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Here&amp;rsquo;s the command to install the package:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d2382c9" class="language-bash ">
+ &lt;code>pkg_add -vr jailctl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="6793148" class="language-bash ">
+ &lt;code>cd /usr/ports/sysutils/jailctl ; make install clean&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;ul>
+&lt;li>You need a config file: &lt;code>/usr/local/etc/jails.conf&lt;/code>&lt;/li>
+&lt;li>You also need: a directory where the jails will be stored (&lt;code>/data&lt;/code> in this example)&lt;/li>
+&lt;li>A runme.sh script provided with jailctl that lives by default in &lt;code>/usr/local/jails/addons/&lt;/code>&lt;/li>
+&lt;li>A file dellist4.txt that contains a list of files to delete in the jails because they are not needed (for example commands like mount)&lt;/li>
+&lt;li>A file dellist5.txt that contains more files to delete in case jailctl runs on a 5.x or a 6.x (jailctl is indeed compatible with all versions from 4.x to 6.x)&lt;/li>
+&lt;li>And finally an etc/ directory with configuration files to install in the new jails (by default, login.conf and make.conf).&lt;/li>
+&lt;/ul>
+&lt;p>All this lives in &lt;code>/usr/local/jails/addons/&lt;/code> which we will need to move to &lt;code>/data/addons/&lt;/code> in our example.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Replication on Tech Notebook</title><link>https://wiki.deimos.fr/tags/replication/</link><description>Recent content in Replication on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/replication/index.xml" rel="self" type="application/rss+xml"/><item><title>MariaDB Galera Cluster: Multi-Master Replication</title><link>https://wiki.deimos.fr/MariaDB_Galera_Cluster_:_la_r%C3%A9plication_multi_maitres/</link><pubDate>Sat, 19 Apr 2014 05:51:00 +0200</pubDate><guid>https://wiki.deimos.fr/MariaDB_Galera_Cluster_:_la_r%C3%A9plication_multi_maitres/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/galeracluster_logo.png" alt="MariaDB" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>5.5&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://mariadb.org/" rel="external" target="_blank">MariaDB Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>19/04/2014&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Galera 23.2.4(r147)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If you have already set up MySQL replication, you know that you&amp;rsquo;re limited to 2 master nodes maximum. Many actions must be done manually, making it difficult to have something that&amp;rsquo;s both scalable and accessible for simultaneous writes, since by default writes are synchronous.&lt;/p></description></item><item><title>Installation and Configuration of DRBD</title><link>https://wiki.deimos.fr/Installation_et_configuration_de_DRBD/</link><pubDate>Sat, 07 Sep 2013 09:56:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_de_DRBD/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>DRBD&lt;/strong> is a system that allows you to create software RAID1 over a local network.
+This enables high availability and resource sharing on a cluster without a disk array.&lt;/p>
+&lt;p>Here we will install &lt;strong>DRBD8&lt;/strong>, with the goal of implementing a cluster filesystem (see documentation on OCFS2) which is not supported on DRBD7.
+We&amp;rsquo;ll use the DRBD8 packages from Debian repositories. We&amp;rsquo;ll work on a 2-node cluster.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First, install the following packages:&lt;/p></description></item><item><title>Replication Master to Master</title><link>https://wiki.deimos.fr/Replication_Master_to_Master/</link><pubDate>Fri, 21 Jun 2013 07:25:00 +0200</pubDate><guid>https://wiki.deimos.fr/Replication_Master_to_Master/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/mysql_logo.jpeg" alt="MySQL Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>After completing the installation (See: &lt;a href="https://wiki.deimos.fr/MySQL_:_Installation_et_configuration/">Installation and Configuration&lt;/a>), we are going to set up MySQL master-master replication. We need to replicate MySQL servers to achieve high-availability (HA). In my case I need two masters that are synchronized with each other so that if one of them goes down, the other could take over and no data is lost. Similarly, when the first one goes up again, it will still be used as slave for the live one.&lt;/p></description></item><item><title>Purging MySQL Binary Logs</title><link>https://wiki.deimos.fr/Purger_les_mysql-bin_logs/</link><pubDate>Fri, 02 Dec 2011 08:06:00 +0200</pubDate><guid>https://wiki.deimos.fr/Purger_les_mysql-bin_logs/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Slow query logs and binary logs are essential for several purposes in MySQL. In this documentation, we&amp;rsquo;ll see how to manage them. This is particularly useful when you&amp;rsquo;re running low on disk space.&lt;/p>
+&lt;h2 id="slow-query-logs">Slow Query Logs &lt;a href="#slow-query-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction-1">Introduction &lt;a href="#introduction-1" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Slow query logs are simply standard logs. They can be managed like standard server logs.&lt;/p>
+&lt;h3 id="flush-logs">Flush Logs &lt;a href="#flush-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>To flush logs, simply run this command:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="668effd" class="language-bash ">
+ &lt;code>echo &amp;#34;&amp;#34; &amp;gt; slow-query.log&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h3 id="rotate-logs">Rotate Logs &lt;a href="#rotate-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="5823ebd" class="language-bash ">
+ &lt;code>mv slow-query.log slow-query.log.old
+mysqladmin flush-logs&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="binary-logs">Binary Logs &lt;a href="#binary-logs" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="introduction-2">Introduction &lt;a href="#introduction-2" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>You might find a large number of bin files in the MySQL data directory called &amp;ldquo;server-bin.n&amp;rdquo; or mysql-bin.00000n, where n is an incrementing number. Usually &lt;code>/var/lib/mysql&lt;/code> stores the binary log files. The binary log contains all statements that update data or potentially could have updated it. For example, a DELETE or UPDATE which matched no rows. Statements are stored in the form of events that describe the modifications. The binary log also contains information about how long each statement that updated data took to execute.&lt;/p></description></item><item><title>LDAP: Installation and Configuration of a Secondary LDAP Directory</title><link>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP_(secondaire)/</link><pubDate>Fri, 26 Dec 2008 18:36:00 +0200</pubDate><guid>https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d'un_Annuaire_LDAP_(secondaire)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This document explains how to configure OpenLDAP for LDAP tree replication between 2 servers.&lt;/p>
+&lt;p>For this, we will use &lt;em>slapd&lt;/em> and &lt;em>slurpd&lt;/em> from the OpenLDAP suite.&lt;/p>
+&lt;p>This applies to both Linux distributions, tested on Debian Sarge, and FreeBSD, tested on 6.1.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites &lt;a href="#prerequisites" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>You will need to configure the &lt;em>slapd&lt;/em> daemons on both servers. For this, you can follow this document: &lt;a href="https://wiki.deimos.fr/LDAP_%5C%5C:_Installation_et_configuration_d%27un_Annuaire_LDAP/">Standard SLAPD Configuration&lt;/a>&lt;/p>
+&lt;h2 id="the-master-server">The Master Server &lt;a href="#the-master-server" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On the master server, we will create a dedicated user for replication who will only have read rights but will be able to read the entire tree.&lt;/p></description></item><item><title>Slony-I: Database Replication for PostgreSQL</title><link>https://wiki.deimos.fr/Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL/</link><pubDate>Thu, 30 Aug 2007 13:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Slony-I_:_R%C3%A9plication_de_bases_pour_PostgresSQL/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Slony-I enables advanced database replication capabilities. The downside is that it&amp;rsquo;s not simple to set up the first time. People who have previously configured DB replications will find it easier to succeed.&lt;/p>
+&lt;p>According to Slony&amp;rsquo;s documentation, it&amp;rsquo;s not recommended to replicate across a WAN, as the slon daemon (replication daemon) is very fragile and may leave a database in a zombie state, and won&amp;rsquo;t die for up to 2 hours.&lt;/p></description></item><item><title>MySQL Replication Master to Slave</title><link>https://wiki.deimos.fr/Replication_Master_to_Slave/</link><pubDate>Mon, 09 Jul 2007 15:02:00 +0200</pubDate><guid>https://wiki.deimos.fr/Replication_Master_to_Slave/</guid><description>&lt;p>Here is documentation on how to manage MySQL Master to Slave replication.&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/mysql_master_slave.pdf">MySQL Master to Slave Documentation&lt;/a>&lt;/p></description></item></channel></rss>

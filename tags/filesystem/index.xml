@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Filesystem on Tech Notebook</title><link>https://wiki.deimos.fr/tags/filesystem/</link><description>Recent content in Filesystem on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/filesystem/index.xml" rel="self" type="application/rss+xml"/><item><title>LVM: Working with Logical Volume Management</title><link>https://wiki.deimos.fr/LVM_:_Utilisation_des_LVM/</link><pubDate>Mon, 15 Sep 2014 11:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/LVM_:_Utilisation_des_LVM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Logical Volume Management (LVM) is a method and software for partitioning, concatenating, and utilizing storage spaces on a server. It allows flexible management, security, and online optimization of storage spaces in UNIX/Linux-type operating systems.&lt;/p>
+&lt;p>We also refer to it as Volume Manager.&lt;/p>
+&lt;p>Since LVM is not very simple to use, and since I don&amp;rsquo;t handle it every day either, I thought a small documentation was essential. I&amp;rsquo;ll fill it in as needed.&lt;/p></description></item><item><title>Optimization of extX filesystems and RAID under Linux</title><link>https://wiki.deimos.fr/Optimisation_des_filesystems_extX_et_du_RAID_sous_Linux/</link><pubDate>Wed, 13 Feb 2013 13:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Optimisation_des_filesystems_extX_et_du_RAID_sous_Linux/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/poweredbylinux.jpg" alt="Linux" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>Kernel 2.6.32+&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Red Hat 6.3&lt;br>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://www.kernel.org" rel="external" target="_blank">Kernel Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>13/02/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>All file operations on Linux are managed by VFS. The VFS layer is a common kernel interface for applications to access files. VFS handles the communication with different drivers. The inode and dentry cache is also managed by VFS. VFS is therefore capable of managing different types of filesystems, even network ones, through a common interface.&lt;/p></description></item><item><title>Parted: Solving Partitioning Problems on Large Filesystems</title><link>https://wiki.deimos.fr/Parted_:_r%C3%A9soudre_les_probl%C3%A8mes_de_partionnnement_sur_gros_filesystems/</link><pubDate>Wed, 13 Feb 2013 12:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/Parted_:_r%C3%A9soudre_les_probl%C3%A8mes_de_partionnnement_sur_gros_filesystems/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/parted_logo.png" alt="Parted logo" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>2.1&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 6&lt;br>Red Hat 6.3&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>13/02/2013&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>GNU Parted is a program for creating, destroying, resizing, checking, and copying partitions, and the file systems on them. This is useful for creating space for new operating systems, reorganizing hard disk usage, copying data between hard disks, and disk imaging. It was written by Andrew Clausen and Lennert Buytenhek.&lt;/p>
+&lt;p>It consists of a library, libparted, and a command-line frontend, parted, that also serves as reference implementation.&lt;/p></description></item><item><title>BTRFS: Using the Ext4 Replacement</title><link>https://wiki.deimos.fr/BTRFS_:_Utilisation_du_rempla%C3%A7ant_de_l%27Ext4/</link><pubDate>Thu, 05 Jul 2012 21:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/BTRFS_:_Utilisation_du_rempla%C3%A7ant_de_l%27Ext4/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/btrfs_logo.png" alt="BTRFS" loading="lazy">
+
+&lt;/p>
+
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>&lt;/th>
+ &lt;th>&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;strong>Software version&lt;/strong>&lt;/td>
+ &lt;td>0.19&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Operating System&lt;/strong>&lt;/td>
+ &lt;td>Debian 7&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Website&lt;/strong>&lt;/td>
+ &lt;td>&lt;a href="https://btrfs.wiki.kernel.org" rel="external" target="_blank">BTRFS Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Last Update&lt;/strong>&lt;/td>
+ &lt;td>05/07/2012&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;strong>Others&lt;/strong>&lt;/td>
+ &lt;td>Kernel used:&lt;br>3.2.0-2-amd64&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://btrfs.wiki.kernel.org/" rel="external" target="_blank">BTRFS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is the perfect replacement for the aging ExtX filesystem. For those familiar with &lt;a href="zfs:_le_filesystem_par_excellence/" rel="external" target="_blank">the ZFS filesystem&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>, BTRFS draws heavily from it.&lt;/p></description></item><item><title>GFS2: Red Hat Cluster Filesystem</title><link>https://wiki.deimos.fr/GFS2_:_Le_Filesystem_Cluster_de_Red_Hat/</link><pubDate>Tue, 06 Mar 2012 12:54:00 +0200</pubDate><guid>https://wiki.deimos.fr/GFS2_:_Le_Filesystem_Cluster_de_Red_Hat/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/Global_File_System" rel="external" target="_blank">Global File System (GFS)&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is a shared file system designed for Linux or IRIX clusters. GFS and GFS2 are different from distributed file systems like AFS, Coda, or InterMezzo because they allow all nodes to have direct concurrent access to the same block storage device. Additionally, GFS and GFS2 can also be used as a local file system.&lt;/p></description></item><item><title>Tmpfs: Mounting a RAM filesystem on Solaris</title><link>https://wiki.deimos.fr/Tmpfs_:_monter_un_filesystem_en_RAM_sous_Solaris/</link><pubDate>Sun, 19 Feb 2012 09:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tmpfs_:_monter_un_filesystem_en_RAM_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>TmpFS (Temporary File System) is the generic name given to any temporary Unix file system. Any file created in such a filesystem disappears when the system is shut down.&lt;/p>
+&lt;p>The default implementation of tmpfs in Linux 2.6.x kernels is based on ramfs, which uses the caching mechanism to optimize memory management.
+It is also available on Solaris 10.&lt;/p>
+&lt;p>However, tmpfs additionally offers a memory size limit that is set at mount time and can be modified on-the-fly with the &amp;ldquo;remount&amp;rdquo; option for security purposes. Tmpfs also allows the system to use swap space when necessary, which provides an additional guarantee.&lt;/p></description></item><item><title>Tmpfs: RAM filesystem or how to write to RAM</title><link>https://wiki.deimos.fr/Tmpfs_:_un_filesystem_en_ram_ou_comment_%C3%A9crire_en_ram/</link><pubDate>Sat, 18 Feb 2012 18:47:00 +0200</pubDate><guid>https://wiki.deimos.fr/Tmpfs_:_un_filesystem_en_ram_ou_comment_%C3%A9crire_en_ram/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>TmpFS (Temporary File System) is the generic name given to any temporary Unix filesystem. Any file created in such a filesystem disappears when the system shuts down.&lt;/p>
+&lt;p>The default implementation of tmpfs in Linux 2.6.x kernels is based on ramfs which uses the caching mechanism to optimize memory management.&lt;br>
+It is also available on Solaris 10.&lt;/p>
+&lt;p>However, for security reasons, tmpfs additionally offers a memory size limit set at mount time that can be changed on-the-fly with the &amp;ldquo;remount&amp;rdquo; option. Tmpfs also allows the system to use swap when necessary, which provides an additional guarantee.&lt;/p></description></item><item><title>Disk Management in Solaris</title><link>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</link><pubDate>Mon, 30 Jan 2012 11:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Management_des_disques_sous_Solaris/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Compared to Linux, Solaris is quite similar except for certain aspects which I will clarify here. This guide will not only cover Solaris but also include general information about disk architecture and filesystems.&lt;/p>
+&lt;h2 id="physical-operation">Physical Operation &lt;a href="#physical-operation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="files-inodes-and-blocks">Files, Inodes and Blocks &lt;a href="#files-inodes-and-blocks" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>On your hard drive, where you store your data, there is a hierarchical structure:&lt;/p>
+&lt;ul>
+&lt;li>Directories and files&lt;/li>
+&lt;li>Inodes&lt;/li>
+&lt;li>Blocks&lt;/li>
+&lt;/ul>
+&lt;p>Inodes are what know exactly where each directory/file is located. When you create or call a file, it points to an inode. This inode is then able to identify which data block it belongs to (binary slice). Here&amp;rsquo;s a small explanation with an image:&lt;/p></description></item><item><title>ZFS On Linux: Setting up ZFS on Linux</title><link>https://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux/</link><pubDate>Tue, 06 Dec 2011 20:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/zfs-linux.png" alt="ZFS on Linux Logo" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If like me you&amp;rsquo;re a fan of this filesystem and find it a shame that it&amp;rsquo;s not natively available on Linux, there are currently several solutions to have this filesystem:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.oracle.com" rel="external" target="_blank">Solaris&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>/OpenSolaris: This is where ZFS comes from, but it remains a proprietary OS&lt;/li>
+&lt;li>&lt;a href="https://www.freebsd.org/" rel="external" target="_blank">FreeBSD&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: The first port of ZFS appeared on FreeBSD, but we&amp;rsquo;re looking to use Linux here&lt;/li>
+&lt;li>&lt;a href="https://www.debian.org/ports/kfreebsd-gnu/" rel="external" target="_blank">Kfreebsd&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: not really Linux (although Debian), but a FreeBSD kernel that allows ZFS to run with a Debian-style layer on top&lt;/li>
+&lt;li>&lt;a href="https://zfs-fuse.net/" rel="external" target="_blank">ZFS on Fuse&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: works on Linux, slow (because it runs on FUSE) but historically the first to be released for Linux (so supposedly the most mature)&lt;/li>
+&lt;li>&lt;a href="https://zfsonlinux.org" rel="external" target="_blank">ZFS on Linux&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>: newer, but has the advantage of running as a Linux kernel module&lt;/li>
+&lt;/ul>
+&lt;p>I chose this last solution because I wanted to keep a Linux machine (Debian/Ubuntu) and have ZFS.&lt;/p></description></item><item><title>GlusterFS: High Availability Cluster Filesystem</title><link>https://wiki.deimos.fr/glusterfs-ha-cluster-filesystem/</link><pubDate>Mon, 11 Apr 2011 08:18:00 +0200</pubDate><guid>https://wiki.deimos.fr/glusterfs-ha-cluster-filesystem/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://fr.wikipedia.org/wiki/GlusterFS" rel="external" target="_blank">GlusterFS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an open source distributed parallel file system capable of scaling to several petabytes.
+GlusterFS is a cluster/network file system. GlusterFS comes with two components, a server and a client.
+The storage server (or each server in a cluster) runs glusterfsd and clients use the mount command or glusterfs client to mount the file systems served, using FUSE.&lt;/p></description></item><item><title>EncFS: Setting up EncFS with FUSE</title><link>https://wiki.deimos.fr/Encfs_:_Mise_en_place_d'Encfs_avec_FUSE/</link><pubDate>Sat, 05 Feb 2011 16:49:00 +0200</pubDate><guid>https://wiki.deimos.fr/Encfs_:_Mise_en_place_d'Encfs_avec_FUSE/</guid><description>&lt;h2 id="1-introduction">1. Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;a href="https://encfs.sourceforge.net/" rel="external" target="_blank">EncFS&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a> is an encrypted file system which allows you to store files on your hard drive that others cannot access, even if the machine is physically taken.&lt;/p></description></item><item><title>Installing FreeBSD on ZFS</title><link>https://wiki.deimos.fr/Installation_FreeBSD_sur_ZFS/</link><pubDate>Tue, 21 Sep 2010 21:23:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_FreeBSD_sur_ZFS/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>I love ZFS and for building a large NAS, I need FreeBSD which is capable of implementing ZFS and, most importantly, using it on the root partition as well.&lt;/p>
+&lt;p>For this purpose, I needed 5 disks of the same capacity and the FreeBSD DVD (I emphasize the DVD because the livefs or CD versions don&amp;rsquo;t contain everything needed to boot from ZFS).&lt;/p>
+&lt;h2 id="disk-formatting">Disk Formatting &lt;a href="#disk-formatting" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="creating-partitions">Creating Partitions &lt;a href="#creating-partitions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Boot from the FreeBSD DVD and launch the Fixit menu.&lt;/p></description></item><item><title>Filesystem Conversion</title><link>https://wiki.deimos.fr/Conversion_de_filesystems/</link><pubDate>Fri, 08 May 2009 06:39:00 +0200</pubDate><guid>https://wiki.deimos.fr/Conversion_de_filesystems/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Sometimes you need to convert your filesystem to a more recent one when possible, without having to reformat everything.&lt;/p>
+&lt;h2 id="ext3---ext4">EXT3 -&amp;gt; EXT4 &lt;a href="#ext3---ext4" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It&amp;rsquo;s obvious that the partition to be converted must be unmounted beforehand. Here, I&amp;rsquo;ll use an LVM partition in ext3 to convert it to ext4:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e013435" class="language-bash ">
+ &lt;code>tune2fs -O extents,uninit_bg,dir_index /dev/mapper/lvm-home
+fsck -pf /dev/mapper/lvm-home&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>If you&amp;rsquo;re modifying the boot partition, you need to boot from a live CD for example, then run this command to revalidate grub:&lt;/p></description></item><item><title>MFS: Using a RAM Filesystem</title><link>https://wiki.deimos.fr/MFS_:_Utiliser_un_filesystem_en_RAM/</link><pubDate>Mon, 05 Jan 2009 02:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/MFS_:_Utiliser_un_filesystem_en_RAM/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>MFS allows you to place a partition in RAM. The advantage is speed. The disadvantage is that you lose all modifications made to it after each reboot. With a simple rsync setup, this can be resolved, which I&amp;rsquo;ll show you how to do.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="partition-tmp">Partition /tmp &lt;a href="#partition-tmp" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>The tmp directory is interesting to move into RAM since the data there is temporary anyway and doesn&amp;rsquo;t need to be stored on the filesystem. Edit the fstab file:&lt;/p></description></item><item><title>Mounting a Filesystem in Multiple Places Simultaneously</title><link>https://wiki.deimos.fr/Montage_d%27un_filesystem_%C3%A0_plusieurs_endroits_simultan%C3%A9es/</link><pubDate>Tue, 28 Oct 2008 21:04:00 +0200</pubDate><guid>https://wiki.deimos.fr/Montage_d%27un_filesystem_%C3%A0_plusieurs_endroits_simultan%C3%A9es/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Some might say: &amp;ldquo;There&amp;rsquo;s no need for this, just use symbolic links with ln -s&amp;rdquo;. But I disagree - it&amp;rsquo;s really not the same thing. This approach allows you to have a global view of a particular directory.&lt;/p>
+&lt;p>For example, if I want to mount &lt;code>/var/jails&lt;/code> in &lt;code>/jails&lt;/code>, it&amp;rsquo;s possible and here&amp;rsquo;s the result once done:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="2b47b57" class="language-bash ">
+ &lt;code>Filesystem Size Used Avail Capacity Mounted on
+/dev/ad4s1a 989M 129M 782M 14% /
+devfs 1.0K 1.0K 0B 100% /dev
+/dev/ad4s1d 224G 1.4G 204G 1% /usr
+/dev/ad4s1e 224G 4.0M 206G 0% /var
+/var/jails 224G 4.0M 206G 0% /jails&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="commands">Commands &lt;a href="#commands" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+
+
+
+
+&lt;table class="table table-hover table-striped">
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Linux&lt;/th>
+ &lt;th>BSD&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>mount &amp;ndash;bind /folder1 /folder2&lt;/td>
+ &lt;td>mount -t nullfs /folder1 /folder2&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table></description></item><item><title>Anti-forensics on ext2/ext3 Filesystems</title><link>https://wiki.deimos.fr/anti-forensics-sur-systemes-de-fichiers-ext2-ext3/</link><pubDate>Thu, 25 Sep 2008 12:00:00 +0200</pubDate><guid>https://wiki.deimos.fr/anti-forensics-sur-systemes-de-fichiers-ext2-ext3/</guid><description>&lt;p>The first thing a hacker wants to do when they&amp;rsquo;ve managed to get into a machine is to hide the data they want to leave behind. There are those who use techniques that even my grandmother knows about, and there are those who take advantage of the internal structure of the filesystem.&lt;/p>
+&lt;p>This article explains the different solutions for hiding data in an ext2/ext3 filesystem while taking into account the constraints that remain. However, we will not address the topic of deleted data and how to recover it, which is a completely different subject (that of leaving no trace :)).&lt;/p></description></item><item><title>Anatomy of a Linux Filesystem</title><link>https://wiki.deimos.fr/anatomie-d-un-filesystem-linux/</link><pubDate>Wed, 07 Nov 2007 10:42:00 +0100</pubDate><guid>https://wiki.deimos.fr/anatomie-d-un-filesystem-linux/</guid><description>&lt;p>Here is good documentation for people who want to understand how the Linux filesystem works:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/anatomy_of_linux_filesystem.pdf">Documentation on Anatomy of a Linux FileSystem&lt;/a>&lt;/p></description></item><item><title>MacFuse + NTFS-3G: Reading and Writing NTFS Partitions on Mac OS X</title><link>https://wiki.deimos.fr/MacFuse_%20_NTFS-3G_:_Lecture_et_%C3%A9criture_de_partitions_NTFS_sur_Mac_OS_X/</link><pubDate>Wed, 31 Oct 2007 06:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/MacFuse_%20_NTFS-3G_:_Lecture_et_%C3%A9criture_de_partitions_NTFS_sur_Mac_OS_X/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Even with the release of Leopard (10.5), everyone thought they would have NTFS write support. We had already missed out on user-friendly native ZFS&amp;hellip;&lt;/p>
+&lt;p>In short, if you want to be able to write to NTFS partitions, you need to install MacFuse and &lt;a href="https://www.ntfs-3g.org/" rel="external" target="_blank">NTFS-3G&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>. Here&amp;rsquo;s how to proceed.&lt;/p></description></item><item><title>AutoFsck: Changing Filesystem Checks on Ubuntu</title><link>https://wiki.deimos.fr/AutoFsck_:_Changer_les_checks_filesystem_sur_Ubuntu/</link><pubDate>Sat, 25 Aug 2007 21:57:00 +0200</pubDate><guid>https://wiki.deimos.fr/AutoFsck_:_Changer_les_checks_filesystem_sur_Ubuntu/</guid><description>&lt;p>If you&amp;rsquo;ve used Ubuntu Linux for longer than a month, you&amp;rsquo;ve no doubt realized that every 30 times you boot up you are forced to run a filesystem check. This filesystem check is necessary in order to keep your filesystem healthy. Some people advise turning the check off completely, but that is generally not a recommended solution. Another solution is to increase the number of maximum mounts from 30 to some larger number like 100. That way it&amp;rsquo;s about 3 times less annoying. But this solution is also not recommended. Enter AutoFsck.&lt;/p></description></item><item><title>Creating Blank Images for Testing Filesystems</title><link>https://wiki.deimos.fr/Cr%C3%A9er_des_images_vierges_pour_tester_des_filesystems/</link><pubDate>Wed, 20 Jun 2007 08:16:00 +0200</pubDate><guid>https://wiki.deimos.fr/Cr%C3%A9er_des_images_vierges_pour_tester_des_filesystems/</guid><description>&lt;p>If, like me, you want to test a new filesystem or hardware speed without risking damage to one of your partitions, here&amp;rsquo;s a small tip that allows you to create a blank disk image to work with:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="1d60cb4" class="language-bash ">
+ &lt;code>dd if=/dev/zero of=./mon_image.img bs=1M count=128&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>or&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="29440af" class="language-bash ">
+ &lt;code>dd if=/dev/zero of=./10M.img bs=10m count=1&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>The second line is more for BSD systems.&lt;/p>
+&lt;p>Here, I&amp;rsquo;ll have a 128 MB image. Change the last number if you want a different size.&lt;/p></description></item><item><title>Ext3: Resize partitions without data loss</title><link>https://wiki.deimos.fr/Ext3_:_redimensionner_ses_partitions_sans_pertes_de_donn%C3%A9es/</link><pubDate>Sun, 07 Jan 2007 18:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Ext3_:_redimensionner_ses_partitions_sans_pertes_de_donn%C3%A9es/</guid><description>&lt;p>Here is an interesting and quick documentation:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/resize_ext3_nodatalost.pdf">Resize ext3 without data loss&lt;/a>&lt;/p></description></item><item><title>Switching to Case-Sensitive File System on Mac OS X</title><link>https://wiki.deimos.fr/switch_mac_os_case_sensitive/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://wiki.deimos.fr/switch_mac_os_case_sensitive/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>On Mac OS X, the default file system is case-insensitive. However, you can switch to a case-sensitive file system if needed. This is particularly useful for certain applications or development environments that require case sensitivity.&lt;/p>
+
+&lt;div class="alert alert-warning d-flex" role="alert">
+ &lt;div class="flex-shrink-1 alert-icon">
+ 
+ &lt;span class="material-icons size-20 me-2">
+ warning
+ &lt;/span>&lt;/div>
+ 
+ &lt;div class="w-100">Switching to a case-sensitive file system can cause issues with applications that expect a case-insensitive file system. This is why moving to a case-sensitive file system is not recommended.&lt;/div>
+ &lt;/div>
+&lt;p>Instead, it is preferable to create a dedicated volume (not a partition) with a case-sensitive file system. This way, you can keep your main volume case-insensitive while having a separate volume for applications that require case sensitivity. The other advantage is that you won&amp;rsquo;t encounter any issue with TimeMachine backups and restoring your system (you can&amp;rsquo;t restore a case-sensitive volume to a case-insensitive one without a long and painful procedure).&lt;/p></description></item></channel></rss>

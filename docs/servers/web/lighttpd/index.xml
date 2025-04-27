@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lighttpd on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/web/lighttpd/</link><description>Recent content in Lighttpd on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/web/lighttpd/index.xml" rel="self" type="application/rss+xml"/><item><title>Lighttpd: Installation and configuration of an Apache alternative</title><link>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</link><pubDate>Tue, 10 May 2011 11:05:00 +0200</pubDate><guid>https://wiki.deimos.fr/Lighttpd_:_Installation_et_configuration_d'une_alternative_d'Apache/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>LigHTTPd (or &amp;ldquo;lighty&amp;rdquo;) is a secure, fast, and flexible HTTP server.&lt;/p>
+&lt;p>Its speed comes from having a smaller memory footprint than other HTTP servers, as well as intelligent CPU load management.&lt;/p>
+&lt;p>Many languages like PHP, Perl, Ruby, and Python are supported via FastCGI.&lt;/p>
+&lt;p>The main disadvantage of LigHTTPd is that it has only one configuration file and doesn&amp;rsquo;t support .htaccess files (though there are alternatives): directives must be in the configuration file. This is also an advantage, as the server administrator only has one file to manage.&lt;/p></description></item><item><title>WebDAV with Lighttpd</title><link>https://wiki.deimos.fr/Webdav_avec_Lighttpd/</link><pubDate>Wed, 19 Aug 2009 07:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Webdav_avec_Lighttpd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>WebDAV is great once you&amp;rsquo;ve tried it. We&amp;rsquo;ll see how to set it up with Lighttpd. I need it to upload images for my photo album.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For the installation, it&amp;rsquo;s straightforward:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="dc03161" class="language-bash ">
+ &lt;code>apt-get install lighttpd-mod-webdav&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s enable our newly installed module:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bcde39c" class="language-bash ">
+ &lt;code>lighty-enable-mod auth
+lighty-enable-mod webdav&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>Edit the Lighttpd configuration file and uncomment this section:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="ef2676a" class="language-perl ">
+ &lt;code>server.modules &amp;lt;nowiki&amp;gt;=&amp;lt;/nowiki&amp;gt; (
+...
+ &amp;#34;mod_webdav&amp;#34;,
+...
+)&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>We&amp;rsquo;ll add the folder we want to have WebDAV access to below.&lt;/p></description></item><item><title>Setting up OpenSSL with Lighttpd</title><link>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</link><pubDate>Wed, 15 Apr 2009 07:09:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'OpenSSL_avec_Lighttpd/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Adding security to your website is important. In this guide, we&amp;rsquo;ll see how to create and insert SSL certificates in Lighttpd.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We only need OpenSSL:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="bc007ab" class="language-bash ">
+ &lt;code>apt-get install openssl&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="generating-ssl-keys">Generating SSL keys &lt;a href="#generating-ssl-keys" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s create an ssl directory in the Lighttpd configuration folder, then generate the certificates:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e53f286" class="language-bash ">
+ &lt;code>mkdir /etc/lighttpd/ssl
+openssl req -new -x509 -keyout /etc/lighttpd/ssl/selfcert.pem -out /etc/lighttpd/ssl/selfcert.pem -days 3650 -nodes&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>selfcert.pem: use the name that interests you (e.g., deimos.fr.pem)&lt;/li>
+&lt;li>3650: number of days the certificate is valid (10 years, we&amp;rsquo;re safe for a good while)&lt;/li>
+&lt;/ul>
+&lt;h3 id="lighttpd">Lighttpd &lt;a href="#lighttpd" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>Let&amp;rsquo;s enable the SSL module for Lighttpd:&lt;/p></description></item><item><title>Vlogger: Splitting Lighttpd logs with statistics generation</title><link>https://wiki.deimos.fr/Vlogger_:_Splitter_les_logs_de_Lighttpd_avec_creation_de_statistiques/</link><pubDate>Tue, 29 Jan 2008 21:11:00 +0200</pubDate><guid>https://wiki.deimos.fr/Vlogger_:_Splitter_les_logs_de_Lighttpd_avec_creation_de_statistiques/</guid><description>&lt;p>Here is documentation on log segmentation for Lighttpd with statistics creation using Webalizer:&lt;/p>
+&lt;p>&lt;a href="https://wiki.deimos.fr/pdf/splitting_lighttpd_logs_with_vlogger_and_creating_statistics_with_webalizer.pdf">Documentation on Splitting lighttpd Logs With vlogger And Creating Statistics With Webalizer&lt;/a>&lt;/p></description></item></channel></rss>

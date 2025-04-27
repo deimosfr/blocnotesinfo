@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GDB on Tech Notebook</title><link>https://wiki.deimos.fr/tags/gdb/</link><description>Recent content in GDB on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 04 Apr 2025 17:45:45 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/tags/gdb/index.xml" rel="self" type="application/rss+xml"/><item><title>Redirect a Service Output to a File</title><link>https://wiki.deimos.fr/Rediriger_l%5C%27output_d%5C%27un_service_vers_un_fichier/</link><pubDate>Sun, 01 May 2011 20:08:00 +0200</pubDate><guid>https://wiki.deimos.fr/Rediriger_l%5C%27output_d%5C%27un_service_vers_un_fichier/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>It can be useful to redirect a program&amp;rsquo;s output to a file. Here&amp;rsquo;s how to do it.&lt;/p>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="d483600" class="language-bash ">
+ &lt;code>yes &amp;#39;Y&amp;#39;|gdb -ex &amp;#39;p close(1)&amp;#39; -ex &amp;#39;p creat(&amp;#34;/tmp/output.txt&amp;#34;,0600)&amp;#39; -ex &amp;#39;q&amp;#39; -p pid&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>This command uses the GDB debugger to attach to a running process and reassign the file handle to a file.&lt;/p>
+&lt;p>The two commands executed in GDB are:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="41e6814" class="language- ">
+ &lt;code>p close(1) which closes STDOUT&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>and&lt;/p></description></item></channel></rss>
