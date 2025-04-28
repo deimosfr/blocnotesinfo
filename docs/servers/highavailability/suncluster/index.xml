@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sun Cluster on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/highavailability/suncluster/</link><description>Recent content in Sun Cluster on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 28 Apr 2025 18:51:06 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/highavailability/suncluster/index.xml" rel="self" type="application/rss+xml"/><item><title>Installation and Configuration of SUN Cluster</title><link>https://wiki.deimos.fr/Installation_et_configuration_du_SUN_Cluster/</link><pubDate>Thu, 03 Nov 2011 00:24:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_configuration_du_SUN_Cluster/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Solaris Cluster (sometimes Sun Cluster or SunCluster) is a high-availability cluster software product for the Solaris Operating System, created by Sun Microsystems.&lt;/p>
+&lt;p>It is used to improve the availability of software services such as databases, file sharing on a network, electronic commerce websites, or other applications. Sun Cluster operates by having redundant computers or nodes where one or more computers continue to provide service if another fails. Nodes may be located in the same data center or on different continents.&lt;/p></description></item><item><title>Setting up a quorum server</title><link>https://wiki.deimos.fr/Mise_en_place_d'un_quorum_server/</link><pubDate>Mon, 26 Jul 2010 12:07:00 +0200</pubDate><guid>https://wiki.deimos.fr/Mise_en_place_d'un_quorum_server/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>&lt;strong>THIS IS NEEDED ONLY FOR A 2 NODES CLUSTER WITHOUT A DISKS ARRAY!&lt;/strong>&lt;/p>
+&lt;p>You generally need it when you have 2 servers without a SAN, so you need a third machine with this service installed and launched for your quorum.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Normally the Quorum Server software is installed with the Sun Cluster Software.&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Just configure the file &lt;code>/etc/scqsd/scqsd.conf&lt;/code> with this line:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="f006c1a" class="language-bash ">
+ &lt;code>/usr/cluster/lib/sc/scqsd -d /var/scqsd -i quorum_name -p 9001&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>quorum_name: is the instance name of the quorum server&lt;/li>
+&lt;li>9001: is the default listening port of quorum server&lt;/li>
+&lt;/ul>
+&lt;p>After that, just launch the quorum server instance:&lt;/p></description></item><item><title>Installation of Sun Cluster</title><link>https://wiki.deimos.fr/Installation_of_Sun_Cluster_(old)/</link><pubDate>Mon, 26 Jul 2010 12:01:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_of_Sun_Cluster_(old)/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>This is not very complicated. You just have to follow this documentation&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For the installation, download the Availability Suite on &lt;a href="https://www.sun.com" rel="external" target="_blank">Sun Website&lt;svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path fill="currentColor" d="M14 5c-.552 0-1-.448-1-1s.448-1 1-1h6c.552 0 1 .448 1 1v6c0 .552-.448 1-1 1s-1-.448-1-1v-3.586l-7.293 7.293c-.391.39-1.024.39-1.414 0-.391-.391-.391-1.024 0-1.414l7.293-7.293h-3.586zm-9 2c-.552 0-1 .448-1 1v11c0 .552.448 1 1 1h11c.552 0 1-.448 1-1v-4.563c0-.552.448-1 1-1s1 .448 1 1v4.563c0 1.657-1.343 3-3 3h-11c-1.657 0-3-1.343-3-3v-11c0-1.657 1.343-3 3-3h4.563c.552 0 1 .448 1 1s-.448 1-1 1h-4.563z"/>&lt;/svg>&lt;/a>.&lt;/p></description></item><item><title>Upgrading SUN Cluster</title><link>https://wiki.deimos.fr/Upgrader_SUN_Cluster/</link><pubDate>Sat, 13 Feb 2010 14:37:00 +0200</pubDate><guid>https://wiki.deimos.fr/Upgrader_SUN_Cluster/</guid><description>&lt;h2 id="1-introduction">1. Introduction &lt;a href="#1-introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Upgrading a cluster is not an easy task. I&amp;rsquo;ll explain here the steps to follow.&lt;/p>
+&lt;h2 id="2-preparing-environment">2. Preparing environment &lt;a href="#2-preparing-environment" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>First of all, you need to be sure you don&amp;rsquo;t have any running services (You should do those step for all your servers).&lt;/p>
+&lt;p>Then you need to boot in a non cluster mode:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="edce713" class="language-bash ">
+ &lt;code>reboot -- -x&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;p>You also need to download the latest version of Sun Cluster and unzip it in &lt;code>/export/home/patchs/&lt;/code> for example.&lt;/p></description></item><item><title>Introduction and Architecture of Setting Up a SUN Cluster</title><link>https://wiki.deimos.fr/Introduction_et_Architechture_de_mise_en_place_d'un_Cluster_SUN/</link><pubDate>Thu, 11 Oct 2007 06:31:00 +0200</pubDate><guid>https://wiki.deimos.fr/Introduction_et_Architechture_de_mise_en_place_d'un_Cluster_SUN/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>The SUN Cluster Suite is also called SunPlex. I could not explain all here, and you should know well clustering basics.&lt;/p>
+&lt;h3 id="types-of-clusters">Types of Clusters &lt;a href="#types-of-clusters" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>There are 2 types of clusters:&lt;/p>
+&lt;ul>
+&lt;li>Cluster HA: High Availability Cluster&lt;/li>
+&lt;li>Cluster HPC: High Performance Computing&lt;/li>
+&lt;/ul>
+&lt;h3 id="definitions">Definitions &lt;a href="#definitions" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;ul>
+&lt;li>Scalable: Add instances for the same application (e.g. Apache)&lt;/li>
+&lt;li>Unaware applications: non-clustered applications&lt;/li>
+&lt;li>SPOF: Single Point of Failure (e.g. Only one network card is on a node instead of two)&lt;/li>
+&lt;li>RGM: Resources Group Manager&lt;/li>
+&lt;li>Data Service: it&amp;rsquo;s an agent generated by RGM&lt;/li>
+&lt;li>IPMP: It controls network failures (&amp;gt; SunPlex v3.0) (Similar to Bonding on Linux)&lt;/li>
+&lt;li>DPM: Disk Path Monitoring (hard drive monitoring&amp;hellip;works with I/O access, so if no traffic runs on the drive, no error can be found)&lt;/li>
+&lt;li>Application Traffic Striping: Virtual private IP address (must be network class B &amp;lt; SunPlex v3.1)&lt;/li>
+&lt;li>SCI: This is a shared memory technology for clusters. With this each node can view the memory of each other.&lt;/li>
+&lt;li>Containers: Zones + RGM&lt;/li>
+&lt;li>Amnesia: Amnesia occurs when a node is booting but can&amp;rsquo;t join the cluster because another node hasn&amp;rsquo;t authorized it. So it&amp;rsquo;s waiting for authorization.&lt;/li>
+&lt;/ul>
+&lt;h3 id="solaris-zone">Solaris Zone &lt;a href="#solaris-zone" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>A Solaris zone is a virtual zone that encapsulates a service (e.g. Apache). The advantage is that we can manage the maximum processor percentage or the maximum memory that the service can use. Many other features are available. A zone can be clustered &amp;gt; SunPlex v3.1; for older versions, you can cluster the global zone.&lt;/p></description></item></channel></rss>

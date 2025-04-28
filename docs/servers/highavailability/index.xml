@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>High Availability on Tech Notebook</title><link>https://wiki.deimos.fr/docs/servers/highavailability/</link><description>Recent content in High Availability on Tech Notebook</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 28 Apr 2025 18:51:06 +0200</lastBuildDate><atom:link href="https://wiki.deimos.fr/docs/servers/highavailability/index.xml" rel="self" type="application/rss+xml"/><item><title>Load Balancing Multiple WAN Connections</title><link>https://wiki.deimos.fr/Load_balancer_plusieurs_connections_WAN/</link><pubDate>Mon, 20 Feb 2012 18:13:00 +0200</pubDate><guid>https://wiki.deimos.fr/Load_balancer_plusieurs_connections_WAN/</guid><description>&lt;p>
+
+
+
+
+
+
+
+
+
+
+&lt;img src="https://wiki.deimos.fr/images/load_balancer_linux.png" alt="Load balancer linux" loading="lazy">
+
+&lt;/p>
+&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>If one ISP Provider bandwidth is not enough for your needs, you can have multiple lines and load balance between them on Linux.
+This documentation has been done on Debian and works like a charm :-).&lt;/p>
+&lt;p>It contains 3 network interfaces:&lt;/p>
+&lt;ol>
+&lt;li>Is plugged in a special DMZ VLAN (eth0)&lt;/li>
+&lt;li>The second is plugged on a dedicated VLANS to ISP1 Provider (eth1)&lt;/li>
+&lt;li>The third is plugged on a dedicated VLANS to ISP2 Provider (eth2)&lt;/li>
+&lt;/ol>
+&lt;p>Internet traffic is load balanced between the two Internet accesses. In the current configuration the weight assigned to ISP1 is 3 and ISP2 1 (it means that 3 times more traffic passes through ISP1 than ISP2).&lt;/p></description></item><item><title>Installation and Configuration of Pacemaker</title><link>https://wiki.deimos.fr/Installation_et_Configuration_de_Pacemaker/</link><pubDate>Tue, 21 Dec 2010 20:41:00 +0200</pubDate><guid>https://wiki.deimos.fr/Installation_et_Configuration_de_Pacemaker/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>Pacemaker is the logical evolution of Heartbeat, which has merged with other open source software to achieve perfection. Pacemaker is a resource management software. It must be coupled with Corosync which will manage the exchange of information between nodes.&lt;/p>
+&lt;p>The installation and configuration described here is done on Debian 6.&lt;/p>
+&lt;h2 id="installation">Installation &lt;a href="#installation" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>For installation, nothing could be simpler on Debian:&lt;/p>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="e5840d7" class="language-bash ">
+ &lt;code>aptitude install pacemaker corosync&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;h3 id="corosync">Corosync &lt;a href="#corosync" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h3>&lt;p>For Corosync configuration, we need to generate encryption keys for intra-cluster information exchange (between nodes):&lt;/p></description></item><item><title>Quickly Grant User Access to Cluster Commands</title><link>https://wiki.deimos.fr/Autoriser_rapidement_un_utilisateur_%C3%A0_avoir_acc%C3%A8s_aux_commandes_cluster/</link><pubDate>Thu, 31 May 2007 10:12:00 +0200</pubDate><guid>https://wiki.deimos.fr/Autoriser_rapidement_un_utilisateur_%C3%A0_avoir_acc%C3%A8s_aux_commandes_cluster/</guid><description>&lt;h2 id="introduction">Introduction &lt;a href="#introduction" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>We often need users to have access to specific commands without being root, and for cluster management, if you have dedicated administrators, it&amp;rsquo;s quite useful. Here&amp;rsquo;s a simple way to give them the necessary permissions&amp;hellip;&lt;/p>
+&lt;h2 id="configuration">Configuration &lt;a href="#configuration" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>To give a user permissions to simply use cluster commands, here are the files to modify:&lt;/p>
+&lt;ul>
+&lt;li>/etc/sudoers:&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="830d9f0" class="language- ">
+ &lt;code># Cmnd alias specification
+Cmnd_Alias CLUSTAT = /usr/sbin/clustat
+Cmnd_Alias CLUSVCADM = /usr/sbin/clusvcadm
+Cmnd_Alias MOUNT = /bin/mount
+Cmnd_Alias UMOUNT = /bin/umount
+
+# Defaults specification
+
+# User privilege specification
+root ALL=(ALL) ALL
+my_user ALL=NOPASSWD:CLUSTAT,NOPASSWD:CLUSVCADM,NOPASSWD:MOUNT,NOPASSWD:UMOUNT&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;ul>
+&lt;li>~/.bashrc (for the user)&lt;/li>
+&lt;/ul>
+
+
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+
+ 
+
+ &lt;div class="prism-codeblock ">
+ &lt;pre id="47f04f3" class="language-bash ">
+ &lt;code># User specific aliases and functions
+alias clustat=&amp;#39;sudo /usr/sbin/clustat&amp;#39;
+alias clusvcadm=&amp;#39;sudo /usr/sbin/clusvcadm&amp;#39;
+alias mount=&amp;#39;sudo /bin/mount&amp;#39;
+alias umount=&amp;#39;sudo /bin/umount&amp;#39;&lt;/code>
+ &lt;/pre>
+ &lt;/div>
+&lt;h2 id="usage">Usage &lt;a href="#usage" class="anchor" aria-hidden="true">&lt;i class="material-icons align-middle">link&lt;/i>&lt;/a>&lt;/h2>&lt;p>With my user account, I can simply run the commands and they will be executed as root:&lt;/p></description></item></channel></rss>
