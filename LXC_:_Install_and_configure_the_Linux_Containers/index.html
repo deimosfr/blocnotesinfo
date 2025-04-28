@@ -1,5 +1,5 @@
 <!doctype html><html lang=en-us><head><meta charset=utf-8><title>LXC: Install and configure the Linux Containers | Tech Notebook</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="A comprehensive guide on installing, configuring and using Linux Containers (LXC) on Debian systems."><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://wiki.deimos.fr/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://wiki.deimos.fr/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://wiki.deimos.fr/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://wiki.deimos.fr/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://wiki.deimos.fr/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://wiki.deimos.fr/site.webmanifest><meta property="og:title" content="LXC: Install and configure the Linux Containers"><meta property="og:description" content="A comprehensive guide on installing, configuring and using Linux Containers (LXC) on Debian systems."><meta property="og:type" content="article"><meta property="og:url" content="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers/"><meta property="og:image" content="https://wiki.deimos.fr/opengraph/card-base-2_hu_cb8a73b2dc0e57f8.png"><meta property="article:section" content="docs"><meta property="article:published_time" content="2015-02-22T00:00:00+02:00"><meta property="article:modified_time" content="2025-04-04T17:45:45+02:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://wiki.deimos.fr/opengraph/card-base-2_hu_cb8a73b2dc0e57f8.png"><meta name=twitter:title content="LXC: Install and configure the Linux Containers"><meta name=twitter:description content="A comprehensive guide on installing, configuring and using Linux Containers (LXC) on Debian systems."><link rel=alternate type=application/atom+xml title="Atom feed for Tech Notebook" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://wiki.deimos.fr/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.0e29616245601943bd7b42188227b38297c25dd76fb6bc1b872adac3815960610b5ec8bc06e0893810c56e3cedd6c9da.css integrity=sha384-DilhYkVgGUO9e0IYgiezgpfCXddvtrwbhyraw4FZYGELXsi8BuCJOBDFbjzt1sna crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://wiki.deimos.fr/home/><i class="material-icons me-2">circle</i>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="A comprehensive guide on installing, configuring and using Linux Containers (LXC) on Debian systems."><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://wiki.deimos.fr/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://wiki.deimos.fr/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://wiki.deimos.fr/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://wiki.deimos.fr/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://wiki.deimos.fr/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://wiki.deimos.fr/site.webmanifest><meta property="og:title" content="LXC: Install and configure the Linux Containers"><meta property="og:description" content="A comprehensive guide on installing, configuring and using Linux Containers (LXC) on Debian systems."><meta property="og:type" content="article"><meta property="og:url" content="https://wiki.deimos.fr/LXC_:_Install_and_configure_the_Linux_Containers/"><meta property="og:image" content="https://wiki.deimos.fr/opengraph/card-base-2_hu_cb8a73b2dc0e57f8.png"><meta property="article:section" content="docs"><meta property="article:published_time" content="2015-02-22T00:00:00+02:00"><meta property="article:modified_time" content="2025-04-28T19:01:23+02:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://wiki.deimos.fr/opengraph/card-base-2_hu_cb8a73b2dc0e57f8.png"><meta name=twitter:title content="LXC: Install and configure the Linux Containers"><meta name=twitter:description content="A comprehensive guide on installing, configuring and using Linux Containers (LXC) on Debian systems."><link rel=alternate type=application/atom+xml title="Atom feed for Tech Notebook" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://wiki.deimos.fr/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.0e29616245601943bd7b42188227b38297c25dd76fb6bc1b872adac3815960610b5ec8bc06e0893810c56e3cedd6c9da.css integrity=sha384-DilhYkVgGUO9e0IYgiezgpfCXddvtrwbhyraw4FZYGELXsi8BuCJOBDFbjzt1sna crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://wiki.deimos.fr/home/><i class="material-icons me-2">circle</i>
 cd ~</a></li><li class=sidebar-dropdown><button class=btn>
 <i class="material-icons me-2">article</i>
 BSD</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
@@ -1238,7 +1238,7 @@ Wrote 188 MB to memory
 Killed</code>
   </pre></div><h4 id=swap>SWAP <a href=#swap class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><p>You can limit the swap in a container like this (<code>/var/lib/lxc/mycontainer/config</code>):</p><div class=prism-codeblock><pre id=5e60b81 class=language->
   <code>lxc.cgroup.memory.memsw.limit_in_bytes = 192M</code>
-  </pre></div><div class="alert alert-danger d-flex" role=alert><div class="flex-shrink-1 alert-icon"><span class="material-icons size-20 me-2">report</span></div><div class=w-100>This limit is not only SWAP but Memory + SWAP</div></div><p>That mean that <strong>&ldquo;lxc.cgroup.memory.memsw.limit_in_bytes&rdquo; should be at least equal to &ldquo;lxc.cgroup.memory.limit_in_bytes&rdquo;.</strong></p><p>If you&rsquo;ve got error when trying to limit swap, check the <a href=/LXC_:_Install_and_configure_the_Linux_Containers/#cant-limit-container-memory>FAQ</a>.</p><h4 id=disks>Disks <a href=#disks class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><p>By default, LXC doesn&rsquo;t provide any disks limitation. Anyway, there are enough solution today to make that kind of limitations:</p><ul><li><a href=/docs>LVM</a>: create one LV per container</li><li><a href=/docs>BTRFS</a>: using integrated BTRFS quotas</li><li><a href=https://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence/>ZFS</a>: if you&rsquo;re using ZFS on Linux, you can use integrated zfs/zpool quotas</li><li><a href=/docs>Quotas</a>: using classical Linux quotas (not the recommended solution)</li><li>Disk image: you can use QCOW/QCOW2/RAW/QED images</li></ul><h5 id=mount>Mount <a href=#mount class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h5><div class="alert alert-warning d-flex" role=alert><div class="flex-shrink-1 alert-icon"><span class="material-icons size-20 me-2">warning</span></div><div class=w-100>You should take care if you want to create a mount entry in a subdirectory of /mnt.</div></div><p>It won&rsquo;t work so easily. The reason this happens is that by default &lsquo;mnt&rsquo; is the directory used as pivotdir, where the old_root is placed during pivot_root(). After that, everything under pivotdir is unmounted.</p><p>A workaround is to specify an alternate &rsquo;lxc.pivotdir&rsquo; in the container configuration file.<sup id=fnref:11><a href=#fn:11 class=footnote-ref role=doc-noteref>11</a></sup></p><h6 id=block-device>Block Device <a href=#block-device class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h6><p>You can mount block devices in adding in your container configuration lines like this (adapt with your needs) (<code>/var/lib/lxc/mycontainer/config</code>):</p><div class=prism-codeblock><pre id=cad7873 class=language->
+  </pre></div><div class="alert alert-danger d-flex" role=alert><div class="flex-shrink-1 alert-icon"><span class="material-icons size-20 me-2">report</span></div><div class=w-100>This limit is not only SWAP but Memory + SWAP</div></div><p>That mean that <strong>&ldquo;lxc.cgroup.memory.memsw.limit_in_bytes&rdquo; should be at least equal to &ldquo;lxc.cgroup.memory.limit_in_bytes&rdquo;.</strong></p><p>If you&rsquo;ve got error when trying to limit swap, check the <a href=/LXC_:_Install_and_configure_the_Linux_Containers/#cant-limit-container-memory>FAQ</a>.</p><h4 id=disks>Disks <a href=#disks class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h4><p>By default, LXC doesn&rsquo;t provide any disks limitation. Anyway, there are enough solution today to make that kind of limitations:</p><ul><li><a href=https://wiki.deimos.fr/LVM_:_Utilisation_des_LVM/>LVM</a>: create one LV per container</li><li><a href=https://wiki.deimos.fr/BTRFS_:_Utilisation_du_rempla%C3%A7ant_de_l%27Ext4/>BTRFS</a>: using integrated BTRFS quotas</li><li><a href=https://wiki.deimos.fr/ZFS_:_Le_FileSystem_par_excellence/>ZFS</a>: if you&rsquo;re using ZFS on Linux, you can use integrated zfs/zpool quotas</li><li><a href=https://wiki.deimos.fr/Mise_en_place_des_quotas_sous_Linux/>Quotas</a>: using classical Linux quotas (not the recommended solution)</li><li>Disk image: you can use QCOW/QCOW2/RAW/QED images</li></ul><h5 id=mount>Mount <a href=#mount class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h5><div class="alert alert-warning d-flex" role=alert><div class="flex-shrink-1 alert-icon"><span class="material-icons size-20 me-2">warning</span></div><div class=w-100>You should take care if you want to create a mount entry in a subdirectory of /mnt.</div></div><p>It won&rsquo;t work so easily. The reason this happens is that by default &lsquo;mnt&rsquo; is the directory used as pivotdir, where the old_root is placed during pivot_root(). After that, everything under pivotdir is unmounted.</p><p>A workaround is to specify an alternate &rsquo;lxc.pivotdir&rsquo; in the container configuration file.<sup id=fnref:11><a href=#fn:11 class=footnote-ref role=doc-noteref>11</a></sup></p><h6 id=block-device>Block Device <a href=#block-device class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h6><p>You can mount block devices in adding in your container configuration lines like this (adapt with your needs) (<code>/var/lib/lxc/mycontainer/config</code>):</p><div class=prism-codeblock><pre id=cad7873 class=language->
   <code>lxc.mount.entry = /dev/sdb1 /var/lib/lxc/mycontainer/rootfs/mnt ext4 rw 0 2</code>
   </pre></div><h6 id=bind-mount>Bind mount <a href=#bind-mount class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h6><p>You also can mount bind mountpoints like that (adapt with your needs) (<code>/var/lib/lxc/mycontainer/config</code>):</p><div class=prism-codeblock><pre id=ebb38ac class=language->
   <code>lxc.mount.entry = /path/in/host/mount_point /var/lib/lxc/mycontainer/rootfs/mount_moint none bind 0 0</code>
@@ -7487,7 +7487,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  5 ,
                 href: "\/docs\/solaris\/applications\/",
                 title: "Applications",
-                description: "[Services](./applications/services) • [Users Management](./applications/users-management)",
+                description: "[Services](./applications/services) • [UsersManagement](./applications/usersmanagement)",
                 content: ""
             }
         );
@@ -7577,7 +7577,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  15 ,
                 href: "\/docs\/coding\/",
                 title: "Coding",
-                description: "[C](./coding/c) • [HTML](./coding/html) • [Java](./coding/java) • [Misc](./coding/misc) • [PHP](./coding/php) • [Perl](./coding/perl) • [Python](./coding/python) • [SQL](./coding/sql) • [Shell Script](./coding/shell-script)",
+                description: "[C](./coding/c) • [HTML](./coding/html) • [Java](./coding/java) • [Misc](./coding/misc) • [PHP](./coding/php) • [Perl](./coding/perl) • [Python](./coding/python) • [SQL](./coding/sql) • [ShellScript](./coding/shellscript)",
                 content: ""
             }
         );
@@ -7613,7 +7613,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  19 ,
                 href: "\/docs\/servers\/configurationmanagers\/",
                 title: "Configuration Managers",
-                description: "[Puppet](./configuration-managers/puppet)",
+                description: "[Puppet](./configurationmanagers/puppet)",
                 content: ""
             }
         );
@@ -7622,7 +7622,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  20 ,
                 href: "\/docs\/servers\/containers\/",
                 title: "Containers",
-                description: "[OpenVZ](./containers/openvz) • [Solaris Zones](./containers/solaris-zones)",
+                description: "[OpenVZ](./containers/openvz) • [SolarisZones](./containers/solariszones)",
                 content: ""
             }
         );
@@ -7712,7 +7712,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  30 ,
                 href: "\/docs\/ethicalhacking\/",
                 title: "Ethical Hacking",
-                description: "[Database](./ethical-hacking/database) • [Misc](./ethical-hacking/misc) • [Network](./ethical-hacking/network) • [Operating Systems](./ethical-hacking/operating-systems) • [Theory](./ethical-hacking/theory)",
+                description: "[Database](./ethicalhacking/database) • [Misc](./ethicalhacking/misc) • [Network](./ethicalhacking/network) • [OperatingSystems](./ethicalhacking/operatingsystems) • [Theory](./ethicalhacking/theory)",
                 content: ""
             }
         );
@@ -7730,7 +7730,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  32 ,
                 href: "\/docs\/servers\/filesharing\/",
                 title: "File sharing",
-                description: "[SFTP And FTP](./file-sharing/sftp-and-ftp) • [Samba](./file-sharing/samba) • [ISCSI](./file-sharing/iscsi)",
+                description: "[SFTPandFTP](./filesharing/sftpandftp) • [Samba](./filesharing/samba) • [ISCSI](./filesharing/iscsi)",
                 content: ""
             }
         );
@@ -7757,7 +7757,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  35 ,
                 href: "\/docs\/linux\/filesystemsandstorage\/",
                 title: "Filesystems \u0026 Storage",
-                description: "[LVM](./filesystems-and-storage/lvm) • [Raid](./filesystems-and-storage/raid) • [Storage Encryption](./filesystems-and-storage/storage-encryption)",
+                description: "[LVM](./filesystemsandstorage/lvm) • [Raid](./filesystemsandstorage/raid) • [StorageEncryption](./filesystemsandstorage/storageencryption)",
                 content: ""
             }
         );
@@ -7865,7 +7865,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  47 ,
                 href: "\/docs\/servers\/highavailability\/",
                 title: "High Availability",
-                description: "[HA-Proxy](./high-availability/ha-proxy) • [Heartbeat](./high-availability/heartbeat) • [KeepAlived](./high-availability/keepalived) • [Red Hat Cluster Suite](./high-availability/red-hat-cluster-suite) • [Storage](./high-availability/storage) • [Sun Cluster](./high-availability/sun-cluster)",
+                description: "[HA-Proxy](./highavailability/ha-proxy) • [Heartbeat](./highavailability/heartbeat) • [KeepAlived](./highavailability/keepalived) • [RedHatClusterSuite](./highavailability/redhatclustersuite) • [Storage](./highavailability/storage) • [SunCluster](./highavailability/suncluster)",
                 content: ""
             }
         );
@@ -7991,7 +7991,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  61 ,
                 href: "\/docs\/linux\/",
                 title: "Linux",
-                description: "[Applications](./linux/applications) • [Coding And Debug](./linux/coding-and-debug) • [Desktop](./linux/desktop) • [Filesystems And Storage](./linux/filesystems-and-storage) • [Firewalls](./linux/firewalls) • [Kernel](./linux/kernel) • [Misc](./linux/misc) • [Multimedia](./linux/multimedia) • [Network](./linux/network) • [Packages](./linux/packages) • [Security](./linux/security)",
+                description: "[Applications](./linux/applications) • [CodingAndDebug](./linux/codinganddebug) • [Desktop](./linux/desktop) • [FilesystemsAndStorage](./linux/filesystemsandstorage) • [Firewalls](./linux/firewalls) • [Kernel](./linux/kernel) • [Misc](./linux/misc) • [Multimedia](./linux/multimedia) • [Network](./linux/network) • [Packages](./linux/packages) • [Security](./linux/security)",
                 content: ""
             }
         );
@@ -8018,7 +8018,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  64 ,
                 href: "\/docs\/macos\/",
                 title: "Mac OS",
-                description: "[Applications](./mac-os/applications) • [Coding](./mac-os/coding) • [Hardware](./mac-os/hardware) • [Misc](./mac-os/misc)",
+                description: "[Applications](./macos/applications) • [Coding](./macos/coding) • [Hardware](./macos/hardware) • [Misc](./macos/misc)",
                 content: ""
             }
         );
@@ -8090,7 +8090,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  72 ,
                 href: "\/docs\/servers\/misc\/",
                 title: "Misc",
-                description: "[Hardware](./misc/hardware) • [Instant Messaging](./misc/instant-messaging) • [NTP](./misc/ntp) • [Remote Install](./misc/remote-install)",
+                description: "[Hardware](./misc/hardware) • [InstantMessaging](./misc/instantmessaging) • [NTP](./misc/ntp) • [RemoteInstall](./misc/remoteinstall)",
                 content: ""
             }
         );
@@ -8297,7 +8297,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  95 ,
                 href: "\/docs\/ethicalhacking\/operatingsystems\/",
                 title: "Operating Systems",
-                description: "[Linux](./operating-systems/linux) • [Windows](./operating-systems/windows)",
+                description: "[Linux](./operatingsystems/linux) • [Windows](./operatingsystems/windows)",
                 content: ""
             }
         );
@@ -8513,7 +8513,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  119 ,
                 href: "\/docs\/servers\/security\/",
                 title: "Security",
-                description: "[Iptables](./security/iptables) • [Packet Filter](./security/packet-filter) • [Snort](./security/snort)",
+                description: "[Iptables](./security/iptables) • [PacketFilter](./security/packetfilter) • [Snort](./security/snort)",
                 content: ""
             }
         );
@@ -8522,7 +8522,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  120 ,
                 href: "\/docs\/servers\/",
                 title: "Servers",
-                description: "[Authentication](./servers/authentication) • [Backups](./servers/backups) • [Cloud Computing](./servers/cloud-computing) • [Configuration Managers](./servers/configuration-managers) • [Containers](./servers/containers) • [DNS](./servers/dns) • [Databases](./servers/databases) • [File Sharing](./servers/file-sharing) • [High Availability](./servers/high-availability) • [Misc](./servers/misc) • [Monitoring](./servers/monitoring) • [Network](./servers/network) • [Security](./servers/security) • [Versionning](./servers/versionning) • [Virtualization](./servers/virtualization) • [Web](./servers/web) • [Webapps](./servers/webapps) • [EMails](./servers/emails)",
+                description: "[Authentication](./servers/authentication) • [Backups](./servers/backups) • [CloudComputing](./servers/cloudcomputing) • [ConfigurationManagers](./servers/configurationmanagers) • [Containers](./servers/containers) • [DNS](./servers/dns) • [Databases](./servers/databases) • [FileSharing](./servers/filesharing) • [HighAvailability](./servers/highavailability) • [Misc](./servers/misc) • [Monitoring](./servers/monitoring) • [Network](./servers/network) • [Security](./servers/security) • [Versionning](./servers/versionning) • [Virtualization](./servers/virtualization) • [Web](./servers/web) • [Webapps](./servers/webapps) • [EMails](./servers/emails)",
                 content: ""
             }
         );
@@ -8538,7 +8538,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
     index.add(
             {
                 id:  122 ,
-                href: "\/docs\/servers\/filesharing\/sftp-and-ftp\/",
+                href: "\/docs\/servers\/filesharing\/sftpandftp\/",
                 title: "SFTP \u0026 FTP",
                 description: "",
                 content: ""
@@ -8738,7 +8738,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  144 ,
                 href: "\/docs\/servers\/virtualization\/",
                 title: "Virtualization",
-                description: "[KVM And Qemu](./virtualization/kvm-and-qemu) • [XenServer](./virtualization/xenserver) • [XenSource](./virtualization/xensource)",
+                description: "[KVMandQemu](./virtualization/kvmandqemu) • [XenServer](./virtualization/xenserver) • [XenSource](./virtualization/xensource)",
                 content: ""
             }
         );
@@ -8774,7 +8774,7 @@ lxc.cgroup.devices.allow = b 252:* rwm</code>
                 id:  148 ,
                 href: "\/docs\/servers\/webapps\/",
                 title: "Webapps",
-                description: "[Mediawiki](./webapps/mediawiki) • [RSS Feeder](./webapps/rss-feeder) • [Wordpress](./webapps/wordpress)",
+                description: "[Mediawiki](./webapps/mediawiki) • [RSSfeeder](./webapps/rssfeeder) • [Wordpress](./webapps/wordpress)",
                 content: ""
             }
         );
