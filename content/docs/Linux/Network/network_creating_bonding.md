@@ -204,7 +204,53 @@ Link Failure Count: 0
 
 ### Automatic Configuration Files
 
-#### Red Hat
+{{< tabs tabTotal="3">}}
+{{% tab tabName="Debian" %}}
+
+Here are the files to modify to load your configuration at startup, add to /etc/modules.conf or /etc/modprobe.d/arch/i386:
+
+```text
+alias bond0 bonding
+options bond0 mode=0 miimon=100
+```
+
+In `/etc/network/interfaces` for active-backup:
+
+```text
+auto bond0
+iface bond0 inet static
+    address 10.31.1.5
+    netmask 255.255.255.0
+    network 10.31.1.0
+    gateway 10.31.1.254
+    slaves eth0 eth1
+    bond_mode active-backup
+    bond_miimon 100
+    bond_downdelay 200
+    bond_updelay 200
+```
+
+Or for 802.3ad in `/etc/network/interfaces` :
+
+```text
+auto lo
+iface lo inet loopback
+
+auto bond0
+iface bond0 inet static
+   address 192.168.1.1
+   netmask 255.255.255.0
+   gateway 192.168.1.254
+   network 192.168.1.0
+   bond-slaves enp1s0 enp2s0
+   bond-mode 4
+   bond-miimon 100
+   bond-downdelay 200
+   bond-updelay 200
+```
+
+{{% /tab %}}
+{{% tab tabName="RedHat" %}}
 
 If you are on RHEL 6, in the file /etc/modprobe.d/bonding.conf, create the following line:
 
@@ -246,31 +292,8 @@ SLAVE=yes
 BOOTPROTO=static
 ```
 
-#### Debian
-
-Here are the files to modify to load your configuration at startup, add to /etc/modules.conf or /etc/modprobe.d/arch/i386:
-
-```text
-alias bond0 bonding
-options bond0 mode=0 miimon=100
-```
-
-In /etc/network/interfaces:
-
-```text
-auto bond0
-
-iface bond0 inet static
-    address 10.31.1.5
-    netmask 255.255.255.0
-    network 10.31.1.0
-    gateway 10.31.1.254
-    slaves eth0 eth1
-    bond_mode active-backup
-    bond_miimon 100
-    bond_downdelay 200
-    bond_updelay 200
-```
+{{% /tab %}}
+{{< /tabs >}}
 
 ### Bonding Module Options
 

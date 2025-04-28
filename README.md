@@ -76,6 +76,32 @@ Example:
 [SSLH method]({{< ref "docs/Servers/File sharing/SFTP and FTP/sslh_multiplexing_ssl_and_ssh_connections_on_the_same_port.md" >}})
 ```
 
+## Tabs
+
+{{< tabs tabTotal="3">}}
+{{% tab tabName="Windows" %}}
+
+**Windows Content**
+
+Example content specific to **Windows** operating systems
+
+{{% /tab %}}
+{{% tab tabName="MacOS" %}}
+
+**MacOS Content**
+
+Example content specific to **Mac** operating systems
+
+{{% /tab %}}
+{{% tab tabName="Linux" %}}
+
+**Linux Content**
+
+Example content specific to **Linux** operating systems
+
+{{% /tab %}}
+{{< /tabs >}}
+
 ## icons
 
 Icons can be found here:
