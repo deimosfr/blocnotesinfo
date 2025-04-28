@@ -110,9 +110,8 @@ rm /etc/bind/db.deimos.fr.jnl
 All that's left is to reload or restart your bind and the sync will restart correctly.
 
 ## Resources
-
-http://jon.netdork.net/2008/08/21/bind-dynamic-zones-and-updates  
-http://www.zytrax.com/books/dns/  
-http://www.zytrax.com/books/dns/ch7/queries.html#rrset-order  
-http://www.zytrax.com/books/dns/info/ttl.html  
-http://www.zytrax.com/books/dns/ch9/rr.html
+- http://jon.netdork.net/2008/08/21/bind-dynamic-zones-and-updates
+- http://www.zytrax.com/books/dns/
+- http://www.zytrax.com/books/dns/ch7/queries.html#rrset-order
+- http://www.zytrax.com/books/dns/info/ttl.html
+- http://www.zytrax.com/books/dns/ch9/rr.html

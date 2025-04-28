@@ -89,5 +89,4 @@ ssh my_ssh_server
 ```
 
 ## Resources
-
-http://www.zeitoun.net/articles/ssh-through-http-proxy/start
+- http://www.zeitoun.net/articles/ssh-through-http-proxy/start

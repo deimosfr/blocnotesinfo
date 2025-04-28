@@ -159,10 +159,9 @@ This should be placed in "**~/.exrc**". You will then have auto-indentation, lin
 If you want to get the latest version of my vimrc, go to my git: [https://www.deimos.fr/gitweb](https://www.deimos.fr/gitweb)
 
 ## Resources
-
-[https://vimcasts.org/](https://vimcasts.org/)  
-[https://vim-adventures.com/](https://vim-adventures.com/)  
-[Vim Config Generator](https://yoursachet.com/)  
-[Quick Reference Card](/pdf/vimqrc.pdf)  
-[Quick Reference Card (French)](/pdf/vimqrcfr.pdf)  
-[The new and improved Vim editor](/pdf/au-speakingunix_vim-pdf.pdf)
+- [https://vimcasts.org/](https://vimcasts.org/)
+- [https://vim-adventures.com/](https://vim-adventures.com/)
+- [Vim Config Generator](https://yoursachet.com/)
+- [Quick Reference Card](/pdf/vimqrc.pdf)
+- [Quick Reference Card (French)](/pdf/vimqrcfr.pdf)
+- [The new and improved Vim editor](/pdf/au-speakingunix_vim-pdf.pdf)

@@ -323,5 +323,4 @@ brw------- 1 root root 253,  0 Mar  1 13:41 myvg0-mylv0
 ```
 
 ## Resources
-
-http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html-single/DM_Multipath/index.html
+- http://docs.redhat.com/docs/en-US/Red_Hat_Enterprise_Linux/5/html-single/DM_Multipath/index.html

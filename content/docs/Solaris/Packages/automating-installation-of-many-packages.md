@@ -115,5 +115,4 @@ done
 Run this and you'll be set!
 
 ## Resources
-
-[https://forums13.itrc.hp.com/service/forums/questionanswer.do?admit=109447627+1253258346531+28353475&threadId=223010](https://forums13.itrc.hp.com/service/forums/questionanswer.do?admit=109447627+1253258346531+28353475&threadId=223010)
+- [https://forums13.itrc.hp.com/service/forums/questionanswer.do?admit=109447627+1253258346531+28353475&threadId=223010](https://forums13.itrc.hp.com/service/forums/questionanswer.do?admit=109447627+1253258346531+28353475&threadId=223010)

@@ -113,5 +113,4 @@ Then, add it to Crontab:
 ```
 
 ## Resources
-
-[Adding And Updating SpamAssassin Rulesets With RulesDuJour](/pdf/adding_and_updating_spamassassin_rulesets_with_rulesdujour.pdf)
+- [Adding And Updating SpamAssassin Rulesets With RulesDuJour](/pdf/adding_and_updating_spamassassin_rulesets_with_rulesdujour.pdf)

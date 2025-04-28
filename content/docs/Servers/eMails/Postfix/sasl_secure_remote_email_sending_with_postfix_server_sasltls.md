@@ -296,5 +296,4 @@ instead of:
 ```
 
 ## Resources
-
-[Postfix SMTP Authentication - On The Secure Port Only](/pdf/postfix_smtp_authentication_-_on_the_secure_port_only.pdf)
+- [Postfix SMTP Authentication - On The Secure Port Only](/pdf/postfix_smtp_authentication_-_on_the_secure_port_only.pdf)

@@ -197,6 +197,5 @@ svccfg import /var/svc/manifest/application/collectd.xml
 ```
 
 ## Resources
-
-http://collectd.org/wiki/index.php/First_steps  
-http://collectd.org/wiki/index.php/Networking_introduction
+- http://collectd.org/wiki/index.php/First_steps
+- http://collectd.org/wiki/index.php/Networking_introduction

@@ -128,5 +128,4 @@ For the server to be recognized by PlayStation 3, you need to modify the file:
 Then restart the MediaTomb server. Now, on the PlayStation, you can scan for Multimedia servers and yours will appear magically.
 
 ## Resources
-
-[Fuppes: Set Up A Linux PlayStation 3 Media Server](/pdf/set_up_a_linux_playstation_3_media_server.pdf)
+- [Fuppes: Set Up A Linux PlayStation 3 Media Server](/pdf/set_up_a_linux_playstation_3_media_server.pdf)

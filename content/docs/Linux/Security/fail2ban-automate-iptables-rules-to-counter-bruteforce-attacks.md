@@ -133,5 +133,4 @@ fail2ban-client get nginx-naxsi actionunban 222.2.5.210
 Modify nginx-naxsi with the name of the fail2ban jail name.
 
 ## Resources
-
-[Fail2ban Documentation](/pdf/fail2ban.pdf)
+- [Fail2ban Documentation](/pdf/fail2ban.pdf)

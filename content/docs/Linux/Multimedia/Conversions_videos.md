@@ -77,7 +77,6 @@ ffmpeg2theora --optimize video.mov
 ```
 
 ## Resources
-
-http://soukie.net/degradable-html5-audio-and-video-plugin/#instr  
-http://www.paperblog.fr/3023554/ffmpeg2theora-guide-par-l-exemple/  
-http://doc.ubuntu-fr.org/ffmpeg
+- http://soukie.net/degradable-html5-audio-and-video-plugin/#instr
+- http://www.paperblog.fr/3023554/ffmpeg2theora-guide-par-l-exemple/
+- http://doc.ubuntu-fr.org/ffmpeg

@@ -251,5 +251,4 @@ This will avoid problems like these in the logs:
 ```
 
 ## Resources
-
-http://fr.wikibooks.org/wiki/Linux_VServer
+- http://fr.wikibooks.org/wiki/Linux_VServer

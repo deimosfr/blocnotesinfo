@@ -200,5 +200,4 @@ As a finishing touch, this script creates a thumbnail with convert (from the Ima
 That's it! This article is finished and I hope it has inspired you to do the same thing in your environment.
 
 ## Resources
-
-[https://www.unixgarden.com/index.php/administration-systeme/1086](https://www.unixgarden.com/index.php/administration-systeme/1086)
+- [https://www.unixgarden.com/index.php/administration-systeme/1086](https://www.unixgarden.com/index.php/administration-systeme/1086)

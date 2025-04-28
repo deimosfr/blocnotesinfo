@@ -290,5 +290,4 @@ will be available at:
 http://myapp.mycompany.lan/
 
 ## Resources
-
-http://httpd.apache.org/docs/2.0/mod/mod_proxy.html
+- http://httpd.apache.org/docs/2.0/mod/mod_proxy.html

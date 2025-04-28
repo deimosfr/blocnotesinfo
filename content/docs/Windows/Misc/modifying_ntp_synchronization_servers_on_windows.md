@@ -35,6 +35,5 @@ If you have problems, first make sure the Windows Time Service is enabled.
 Note: This works with Windows XP, Windows Vista, Windows Server 2003 and Windows Server 2008.
 
 ## Resources
-
-http://blogs.msdn.com/w32time/default.aspx  
-http://www.meinberg.de/german/sw/ntp.htm
+- http://blogs.msdn.com/w32time/default.aspx
+- http://www.meinberg.de/german/sw/ntp.htm

@@ -107,6 +107,5 @@ TraceEnable "off"
 ```
 
 ## Resources
-
-[Mod Security Debian Etch Documentation](/pdf/modsecurity2_debian_etch.pdf)  
-[Advanced Apache web server security: mod_security and mod_dosevasive](/pdf/mod_security_mod_dosevasive.pdf)
+- [Mod Security Debian Etch Documentation](/pdf/modsecurity2_debian_etch.pdf)
+- [Advanced Apache web server security: mod_security and mod_dosevasive](/pdf/mod_security_mod_dosevasive.pdf)

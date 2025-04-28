@@ -79,5 +79,4 @@ techtalk1.mp3 45% 17MB 555.3KB/s 00:38 ETA
 Clearview rocks, and it's awesome to see that link properties are going to be managed in a standard uniform way going forward! Nice!
 
 ## Resources
-
-[https://prefetch.net/blog/index.php/2009/03/15/viewing-network-device-properties-on-solaris-hosts/](https://prefetch.net/blog/index.php/2009/03/15/viewing-network-device-properties-on-solaris-hosts/)
+- [https://prefetch.net/blog/index.php/2009/03/15/viewing-network-device-properties-on-solaris-hosts/](https://prefetch.net/blog/index.php/2009/03/15/viewing-network-device-properties-on-solaris-hosts/)

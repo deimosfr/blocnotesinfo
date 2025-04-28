@@ -31,5 +31,4 @@ for p in $(rpm -qa); do rpm --setperms $p; done
 You'll need to do a bit of verification afterward because this only repairs the permissions of files and directories contained in installed packages. Your personal files will not have their permissions restored with this method.
 
 ## Resources
-
-http://www.adminlinux.org/2009/07/how-to-restore-default-system.html
+- http://www.adminlinux.org/2009/07/how-to-restore-default-system.html

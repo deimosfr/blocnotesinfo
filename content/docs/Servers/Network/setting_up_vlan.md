@@ -234,6 +234,5 @@ iface vmbr0.110 inet static
 ```
 
 ## Resources
-
-http://linux-net.osdl.org/index.php/VLAN  
-[Documentation about VLANs](/pdf/routage.inter-vlan.pdf)
+- http://linux-net.osdl.org/index.php/VLAN
+- [Documentation about VLANs](/pdf/routage.inter-vlan.pdf)

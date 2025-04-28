@@ -57,7 +57,6 @@ rsync -e ssh -av --delete "/rsync" remote:backupdir
 ```
 
 ## Resources
-
-[Incremental Backup Server](/pdf/serveur_de_sauvegardes_incrémentales.pdf)  
-[Backing up your data with Rsync](/pdf/rsync.pdf)  
-[Information about Rsync memory consumption](https://www.samba.org/rsync/FAQ.html#4)
+- [Incremental Backup Server](/pdf/serveur_de_sauvegardes_incrémentales.pdf)
+- [Backing up your data with Rsync](/pdf/rsync.pdf)
+- [Information about Rsync memory consumption](https://www.samba.org/rsync/FAQ.html#4)

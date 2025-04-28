@@ -568,7 +568,6 @@ And finish by defining the crontab:
 ```
 
 ## Resources
-
-http://www.cuddletech.com/articles/rrd/index.html
-http://oss.oetiker.ch/rrdtool/
-http://www.vandenbogaerdt.nl/rrdtool/tutorial/graph.php
+- http://www.cuddletech.com/articles/rrd/index.html
+- http://oss.oetiker.ch/rrdtool/
+- http://www.vandenbogaerdt.nl/rrdtool/tutorial/graph.php

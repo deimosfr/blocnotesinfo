@@ -185,5 +185,4 @@ upload_max_filesize = 50M
 - Check the size of `/tmp` on your server (for example, my vservers are by default set to 16M, which was problematic since it's the temporary location where WordPress stores its files)
 
 ## Resources
-
-http://codex.wordpress.org/Using_Javascript
+- http://codex.wordpress.org/Using_Javascript

@@ -67,5 +67,4 @@ OCSInventory /SERVER:192.168.0.16 /TAG:"%username%"
 Here 192.168.0.16 corresponds to my OCS server.
 
 ## Resources
-
-[OCS Inventory Setup with GLPI](/pdf/mise_en_place_d'ocs_inventory.pdf)
+- [OCS Inventory Setup with GLPI](/pdf/mise_en_place_d'ocs_inventory.pdf)

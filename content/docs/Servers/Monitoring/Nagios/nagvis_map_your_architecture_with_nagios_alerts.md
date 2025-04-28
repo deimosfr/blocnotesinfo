@@ -340,5 +340,4 @@ http://<nagiosserver>/nagvis/index.php?map=<mapname>
 ```
 
 ## Resources
-
-[https://www.nagvis.org/](https://www.nagvis.org/)
+- [https://www.nagvis.org/](https://www.nagvis.org/)

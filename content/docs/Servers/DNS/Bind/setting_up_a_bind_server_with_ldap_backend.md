@@ -301,5 +301,4 @@ On both servers, Bind is configured as `master`!
 Another point: dynamic zone updates are not possible because Bind doesn't know how to write to the LDAP tree.
 
 ## Resources
-
-[https://www.free-4ever.net/index.php/Dns:configuration_bind9_backend_ldap](https://www.free-4ever.net/index.php/Dns:configuration_bind9_backend_ldap)
+- [https://www.free-4ever.net/index.php/Dns:configuration_bind9_backend_ldap](https://www.free-4ever.net/index.php/Dns:configuration_bind9_backend_ldap)

@@ -183,6 +183,5 @@ A lot of things have just been created:
 {{< /table >}}
 
 ## Resources
-
-http://www.symfony-project.org/getting-started/1_4/fr/  
-http://www.lafermeduweb.net/tutorial/symfony-creer-un-site-web-avec-le-framework-php-symfony-14.html
+- http://www.symfony-project.org/getting-started/1_4/fr/
+- http://www.lafermeduweb.net/tutorial/symfony-creer-un-site-web-avec-le-framework-php-symfony-14.html

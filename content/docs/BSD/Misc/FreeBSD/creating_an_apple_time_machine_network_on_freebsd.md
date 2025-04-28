@@ -40,5 +40,4 @@ Enjoy!
 As Remko points out in the comments, the MAC address is not restrictive. So, if you want to backup via wired interface and after that via wireless, Time Machine will work using both interfaces. I suppose that Time Machine inspects all MAC addresses in your machine and then searches a sparse bundle in the networked volume that matches.
 
 ## Resources
-
-[https://blogs.freebsdish.org/rpaulo/2008/10/04/apple-time-machine-freebsd-in-14-steps/](https://blogs.freebsdish.org/rpaulo/2008/10/04/apple-time-machine-freebsd-in-14-steps/)
+- [https://blogs.freebsdish.org/rpaulo/2008/10/04/apple-time-machine-freebsd-in-14-steps/](https://blogs.freebsdish.org/rpaulo/2008/10/04/apple-time-machine-freebsd-in-14-steps/)

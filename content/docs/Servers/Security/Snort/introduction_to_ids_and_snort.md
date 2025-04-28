@@ -383,5 +383,4 @@ If properly configured and used, it can considerably reduce the damage caused by
 The main difficulty remains the analysis of event logs because an attack can quickly be drowned in a flow of false positives.
 
 ## Resources
-
-http://www.secuobs.com/news/11052008-snort_ids.shtml
+- http://www.secuobs.com/news/11052008-snort_ids.shtml

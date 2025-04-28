@@ -36,5 +36,4 @@ mount -F hsfs -o ro `lofiadm -a /export/temp/software.iso` /mnt
 ```
 
 ## Resources
-
-[https://www.tech-recipes.com/rx/218/mount-an-iso-image-on-a-solaris-filesystem-with-lofiadm/](https://www.tech-recipes.com/rx/218/mount-an-iso-image-on-a-solaris-filesystem-with-lofiadm/)
+- [https://www.tech-recipes.com/rx/218/mount-an-iso-image-on-a-solaris-filesystem-with-lofiadm/](https://www.tech-recipes.com/rx/218/mount-an-iso-image-on-a-solaris-filesystem-with-lofiadm/)

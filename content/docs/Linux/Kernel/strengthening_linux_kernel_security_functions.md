@@ -670,7 +670,6 @@ The last factor, and not the least important, then becomes "human": social engin
 Note that some specialized distributions are oriented towards these "high security levels". One of the best known some time ago was Adamantix, on a Debian base, which is no longer maintained at the present time... Advice to amateurs!
 
 ## Resources
-
-[SecuObs Article](https://www.secuobs.com/news/14112007-kernel_hardening.shtml)
+- [SecuObs Article](https://www.secuobs.com/news/14112007-kernel_hardening.shtml)
 
 <!-- Link to "Securing Your Kernel with Grsecurity and PaX" removed - file not found in repository -->

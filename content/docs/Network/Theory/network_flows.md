@@ -122,5 +122,4 @@ The various examples are far from an exhaustive list; it's up to you to find new
 The next step might be to link these detection mechanisms with automatic protection mechanisms (disabling the port on the switch for example). Technologies exist, the future will tell if they will be adopted.
 
 ## Resources
-
-[https://www.unixgarden.com/index.php/administration-reseau/les-flux-reseau](https://www.unixgarden.com/index.php/administration-reseau/les-flux-reseau)
+- [https://www.unixgarden.com/index.php/administration-reseau/les-flux-reseau](https://www.unixgarden.com/index.php/administration-reseau/les-flux-reseau)

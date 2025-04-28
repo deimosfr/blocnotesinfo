@@ -159,6 +159,5 @@ echo "net.inet.tcp.sendspace=65536" >> /etc/sysctl.conf
 ```
 
 ## Resources
-
-[OpenBSD Networking FAQ](https://www.openbsd.org/faq/faq6.html)  
-[OpenBSD hostname man](https://www.openbsd.org/cgi-bin/man.cgi?query=hostname.if&sektion=5)
+- [OpenBSD Networking FAQ](https://www.openbsd.org/faq/faq6.html)
+- [OpenBSD hostname man](https://www.openbsd.org/cgi-bin/man.cgi?query=hostname.if&sektion=5)

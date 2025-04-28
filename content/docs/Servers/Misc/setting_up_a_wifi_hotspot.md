@@ -98,5 +98,4 @@ Everything is graphed by Cacti, notably thanks to the dhcpd-snmp extension of Ne
 If you're in the 17th arrondissement of Paris, look for the SSID "Empire-Network" :)
 
 ## Resources
-
-http://imil.net/wp/?p=196
+- http://imil.net/wp/?p=196

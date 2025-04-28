@@ -304,6 +304,5 @@ Usage: ./addhost.php <%Whostname%n> [community] [v1|v2c] [port] [" . join("|",$c
 ```
 
 ## Resources
-
-http://www.observium.org/wiki/Ubuntu_SVN_Installation
-http://www.outsidaz.org/blog/2012/02/09/deploying-observium-on-rhel6-with-selinux/
+- http://www.observium.org/wiki/Ubuntu_SVN_Installation
+- http://www.outsidaz.org/blog/2012/02/09/deploying-observium-on-rhel6-with-selinux/

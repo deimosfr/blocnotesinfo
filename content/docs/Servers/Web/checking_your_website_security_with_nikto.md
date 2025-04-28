@@ -40,5 +40,4 @@ nikto -h localhost
 ```
 
 ## Resources
-
-[ProxyStrike a new transparent proxy for web application auditing](https://www.secuobs.com/news/15042008-proxystrike.shtml)
+- [ProxyStrike a new transparent proxy for web application auditing](https://www.secuobs.com/news/15042008-proxystrike.shtml)

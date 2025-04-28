@@ -552,5 +552,4 @@ This allows compiling main.c, because ENTIER_H is defined by the inclusion of en
 This article has presented numerous rules and tips to make the best use of C preprocessor facilities to help make programs robust, portable, and easy to debug. These are just a subset of the possibilities available. The reader can consult the links and references in this article to go further.
 
 ## Resources
-
-http://www.unixgarden.com/index.php/programmation/mieux-connaitre-et-utiliser-le-preprocesseur-du-langage-c
+- http://www.unixgarden.com/index.php/programmation/mieux-connaitre-et-utiliser-le-preprocesseur-du-langage-c

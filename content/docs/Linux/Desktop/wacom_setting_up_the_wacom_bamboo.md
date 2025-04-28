@@ -243,5 +243,4 @@ EndSection
 ```
 
 ## Resources
-
-[https://www.enpleindedans.fr/index.php/2008/01/29/utiliser-la-wacom-bamboo-avec-gimp-sous-ubuntu-gutsy/](https://www.enpleindedans.fr/index.php/2008/01/29/utiliser-la-wacom-bamboo-avec-gimp-sous-ubuntu-gutsy/)
+- [https://www.enpleindedans.fr/index.php/2008/01/29/utiliser-la-wacom-bamboo-avec-gimp-sous-ubuntu-gutsy/](https://www.enpleindedans.fr/index.php/2008/01/29/utiliser-la-wacom-bamboo-avec-gimp-sous-ubuntu-gutsy/)

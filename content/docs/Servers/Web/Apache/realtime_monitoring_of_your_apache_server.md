@@ -152,5 +152,4 @@ R ( 30s):       0 reqs (   0.0/sec)          0.0B (    0.0B/sec)       0.0B/req
 ```
 
 ## Resources
-
-http://articles.slicehost.com/2010/3/26/enabling-and-using-apache-s-mod_status-on-debian
+- http://articles.slicehost.com/2010/3/26/enabling-and-using-apache-s-mod_status-on-debian

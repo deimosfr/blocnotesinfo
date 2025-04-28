@@ -879,7 +879,6 @@ retain_state_information=0
 ```
 
 ## Resources
-
-[Nagios Documentation on OpenBSD](/pdf/openbsd_nagios.pdf)  
-[https://www.mail-archive.com/nagios-users@lists.sourceforge.net/msg04394.html](https://www.mail-archive.com/nagios-users@lists.sourceforge.net/msg04394.html)  
-[Nagios Documentation](/pdf/nagios.pdf)
+- [Nagios Documentation on OpenBSD](/pdf/openbsd_nagios.pdf)
+- [https://www.mail-archive.com/nagios-users@lists.sourceforge.net/msg04394.html](https://www.mail-archive.com/nagios-users@lists.sourceforge.net/msg04394.html)
+- [Nagios Documentation](/pdf/nagios.pdf)

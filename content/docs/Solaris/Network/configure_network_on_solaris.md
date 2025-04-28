@@ -175,5 +175,4 @@ ifconfig nge1 addif 192.168.0.1/24 up
 ```
 
 ## Resources
-
-[https://www.sunsolarisadmin.com/solaris-10/dladm-display-link-statusspeedduplexstatisticsmtu/](https://www.sunsolarisadmin.com/solaris-10/dladm-display-link-statusspeedduplexstatisticsmtu/)
+- [https://www.sunsolarisadmin.com/solaris-10/dladm-display-link-statusspeedduplexstatisticsmtu/](https://www.sunsolarisadmin.com/solaris-10/dladm-display-link-statusspeedduplexstatisticsmtu/)

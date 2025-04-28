@@ -287,6 +287,5 @@ ldap_gen_profile -P profile -b dc=mycompany,dc=local -w test 127.0.0.1 | grep So
 ```
 
 ## Resources
-
-http://docs.sun.com/app/docs/doc/806-4077/6jd6blbev?a=view#ldapsecure-74
-http://www.ypass.net/solaris/openldap/ldapcachemgr.php
+- http://docs.sun.com/app/docs/doc/806-4077/6jd6blbev?a=view#ldapsecure-74
+- http://www.ypass.net/solaris/openldap/ldapcachemgr.php

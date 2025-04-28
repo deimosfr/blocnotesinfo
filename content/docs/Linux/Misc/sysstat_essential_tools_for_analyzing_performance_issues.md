@@ -393,7 +393,6 @@ su sys -c "/usr/lib/sa/sadc /var/adm/sa/sa`date +%d`"
 ```
 
 ## Resources
-
-http://www.cyberciti.biz/open-source/command-line-hacks/linux-monitor-process-using-pidstat/
+- http://www.cyberciti.biz/open-source/command-line-hacks/linux-monitor-process-using-pidstat/
 
 [^1]: http://comments.gmane.org/gmane.comp.gnu.coreutils.general/904

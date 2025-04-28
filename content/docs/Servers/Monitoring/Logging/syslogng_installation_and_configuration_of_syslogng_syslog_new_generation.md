@@ -555,6 +555,5 @@ As you can see in the example above, you just need to add the recently configure
 This is most likely due to a connection problem to the database. Check your permissions and the credentials used in the configuration file.
 
 ## Resources
-
-http://www.supinfo-projects.com/fr/2005/syslogng_2005/1/  
-[Install a Syslog Server](/pdf/installer_un_serveur_syslog.pdf)
+- http://www.supinfo-projects.com/fr/2005/syslogng_2005/1/
+- [Install a Syslog Server](/pdf/installer_un_serveur_syslog.pdf)

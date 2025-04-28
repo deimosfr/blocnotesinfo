@@ -299,9 +299,8 @@ fis create -b 0x80041000 -f 0xA8040000 -l 0x00230004 -e 0x80040400 image
 After this operation, the Fonera+ is restarted by the reset command. No kernel messages appear, which is normal, but after the complete boot phase we do have a usable shell. The DHCP messages keep cluttering the console but it works!
 
 ## Resources
-
-http://www.lefinnois.net/wp/index.php/2007/11/18/modification-du-firmware-fon-pour-une-fonera/  
-http://www.dd-wrt.com/wiki/index.php/LaFonera_Software_Flashing  
-http://www.dd-wrt.com/wiki/index.php/LaFonera_(fr)  
-http://www.cure.nom.fr/blog/archives/141-Fonera-et-le-firmware-alternatif-DD-WRT.html  
-http://www.dd-wrt.com/wiki/index.php/Wireless_Access_Point
+- http://www.lefinnois.net/wp/index.php/2007/11/18/modification-du-firmware-fon-pour-une-fonera/
+- http://www.dd-wrt.com/wiki/index.php/LaFonera_Software_Flashing
+- http://www.dd-wrt.com/wiki/index.php/LaFonera_(fr)
+- http://www.cure.nom.fr/blog/archives/141-Fonera-et-le-firmware-alternatif-DD-WRT.html
+- http://www.dd-wrt.com/wiki/index.php/Wireless_Access_Point

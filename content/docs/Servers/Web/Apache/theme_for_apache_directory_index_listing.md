@@ -154,5 +154,4 @@ Adapt this configuration to your needs and then reload Apache:
 ```
 
 ## Resources
-
-http://blog.is-a-geek.org/apache-file-listing-mit-eigenem-theme-verschonern
+- http://blog.is-a-geek.org/apache-file-listing-mit-eigenem-theme-verschonern

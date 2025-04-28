@@ -132,5 +132,4 @@ options {
 The advantage of this type of architecture is that it provides maximum protection for the company's private internal DNS server, which absolutely does not access the Internet directly but is nevertheless able to provide all the DNS services necessary for workstations on the local network, including the resolution of names external to the company. This server is also able to resolve internal names within the company (in the here.local domain) that it manages directly. Workstations thus have transparent access to all the different domains.
 
 ## Resources
-
-[https://fr.wikibooks.org/wiki/Utilisateur:Rortalo/Sécurité_informatique/DNS_avec_BIND_9](https://fr.wikibooks.org/wiki/Utilisateur:Rortalo/Sécurité_informatique/DNS_avec_BIND_9)
+- [https://fr.wikibooks.org/wiki/Utilisateur:Rortalo/Sécurité_informatique/DNS_avec_BIND_9](https://fr.wikibooks.org/wiki/Utilisateur:Rortalo/Sécurité_informatique/DNS_avec_BIND_9)

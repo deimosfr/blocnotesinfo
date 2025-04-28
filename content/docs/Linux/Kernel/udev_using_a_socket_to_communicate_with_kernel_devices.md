@@ -347,8 +347,7 @@ BUS=="usb", ATTRS{product}=="USB Mass Storage Device", KERNEL=="sd?1", NAME="%k"
 ```
 
 ## Resources
-
-http://reactivated.net/writing_udev_rules.html  
-http://www.redhat.com/magazine/002dec04/features/udev/  
-http://wiki.debian.org/udev  
-https://wiki.archlinux.org/index.php/Map_Custom_Device_Entries_with_udev
+- http://reactivated.net/writing_udev_rules.html
+- http://www.redhat.com/magazine/002dec04/features/udev/
+- http://wiki.debian.org/udev
+- https://wiki.archlinux.org/index.php/Map_Custom_Device_Entries_with_udev

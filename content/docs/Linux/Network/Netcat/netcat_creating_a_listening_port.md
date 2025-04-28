@@ -42,8 +42,7 @@ nc @IP numero_du_port
 ```
 
 ## Resources
-
-[Netcat: Remote Partition Backup]({{< ref "docs/Linux/Network/Netcat/netcat_remote_partition_backup.md" >}})  
-[Netcat: File Transfer]({{< ref "docs/Linux/Network/Netcat/netcat_file_transfer.md" >}})  
-[Netcat Documentation](/pdf/netcat.pdf)  
-[Useful Uses Of netcat](/pdf/useful_uses_of_netcat.pdf)
+- [Netcat: Remote Partition Backup]({{< ref "docs/Linux/Network/Netcat/netcat_remote_partition_backup.md" >}})
+- [Netcat: File Transfer]({{< ref "docs/Linux/Network/Netcat/netcat_file_transfer.md" >}})
+- [Netcat Documentation](/pdf/netcat.pdf)
+- [Useful Uses Of netcat](/pdf/useful_uses_of_netcat.pdf)

@@ -199,6 +199,5 @@ Note that the above example only allows the file for DHCP clients that identify 
 A good way to use this technique is to only preconfigure values related to your network, for example the name of your Debian mirror. This way installations automatically use the right mirror and the rest of the installation can be done interactively. You need to be very careful if you want to automate the entire installation with DHCP-type preconfiguration.
 
 ## Resources
-
-[https://www.debian.org/releases/stable/s390/apbs02.html.fr](https://www.debian.org/releases/stable/s390/apbs02.html.fr)  
-[https://www.unixgarden.com/index.php/gnu-linux-magazine-hs/une-installation-de-debian-automatique-2](https://www.unixgarden.com/index.php/gnu-linux-magazine-hs/une-installation-de-debian-automatique-2)
+- [https://www.debian.org/releases/stable/s390/apbs02.html.fr](https://www.debian.org/releases/stable/s390/apbs02.html.fr)
+- [https://www.unixgarden.com/index.php/gnu-linux-magazine-hs/une-installation-de-debian-automatique-2](https://www.unixgarden.com/index.php/gnu-linux-magazine-hs/une-installation-de-debian-automatique-2)

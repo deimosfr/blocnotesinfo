@@ -723,5 +723,4 @@ Here's a small patch I wrote to fix a bug when trying to connect to a port other
 I submitted it, but since there's no maintainer anymore...
 
 ## Resources
-
-http://dev.mysql.com/doc/refman/5.0/en/temporary-files.html
+- http://dev.mysql.com/doc/refman/5.0/en/temporary-files.html

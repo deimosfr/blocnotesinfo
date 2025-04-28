@@ -249,6 +249,5 @@ gpg --delete-keys username@domain.com
 Now, use your favorite software to encrypt your emails. Send your public key to your friends as well so they can easily decrypt them :-)
 
 ## Resources
-
-[https://gpglinux.free.fr/](https://gpglinux.free.fr/)  
-[GnuPG - for more confidentiality]({{< ref "docs/Linux/Security/gnupg_encrypt_your_emails.md" >}})
+- [https://gpglinux.free.fr/](https://gpglinux.free.fr/)
+- [GnuPG - for more confidentiality]({{< ref "docs/Linux/Security/gnupg_encrypt_your_emails.md" >}})

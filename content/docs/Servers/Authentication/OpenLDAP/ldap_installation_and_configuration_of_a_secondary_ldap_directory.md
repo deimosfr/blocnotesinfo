@@ -145,6 +145,5 @@ All modifications made on the master server are replicated "instantly" to the sl
 For additions and modifications, they are done exactly as if the master server was autonomous. For read access, it can be done on all servers.
 
 ## Resources
-
-http://www.free-4ever.net/index.php/Openldap:configuration_slapd_replication  
-[Setting up a multimaster OpenLDAP](/pdf/openldap_multimasters.pdf)
+- http://www.free-4ever.net/index.php/Openldap:configuration_slapd_replication
+- [Setting up a multimaster OpenLDAP](/pdf/openldap_multimasters.pdf)

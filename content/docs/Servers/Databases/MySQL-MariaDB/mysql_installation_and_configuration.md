@@ -283,8 +283,7 @@ mysqld_safe --datadir=/new-data-location --user=mysql &
 ```
 
 ## Resources
-
-[Optimising MySQL under Sun](/pdf/optimising_mysql_under_sun.pdf)  
-[MySQL Utils: beautiful cacti graphs for Monitoring MySQL](https://faemalia.net/mysqlUtils/)  
-[Setting Changing And Resetting MySQL Root Passwords](/pdf/setting_changing_and_resetting_mysql_root_passwords.pdf)  
-[Monolith-toolkit: easy tools for complex MySQL administration](https://code.google.com/p/monolith-toolkit/)
+- [Optimising MySQL under Sun](/pdf/optimising_mysql_under_sun.pdf)
+- [MySQL Utils: beautiful cacti graphs for Monitoring MySQL](https://faemalia.net/mysqlUtils/)
+- [Setting Changing And Resetting MySQL Root Passwords](/pdf/setting_changing_and_resetting_mysql_root_passwords.pdf)
+- [Monolith-toolkit: easy tools for complex MySQL administration](https://code.google.com/p/monolith-toolkit/)

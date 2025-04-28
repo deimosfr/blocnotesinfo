@@ -88,6 +88,5 @@ aptitude install ethtool
 ```
 
 ## Resources
-
-http://doc.ubuntu-fr.org/installation_macbook_sans_macosx  
-http://blog.dhampir.no/content/wake-on-lan-on-a-n-intel-mac-mini-with-linux
+- http://doc.ubuntu-fr.org/installation_macbook_sans_macosx
+- http://blog.dhampir.no/content/wake-on-lan-on-a-n-intel-mac-mini-with-linux

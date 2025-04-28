@@ -440,8 +440,7 @@ SQUID_MAXFD=4096
 Then restart the service.
 
 ## Resources
-
-http://www.squid-cache.org/  
-http://www.visolve.com/squid/squid27/contents.php  
-http://www.visolve.com/squid/squid27/accesscontrols.php  
-http://www.davidandrzejewski.com/2011/11/06/squid-proxy-make-outgoing-headers-anonymous/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+davidandrzejewski+%28David+Andrzejewski%29
+- http://www.squid-cache.org/
+- http://www.visolve.com/squid/squid27/contents.php
+- http://www.visolve.com/squid/squid27/accesscontrols.php
+- http://www.davidandrzejewski.com/2011/11/06/squid-proxy-make-outgoing-headers-anonymous/?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+davidandrzejewski+%28David+Andrzejewski%29

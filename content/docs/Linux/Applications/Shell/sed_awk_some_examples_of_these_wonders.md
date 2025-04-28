@@ -216,6 +216,5 @@ grep -a monfichier
 The -a bypasses the restriction
 
 ## Resources
-
-[Tutorial for Sed](/pdf/sed_tuto.pdf)  
-[Awk cheat sheet](/pdf/awk.cheat.sheet.pdf)
+- [Tutorial for Sed](/pdf/sed_tuto.pdf)
+- [Awk cheat sheet](/pdf/awk.cheat.sheet.pdf)

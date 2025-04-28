@@ -178,5 +178,4 @@ vif     = ['mac=02:00:00:00:00:01, bridge=xenbrdmz']
 You can now start your VMs :-)
 
 ## Resources
-
-[https://anothergeekwebsite.com/fr/2007/06/xen-vlan-et-bonding-oui-oui-tout-ca](https://anothergeekwebsite.com/fr/2007/06/xen-vlan-et-bonding-oui-oui-tout-ca)
+- [https://anothergeekwebsite.com/fr/2007/06/xen-vlan-et-bonding-oui-oui-tout-ca](https://anothergeekwebsite.com/fr/2007/06/xen-vlan-et-bonding-oui-oui-tout-ca)

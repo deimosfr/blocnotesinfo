@@ -95,6 +95,5 @@ Creating directory '/home/pmavro'.
 ```
 
 ## Resources
-
-http://www.webservertalk.com/message1674632.html  
-http://osdir.com/ml/linux.pam/2006-12/msg00018.html
+- http://www.webservertalk.com/message1674632.html
+- http://osdir.com/ml/linux.pam/2006-12/msg00018.html

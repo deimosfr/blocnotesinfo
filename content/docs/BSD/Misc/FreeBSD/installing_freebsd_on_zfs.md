@@ -282,7 +282,6 @@ errors: No known data errors
 Once completed, you can either reboot if you chose the solution of booting from the FreeBSD DVD, or do nothing if your machine was already running.
 
 ## Resources
-
-http://wiki.freebsd.org/RootOnZFS/GPTZFSBoot/RAIDZ1
-[Documentation on How to install FreeBSD 7.0 under ZFS](/pdf/how_to_install_freebsd_7.0_under_zfs.pdf)
-http://www.sun.com/bigadmin/features/articles/zfs_part2_ease.jsp
+- http://wiki.freebsd.org/RootOnZFS/GPTZFSBoot/RAIDZ1
+- [Documentation on How to install FreeBSD 7.0 under ZFS](/pdf/how_to_install_freebsd_7.0_under_zfs.pdf)
+- http://www.sun.com/bigadmin/features/articles/zfs_part2_ease.jsp

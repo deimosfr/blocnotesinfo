@@ -372,7 +372,6 @@ Setting permissions.
 ```
 
 ## Resources
-
-http://micro.stanford.edu/wiki/How_to_install_and_configure_the_Cisco_VPN_client_on_a_Linux_computer  
-http://www.lamnk.com/blog/vpn/how-to-install-cisco-vpn-client-on-ubuntu-jaunty-jackalope-and-karmic-koala-64-bit/  
-http://forum.tuxx-home.at/viewtopic.php?f=15&t=957
+- http://micro.stanford.edu/wiki/How_to_install_and_configure_the_Cisco_VPN_client_on_a_Linux_computer
+- http://www.lamnk.com/blog/vpn/how-to-install-cisco-vpn-client-on-ubuntu-jaunty-jackalope-and-karmic-koala-64-bit/
+- http://forum.tuxx-home.at/viewtopic.php?f=15&t=957

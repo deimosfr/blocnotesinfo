@@ -770,11 +770,10 @@ rndc flush
 ```
 
 ## Resources
-
-[DNS Server on OpenBSD](/pdf/openbsd_dns_server.pdf)  
-[Installing An Ubuntu DNS Server With BIND](/pdf/installing_an_ubuntu_dns_server_with_bind.pdf)  
-http://fr.wikipedia.org/wiki/BIND  
-http://fr.gentoo-wiki.com/HOWTO_Bind  
-http://www.zytrax.com/books/dns/  
-http://brocas.org/blog/post/2006/06/22/14-de-la-securite-d-une-architecture-dns-d-entreprise  
-http://groups.google.com/group/comp.protocols.dns.bind/browse_thread/thread/cfa8c63ec6bd08d6?pli=1
+- [DNS Server on OpenBSD](/pdf/openbsd_dns_server.pdf)
+- [Installing An Ubuntu DNS Server With BIND](/pdf/installing_an_ubuntu_dns_server_with_bind.pdf)
+- http://fr.wikipedia.org/wiki/BIND
+- http://fr.gentoo-wiki.com/HOWTO_Bind
+- http://www.zytrax.com/books/dns/
+- http://brocas.org/blog/post/2006/06/22/14-de-la-securite-d-une-architecture-dns-d-entreprise
+- http://groups.google.com/group/comp.protocols.dns.bind/browse_thread/thread/cfa8c63ec6bd08d6?pli=1

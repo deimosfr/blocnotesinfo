@@ -589,8 +589,7 @@ update-rc.d tomcat5.5 defaults 99
 ```
 
 ## Resources
-
-[How To Set Up Apache Tomcat (mod jk) SSO (CAS mod auth cas)](<./file:how_to_set_up_apache_tomcat_(mod_jk)_SSO_(CAS_mod_auth_cas).pdf.html>)
+- [How To Set Up Apache Tomcat (mod jk) SSO (CAS mod auth cas)](<./file:how_to_set_up_apache_tomcat_(mod_jk)_SSO_(CAS_mod_auth_cas).pdf.html>)
 
 [^1]: http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6_web_config.htm
 [^2]: http://www.datadisk.co.uk/html_docs/java_app/tomcat6/tomcat6_clustering.htm

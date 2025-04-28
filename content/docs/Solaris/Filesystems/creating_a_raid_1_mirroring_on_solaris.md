@@ -267,5 +267,4 @@ set md:mirrored_root_flag = 1
 ```
 
 ## Resources
-
-http://www.brandonhutchinson.com/Mirroring_disks_with_DiskSuite.html
+- http://www.brandonhutchinson.com/Mirroring_disks_with_DiskSuite.html

@@ -305,5 +305,4 @@ update-rc.d dkfilter defaults
 ```
 
 ## Resources
-
-[Set Up Postfix DKIM With dkim-milter](/pdf/set_up_postfix_dkim_with_dkim-milter.pdf)
+- [Set Up Postfix DKIM With dkim-milter](/pdf/set_up_postfix_dkim_with_dkim-milter.pdf)

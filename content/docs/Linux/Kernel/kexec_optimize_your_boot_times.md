@@ -140,8 +140,7 @@ echo "Fast reboot cancelled"
 ```
 
 ## Resources
-
-http://wiki.debian.org/BootProcessSpeedup#Using_kexec_for_warm_reboots  
-http://archive09.linux.com/feature/150202.html  
-http://fedoraproject.org/wiki/Kernel/kexec  
-http://fedoraproject.org/wiki/Archive:FC6KdumpKexecHowTo
+- http://wiki.debian.org/BootProcessSpeedup#Using_kexec_for_warm_reboots
+- http://archive09.linux.com/feature/150202.html
+- http://fedoraproject.org/wiki/Kernel/kexec
+- http://fedoraproject.org/wiki/Archive:FC6KdumpKexecHowTo

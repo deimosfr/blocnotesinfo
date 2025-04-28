@@ -1013,6 +1013,5 @@ A good idea would also be to automatically mount the home from an NFS server.
 User accounts in the LDAP directory must have in their objectClass list the class "shadowAccount" to be taken into account by Solaris.
 
 ## Resources
-
-[Authentication with Linux Documentation](/pdf/ldap_authentication_in_linux.pdf)  
-[Using Kerberos to Authenticate a Solaris 10 OS LDAP Client With Microsoft Active Directory](/pdf/kerberos_s10.pdf)
+- [Authentication with Linux Documentation](/pdf/ldap_authentication_in_linux.pdf)
+- [Using Kerberos to Authenticate a Solaris 10 OS LDAP Client With Microsoft Active Directory](/pdf/kerberos_s10.pdf)

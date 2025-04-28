@@ -464,13 +464,12 @@ vzctl set $my_veid --devnodes net/tun:rw --save
 ```
 
 ## Resources
-
-[OpenVPN Installation](/pdf/installation_openvpn.pdf)
-[Documentation on a complex OpenVPN setup](/pdf/openvpn_2_howto_fr.pdf)
-[Hardware Authentication for OpenVPN](/pdf/authentification_materielle_pour_openvpn.pdf)
-http://blog.innerewut.de/2005/7/4/openvpn-2-0-on-openbsd
-http://www.openbsd-france.org/documentations/OpenBSD-openvpn.html
-http://www.procyonlabs.com/guides/openbsd/openvpn/index.php
-http://purple.monk.free.fr/phiva/?p=90
-http://www.imped.net/oss/misc/openvpn-2.0-howto-edit.html
-http://auth-passwd.sourceforge.net/
+- [OpenVPN Installation](/pdf/installation_openvpn.pdf)
+- [Documentation on a complex OpenVPN setup](/pdf/openvpn_2_howto_fr.pdf)
+- [Hardware Authentication for OpenVPN](/pdf/authentification_materielle_pour_openvpn.pdf)
+- http://blog.innerewut.de/2005/7/4/openvpn-2-0-on-openbsd
+- http://www.openbsd-france.org/documentations/OpenBSD-openvpn.html
+- http://www.procyonlabs.com/guides/openbsd/openvpn/index.php
+- http://purple.monk.free.fr/phiva/?p=90
+- http://www.imped.net/oss/misc/openvpn-2.0-howto-edit.html
+- http://auth-passwd.sourceforge.net/

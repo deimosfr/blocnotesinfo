@@ -63,5 +63,4 @@ LC_TIME=fr_FR.ISO8859-15
 ```
 
 ## Resources
-
-[https://developers.sun.com/dev/gadc/faq/locale.html](https://developers.sun.com/dev/gadc/faq/locale.html)
+- [https://developers.sun.com/dev/gadc/faq/locale.html](https://developers.sun.com/dev/gadc/faq/locale.html)

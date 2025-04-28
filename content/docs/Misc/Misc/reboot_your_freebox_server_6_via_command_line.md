@@ -223,5 +223,4 @@ freebox reboot
 ```
 
 ## Resources
-
-[https://www.admin-linux.fr/?p=5049](https://www.admin-linux.fr/?p=5049)
+- [https://www.admin-linux.fr/?p=5049](https://www.admin-linux.fr/?p=5049)

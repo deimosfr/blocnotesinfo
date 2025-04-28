@@ -101,5 +101,4 @@ Per Google's FAQs for webmasters, the below is the preferred way to disallow all
 Finally this file (robot.txt) must be uploaded to the root accessible directory of your site, not a subdirectory (eg. www.mysite.com/robot.txt) it is only by following the above rules will search engines interpret the instructions contained in the file.
 
 ## Resources
-
-http://linuxpoison.blogspot.com/2009/02/how-to-create-and-configure-robottxt.html
+- http://linuxpoison.blogspot.com/2009/02/how-to-create-and-configure-robottxt.html

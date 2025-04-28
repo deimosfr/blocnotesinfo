@@ -76,6 +76,5 @@ rdate -ncv 0.pool.ntp.org
 ```
 
 ## Resources
-
-http://www.openntpd.org/  
-http://www.openbsd101.com/tipstricks.html
+- http://www.openntpd.org/
+- http://www.openbsd101.com/tipstricks.html

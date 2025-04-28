@@ -130,7 +130,6 @@ The createrepo command relies on rpm to open and inspect the packages, and rpm o
 ```
 
 ## Resources
-
-https://access.redhat.com/kb/docs/DOC-9744  
-http://samixblog.blogspot.com/2011/11/yum-errno-3-error-performing-checksum.html  
-http://nareshov.wordpress.com/2011/12/22/rpmbuild-behaviour-centos5-vs-centos6/
+- https://access.redhat.com/kb/docs/DOC-9744
+- http://samixblog.blogspot.com/2011/11/yum-errno-3-error-performing-checksum.html
+- http://nareshov.wordpress.com/2011/12/22/rpmbuild-behaviour-centos5-vs-centos6/

@@ -66,5 +66,4 @@ It loads the settings from $IPSTATE - by default, `/etc/iptables.conf`. You have
 You do this running the command: "iptables-save > /etc/iptables.conf" (or whatever file you have chosen to use as your $IPSTATE file)
 
 ## Resources
-
-[https://www.debian-administration.org/articles/615](https://www.debian-administration.org/articles/615)
+- [https://www.debian-administration.org/articles/615](https://www.debian-administration.org/articles/615)

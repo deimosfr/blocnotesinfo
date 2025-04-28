@@ -496,5 +496,4 @@ For more information: http://mathias-kettner.de/checkmk_livestatus.html
 And you can use the web interface here: http://nagios/check_mkcheck_mk
 
 ## Resources
-
-http://syslog.tv/2011/10/13/nagios3-mk-livestatus-xinetd/
+- http://syslog.tv/2011/10/13/nagios3-mk-livestatus-xinetd/

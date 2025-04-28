@@ -160,6 +160,5 @@ e1000g1:1: flags=21000843<UP,BROADCAST,RUNNING,MULTICAST,IPv4,STANDBY> mtu 1500 
 Now the interface has gone into failed state. And there was no interruption during this period. The interface that was in standby is now no longer inactive. So now it's functional, and if we reconnect the interface, we return to the previous configuration.
 
 ## Resources
-
-http://docs.sun.com/app/docs/doc/820-2982/ipmptm-1?l=fr&a=view
-http://www.eng.auburn.edu/~doug/howtos/multipathing.html
+- http://docs.sun.com/app/docs/doc/820-2982/ipmptm-1?l=fr&a=view
+- http://www.eng.auburn.edu/~doug/howtos/multipathing.html

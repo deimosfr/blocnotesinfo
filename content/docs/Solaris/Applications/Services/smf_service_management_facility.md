@@ -806,6 +806,5 @@ Proceed [yes/no]? yes
 ```
 
 ## Resources
-
-[Solaris Features: Service Management Facility](https://www.c0t0d0s0.org/archives/4149-Solaris-Features-Service-Management-Facility.html)  
-[Using Service Management Facility (SMF)](/pdf/using_service_management_facility_smf.pdf)
+- [Solaris Features: Service Management Facility](https://www.c0t0d0s0.org/archives/4149-Solaris-Features-Service-Management-Facility.html)
+- [Using Service Management Facility (SMF)](/pdf/using_service_management_facility_smf.pdf)

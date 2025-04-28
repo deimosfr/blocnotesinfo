@@ -471,7 +471,6 @@ initdb -E UTF-8
 Now try creating a database again.
 
 ## Resources
-
-[PostgreSQL Official Website](https://www.postgresql.org/)  
-[https://www.postgresql.org/docs/7.3/static/multibyte.html](https://www.postgresql.org/docs/7.3/static/multibyte.html)  
-[System Views in PostgreSQL 8.3](/pdf/vues_system_postgres_unixgarden.pdf)
+- [PostgreSQL Official Website](https://www.postgresql.org/)
+- [https://www.postgresql.org/docs/7.3/static/multibyte.html](https://www.postgresql.org/docs/7.3/static/multibyte.html)
+- [System Views in PostgreSQL 8.3](/pdf/vues_system_postgres_unixgarden.pdf)

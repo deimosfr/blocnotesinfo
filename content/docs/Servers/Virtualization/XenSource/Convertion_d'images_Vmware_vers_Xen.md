@@ -73,5 +73,4 @@ vncviewer 192.168.10.20:5901
 You can now show off in front of your salespeople.
 
 ## Resources
-
-[Converting a disk image to LVM](https://wiki.deimos.fr/images/c/cc/Xen-_How_to_Convert_An_Image-Based_Guest_To_An_LVM-Based_Guest.pdf)
+- [Converting a disk image to LVM](https://wiki.deimos.fr/images/c/cc/Xen-_How_to_Convert_An_Image-Based_Guest_To_An_LVM-Based_Guest.pdf)

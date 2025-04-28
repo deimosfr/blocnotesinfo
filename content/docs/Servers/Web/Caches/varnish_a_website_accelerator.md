@@ -335,8 +335,7 @@ The advantage here is enormous. We can offload application servers and front HTT
 Since version 3.0, Varnishncsa allows us to not follow the NCSA standard and leaves us the choice of output format.
 
 ## Resources
-
-http://blog.bigdinosaur.org/adventures-in-varnish/  
-http://decrypt.ysance.com/2012/02/le-web-accelere-avec-varnish/  
-https://www.varnish-cache.org/trac/wiki/Performance  
-http://kristianlyng.wordpress.com/2010/01/26/varnish-best-practices/
+- http://blog.bigdinosaur.org/adventures-in-varnish/
+- http://decrypt.ysance.com/2012/02/le-web-accelere-avec-varnish/
+- https://www.varnish-cache.org/trac/wiki/Performance
+- http://kristianlyng.wordpress.com/2010/01/26/varnish-best-practices/

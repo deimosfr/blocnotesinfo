@@ -116,5 +116,4 @@ Integration with [sudo](https://docs.services.mozilla.com/howtos/run-sync.html) 
 Don't forget to also modify the sudo configuration (otherwise watch out for security vulnerabilities) using [the documentation available here](https://docs.services.mozilla.com/howtos/run-sync.html).
 
 ## Resources
-
-http://lshell.ghantoos.org/
+- http://lshell.ghantoos.org/

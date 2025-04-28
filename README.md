@@ -85,6 +85,7 @@ Example:
 
 Example content specific to **Windows** operating systems
 
+```
 {{% /tab %}}
 {{% tab tabName="MacOS" %}}
 
@@ -101,6 +102,7 @@ Example content specific to **Linux** operating systems
 
 {{% /tab %}}
 {{< /tabs >}}
+```
 
 ## icons
 
@@ -114,6 +116,5 @@ https://lotusdocs.dev/
 
 # todo
 
-- references list
 - Use colors from: https://aws-controllers-k8s.github.io/community/docs/user-docs/multi-region-resource-management/
 - customize icons for all categories

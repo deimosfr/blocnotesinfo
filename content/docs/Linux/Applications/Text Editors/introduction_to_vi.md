@@ -221,5 +221,4 @@ You will then respond to the "Confirm change?" message with y (yes) or n (no).
 And there you go! You can now use Vi in a quite effective way!! Practice, and you can then discover its expert features!
 
 ## Resources
-
-http://www.unixgarden.com/index.php/comprendre/initiation-a-vi
+- http://www.unixgarden.com/index.php/comprendre/initiation-a-vi

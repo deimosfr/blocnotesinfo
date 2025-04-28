@@ -362,5 +362,4 @@ nagios3: ndomod: Still unable to connect to data sink.  1325744 items lost, 5000
 Actually, after rebooting the machine, everything started working correctly (the database was populated).
 
 ## Resources
-
-http://blog.nicolargo.com/2009/02/pour-en-finir-avec-ndo.html
+- http://blog.nicolargo.com/2009/02/pour-en-finir-avec-ndo.html

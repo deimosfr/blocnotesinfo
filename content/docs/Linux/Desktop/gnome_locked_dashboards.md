@@ -26,5 +26,4 @@ Launch the gconf-editor command from a terminal.
 In the left panel, open the "apps" directory, then the "panel" directory, and finally "global". Then, in the right part of the window, look for the "locked_down" line and check the box next to it. That's it.
 
 ## Resources
-
-[https://ubunteros.tuxfamily.org/spip.php?article210](https://ubunteros.tuxfamily.org/spip.php?article210)
+- [https://ubunteros.tuxfamily.org/spip.php?article210](https://ubunteros.tuxfamily.org/spip.php?article210)

@@ -63,5 +63,4 @@ $memcached_servers = array('192.168.1.1:11211', '192.168.1.2:11211');
 ```
 
 ## Resources
-
-http://ryan.wordpress.com/2005/12/23/memcached-backend/
+- http://ryan.wordpress.com/2005/12/23/memcached-backend/

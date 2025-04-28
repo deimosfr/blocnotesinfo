@@ -257,6 +257,5 @@ You are now able to transparently copy between 2 machines that may be on 2 diffe
 The security guys will be pleased!
 
 ## Resources
-
-http://linuxfr.org/2008/03/07/23807.html  
-http://ensl.free.fr/softrez/faq/faq-9.html#ss9.1
+- http://linuxfr.org/2008/03/07/23807.html
+- http://ensl.free.fr/softrez/faq/faq-9.html#ss9.1

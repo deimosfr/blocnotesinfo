@@ -244,5 +244,4 @@ And finally - flush MySQL privileges (because we're also updating the MySQL tabl
 Note: For best results, add port=8819 (or any other random number) to `/etc/my.cnf` before restarting MySQL and then add --port=8819 to the mysqldump command. This way you avoid the MySQL database getting hit with queries while the repair is in progress.
 
 ## Resources
-
-http://www.softwareprojects.com/resources/programming/t-how-to-fix-mysql-database-myisam-innodb-1634.html
+- http://www.softwareprojects.com/resources/programming/t-how-to-fix-mysql-database-myisam-innodb-1634.html

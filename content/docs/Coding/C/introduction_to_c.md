@@ -1576,6 +1576,5 @@ if (p != NULL)
 ```
 
 ## Resources
-
-http://c.developpez.com/cours
-[C in Action - O'Reilly](https://books.google.fr/books?id=dsfXx4ESnM8C&printsec=frontcover)
+- http://c.developpez.com/cours
+- [C in Action - O'Reilly](https://books.google.fr/books?id=dsfXx4ESnM8C&printsec=frontcover)

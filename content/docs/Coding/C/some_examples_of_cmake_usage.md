@@ -437,6 +437,5 @@ CPack, when generating the binary package, only takes into account files install
 So, we've reached the end of this article. We've covered some methods to get from CMake what we used to do with autotools (and even a bit more). However, we still need to look at some particular techniques regarding library distribution. That's an opportunity for us to meet again next time.
 
 ## Resources
-
-http://www.unixgarden.com/index.php/programmation/quelques-exemples-d%E2%80%99utilisation-de-cmake  
-[CMake: the next generation in project construction](/pdf/cmake_la_releve_dans_la_construction_de_projets.pdf)
+- http://www.unixgarden.com/index.php/programmation/quelques-exemples-d%E2%80%99utilisation-de-cmake
+- [CMake: the next generation in project construction](/pdf/cmake_la_releve_dans_la_construction_de_projets.pdf)

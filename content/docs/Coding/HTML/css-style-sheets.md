@@ -107,7 +107,6 @@ It is the @page selector that allows you to define page layout parameters for pr
 - @page:right, allows you to define the style of right pages.
 
 ## Resources
-
-http://www.unixgarden.com/index.php/web/les-pseudo-classes-en-css  
-[Offering multiple CSS based on browser](/pdf/proposer_plusieurs_css_en_fonction_du_navigateur.pdf)  
-[A colorful menu](/pdf/un_menu_haut_en_couleurs.pdf)
+- http://www.unixgarden.com/index.php/web/les-pseudo-classes-en-css
+- [Offering multiple CSS based on browser](/pdf/proposer_plusieurs_css_en_fonction_du_navigateur.pdf)
+- [A colorful menu](/pdf/un_menu_haut_en_couleurs.pdf)

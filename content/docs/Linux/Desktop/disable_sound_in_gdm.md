@@ -22,5 +22,4 @@ sudo -u gdm gconftool-2 --set /desktop/gnome/sound/event_sounds --type bool fals
 ```
 
 ## Resources
-
-[https://www.webupd8.org/2009/10/turn-off-login-sound-in-ubuntu-karmic.html](https://www.webupd8.org/2009/10/turn-off-login-sound-in-ubuntu-karmic.html)
+- [https://www.webupd8.org/2009/10/turn-off-login-sound-in-ubuntu-karmic.html](https://www.webupd8.org/2009/10/turn-off-login-sound-in-ubuntu-karmic.html)

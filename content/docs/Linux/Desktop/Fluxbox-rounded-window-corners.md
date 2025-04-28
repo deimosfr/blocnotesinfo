@@ -20,5 +20,4 @@ toolbar.roundCorners:                   topleft topright bottomleft bottomrondie
 ```
 
 ## Resources
-
-[Get familiar with alternative Linux desktops](/pdf/get_familiar_with_alternative_linux_desktops.pdf)
+- [Get familiar with alternative Linux desktops](/pdf/get_familiar_with_alternative_linux_desktops.pdf)

@@ -1,4 +1,4 @@
----
+    ---
 weight: 999
 url: "/Configuration_d'un_Switch_Catalyst/"
 title: "Configuring a Catalyst Switch"
@@ -206,4 +206,4 @@ Once you have assigned an IP address, you can access the switch's graphical inte
 
 ## Resources
 
-[Cisco Basic Concepts](https://cisco.goffinet.org/s2/notions_routeurs)
+- [Cisco Basic Concepts](https://cisco.goffinet.org/s2/notions_routeurs)

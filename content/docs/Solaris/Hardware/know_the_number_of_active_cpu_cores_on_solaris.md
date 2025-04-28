@@ -30,5 +30,4 @@ The physical processor has 1 virtual processor (1)  x86 (chipid 0x1 GenuineIntel
 Here we can see that I only have one virtual CPU per processor (so 2 total).
 
 ## Resources
-
-http://serverfault.com/questions/85478/sun-solaris-find-out-number-of-processors-and-cores
+- http://serverfault.com/questions/85478/sun-solaris-find-out-number-of-processors-and-cores

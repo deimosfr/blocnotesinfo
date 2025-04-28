@@ -49,7 +49,6 @@ From the other machine open a web navigator and go to ip from the machine who la
 If you have some web server listening at 80 port then you would need stop them or select another port before launch net cat ;-)
 
 ## Resources
-
-[Netcat: Creating a listening port](./Netcat_\:_Créer_un_port_d'écoute.html)  
-[Netcat: Remote partition backup](./netcat_\:_sauvegarde_de_partions_à_distance.html)  
-[Netcat Documentation](/pdf/netcat.pdf)
+- [Netcat: Creating a listening port](./Netcat_\:_Créer_un_port_d'écoute.html)
+- [Netcat: Remote partition backup](./netcat_\:_sauvegarde_de_partions_à_distance.html)
+- [Netcat Documentation](/pdf/netcat.pdf)

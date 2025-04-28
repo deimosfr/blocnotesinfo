@@ -109,7 +109,6 @@ expire_logs_days = 14
 Then restart the MySQL server.
 
 ## Resources
-
-http://www.cyberciti.biz/faq/what-is-mysql-binary-log/  
-http://dev.mysql.com/doc/refman/5.0/en/binary-log.html  
-http://forums.mysql.com/read.php?10,78659,78660#msg-78660
+- http://www.cyberciti.biz/faq/what-is-mysql-binary-log/
+- http://dev.mysql.com/doc/refman/5.0/en/binary-log.html
+- http://forums.mysql.com/read.php?10,78659,78660#msg-78660

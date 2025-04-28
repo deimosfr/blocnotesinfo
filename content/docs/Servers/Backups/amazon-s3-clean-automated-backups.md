@@ -141,6 +141,5 @@ For Sbackup, it's quite simple, you need to check if the file size is larger tha
 For BackupPc, it is recommended to compress existing data before uploading it because there are often too many small files.
 
 ## Resources
-
-http://code.google.com/p/s3fs/wiki/FuseOverAmazon  
-http://s3tools.org/s3cmd
+- http://code.google.com/p/s3fs/wiki/FuseOverAmazon
+- http://s3tools.org/s3cmd

@@ -93,6 +93,5 @@ and the Fonera will reboot.
 - Check via the console that the Fonera has returned to its factory settings.
 
 ## Resources
-
-http://www.francofon.fr/modules/mediawiki/index.php/Le_firmware_FrancoFON
-http://www.francofon.fr/modules/mediawiki/index.php/La_Fonera/Reset
+- http://www.francofon.fr/modules/mediawiki/index.php/Le_firmware_FrancoFON
+- http://www.francofon.fr/modules/mediawiki/index.php/La_Fonera/Reset

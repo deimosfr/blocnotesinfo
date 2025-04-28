@@ -275,7 +275,6 @@ proxychains my_application
 ```
 
 ## Resources
-
-http://proxychains.sourceforge.net/  
-http://lesdatabases.blogspot.com/2011/06/proxychains-ou-l-de-proxifier.html  
-http://chrootlabs.org/bgt/proxychains_osx.html
+- http://proxychains.sourceforge.net/
+- http://lesdatabases.blogspot.com/2011/06/proxychains-ou-l-de-proxifier.html
+- http://chrootlabs.org/bgt/proxychains_osx.html

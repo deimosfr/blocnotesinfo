@@ -80,5 +80,4 @@ Deployed web applications (application name, context name, status):
 ```
 
 ## Resources
-
-http://docs.sun.com/app/docs/doc/817-1985/gcrrb?a=view
+- http://docs.sun.com/app/docs/doc/817-1985/gcrrb?a=view

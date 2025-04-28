@@ -217,7 +217,6 @@ uci commit
 ```
 
 ## Resources
-
-[https://www.jopa.fr/index.php/2008/03/24/jouer-avec-la-fonera-2eme-partie-hacker-la-fonera/](https://www.jopa.fr/index.php/2008/03/24/jouer-avec-la-fonera-2eme-partie-hacker-la-fonera/)  
-[https://www.cs.helsinki.fi/u/sklvarjo/lafon.htm](https://www.cs.helsinki.fi/u/sklvarjo/lafon.htm)  
-[https://www.dd-wrt.com/dd-wrtv3/dd-wrt/downloads.html](https://www.dd-wrt.com/dd-wrtv3/dd-wrt/downloads.html)
+- [https://www.jopa.fr/index.php/2008/03/24/jouer-avec-la-fonera-2eme-partie-hacker-la-fonera/](https://www.jopa.fr/index.php/2008/03/24/jouer-avec-la-fonera-2eme-partie-hacker-la-fonera/)
+- [https://www.cs.helsinki.fi/u/sklvarjo/lafon.htm](https://www.cs.helsinki.fi/u/sklvarjo/lafon.htm)
+- [https://www.dd-wrt.com/dd-wrtv3/dd-wrt/downloads.html](https://www.dd-wrt.com/dd-wrtv3/dd-wrt/downloads.html)

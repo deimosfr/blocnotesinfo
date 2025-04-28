@@ -156,5 +156,4 @@ Etc.
 ```
 
 ## Resources
-
-http://tex.stackexchange.com/questions/8827/preparing-cheat-sheets
+- http://tex.stackexchange.com/questions/8827/preparing-cheat-sheets

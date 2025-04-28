@@ -28,5 +28,4 @@ apt-get install firmware-bnx2
 A quick reboot and you're all set!
 
 ## Resources
-
-http://forum.hardware.fr/hfr/OSAlternatifs/reseaux-securite/activer-broadcom-debian-sujet_67918_1.htm
+- http://forum.hardware.fr/hfr/OSAlternatifs/reseaux-securite/activer-broadcom-debian-sujet_67918_1.htm

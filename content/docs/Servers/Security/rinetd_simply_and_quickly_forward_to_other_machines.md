@@ -78,6 +78,5 @@ rinetd is a very small, stable, and simple program, and you might find it simple
 The only downside to using rinetd is that there is no support for UDP connections, and no support for redirecting FTP access - because of the complex nature of FTP.
 
 ## Resources
-
-http://www.debian-administration.org/articles/601  
-[Port-Forwarding With rinetd](/pdf/port-forwarding_with_rinetd_on_debian_etch.pdf)
+- http://www.debian-administration.org/articles/601
+- [Port-Forwarding With rinetd](/pdf/port-forwarding_with_rinetd_on_debian_etch.pdf)
