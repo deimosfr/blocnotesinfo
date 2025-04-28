@@ -4,7 +4,7 @@ title: "cd ~"
 url: "/home/"
 description: ""
 toc: false
-icon: "circle"
+icon: "home"
 ---
 
 <table cellspacing="0" cellpadding="5" align="center" border="0" style="border-collapse: collapse;">
