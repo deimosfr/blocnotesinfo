@@ -376,7 +376,7 @@ iface vmbr0.110 inet static
 	vlan_raw_device vmbr0
 ```
 
-This example is made with a bridged interface because I have [KVM]({{< ref "docs/Servers/Virtualization/KVM and Qemu/kvm_setting_up_kvm.md" >}}) running on it, but there's nothing forcing it to be bridged.
+This example is made with a bridged interface because I have [KVM]({{< ref "docs/Servers/Virtualization/KVMandQemu/kvm_setting_up_kvm.md" >}}) running on it, but there's nothing forcing it to be bridged.
 
 Then, when you create your VE, you don't have to do anything special when creating the network interface for your VE. Launch the creation of your VE and don't forget to install the "vlan" package to be able to create VLAN access within your VE. Here's another example to give you an idea of the VE network configuration:
 
@@ -456,7 +456,7 @@ Here I will only cover the client side in a VE, not a server in a VE.
 
 ### Server
 
-First on the server side, [set up your NFS server by following this documentation]({{< ref "docs/Servers/File sharing/nfs_setting_up_an_nfs_server.md" >}}).
+First on the server side, [set up your NFS server by following this documentation]({{< ref "docs/Servers/FileSharing/nfs_setting_up_an_nfs_server.md" >}}).
 
 Then we'll install this, which will allow us to use not only the NFS v3 protocol, but also to abstract the kernel layer (useful in case of a crash):
 

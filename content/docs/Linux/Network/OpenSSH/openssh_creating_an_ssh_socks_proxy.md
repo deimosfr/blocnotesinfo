@@ -17,7 +17,7 @@ toc: true
 
 This tutorial will be brief, but it's highly effective. The utility of creating a SOCKS proxy via SSH is to be able to route any traffic through an external connection once the SSH connection is established. You simply use the proxy that SSH creates and you're ready to go.
 
-With [SSLH]({{< ref "docs/Servers/File sharing/SFTP and FTP/sslh_multiplexing_ssl_and_ssh_connections_on_the_same_port.md" >}}) as a frontend, you have an almost ultimate tool.
+With [SSLH]({{< ref "docs/Servers/FileSharing/SFTPandFTP/sslh_multiplexing_ssl_and_ssh_connections_on_the_same_port.md" >}}) as a frontend, you have an almost ultimate tool.
 
 For more advanced techniques, I also recommend checking out [the documentation on proxychains]({{< ref "docs/Linux/Network/proxychains_proxy_any_outbound_connection.md" >}}).
 

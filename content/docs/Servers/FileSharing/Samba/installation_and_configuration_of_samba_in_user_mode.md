@@ -267,7 +267,8 @@ passdb backend = tdbsam:/var/lib/samba/passdb.tdb
 ```
 
 ## Resources
-- If you want to push folder permissions, check the documentation on [ACL: Implementation of NT-type rights]({{< ref "docs/Linux/Filesystems and Storage/acl-implementing-nt-type-permissions-on-linux.md" >}}).
+
+- If you want to push folder permissions, check the documentation on [ACL: Implementation of NT-type rights]({{< ref "docs/Linux/FilesystemsAndStorage/acl-implementing-nt-type-permissions-on-linux.md" >}}).
 
 - [Other documentation on Samba]({{< ref "docs/Servers/#samba" >}})
 - [CIFS Solaris Workgroup](/pdf/cifs_solaris_workgroup.pdf)

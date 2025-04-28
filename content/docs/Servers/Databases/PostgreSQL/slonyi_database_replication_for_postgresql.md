@@ -501,7 +501,7 @@ _EOF_
 
 ### Failover
 
-Failover cannot be done with Slony alone. You need a [Cluster]({{< ref "docs/Servers/High Availability/_index.md" >}}) that will manage virtual IPs such as [heartbeat 1]({{< ref "docs/Servers/High Availability/Heartbeat/installation_and_configuration_of_a_heartbeat_v1_cluster.md" >}}) or [heartbeat 2]({{< ref "docs/Servers/High Availability/Heartbeat/installation_and_configuration_of_a_heartbeat_v2_cluster.md" >}}) for the more adventurous.
+Failover cannot be done with Slony alone. You need a [Cluster]({{< ref "docs/Servers/HighAvailability/_index.md" >}}) that will manage virtual IPs such as [heartbeat 1]({{< ref "docs/Servers/HighAvailability/Heartbeat/installation_and_configuration_of_a_heartbeat_v1_cluster.md" >}}) or [heartbeat 2]({{< ref "docs/Servers/HighAvailability/Heartbeat/installation_and_configuration_of_a_heartbeat_v2_cluster.md" >}}) for the more adventurous.
 
 ![](/images/slony_failover.png)
 

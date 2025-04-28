@@ -1,7 +1,7 @@
 ---
 weight: 999
 title: "File sharing"
-description: "[SFTP And FTP](./file-sharing/sftp-and-ftp) • [Samba](./file-sharing/samba) • [ISCSI](./file-sharing/iscsi)"
+description: "[SFTPandFTP](./filesharing/sftpandftp) • [Samba](./filesharing/samba) • [ISCSI](./filesharing/iscsi)"
 icon: "host"
 date: "2025-04-04T04:16:04+02:00"
 lastmod: "2025-04-04T04:16:04+02:00"

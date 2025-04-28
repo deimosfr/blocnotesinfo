@@ -32,7 +32,7 @@ Port 443
 
 And restart the SSH service.
 
-PS: If you don't want to run SSH on port 443, you can use [SSLH method]({{< ref "docs/Servers/File sharing/SFTP and FTP/sslh_multiplexing_ssl_and_ssh_connections_on_the_same_port.md" >}}) to multiplex SSL and SSH on the same port.
+PS: If you don't want to run SSH on port 443, you can use [SSLH method]({{< ref "docs/Servers/FileSharing/SFTPandFTP/sslh_multiplexing_ssl_and_ssh_connections_on_the_same_port.md" >}}) to multiplex SSL and SSH on the same port.
 
 ### Client
 
@@ -89,4 +89,5 @@ ssh my_ssh_server
 ```
 
 ## Resources
+
 - http://www.zeitoun.net/articles/ssh-through-http-proxy/start

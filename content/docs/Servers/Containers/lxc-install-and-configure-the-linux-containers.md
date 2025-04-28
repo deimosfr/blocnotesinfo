@@ -1676,10 +1676,10 @@ If you've got error when trying to limit swap, check the [FAQ](#cant-limit-conta
 
 By default, LXC doesn't provide any disks limitation. Anyway, there are enough solution today to make that kind of limitations:
 
-- [LVM]({{< ref "docs/Linux/Filesystems and Storage/lvm_working_with_logical_volume_management.md" >}}): create one LV per container
-- [BTRFS]({{< ref "docs/Linux/Filesystems and Storage/btrfs-using-the-ext4-replacement.md">}}): using integrated BTRFS quotas
+- [LVM]({{< ref "docs/Linux/FilesystemsAndStorage/lvm_working_with_logical_volume_management.md" >}}): create one LV per container
+- [BTRFS]({{< ref "docs/Linux/FilesystemsAndStorage/btrfs-using-the-ext4-replacement.md">}}): using integrated BTRFS quotas
 - [ZFS]({{< ref "docs/Solaris/Filesystems/zfs_the_filesystem_par_excellence.md">}}): if you're using ZFS on Linux, you can use integrated zfs/zpool quotas
-- [Quotas]({{< ref "docs/Linux/Filesystems and Storage/setting_up_quotas_on_linux.md" >}}): using classical Linux quotas (not the recommended solution)
+- [Quotas]({{< ref "docs/Linux/FilesystemsAndStorage/setting_up_quotas_on_linux.md" >}}): using classical Linux quotas (not the recommended solution)
 - Disk image: you can use QCOW/QCOW2/RAW/QED images
 
 ##### Mount

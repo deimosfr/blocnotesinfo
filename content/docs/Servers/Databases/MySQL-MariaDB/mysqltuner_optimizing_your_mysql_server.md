@@ -563,7 +563,7 @@ If you restart your MySQL server, it does the same thing.
 
 The idea is to point temporary files to a RAM filesystem to store temporary files. This will significantly increase performance. First, build your temporary filesystem:
 
-- [Documentation for Linux]({{< ref "docs/Linux/Filesystems and Storage/tmpfs_ram_filesystem_or_how_to_write_to_ram.md" >}})
+- [Documentation for Linux]({{< ref "docs/Linux/FilesystemsAndStorage/tmpfs_ram_filesystem_or_how_to_write_to_ram.md" >}})
 - [Documentation for Solaris]({{< ref "docs/Solaris/Filesystems/tmpfs_mounting_a_ram_filesystem_on_solaris.md" >}})
 
 Next, modify your MySQL configuration file to change the tmpdir variable and point it to your new temporary space:
@@ -723,4 +723,5 @@ Here's a small patch I wrote to fix a bug when trying to connect to a port other
 I submitted it, but since there's no maintainer anymore...
 
 ## Resources
+
 - http://dev.mysql.com/doc/refman/5.0/en/temporary-files.html

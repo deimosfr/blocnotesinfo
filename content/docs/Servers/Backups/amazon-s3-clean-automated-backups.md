@@ -114,7 +114,7 @@ Here's the line to add.
 
 ### AutoFS
 
-The best setup is with autofs! I invite you to [read this documentation first]({{< ref "docs/Servers/File sharing/autofs-mounting-and-unmounting-shares.md" >}}) to not be too confused, then add this line in a file auto.as3 for example:
+The best setup is with autofs! I invite you to [read this documentation first]({{< ref "docs/Servers/FileSharing/autofs-mounting-and-unmounting-shares.md" >}}) to not be too confused, then add this line in a file auto.as3 for example:
 
 ```
 amazons3        -fstype=fuse,ouse_cache=/tmp,noatime,allow_other:s3fs\#monbucket_with_a_unique_name
@@ -141,5 +141,6 @@ For Sbackup, it's quite simple, you need to check if the file size is larger tha
 For BackupPc, it is recommended to compress existing data before uploading it because there are often too many small files.
 
 ## Resources
+
 - http://code.google.com/p/s3fs/wiki/FuseOverAmazon
 - http://s3tools.org/s3cmd

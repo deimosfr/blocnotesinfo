@@ -428,7 +428,7 @@ Then the path file:
 
 ## Quotas
 
-First, you should look at this documentation: [Quotas Documentation]({{< ref "docs/Linux/Filesystems and Storage/setting_up_quotas_on_linux.md" >}}).
+First, you should look at this documentation: [Quotas Documentation]({{< ref "docs/Linux/FilesystemsAndStorage/setting_up_quotas_on_linux.md" >}}).
 
 For LDAP:  
 If you want to run a solution on FreeBSD, you can look at [pam_quota](https://www.cyberz.org/projects/pam_quota/). Unfortunately, the developer didn't have time to create it for Linux. So we must find another way and look at session scripts: [Pam-script Documentation]({{< ref "docs/Servers/Authentication/PAM/pamscript_execute_scripts_at_authentication_session_open_and_close.md" >}}).
@@ -516,7 +516,7 @@ Now add this to your crontab to run every 5 minutes for example.
 
 ### NFS
 
-For a NFS server, read the [NFS Server Documentation]({{< ref "docs/Servers/File sharing/nfs_setting_up_an_nfs_server.md" >}}).
+For a NFS server, read the [NFS Server Documentation]({{< ref "docs/Servers/FileSharing/nfs_setting_up_an_nfs_server.md" >}}).
 
 When installed, just configure the `/etc/export` file:
 

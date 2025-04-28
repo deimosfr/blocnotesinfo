@@ -263,7 +263,7 @@ chkconfig clvmd o
 service clvmd restart
 ```
 
-Then you can create LVM volumes as usual. If you are not very familiar with LVM, [check this documentation]({{< ref "docs/Linux/Filesystems and Storage/lvm_working_with_logical_volume_management.md">}}).
+Then you can create LVM volumes as usual. If you are not very familiar with LVM, [check this documentation]({{< ref "docs/Linux/FilesystemsAndStorage/lvm_working_with_logical_volume_management.md">}}).
 
 You can check the status this way:
 
@@ -304,7 +304,7 @@ Our volume is now available on all nodes. **Caution: this does not mean you will
 
 ### GFS2
 
-If you need to have a filesystem shared across all nodes, you will need to [install and use GFS2]({{< ref "docs/Servers/High Availability/Storage/gfs2-red-hat-cluster-filesystem.md">}}).
+If you need to have a filesystem shared across all nodes, you will need to [install and use GFS2]({{< ref "docs/Servers/HighAvailability/Storage/gfs2-red-hat-cluster-filesystem.md">}}).
 
 ## Configuration
 
@@ -1241,6 +1241,7 @@ Member Status: Quorate
 And here it is quorate, so no worries :-)
 
 ## Resources
+
 - http://sources.redhat.com/cluster/doc/cluster_schema.html
 - https://alteeve.com/w/RHCS_v2_cluster.conf
 - http://magazine.redhat.com/2007/12/19/enhancing-cluster-quorum-with-qdisk/
