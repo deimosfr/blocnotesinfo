@@ -2,7 +2,6 @@
 weight: 999
 url: "/VLAN_\\:_Créer_une_interface_VLAN_sous_OpenBSD/"
 title: "VLAN: Creating a VLAN Interface on OpenBSD"
-icon: "article"
 description: "How to create and configure VLAN interfaces on OpenBSD systems, both dynamically and statically."
 categories: ["Linux", "Network"]
 date: "2010-08-04T07:24:00+02:00"

@@ -2,7 +2,8 @@
 weight: 999
 url: "/OpenVPN_\\:_Mise_en_place_d'OpenVPN_sur_différentes_plateformes/"
 title: "OpenVPN: Setting up OpenVPN on different platforms"
-icon: "article"
+icon: "openvpn"
+icontype: "simple"
 description: "A comprehensive guide on installing, configuring and using OpenVPN across different operating systems including Debian, FreeBSD, OpenBSD, Windows, macOS and Linux."
 categories: ["Debian", "Security", "Linux"]
 date: "2013-05-30T15:26:00+02:00"
@@ -464,6 +465,7 @@ vzctl set $my_veid --devnodes net/tun:rw --save
 ```
 
 ## Resources
+
 - [OpenVPN Installation](/pdf/installation_openvpn.pdf)
 - [Documentation on a complex OpenVPN setup](/pdf/openvpn_2_howto_fr.pdf)
 - [Hardware Authentication for OpenVPN](/pdf/authentification_materielle_pour_openvpn.pdf)

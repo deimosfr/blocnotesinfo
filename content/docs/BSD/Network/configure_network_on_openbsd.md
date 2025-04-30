@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configurer_le_réseau_sous_OpenBSD/"
 title: "Configure Network on OpenBSD"
-icon: "article"
 description: "A guide to basic network configuration on OpenBSD systems including interface setup, static IPs, gateways, DNS, and performance tuning"
 categories: ["BSD", "Network", "System Administration"]
 date: "2008-03-17T07:22:00+01:00"
@@ -159,5 +158,6 @@ echo "net.inet.tcp.sendspace=65536" >> /etc/sysctl.conf
 ```
 
 ## Resources
+
 - [OpenBSD Networking FAQ](https://www.openbsd.org/faq/faq6.html)
 - [OpenBSD hostname man](https://www.openbsd.org/cgi-bin/man.cgi?query=hostname.if&sektion=5)

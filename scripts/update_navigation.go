@@ -78,8 +78,9 @@ const (
 
 // Content from _index.md file
 type IndexContent struct {
-	Title string
-	Icon  string
+	Title    string
+	Icon     string
+	IconType string
 }
 
 // For case-insensitive sorting
@@ -109,6 +110,7 @@ func readIndexFile(path string) (IndexContent, error) {
 	// Extract title and icon using regex
 	titleRegex := regexp.MustCompile(`title: ["'](.+?)["']`)
 	iconRegex := regexp.MustCompile(`icon: ["'](.+?)["']`)
+	iconTypeRegex := regexp.MustCompile(`icontype: ["'](.+?)["']`)
 
 	titleMatches := titleRegex.FindSubmatch(data)
 	if len(titleMatches) > 1 {
@@ -118,6 +120,11 @@ func readIndexFile(path string) (IndexContent, error) {
 	iconMatches := iconRegex.FindSubmatch(data)
 	if len(iconMatches) > 1 {
 		content.Icon = string(iconMatches[1])
+	}
+
+	iconTypeMatches := iconTypeRegex.FindSubmatch(data)
+	if len(iconTypeMatches) > 1 {
+		content.IconType = string(iconTypeMatches[1])
 	}
 
 	return content, nil
@@ -180,7 +187,11 @@ func generateMainNavHTML(docsDir string) (string, error) {
 		htmlBuilder.WriteString(fmt.Sprintf("  <a class=\"text-decoration-none text-reset\" href=\"/docs/%s/\">\n", strings.ToLower(urlDir)))
 		htmlBuilder.WriteString("  <div class=\"card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1\">\n")
 		htmlBuilder.WriteString("      <span class=\"h1 icon-color\">\n")
-		htmlBuilder.WriteString(fmt.Sprintf("        <i class=\"material-icons align-middle\">%s</i>\n", idxContent.Icon))
+		if idxContent.IconType == "simple" {
+			htmlBuilder.WriteString(fmt.Sprintf("        <i class=\"si si-%s align-middle\"></i>\n", idxContent.Icon))
+		} else {
+			htmlBuilder.WriteString(fmt.Sprintf("        <i class=\"material-icons align-middle\">%s</i>\n", idxContent.Icon))
+		}
 		htmlBuilder.WriteString("      </span>\n")
 		htmlBuilder.WriteString("      <div class=\"card-body p-0 content\">\n")
 		htmlBuilder.WriteString(fmt.Sprintf("        <p class=\"fs-5 fw-semibold card-title mb-1\">%s</p>\n", title))

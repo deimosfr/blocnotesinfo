@@ -2,7 +2,7 @@
 weight: 999
 title: "Solaris Zones"
 description: ""
-icon: "host"
+icon: "deployed_code"
 date: "2025-04-04T04:16:04+02:00"
 lastmod: "2025-04-04T04:16:04+02:00"
 toc: true

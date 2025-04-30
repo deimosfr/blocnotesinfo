@@ -109,12 +109,8 @@ Example content specific to **Linux** operating systems
 Icons can be found here:
 
 - https://fonts.google.com/icons
+- https://simpleicons.org/
 
 # More info
 
 https://lotusdocs.dev/
-
-# todo
-
-- Use colors from: https://aws-controllers-k8s.github.io/community/docs/user-docs/multi-region-resource-management/
-- customize icons for all categories

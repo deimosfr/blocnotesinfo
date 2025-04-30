@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configurer_le_réseau_sous_FreeBSD/"
 title: "Configuring Network on FreeBSD"
-icon: "article"
 description: "A guide to network configuration on FreeBSD, including interface configuration, static IP settings, DHCP, routing, and more"
 categories: ["FreeBSD", "Networking", "System Administration"]
 date: "2012-07-02T10:07:00+02:00"

@@ -2,9 +2,8 @@
 weight: 999
 url: "/Statistiques_sur_la_bande_passante_occupée/"
 title: "Bandwidth Usage Statistics"
-icon: "article"
 description: "A simple shell script to calculate and monitor bandwidth usage on external network interfaces for BSD and Linux systems."
-categories: 
+categories:
   - Linux
 date: "2007-10-07T10:25:00+02:00"
 lastmod: "2007-10-07T10:25:00+02:00"
@@ -43,11 +42,11 @@ Here is the script called "calomel_interface_stats.sh":
 
 ```bash
 #!/usr/local/bin/bash
- 
+
 SECS=`uptime | awk '{print $3}'`
 EXT_IN=`netstat -I em0 -b | tail -1 | awk '{print $5}'`
 EXT_OUT=`netstat -I em0 -b | tail -1 | awk '{print $6}'`
- 
+
 echo " "
 echo "External interface bandwidth usage:"
 echo " uptime          " $(($SECS/86400)) "days"

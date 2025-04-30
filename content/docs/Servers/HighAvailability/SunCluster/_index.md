@@ -2,7 +2,7 @@
 weight: 999
 title: "Sun Cluster"
 description: ""
-icon: "host"
+icon: "sunny_snowing"
 date: "2025-04-04T04:16:04+02:00"
 lastmod: "2025-04-04T04:16:04+02:00"
 toc: true

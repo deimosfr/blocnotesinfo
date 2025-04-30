@@ -2,7 +2,6 @@
 weight: 999
 url: "/IP_Filter_\\:_Utilisation_du_firewall_sous_Solaris/"
 title: "IP Filter: Using the Firewall on Solaris"
-icon: "article"
 description: "A guide on how to configure and use IP Filter, a firewall solution for Solaris operating systems."
 categories: ["Unix", "Solaris", "Security"]
 date: "2010-12-28T07:44:00+02:00"

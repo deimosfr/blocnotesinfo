@@ -2,7 +2,8 @@
 weight: 999
 title: "MediaWiki"
 description: ""
-icon: "host"
+icon: "wikipedia"
+icontype: "simple"
 date: "2025-04-04T04:16:04+02:00"
 lastmod: "2025-04-04T04:16:04+02:00"
 toc: true

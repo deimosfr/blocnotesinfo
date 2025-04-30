@@ -2,7 +2,6 @@
 weight: 998
 url: "/Activer_le_port_série_sous_FreeBSD/"
 title: "Activating the Serial Port on FreeBSD"
-icon: "article"
 description: "Learn how to configure and activate the serial port on FreeBSD systems for remote access and console management."
 categories: ["BSD", "System Administration"]
 date: "2012-05-19T23:07:00+02:00"

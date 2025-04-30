@@ -2,7 +2,6 @@
 weight: 999
 url: "/Activer_modules_son_kernel/"
 title: "Activating Kernel Modules"
-icon: "article"
 description: "How to enable, disable, and manage kernel modules in BSD and Linux systems"
 categories: ["BSD", "System Administration"]
 date: "2008-05-04T06:48:00+02:00"

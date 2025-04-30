@@ -2,7 +2,6 @@
 weight: 999
 url: "/MFS_\\:_Utiliser_un_filesystem_en_RAM/"
 title: "MFS: Using a RAM Filesystem"
-icon: "article"
 description: "A guide on how to use MFS (Memory FileSystem) to improve performance by creating partitions in RAM"
 categories: ["Linux", "BSD", "Performance"]
 date: "2009-01-05T02:37:00+02:00"

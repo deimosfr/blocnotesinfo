@@ -2,7 +2,6 @@
 weight: 999
 url: "/Montage_d'un_filesystem_à_plusieurs_endroits_simultanées/"
 title: "Mounting a Filesystem in Multiple Places Simultaneously"
-icon: "article"
 description: "How to mount the same filesystem in multiple locations on Linux and BSD systems."
 categories: ["Linux"]
 date: "2008-10-28T21:04:00+02:00"

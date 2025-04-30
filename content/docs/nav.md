@@ -33,7 +33,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/bsd/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">article</i>
+        <i class="si si-openbsd align-middle"></i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">BSD</p>
@@ -51,13 +51,13 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/coding/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">dns</i>
+        <i class="si si-rust align-middle"></i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Coding</p>
         <p class="para card-text mb-0">
         <ul>
-          <a href="/docs/coding/c/">C</a> • <a href="/docs/coding/html/">HTML</a> • <a href="/docs/coding/java/">Java</a> • <a href="/docs/coding/misc/">SQL</a> • <a href="/docs/coding/perl/">Perl</a> • <a href="/docs/coding/php/">PHP</a> • <a href="/docs/coding/python/">Python</a> • <a href="/docs/coding/shellscript/">Shell script</a> • <a href="/docs/coding/sql/">SQL</a>
+          <a href="/docs/coding/c/">C</a> • <a href="/docs/coding/html/">HTML</a> • <a href="/docs/coding/java/">Java</a> • <a href="/docs/coding/misc/">Misc</a> • <a href="/docs/coding/perl/">Perl</a> • <a href="/docs/coding/php/">PHP</a> • <a href="/docs/coding/python/">Python</a> • <a href="/docs/coding/shellscript/">Shell script</a> • <a href="/docs/coding/sql/">SQL</a>
         </ul>
         </p>
       </div>
@@ -69,7 +69,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/ethicalhacking/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">dns</i>
+        <i class="si si-kalilinux align-middle"></i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Ethical Hacking</p>
@@ -87,13 +87,13 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/linux/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">article</i>
+        <i class="si si-linux align-middle"></i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Linux</p>
         <p class="para card-text mb-0">
         <ul>
-          <a href="/docs/linux/applications/">Applications</a> • <a href="/docs/linux/codinganddebug/">Coding & Debug</a> • <a href="/docs/linux/desktop/">Desktop</a> • <a href="/docs/linux/filesystemsandstorage/">Filesystems & Storage</a> • <a href="/docs/linux/firewalls/">Firewalls</a> • <a href="/docs/linux/kernel/">Kernel</a> • <a href="/docs/linux/misc/">Misc</a> • <a href="/docs/linux/multimedia/">Multimedia</a> • <a href="/docs/linux/network/">Network</a> • <a href="/docs/linux/packages/">Packages</a> • <a href="/docs/linux/security/">Security</a>
+          <a href="/docs/linux/applications/">Applications</a> • <a href="/docs/linux/codinganddebug/">Coding & Debug</a> • <a href="/docs/linux/desktop/">Desktop</a> • <a href="/docs/linux/filesystemsandstorage/">Filesystems & Storage</a> • <a href="/docs/linux/kernel/">Kernel</a> • <a href="/docs/linux/misc/">Misc</a> • <a href="/docs/linux/multimedia/">Multimedia</a> • <a href="/docs/linux/network/">Network</a> • <a href="/docs/linux/packages/">Packages</a> • <a href="/docs/linux/security/">Security</a>
         </ul>
         </p>
       </div>
@@ -105,7 +105,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/macos/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">dns</i>
+        <i class="si si-apple align-middle"></i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Mac OS</p>
@@ -123,7 +123,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/misc/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">dns</i>
+        <i class="material-icons align-middle">shuffle</i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Misc</p>
@@ -141,7 +141,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/network/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">dns</i>
+        <i class="material-icons align-middle">lan</i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Network</p>
@@ -159,7 +159,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/servers/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">host</i>
+        <i class="material-icons align-middle">cloud</i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Servers</p>
@@ -177,7 +177,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/solaris/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">host</i>
+        <i class="material-icons align-middle">sunny_snowing</i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Solaris</p>
@@ -195,7 +195,7 @@ icon: "home"
   <a class="text-decoration-none text-reset" href="/docs/windows/">
   <div class="card h-100 features feature-full-bg rounded p-4 position-relative overflow-hidden border-1">
       <span class="h1 icon-color">
-        <i class="material-icons align-middle">article</i>
+        <i class="material-icons align-middle">window</i>
       </span>
       <div class="card-body p-0 content">
         <p class="fs-5 fw-semibold card-title mb-1">Windows</p>

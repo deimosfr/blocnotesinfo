@@ -2,12 +2,18 @@
 weight: 999
 url: "/Le_système_de_Packages_FreeBSD/"
 title: "FreeBSD Package System"
-icon: "article"
 description: "A guide to understanding and using FreeBSD's package management system including both the new and old methods, portage system, and system updates."
 categories: ["FreeBSD", "Linux"]
 date: "2014-07-18T19:39:00+02:00"
 lastmod: "2014-07-18T19:39:00+02:00"
-tags: ["FreeBSD", "Package Management", "System Administration", "Portage", "Security Updates"]
+tags:
+  [
+    "FreeBSD",
+    "Package Management",
+    "System Administration",
+    "Portage",
+    "Security Updates",
+  ]
 toc: true
 ---
 
@@ -83,7 +89,7 @@ pkg_info
 | < | The installed version is older than the one available in the ports catalog. |
 | > | The installed version is newer than the one found in the local ports catalog. (The local ports catalog is probably outdated) |
 | ? | The pre-compiled software cannot be found in the ports catalog index. (This can happen when, for example, installed software is removed from the ports catalog or renamed.) |
-| * | There are multiple versions of this pre-compiled software. |
+| \* | There are multiple versions of this pre-compiled software. |
 {{< /table >}}
 
 #### Deleting a Package
@@ -112,7 +118,7 @@ B-deps:
 R-deps:
 ```
 
-You need to use *make search key=**string***.
+You need to use \*make search key=**string\***.
 
 ## Updating Security Patches
 

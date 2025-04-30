@@ -2,7 +2,6 @@
 weight: 999
 url: "/Faire_de_la_QOS_(Quality_Of_Service)_avec_PF/"
 title: "QoS (Quality Of Service) with PF"
-icon: "article"
 description: "How to implement Quality of Service (QoS) using Packet Filter (PF) in OpenBSD to prioritize different types of network traffic."
 categories: ["Network", "OpenBSD", "Firewall"]
 date: "2007-10-07T10:14:00+02:00"
@@ -170,7 +169,7 @@ The following is an example output from "table #8" in pftop. To get to this tabl
 
 ```bash
 pfTop: Up Queue 1-9/9, View: queue, Cache: 10000
- 
+
   QUEUE          BW SCH  PRIO     PKTS    BYTES   DROP_P   DROP_B QLEN BORROW SUSPEN     P/S     B/S
 root_rl0       744K hfsc    0        0        0        0        0    0                     0       0
  ack           595K hfsc    7        0        0        0        0    0                     0       0
