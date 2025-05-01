@@ -259,9 +259,9 @@ Link Failure Count: 0
 Slave Interface: eth1
 MII Status: up
 Link Failure Count: 0</code>
-  </pre></div><h3 id=automatic-configuration-files>Automatic Configuration Files <a href=#automatic-configuration-files class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><nav><div class="nav nav-tabs" id=nav-tab role=tablist><a class="nav-link active" id=adfecbTab data-bs-toggle=tab data-bs-target=#adfecb type=button role=tab aria-controls=adfecb aria-selected=true>Debian</a>
-<a class=nav-link id=fbdeacTab data-bs-toggle=tab data-bs-target=#fbdeac type=button role=tab aria-controls=fbdeac aria-selected=true>RedHat</a>
-<a class=nav-link id=Tab data-bs-toggle=tab data-bs-target=# type=button role=tab aria-controls aria-selected=true></a></div></nav><div class=tab-content id=nav-tab-content><div class="tab-pane fade show active" id=adfecb role=tabpanel aria-labelledby=nav-1><p>Here are the files to modify to load your configuration at startup, add to /etc/modules.conf or /etc/modprobe.d/arch/i386:</p><div class=prism-codeblock><pre id=8857441 class=language-text>
+  </pre></div><h3 id=automatic-configuration-files>Automatic Configuration Files <a href=#automatic-configuration-files class=anchor aria-hidden=true><i class="material-icons align-middle">link</i></a></h3><nav><div class="nav nav-tabs" id=nav-tab role=tablist><a class="nav-link active" id=caedbfTab data-bs-toggle=tab data-bs-target=#caedbf type=button role=tab aria-controls=caedbf aria-selected=true>Debian</a>
+<a class=nav-link id=decbafTab data-bs-toggle=tab data-bs-target=#decbaf type=button role=tab aria-controls=decbaf aria-selected=true>RedHat</a>
+<a class=nav-link id=Tab data-bs-toggle=tab data-bs-target=# type=button role=tab aria-controls aria-selected=true></a></div></nav><div class=tab-content id=nav-tab-content><div class="tab-pane fade show active" id=caedbf role=tabpanel aria-labelledby=nav-1><p>Here are the files to modify to load your configuration at startup, add to /etc/modules.conf or /etc/modprobe.d/arch/i386:</p><div class=prism-codeblock><pre id=8857441 class=language-text>
   <code>alias bond0 bonding
 options bond0 mode=0 miimon=100</code>
   </pre></div><p>In <code>/etc/network/interfaces</code> for active-backup:</p><div class=prism-codeblock><pre id=3a405e9 class=language-text>
@@ -291,7 +291,7 @@ iface bond0 inet static
    bond-miimon 100
    bond-downdelay 200
    bond-updelay 200</code>
-  </pre></div></div><div class="tab-pane fade" id=fbdeac role=tabpanel aria-labelledby=nav-1><p>If you are on RHEL 6, in the file /etc/modprobe.d/bonding.conf, create the following line:</p><div class=prism-codeblock><pre id=e8b7579 class=language-text>
+  </pre></div></div><div class="tab-pane fade" id=decbaf role=tabpanel aria-labelledby=nav-1><p>If you are on RHEL 6, in the file /etc/modprobe.d/bonding.conf, create the following line:</p><div class=prism-codeblock><pre id=e8b7579 class=language-text>
   <code>alias bond0 bonding</code>
   </pre></div><p>If you are on RHEL &lt;6, it will be in the /etc/modprobes.conf file that you will need to insert this same content.</p><p>In /etc/sysconfig/network-script/, create the ifcfg-bond0 file to enter the bonding configuration:</p><div class=prism-codeblock><pre id=e744f2e class=language-text>
   <code>DEVICE=bond0
