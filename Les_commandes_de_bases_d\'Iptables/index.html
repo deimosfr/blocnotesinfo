@@ -1,28 +1,29 @@
 <!doctype html><html lang=en-us><head><meta charset=utf-8><title>Basic IPTables Commands | Tech Notebook</title>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Learn the basic IPTables commands for Linux firewalls - including chain manipulation, rule management, and practical examples."><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://wiki.deimos.fr/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://wiki.deimos.fr/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://wiki.deimos.fr/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://wiki.deimos.fr/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://wiki.deimos.fr/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://wiki.deimos.fr/site.webmanifest><meta property="og:title" content="Basic IPTables Commands"><meta property="og:description" content="Learn the basic IPTables commands for Linux firewalls - including chain manipulation, rule management, and practical examples."><meta property="og:type" content="article"><meta property="og:url" content="https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/"><meta property="og:image" content="https://wiki.deimos.fr/opengraph/card-base-2_hu_90516257cc88c68f.png"><meta property="article:section" content="docs"><meta property="article:published_time" content="2013-05-06T15:42:00+02:00"><meta property="article:modified_time" content="2025-04-04T17:45:45+02:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://wiki.deimos.fr/opengraph/card-base-2_hu_90516257cc88c68f.png"><meta name=twitter:title content="Basic IPTables Commands"><meta name=twitter:description content="Learn the basic IPTables commands for Linux firewalls - including chain manipulation, rule management, and practical examples."><link rel=alternate type=application/atom+xml title="Atom feed for Tech Notebook" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://wiki.deimos.fr/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=/docs/scss/style.min.0e29616245601943bd7b42188227b38297c25dd76fb6bc1b872adac3815960610b5ec8bc06e0893810c56e3cedd6c9da.css integrity=sha384-DilhYkVgGUO9e0IYgiezgpfCXddvtrwbhyraw4FZYGELXsi8BuCJOBDFbjzt1sna crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://wiki.deimos.fr/home/><i class="material-icons me-2">home</i>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Learn the basic IPTables commands for Linux firewalls - including chain manipulation, rule management, and practical examples."><meta name=keywords content="Documentation,Hugo,Hugo Theme,Bootstrap"><meta name=author content="Colin Wilson - Lotus Labs"><meta name=email content="support@aigis.uk"><meta name=website content="https://lotusdocs.dev"><meta name=Version content="v0.1.0"><link rel=icon href=https://wiki.deimos.fr/favicon.ico sizes=any><link rel=icon type=image/svg+xml href=https://wiki.deimos.fr/favicon.svg><link rel=apple-touch-icon sizes=180x180 href=https://wiki.deimos.fr/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=https://wiki.deimos.fr/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=https://wiki.deimos.fr/favicon-16x16.png><link rel=manifest crossorigin=use-credentials href=https://wiki.deimos.fr/site.webmanifest><meta property="og:title" content="Basic IPTables Commands"><meta property="og:description" content="Learn the basic IPTables commands for Linux firewalls - including chain manipulation, rule management, and practical examples."><meta property="og:type" content="article"><meta property="og:url" content="https://wiki.deimos.fr/Les_commandes_de_bases_d%5C%27Iptables/"><meta property="og:image" content="https://wiki.deimos.fr/opengraph/card-base-2_hu_90516257cc88c68f.png"><meta property="article:section" content="docs"><meta property="article:published_time" content="2013-05-06T15:42:00+02:00"><meta property="article:modified_time" content="2025-05-01T20:33:41+02:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://wiki.deimos.fr/opengraph/card-base-2_hu_90516257cc88c68f.png"><meta name=twitter:title content="Basic IPTables Commands"><meta name=twitter:description content="Learn the basic IPTables commands for Linux firewalls - including chain manipulation, rule management, and practical examples."><link rel=alternate type=application/atom+xml title="Atom feed for Tech Notebook" href=/index.xml><script>(()=>{var t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,e=localStorage.getItem("theme");t&&e===null&&(localStorage.setItem("theme","dark"),document.documentElement.setAttribute("data-dark-mode","")),t&&e==="dark"&&document.documentElement.setAttribute("data-dark-mode",""),e==="dark"&&document.documentElement.setAttribute("data-dark-mode","")})()</script><script type=text/javascript src=https://wiki.deimos.fr/docs/js/flexsearch.bundle.min.f5159d5a2151ffbb653996ec17eaff7da4e04c286bd879fc41839d36a5586f3f20eaead0b6089de48f9adc669cdee771.js integrity=sha384-9RWdWiFR/7tlOZbsF+r/faTgTChr2Hn8QYOdNqVYbz8g6urQtgid5I+a3Gac3udx crossorigin=anonymous></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/simple-icons-font@v9/font/simple-icons.min.css><link rel=stylesheet href=/docs/scss/style.min.885d0f04fcdc94cc5ac92a909c298eac65702e00c9eb52d3ca6e23cde5df7ebedc710ef4115d83b3098e18abcbb1c5c7.css integrity=sha384-iF0PBPzclMxaySqQnCmOrGVwLgDJ61LTym4jzeXffr7ccQ70EV2DswmOGKvLscXH crossorigin=anonymous></head><body><div class=content><div class="page-wrapper toggled"><nav id=sidebar class=sidebar-wrapper><div class=sidebar-brand><a href=/ aria-label=HomePage alt=HomePage><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></a></div><div class=sidebar-content style="height:calc(100% - 131px)"><ul class=sidebar-menu><li><a class=sidebar-root-link href=https://wiki.deimos.fr/home/><i class="material-icons me-2">home</i>
 cd ~</a></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">article</i>
+<i class="si si-openbsd me-2"></i>
 BSD</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Filesystems</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/MFS_:_Utiliser_un_filesystem_en_RAM/>MFS: Using a RAM Filesystem</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Montage_d%27un_filesystem_%C3%A0_plusieurs_endroits_simultan%C3%A9es/>Mounting a Filesystem in Multiple Places Simultaneously</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Kernel</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Activer_le_port_s%C3%A9rie_sous_FreeBSD/>Activating the Serial Port on FreeBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Activer_modules_son_kernel/>Activating Kernel Modules</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_son_kernel_g%C3%A9n%C3%A9rique/>Modifying Your Generic Kernel</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Misc</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 FreeBSD</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Installation_FreeBSD_sur_ZFS/>Installing FreeBSD on ZFS</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Monitorer_la_temperature_des_processeurs_sous_FreeBSD/>Monitoring CPU Temperature on FreeBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cr%C3%A9er_un_Apple_Time_Machine_r%C3%A9seaux_sous_FreeBSD/>Creating an Apple Time Machine Network on FreeBSD</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 OpenBSD</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_de_boot/>Modifying Boot Parameters</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Guide_de_configuration_d%27OpenBSD_%5C%28Tr%C3%A8s_complet%5C%29/>OpenBSD Configuration Guide (Very Complete)</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_son_OpenBSD_apr%C3%A8s_une_mauvaise_manip/>Recovering your OpenBSD after a bad manipulation</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Le_syst%C3%A8me_de_Packages_OpenBSD/>OpenBSD Package System</a></li></ul></div></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Migration_:_Migrer_des_comptes_linux_vers_BSD/>Migration: Migrating Linux accounts to BSD</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
-Network</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_NetBSD/>Configure Network on NetBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/>Configuring Network on FreeBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/UFS_:_utilisation_des_disques_en_UFS/>UFS: Disk usage in UFS</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/VLAN_:_Cr%C3%A9er_une_interface_VLAN_sous_OpenBSD/>VLAN: Creating a VLAN Interface on OpenBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_OpenBSD/>Configure Network on OpenBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Trunking_:_Cr%C3%A9er_du_trunking_%28bonding%29_sur_OpenBSD/>Trunking: Creating Trunking (bonding) on OpenBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Statistiques_sur_la_bande_passante_occup%C3%A9e/>Bandwidth Usage Statistics</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Faire_de_la_QOS_%28Quality_Of_Service%29_avec_PF/>QoS (Quality Of Service) with PF</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
+Network</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
+Firewalls</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/IP_Filter_:_Utilisation_du_firewall_sous_Solaris/>IP Filter: Using the Firewall on Solaris</a></li></ul></div></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_NetBSD/>Configure Network on NetBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_FreeBSD/>Configuring Network on FreeBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/UFS_:_utilisation_des_disques_en_UFS/>UFS: Disk usage in UFS</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/VLAN_:_Cr%C3%A9er_une_interface_VLAN_sous_OpenBSD/>VLAN: Creating a VLAN Interface on OpenBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sous_OpenBSD/>Configure Network on OpenBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Trunking_:_Cr%C3%A9er_du_trunking_%28bonding%29_sur_OpenBSD/>Trunking: Creating Trunking (bonding) on OpenBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Statistiques_sur_la_bande_passante_occup%C3%A9e/>Bandwidth Usage Statistics</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Faire_de_la_QOS_%28Quality_Of_Service%29_avec_PF/>QoS (Quality Of Service) with PF</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Packages</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Le_syst%C3%A8me_de_Packages_FreeBSD/>FreeBSD Package System</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Security</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Encrypter_sa_swap/>Encrypting Swap Partition</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Jailctl_:_Cr%C3%A9ation_de_chroot_%28jails%29/>Jailctl: Creating Chroot Environments (Jails)</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">dns</i>
+<i class="si si-rust me-2"></i>
 Coding</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
+C</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_C/>Introduction to C</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Quelques_exemples_d%27utilisation_de_CMake/>Some examples of CMake usage</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C/>Better Understanding and Using the C Language Preprocessor</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 HTML</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_XHTML/>Introduction to XHTML</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/CSS_:_Les_feuilles_de_style/>CSS: Style Sheets</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Les_caract%C3%A8res_sp%C3%A9ciaux/>Special Characters</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mise_en_forme_du_texte/>Text Formatting</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Java</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/gestion_de_la_memoire_en_java/>Java Memory Management</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Debugger_un_crash_de_JVM/>Debugging a JVM Crash</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
+Misc</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_PowerShell/>Introduction to PowerShell</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Perl</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_%C3%A0_Perl/>Introduction to Perl</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/La_programmation_orient%C3%A9e_objet_en_Perl/>Object-Oriented Programming in Perl</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mes_scripts_Perl_qui_peuvent_servir_d%27exercices/>My Perl Scripts That Can Serve as Exercises</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/apprendre-le-perl-6/>Learning Perl 6</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 PHP</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Compiler_vos_scripts_PHP/>Compile Your PHP Scripts</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_PHP/>Introduction to PHP</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/S%C3%A9curiser_ses_scripts_PHP/>Securing PHP Scripts</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Python</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mes_scripts_Python_qui_peuvent_servir_d%27exercices/>My Python Scripts That Can Serve as Exercises</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_Python/>Introduction to Python</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Shell script</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_Script_Shell/>Introduction to Shell Scripting</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Les_diff%C3%A9rentes_boucles_du_shell_script/>Different Shell Script Loops</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Debugger_un_script_shell/>Debugging a Shell Script</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
-SQL</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_PowerShell/>Introduction to PowerShell</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
-SQL</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_SQL/>Introduction to SQL</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
-C</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_C/>Introduction to C</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Quelques_exemples_d%27utilisation_de_CMake/>Some examples of CMake usage</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mieux_conna%C3%AEtre_et_utiliser_le_pr%C3%A9processeur_du_langage_C/>Better Understanding and Using the C Language Preprocessor</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">dns</i>
+SQL</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Introduction_au_SQL/>Introduction to SQL</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
+<i class="si si-kalilinux me-2"></i>
 Ethical Hacking</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Database</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Les_injections_SQL/>SQL Injections</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Misc</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Protection_de_l%27espace_d%27adressage_:_%C3%A9tat_de_l%27art_sous_Linux_et_OpenBSD/>Address Space Protection: State of the Art in Linux and OpenBSD</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Tests_d%27intrusion/>Penetration Testing</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
@@ -31,7 +32,7 @@ Operating Systems</button><div class=sidebar-submenu><ul><li class="sidebar-drop
 Linux</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/anti-forensics-sur-systemes-de-fichiers-ext2-ext3/>Anti-forensics on ext2/ext3 Filesystems</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Windows</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Trouver_les_mots_de_passe_de_la_base_SAM_de_Windows/>Finding passwords from the Windows SAM database</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Injection_et_ex%C3%A9cution_de_code_arbitraire_dans_l%5C%27espace_m%C3%A9moire_d%5C%27un_autre_processus/>Arbitrary Code Injection and Execution in Another Process Memory Space</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/La_Technique_de_l%5C%27Attaque_Shatter/>Shatter Attack Technique</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Fuzzing_-_Tutoriel_sur_l%27utilisation_et_la_personnalisation_d%27un_Fuzzer_pour_la_recherche_de_failles/>Fuzzing - Tutorial on Using and Customizing a Fuzzer for Vulnerability Research</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Download_and_Execute_ShellCode_:_Code_optimis%C3%A9_et_d%C3%A9taill%C3%A9_d%5C%27un_ShellCode_Download/Execute_pour_Windows/>Download and Execute ShellCode: Optimized and Detailed Code of a Download/Execute ShellCode for Windows</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Trouver_l%27adresse_de_base_de_kernel32.dll_:_Trois_m%C3%A9thodes_PEB,_SEH_et_TopStack/>Finding the base address of kernel32.dll: Three methods PEB, SEH and TopStack</a></li></ul></div></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Audits_de_s%C3%A9curit%C3%A9_du_protocole_DNS/>DNS Protocol Security Audits</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Theory</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cryptologie_et_nombres_premiers:_l%27algorithme_RSA/>Cryptology and Prime Numbers: The RSA Algorithm</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">article</i>
+<i class="si si-linux me-2"></i>
 Linux</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Applications</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 OpenSSH</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/FAQ_OpenSSH/>OpenSSH FAQ</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Belier_:_script_your_SSH_connection/>Belier: Script Your SSH Connection</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Outrepasser_les_proxy_HTTPS_pour_SSH/>Bypassing HTTPS Proxies for SSH</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Faire_du_reverse_Tunelling_avec_OpenSSH/>Reverse Tunneling with OpenSSH</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cr%C3%A9er_un_VPN_avec_OpenSSH/>Creating a VPN with OpenSSH</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Chrooter_des_comptes_SSH/>Chroot SSH Accounts</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_de_rebond_pour_ses_connections_SSH/>Setting up an SSH Bouncer Server for Your SSH Connections</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Securiser_OpenSSH/>Securing OpenSSH</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/fanout-run-same-command-on-multiple-machines/>Fanout: Run the Same Command on Multiple Machines Simultaneously</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
@@ -44,7 +45,6 @@ Filesystems & Storage</button><div class=sidebar-submenu><ul><li class="sidebar-
 LVM</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Resizer_sa_swap/>Resize Swap</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Raid</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configuration_d%27un_Raid_logiciel/>Software RAID Configuration</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Optimisation_des_filesystems_extX_et_du_RAID_sous_Linux/>Optimization of extX filesystems and RAID under Linux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Linux_RAID_performances/>Linux RAID Performance</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/R%C3%A9cup%C3%A9rer_ses_donn%C3%A9es_depuis_un_RAID1_LVM/>Recovering Data from a RAID1 LVM</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Storage Encryption</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Luks_:_Chiffrer_ses_partitions/>LUKS: Encrypting Your Partitions</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Encfs_:_Mise_en_place_d%27Encfs_avec_FUSE/>EncFS: Setting up EncFS with FUSE</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Solutions_pour_un_syst%C3%A8me_LVM_crypt%C3%A9/>Solutions for Encrypted LVM System</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cryptoloop_:_Mise_en_place_d%27un_dossier_crypt%C3%A9/>Cryptoloop: Setting Up an Encrypted Folder</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/TrueCrypt:_Encryption_de_donn%C3%A9es_de_type_portables/>TrueCrypt: Portable Data Encryption</a></li></ul></div></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/LVM_:_Utilisation_des_LVM/>LVM: Working with Logical Volume Management</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Optimiser_les_performances_des_disques_dur_sur_Linux/>Optimizing Hard Disk Performance on Linux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Foremost_:_r%C3%A9cup%C3%A9rer_des_donn%C3%A9es_supprim%C3%A9es/>Foremost: Recover Deleted Data</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cloner_un_disque_dur/>Clone a Hard Drive</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/ACL:_Impl%C3%A9mentation_des_droits_de_type_NT_sur_Linux/>ACL: Implementing NT-type Permissions on Linux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Autossh_:_reconnecter_automatiquement_un_tunnel_SSH/>AutoSSH: Automatically Reconnect SSH Tunnels</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Parted_:_r%C3%A9soudre_les_probl%C3%A8mes_de_partionnnement_sur_gros_filesystems/>Parted: Solving Partitioning Problems on Large Filesystems</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/BTRFS_:_Utilisation_du_rempla%C3%A7ant_de_l%27Ext4/>BTRFS: Using the Ext4 Replacement</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Tmpfs_:_un_filesystem_en_ram_ou_comment_%C3%A9crire_en_ram/>Tmpfs: RAM filesystem or how to write to RAM</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/ZFS_On_Linux_:_Mise_en_place_de_ZFS_sous_Linux/>ZFS On Linux: Setting up ZFS on Linux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Smartmontool_:_Surveillance_des_disques_dur/>Smartmontools: Hard Drive Monitoring</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Scalpel_:_r%C3%A9cup%C3%A9rer_des_donn%C3%A9es_supprim%C3%A9es/>Scalpel: Recovering Deleted Data</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/O_par_une_application/>Limiting I/O usage by an application</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/SWAP_:_Cr%C3%A9ation_de_swap_dynamique/>SWAP: Creating Dynamic Swap</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Conversion_de_filesystems/>Filesystem Conversion</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/No_space_left_on_device_alors_qu%5C%27il_y_a_de_la_place/>No space left on device while there is space available</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Incron_:_ex%C3%A9cuter_des_actions_automatiques_lors_de_changements_d%27%C3%A9tats_d%27%C3%A9l%C3%A9ments/>Incron: Execute Automatic Actions When File States Change</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mise_en_place_des_quotas_sous_Linux/>Setting up quotas on Linux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/anatomie-d-un-filesystem-linux/>Anatomy of a Linux Filesystem</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/AutoFsck_:_Changer_les_checks_filesystem_sur_Ubuntu/>AutoFsck: Changing Filesystem Checks on Ubuntu</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Testdisk_:_r%C3%A9cup%C3%A9rer_des_donn%C3%A9es_perdues/>TestDisk: Recovering Lost Data</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cr%C3%A9er_des_images_vierges_pour_tester_des_filesystems/>Creating Blank Images for Testing Filesystems</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Ext3_:_redimensionner_ses_partitions_sans_pertes_de_donn%C3%A9es/>Ext3: Resize partitions without data loss</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Hdparm_:_Optimiser_les_acc%C3%A8s_disques/>Hdparm: Optimizing Disk Access</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/fuse-refus-de-monter-les-disques-a-cause-de-dev-fuse/>FUSE: Unable to Mount Disks Due to /dev/fuse</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
-Firewalls</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/IP_Filter_:_Utilisation_du_firewall_sous_Solaris/>IP Filter: Using the Firewall on Solaris</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Kernel</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Recompiler_son_du_noyau_%28Kernel%29/>Recompile your kernel</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Latence_des_process_et_kernel_timing/>Process Latency and Kernel Timing</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Th%C3%A9orie_des_files_d%5C%27attentes/>Queueing Theory</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/La_gestion_de_la_m%C3%A9moire_sous_Linux/>Linux Memory Management</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Les_caches_m%C3%A9moire/>Memory Caches</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/L%27adressage_m%C3%A9moire_et_son_allocation/>Memory Addressing and Allocation</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Gestion_des_process_et_des_schedulers/>Linux Process and Scheduler Management</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Udev_:_Utilisation_d%27un_socket_pour_parler_avec_les_devices_kernel/>Udev: Using a Socket to Communicate with Kernel Devices</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Kexec_:_optimisez_vos_temps_de_boot/>Kexec: Optimize Your Boot Times</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Sysctl_:_configurer_les_options_kernel_sous_Linux/>Sysctl: Configuring Kernel Options in Linux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/SystemTap_:_Profilez_et_utilisez_rapidement_des_fonctionnalit%C3%A9s_du_kernel/>SystemTap: Profile and Quickly Use Kernel Features</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/OProfile_:_profilez_votre_syst%C3%A8me/>OProfile: Profile Your System</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/S%C3%A9curisation_de_son_noyau_avec_Grsecurity_et_PaX/>Securing Your Kernel with Grsecurity and PaX</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Gestion_des_process_zombies_sous_Linux/>Managing Zombie Processes in Linux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/proc/>Understanding the Content of /proc</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Renforcement_des_fonctions_de_s%C3%A9curit%C3%A9_du_noyau_Linux/>Strengthening Linux Kernel Security Functions</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Initramfs_:_corriger_les_petits_probl%C3%A8mes_de_boot_kernel_gr%C3%A2ce_%C3%A0_initramfs/>Initramfs: Fixing Kernel Boot Issues with Initramfs</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_la_version_des_sources/>Modifying Source Version</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Connaitre_le_page_size_de_sa_machine/>How to Check the Page Size of Your Machine</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Kernel_:_Compilation_des_modules/>Kernel: Module Compilation</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Misc</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Debian</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cron-apt_:_Installation_des_mises_%C3%A0_jour_de_s%C3%A9curit%C3%A9_automatique/>Cron-apt: Automatic Security Updates Installation</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/How_to_use_old_Debian_repository_for_unmaintained_Debian_versions/>How to use old Debian repository for unmaintained Debian versions</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Integrit_:_Add_an_integrity_control_tool_on_your_Debian/>Integrit: Add an integrity control tool on your Debian</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Automatiser_une_installation_de_Debian/>Automate Debian Installation</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Debian_:_r%C3%A9installation_d%27un_serveur_presque_%C3%A0_l%27identique/>Debian: Reinstalling a Server Almost Identically</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/V%C3%A9rifier_l%27int%C3%A9grit%C3%A9_des_fichiers_sur_sa_Debian/>Checking File Integrity on Debian</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Installer_Debian_sur_un_Mac_en_single_boot/>Installing Debian on a Mac in Single Boot</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Recompiler_un_soft_%C3%A0_la_sauce_Debian/>Recompile a Software the Debian Way</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_des_packages_Debian/>Advanced Usage of Debian Packages</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_la_fr%C3%A9quence_de_son_processeur/>Modifying CPU Frequency</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Drivers_Broadcom_et_Debian/>Broadcom Drivers and Debian</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cr%C3%A9er_un_repository_Debian/>Creating a Debian Repository</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Debian_:_Modification_des_outils_par_d%C3%A9faut_%28ex:_Editor%29/>Debian: Changing Default Tools (e.g., Editor)</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Debian_:_Fini_les_erreurs_de_d%C3%A9pendances_quand_vous_voulez_configurer_des_sources/>Debian: No More Dependency Errors When Configuring From Source</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Debian_:_Erreur_GPG_lors_d%27apt-get_update/>Debian: GPG Error During apt-get update</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
@@ -57,31 +57,30 @@ Packages</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nest
 Debian</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/apt-ajouter-des-preferences-de-release-sur-certains-packages/>APT: Adding Release Preferences for Specific Packages</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/apt-aptitude-les-commandes-utiles/>Apt & Aptitude: Useful Commands</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/apt-cacher-ng-mise-en-place-d-un-proxy-pour-apt/>Apt-cacher-ng: Setting Up a Proxy for APT</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/apt-file-recherche-de-fichiers-qui-empechent-une-compilation/>Apt-file: Searching for Files That Prevent Compilation</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 RedHat</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/ajouter-le-dvd-red-hat-comme-repository/>Adding Red Hat DVD as a Repository</a></li></ul></div></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Security</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Fail2ban_:_mise_en_place_de_r%C3%A8gles_automatis%C3%A9es_iptables_pour_contrer_les_attaques_par_bruteforce/>Fail2ban: Implementing automated iptables rules to counter bruteforce attacks</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Acct_Le_keyfinder_par_excellence/>Acct: The Ultimate Keyfinder</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Lshell_:_limiter_les_possibilit%C3%A9s_du_shell/>Lshell: Limiting Shell Capabilities</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Ulimit_:_Utiliser_les_limites_syst%C3%A8mes/>Ulimit: Using System Limits</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Securiser_son_architecture_avec_SELinux/>Secure Your Architecture with SELinux</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Forcer_un_utilisateur_%C3%A0_changer_son_mot_de_passe_%C3%A0_la_premi%C3%A8re_connexion/>Force User to Change Password at First Login</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Crypter_et_d%C3%A9crypter_un_fichier_avec_OpenSSL/>Encrypt and Decrypt a File with OpenSSL</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Faire_freezer_une_machine_par_overload_CPU/>Freeze a Machine by CPU Overload</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Crypter_un_mot_de_passe_en_MD5/>Encrypting a Password with MD5</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/GnuPG:_Crypter_vos_emails/>GnuPG: Encrypt Your Emails</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Xinetd_:_S%C3%A9curiser_ses_services/>Xinetd: Securing Services</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">dns</i>
+<i class="si si-apple me-2"></i>
 Mac OS</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Applications</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Monter_des_images_disque_en_ligne_de_commande/>Mount Disk Images from Command Line</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Hdiutil_:_Cr%C3%A9er_un_ISO_DVD_depuis_un_dossier_VIDEO_TS/>Hdiutil: Creating a DVD ISO from a VIDEO TS folder</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Coding</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Compiler_avec_gcc_sur_plusieurs_architectures_%28ex:_PPC_et_Intel%29/>Compiling with GCC on Multiple Architectures (e.g., PPC and Intel)</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Hardware</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Calibrer_la_batterie_de_son_portable/>Calibrating Your Laptop Battery</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Misc</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Vider_son_cache_DNS_sur_Mac_OS_X/>Clearing DNS Cache on Mac OS X</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Voir_les_fichiers_et_dossiers_cach%C3%A9s_sous_Mac_OS_X/>Viewing Hidden Files and Folders in Mac OS X</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cacher_une_application_ouverte_du_dock_et_du_switcher/>Hide an Open Application from the Dock and Switcher</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/MacFuse_%20_NTFS-3G_:_Lecture_et_%C3%A9criture_de_partitions_NTFS_sur_Mac_OS_X/>MacFuse + NTFS-3G: Reading and Writing NTFS Partitions on Mac OS X</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Installer_OSX_depuis_un_disque_externe/>Installing OSX from an External Drive</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/switch_mac_os_case_sensitive/>Switching to Case-Sensitive File System on Mac OS X</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">dns</i>
+<i class="material-icons me-2">shuffle</i>
 Misc</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Fonera</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_le_firmware_par_le_OpenWrt/>Modifying the firmware with OpenWrt</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/activer-le-ssh-sur-sa-fonera-plus/>Enabling SSH on the Fonera+</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_le_firmware_par_le_FrancoFON/>Modify the firmware with FrancoFON</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Google</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Gmail_:_Avoir_plusieurs_adresses_mails_avec_un_seul_compte_gmail/>Gmail: Having Multiple Email Addresses with a Single Gmail Account</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Google_Astuces_de_recherche/>Google Search Tips</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 LaTeX</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Beamer_:_create_beautiful_LaTeX_presentations/>Beamer: Create Beautiful LaTeX Presentations</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Template_pour_cr%C3%A9er_des_Cheat_Sheet_en_LaTeX/>LaTeX Template for Creating Cheat Sheets</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Misc</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/OpenElec_:_Solution_multimedia_pour_Raspberry_Pi/>OpenElec: Multimedia Solution for Raspberry Pi</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/R%C3%A9parer_une_video_d%27une_GoPro_Hero/>Repairing a GoPro Hero Video</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande/>Reboot Your Freebox Server 6 via Command Line</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Signification_des_bips_%C3%A9mis_par_le_Bios/>BIOS Beep Codes and Their Meanings</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Soekris</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Installer_pfSense_sur_Soekris/>Installing pfSense on Soekris</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Upgrader_le_BIOS_de_la_Soekris/>Upgrading the Soekris BIOS</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configuration_et_installation_via_port_s%C3%A9rie_d%27OpenBSD_sur_Soekris/>OpenBSD Configuration and Installation via Serial Port on Soekris</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">dns</i>
+<i class="material-icons me-2">lan</i>
 Network</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Cisco</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/analyser-les-configs-des-equipements-et-des-reseaux/>Analyzing Network Equipment and Network Configurations</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configuration_d%27un_Switch_Catalyst/>Configuring a Catalyst Switch</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Dumper_les_connections_dune_interface/>Capturing connections on an interface</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Installation_from_Scratch_d%27un_Cisco_Pix/>Installation from Scratch of a Cisco Pix</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Resetter_completement_la_configuration_d%27un_Cisco/>Completely Reset a Cisco Configuration</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configuration_de_base_d%27un_Cisco_Pix/>Basic Configuration of a Cisco PIX</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Theory</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Protocole_BGP_et_sa_s%C3%A9curit%C3%A9/>BGP Protocol and its Security</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Les_flux_r%C3%A9seaux/>Network Flows</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Les_Flags_TCP/>TCP Flags</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">host</i>
+<i class="material-icons me-2">cloud</i>
 Servers</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Authentication</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
-FreeRadius</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_FreeRadius/>Setting up a FreeRadius server</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
+FreeRadius</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mise_en_place_d%27un_serveur_FreeRadius/>Setting up a FreeRadius server</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d%27un_serveur_FreeRadius_avec_interface_web_Daloradius/>DaloRADIUS: Setting up a FreeRadius server with DaloRADIUS web interface</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Kerberos</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Authentification_SSO_depuis_Apache_sur_backend_AD_via_Kerberos/>Apache SSO Authentication on AD Backend via Kerberos</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Kerberos_:_Mise_en_place_d%27un_serveur_Kerberos/>Kerberos: Setting up a Kerberos Server</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Authentification_de_comptes_Solaris_sur_un_Active_Directory/>Authenticating Solaris Accounts on Active Directory</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 OpenLDAP</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d%27un_Annuaire_LDAP/>LDAP: Installation and Configuration of an LDAP Directory</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mise_en_place_d%27une_solution_de_Syncronisation_entre_ActiveDirectory_et_OpenLDAP/>Setting up a Synchronization Solution between ActiveDirectory and OpenLDAP</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/PhpLDAPadmin:_Mise_en_place_d%27une_solution_de_management_graphique_pour_OpenLDAP/>PhpLDAPadmin: Setting Up a Graphical Management Solution for OpenLDAP</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/LDAP_:_Installation_et_configuration_d%27un_Annuaire_LDAP_%28secondaire%29/>LDAP: Installation and Configuration of a Secondary LDAP Directory</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 PAM</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Pam_time:_Mettre_des_restrictions_sur_les_logins/>PAM Time: Setting Login Restrictions</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Pam_cracklib_:_Choisir_la_complexit%C3%A9_des_mots_de_passe/>PAM Cracklib: Configure Password Complexity</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/PAM-script_:_Executer_des_scripts_%C3%A0_l%27authentification,_l%27ouverture_et_la_fermeture_de_session/>PAM-script: Execute Scripts at Authentication, Session Open and Close</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/PAM_:_Installer_pam_mkhomedir_pour_la_cr%C3%A9ation_automatique_des_home_utilisateurs/>PAM: Install pam_mkhomedir for Automatic User Home Directory Creation</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/PAM_mount:_Monter_des_partages_r%C3%A9seaux_au_login/>PAM mount: Automatically Mount Network Shares at Login</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/PAM_%28Pluggable_Authentification_Module%29_:_Choisir_ses_m%C3%A9thodes_d%27authentifications/>PAM (Pluggable Authentication Module): Choosing Authentication Methods</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/PAM_Mount_et_SshFS_avec_authentification_par_mot_de_passe/>PAM Mount and SshFS with Password Authentication</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
-Radius</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Daloradius_:_Mise_en_place_d%27un_serveur_FreeRadius_avec_interface_web_Daloradius/>DaloRADIUS: Setting up a FreeRadius server with DaloRADIUS web interface</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 SSO</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/LemonLDAP::NG_:_Plus_qu%27un_simple_SSO/>LemonLDAP::NG: More than just SSO</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/OpenID_:_Centralisation_d%27authentification/>OpenID: Authentication Centralization</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/CAS_:_Mise_en_place_d%27un_serveur_SSO/>CAS: Setting Up an SSO Server</a></li></ul></div></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Backups</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Rsync_:_Sauvegarde_incr%C3%A9mentale/>Rsync: Incremental Backup</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/BackupPC_:_Un_outil_complet_de_backup/>BackupPC: A Complete Backup Tool</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Unison_:_Sauvegarde_comme_rsync_mais_bidirectionnelle/>Unison: Backup like rsync but bidirectional</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/amazone-s3-sauvegarde-propres-et-automatisees-avec-amazon-s3/>Amazon S3: Clean and Automated Backups with Amazon S3</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Bacula_:_Mise_en_place_d%27un_serveur_de_Backup_Performant/>Bacula: Setting Up a High-Performance Backup Server</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/ZRM_:_Sauvegardes_automatis%C3%A9es_et_restaurations_faciles/>ZRM: Automated Backups and Easy Restorations</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Sauvegardes_et_Restaurations/>Backups and Restorations with tapes</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Rdiff-backup_:_Sauvegardes_distantes_incr%C3%A9mentielles/>Rdiff-backup: Incremental Remote Backups</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Cloud computing</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/DevStack_:_d%C3%A9velopper_ou_tester_rapidement_OpenStack/>DevStack: Quickly Develop or Test OpenStack</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/OwnCloud_:_cr%C3%A9er_son_cloud_personnel/>OwnCloud: Create Your Personal Cloud</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
@@ -149,7 +148,7 @@ Webapps</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown neste
 MediaWiki</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/MediaWiki:Installation_et_configuration/>MediaWiki: Installation and Configuration</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Les_extentions_pratiques_de_Mediawiki/>Practical Extensions for MediaWiki</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Utilisation_basique_de_Mediawiki/>Basic Usage of MediaWiki</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 RSS feeder</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Tiny_Tiny_RSS_:_Une_alternative_%C3%A0_Google_Reader/>Tiny Tiny RSS: An Alternative to Google Reader</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Selfoss_:_An_elegant_RSS_reader/>Selfoss: An Elegant RSS Reader</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Wordpress</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Utilisation_avanc%C3%A9e_de_Wordpress/>Advanced WordPress Usage</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Wordpress_:_les_extentions_pratiques/>WordPress: Useful Extensions</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Mise_en_place_de_Memcached_sur_Wordpress/>Setting up Memcached on WordPress</a></li></ul></div></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Piwik_:_Des_statistiques_pour_votre_site_web/>Piwik: Statistics for Your Website</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Pootle_:_simple_translation_tool/>Pootle: Simple Translation Tool</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Bugzilla_:_mise_en_place_d%27un_outil_de_ticketing/>Bugzilla: Setting Up a Ticketing Tool</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Jenkins_:_Mise_en_place_d%27un_outil_d%27int%C3%A9gration_continue/>Jenkins: Setting up a continuous integration tool</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Limesurvey_:_Mise_en_place_d%27une_solution_de_Sondages/>Limesurvey: Setting up a Survey Solution</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/OTRS_:_mise_en_place_d%27un_outil_de_ticketing/>OTRS: Setting up a ticketing tool</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/MyTinyTodo_:_Un_outil_simple_de_gestion_de_t%C3%A2ches/>MyTinyTodo: A Simple Task Management Tool</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/ajaxterm-utiliser-un-terminal-en-web/>Ajaxterm: Using a Terminal via Web</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Awstats_:_Mise_en_place_d%27Awstats,_interpr%C3%A9teur_de_logs_web/>Awstats: Setting up Awstats, a Web Logs Interpreter</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">host</i>
+<i class="material-icons me-2">sunny_snowing</i>
 Solaris</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Applications</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Services</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/SMF_:_Service_Management_Facility/>SMF: Service Management Facility</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Convertir_le_script_RC_de_MySQL_vers_un_SMF/>Convert MySQL RC Script to SMF</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
@@ -159,7 +158,7 @@ Hardware</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link
 Misc</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Trouver_le_process_qui_tourne_sur_un_certain_port_sur_Solaris/>Finding a Process Running on a Specific Port on Solaris</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Manager_les_processes_Solaris/>Managing Solaris Processes</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Changer_les_locales_de_Solaris/>Changing Solaris Locales</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Monitorer_les_acc%C3%A8s_au_superuser/>Monitoring Superuser Access</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Changer_le_hostname_de_sa_solaris/>Changing Hostname on Solaris</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Enlever_les_limitation_utilisateurs/>Removing User Limitations</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Connaitre_son_architecture/>How to Determine Your System Architecture</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Quelques_infos_sur_la_b%C3%A9cane/>Some information about the machine</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Obtenir_l%27heure_au_format_Unix_sous_Solaris/>Get Unix Format Time on Solaris</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Monitorer_ses_Solaris_Users/>Monitor Your Solaris Users</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/OpenBoot_PROM,_gestion_du_%22BIOS%22/>OpenBoot PROM, BIOS Management</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Patcher_sa_Solaris/>Patching Solaris</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Network</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configurer_le_r%C3%A9seau_sur_Solaris/>Configure Network on Solaris</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Configuration_de_l%27IPMP/>IPMP Configuration</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_les_param%C3%A8tres_des_cartes_r%C3%A9seaux/>Modifying Network Card Parameters</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/make-unsupported-network-cards-work-with-solaris/>Make Unsupported Network Cards Work with Solaris</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Packages</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Pkg-get_:_Mise_en_place_d%27un_syst%C3%A8me_de_repository_pour_Solaris/>Pkg-get: Setting up a Repository System for Solaris</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Automatiser_l%27installation_de_beaucoup_de_packages/>Automating Installation of Many Packages</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Gestion_des_packages_Solaris/>Solaris Package Management</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/G%C3%A9rer_ses_updates_avec_Update_Manager_et_smpatch/>Managing Updates with Update Manager and smpatch</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Cr%C3%A9er_un_package_Solaris/>Creating a Solaris Package</a></li></ul></div></li></ul></div></li><li class=sidebar-dropdown><button class=btn>
-<i class="material-icons me-2">article</i>
+<i class="material-icons me-2">window</i>
 Windows</button><div class=sidebar-submenu><ul><li class="sidebar-dropdown nested"><button class=btn>
 Applications</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/WinDbg:_analyze_crash_dump/>WinDbg: Analyze Crash Dump</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Installer_Rsync_sur_Windows/>Installing Rsync on Windows</a></li></ul></div></li><li class="sidebar-dropdown nested"><button class=btn>
 Misc</button><div class=sidebar-submenu><ul><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/>Modifying NTP Synchronization Servers on Windows</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/D%C3%A9ployement_de_la_gestion_d%27%C3%A9nergie_sur_un_serveur_pour_ses_clients/>Deploying Power Management on a Server for its Clients</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/OpenSSH:_Using_Putty_and_an_HTTP_proxy_to_ssh_anywhere_through_firewalls/>OpenSSH: Using Putty and an HTTP proxy to ssh anywhere through firewalls</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Windows_XP_:_Probl%C3%A8mes_lors_d%27un_d%C3%A9passement_m%C3%A9moire/>Windows XP: Memory Overflow Problems</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/WSUS_:_faire_gagner_de_l%27espace_disque_%28purge_des_mises_%C3%A0_jour_inutilis%C3%A9es%29/>WSUS: Save Disk Space (Purge Unused Updates)</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Windows_:_Arr%C3%A9ter_un_arret_du_syst%C3%A8me_en_cours/>Windows: Stop a system shutdown in progress</a></li><li><a class=sidebar-nested-link href=https://wiki.deimos.fr/Windows_:_Rafra%C3%AEchir_les_politiques_de_s%C3%A9curit%C3%A9_%28GPO%29/>Windows: Refreshing Security Policies (GPO)</a></li></ul></div></li></ul></div></li></ul></div><ul class="sidebar-footer list-unstyled mb-0"></ul></nav><main class="page-content bg-transparent"><div id=top-header class="top-header d-print-none"><div class="header-bar d-flex justify-content-between"><div class="d-flex align-items-center"><a href=/ class="logo-icon me-3" aria-label=HomePage alt=HomePage><div class=small><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div><div class=big><svg id="Layer_1" viewBox="0 0 250 250"><path d="m143 39.5c-18 0-18 18-18 18s0-18-18-18H22c-2.76.0-5 2.24-5 5v143c0 2.76 2.24 5 5 5h76c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h76c2.76.0 5-2.24 5-5V44.5c0-2.76-2.24-5-5-5h-85zM206 163c0 1.38-1.12 2.5-2.5 2.5H143c-18 0-18 18-18 18s0-18-18-18H46.5c-1.38.0-2.5-1.12-2.5-2.5V69c0-1.38 1.12-2.5 2.5-2.5H98c7.2.0 8.64 11.52 8.93 16.13.07 1.05.95 1.87 2 1.87h32.14c1.06.0 1.94-.82 2-1.87.29-4.61 1.73-16.13 8.93-16.13h51.5c1.38.0 2.5 1.12 2.5 2.5v94z" style="fill:#06f"/></svg></div></a><button id=close-sidebar class="btn btn-icon btn-soft">
@@ -6247,13 +6246,6 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
     
     
     
-    
-    
-    
-    
-    
-    
-    
 
 
     
@@ -6265,8 +6257,8 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
                 id:  0 ,
                 href: "\/home\/",
                 title: "cd ~",
-                description: " My Tech Notebook Because human memory can not contain Gb info This site exists because it’s difficult to remember everything. I write things down here to help me remember important concepts while storing the details for reference. It serves as my personal knowledge repository, making it easier to revisit past learning rather than repeatedly researching the same topics. It’s also a pleasure to share knowledge with everyone. And anyone is welcome to submit a PR if they find an error. Navigation link article BSD\n",
-                content: " My Tech Notebook Because human memory can not contain Gb info This site exists because it’s difficult to remember everything. I write things down here to help me remember important concepts while storing the details for reference. It serves as my personal knowledge repository, making it easier to revisit past learning rather than repeatedly researching the same topics. It’s also a pleasure to share knowledge with everyone. And anyone is welcome to submit a PR if they find an error. Navigation link article BSD\nFilesystems • Kernel • Misc • Network • Packages • Security dns Coding\nC • HTML • Java • SQL • Perl • PHP • Python • Shell script • SQL dns Ethical Hacking\nDatabase • Misc • Network • Operating Systems • Theory article Linux\nApplications • Coding \u0026 Debug • Desktop • Filesystems \u0026 Storage • Firewalls • Kernel • Misc • Multimedia • Network • Packages • Security dns Mac OS\nApplications • Coding • Hardware • Misc dns Misc\nFonera • Google • LaTeX • Misc • Soekris dns Network\nCisco • Theory host Servers\nAuthentication • Backups • Cloud computing • Configuration Managers • Containers • Databases • DNS • eMails • File sharing • High Availability • Misc • Monitoring • Network • Security • Versionning • Virtualization • Web • Webapps host Solaris\nApplications • Filesystems • Hardware • Misc • Network • Packages article Windows\nApplications • Misc Contact link info About me: I’m Pierre Mavro (Deimosfr), I’m CTO \u0026 Co-founder at Qovery, passionate about technologies, mostly on distributed, reliable, high-performance systems and databases. Also Cloud, Containerized infrastructures, and SQL/NoSQL databases requesting scaling and high performances. I’m also MariaDB High-Performance book author.\n"
+                description: " My Tech Notebook Because human memory can not contain Gb info This site exists because it’s difficult to remember everything. I write things down here to help me remember important concepts while storing the details for reference. It serves as my personal knowledge repository, making it easier to revisit past learning rather than repeatedly researching the same topics. It’s also a pleasure to share knowledge with everyone. And anyone is welcome to submit a PR if they find an error. Navigation link BSD\n",
+                content: " My Tech Notebook Because human memory can not contain Gb info This site exists because it’s difficult to remember everything. I write things down here to help me remember important concepts while storing the details for reference. It serves as my personal knowledge repository, making it easier to revisit past learning rather than repeatedly researching the same topics. It’s also a pleasure to share knowledge with everyone. And anyone is welcome to submit a PR if they find an error. Navigation link BSD\nFilesystems • Kernel • Misc • Network • Packages • Security Coding\nC • HTML • Java • Misc • Perl • PHP • Python • Shell script • SQL Ethical Hacking\nDatabase • Misc • Network • Operating Systems • Theory Linux\nApplications • Coding \u0026 Debug • Desktop • Filesystems \u0026 Storage • Kernel • Misc • Multimedia • Network • Packages • Security Mac OS\nApplications • Coding • Hardware • Misc shuffle Misc\nFonera • Google • LaTeX • Misc • Soekris lan Network\nCisco • Theory cloud Servers\nAuthentication • Backups • Cloud computing • Configuration Managers • Containers • Databases • DNS • eMails • File sharing • High Availability • Misc • Monitoring • Network • Security • Versionning • Virtualization • Web • Webapps sunny_snowing Solaris\nApplications • Filesystems • Hardware • Misc • Network • Packages window Windows\nApplications • Misc Contact link info About me: I’m Pierre Mavro (Deimosfr), I’m CTO \u0026 Co-founder at Qovery, passionate about technologies, mostly on distributed, reliable, high-performance systems and databases. Also Cloud, Containerized infrastructures, and SQL/NoSQL databases requesting scaling and high performances. I’m also MariaDB High-Performance book author.\n"
             }
         );
     index.add(
@@ -6328,7 +6320,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
                 id:  7 ,
                 href: "\/docs\/servers\/authentication\/",
                 title: "Authentication",
-                description: "[FreeRadius](./authentication/freeradius) • [Kerberos](./authentication/kerberos) • [OpenLDAP](./authentication/openldap) • [PAM](./authentication/pam) • [Radius](./authentication/radius) • [SSO](./authentication/sso)",
+                description: "[FreeRadius](./authentication/freeradius) • [Kerberos](./authentication/kerberos) • [OpenLDAP](./authentication/openldap) • [PAM](./authentication/pam) • [SSO](./authentication/sso)",
                 content: ""
             }
         );
@@ -6362,6 +6354,15 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
     index.add(
             {
                 id:  11 ,
+                href: "\/docs\/coding\/c\/",
+                title: "C",
+                description: "Documentation for C",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  12 ,
                 href: "\/docs\/servers\/web\/caches\/",
                 title: "Caches",
                 description: "",
@@ -6370,7 +6371,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  12 ,
+                id:  13 ,
                 href: "\/docs\/servers\/monitoring\/cacti\/",
                 title: "Cacti",
                 description: "",
@@ -6379,7 +6380,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  13 ,
+                id:  14 ,
                 href: "\/docs\/network\/cisco\/",
                 title: "Cisco",
                 description: "",
@@ -6388,7 +6389,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  14 ,
+                id:  15 ,
                 href: "\/docs\/servers\/cloudcomputing\/",
                 title: "Cloud computing",
                 description: "",
@@ -6397,7 +6398,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  15 ,
+                id:  16 ,
                 href: "\/docs\/coding\/",
                 title: "Coding",
                 description: "[C](./coding/c) • [HTML](./coding/html) • [Java](./coding/java) • [Misc](./coding/misc) • [PHP](./coding/php) • [Perl](./coding/perl) • [Python](./coding/python) • [SQL](./coding/sql) • [ShellScript](./coding/shellscript)",
@@ -6406,7 +6407,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  16 ,
+                id:  17 ,
                 href: "\/docs\/macos\/coding\/",
                 title: "Coding",
                 description: "",
@@ -6415,7 +6416,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  17 ,
+                id:  18 ,
                 href: "\/docs\/linux\/codinganddebug\/",
                 title: "Coding \u0026 Debug",
                 description: "",
@@ -6424,7 +6425,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  18 ,
+                id:  19 ,
                 href: "\/docs\/servers\/monitoring\/collectd\/",
                 title: "Collectd",
                 description: "",
@@ -6433,7 +6434,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  19 ,
+                id:  20 ,
                 href: "\/docs\/servers\/configurationmanagers\/",
                 title: "Configuration Managers",
                 description: "[Puppet](./configurationmanagers/puppet)",
@@ -6442,7 +6443,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  20 ,
+                id:  21 ,
                 href: "\/docs\/servers\/containers\/",
                 title: "Containers",
                 description: "[OpenVZ](./containers/openvz) • [SolarisZones](./containers/solariszones)",
@@ -6451,7 +6452,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  21 ,
+                id:  22 ,
                 href: "\/docs\/servers\/versionning\/cvs\/",
                 title: "CVS",
                 description: "",
@@ -6460,7 +6461,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  22 ,
+                id:  23 ,
                 href: "\/docs\/ethicalhacking\/database\/",
                 title: "Database",
                 description: "",
@@ -6469,7 +6470,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  23 ,
+                id:  24 ,
                 href: "\/docs\/servers\/databases\/",
                 title: "Databases",
                 description: "[MySQL-MariaDB](./databases/mysql-mariadb) • [NoSQL](./databases/nosql) • [PostgreSQL](./databases/postgresql)",
@@ -6478,7 +6479,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  24 ,
+                id:  25 ,
                 href: "\/docs\/linux\/misc\/debian\/",
                 title: "Debian",
                 description: "",
@@ -6487,7 +6488,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  25 ,
+                id:  26 ,
                 href: "\/docs\/linux\/packages\/debian\/",
                 title: "Debian",
                 description: "",
@@ -6496,7 +6497,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  26 ,
+                id:  27 ,
                 href: "\/docs\/linux\/desktop\/",
                 title: "Desktop",
                 description: "[VNC](./desktop/vnc)",
@@ -6505,7 +6506,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  27 ,
+                id:  28 ,
                 href: "\/docs\/servers\/network\/dhcp\/",
                 title: "DHCP",
                 description: "",
@@ -6514,7 +6515,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  28 ,
+                id:  29 ,
                 href: "\/docs\/servers\/dns\/",
                 title: "DNS",
                 description: "[Bind](./dns/bind) • [PowerDNS](./dns/powerdns)",
@@ -6523,7 +6524,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  29 ,
+                id:  30 ,
                 href: "\/docs\/servers\/emails\/",
                 title: "eMails",
                 description: "[Exchange](./emails/exchange) • [Postfix](./emails/postfix) • [SPF](./emails/spf) • [Spamassassin](./emails/spamassassin)",
@@ -6532,7 +6533,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  30 ,
+                id:  31 ,
                 href: "\/docs\/ethicalhacking\/",
                 title: "Ethical Hacking",
                 description: "[Database](./ethicalhacking/database) • [Misc](./ethicalhacking/misc) • [Network](./ethicalhacking/network) • [OperatingSystems](./ethicalhacking/operatingsystems) • [Theory](./ethicalhacking/theory)",
@@ -6541,7 +6542,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  31 ,
+                id:  32 ,
                 href: "\/docs\/servers\/emails\/exchange\/",
                 title: "Exchange",
                 description: "",
@@ -6550,7 +6551,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  32 ,
+                id:  33 ,
                 href: "\/docs\/servers\/filesharing\/",
                 title: "File sharing",
                 description: "[SFTPandFTP](./filesharing/sftpandftp) • [Samba](./filesharing/samba) • [ISCSI](./filesharing/iscsi)",
@@ -6559,7 +6560,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  33 ,
+                id:  34 ,
                 href: "\/docs\/bsd\/filesystems\/",
                 title: "Filesystems",
                 description: "",
@@ -6568,7 +6569,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  34 ,
+                id:  35 ,
                 href: "\/docs\/solaris\/filesystems\/",
                 title: "Filesystems",
                 description: "",
@@ -6577,7 +6578,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  35 ,
+                id:  36 ,
                 href: "\/docs\/linux\/filesystemsandstorage\/",
                 title: "Filesystems \u0026 Storage",
                 description: "[LVM](./filesystemsandstorage/lvm) • [Raid](./filesystemsandstorage/raid) • [StorageEncryption](./filesystemsandstorage/storageencryption)",
@@ -6586,8 +6587,8 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  36 ,
-                href: "\/docs\/linux\/firewalls\/",
+                id:  37 ,
+                href: "\/docs\/bsd\/network\/firewalls\/",
                 title: "Firewalls",
                 description: "",
                 content: ""
@@ -6595,7 +6596,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  37 ,
+                id:  38 ,
                 href: "\/docs\/misc\/fonera\/",
                 title: "Fonera",
                 description: "",
@@ -6604,7 +6605,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  38 ,
+                id:  39 ,
                 href: "\/docs\/bsd\/misc\/freebsd\/",
                 title: "FreeBSD",
                 description: "",
@@ -6613,7 +6614,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  39 ,
+                id:  40 ,
                 href: "\/docs\/servers\/authentication\/freeradius\/",
                 title: "FreeRadius",
                 description: "",
@@ -6622,7 +6623,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  40 ,
+                id:  41 ,
                 href: "\/docs\/servers\/versionning\/git\/",
                 title: "Git",
                 description: "",
@@ -6631,7 +6632,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  41 ,
+                id:  42 ,
                 href: "\/docs\/misc\/google\/",
                 title: "Google",
                 description: "",
@@ -6640,7 +6641,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  42 ,
+                id:  43 ,
                 href: "\/docs\/servers\/highavailability\/ha-proxy\/",
                 title: "HA-Proxy",
                 description: "",
@@ -6649,7 +6650,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  43 ,
+                id:  44 ,
                 href: "\/docs\/macos\/hardware\/",
                 title: "Hardware",
                 description: "",
@@ -6658,7 +6659,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  44 ,
+                id:  45 ,
                 href: "\/docs\/servers\/misc\/hardware\/",
                 title: "Hardware",
                 description: "",
@@ -6667,7 +6668,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  45 ,
+                id:  46 ,
                 href: "\/docs\/solaris\/hardware\/",
                 title: "Hardware",
                 description: "",
@@ -6676,7 +6677,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  46 ,
+                id:  47 ,
                 href: "\/docs\/servers\/highavailability\/heartbeat\/",
                 title: "Heartbeat",
                 description: "",
@@ -6685,7 +6686,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  47 ,
+                id:  48 ,
                 href: "\/docs\/servers\/highavailability\/",
                 title: "High Availability",
                 description: "[HA-Proxy](./highavailability/ha-proxy) • [Heartbeat](./highavailability/heartbeat) • [KeepAlived](./highavailability/keepalived) • [RedHatClusterSuite](./highavailability/redhatclustersuite) • [Storage](./highavailability/storage) • [SunCluster](./highavailability/suncluster)",
@@ -6694,7 +6695,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  48 ,
+                id:  49 ,
                 href: "\/docs\/coding\/html\/",
                 title: "HTML",
                 description: "",
@@ -6703,7 +6704,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  49 ,
+                id:  50 ,
                 href: "\/docs\/servers\/misc\/instantmessaging\/",
                 title: "Instant mesaging",
                 description: "",
@@ -6712,7 +6713,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  50 ,
+                id:  51 ,
                 href: "\/docs\/servers\/security\/iptables\/",
                 title: "Iptables",
                 description: "",
@@ -6721,7 +6722,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  51 ,
+                id:  52 ,
                 href: "\/docs\/servers\/filesharing\/iscsi\/",
                 title: "iSCSI",
                 description: "",
@@ -6730,7 +6731,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  52 ,
+                id:  53 ,
                 href: "\/docs\/coding\/java\/",
                 title: "Java",
                 description: "",
@@ -6739,7 +6740,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  53 ,
+                id:  54 ,
                 href: "\/docs\/servers\/highavailability\/keepalived\/",
                 title: "KeepAlived",
                 description: "",
@@ -6748,7 +6749,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  54 ,
+                id:  55 ,
                 href: "\/docs\/servers\/authentication\/kerberos\/",
                 title: "Kerberos",
                 description: "",
@@ -6757,7 +6758,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  55 ,
+                id:  56 ,
                 href: "\/docs\/bsd\/kernel\/",
                 title: "Kernel",
                 description: "",
@@ -6766,7 +6767,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  56 ,
+                id:  57 ,
                 href: "\/docs\/linux\/kernel\/",
                 title: "Kernel",
                 description: "",
@@ -6775,7 +6776,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  57 ,
+                id:  58 ,
                 href: "\/docs\/servers\/virtualization\/kvmandqemu\/",
                 title: "KVM \u0026 Qemu",
                 description: "",
@@ -6784,7 +6785,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  58 ,
+                id:  59 ,
                 href: "\/docs\/misc\/latex\/",
                 title: "LaTeX",
                 description: "",
@@ -6793,7 +6794,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  59 ,
+                id:  60 ,
                 href: "\/docs\/servers\/web\/lighttpd\/",
                 title: "Lighttpd",
                 description: "",
@@ -6802,7 +6803,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  60 ,
+                id:  61 ,
                 href: "\/docs\/ethicalhacking\/operatingsystems\/linux\/",
                 title: "Linux",
                 description: "",
@@ -6811,16 +6812,16 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  61 ,
+                id:  62 ,
                 href: "\/docs\/linux\/",
                 title: "Linux",
-                description: "[Applications](./linux/applications) • [CodingAndDebug](./linux/codinganddebug) • [Desktop](./linux/desktop) • [FilesystemsAndStorage](./linux/filesystemsandstorage) • [Firewalls](./linux/firewalls) • [Kernel](./linux/kernel) • [Misc](./linux/misc) • [Multimedia](./linux/multimedia) • [Network](./linux/network) • [Packages](./linux/packages) • [Security](./linux/security)",
+                description: "[Applications](./linux/applications) • [CodingAndDebug](./linux/codinganddebug) • [Desktop](./linux/desktop) • [FilesystemsAndStorage](./linux/filesystemsandstorage) • [Kernel](./linux/kernel) • [Misc](./linux/misc) • [Multimedia](./linux/multimedia) • [Network](./linux/network) • [Packages](./linux/packages) • [Security](./linux/security)",
                 content: ""
             }
         );
     index.add(
             {
-                id:  62 ,
+                id:  63 ,
                 href: "\/docs\/servers\/monitoring\/logging\/",
                 title: "Logging",
                 description: "",
@@ -6829,7 +6830,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  63 ,
+                id:  64 ,
                 href: "\/docs\/linux\/filesystemsandstorage\/lvm\/",
                 title: "LVM",
                 description: "",
@@ -6838,7 +6839,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  64 ,
+                id:  65 ,
                 href: "\/docs\/macos\/",
                 title: "Mac OS",
                 description: "[Applications](./macos/applications) • [Coding](./macos/coding) • [Hardware](./macos/hardware) • [Misc](./macos/misc)",
@@ -6847,7 +6848,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  65 ,
+                id:  66 ,
                 href: "\/docs\/servers\/webapps\/mediawiki\/",
                 title: "MediaWiki",
                 description: "",
@@ -6856,7 +6857,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  66 ,
+                id:  67 ,
                 href: "\/docs\/bsd\/misc\/",
                 title: "Misc",
                 description: "[FreeBSD](./misc/freebsd) • [OpenBSD](./misc/openbsd)",
@@ -6865,7 +6866,16 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  67 ,
+                id:  68 ,
+                href: "\/docs\/coding\/misc\/",
+                title: "Misc",
+                description: "",
+                content: ""
+            }
+        );
+    index.add(
+            {
+                id:  69 ,
                 href: "\/docs\/ethicalhacking\/misc\/",
                 title: "Misc",
                 description: "",
@@ -6874,7 +6884,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  68 ,
+                id:  70 ,
                 href: "\/docs\/linux\/misc\/",
                 title: "Misc",
                 description: "[Debian](./misc/debian) • [RedHat](./misc/redhat)",
@@ -6883,7 +6893,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  69 ,
+                id:  71 ,
                 href: "\/docs\/macos\/misc\/",
                 title: "Misc",
                 description: "",
@@ -6892,7 +6902,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  70 ,
+                id:  72 ,
                 href: "\/docs\/misc\/",
                 title: "Misc",
                 description: "[Fonera](./misc/fonera) • [Google](./misc/google) • [LaTeX](./misc/latex) • [Misc](./misc/misc) • [Soekris](./misc/soekris)",
@@ -6901,7 +6911,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  71 ,
+                id:  73 ,
                 href: "\/docs\/misc\/misc\/",
                 title: "Misc",
                 description: "",
@@ -6910,7 +6920,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  72 ,
+                id:  74 ,
                 href: "\/docs\/servers\/misc\/",
                 title: "Misc",
                 description: "[Hardware](./misc/hardware) • [InstantMessaging](./misc/instantmessaging) • [NTP](./misc/ntp) • [RemoteInstall](./misc/remoteinstall)",
@@ -6919,7 +6929,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  73 ,
+                id:  75 ,
                 href: "\/docs\/solaris\/misc\/",
                 title: "Misc",
                 description: "",
@@ -6928,7 +6938,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  74 ,
+                id:  76 ,
                 href: "\/docs\/windows\/misc\/",
                 title: "Misc",
                 description: "",
@@ -6937,7 +6947,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  75 ,
+                id:  77 ,
                 href: "\/docs\/servers\/monitoring\/",
                 title: "Monitoring",
                 description: "[Cacti](./monitoring/cacti) • [Collectd](./monitoring/collectd) • [Logging](./monitoring/logging) • [Munin](./monitoring/munin) • [Nagios](./monitoring/nagios)",
@@ -6946,7 +6956,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  76 ,
+                id:  78 ,
                 href: "\/docs\/linux\/multimedia\/",
                 title: "Multimedia",
                 description: "",
@@ -6955,7 +6965,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  77 ,
+                id:  79 ,
                 href: "\/docs\/servers\/monitoring\/munin\/",
                 title: "Munin",
                 description: "",
@@ -6964,7 +6974,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  78 ,
+                id:  80 ,
                 href: "\/docs\/servers\/databases\/mysql-mariadb\/",
                 title: "MySQL/MariaDB",
                 description: "",
@@ -6973,7 +6983,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  79 ,
+                id:  81 ,
                 href: "\/docs\/servers\/monitoring\/nagios\/",
                 title: "Nagios",
                 description: "",
@@ -6982,7 +6992,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  80 ,
+                id:  82 ,
                 href: "\/docs\/linux\/network\/netcat\/",
                 title: "Netcat",
                 description: "",
@@ -6991,16 +7001,16 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  81 ,
+                id:  83 ,
                 href: "\/docs\/bsd\/network\/",
                 title: "Network",
-                description: "",
+                description: "[Firewalls](./network/firewalls)",
                 content: ""
             }
         );
     index.add(
             {
-                id:  82 ,
+                id:  84 ,
                 href: "\/docs\/ethicalhacking\/network\/",
                 title: "Network",
                 description: "",
@@ -7009,7 +7019,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  83 ,
+                id:  85 ,
                 href: "\/docs\/linux\/network\/",
                 title: "Network",
                 description: "[Netcat](./network/netcat) • [OpenSSH](./network/openssh)",
@@ -7018,7 +7028,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  84 ,
+                id:  86 ,
                 href: "\/docs\/network\/",
                 title: "Network",
                 description: "[Cisco](./network/cisco) • [Theory](./network/theory)",
@@ -7027,7 +7037,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  85 ,
+                id:  87 ,
                 href: "\/docs\/servers\/network\/",
                 title: "Network",
                 description: "[DHCP](./network/dhcp) • [VPN](./network/vpn)",
@@ -7036,7 +7046,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  86 ,
+                id:  88 ,
                 href: "\/docs\/solaris\/network\/",
                 title: "Network",
                 description: "",
@@ -7045,7 +7055,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  87 ,
+                id:  89 ,
                 href: "\/docs\/servers\/web\/nginx\/",
                 title: "Nginx",
                 description: "",
@@ -7054,7 +7064,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  88 ,
+                id:  90 ,
                 href: "\/docs\/servers\/databases\/nosql\/",
                 title: "NoSQL",
                 description: "",
@@ -7063,7 +7073,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  89 ,
+                id:  91 ,
                 href: "\/docs\/servers\/misc\/ntp\/",
                 title: "NTP",
                 description: "[Hardware](./misc/hardware)",
@@ -7072,7 +7082,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  90 ,
+                id:  92 ,
                 href: "\/docs\/bsd\/misc\/openbsd\/",
                 title: "OpenBSD",
                 description: "",
@@ -7081,7 +7091,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  91 ,
+                id:  93 ,
                 href: "\/docs\/servers\/authentication\/openldap\/",
                 title: "OpenLDAP",
                 description: "",
@@ -7090,7 +7100,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  92 ,
+                id:  94 ,
                 href: "\/docs\/linux\/applications\/openssh\/",
                 title: "OpenSSH",
                 description: "",
@@ -7099,7 +7109,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  93 ,
+                id:  95 ,
                 href: "\/docs\/linux\/network\/openssh\/",
                 title: "OpenSSH",
                 description: "",
@@ -7108,7 +7118,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  94 ,
+                id:  96 ,
                 href: "\/docs\/servers\/containers\/openvz\/",
                 title: "OpenVZ",
                 description: "",
@@ -7117,7 +7127,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  95 ,
+                id:  97 ,
                 href: "\/docs\/ethicalhacking\/operatingsystems\/",
                 title: "Operating Systems",
                 description: "[Linux](./operatingsystems/linux) • [Windows](./operatingsystems/windows)",
@@ -7126,7 +7136,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  96 ,
+                id:  98 ,
                 href: "\/docs\/bsd\/packages\/",
                 title: "Packages",
                 description: "",
@@ -7135,7 +7145,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  97 ,
+                id:  99 ,
                 href: "\/docs\/linux\/packages\/",
                 title: "Packages",
                 description: "[Debian](./packages/debian) • [RedHat](./packages/redhat)",
@@ -7144,7 +7154,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  98 ,
+                id:  100 ,
                 href: "\/docs\/solaris\/packages\/",
                 title: "Packages",
                 description: "",
@@ -7153,7 +7163,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  99 ,
+                id:  101 ,
                 href: "\/docs\/servers\/security\/packetfilter\/",
                 title: "Packet Filter",
                 description: "",
@@ -7162,7 +7172,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  100 ,
+                id:  102 ,
                 href: "\/docs\/servers\/authentication\/pam\/",
                 title: "PAM",
                 description: "",
@@ -7171,7 +7181,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  101 ,
+                id:  103 ,
                 href: "\/docs\/coding\/perl\/",
                 title: "Perl",
                 description: "",
@@ -7180,7 +7190,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  102 ,
+                id:  104 ,
                 href: "\/docs\/coding\/php\/",
                 title: "PHP",
                 description: "",
@@ -7189,7 +7199,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  103 ,
+                id:  105 ,
                 href: "\/docs\/servers\/emails\/postfix\/",
                 title: "Postfix",
                 description: "",
@@ -7198,7 +7208,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  104 ,
+                id:  106 ,
                 href: "\/docs\/servers\/databases\/postgresql\/",
                 title: "PostgreSQL",
                 description: "",
@@ -7207,7 +7217,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  105 ,
+                id:  107 ,
                 href: "\/docs\/servers\/dns\/powerdns\/",
                 title: "PowerDNS",
                 description: "",
@@ -7216,7 +7226,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  106 ,
+                id:  108 ,
                 href: "\/docs\/servers\/web\/proxy\/",
                 title: "Proxy",
                 description: "",
@@ -7225,7 +7235,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  107 ,
+                id:  109 ,
                 href: "\/docs\/servers\/configurationmanagers\/puppet\/",
                 title: "Puppet",
                 description: "",
@@ -7234,7 +7244,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  108 ,
+                id:  110 ,
                 href: "\/docs\/coding\/python\/",
                 title: "Python",
                 description: "",
@@ -7243,16 +7253,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  109 ,
-                href: "\/docs\/servers\/authentication\/radius\/",
-                title: "Radius",
-                description: "",
-                content: ""
-            }
-        );
-    index.add(
-            {
-                id:  110 ,
+                id:  111 ,
                 href: "\/docs\/linux\/filesystemsandstorage\/raid\/",
                 title: "Raid",
                 description: "",
@@ -7261,7 +7262,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  111 ,
+                id:  112 ,
                 href: "\/docs\/servers\/highavailability\/redhatclustersuite\/",
                 title: "Red Hat Cluster Suite",
                 description: "",
@@ -7270,7 +7271,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  112 ,
+                id:  113 ,
                 href: "\/docs\/linux\/misc\/redhat\/",
                 title: "RedHat",
                 description: "",
@@ -7279,7 +7280,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  113 ,
+                id:  114 ,
                 href: "\/docs\/linux\/packages\/redhat\/",
                 title: "RedHat",
                 description: "",
@@ -7288,7 +7289,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  114 ,
+                id:  115 ,
                 href: "\/docs\/servers\/misc\/remoteinstall\/",
                 title: "Remote install",
                 description: "",
@@ -7297,7 +7298,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  115 ,
+                id:  116 ,
                 href: "\/docs\/servers\/webapps\/rssfeeder\/",
                 title: "RSS feeder",
                 description: "",
@@ -7306,7 +7307,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  116 ,
+                id:  117 ,
                 href: "\/docs\/servers\/filesharing\/samba\/",
                 title: "Samba",
                 description: "",
@@ -7315,7 +7316,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  117 ,
+                id:  118 ,
                 href: "\/docs\/bsd\/security\/",
                 title: "Security",
                 description: "",
@@ -7324,7 +7325,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  118 ,
+                id:  119 ,
                 href: "\/docs\/linux\/security\/",
                 title: "Security",
                 description: "",
@@ -7333,7 +7334,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  119 ,
+                id:  120 ,
                 href: "\/docs\/servers\/security\/",
                 title: "Security",
                 description: "[Iptables](./security/iptables) • [PacketFilter](./security/packetfilter) • [Snort](./security/snort)",
@@ -7342,7 +7343,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  120 ,
+                id:  121 ,
                 href: "\/docs\/servers\/",
                 title: "Servers",
                 description: "[Authentication](./servers/authentication) • [Backups](./servers/backups) • [CloudComputing](./servers/cloudcomputing) • [ConfigurationManagers](./servers/configurationmanagers) • [Containers](./servers/containers) • [DNS](./servers/dns) • [Databases](./servers/databases) • [FileSharing](./servers/filesharing) • [HighAvailability](./servers/highavailability) • [Misc](./servers/misc) • [Monitoring](./servers/monitoring) • [Network](./servers/network) • [Security](./servers/security) • [Versionning](./servers/versionning) • [Virtualization](./servers/virtualization) • [Web](./servers/web) • [Webapps](./servers/webapps) • [EMails](./servers/emails)",
@@ -7351,7 +7352,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  121 ,
+                id:  122 ,
                 href: "\/docs\/solaris\/applications\/services\/",
                 title: "Services",
                 description: "",
@@ -7360,7 +7361,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  122 ,
+                id:  123 ,
                 href: "\/docs\/servers\/filesharing\/sftpandftp\/",
                 title: "SFTP \u0026 FTP",
                 description: "",
@@ -7369,7 +7370,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  123 ,
+                id:  124 ,
                 href: "\/docs\/linux\/applications\/shell\/",
                 title: "Shell",
                 description: "",
@@ -7378,7 +7379,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  124 ,
+                id:  125 ,
                 href: "\/docs\/coding\/shellscript\/",
                 title: "Shell script",
                 description: "",
@@ -7387,7 +7388,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  125 ,
+                id:  126 ,
                 href: "\/docs\/servers\/security\/snort\/",
                 title: "Snort",
                 description: "",
@@ -7396,7 +7397,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  126 ,
+                id:  127 ,
                 href: "\/docs\/misc\/soekris\/",
                 title: "Soekris",
                 description: "",
@@ -7405,7 +7406,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  127 ,
+                id:  128 ,
                 href: "\/docs\/solaris\/",
                 title: "Solaris",
                 description: "[Applications](./solaris/applications) • [Filesystems](./solaris/filesystems) • [Hardware](./solaris/hardware) • [Misc](./solaris/misc) • [Network](./solaris/network) • [Packages](./solaris/packages)",
@@ -7414,7 +7415,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  128 ,
+                id:  129 ,
                 href: "\/docs\/servers\/containers\/solariszones\/",
                 title: "Solaris Zones",
                 description: "",
@@ -7423,7 +7424,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  129 ,
+                id:  130 ,
                 href: "\/docs\/servers\/emails\/spamassassin\/",
                 title: "Spamassassin",
                 description: "",
@@ -7432,18 +7433,9 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
         );
     index.add(
             {
-                id:  130 ,
+                id:  131 ,
                 href: "\/docs\/servers\/emails\/spf\/",
                 title: "SPF",
-                description: "",
-                content: ""
-            }
-        );
-    index.add(
-            {
-                id:  131 ,
-                href: "\/docs\/coding\/misc\/",
-                title: "SQL",
                 description: "",
                 content: ""
             }
@@ -7841,7 +7833,7 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
                 href: "\/Le_syst%C3%A8me_de_Packages_FreeBSD\/",
                 title: "FreeBSD Package System",
                 description: "A guide to understanding and using FreeBSD's package management system including both the new and old methods, portage system, and system updates.",
-                content: "Introduction linkFreeBSD is one of the most widely used BSD distributions for servers as it is very up-to-date and offers a very comprehensive port system (more than 16,000 ports available). Additionally, it integrates advanced functions at the source level.\nThis allows you, for example, to modify parameters to best adapt to your needs, similar to Gentoo.\nPrecompiled Packages linkNew Method linkThe latest method involves using pkgng. To set it up, you need to convert the current database:\npkg2ng Then modify/add this line:\n/etc/make.conf And modify the base repository if you cannot access it (as at the time of writing, a security incident has forced the removal of binary packages from the official site):\npackagesite: http://mirror.exonetric.net/pub/pkgng/${ABI}/latest #packagesite: http://pkgbeta.FreeBSD.org/freebsd:9:x86:32/latest All that remains is to update the repositories:\npkg update And to install software:\npkg install Old Method linkAdding Software linkIf I want to install lsof with FreeBSD packages:\npkg_add -r lsof Finding Installed Software linkpkg_version is a utility that summarizes the versions of all pre-compiled software installed:\npkg_version If you want a description of the software installed on your machine:\npkg_info Symbols Meanings = The installed pre-compiled software version is equivalent to that found in the local ports catalog. \u003c The installed version is older than the one available in the ports catalog. \u003e The installed version is newer than the one found in the local ports catalog. (The local ports catalog is probably outdated) ? The pre-compiled software cannot be found in the ports catalog index. (This can happen when, for example, installed software is removed from the ports catalog or renamed.) * There are multiple versions of this pre-compiled software. Deleting a Package linkTo delete an installed package:\npkg_delete The Portage System linkSearching for a Package linkFor example, if you are looking for lsof:\n# cd /usr/ports # make search name=lsof Port: lsof-4.56.4 Path: /usr/ports/sysutils/lsof Info: Lists information about open files (similar to fstat(1)) Maint: obrien@FreeBSD.org Index: sysutils B-deps: R-deps: You need to use make search key=string.\nUpdating Security Patches linkTo update security patches:\nfreebsd-update fetch freebsd-update install If you want to rollback:\nfreebsd-update rollback You can also be notified when updates are available by adding this line to the crontab:\n@daily root freebsd-update cron Updating Your FreeBSD linkTo upgrade from one version to another, run this command indicating the version you want to upgrade to (here 10.0):\nfreebsd-update -r 10.0-RELEASE upgrade This command will download updates and merge them. Then reboot, apply the updates:\nfreebsd-update install Reboot and run this command again.\n"
+                content: "Introduction linkFreeBSD is one of the most widely used BSD distributions for servers as it is very up-to-date and offers a very comprehensive port system (more than 16,000 ports available). Additionally, it integrates advanced functions at the source level.\nThis allows you, for example, to modify parameters to best adapt to your needs, similar to Gentoo.\nPrecompiled Packages linkNew Method linkThe latest method involves using pkgng. To set it up, you need to convert the current database:\npkg2ng Then modify/add this line:\n/etc/make.conf And modify the base repository if you cannot access it (as at the time of writing, a security incident has forced the removal of binary packages from the official site):\npackagesite: http://mirror.exonetric.net/pub/pkgng/${ABI}/latest #packagesite: http://pkgbeta.FreeBSD.org/freebsd:9:x86:32/latest All that remains is to update the repositories:\npkg update And to install software:\npkg install Old Method linkAdding Software linkIf I want to install lsof with FreeBSD packages:\npkg_add -r lsof Finding Installed Software linkpkg_version is a utility that summarizes the versions of all pre-compiled software installed:\npkg_version If you want a description of the software installed on your machine:\npkg_info Symbols Meanings = The installed pre-compiled software version is equivalent to that found in the local ports catalog. \u003c The installed version is older than the one available in the ports catalog. \u003e The installed version is newer than the one found in the local ports catalog. (The local ports catalog is probably outdated) ? The pre-compiled software cannot be found in the ports catalog index. (This can happen when, for example, installed software is removed from the ports catalog or renamed.) * There are multiple versions of this pre-compiled software. Deleting a Package linkTo delete an installed package:\npkg_delete The Portage System linkSearching for a Package linkFor example, if you are looking for lsof:\n# cd /usr/ports # make search name=lsof Port: lsof-4.56.4 Path: /usr/ports/sysutils/lsof Info: Lists information about open files (similar to fstat(1)) Maint: obrien@FreeBSD.org Index: sysutils B-deps: R-deps: You need to use *make search key=string*.\nUpdating Security Patches linkTo update security patches:\nfreebsd-update fetch freebsd-update install If you want to rollback:\nfreebsd-update rollback You can also be notified when updates are available by adding this line to the crontab:\n@daily root freebsd-update cron Updating Your FreeBSD linkTo upgrade from one version to another, run this command indicating the version you want to upgrade to (here 10.0):\nfreebsd-update -r 10.0-RELEASE upgrade This command will download updates and merge them. Then reboot, apply the updates:\nfreebsd-update install Reboot and run this command again.\n"
             }
         );
     index.add(
@@ -13863,15 +13855,6 @@ Table of Contents</button><nav id=toc-mobile><ul class=dropdown-menu><li><a href
                 title: "AutoFS: Mounting and Unmounting Shares",
                 description: "Learn how to set up AutoFS to automatically mount and unmount various network filesystems including NFS, CIFS, SSH, and FTP.",
                 content: "Introduction linkYou already installed Linux on your networked desktop PC and now you want to work with files stored on some other PCs in your network. This is where autofs comes into play. This tutorial shows how to configure autofs to use CIFS to access Windows or Samba shares from Linux Desktop PCs. It also includes a tailored configuration file.\nIf autofs Version 4.0 or newer is already installed, you should find these files:\n/etc/auto.master /etc/auto.smb on your system. Otherwise start the package manager of your distribution (e.g. YaST on SuSE, synaptic on Debian or Ubuntu, …) and install it. When you are at it, also install the Samba client package (look for smbclient), because we will also need this.\nInstallation linkJust do:\napt-get install autofs Configuration linkNFS linkInstallation linkFor NFS, it’s not very hard, just be sure it works fine when you mount it manually. You also need to install portmap:\napt-get install portmap Configuration linkNow edit for example the auto.master file, and add a nfs file line (/etc/auto.master):\n/mnt /etc/auto.nfs --timeout=600 This means it will be mounted in /mnt and will be automatically unmounted after 10 min. Now edit your new file (/etc/auto.nfs):\n* -fstype=nfs,rw 192.168.0.187:/home With some virtualized systems like OpenVZ, you’ll need to add ’nolock’ option in addition to fstype options (/etc/auto.nfs):\n* -fstype=nfs,rw,nolock 192.168.0.187:/home CIFS linkInstallation linkIf autofs is already installed, it is probably still not configured and not working. Assuming your Linux Distribution contains a Linux 2.6.x kernel I recommend to use the common internet file system (cifs) module to access files on the network. You also need smbfs to be installed:\napt-get install smbfs cifs-utils Configuration linkPlease store the following file as (/etc/auto.master):\n/mnt /etc/auto.cifs on your computer. You need root (or sudo) to have the permissions to do this (/etc/auto.cifs):\n# share -fstype=cifs,rw,noperm,credentials=/etc/auto.cred ://server/share This file must be executable to work (chmod 755)!\nJust create a /etc/auto.cred file where credentials will be added. Then add those 2 lines (/etc/auto.cred):\nusername=le_login password=le_password Change the permissions:\nchmod 755 /etc/auto.cifs chmod a-x /etc/auto.cifs chmod 600 /etc/auto.cred Restart service:\n/etc/init.d/autofs restart That’s all.\nSSH linkInstallation linkFirst we need to install sshfs:\napt-get install sshfs fuse Configuration linkKey exchange linkYou first need to do key exchange from the root user on remote host.\nAutofs configuration linkNow edit the master file and add this line (/etc/auto.master):c/\n/mnt/remote_server /etc/auto.sshfs --timeout=360,--ghost Now add this and adapt it for your needs (/etc/auto.sshfs):\nmyfolder -fstype=fuse,port=22,rw,allow_other :sshfs\\#login@remote_host\\:/the/share myfolder: folder will be accessible in /mnt/remote_server/myfolder login: type your ssh login /the/share: set the remote share Do not forget to create the folder on your client machine.\nNow reload autofs:\n/etc/init.d/autofs reload Now access to /mnt/remote_server/myfolder it will be automatically mounted.\nFTP linkYou’ll need to install this package:\naptitude install curlftpfs Then add this line in /etc/auto.master:\n# /etc/auto.master /mnt/autofs /etc/auto.ftp --timeout=600 Now we need to create this file and add a line like that (replace with your information):\n# /etc/auto.ftp backups_ftp -fstype=fuse,allow_other,user=user:password :curlftpfs\\server Create a mountpoint per home user linkTo create a home mountpoint per connected user, you have to configure (NFS for example) like this:\n# /etc/auto.nfs * -fstype=nfs,rw 192.168.0.187:/home/\u0026 \u0026: corresponds to each user\nVerify linkUse the command:\nls -als /cifs/FILESERVERNAME/SHARENAME or\nmount.cifs //server/share /test -o username=login,password=pass to check if it works. If not, consult the system logfiles (usually /var/log/messages or /var/log/syslog) for messages.\nFAQ linkMy NFS connection is very slow linkI can see this kind of things in the syslogs:\n# /var/log/syslog ... Jun 6 16:26:40 debusertest kernel: portmap: server localhost not responding, timed out Jun 6 16:26:40 debusertest kernel: RPC: failed to contact portmap (errno -5). You just need to install the portmap package :-)\nI encounter NFS delay problem linkIf you have this kind of problem:\nJul 8 15:50:39 deb-devtest2 automount[8415]: mount(nfs): mkdir_path /mnt/share/drive failed: No such file or directory Jul 8 15:50:39 deb-devtest2 automount[8415]: failed to mount /mnt/share/drive Grow your auto.nfs file, option timeo:\n# /etc/auto.nfs drive -fstype=nfs,rw,rsize=8192,wsize=8192,timeo=60,intr server:/700G/share/drive My CIFS doesn’t want to mount linkYou may have a problem while automounting a cifs share getting these errors in the logs:\nDec 27 11:36:07 pmavro-laptop automount[27824]: lookup(program): lookup for backups failed Dec 27 11:36:07 pmavro-laptop automount[27824]: failed to mount /mnt/backups/backups As recommended in this documentation, auto.cifs needs execute rights. But depending on the version of autofs you use, you may need to remove those rights:\nchmod a-x /etc/auto.cifs Then restart autofs daemon.\nWhy autofs volumes are hidden when not mounted? linkIt is possible to show wished volumes that are not mounted, this is easier to know which ones are available. To do it, simply add ‘–ghost’ on a line on auto.master. Example:\n# /etc/auto.master [...] /mnt/mount1 /etc/auto.sshfs --timeout=720,--ghost /mnt/mount2 /etc/auto.cifs --timeout=720,--ghost "
-            }
-        );
-    index.add(
-            {
-                id:  845 ,
-                href: "\/docs\/coding\/c\/",
-                title: "C",
-                description: "Documentation for C",
-                content: "Content for C\n"
             }
         );
     search.addEventListener('input', show_results, true);
