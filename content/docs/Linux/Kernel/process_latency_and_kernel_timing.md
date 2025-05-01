@@ -2,7 +2,6 @@
 weight: 999
 url: "/Latence_des_process_et_kernel_timing/"
 title: "Process Latency and Kernel Timing"
-icon: "article"
 description: "Guide on how to manage process latency, kernel timing, CPU scheduling, and resource allocation in Linux systems"
 categories: ["Linux", "Monitoring", "Debian"]
 date: "2014-01-05T04:42:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Gentoo_\\:_Bien_commencer_avec_Gentoo/"
 title: "Gentoo: Getting Started"
-icon: "article"
 description: "Learn essential commands and tips for getting started with Gentoo Linux after a fresh installation."
 categories: ["Linux", "Distributions", "Gentoo"]
 date: "2007-01-18T08:34:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Cryptoloop_\\:_Mise_en_place_d'un_dossier_crypté/"
 title: "Cryptoloop: Setting Up an Encrypted Folder"
-icon: "article"
 description: "Guide on how to set up Cryptoloop for creating encrypted file containers"
 categories: ["Linux"]
 date: "2008-03-27T13:34:00+02:00"

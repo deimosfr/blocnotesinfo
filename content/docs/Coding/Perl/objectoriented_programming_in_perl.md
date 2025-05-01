@@ -2,7 +2,6 @@
 weight: 999
 url: "/La_programmation_orientée_objet_en_Perl/"
 title: "Object-Oriented Programming in Perl"
-icon: "article"
 description: "A guide to understanding and implementing Object-Oriented Programming in Perl, including basic concepts and practical examples"
 categories: 
   - "Linux"

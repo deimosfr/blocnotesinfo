@@ -3,7 +3,6 @@
 weight: 999
 url: "/Postfix\\:_limit_outgoing_mail_throttling/"
 title: "Postfix: Limit Outgoing Mail Throttling"
-icon: "article"
 description: "Learn how to limit outgoing mail throttling in Postfix to prevent blacklisting from MX servers when sending large volumes of email."
 categories: ["Debian", "Linux", "Servers", "Network"]
 date: "2015-08-06T00:10:00+02:00"

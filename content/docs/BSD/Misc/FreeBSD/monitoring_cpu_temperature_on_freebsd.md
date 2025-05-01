@@ -2,7 +2,6 @@
 weight: 999
 url: "/Monitorer_la_temperature_des_processeurs_sous_FreeBSD/"
 title: "Monitoring CPU Temperature on FreeBSD"
-icon: "article"
 description: "How to monitor the temperature of all CPU cores on FreeBSD"
 categories: ["FreeBSD", "Linux"]
 date: "2010-09-12T06:29:00+02:00"

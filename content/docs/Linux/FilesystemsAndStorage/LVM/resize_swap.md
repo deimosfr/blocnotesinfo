@@ -2,7 +2,6 @@
 weight: 999
 url: "/Resizer_sa_swap/"
 title: "Resize Swap"
-icon: "article"
 description: "How to resize swap space in Linux by extending LVM volumes, creating new swap volumes, or using swap files"
 categories:
   - Linux

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Authentification_de_comptes_Solaris_sur_un_Active_Directory/"
 title: "Authenticating Solaris Accounts on Active Directory"
-icon: "article"
 description: "Learn how to set up authentication of Solaris accounts using Windows Active Directory and the Kerberos protocol."
 categories: ["Solaris", "Windows", "Authentication"]
 date: "2007-09-08T11:13:00+02:00"

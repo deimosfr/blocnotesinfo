@@ -2,7 +2,6 @@
 weight: 999
 url: "/Collectd_\\:_Installation_et_configuration_de_Collectd/"
 title: "Collectd: Installation and Configuration"
-icon: "article"
 description: "Guide to installing and configuring Collectd, a system statistics collection daemon, on various platforms including Debian and Solaris"
 categories: ["Servers", "Monitoring", "Linux", "Solaris"]
 date: "2010-10-06T08:20:00+02:00"

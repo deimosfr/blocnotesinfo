@@ -2,7 +2,6 @@
 weight: 999
 url: "/activer-le-pave-numerique/"
 title: "Activating the Numeric Keypad"
-icon: "article"
 description: "How to enable the numeric keypad by default in console mode and in X Window System."
 categories: ["Linux", "System Configuration"]
 date: "2008-01-22T08:49:00+02:00"

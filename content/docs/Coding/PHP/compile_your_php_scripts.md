@@ -2,7 +2,6 @@
 weight: 999
 url: "/Compiler_vos_scripts_PHP/"
 title: "Compile Your PHP Scripts"
-icon: "article"
 description: "How to compile PHP scripts for both protection and performance improvements"
 categories: ["Development", "Web", "PHP"]
 date: "2013-05-08T18:54:00+02:00"

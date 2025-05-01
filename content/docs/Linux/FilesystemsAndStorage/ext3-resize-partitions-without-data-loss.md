@@ -2,7 +2,6 @@
 weight: 999
 url: "/Ext3_\\:_redimensionner_ses_partitions_sans_pertes_de_données/"
 title: "Ext3: Resize partitions without data loss"
-icon: "article"
 description: "How to resize Ext3 partitions without data loss, including instructions and procedures to safely modify your filesystem size."
 categories: ["Linux", "Filesystem"]
 date: "2007-01-07T18:41:00+02:00"

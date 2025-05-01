@@ -2,7 +2,6 @@
 weight: 999
 url: "/Modifier_le_firmware_par_le_FrancoFON/"
 title: "Modify the firmware with FrancoFON"
-icon: "article"
 description: "Guide to modify your Fonera firmware using FrancoFON to add enhanced functionality including improved firewall management, port redirection, and more advanced networking options."
 categories: ["Linux", "Network"]
 date: "2008-01-01T17:31:00+02:00"

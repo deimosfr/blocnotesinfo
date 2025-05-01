@@ -2,7 +2,6 @@
 weight: 999
 url: "/fetchmail-the-ultimate-mail-collector/"
 title: "Fetchmail - The Ultimate Mail Collector"
-icon: "article"
 description: "How to set up Fetchmail to retrieve emails from multiple accounts and consolidate them in one place"
 categories: ["Linux", "Email", "System Administration"]
 date: "2008-01-07T14:48:00+02:00"

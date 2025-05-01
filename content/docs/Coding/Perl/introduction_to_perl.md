@@ -2,7 +2,6 @@
 weight: 999
 url: "/Introduction_à_Perl/"
 title: "Introduction to Perl"
-icon: "article"
 description: "A comprehensive guide to Perl programming language covering basics, syntax, functions, modules, and advanced techniques"
 categories: ["Database", "Linux"]
 date: "2013-09-24T11:20:00+02:00"

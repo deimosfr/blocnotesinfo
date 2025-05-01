@@ -2,7 +2,6 @@
 weight: 999
 url: "/Selenium_\\:_Automatisation_de_tâches_pour_environnements_web/"
 title: "Selenium: Task Automation for Web Environments"
-icon: "article"
 description: "Guide explaining how to use Selenium for automating web tasks, including installation and usage of Selenium IDE with Firefox."
 categories: ["Linux", "Development"]
 date: "2012-12-19T16:04:00+02:00"

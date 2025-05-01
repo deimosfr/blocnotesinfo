@@ -2,7 +2,6 @@
 weight: 999
 url: "/create-your-own-graphs/"
 title: "Create Your Own Graphs"
-icon: "article"
 description: "How to create custom graphs in Cacti with example scripts for monitoring CPU, RAM, and Mldonkey"
 categories: ["Monitoring", "Linux", "System Administration"]
 date: "2009-10-29T07:56:00+02:00"

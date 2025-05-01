@@ -2,7 +2,6 @@
 weight: 999
 url: "/Utilisation_avancée_des_packages_Debian/"
 title: "Advanced Usage of Debian Packages"
-icon: "article"
 description: "A comprehensive guide to advanced Debian package management using dpkg, aptitude, and apt-get tools with practical examples."
 categories: ["Debian", "Linux", "Ubuntu"]
 date: "2009-12-11T21:54:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Le_boot_de_Linux/"
 title: "Linux Boot Process"
-icon: "article"
 description: "Documentation about the Linux boot process"
 categories: ["Linux"]
 date: "2008-08-31T15:27:00+02:00"

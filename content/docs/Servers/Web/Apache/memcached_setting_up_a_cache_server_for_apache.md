@@ -2,7 +2,6 @@
 weight: 999
 url: "/Memcached_\\:_Mise_en_place_d'un_serveur_de_cache_pour_Apache/"
 title: "Memcached: Setting up a Cache Server for Apache"
-icon: "article"
 description: "How to set up Memcached as a caching server for Apache to accelerate client requests and improve performance."
 categories: ["Linux", "Apache"]
 date: "2009-11-27T20:20:00+02:00"

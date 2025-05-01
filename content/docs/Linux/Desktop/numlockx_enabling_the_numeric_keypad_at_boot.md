@@ -2,7 +2,6 @@
 weight: 999
 url: "/Numlockx_\\:_Activer_le_pavé_numérique_au_boot/"
 title: "Numlockx: Enabling the numeric keypad at boot"
-icon: "article"
 description: "How to automatically enable the numeric keypad at boot time using numlockx on Linux systems."
 categories: ["Linux"]
 date: "2008-07-09T06:40:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configurer_le_réseau_sur_Solaris/"
 title: "Configure Network on Solaris"
-icon: "article"
 description: "A comprehensive guide to configuring network interfaces, routes, DNS, and VIPs on Solaris systems"
 categories: ["Solaris", "Network", "System Administration"]
 date: "2013-05-06T14:01:00+02:00"

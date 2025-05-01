@@ -2,7 +2,6 @@
 weight: 999
 url: "/Monter_un_partage_Windows_depuis_Samba/"
 title: "Mounting a Windows Share from Samba"
-icon: "article"
 description: "How to mount Windows shares from Linux using Samba and CIFS methods, with configuration options for different Windows versions."
 categories: ["Linux", "Servers", "Network"]
 date: "2009-04-19T16:12:00+02:00"

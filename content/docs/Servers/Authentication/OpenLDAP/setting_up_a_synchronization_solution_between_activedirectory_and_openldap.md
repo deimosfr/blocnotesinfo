@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_d'une_solution_de_Syncronisation_entre_ActiveDirectory_et_OpenLDAP/"
 title: "Setting up a Synchronization Solution between ActiveDirectory and OpenLDAP"
-icon: "article"
 description: "This guide explains how to set up a synchronization solution between Active Directory and OpenLDAP, including server configuration, client setup, and password synchronization mechanisms."
 categories: ["Red Hat", "Debian", "Security"]
 date: "2010-04-12T08:05:00+02:00"

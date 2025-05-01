@@ -2,7 +2,6 @@
 weight: 999
 url: "/Sécuriser_Apache_avec_mod_security/"
 title: "Securing Apache with mod_security"
-icon: "article"
 description: "Learn how to increase Apache security with mod_security module, a web application firewall to protect against SQL injection, XSS and other common attacks."
 categories: ["Debian", "Linux", "Apache"]
 date: "2009-01-18T03:41:00+02:00"

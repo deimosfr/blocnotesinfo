@@ -2,7 +2,6 @@
 weight: 999
 url: "/RRDtool_\\:_créer_ses_propre_graphiques_avec_RRDtool/"
 title: "RRDtool: Create Your Own Graphics with RRDtool"
-icon: "article"
 description: "Learn how to create, manage and generate graphs with RRDtool to visualize your data such as disk usage, temperature, and more."
 categories: ["Database", "Linux", "Monitoring"]
 date: "2010-01-21T12:44:00+02:00"

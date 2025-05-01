@@ -2,7 +2,6 @@
 weight: 999
 url: "/Cloner_un_disque_dur/"
 title: "Clone a Hard Drive"
-icon: "article"
 description: "Various methods to clone hard drives in Linux systems including dd, cat, partimage, and over network connections"
 categories: ["Linux", "System Administration", "Storage"]
 date: "2013-05-07T09:10:00+02:00"

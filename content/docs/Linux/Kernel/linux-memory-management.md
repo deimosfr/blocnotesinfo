@@ -2,7 +2,6 @@
 weight: 999
 url: "/La_gestion_de_la_mémoire_sous_Linux/"
 title: "Linux Memory Management"
-icon: "article"
 description: "An in-depth guide to memory management in Linux, including page types, dirty/clean page reclamation, OOM handling, memory leak detection, and swap configuration."
 categories: ["Linux", "System Administration", "Performance"]
 date: "2013-05-06T14:41:00+02:00"

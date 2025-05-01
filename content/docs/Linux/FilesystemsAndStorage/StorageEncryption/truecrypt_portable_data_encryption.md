@@ -2,7 +2,6 @@
 weight: 999
 url: "/TrueCrypt\\:_Encryption_de_données_de_type_portables/"
 title: "TrueCrypt: Portable Data Encryption"
-icon: "article"
 description: "Documentation about TrueCrypt for portable data encryption"
 categories: ["Linux"]
 date: "2007-07-03T07:03:00+02:00"

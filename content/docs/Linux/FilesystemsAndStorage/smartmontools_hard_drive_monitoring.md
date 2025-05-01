@@ -2,7 +2,6 @@
 weight: 999
 url: "/Smartmontool_\\:_Surveillance_des_disques_dur/"
 title: "Smartmontools: Hard Drive Monitoring"
-icon: "article"
 description: "How to install and configure Smartmontools to monitor hard drive health and performance on various Linux and BSD systems."
 categories: ["Linux", "Debian", "BSD", "System Administration", "Monitoring"]
 date: "2011-01-14T20:24:00+02:00"

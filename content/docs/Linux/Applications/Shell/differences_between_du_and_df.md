@@ -2,7 +2,6 @@
 weight: 999
 url: "/Différences_entre_du_et_df/"
 title: "Differences between du and df"
-icon: "article"
 description: "Understanding the differences between du and df commands in Linux systems and how to troubleshoot space discrepancies between these two utilities."
 categories: ["Linux", "Backup"]
 date: "2008-03-19T14:23:00+02:00"

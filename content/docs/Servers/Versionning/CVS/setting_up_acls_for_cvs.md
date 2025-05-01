@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_des_ACLs_pour_CVS/"
 title: "Setting up ACLs for CVS"
-icon: "article"
 description: "A guide on how to install and configure ACLs for CVS repositories."
 categories: ["Linux", "Development"]
 date: "2006-11-24T09:42:00+02:00"

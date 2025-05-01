@@ -2,7 +2,6 @@
 weight: 999
 url: "/Renommer_les_interfaces_réseaux_en_ethX/"
 title: "Rename Network Interfaces to ethX"
-icon: "article"
 description: "How to rename modern Linux network interfaces back to the classic ethX naming convention"
 categories: ["Debian", "Linux", "Network"]
 date: "2012-07-16T21:02:00+02:00"

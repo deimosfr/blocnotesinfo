@@ -2,7 +2,6 @@
 weight: 999
 url: "/Date_\\:_utilisation_avancée_de_la_commande_date/"
 title: "Date: Advanced Usage of the Date Command"
-icon: "article"
 description: "Guide to advanced date calculations and formatting using the Linux date command, including examples for calculating past dates and creating ISO 8601 timestamps."
 categories: ["Linux"]
 date: "2009-11-27T20:18:00+02:00"

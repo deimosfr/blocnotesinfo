@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_d\\'un_cluster_Red_Hat_4/"
 title: "Installing a Red Hat 4 Cluster"
-icon: "article"
 description: "Step-by-step guide to installing and configuring a Red Hat Cluster Suite on Red Hat Enterprise Linux 4."
 categories: ["Linux", "Red Hat"]
 date: "2012-02-26T13:24:00+02:00"

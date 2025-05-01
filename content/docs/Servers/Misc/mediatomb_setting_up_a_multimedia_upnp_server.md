@@ -2,7 +2,6 @@
 weight: 999
 url: "/MediaTomb_\\:_Mise_en_place_d'un_serveur_multimédia_(UPnP)/"
 title: "MediaTomb: Setting up a multimedia (UPnP) server"
-icon: "article"
 description: "A guide on how to set up MediaTomb, a multimedia server for streaming movies, music, and photos using UPnP technology."
 categories: ["MySQL", "Debian", "Database", "Multimedia"]
 date: "2009-04-23T19:19:00+02:00"

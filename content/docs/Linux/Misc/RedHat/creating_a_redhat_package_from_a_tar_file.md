@@ -2,7 +2,6 @@
 weight: 999
 url: "/Créer_un_package_RedHat_depuis_un_tar/"
 title: "Creating a RedHat Package from a Tar File"
-icon: "article"
 description: "How to easily create an RPM package from a tar file in RedHat environments in just 5 minutes."
 categories: ["Linux", "Red Hat"]
 date: "2012-08-02T11:51:00+02:00"

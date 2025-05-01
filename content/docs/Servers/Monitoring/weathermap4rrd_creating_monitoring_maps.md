@@ -2,7 +2,6 @@
 weight: 999
 url: "/Weathermap4RRD_\\:_faire_des_cartes_de_monitoring/"
 title: "Weathermap4RRD: Creating Monitoring Maps"
-icon: "article"
 description: "Guide to create network monitoring maps using Weathermap4RRD and Cacti"
 categories: ["Monitoring", "Apache", "Linux"]
 date: "2009-11-27T17:32:00+02:00"

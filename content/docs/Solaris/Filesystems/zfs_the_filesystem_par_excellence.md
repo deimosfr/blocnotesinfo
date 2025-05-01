@@ -2,7 +2,6 @@
 weight: 999
 url: "/ZFS_\\:_Le_FileSystem_par_excellence/"
 title: "ZFS: The Filesystem Par Excellence"
-icon: "article"
 description: "Complete guide on using ZFS filesystem, including creating and managing zpools, partitions, swap space management, and advanced usage techniques"
 categories:
   - Linux

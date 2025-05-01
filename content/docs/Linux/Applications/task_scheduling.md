@@ -2,7 +2,6 @@
 weight: 999
 url: "/Planifier_des_tâches/"
 title: "Task Scheduling"
-icon: "article"
 description: "Guide on how to schedule tasks on Linux systems using at and cron utilities"
 categories: ["Linux"]
 date: "2009-12-11T20:54:00+02:00"

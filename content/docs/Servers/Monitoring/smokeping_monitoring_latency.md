@@ -2,7 +2,6 @@
 weight: 999
 url: "/Smokeping_\\:_Monitorer_la_latence/"
 title: "Smokeping: Monitoring Latency"
-icon: "article"
 description: "Learn how to use Smokeping to monitor latency of services and applications."
 categories: ["Monitoring", "Network"]
 date: "2007-09-14T16:19:00+02:00"

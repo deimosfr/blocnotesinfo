@@ -2,7 +2,6 @@
 weight: 999
 url: "/Gnome_\\:_Tableaux_de_bord_verrouillés/"
 title: "Gnome: Locked Dashboards"
-icon: "article"
 description: "How to lock Gnome dashboards to prevent panels and applet icons from moving around accidentally."
 categories: ["Linux"]
 date: "2009-08-07T16:14:00+02:00"

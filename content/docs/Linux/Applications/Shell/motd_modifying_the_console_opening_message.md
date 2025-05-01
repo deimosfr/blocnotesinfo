@@ -2,7 +2,6 @@
 weight: 999
 url: "/Motd_\\:_Modification_du_message_d'ouverture_de_console/"
 title: "MOTD: Modifying the Console Opening Message"
-icon: "article"
 description: "Learn how to customize your console opening message (MOTD) using various utilities like cowsay, boxes, linuxlogo, and figlet."
 categories: ["Linux"]
 date: "2007-08-24T21:40:00+02:00"

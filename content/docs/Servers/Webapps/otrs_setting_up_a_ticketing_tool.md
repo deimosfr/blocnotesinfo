@@ -2,7 +2,6 @@
 weight: 999
 url: "/OTRS_\\:_mise_en_place_d'un_outil_de_ticketing/"
 title: "OTRS: Setting up a ticketing tool"
-icon: "article"
 description: "Guide for installing and configuring OTRS ticketing system on Debian 6 with PostgreSQL and LDAP integration"
 categories: ["Debian", "Storage", "Database"]
 date: "2012-10-31T15:12:00+02:00"

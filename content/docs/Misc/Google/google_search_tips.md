@@ -2,7 +2,6 @@
 weight: 999
 url: "/Google_Astuces_de_recherche/"
 title: "Google Search Tips"
-icon: "article"
 description: "Useful tips and tricks to improve your Google search results and find information more efficiently."
 categories: ["Linux"]
 date: "2006-08-05T13:07:00+02:00"

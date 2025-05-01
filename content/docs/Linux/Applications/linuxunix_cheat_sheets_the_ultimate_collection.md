@@ -2,7 +2,6 @@
 weight: 999
 url: "/Linux-Unix_cheat_sheets_-_The_ultimate_collection/"
 title: "Linux-Unix Cheat Sheets - The Ultimate Collection"
-icon: "article"
 description: "A comprehensive collection of Linux and Unix command line reference sheets and resources for system administrators and developers."
 categories: ["Linux", "Security"]
 date: "2008-02-10T11:07:00+02:00"

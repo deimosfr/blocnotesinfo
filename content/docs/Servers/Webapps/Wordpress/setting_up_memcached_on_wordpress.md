@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_de_Memcached_sur_Wordpress/"
 title: "Setting up Memcached on WordPress"
-icon: "article"
 description: "How to set up Memcached on WordPress to improve website performance"
 categories:
   - "Debian"

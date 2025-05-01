@@ -2,7 +2,6 @@
 weight: 999
 url: "/apt-ajouter-des-preferences-de-release-sur-certains-packages/"
 title: "APT: Adding Release Preferences for Specific Packages"
-icon: "article"
 description: "How to configure APT to use packages from different Debian versions by setting package release preferences."
 categories: ["Linux", "Debian", "Package Management"]
 date: "2013-12-29T17:44:00+02:00"

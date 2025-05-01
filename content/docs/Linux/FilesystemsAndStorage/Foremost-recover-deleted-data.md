@@ -2,7 +2,6 @@
 weight: 999
 url: "/Foremost_\\:_récupérer_des_données_supprimées/"
 title: "Foremost: Recover Deleted Data"
-icon: "article"
 description: "How to use the Foremost forensic tool to recover deleted files based on their headers, footers, and internal data structures"
 categories: ["Linux", "Security", "Data Recovery"]
 date: "2013-08-07T15:27:00+02:00"

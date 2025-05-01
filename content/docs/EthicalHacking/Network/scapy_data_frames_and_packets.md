@@ -2,7 +2,6 @@
 weight: 999
 url: "/Scapy_\\:_Trames_et_paquets_de_données/"
 title: "Scapy: Data Frames and Packets"
-icon: "article"
 description: "A comprehensive guide to using Scapy for network packet manipulation, inspection and analysis. Learn how to forge, receive and send data packets over a network with this powerful Python tool."
 categories: ["Security", "Network", "Linux"]
 date: "2007-10-09T06:44:00+02:00"

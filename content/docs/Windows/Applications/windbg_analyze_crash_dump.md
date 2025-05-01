@@ -2,7 +2,6 @@
 weight: 999
 url: "/WinDbg\\:_analyze_crash_dump/"
 title: "WinDbg: Analyze Crash Dump"
-icon: "article"
 description: "A guide on how to use WinDbg to analyze crash dumps on Windows systems"
 categories: ["Windows"]
 date: "2014-02-16T07:25:00+02:00"

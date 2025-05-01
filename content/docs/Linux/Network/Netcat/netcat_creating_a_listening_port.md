@@ -2,7 +2,6 @@
 weight: 999
 url: "/Netcat_\\:_Créer_un_port_d'écoute/"
 title: "Netcat: Creating a Listening Port"
-icon: "article"
 description: "How to use Netcat to create a listening port for testing firewall configurations and network connections"
 categories: ["Linux", "Network"]
 date: "2012-04-27T07:55:00+02:00"

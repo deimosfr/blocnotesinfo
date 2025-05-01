@@ -2,7 +2,6 @@
 weight: 999
 url: "/OCFS2\_:\_Le_FileSystem_Cluster_d'Oracle/"
 title: "OCFS2: Oracle's Cluster File System"
-icon: "article"
 description: "Guide for setting up and configuring OCFS2, Oracle's cluster file system for shared storage with fault tolerance."
 categories: ["Linux"]
 date: "2012-03-03T15:37:00+02:00"

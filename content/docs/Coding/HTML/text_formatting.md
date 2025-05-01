@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_forme_du_texte/"
 title: "Text Formatting"
-icon: "article"
 description: "Guide to HTML text formatting including paragraphs, line breaks, alignment, importance tags, font styling, and more."
 categories:
   - "Linux"

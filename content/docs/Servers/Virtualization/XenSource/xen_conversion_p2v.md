@@ -2,7 +2,6 @@
 weight: 999
 url: "/Xen_convertion_P2V/"
 title: "Xen Conversion P2V"
-icon: "article"
 description: "Guide on how to convert a physical server to a Xen virtual machine through P2V conversion process."
 categories: ["Linux", "Debian"]
 date: "2008-03-04T17:32:00+02:00"

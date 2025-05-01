@@ -2,7 +2,6 @@
 weight: 999
 url: "/Couper_le_bip_de_l'UC/"
 title: "Disable the PC Speaker Beep"
-icon: "article"
 description: "How to disable the annoying PC speaker beep in Linux systems both temporarily and permanently."
 categories: ["Linux"]
 date: "2009-04-26T14:52:00+02:00"

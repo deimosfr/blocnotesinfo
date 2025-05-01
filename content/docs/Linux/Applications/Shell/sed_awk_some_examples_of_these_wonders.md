@@ -2,7 +2,6 @@
 weight: 999
 url: "/Sed_\\&_Awk_\\:_Quelques_exemples_de_ces_merveilles/"
 title: "Sed & Awk: Some Examples of These Wonders"
-icon: "article"
 description: "Examples and usage patterns for Sed, Awk, and Grep commands in Linux for text manipulation, filtering, and processing."
 categories: ["Linux", "Database"]
 date: "2014-01-01T15:45:00+02:00"

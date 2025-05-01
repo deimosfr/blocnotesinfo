@@ -2,7 +2,6 @@
 weight: 999
 url: "/Bwm-ng_\\:_Mesurer_la_consommation_de_bande_passante_en_temps_réel/"
 title: "Bwm-ng: Measure Bandwidth Consumption in Real Time"
-icon: "article"
 description: "How to use bwm-ng to monitor network bandwidth usage in real-time on Linux systems."
 categories: ["Linux", "Network", "Monitoring"]
 date: "2009-11-28T16:14:00+02:00"

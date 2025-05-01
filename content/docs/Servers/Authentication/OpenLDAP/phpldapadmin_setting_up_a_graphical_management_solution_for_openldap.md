@@ -2,7 +2,6 @@
 weight: 999
 url: "/PhpLDAPadmin\\:_Mise_en_place_d'une_solution_de_management_graphique_pour_OpenLDAP/"
 title: "PhpLDAPadmin: Setting Up a Graphical Management Solution for OpenLDAP"
-icon: "article"
 description: "A guide to install and configure PhpLDAPadmin as a web-based graphical interface for managing OpenLDAP directories."
 categories: ["Linux", "Apache", "Servers"]
 date: "2009-05-11T11:06:00+02:00"

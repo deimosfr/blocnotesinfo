@@ -2,7 +2,6 @@
 weight: 999
 url: "/glusterfs-ha-cluster-filesystem/"
 title: "GlusterFS: High Availability Cluster Filesystem"
-icon: "article"
 description: "How to setup GlusterFS to create a high availability clustered filesystem with automatic file replication across multiple servers."
 categories: ["Linux", "File System", "Cluster", "High Availability"]
 date: "2011-04-11T08:18:00+02:00"

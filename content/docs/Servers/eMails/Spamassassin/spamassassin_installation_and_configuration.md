@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_et_configuration_de_SpamAssassin/"
 title: "SpamAssassin Installation and Configuration"
-icon: "article"
 description: "A guide for installing and configuring SpamAssassin to filter spam emails, including adding Spam and Ham messages for training the system."
 categories: 
   - Linux

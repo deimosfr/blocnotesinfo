@@ -2,7 +2,6 @@
 weight: 999
 url: "/Observium_\\:_Une_interface_évoluée_pour_Collectd/"
 title: "Observium: An Advanced Interface for Collectd"
-icon: "article"
 description: "Learn how to set up Observium to provide an advanced graphical interface for Collectd monitoring data, including installation, configuration, and integration with SNMP."
 categories: ["RHEL", "Debian", "Database"]
 date: "2012-03-22T15:56:00+02:00"

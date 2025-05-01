@@ -2,7 +2,6 @@
 weight: 999
 url: "/Gestion_des_utilisateurs/"
 title: "User Management"
-icon: "article"
 description: "A comprehensive guide to user management in Solaris and Linux systems, including account creation, modification, password management, and troubleshooting login issues."
 categories: ["Linux", "Security"]
 date: "2006-11-30T18:31:00+02:00"

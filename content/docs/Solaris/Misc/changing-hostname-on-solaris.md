@@ -2,7 +2,6 @@
 weight: 999
 url: "/Changer_le_hostname_de_sa_solaris/"
 title: "Changing Hostname on Solaris"
-icon: "article"
 description: "How to change the hostname on Solaris systems both temporarily and permanently without requiring a reboot."
 categories: ["Solaris"]
 date: "2008-12-05T14:18:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Postfix\\:_hold_outgoing_mail_transport/"
 title: "Postfix: hold outgoing mail transport"
-icon: "article"
 description: "A guide on how to hold outgoing mail transport in Postfix without stopping the service, allowing time to analyze and troubleshoot mail infrastructure problems."
 categories: ["Debian", "Linux", "Network", "Servers"]
 date: "2014-03-04T17:35:00+02:00"

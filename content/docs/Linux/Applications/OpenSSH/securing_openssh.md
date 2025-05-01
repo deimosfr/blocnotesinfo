@@ -2,7 +2,6 @@
 weight: 999
 url: "/Securiser_OpenSSH/"
 title: "Securing OpenSSH"
-icon: "article"
 description: "Documentation and resources for securing OpenSSH servers"
 categories: ["Linux", "Servers", "Network"]
 date: "2008-01-11T23:00:00+02:00"

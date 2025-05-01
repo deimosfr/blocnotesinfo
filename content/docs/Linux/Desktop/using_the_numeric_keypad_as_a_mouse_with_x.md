@@ -2,7 +2,6 @@
 weight: 999
 url: "/Utiliser_le_pavé_numérique_comme_souris_avec_X/"
 title: "Using the Numeric Keypad as a Mouse with X"
-icon: "article"
 description: "This article explains how to use the numeric keypad to control the mouse cursor in X Window System when your mouse isn't working."
 categories: ["Linux"]
 date: "2008-12-27T23:55:00+02:00"

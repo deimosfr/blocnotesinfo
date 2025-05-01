@@ -2,7 +2,6 @@
 weight: 999
 url: "/Infinality_fonts_for_retina_display/"
 title: "Infinality fonts for retina display"
-icon: "article"
 description: "Installing and configuring Infinality fonts for high DPI screens and retina displays on Linux"
 categories: ["Linux", "Desktop", "Customization"]
 date: "2014-02-17T08:15:00+02:00"

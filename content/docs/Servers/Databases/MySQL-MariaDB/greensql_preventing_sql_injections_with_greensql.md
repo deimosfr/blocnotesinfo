@@ -2,7 +2,6 @@
 weight: 999
 url: "/GreenSQL\\:_Eviter_les_injections_SQL_avec_GreenSQL/"
 title: "GreenSQL: Preventing SQL Injections with GreenSQL"
-icon: "article"
 description: "A guide on how to use GreenSQL to prevent SQL injection attacks in your database systems."
 categories: ["Linux", "MySQL"]
 date: "2009-01-28T03:04:00+02:00"

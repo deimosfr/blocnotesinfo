@@ -2,7 +2,6 @@
 weight: 999
 url: "/VNC_\\:_Mode_Listen_sous_Linux/"
 title: "VNC: Listen Mode on Linux"
-icon: "article"
 description: "How to use VNC in Listen mode on Linux systems"
 categories: ["Linux", "Network"]
 date: "2006-08-05T19:40:00+02:00"

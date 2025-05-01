@@ -2,7 +2,6 @@
 weight: 999
 url: "/Liste_des_commandes_les_plus_utilisées/"
 title: "Most Used Commands List"
-icon: "article"
 description: "A comprehensive list of the most commonly used Linux commands and useful command-line tips."
 categories: ["Linux"]
 date: "2009-09-19T21:56:00+02:00"

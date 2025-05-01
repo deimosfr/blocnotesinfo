@@ -2,7 +2,6 @@
 weight: 999
 url: "/OpenNTPd_\\:_Mise_en_place_d'un_serveur_NTP_sous_OpenBSD/"
 title: "OpenNTPd: Setting up an NTP server on OpenBSD"
-icon: "article"
 description: "A guide for installing and configuring OpenNTPd on OpenBSD"
 categories: ["Linux"]
 date: "2009-05-21T11:40:00+02:00"

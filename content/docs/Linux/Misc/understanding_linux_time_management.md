@@ -2,7 +2,6 @@
 weight: 999
 url: "/Comprendre_la_gestion_du_temps_sous_Linux/"
 title: "Understanding Time Management in Linux"
-icon: "article"
 description: "Documentation explaining how priorities work in relation to time allocation in Linux systems"
 categories: ["Linux", "System Administration"]
 date: "2009-02-03T19:13:00+01:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/SafeSquid_\\:_Coupler_avec_ClamAV_pour_filtrer_les_virus_sur_le_traffic_entrant/"
 title: "SafeSquid: Coupling with ClamAV to Filter Viruses on Incoming Traffic"
-icon: "article"
 description: "How to set up SafeSquid with ClamAV to scan incoming traffic for viruses and enhance gateway security."
 categories: ["Linux", "Security"]
 date: "2008-03-21T18:44:00+02:00"

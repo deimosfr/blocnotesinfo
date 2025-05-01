@@ -2,7 +2,6 @@
 weight: 999
 url: "/Quelques_exemples_d'utilisation_de_CMake/"
 title: "Some examples of CMake usage"
-icon: "article"
 description: "Learn how to use CMake for configuration files, version management, internationalization, and package generation in your projects."
 categories: ["Development", "Linux"]
 date: "2009-12-06T16:17:00+02:00"

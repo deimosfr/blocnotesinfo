@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configuration_d'un_Raid_logiciel/"
 title: "Software RAID Configuration"
-icon: "article"
 description: "Learn how to set up, monitor, and optimize software RAID configurations on Linux systems"
 categories: ["Linux", "Storage", "System Administration"]
 date: "2014-08-08T08:29:00+02:00"

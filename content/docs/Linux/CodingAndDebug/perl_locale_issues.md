@@ -2,7 +2,6 @@
 weight: 999
 url: "/Problèmes_de_locales_avec_Perl/"
 title: "Perl Locale Issues"
-icon: "article"
 description: "How to solve locale issues when using Perl on Debian and Ubuntu systems."
 categories: ["Debian", "Linux", "Ubuntu"]
 date: "2008-11-19T07:14:00+02:00"

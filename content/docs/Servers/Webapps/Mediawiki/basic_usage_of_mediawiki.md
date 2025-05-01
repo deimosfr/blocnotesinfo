@@ -2,7 +2,6 @@
 weight: 999
 url: "/Utilisation_basique_de_Mediawiki/"
 title: "Basic Usage of MediaWiki"
-icon: "article"
 description: "A concise guide to the basic features of MediaWiki, including links, lists, formatting, and code blocks"
 categories:
   - Linux

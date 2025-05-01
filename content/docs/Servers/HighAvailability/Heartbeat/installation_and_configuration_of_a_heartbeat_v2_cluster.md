@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_et_configuration_d\\'un_cluster_Heartbeat_V2/"
 title: "Installation and Configuration of a Heartbeat V2 Cluster"
-icon: "article"
 description: "Guide for installing, configuring and monitoring services with Heartbeat 2 cluster software for high availability systems."
 categories: ["Linux", "Security", "Monitoring"]
 date: "2009-02-18T18:37:00+02:00"

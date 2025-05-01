@@ -2,7 +2,6 @@
 weight: 999
 url: "/NFS_\\:_Mise_en_place_d'un_serveur_NFS/"
 title: "NFS: Setting up an NFS Server"
-icon: "article"
 description: "Guide for setting up NFS server and client on different operating systems including Debian and Solaris."
 categories: ["Debian", "Linux"]
 date: "2014-11-23T06:14:00+02:00"

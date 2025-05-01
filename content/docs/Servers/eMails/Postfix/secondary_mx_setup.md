@@ -2,7 +2,6 @@
 weight: 999
 url: "/MX_Secondaire\\:_mise_en_place/"
 title: "Secondary MX: Setup"
-icon: "article"
 description: "How to set up a secondary MX server with Postfix to handle emails during primary server downtime."
 categories: ["Linux", "Servers", "Network"]
 date: "2008-05-23T07:43:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/PuppetDB_\\:_Augmentez_les_fonctionnalités_de_votre_Puppet/"
 title: "PuppetDB: Enhance Your Puppet Functionality"
-icon: "article"
 description: "Learn how to install and configure PuppetDB to enhance Puppet functionality by collecting data and enabling exported resources."
 categories: ["Debian", "PostgreSQL", "Database"]
 date: "2013-10-28T10:57:00+02:00"

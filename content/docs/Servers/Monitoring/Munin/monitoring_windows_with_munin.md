@@ -2,7 +2,6 @@
 weight: 999
 url: "/Monitorer_Windows_avec_Munin/"
 title: "Monitoring Windows with Munin"
-icon: "article"
 description: "How to set up monitoring for Windows systems using Munin through SNMP"
 categories: ["Debian", "Linux", "Windows", "Monitoring"]
 date: "2007-06-27T07:41:00+02:00"

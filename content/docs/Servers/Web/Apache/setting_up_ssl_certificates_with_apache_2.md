@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_de_certificats_SSL_sous_Apache_2/"
 title: "Setting up SSL certificates with Apache 2"
-icon: "article"
 description: "A guide on how to create, configure and implement SSL certificates with Apache 2 on Debian and OpenBSD systems"
 categories: ["Debian", "Linux", "Apache"]
 date: "2009-09-24T12:28:00+02:00"

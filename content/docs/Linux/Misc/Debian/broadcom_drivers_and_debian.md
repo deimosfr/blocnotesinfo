@@ -2,7 +2,6 @@
 weight: 999
 url: "/Drivers_Broadcom_et_Debian/"
 title: "Broadcom Drivers and Debian"
-icon: "article"
 description: "Installation guide for Broadcom drivers on Debian systems, providing a simple solution for hardware compatibility issues."
 categories: ["Debian", "Linux"]
 date: "2009-02-16T18:55:00+02:00"

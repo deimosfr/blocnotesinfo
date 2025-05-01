@@ -2,7 +2,6 @@
 weight: 999
 url: "/PAM-script_\\:_Executer_des_scripts_à_l'authentification,_l'ouverture_et_la_fermeture_de_session/"
 title: "PAM-script: Execute Scripts at Authentication, Session Open and Close"
-icon: "article"
 description: "Learn how to use PAM-script module to execute scripts during authentication, session opening and closing on Linux systems."
 categories: ["Linux", "Security"]
 date: "2010-03-14T19:40:00+02:00"

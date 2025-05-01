@@ -2,7 +2,6 @@
 weight: 999
 url: "/Gérer_ses_updates_avec_Update_Manager_et_smpatch/"
 title: "Managing Updates with Update Manager and smpatch"
-icon: "article"
 description: "How to manage Solaris updates using Update Manager GUI and smpatch CLI tools"
 categories: ["Linux", "Storage", "Solaris"]
 date: "2009-11-21T07:11:00+02:00"

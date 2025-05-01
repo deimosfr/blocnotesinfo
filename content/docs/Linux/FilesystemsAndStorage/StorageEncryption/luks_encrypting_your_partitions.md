@@ -2,7 +2,6 @@
 weight: 999
 url: "/Luks_\\:_Chiffrer_ses_partitions/"
 title: "LUKS: Encrypting Your Partitions"
-icon: "article"
 description: "Learn how to use LUKS to encrypt partitions on Linux, including creating encrypted partitions, unlocking them, and managing passphrases."
 categories: ["Linux"]
 date: "2013-12-23T21:16:00+02:00"

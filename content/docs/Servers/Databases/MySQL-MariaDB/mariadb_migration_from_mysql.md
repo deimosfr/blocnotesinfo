@@ -2,7 +2,6 @@
 weight: 999
 url: "/MariaDB_\\:_Migration_depuis_MySQL/"
 title: "MariaDB: Migration from MySQL"
-icon: "article"
 description: "A guide on how to migrate from MySQL to MariaDB, including installation and configuration steps."
 categories: ["Debian", "Storage", "Database"]
 date: "2014-04-01T06:22:00+02:00"

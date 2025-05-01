@@ -2,7 +2,6 @@
 weight: 999
 url: "/Lighttpd_\\:_Installation_et_configuration_d'une_alternative_d'Apache/"
 title: "Lighttpd: Installation and configuration of an Apache alternative"
-icon: "article"
 description: "A guide for installing and configuring Lighttpd as a fast and flexible alternative to Apache with various configuration examples"
 categories: ["Debian", "Linux", "Servers"]
 date: "2011-05-10T11:05:00+02:00"

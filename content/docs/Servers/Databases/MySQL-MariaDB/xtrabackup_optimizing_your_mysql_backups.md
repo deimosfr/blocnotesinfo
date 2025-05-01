@@ -2,7 +2,6 @@
 weight: 999
 url: "/Xtrabackup_\\:_Optimiser_ses_backups_MySQL/"
 title: "XtraBackup: Optimizing Your MySQL Backups"
-icon: "article"
 description: "A guide on how to optimize MySQL backups using Percona XtraBackup, including installation, full backups, incremental backups, and restoration procedures."
 categories: ["Backup", "Linux", "Debian"]
 date: "2013-12-27T08:43:00+02:00"

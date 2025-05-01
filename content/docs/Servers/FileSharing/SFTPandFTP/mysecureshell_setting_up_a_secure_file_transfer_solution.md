@@ -2,7 +2,6 @@
 weight: 999
 url: "/MySecureShell\_:\_Mise_en_place_d'une_solution_sécurisée_de_transfert_de_fichiers/"
 title: "MySecureShell: Setting up a Secure File Transfer Solution"
-icon: "article"
 description: "How to set up MySecureShell for secure file transfers using OpenSSH with ACLs similar to a classic FTP server."
 categories: ["Linux", "Security"]
 date: "2007-10-02T20:23:00+02:00"

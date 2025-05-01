@@ -2,7 +2,6 @@
 weight: 999
 url: "/Forcer_un_utilisateur_à_changer_son_mot_de_passe_à_la_première_connexion/"
 title: "Force User to Change Password at First Login"
-icon: "article"
 description: "How to force users to change their password on first login by setting account expiration"
 categories: ["Linux", "Security"]
 date: "2010-03-14T20:48:00+02:00"

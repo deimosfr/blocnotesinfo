@@ -3,7 +3,6 @@
 weight: 999
 url: "/Créer_un_partage_iSCSI_entre_Solaris_et_Debian/"
 title: "Creating an iSCSI Share Between Solaris and Debian"
-icon: "article"
 description: "How to set up an iSCSI share between Solaris (server) and Debian (client)"
 categories: ["Debian", "Linux"]
 date: "2009-11-28T15:28:00+02:00"

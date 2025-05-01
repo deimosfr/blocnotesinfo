@@ -2,7 +2,6 @@
 weight: 999
 url: "/Sosreport\\:\_générez\_et\_analysez\_des\_rapports\_de\_machine/"
 title: "SoSReport: Generate and analyze machine reports"
-icon: "article"
 description: "Learn how to use sosreport to generate comprehensive system reports and analyze them with sxconsole."
 categories: ["Red Hat", "CentOS", "Diagnostics", "System Administration"]
 date: "2013-03-15T15:22:00+02:00"

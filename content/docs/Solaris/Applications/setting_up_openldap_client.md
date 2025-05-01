@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_du_client_OpenLDAP/"
 title: "Setting up OpenLDAP Client"
-icon: "article"
 description: "Step-by-step guide for configuring an OpenLDAP client on Solaris systems."
 categories: ["Database", "Linux", "Security"]
 date: "2009-09-23T09:00:00+02:00"

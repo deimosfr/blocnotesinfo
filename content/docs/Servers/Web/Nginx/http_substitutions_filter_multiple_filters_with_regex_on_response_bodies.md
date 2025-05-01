@@ -2,7 +2,6 @@
 weight: 999
 url: "/Http_substitutions_filter_\\:_multiple_filters_with_regex_on_response_bodies/"
 title: "HTTP Substitutions Filter: Multiple Filters with Regex on Response Bodies"
-icon: "article"
 description: "Learn how to implement HTTP substitutions filter for Nginx to perform multiple regex filters on response bodies. This guide covers compilation, installation, and configuration on Debian systems."
 categories: ["Linux", "Debian", "Nginx"]
 date: "2013-04-26T15:22:00+02:00"

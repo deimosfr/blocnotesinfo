@@ -2,7 +2,6 @@
 weight: 999
 url: "/Lshell_\\:_limiter_les_possibilités_du_shell/"
 title: "Lshell: Limiting Shell Capabilities"
-icon: "article"
 description: "Learn how to restrict shell access and commands for users with Lshell on Linux systems. This guide covers installation, configuration, and integration with MySecureShell and sudo."
 categories: ["Linux", "Security", "Servers"]
 date: "2013-03-28T10:15:00+02:00"

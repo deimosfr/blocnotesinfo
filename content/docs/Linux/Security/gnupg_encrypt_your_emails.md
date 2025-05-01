@@ -2,7 +2,6 @@
 weight: 999
 url: "/GnuPG\\:_Crypter_vos_emails/"
 title: "GnuPG: Encrypt Your Emails"
-icon: "article"
 description: "A guide on how to encrypt your emails using GnuPG (GNU Privacy Guard) with instructions for key generation, server registration, revocation and usage."
 categories: ["Linux"]
 date: "2008-09-10T16:12:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Renommer_en_masse_des_éléments/"
 title: "Batch Renaming Elements"
-icon: "article"
 description: "Tips and techniques for batch renaming files and elements in a system"
 categories: ["Linux"]
 date: "2009-09-20T15:03:00+02:00"

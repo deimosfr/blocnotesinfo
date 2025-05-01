@@ -2,7 +2,6 @@
 weight: 999
 url: "/Varnish_\\:_un_accélérateur_de_site_web/"
 title: "Varnish: a website accelerator"
-icon: "article"
 description: "A comprehensive guide to Varnish, a powerful web cache server that can significantly improve website performance through caching, load balancing, and reverse proxy capabilities."
 categories: ["Nginx", "Debian", "AWS"]
 date: "2013-06-25T14:57:00+02:00"

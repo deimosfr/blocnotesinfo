@@ -2,7 +2,6 @@
 weight: 999
 url: "/Piwik_\\:_Des_statistiques_pour_votre_site_web/"
 title: "Piwik: Statistics for Your Website"
-icon: "article"
 description: "A guide to installing and configuring Piwik (now Matomo), an open-source alternative to Google Analytics for website statistics tracking and analysis."
 categories: ["Nginx", "Linux", "MySQL"]
 date: "2014-07-12T09:47:00+02:00"

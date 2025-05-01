@@ -2,7 +2,6 @@
 weight: 999
 url: "/UploadTool_\\:_Mise_en_place_d'un_outil_d'échange_de_fichiers_via_Apache/"
 title: "UploadTool: Setting up a file sharing tool via Apache"
-icon: "article"
 description: "A guide to install and configure UploadTool, a web-based file sharing tool that uses Apache for authenticated file uploads."
 categories: ["Linux", "Apache"]
 date: "2007-09-04T08:22:00+02:00"

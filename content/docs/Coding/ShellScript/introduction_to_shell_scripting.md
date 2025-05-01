@@ -4,7 +4,6 @@
 weight: 999
 url: "/Introduction_au_Script_Shell/"
 title: "Introduction to Shell Scripting"
-icon: "article"
 description: "A comprehensive guide to shell scripting basics including shell variables, flow control, parameters, file operations, and signal handling."
 categories: ["Linux"]
 date: "2011-05-03T11:53:00+02:00"

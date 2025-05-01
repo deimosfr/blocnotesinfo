@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_et_configuration_du_SUN_Cluster/"
 title: "Installation and Configuration of SUN Cluster"
-icon: "article"
 description: "A comprehensive guide covering the installation and configuration of SUN Cluster, including requirements, network setup, maintenance and troubleshooting procedures."
 categories: ["Security", "Database", "Operating Systems"]
 date: "2011-11-03T00:24:00+02:00"

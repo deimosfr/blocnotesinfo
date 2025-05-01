@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_d'un_DHCP_Failover/"
 title: "Setting up DHCP Failover"
-icon: "article"
 description: "A guide on how to configure DHCP failover between two servers using ISC DHCP server version 3 on OpenBSD systems."
 categories: ["Linux", "Network", "Backup"]
 date: "2007-11-06T18:42:00+02:00"

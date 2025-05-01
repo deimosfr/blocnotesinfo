@@ -2,7 +2,6 @@
 weight: 999
 url: "/Docker_\\:_manage_LXC_containers_easily_with_advanced_features/"
 title: "Docker: Manage Containers Easily with Advanced Features"
-icon: "article"
 description: "Learn how to use Docker to manage LXC containers with advanced features including installation, configuration, and basic operations."
 categories: ["Database", "Debian", "Ubuntu"]
 date: "2014-07-09T15:08:00+02:00"

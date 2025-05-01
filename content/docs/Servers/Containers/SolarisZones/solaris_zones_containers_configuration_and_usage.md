@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configuration_et_utilisation_des_Zones_Solaris_(Containers)/"
 title: "Configuration and Usage of Solaris Zones (Containers)"
-icon: "article"
 description: "Guide to configuring and using Solaris Zones (Containers) including installation, management, and resource control techniques"
 categories: ["Solaris", "Virtualization", "System Administration"]
 date: "2009-12-11T21:43:00+02:00"

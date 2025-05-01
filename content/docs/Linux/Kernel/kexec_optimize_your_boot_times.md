@@ -2,7 +2,6 @@
 weight: 999
 url: "/Kexec_\\:_optimisez_vos_temps_de_boot/"
 title: "Kexec: Optimize Your Boot Times"
-icon: "article"
 description: "A guide on how to use kexec to optimize boot times by skipping hardware initialization, especially useful for high availability systems."
 categories: ["Linux", "Red Hat", "Debian"]
 date: "2012-03-15T13:41:00+02:00"

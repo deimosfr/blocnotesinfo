@@ -2,7 +2,6 @@
 weight: 999
 url: "/Modifier_la_fréquence_de_son_processeur/"
 title: "Modifying CPU Frequency"
-icon: "article"
 description: "How to modify CPU frequency to save power and reduce fan noise on your computer"
 categories: ["Linux", "Ubuntu"]
 date: "2009-08-02T15:07:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Connaitre_le_nombre_de_cores_CPU_actifs_sur_Solaris/"
 title: "How to Check the Number of Active CPU Cores on Solaris"
-icon: "article"
 description: "How to verify the number of active CPU cores on Solaris systems, which is useful for licensing and resource allocation"
 categories: ["Solaris", "System Administration"]
 date: "2012-02-06T10:10:00+02:00"

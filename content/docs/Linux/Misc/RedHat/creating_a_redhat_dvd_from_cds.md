@@ -2,7 +2,6 @@
 weight: 999
 url: "/Créer_un_DVD_RedHat_à_partir_des_CD/"
 title: "Creating a RedHat DVD from CDs"
-icon: "article"
 description: "Guide for creating a bootable RedHat DVD from CD images"
 categories: ["Linux", "RHEL", "Red Hat"]
 date: "2007-08-17T15:30:00+02:00"

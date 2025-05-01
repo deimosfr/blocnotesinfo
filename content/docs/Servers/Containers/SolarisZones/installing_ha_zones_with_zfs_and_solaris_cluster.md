@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_de_Zones_HA_avec_ZFS_et_Solaris_Cluster/"
 title: "Installing HA Zones with ZFS and Solaris Cluster"
-icon: "article"
 description: "Documentation resources for installing high availability containers with ZFS using Solaris Cluster"
 categories: ["Solaris"]
 date: "2009-11-30T21:11:00+02:00"

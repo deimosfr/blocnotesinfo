@@ -2,7 +2,6 @@
 weight: 999
 url: "/Puppet\_\\:\_Solution_de_gestion_de_fichier_de_configuration/"
 title: "Puppet: Configuration File Management Solution"
-icon: "article"
 description: "A comprehensive guide to installing and configuring Puppet, a powerful configuration management tool that helps automate system administration tasks."
 categories: ["Linux"]
 date: "2013-08-02T11:43:00+02:00"

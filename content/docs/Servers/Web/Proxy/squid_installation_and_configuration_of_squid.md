@@ -2,7 +2,6 @@
 weight: 999
 url: "/Squid_\\:_Installation_et_configuration_de_Squid/"
 title: "Squid: Installation and Configuration of Squid"
-icon: "article"
 description: "Guide for installing and configuring the Squid proxy server on Debian and FreeBSD systems, with example configurations and security best practices."
 categories: ["Debian", "Security", "Linux", "FreeBSD", "Network"]
 date: "2012-06-06T08:31:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/SNMP_\\:_Le_protocole_de_gestion_réseaux/"
 title: "SNMP: The Network Management Protocol"
-icon: "article"
 description: "A comprehensive guide to understanding and implementing SNMP (Simple Network Management Protocol) on Linux systems including configuration for both v1 and v3 versions, MIB exploration, and usage examples."
 categories: ["Network", "Servers", "Red Hat", "Debian"]
 date: "2011-12-25T20:37:00+02:00"

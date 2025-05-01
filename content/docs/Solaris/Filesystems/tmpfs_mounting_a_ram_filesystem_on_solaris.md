@@ -2,7 +2,6 @@
 weight: 999
 url: "/Tmpfs_\\:_monter_un_filesystem_en_RAM_sous_Solaris/"
 title: "Tmpfs: Mounting a RAM filesystem on Solaris"
-icon: "article"
 description: "A guide on how to set up and manage tmpfs on Solaris systems to create temporary filesystems in RAM"
 categories: ["Solaris", "Linux"]
 date: "2012-02-19T09:07:00+02:00"

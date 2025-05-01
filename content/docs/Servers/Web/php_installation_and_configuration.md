@@ -2,7 +2,6 @@
 weight: 999
 url: "/PHP_\\:_Installation_et_configuration/"
 title: "PHP: Installation and Configuration"
-icon: "article"
 description: "A guide to PHP installation and configuration, focusing on security settings and best practices for both development and production environments."
 categories: ["Development", "Linux", "Servers"]
 date: "2009-12-11T20:04:00+02:00"

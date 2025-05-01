@@ -2,7 +2,6 @@
 weight: 999
 url: "/Synchronisation_de_boites_mails_IMAP/"
 title: "IMAP Mailbox Synchronization"
-icon: "article"
 description: "How to synchronize IMAP mailboxes between two remote servers using imapsync"
 categories: ["Linux", "Network", "Servers"]
 date: "2006-10-23T11:00:00+02:00"

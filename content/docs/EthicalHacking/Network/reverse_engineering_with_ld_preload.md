@@ -2,7 +2,6 @@
 weight: 999
 url: "/Reverse_Engineering_avec_LD_PRELOAD/"
 title: "Reverse Engineering with LD_PRELOAD"
-icon: "article"
 description: "A comprehensive guide to reverse engineering using LD_PRELOAD"
 categories: ["Linux", "Development"]
 date: "2007-08-03T16:49:00+02:00"

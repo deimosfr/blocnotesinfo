@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installer_Debian_sur_un_Mac_en_single_boot/"
 title: "Installing Debian on a Mac in Single Boot"
-icon: "article"
 description: "This guide explains how to install Debian on a Mac in single boot mode, including tips for shortening boot time, setting up auto-restart after power loss, and enabling Wake on LAN."
 categories: ["Linux", "Debian"]
 date: "2012-05-02T20:36:00+02:00"

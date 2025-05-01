@@ -2,7 +2,6 @@
 weight: 999
 url: "/Testdisk_\\:_récupérer_des_données_perdues/"
 title: "TestDisk: Recovering Lost Data"
-icon: "article"
 description: "A guide on how to recover lost data using TestDisk tool"
 categories: ["Linux"]
 date: "2007-07-13T20:07:00+02:00"

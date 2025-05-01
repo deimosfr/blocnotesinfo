@@ -2,7 +2,6 @@
 weight: 999
 url: "/Utilisation_avancé_de_Bind/"
 title: "Advanced usage of Bind"
-icon: "article"
 description: "This guide explains advanced techniques for managing BIND DNS servers including zone updates, round-robin load balancing, and troubleshooting common issues."
 categories: 
   - Linux

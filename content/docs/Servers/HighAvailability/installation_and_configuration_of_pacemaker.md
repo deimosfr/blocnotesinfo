@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_et_Configuration_de_Pacemaker/"
 title: "Installation and Configuration of Pacemaker"
-icon: "article"
 description: "A guide on how to install and configure Pacemaker with Corosync on Debian 6"
 categories: ["Linux", "Debian"]
 date: "2010-12-21T20:41:00+02:00"

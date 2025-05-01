@@ -2,7 +2,6 @@
 weight: 999
 url: "/Monter_une_image_ISO_sous_Solaris/"
 title: "Mount an ISO image on Solaris"
-icon: "article"
 description: "How to mount an ISO image on Solaris using lofiadm and mount commands."
 categories: ["Unix", "Solaris"]
 date: "2010-06-15T07:24:00+02:00"

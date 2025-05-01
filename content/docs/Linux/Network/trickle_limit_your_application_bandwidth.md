@@ -2,7 +2,6 @@
 weight: 999
 url: "/Trickle_\\:_limit_your_application_bandwidth/"
 title: "Trickle: Limit Your Application Bandwidth"
-icon: "article"
 description: "Guide on how to use Trickle to limit bandwidth usage for applications in Linux"
 categories: ["Linux", "Debian", "Network"]
 date: "2013-05-06T13:47:00+02:00"

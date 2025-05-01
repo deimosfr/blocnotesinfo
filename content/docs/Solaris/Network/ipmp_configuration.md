@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configuration_de_l'IPMP/"
 title: "IPMP Configuration"
-icon: "article"
 description: "Learn how to set up and configure IP Network Multipathing (IPMP) on Solaris systems for improved network reliability and load balancing"
 categories: ["Solaris", "Network", "Servers"]
 date: "2011-04-06T09:41:00+02:00"

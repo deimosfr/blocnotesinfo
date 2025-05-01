@@ -2,7 +2,6 @@
 weight: 999
 url: "/Nagios_\\:_2_Load_Balancing/"
 title: "Nagios: 2 Load Balancing"
-icon: "article"
 description: "Documentation on how to implement load balancing with Nagios"
 categories: ["Linux", "Servers", "Network"]
 date: "2007-01-02T10:44:00+02:00"

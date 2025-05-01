@@ -2,7 +2,6 @@
 weight: 999
 url: "/NamedManager_\\:_une_interface_web_agréable_pour_administrer_Bind/"
 title: "NamedManager: A Nice Web Interface to Manage Bind"
-icon: "article"
 description: "A guide on setting up NamedManager, a web interface for managing your Bind DNS server with features like automatic PTR record creation and centralized DNS management."
 categories: ["Nginx", "Debian", "Database"]
 date: "2013-04-14T22:03:00+02:00"

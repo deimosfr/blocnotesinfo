@@ -2,7 +2,6 @@
 weight: 999
 url: "/Awstats_\\:_Mise_en_place_d'Awstats,_interpréteur_de_logs_web/"
 title: "Awstats: Setting up Awstats, a Web Logs Interpreter"
-icon: "article"
 description: "Learn how to install and configure Awstats, a powerful web log analyzer that provides graphical reports on website traffic statistics."
 categories: ["Server", "Web", "Analytics"]
 date: "2010-04-11T15:51:00+02:00"

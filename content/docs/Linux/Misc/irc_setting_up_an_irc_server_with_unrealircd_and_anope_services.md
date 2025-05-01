@@ -2,7 +2,6 @@
 weight: 999
 url: "/IRC_\\:_Mise_en_place_d'un_serveur_IRC_avec_UnrealIRCD_et_Anope_Services/"
 title: "IRC: Setting up an IRC server with UnrealIRCD and Anope Services"
-icon: "article"
 description: "Documentation and resources for setting up an IRC server using UnrealIRCD and Anope Services"
 categories: ["Linux"]
 date: "2009-02-18T18:14:00+02:00"

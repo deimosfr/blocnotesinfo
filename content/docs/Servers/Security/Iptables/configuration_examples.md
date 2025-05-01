@@ -2,7 +2,6 @@
 weight: 999
 url: "/Exemples_de_configurations/"
 title: "Iptables: Configuration Examples"
-icon: "article"
 description: "Various iptables configuration examples from basic to complex for firewall setup"
 categories: ["Apache", "Linux"]
 date: "2010-12-13T17:06:00+02:00"

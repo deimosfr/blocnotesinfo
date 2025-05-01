@@ -2,7 +2,6 @@
 weight: 999
 url: "/Tests_d'intrusion/"
 title: "Penetration Testing"
-icon: "article"
 description: "A comprehensive guide to penetration testing methodologies, including information gathering, vulnerability analysis, and exploitation techniques."
 categories: ["Security", "Linux", "Network"]
 date: "2006-11-28T22:23:00+02:00"

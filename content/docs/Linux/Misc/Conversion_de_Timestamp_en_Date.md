@@ -2,7 +2,6 @@
 weight: 999
 url: "/Conversion_de_Timestamp_en_Date/"
 title: "Converting Unix Timestamp to Date"
-icon: "article"
 description: "How to convert Unix timestamps to human-readable dates using various command-line methods."
 categories: ["Linux"]
 date: "2009-12-11T21:38:00+02:00"

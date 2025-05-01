@@ -2,7 +2,6 @@
 weight: 999
 url: "/Replication_Master_to_Slave/"
 title: "MySQL Replication Master to Slave"
-icon: "article"
 description: "How to set up MySQL replication from master to slave configuration"
 categories: ["MySQL", "Linux"]
 date: "2007-07-09T15:02:00+02:00"

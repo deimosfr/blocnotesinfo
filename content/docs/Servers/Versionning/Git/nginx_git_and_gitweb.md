@@ -2,7 +2,6 @@
 weight: 999
 url: "/Nginx_Git_et_Gitweb/"
 title: "Nginx Git and Gitweb"
-icon: "article"
 description: "Guide to make Git over HTTP(S) and Gitweb coexist in an Nginx setup"
 categories: ["Nginx", "Linux"]
 date: "2013-01-04T17:28:00+02:00"

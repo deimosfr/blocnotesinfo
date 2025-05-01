@@ -2,7 +2,6 @@
 weight: 999
 url: "/Créer_une_favicon_pour_un_site_web/"
 title: "Creating a Favicon for a Website"
-icon: "article"
 description: "How to create and convert images into favicons for websites"
 categories: ["Linux"]
 date: "2009-11-30T20:31:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Awesome_\\:_un_bureau_léger_et_puissant/"
 title: "Awesome: A Lightweight and Powerful Desktop"
-icon: "article"
 description: "Learn how to install and configure Awesome, a lightweight and powerful tiling window manager for Linux."
 categories: ["Linux", "Desktop", "Window Manager"]
 date: "2013-03-28T08:21:00+02:00"

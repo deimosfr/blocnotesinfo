@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mailgraph\_\\:\_Surveillance\_des\_mails\_(Spams,\_rejects,\_virus...)/"
 title: "Mailgraph: Email Monitoring (Spam, Rejects, Viruses...)"
-icon: "article"
 description: "A guide on installing and configuring Mailgraph to monitor email traffic, spam, viruses and rejected emails on your mail server."
 categories: ["Linux", "Debian", "Nginx"]
 date: "2010-02-03T06:33:00+02:00"

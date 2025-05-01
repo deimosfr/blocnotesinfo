@@ -2,7 +2,6 @@
 weight: 999
 url: "/Xinetd_\\:_Sécuriser_ses_services/"
 title: "Xinetd: Securing Services"
-icon: "article"
 description: "Learn how to configure Xinetd to secure network services through access control, DoS protection, and other security measures."
 categories: ["Security", "Linux"]
 date: "2007-03-06T09:30:00+02:00"

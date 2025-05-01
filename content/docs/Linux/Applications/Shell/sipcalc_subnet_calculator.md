@@ -2,7 +2,6 @@
 weight: 999
 url: "/Sipcalc_\\:_Calculateur_de_sous_réseaux/"
 title: "Sipcalc: Subnet Calculator"
-icon: "article"
 description: "A guide on using Sipcalc, a simple subnet calculator for Linux."
 categories: ["Linux", "Network"]
 date: "2006-10-03T13:29:00+02:00"

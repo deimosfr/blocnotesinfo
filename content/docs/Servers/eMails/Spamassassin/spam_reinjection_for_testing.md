@@ -2,7 +2,6 @@
 weight: 999
 url: "/Réinjection_de_Spams_pour_tests/"
 title: "Spam Reinjection for Testing"
-icon: "article"
 description: "How to reinjecting spam messages for testing purposes, including methods to recover spam headers and use them for server testing."
 categories: ["Linux"]
 date: "2006-10-03T13:36:00+02:00"

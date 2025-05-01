@@ -2,7 +2,6 @@
 weight: 999
 url: "/WSUS_\\:_faire_gagner_de_l'espace_disque_(purge_des_mises_à_jour_inutilisées)/"
 title: "WSUS: Save Disk Space (Purge Unused Updates)"
-icon: "article"
 description: "How to free up disk space on a WSUS server by purging unused Windows updates using WSUSDebug tool."
 categories: ["Windows", "Servers"]
 date: "2007-08-13T09:02:00+02:00"

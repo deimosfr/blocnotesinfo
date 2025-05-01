@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_et_configuration_de_Samba_en_mode_\"Share\"/"
 title: "Installation and Configuration of Samba in \"Share\" Mode"
-icon: "article"
 description: "Learn how to install and configure Samba in Share mode, a simple way to share folders without authentication requirements."
 categories: ["Linux", "Security"]
 date: "2007-08-27T15:11:00+02:00"

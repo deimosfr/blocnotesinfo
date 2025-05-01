@@ -2,7 +2,6 @@
 weight: 999
 url: "/apprendre-le-perl-6/"
 title: "Learning Perl 6"
-icon: "article"
 description: "Documentation to learn Perl 6 programming language quickly and efficiently"
 categories: ["Development", "Programming"]
 date: "2008-03-26T19:03:00+01:00"

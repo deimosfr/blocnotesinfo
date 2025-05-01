@@ -2,7 +2,6 @@
 weight: 999
 url: "/altermime-ajouter-automatiquement-un-disclamer-sur-les-emails-sortants/"
 title: "AlterMIME: Automatically Add a Disclaimer to Outgoing Emails"
-icon: "article"
 description: "Documentation on how to automatically add disclaimers to your outgoing emails using AlterMIME"
 categories: ["Email", "Server", "Linux"]
 date: "2008-02-24T07:21:00+01:00"

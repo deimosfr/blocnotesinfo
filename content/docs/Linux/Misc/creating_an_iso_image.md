@@ -2,7 +2,6 @@
 weight: 999
 url: "/Créer_une_image_ISO/"
 title: "Creating an ISO Image"
-icon: "article"
 description: "Methods for creating ISO images in Linux using simple commands like cat and dd."
 categories: ["Linux"]
 date: "2007-08-14T06:19:00+02:00"

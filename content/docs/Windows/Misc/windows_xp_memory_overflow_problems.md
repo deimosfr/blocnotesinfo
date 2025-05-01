@@ -2,7 +2,6 @@
 weight: 999
 url: "/Windows_XP_\\:_Problèmes_lors_d'un_dépassement_mémoire/"
 title: "Windows XP: Memory Overflow Problems"
-icon: "article"
 description: "How to solve memory overflow problems in Windows XP by editing registry settings"
 categories: ["Windows"]
 date: "2007-08-21T07:15:00+02:00"

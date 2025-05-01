@@ -2,7 +2,6 @@
 weight: 999
 url: "/Swith_audio_output_to_another_USB_device/"
 title: "Switch audio output to another USB device"
-icon: "article"
 description: "Instructions for setting up USB audio devices on Linux, including both manual and automatic approaches with udev rules"
 categories: ["Linux", "Debian"]
 date: "2013-05-23T15:00:00+02:00"

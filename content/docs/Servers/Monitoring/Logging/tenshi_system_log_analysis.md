@@ -2,7 +2,6 @@
 weight: 999
 url: "/Tenshi_\\:_Analyse_des_logs_système/"
 title: "Tenshi: System Log Analysis"
-icon: "article"
 description: "How to install and configure Tenshi for analyzing system logs and receiving automated email alerts for specific events"
 categories: ["Debian", "Storage", "Database"]
 date: "2008-05-09T17:36:00+02:00"

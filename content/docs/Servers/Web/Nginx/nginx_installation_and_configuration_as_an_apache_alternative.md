@@ -2,7 +2,6 @@
 weight: 999
 url: "/Nginx_\\:_Installation_et_configuration_d'une_alternative_d'Apache/"
 title: "Nginx: Installation and Configuration as an Apache Alternative"
-icon: "article"
 description: "A comprehensive guide to installing and configuring Nginx as an alternative to Apache, including various optimizations and application configurations."
 categories: ["Nginx", "Debian", "Security"]
 date: "2014-08-29T15:33:00+02:00"

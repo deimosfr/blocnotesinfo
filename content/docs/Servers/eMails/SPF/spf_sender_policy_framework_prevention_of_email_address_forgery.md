@@ -2,7 +2,6 @@
 weight: 999
 url: "/SPF_(Sender_Policy_Framework)_\\:_Prévention_de_la_contrefaçon_d'adresses_mails/"
 title: "SPF (Sender Policy Framework): Prevention of Email Address Forgery"
-icon: "article"
 description: "An overview of SPF (Sender Policy Framework), how it works, what it needs to function, and how to configure it to prevent email address forgery."
 categories: ["Linux", "Network", "Servers"]
 date: "2006-12-28T22:59:00+02:00"

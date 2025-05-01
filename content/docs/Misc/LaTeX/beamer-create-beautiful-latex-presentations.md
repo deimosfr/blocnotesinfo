@@ -2,7 +2,6 @@
 weight: 999
 url: "/Beamer_\\:_create_beautiful_LaTeX_presentations/"
 title: "Beamer: Create Beautiful LaTeX Presentations"
-icon: "article"
 description: "A comprehensive guide to using Beamer to create professional LaTeX presentations, with instructions for setup, formatting, and custom themes."
 categories: ["LaTeX", "Presentation", "Development"]
 date: "2013-09-04T15:58:00+02:00"

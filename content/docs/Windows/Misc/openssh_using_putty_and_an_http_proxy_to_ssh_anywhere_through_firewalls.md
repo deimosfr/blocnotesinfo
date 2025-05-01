@@ -2,7 +2,6 @@
 weight: 999
 url: "/OpenSSH\\:_Using_Putty_and_an_HTTP_proxy_to_ssh_anywhere_through_firewalls/"
 title: "OpenSSH: Using Putty and an HTTP proxy to ssh anywhere through firewalls"
-icon: "article"
 description: "How to use Putty with an HTTP proxy to access SSH servers through restrictive firewalls"
 categories: ["Linux", "Network"]
 date: "2007-12-06T11:49:00+02:00"

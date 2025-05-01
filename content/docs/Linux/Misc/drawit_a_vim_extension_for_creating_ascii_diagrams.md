@@ -2,7 +2,6 @@
 weight: 999
 url: "/DrawIt_\\:_Une_extension_VIM_pour_faire_des_diagrammes_en_ASCII/"
 title: "DrawIt: A VIM Extension for Creating ASCII Diagrams"
-icon: "article"
 description: "Guide on how to install and use DrawIt, a VIM extension that allows creating ASCII diagrams directly in the editor."
 categories: ["Linux"]
 date: "2010-06-05T20:40:00+02:00"

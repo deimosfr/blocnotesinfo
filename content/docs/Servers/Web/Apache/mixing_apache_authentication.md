@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mixing_Apache_Authentication/"
 title: "Mixing Apache Authentication"
-icon: "article"
 description: "How to mix different authentication methods in Apache including PAM, htaccess, IP restrictions, country-based access, and Radius authentication."
 categories: ["Linux", "Ubuntu", "Apache"]
 date: "2010-04-11T15:02:00+02:00"

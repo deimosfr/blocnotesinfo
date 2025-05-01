@@ -2,7 +2,6 @@
 weight: 999
 url: "/GS_\\:_Assembler_plusieurs_PDF_pour_n'en_fait_qu'un/"
 title: "GS: Merge Multiple PDFs Into One"
-icon: "article"
 description: "Learn how to use GhostScript (GS) to merge multiple PDF files into a single document."
 categories: ["Linux", "Tools", "Documents"]
 date: "2009-11-28T16:10:00+02:00"

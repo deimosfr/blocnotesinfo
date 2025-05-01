@@ -2,7 +2,6 @@
 weight: 999
 url: "/Limesurvey_\\:_Mise_en_place_d'une_solution_de_Sondages/"
 title: "Limesurvey: Setting up a Survey Solution"
-icon: "article"
 description: "Learn how to install and configure Limesurvey, a complete survey solution for your web server, allowing you to create and manage sophisticated surveys."
 categories: ["Debian", "Database", "Linux"]
 date: "2012-11-14T10:10:00+02:00"

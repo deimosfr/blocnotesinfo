@@ -2,7 +2,6 @@
 weight: 999
 url: "/Ulimit_\\:_Utiliser_les_limites_systèmes/"
 title: "Ulimit: Using System Limits"
-icon: "article"
 description: "An overview of how to use ulimit to manage system-wide resource limits for users and processes on Linux and Solaris systems."
 categories: ["Linux", "Security"]
 date: "2012-07-03T10:08:00+02:00"

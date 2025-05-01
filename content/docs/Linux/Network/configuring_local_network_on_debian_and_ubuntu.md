@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configuration_d'un_réseau_local_sur_Debian_et_Ubuntu/"
 title: "Configuring a Local Network on Debian and Ubuntu"
-icon: "article"
 description: "A simple guide to configuring static and dynamic network interfaces on Debian and Ubuntu systems"
 categories: ["Linux", "Network", "Debian", "Ubuntu"]
 date: "2007-04-18T14:03:00+02:00"

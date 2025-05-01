@@ -2,7 +2,6 @@
 weight: 999
 url: "/proc/"
 title: "Understanding the Content of /proc"
-icon: "article"
 description: "Documentation to better understand the content of the /proc directory in Linux systems."
 categories: ["Linux"]
 date: "2008-08-31T15:40:00+02:00"

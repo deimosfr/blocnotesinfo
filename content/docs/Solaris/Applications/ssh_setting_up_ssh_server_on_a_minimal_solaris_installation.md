@@ -3,7 +3,6 @@
 weight: 999
 url: "/SSH_\\:_Mise_en_place_du_serveur_SSH_Solaris_sur_une_installation_minimale/"
 title: "SSH: Setting up SSH Server on a Minimal Solaris Installation"
-icon: "article"
 description: "How to install SSH server packages on a minimal Solaris 10 installation"
 categories: ["Solaris", "Servers", "Network"]
 date: "2008-04-05T10:16:00+02:00"

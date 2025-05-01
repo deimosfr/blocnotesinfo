@@ -2,7 +2,6 @@
 weight: 999
 url: "/find-and-du-locate-large-files-and-directories/"
 title: "Locate Large Files and Directories"
-icon: "article"
 description: "How to use find and du commands to identify large files and directories consuming disk space"
 categories: ["Linux", "System Administration", "Command Line"]
 date: "2008-08-31T10:59:00+02:00"

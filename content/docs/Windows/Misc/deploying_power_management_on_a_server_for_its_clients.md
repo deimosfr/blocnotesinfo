@@ -2,7 +2,6 @@
 weight: 999
 url: "/Déployement_de_la_gestion_d'énergie_sur_un_serveur_pour_ses_clients/"
 title: "Deploying Power Management on a Server for its Clients"
-icon: "article"
 description: "Guide on how to deploy power management settings to Windows clients through scripts"
 categories: ["Windows", "Servers"]
 date: "2008-05-05T09:09:00+02:00"

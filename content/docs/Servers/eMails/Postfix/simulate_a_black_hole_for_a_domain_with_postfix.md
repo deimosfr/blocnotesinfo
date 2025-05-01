@@ -2,7 +2,6 @@
 weight: 999
 url: "/Simulate_a_black_hole_for_a_domain_with_Postfix/"
 title: "Simulate a black hole for a domain with Postfix"
-icon: "article"
 description: "How to set up a black hole for emails in Postfix to test outgoing mail services."
 categories: ["Debian", "Linux"]
 date: "2013-05-07T05:54:00+02:00"

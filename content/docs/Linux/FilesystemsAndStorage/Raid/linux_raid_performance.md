@@ -2,7 +2,6 @@
 weight: 999
 url: "/Linux_RAID_performances/"
 title: "Linux RAID Performance"
-icon: "article"
 description: "Guide to optimizing Linux RAID performance, including chunk size calculation, stride settings, and performance considerations for different RAID levels."
 categories: ["Linux"]
 date: "2012-08-31T20:45:00+02:00"

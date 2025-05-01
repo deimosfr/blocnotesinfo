@@ -2,7 +2,6 @@
 weight: 999
 url: "/Cisco_VPN_Client_\\:_Installation_sur_une_Red_Hat_6/"
 title: "Cisco VPN Client: Installation on Red Hat 6"
-icon: "article"
 description: "A guide to installing the Cisco VPN Client on Red Hat 6, including necessary patches and configurations"
 categories: ["Network", "Linux", "Security"]
 date: "2012-04-06T00:15:00+02:00"

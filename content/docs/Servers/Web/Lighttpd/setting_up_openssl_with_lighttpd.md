@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_d'OpenSSL_avec_Lighttpd/"
 title: "Setting up OpenSSL with Lighttpd"
-icon: "article"
 description: "This guide explains how to create and insert SSL certificates in Lighttpd for better website security."
 categories: ["Linux", "Servers"]
 date: "2009-04-15T07:09:00+02:00"

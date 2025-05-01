@@ -2,7 +2,6 @@
 weight: 999
 url: "/La_commande_find_ou_la_puissance_de_la_recherche/"
 title: "The find command or the power of search"
-icon: "article"
 description: "A comprehensive guide on using the find command in Linux for powerful file searching capabilities"
 categories: ["Linux"]
 date: "2011-02-09T14:06:00+02:00"

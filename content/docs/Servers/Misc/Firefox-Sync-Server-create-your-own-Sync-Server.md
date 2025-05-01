@@ -2,7 +2,6 @@
 weight: 999
 url: "/Firefox_Sync_Server_create_your_own_Sync_Server/"
 title: "Firefox Sync Server: Create Your Own Sync Server"
-icon: "article"
 description: "How to install and configure your own Firefox Sync Server for synchronizing Firefox data across multiple devices"
 categories: ["Servers", "Firefox", "Web"]
 date: "2013-09-05T14:34:00+02:00"

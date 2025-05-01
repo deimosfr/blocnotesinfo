@@ -2,7 +2,6 @@
 weight: 999
 url: "/MyTinyTodo_\\:_Un_outil_simple_de_gestion_de_tâches/"
 title: "MyTinyTodo: A Simple Task Management Tool"
-icon: "article"
 description: "How to install and configure MyTinyTodo, a simple web-based task management tool that's compatible with smartphones."
 categories: ["Linux", "Servers"]
 date: "2012-04-20T08:19:00+02:00"

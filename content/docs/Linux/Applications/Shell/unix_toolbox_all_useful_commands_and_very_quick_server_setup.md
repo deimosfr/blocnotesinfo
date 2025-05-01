@@ -2,7 +2,6 @@
 weight: 999
 url: "/Unix_Toolbox_\\:_Toutes_les_commandes_utiles/"
 title: "Unix Toolbox: All Useful Commands"
-icon: "article"
 description: "A collection of Unix commands and server setup guides providing comprehensive reference for system administrators."
 categories: ["Linux"]
 date: "2008-04-20T14:06:00+02:00"

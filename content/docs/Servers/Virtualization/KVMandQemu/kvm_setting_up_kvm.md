@@ -2,7 +2,6 @@
 weight: 999
 url: "/KVM_\\:_Mise_en_place_de_KVM/"
 title: "KVM: Setting Up KVM"
-icon: "article"
 description: "A comprehensive guide on setting up and configuring KVM virtualization on Linux systems, including performance optimization, networking, VM management, and advanced features."
 categories: ["Virtualization", "Linux", "System Administration"]
 date: "2015-03-03T09:41:00+02:00"

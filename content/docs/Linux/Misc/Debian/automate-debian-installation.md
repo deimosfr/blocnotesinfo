@@ -2,7 +2,6 @@
 weight: 999
 url: "/Automatiser_une_installation_de_Debian/"
 title: "Automate Debian Installation"
-icon: "article"
 description: "Learn how to automate Debian installation using preseed files to create identical server setups efficiently."
 categories: ["Linux", "Debian", "Installation", "Automation"]
 date: "2013-05-07T11:09:00+02:00"

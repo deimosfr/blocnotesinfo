@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_d'un_quorum_server/"
 title: "Setting up a quorum server"
-icon: "article"
 description: "Instructions for setting up and configuring a quorum server for a 2-node cluster without a disk array"
 categories:
   - "Linux"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Initramfs_\\:_corriger_les_petits_problèmes_de_boot_kernel_grâce_à_initramfs/"
 title: "Initramfs: Fixing Kernel Boot Issues with Initramfs"
-icon: "article"
 description: "This guide explains how to use initramfs to solve kernel boot issues when disk detection order changes."
 categories: ["Linux", "Debian", "System Administration"]
 date: "2007-09-18T22:19:00+02:00"

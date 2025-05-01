@@ -2,7 +2,6 @@
 weight: 999
 url: "/Rebooter_sa_Freebox_Server_6_en_ligne_de_commande/"
 title: "Reboot Your Freebox Server 6 via Command Line"
-icon: "article"
 description: "A guide on how to reboot your Freebox Server 6 from the command line, including installation instructions for pfSense and other systems."
 categories: 
   - "Linux"

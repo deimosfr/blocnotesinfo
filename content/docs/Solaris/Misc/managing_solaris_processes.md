@@ -2,7 +2,6 @@
 weight: 999
 url: "/Manager_les_processes_Solaris/"
 title: "Managing Solaris Processes"
-icon: "article"
 description: "A comprehensive guide to managing processes in Solaris operating system, including monitoring with prstat, killing processes, and dealing with zombie processes."
 categories: ["Unix", "Solaris", "System Administration"]
 date: "2010-04-12T09:52:00+02:00"

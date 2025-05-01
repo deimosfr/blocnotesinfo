@@ -2,7 +2,6 @@
 weight: 999
 url: "/asterisk-mise-en-place-d-asterisk-pbx-et-web-based-provisioning-gui/"
 title: "Asterisk: Setting up Asterisk PBX and Web-Based Provisioning GUI"
-icon: "article"
 description: "How to install and configure Asterisk PBX, an open-source software solution that transforms a computer into a private telephone exchange system"
 categories: ["Server", "VoIP", "Telephony"]
 date: "2009-02-07T06:43:00+01:00"

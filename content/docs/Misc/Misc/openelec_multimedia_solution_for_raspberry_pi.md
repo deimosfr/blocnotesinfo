@@ -2,7 +2,6 @@
 weight: 999
 url: "/OpenElec_\\:_Solution_multimedia_pour_Raspberry_Pi/"
 title: "OpenElec: Multimedia Solution for Raspberry Pi"
-icon: "article"
 description: "Guide on installing and configuring OpenElec multimedia center on Raspberry Pi with support for remote controls and hardware video decoding."
 categories: ["Linux", "Storage"]
 date: "2013-02-12T07:46:00+02:00"

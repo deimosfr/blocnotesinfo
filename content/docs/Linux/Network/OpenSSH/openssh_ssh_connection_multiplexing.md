@@ -2,7 +2,6 @@
 weight: 999
 url: "/OpenSSH\\:_Multiplexage_des_connexions_SSH/"
 title: "OpenSSH: SSH Connection Multiplexing"
-icon: "article"
 description: "How to set up SSH connection multiplexing to accelerate login times for multiple connections to the same host."
 categories: 
   - "Linux"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Rancid_Search_\\:_Mise_en_place_d'un_outil_de_recherche_pour_Rancid/"
 title: "Rancid Search: Setting Up a Search Tool for Rancid"
-icon: "article"
 description: "How to implement a search tool for Rancid to easily search through network device configurations."
 categories: ["Linux", "Network"]
 date: "2011-03-02T06:16:00+02:00"

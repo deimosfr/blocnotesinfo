@@ -2,7 +2,6 @@
 weight: 999
 url: "/Se_connecter_par_port_serie_sur_sa_debian/"
 title: "Connect to Debian via Serial Port"
-icon: "article"
 description: "Guide to set up and use a serial port connection to a Linux machine, including minicom configuration and Grub setup."
 categories: ["Debian", "Linux"]
 date: "2011-05-20T13:41:00+02:00"

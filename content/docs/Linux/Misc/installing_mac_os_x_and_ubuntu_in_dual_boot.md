@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installer_Mac_OS_X_et_ubuntu_en_dual_boot/"
 title: "Installing Mac OS X and Ubuntu in Dual Boot"
-icon: "article"
 description: "A guide on how to install Mac OS X and Ubuntu in dual boot configuration on the same hard drive."
 categories: ["Linux", "Ubuntu", "Mac"]
 date: "2008-10-05T09:07:00+02:00"

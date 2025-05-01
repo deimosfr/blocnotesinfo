@@ -2,7 +2,6 @@
 weight: 999
 url: "/NTP_\\:_Création_d'un_serveur_NTP/"
 title: "NTP: Creating an NTP Server"
-icon: "article"
 description: "Guide for setting up and configuring an NTP server on various operating systems including Debian and Solaris."
 categories: ["Debian", "Linux", "Solaris"]
 date: "2011-10-06T11:10:00+02:00"

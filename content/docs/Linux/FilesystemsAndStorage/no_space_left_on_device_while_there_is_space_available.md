@@ -2,7 +2,6 @@
 weight: 999
 url: "/No_space_left_on_device_alors_qu\\'il_y_a_de_la_place/"
 title: "No space left on device while there is space available"
-icon: "article"
 description: "How to troubleshoot 'No space left on device' errors when disk space seems available by checking inode usage."
 categories: ["Linux"]
 date: "2008-10-13T20:43:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Acct_Le_keyfinder_par_excellence/"
 title: "Acct: The Ultimate Keyfinder"
-icon: "article"
 description: "Learn how to track user commands and processes with the acct tools for system auditing and monitoring."
 categories: ["Linux", "Security", "Administration"]
 date: "2013-05-06T13:59:00+02:00"

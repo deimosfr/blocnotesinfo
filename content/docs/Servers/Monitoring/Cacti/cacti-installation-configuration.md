@@ -2,7 +2,6 @@
 weight: 999
 url: "/installation_et_configuration_de_cacti/"
 title: "Installation and Configuration of Cacti"
-icon: "article"
 description: "How to install and configure Cacti for network monitoring"
 categories: ["Monitoring", "Network"]
 date: "2007-12-12T11:01:00+02:00"

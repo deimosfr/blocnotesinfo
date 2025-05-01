@@ -2,7 +2,6 @@
 weight: 999
 url: "/Wacom_\\:_Mise_en_place_de_la_Wacom_Bamboo/"
 title: "Wacom: Setting up the Wacom Bamboo"
-icon: "article"
 description: "Guide for installing and configuring a Wacom Bamboo tablet on Linux"
 categories: ["Linux", "Debian"]
 date: "2008-10-01T12:20:00+02:00"

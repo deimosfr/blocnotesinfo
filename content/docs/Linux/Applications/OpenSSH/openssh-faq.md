@@ -2,7 +2,6 @@
 weight: 999
 url: "/FAQ_OpenSSH/"
 title: "OpenSSH FAQ"
-icon: "article"
 description: "Frequently Asked Questions about OpenSSH. Solutions to common problems and configuration tips."
 categories: ["Network", "Security", "SSH"]
 date: "2013-05-08T19:19:00+02:00"

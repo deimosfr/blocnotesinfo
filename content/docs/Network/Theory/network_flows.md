@@ -2,7 +2,6 @@
 weight: 999
 url: "/Les_flux_réseaux/"
 title: "Network Flows"
-icon: "article"
 description: "Understanding network flows and their applications in network monitoring and security."
 categories: ["Linux", "Network"]
 date: "2008-09-24T11:21:00+02:00"

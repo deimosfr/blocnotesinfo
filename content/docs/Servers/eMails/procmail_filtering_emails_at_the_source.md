@@ -2,7 +2,6 @@
 weight: 999
 url: "/Procmail_\\:_Filtrer_ses_mails_à_la_source/"
 title: "Procmail: Filtering emails at the source"
-icon: "article"
 description: "How to use Procmail to filter and sort emails directly at source level on Linux systems."
 categories: ["Linux", "Servers", "Email"]
 date: "2007-08-06T05:29:00+02:00"

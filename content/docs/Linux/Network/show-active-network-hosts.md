@@ -2,7 +2,6 @@
 weight: 999
 url: "/afficher-les-machines-allumees-sur-le-reseau-courant/"
 title: "Displaying Active Machines on the Current Network"
-icon: "article"
 description: "How to find and display all active machines on your current network using nmap."
 categories: ["Networking", "System Administration", "Security"]
 date: "2009-12-11T19:05:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Patcher_sa_Solaris/"
 title: "Patching Solaris"
-icon: "article"
 description: "A guide on how to detect, retrieve and install patches for Solaris systems."
 categories: 
   - Linux

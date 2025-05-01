@@ -2,7 +2,6 @@
 weight: 999
 url: "/FuzzyOcr_Plugin_\\:_Détection_des_spams_image_(OCR_Detection)/"
 title: "FuzzyOcr Plugin: Image Spam Detection (OCR Detection)"
-icon: "article"
 description: "Learn how to install and configure FuzzyOcr Plugin for SpamAssassin to detect image-based spam using OCR technology."
 categories: ["Servers", "Security", "AntiSpam"]
 date: "2008-04-10T10:36:00+02:00"

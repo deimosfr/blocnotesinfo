@@ -2,7 +2,6 @@
 weight: 999
 url: "/Check_MK_\\:_Collecter_facilement_des_infos_Nagios_et_étendez_ses_possibilités/"
 title: "Check MK: Easily collect Nagios information and extend its capabilities"
-icon: "article"
 description: "Set up Check MK to extend Nagios functionality with easy data collection and additional features like multisites and clustering"
 categories: ["Servers", "Monitoring", "Nagios"]
 date: "2012-05-25T07:42:00+02:00"

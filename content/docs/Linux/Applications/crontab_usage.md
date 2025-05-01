@@ -2,7 +2,6 @@
 weight: 999
 url: "/Crontab_\\:_utilisation/"
 title: "Crontab: Usage"
-icon: "article"
 description: "Guide on how to use crontab for scheduling automated tasks on Linux systems"
 categories: ["Backup", "Linux"]
 date: "2011-08-01T05:53:00+02:00"

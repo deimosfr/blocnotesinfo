@@ -2,7 +2,6 @@
 weight: 999
 url: "/Chatter_avec_les_personnes_connecté_sur_une_même_machine_via_terminal/"
 title: "Chat with Users on the Same Machine via Terminal"
-icon: "article"
 description: "Learn how to communicate with other users logged into the same Linux or Unix system using terminal commands like write and wall."
 categories: ["Linux", "Command Line"]
 date: "2009-08-08T09:10:00+02:00"

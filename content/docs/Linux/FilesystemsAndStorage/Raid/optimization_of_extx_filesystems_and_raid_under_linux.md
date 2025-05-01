@@ -2,7 +2,6 @@
 weight: 999
 url: "/Optimisation_des_filesystems_extX_et_du_RAID_sous_Linux/"
 title: "Optimization of extX filesystems and RAID under Linux"
-icon: "article"
 description: "A comprehensive guide on how to optimize extX filesystems and RAID configurations on Linux systems for better performance and reliability."
 categories: ["Linux", "Debian", "Security"]
 date: "2013-02-13T13:13:00+02:00"

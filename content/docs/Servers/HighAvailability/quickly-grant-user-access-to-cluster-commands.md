@@ -2,7 +2,6 @@
 weight: 999
 url: "/Autoriser_rapidement_un_utilisateur_à_avoir_accès_aux_commandes_cluster/"
 title: "Quickly Grant User Access to Cluster Commands"
-icon: "article"
 description: "Learn how to quickly configure user permissions to allow non-root users to execute cluster management commands."
 categories: ["Linux", "Security", "Cluster"]
 date: "2007-05-31T10:12:00+02:00"

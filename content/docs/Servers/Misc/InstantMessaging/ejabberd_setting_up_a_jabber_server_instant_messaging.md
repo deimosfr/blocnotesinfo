@@ -2,7 +2,6 @@
 weight: 999
 url: "/EJabberd_\\:_Mise_en_place_d'un_serveur_Jabber_(messagerie_instantanée)/"
 title: "EJabberd: Setting up a Jabber server (instant messaging)"
-icon: "article"
 description: "A guide for installing and configuring EJabberd, a Jabber/XMPP server written in Erlang for instant messaging."
 categories: ["Linux", "Debian", "Ubuntu", "Servers"]
 date: "2007-03-26T20:48:00+02:00"

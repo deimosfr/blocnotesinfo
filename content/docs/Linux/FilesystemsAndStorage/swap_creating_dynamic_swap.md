@@ -2,7 +2,6 @@
 weight: 999
 url: "/SWAP_\\:_Création_de_swap_dynamique/"
 title: "SWAP: Creating Dynamic Swap"
-icon: "article"
 description: "Guide on how to create and manage dynamic swap space in Linux through partition-based and image-based methods."
 categories: ["Linux"]
 date: "2009-09-19T21:47:00+02:00"

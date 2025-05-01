@@ -2,7 +2,6 @@
 weight: 999
 url: "/Rinetd_\\:_Forwarder_simplement_et_rapidement_vers_d'autres_machines/"
 title: "Rinetd: Simply and Quickly Forward to Other Machines"
-icon: "article"
 description: "A guide on how to use Rinetd to set up TCP forwarding between machines without complex firewall rules."
 categories: ["Linux", "Network", "Debian"]
 date: "2008-09-25T12:07:00+02:00"

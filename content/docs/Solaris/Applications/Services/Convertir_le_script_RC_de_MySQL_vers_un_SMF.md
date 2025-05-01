@@ -2,7 +2,6 @@
 weight: 999
 url: "/Convertir_le_script_RC_de_MySQL_vers_un_SMF/"
 title: "Convert MySQL RC Script to SMF"
-icon: "article"
 description: "How to convert MySQL RC startup scripts to Solaris Management Facility (SMF) configuration"
 categories: ["Database", "MySQL", "Solaris"]
 date: "2008-04-20T08:10:00+02:00"

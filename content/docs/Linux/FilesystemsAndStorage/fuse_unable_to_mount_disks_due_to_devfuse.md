@@ -2,7 +2,6 @@
 weight: 999
 url: "/fuse-refus-de-monter-les-disques-a-cause-de-dev-fuse/"
 title: "FUSE: Unable to Mount Disks Due to /dev/fuse"
-icon: "article"
 description: "How to solve the FUSE disk mounting issue when /dev/fuse is missing."
 categories: ["Linux"]
 date: "2006-08-05T12:58:00+02:00" 

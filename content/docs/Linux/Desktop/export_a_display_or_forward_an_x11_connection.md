@@ -2,7 +2,6 @@
 weight: 999
 url: "/Exporter_un_display_ou_forwarder_une_connexion_X11/"
 title: "Export a Display or Forward an X11 Connection"
-icon: "article"
 description: "Guide on how to export displays or forward X11 connections to display GUI applications from one user or machine to another."
 categories: ["Linux"]
 date: "2008-08-31T12:00:00+02:00"

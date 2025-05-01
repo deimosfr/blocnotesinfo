@@ -2,7 +2,6 @@
 weight: 999
 url: "/Trouver_des_liens_symboliques_cassés/"
 title: "Finding Broken Symbolic Links"
-icon: "article"
 description: "How to find and clean up broken symbolic links on Unix systems"
 categories: ["Linux"]
 date: "2009-09-20T16:00:00+02:00"

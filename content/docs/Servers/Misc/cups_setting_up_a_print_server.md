@@ -2,7 +2,6 @@
 weight: 999
 url: "/Cups_\\:_mise_en_place_d'un_serveur_d'impression/"
 title: "CUPS: Setting Up a Print Server"
-icon: "article"
 description: "Guide on how to set up a CUPS print server on Linux systems, including installation, configuration, and administration."
 categories: ["Linux"]
 date: "2010-04-01T12:58:00+02:00"

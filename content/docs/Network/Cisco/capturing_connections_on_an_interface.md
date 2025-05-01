@@ -2,7 +2,6 @@
 weight: 999
 url: "/Dumper_les_connections_dune_interface/"
 title: "Capturing connections on an interface"
-icon: "article"
 description: "How to capture and monitor network connections on a Cisco interface using access lists and dumps."
 categories: ["Linux", "Network"]
 date: "2007-05-23T15:45:00+02:00"

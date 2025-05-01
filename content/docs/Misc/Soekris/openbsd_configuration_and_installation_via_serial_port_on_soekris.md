@@ -2,7 +2,6 @@
 weight: 999
 url: "/Configuration_et_installation_via_port_série_d'OpenBSD_sur_Soekris/"
 title: "OpenBSD Configuration and Installation via Serial Port on Soekris"
-icon: "article"
 description: "Complete guide to install OpenBSD on a Soekris device using the serial port and optimizing for CompactFlash storage"
 categories: ["BSD", "OpenBSD", "Soekris", "Embedded"]
 date: "2009-10-25T20:14:00+02:00"

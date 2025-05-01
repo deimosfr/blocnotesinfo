@@ -2,7 +2,6 @@
 weight: 999
 url: "/Management_des_disques_sous_Solaris/"
 title: "Disk Management in Solaris"
-icon: "article"
 description: "A comprehensive guide on managing disks in Solaris, covering physical disk structure, partitioning, filesystems, and troubleshooting."
 categories: ["Linux", "Unix", "System Administration"]
 date: "2012-01-30T11:07:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/SystemTap_\\:_Profilez_et_utilisez_rapidement_des_fonctionnalités_du_kernel/"
 title: "SystemTap: Profile and Quickly Use Kernel Features"
-icon: "article"
 description: "Learn how to use SystemTap to analyze and diagnose performance issues in Linux systems without kernel recompilation or rebooting."
 categories: ["Linux", "RHEL", "Red Hat"]
 date: "2011-12-31T14:15:00+02:00"

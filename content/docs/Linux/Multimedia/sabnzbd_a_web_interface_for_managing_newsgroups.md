@@ -2,7 +2,6 @@
 weight: 999
 url: "/SABnzbd_\\:_Une_interface_web_pour_gérer_les_newsgroups/"
 title: "SABnzbd: A Web Interface for Managing Newsgroups"
-icon: "article"
 description: "How to setup SABnzbd, a web interface for managing newsgroups downloads on Debian systems"
 categories: ["Debian", "Linux", "Ubuntu"]
 date: "2013-06-19T11:48:00+02:00"

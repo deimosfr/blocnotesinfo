@@ -2,7 +2,6 @@
 weight: 999
 url: "/Xen_avec_Bonding_+_Vlan_Tagging/"
 title: "Xen with Bonding + VLAN Tagging"
-icon: "article"
 description: "This guide explains how to configure Xen with network bonding and VLAN tagging to maximize ethernet interfaces usage with fault tolerance and load balancing."
 categories: ["Linux", "Networking", "Virtualization"]
 date: "2008-01-27T11:48:00+02:00"

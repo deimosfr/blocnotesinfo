@@ -2,7 +2,6 @@
 weight: 999
 url: "/Accélérer_les_scripts_CGI_avec_SpeedyCGI-PersistantPerl/"
 title: "Accelerating CGI Scripts with SpeedyCGI-PersistantPerl"
-icon: "article"
 description: "A solution to accelerate Perl CGI scripts using SpeedyCGI/PersistantPerl to improve performance."
 categories: ["Development", "Web", "Perl"]
 date: "2007-09-12T22:12:00+02:00"

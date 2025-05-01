@@ -2,7 +2,6 @@
 weight: 999
 url: "/Exécuter_des_commandes_au_logout/"
 title: "Execute Commands at Logout"
-icon: "article"
 description: "How to execute commands when a user logs out from a system, such as disconnecting a VPN or performing cleanup tasks."
 categories: ["Linux"]
 date: "2009-12-11T21:21:00+02:00"

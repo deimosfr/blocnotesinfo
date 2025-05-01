@@ -3,7 +3,6 @@
 weight: 999
 url: "/Pam_time\\:_Mettre_des_restrictions_sur_les_logins/"
 title: "PAM Time: Setting Login Restrictions"
-icon: "article"
 description: "How to use PAM Time module to set various login restrictions like time-based and access-based restrictions on Linux systems."
 categories: ["Linux", "Security"]
 date: "2011-05-06T20:36:00+02:00"

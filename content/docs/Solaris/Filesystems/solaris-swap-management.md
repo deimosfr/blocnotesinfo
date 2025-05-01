@@ -2,7 +2,6 @@
 weight: 999
 url: "/ajout-de-swap-sous-solaris/"
 title: "Adding Swap Space on Solaris"
-icon: "article"
 description: "A guide on how to add, manage, and configure swap space in Solaris using different methods including UFS, ZFS, and swap files."
 categories: ["Solaris", "System Administration", "Storage"]
 date: "2012-01-30T12:09:00+02:00"

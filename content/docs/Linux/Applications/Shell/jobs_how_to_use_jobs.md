@@ -2,7 +2,6 @@
 weight: 999
 url: "/Jobs_\\:_Utilisation_des_jobs/"
 title: "Jobs: How to Use Jobs"
-icon: "article"
 description: "Learn how to use Linux jobs functionality to run multiple tasks in parallel without needing multiple shells."
 categories: ["Linux"]
 date: "2013-05-06T20:02:00+02:00"

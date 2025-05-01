@@ -2,7 +2,6 @@
 weight: 999
 url: "/Slotlimit_\\:_Module_d'apache_pour_limiter_les_ressources_d'Apache/"
 title: "Slotlimit: Apache Module to Limit Apache Resources"
-icon: "article"
 description: "Information about the Slotlimit module for Apache, which helps limit Apache resources"
 categories: ["Linux", "Apache"]
 date: "2008-10-13T19:55:00+02:00"

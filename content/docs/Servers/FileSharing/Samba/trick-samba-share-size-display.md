@@ -2,7 +2,6 @@
 weight: 999
 url: "/trick-samba-share-size-display/"
 title: "Trick Samba Share Size Display"
-icon: "article"
 description: "How to modify the displayed available space on a Samba share to overcome space limitations with nested mount points"
 categories: ["Linux", "Samba", "File Sharing"]
 date: "2012-02-16T10:17:00+02:00"

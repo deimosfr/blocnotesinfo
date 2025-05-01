@@ -2,7 +2,6 @@
 weight: 999
 url: "/SVK_\\:_Créer_un_mirroir_en_lecture_pour_SVN/"
 title: "SVK: Creating a Read-Only Mirror for SVN"
-icon: "article"
 description: "A short guide on how to create a read-only mirror of an SVN repository using SVK"
 categories: ["Linux", "Development"]
 date: "2007-02-26T22:32:00+02:00"

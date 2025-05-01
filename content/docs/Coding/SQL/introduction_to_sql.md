@@ -2,7 +2,6 @@
 weight: 999
 url: "/Introduction_au_SQL/"
 title: "Introduction to SQL"
-icon: "article"
 description: "A comprehensive introduction to SQL, covering basic commands like CREATE, INSERT, UPDATE, DELETE and SELECT, as well as advanced topics like sorting, filtering and wildcards."
 categories: ["Development"]
 date: "2010-04-10T22:10:00+02:00"

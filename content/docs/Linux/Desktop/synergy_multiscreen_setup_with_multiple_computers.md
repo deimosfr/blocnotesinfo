@@ -2,7 +2,6 @@
 weight: 999
 url: "/Synergy_\\:_Multi_screens_avec_plusieurs_ordinateurs/"
 title: "Synergy: Multi-screen Setup with Multiple Computers"
-icon: "article"
 description: "Learn how to set up Synergy to share keyboard and mouse across multiple computers with different operating systems."
 categories: ["Linux", "Debian"]
 date: "2012-11-07T09:02:00+02:00"

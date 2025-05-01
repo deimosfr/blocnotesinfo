@@ -2,7 +2,6 @@
 weight: 999
 url: "/TinyProxy\\:_Mise_en_place_d'un_proxy_simple_et_rapide/"
 title: "TinyProxy: Setting up a Simple and Fast Proxy"
-icon: "article"
 description: "Learn how to set up TinyProxy, a lightweight alternative to Squid that simplifies proxy configuration for all your applications."
 categories: ["Linux", "Debian", "Network"]
 date: "2012-07-27T11:48:00+02:00"

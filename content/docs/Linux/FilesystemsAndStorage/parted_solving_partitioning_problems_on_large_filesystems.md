@@ -2,7 +2,6 @@
 weight: 999
 url: "/Parted_\\:_résoudre_les_problèmes_de_partionnnement_sur_gros_filesystems/"
 title: "Parted: Solving Partitioning Problems on Large Filesystems"
-icon: "article"
 description: "Guide on how to use the Parted tool to solve partitioning issues with large filesystems and disks over 2TB, with commands and examples for proper partitioning."
 categories: ["Linux", "Debian", "FreeBSD"]
 date: "2013-02-13T12:54:00+02:00"

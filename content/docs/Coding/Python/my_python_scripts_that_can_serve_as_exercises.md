@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mes_scripts_Python_qui_peuvent_servir_d'exercices/"
 title: "My Python Scripts That Can Serve as Exercises"
-icon: "article"
 description: "A collection of Python scripts that can serve as learning exercises for beginners, including a script for automating package signing and pushing in Red Hat Satellite."
 categories: ["Development", "Linux", "Red Hat"]
 date: "2012-06-06T13:09:00+02:00"

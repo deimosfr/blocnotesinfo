@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_d'un_serveur_de_rebond_pour_ses_connections_SSH/"
 title: "Setting up an SSH Bouncer Server for Your SSH Connections"
-icon: "article"
 description: "This guide explains how to set up an SSH bouncer server to facilitate connections to machines in a DMZ, using key authentication and automatic mounting with FUSE."
 categories: ["Debian", "Linux", "Ubuntu"]
 date: "2008-03-08T07:28:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Dkfilter_\\:_Proxy_SMTP_(signatures_mails)_made_by_Yahoo/"
 title: "Dkfilter: Proxy SMTP (Signature Mails) Made by Yahoo"
-icon: "article"
 description: "A guide to set up DomainKeys for Postfix using dkfilter, a SMTP proxy for email signature verification and signing."
 categories: ["Debian", "Red Hat", "Linux"]
 date: "2008-01-31T07:06:00+02:00"

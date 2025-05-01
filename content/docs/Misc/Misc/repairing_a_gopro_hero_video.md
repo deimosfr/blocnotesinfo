@@ -2,7 +2,6 @@
 weight: 999
 url: "/Réparer_une_video_d'une_GoPro_Hero/" 
 title: "Repairing a GoPro Hero Video"
-icon: "article"
 description: "How to repair a corrupted GoPro Hero video file and recover the video content without audio."
 categories: 
   - "Linux"

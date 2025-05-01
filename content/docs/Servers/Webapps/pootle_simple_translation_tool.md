@@ -2,7 +2,6 @@
 weight: 999
 url: "/Pootle_\\:_simple_translation_tool/"
 title: "Pootle: Simple Translation Tool"
-icon: "article"
 description: "A guide on how to install and configure Pootle, a simple online translation tool that makes the translation process easier and allows crowd-sourced translations."
 categories: ["Debian", "Development", "Servers"]
 date: "2013-09-06T15:45:00+02:00"

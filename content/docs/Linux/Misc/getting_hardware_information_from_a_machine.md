@@ -2,7 +2,6 @@
 weight: 999
 url: "/Obtenir_les_informations_hardware_d'une_machine/"
 title: "Getting Hardware Information from a Machine"
-icon: "article"
 description: "A guide on how to obtain hardware information from different operating systems including Linux, BSD, and Solaris."
 categories: ["Linux", "Storage", "BSD", "Solaris"]
 date: "2009-08-26T13:30:00+02:00"

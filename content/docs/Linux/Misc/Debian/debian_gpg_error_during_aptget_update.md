@@ -2,7 +2,6 @@
 weight: 999
 url: "/Debian_\\:_Erreur_GPG_lors_d'apt-get_update/"
 title: "Debian: GPG Error During apt-get update"
-icon: "article"
 description: "How to solve GPG key errors when running apt-get update on Debian systems"
 categories: ["Security", "Linux", "Debian"]
 date: "2006-08-05T13:05:00+02:00"

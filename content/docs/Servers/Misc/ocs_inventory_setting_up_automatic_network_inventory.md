@@ -2,7 +2,6 @@
 weight: 999
 url: "/OCS_Inventory_\\:_Mise_en_place_d'un_inventaire_de_parc_automatique/"
 title: "OCS Inventory: Setting up Automatic Network Inventory"
-icon: "article"
 description: "How to set up OCS Inventory for automatic network inventory management with client installation on Debian and Windows platforms"
 categories: ["Linux", "Debian", "Windows"]
 date: "2008-12-30T10:08:00+02:00"

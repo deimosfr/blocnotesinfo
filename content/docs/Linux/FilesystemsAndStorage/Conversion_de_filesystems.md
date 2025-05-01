@@ -2,7 +2,6 @@
 weight: 999
 url: "/Conversion_de_filesystems/" 
 title: "Filesystem Conversion"
-icon: "article"
 description: "Guide on how to convert filesystems without reformatting, focusing on converting from ext3 to ext4."
 categories: ["Ubuntu", "Linux"]
 date: "2009-05-08T06:39:00+02:00"

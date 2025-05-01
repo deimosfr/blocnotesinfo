@@ -2,7 +2,6 @@
 weight: 999
 url: "/Windows_\\:_Rafraîchir_les_politiques_de_sécurité_(GPO)/"
 title: "Windows: Refreshing Security Policies (GPO)"
-icon: "article"
 description: "How to refresh Windows security policies (GPO) without disconnecting from the session."
 categories: ["Windows"]
 date: "2006-10-23T10:59:00+02:00"

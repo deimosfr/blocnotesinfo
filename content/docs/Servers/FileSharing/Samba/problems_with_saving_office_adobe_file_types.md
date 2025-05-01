@@ -2,7 +2,6 @@
 weight: 999
 url: "/problemes_d\\'enregistrements_de_fichiers_de_type_office,_adobe.../" 
 title: "Problems with saving Office, Adobe... file types"
-icon: "article"
 description: "How to solve issues with saving Office and Adobe files on Samba shares by disabling oplocks or veto files."
 categories: ["Linux"]
 date: "2010-09-21T21:47:00+02:00"

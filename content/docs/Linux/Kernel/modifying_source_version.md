@@ -2,7 +2,6 @@
 weight: 999
 url: "/Modifier_la_version_des_sources/"
 title: "Modifying Source Version"
-icon: "article"
 description: "How to modify kernel source version to match your running kernel for compiling software"
 categories: ["Linux"]
 date: "2007-06-20T15:05:00+02:00"

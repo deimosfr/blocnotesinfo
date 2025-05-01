@@ -2,7 +2,6 @@
 weight: 999
 url: "/AutoFsck_\\:_Changer_les_checks_filesystem_sur_Ubuntu/"
 title: "AutoFsck: Changing Filesystem Checks on Ubuntu"
-icon: "article"
 description: "Learn how to modify filesystem check behavior in Ubuntu using AutoFsck to make them run during shutdown instead of boot time."
 categories: ["Linux", "Ubuntu", "System"]
 date: "2007-08-25T21:57:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Cpuburn_\\:_stresser_son_CPU/"
 title: "CPUBurn: Stress Testing Your CPU"
-icon: "article"
 description: "A guide on how to stress test your CPU in Linux and monitor system statistics during testing."
 categories: ["Linux", "Ubuntu", "Servers"]
 date: "2013-08-20T13:14:00+02:00"

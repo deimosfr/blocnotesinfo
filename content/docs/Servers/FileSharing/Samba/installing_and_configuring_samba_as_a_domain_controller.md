@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_et_configuration_de_Samba_en_mode_Contrôleur_de_domaine/"
 title: "Installing and configuring Samba as a Domain Controller"
-icon: "article"
 description: "A guide on how to install and configure Samba to function as a domain controller with OpenLDAP backend."
 categories: ["Linux", "Security"]
 date: "2012-11-07T09:52:00+02:00"

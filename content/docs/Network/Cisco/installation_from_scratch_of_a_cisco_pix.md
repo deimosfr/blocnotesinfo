@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installation_from_Scratch_d'un_Cisco_Pix/"
 title: "Installation from Scratch of a Cisco Pix"
-icon: "article"
 description: "A guide on how to install and configure a Cisco Pix firewall from scratch, including initial setup and telnet activation."
 categories: ["Network"]
 date: "2007-05-23T14:32:00+02:00"

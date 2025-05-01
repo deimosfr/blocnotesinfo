@@ -2,7 +2,6 @@
 weight: 999
 url: "/Rediriger_l\\'output_d\\'un_service_vers_un_fichier/"
 title: "Redirect a Service Output to a File"
-icon: "article"
 description: "How to redirect a program's output to a file using GDB."
 categories: ["Linux"]
 date: "2011-05-01T20:08:00+02:00"

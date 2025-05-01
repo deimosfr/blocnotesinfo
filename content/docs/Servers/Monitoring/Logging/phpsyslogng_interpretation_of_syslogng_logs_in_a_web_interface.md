@@ -2,7 +2,6 @@
 weight: 999
 url: "/Php-syslog-ng_\\:_Interprétation_des_logs_Syslog-ng_dans_une_interfaçe_web/"
 title: "PHP-syslog-ng: Interpretation of Syslog-ng logs in a web interface"
-icon: "article"
 description: "How to install and configure PHP-syslog-ng to analyze and interpret syslog logs in a web interface"
 categories: ["Linux", "Apache", "MySQL"]
 date: "2008-07-23T14:03:00+02:00"

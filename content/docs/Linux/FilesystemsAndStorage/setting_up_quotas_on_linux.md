@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_des_quotas_sous_Linux/"
 title: "Setting up quotas on Linux"
-icon: "article"
 description: "A guide on how to implement and manage disk quotas on Linux systems to control user disk space usage."
 categories: ["Linux", "Debian"]
 date: "2008-05-23T14:43:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/SSL_\\:_Gestion_des_certificats/"
 title: "SSL: Certificate Management"
-icon: "article"
 description: "Guide on managing SSL certificates, including generation, renewal, and application of certificates for Courier (POP3/IMAP) servers."
 categories: ["Linux", "Servers", "Security"]
 date: "2007-07-08T21:33:00+02:00"

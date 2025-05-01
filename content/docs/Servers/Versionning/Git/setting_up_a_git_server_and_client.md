@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_d'un_serveur_et_client_Git/"
 title: "Setting Up a Git Server and Client"
-icon: "article"
 description: "This guide covers installation and configuration of Git server and client, with details on managing repositories, branches, tags, and advanced features."
 categories: ["Nginx", "Debian", "Linux"]
 date: "2015-02-02T20:33:00+02:00"

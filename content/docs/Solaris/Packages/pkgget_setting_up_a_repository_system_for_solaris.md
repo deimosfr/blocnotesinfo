@@ -2,7 +2,6 @@
 weight: 999
 url: "/Pkg-get_\\:_Mise_en_place_d'un_système_de_repository_pour_Solaris/"
 title: "Pkg-get: Setting up a Repository System for Solaris"
-icon: "article"
 description: "This guide explains how to set up a repository system using pkg-get for Solaris to easily install packages."
 categories: ["Solaris", "Linux"]
 date: "2013-01-23T10:54:00+02:00"

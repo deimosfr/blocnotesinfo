@@ -2,7 +2,6 @@
 weight: 999
 url: "/Jailctl_\\:_Création_de_chroot_(jails)/"
 title: "Jailctl: Creating Chroot Environments (Jails)"
-icon: "article"
 description: "A guide on how to create, configure, and manage FreeBSD jails using Jailctl"
 categories: ["FreeBSD", "Linux", "Backup"]
 date: "2007-04-15T21:50:00+02:00"

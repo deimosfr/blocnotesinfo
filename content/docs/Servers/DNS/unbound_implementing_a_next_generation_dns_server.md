@@ -2,7 +2,6 @@
 weight: 999
 url: "/Unbound_\\:_Mise_en_place_d'un_serveur_DNS_nouvelle_génération/"
 title: "Unbound: Implementing a Next Generation DNS Server"
-icon: "article"
 description: "Guide for installing and configuring Unbound, a next-generation DNS server with secure connections and high availability."
 categories: ["Linux", "Network", "Servers"]
 date: "2013-07-18T18:38:00+02:00"

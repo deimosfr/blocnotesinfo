@@ -2,7 +2,6 @@
 weight: 999
 url: "/Monter_un_Hotspot_Wifi/"
 title: "Setting up a WiFi Hotspot"
-icon: "article"
 description: "Guide for setting up a fully functional WiFi hotspot with OpenWRT, captive portal, and QoS"
 categories: ["Linux", "Network"]
 date: "2008-05-23T07:05:00+02:00"

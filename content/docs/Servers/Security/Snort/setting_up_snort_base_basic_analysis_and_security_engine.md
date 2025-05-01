@@ -2,7 +2,6 @@
 weight: 999
 url: "/Mise_en_place_de_Snort_\\&_BASE_(Basic_Analysis_and_Security_Engine)/"
 title: "Setting up Snort & BASE (Basic Analysis and Security Engine)"
-icon: "article"
 description: "How to install and configure Snort IDS with BASE web interface for network intrusion detection on Debian systems"
 categories: ["Debian", "Security", "Database"]
 date: "2008-02-10T10:43:00+02:00"

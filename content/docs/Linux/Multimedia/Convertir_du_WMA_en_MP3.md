@@ -2,7 +2,6 @@
 weight: 999
 url: "/Convertir_du_WMA_en_MP3/"
 title: "Converting WMA to MP3"
-icon: "article"
 description: "A guide on how to convert WMA audio files to MP3 format using Linux tools like lame, mplayer and perl."
 categories: ["Linux", "Debian"]
 date: "2007-01-30T14:36:00+02:00"

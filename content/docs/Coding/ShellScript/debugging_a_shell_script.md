@@ -2,7 +2,6 @@
 weight: 999
 url: "/Debugger_un_script_shell/"
 title: "Debugging a Shell Script"
-icon: "article"
 description: "How to debug shell scripts using built-in options like -v and -x to trace execution and understand script behavior."
 categories: ["Linux"]
 date: "2008-03-05T09:49:00+02:00"

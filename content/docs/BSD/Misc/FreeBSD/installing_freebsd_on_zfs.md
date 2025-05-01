@@ -3,7 +3,6 @@
 weight: 999
 url: "/Installation_FreeBSD_sur_ZFS/"
 title: "Installing FreeBSD on ZFS"
-icon: "article"
 description: "A comprehensive guide on how to install FreeBSD with ZFS as the root filesystem, including disk formatting, partitioning, and system configuration."
 categories: ["FreeBSD", "Linux"]
 date: "2010-09-21T21:23:00+02:00"

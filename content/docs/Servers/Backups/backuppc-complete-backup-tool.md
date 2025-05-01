@@ -2,7 +2,6 @@
 weight: 999
 url: "/BackupPC_\\:_Un_outil_complet_de_backup/"
 title: "BackupPC: A Complete Backup Tool"
-icon: "article"
 description: "How to install, configure and use BackupPC to backup all your data including Windows hosts and SQL databases."
 categories: ["Backup", "Server", "Windows", "SQL"]
 date: "2012-07-09T07:24:00+02:00"

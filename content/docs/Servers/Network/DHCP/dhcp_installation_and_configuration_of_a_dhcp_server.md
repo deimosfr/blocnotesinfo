@@ -2,7 +2,6 @@
 weight: 999
 url: "/DHCP_\\:_Installation_et_configuration_d'un_serveur_DHCP/"
 title: "DHCP: Installation and Configuration of a DHCP Server"
-icon: "article"
 description: "Guide to installing and configuring DHCP servers on various operating systems including Debian, FreeBSD, OpenBSD, NetBSD, and Red Hat."
 categories: ["Debian", "FreeBSD", "Red Hat"]
 date: "2013-03-15T22:36:00+02:00"

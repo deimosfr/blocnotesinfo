@@ -2,7 +2,6 @@
 weight: 999
 url: "/IPv6_\\:_Suppression_complète,_IPv4_seulement/"
 title: "IPv6: Complete Removal, IPv4 Only on Debian"
-icon: "article"
 description: "How to completely disable IPv6 support and run with IPv4 only on a Debian system."
 categories: ["Linux", "Debian"]
 date: "2007-08-21T21:10:00+02:00"

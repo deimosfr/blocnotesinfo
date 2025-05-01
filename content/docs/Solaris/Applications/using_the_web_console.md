@@ -2,7 +2,6 @@
 weight: 999
 url: "/Utiliser_la_webconsole/"
 title: "Using the Web Console"
-icon: "article"
 description: "Guide to using Sun's web console for managing applications through a web interface"
 categories:
   - "Solaris"

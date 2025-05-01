@@ -4,7 +4,6 @@
 weight: 999
 url: "/Installation_et_configuration_de_PostgreSQL/"
 title: "PostgreSQL Installation and Configuration"
-icon: "article"
 description: "A comprehensive guide to installing, configuring, and managing PostgreSQL databases including user management, backups, and basic SQL operations."
 categories: ["PostgreSQL", "Database"]
 date: "2012-11-16T08:55:00+02:00"

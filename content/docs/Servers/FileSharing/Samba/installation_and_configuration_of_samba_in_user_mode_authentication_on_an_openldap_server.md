@@ -2,7 +2,6 @@
 weight: 999
 url: '/Installation_et_configuration_de_Samba_en_mode_"User"_(Authentification_sur_un_serveur_OpenLDAP)/'
 title: "Installation and Configuration of Samba in User Mode (Authentication on an OpenLDAP Server)"
-icon: "article"
 description: "This guide explains how to install and configure Samba in user mode with authentication on an OpenLDAP server for secure file sharing between Linux and Windows environments."
 categories: ["Linux", "Security"]
 date: "2008-12-02T07:31:00+02:00"

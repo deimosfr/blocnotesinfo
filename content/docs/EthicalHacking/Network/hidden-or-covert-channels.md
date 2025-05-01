@@ -2,7 +2,6 @@
 weight: 999
 url: "/Canaux_cachés_\\(ou_furtifs\\)/"
 title: "Hidden (or Covert) Channels"
-icon: "article"
 description: "An introduction to hidden channels in cybersecurity and their implications for information security and privacy."
 categories: ["Security", "Cryptography", "Network"]
 date: "2008-09-25T11:58:00+02:00"

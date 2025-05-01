@@ -2,7 +2,6 @@
 weight: 999
 url: "/Faire_clignoter_les_LEDs_d'une_carte_réseau/"
 title: "Make Network Card LEDs Flash"
-icon: "article"
 description: "How to make the LEDs on a network card flash to locate it physically on a server or device."
 categories: ["Network", "Linux", "Hardware"]
 date: "2012-08-27T06:43:00+02:00"

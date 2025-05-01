@@ -2,7 +2,6 @@
 weight: 999
 url: "/Installer_Rsync_sur_Windows/"
 title: "Installing Rsync on Windows"
-icon: "article"
 description: "A guide on how to install and configure Rsync on Windows using Cygwin, including SSH setup and BackupPC configuration."
 categories: ["Windows", "Backup"]
 date: "2008-02-26T15:24:00+02:00"

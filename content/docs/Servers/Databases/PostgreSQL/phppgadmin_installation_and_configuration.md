@@ -2,7 +2,6 @@
 weight: 999
 url: "/PhpPgAdmin_\\:_Installation_et_configuration/"
 title: "PhpPgAdmin: Installation and Configuration"
-icon: "article"
 description: "Learn how to install and configure PhpPgAdmin to manage PostgreSQL databases through a web interface, including multi-server setup."
 categories: ["PostgreSQL", "Linux", "Apache"]
 date: "2007-08-10T09:03:00+02:00"

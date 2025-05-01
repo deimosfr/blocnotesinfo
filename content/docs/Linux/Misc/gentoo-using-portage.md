@@ -2,7 +2,6 @@
 weight: 999
 url: "/Gentoo_\\:_Utilisation_des_portages/"
 title: "Gentoo: Using Portage"
-icon: "article"
 description: "A guide to effectively use Gentoo's Portage system for package management, including installation, updates, and best practices."
 categories: ["Linux", "Gentoo", "Package Management"]
 date: "2007-02-24T14:40:00+02:00"

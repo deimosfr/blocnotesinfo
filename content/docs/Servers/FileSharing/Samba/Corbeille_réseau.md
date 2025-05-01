@@ -2,7 +2,6 @@
 weight: 999
 url: "/Corbeille_réseau/"
 title: "Network Recycle Bin"
-icon: "article"
 description: "How to set up a network recycle bin with Samba 3 on Red Hat Enterprise Linux"
 categories: ["Red Hat", "Linux"]
 date: "2006-10-22T20:28:00+02:00"

@@ -2,7 +2,6 @@
 weight: 999
 url: "/Compiz_\\:_Mise_en_place_d'un_bureau_3D/"
 title: "Compiz: Setting Up a 3D Desktop"
-icon: "article"
 description: "Guide to setting up Compiz for a 3D desktop environment on Linux systems"
 categories: ["Linux", "Desktop"]
 date: "2007-10-13T07:52:00+02:00"

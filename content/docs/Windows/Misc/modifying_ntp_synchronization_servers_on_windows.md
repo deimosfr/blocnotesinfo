@@ -2,7 +2,6 @@
 weight: 999
 url: "/Modifier_les_serveurs_de_synchronisation_NTP_sous_Windows/"
 title: "Modifying NTP Synchronization Servers on Windows"
-icon: "article"
 description: "How to configure NTP synchronization servers on Windows systems using w32tm commands"
 categories: ["Windows", "Server"]
 date: "2009-10-30T07:34:00+02:00"
