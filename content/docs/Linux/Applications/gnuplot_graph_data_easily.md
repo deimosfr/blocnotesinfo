@@ -10,7 +10,7 @@ tags: ["Gnuplot", "Data Visualization", "Plotting", "Linux"]
 toc: true
 ---
 
-![Gnuplot](/images/gnuplot_logo.png)
+![Gnuplot](/images/gnuplot_logo.avif)
 
 ## Introduction
 
@@ -70,6 +70,6 @@ gnuplot -persist ~/gnuplot_datas/load_average.gplot
 
 This will give us a graph like this:
 
-![Gnuplot](/images/gnuplot.png)
+![Gnuplot](/images/gnuplot.avif)
 
 You can find plenty of examples on the official [Gnuplot](https://www.gnuplot.info/) website.

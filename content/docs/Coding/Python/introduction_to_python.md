@@ -22,7 +22,7 @@ tags:
 toc: true
 ---
 
-![Python](/images/python-logo.png)
+![Python](/images/python-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

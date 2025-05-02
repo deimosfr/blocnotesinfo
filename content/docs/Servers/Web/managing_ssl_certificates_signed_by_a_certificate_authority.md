@@ -10,7 +10,7 @@ tags: ["SSL", "Security", "Lighttpd", "Nginx", "StartSSL", "Certificates", "HTTP
 toc: true
 ---
 
-![StartSSL Logo](/images/startssl_logo.png)
+![StartSSL Logo](/images/startssl_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -110,31 +110,31 @@ wget http://www.startssl.com/certs/sub.class2.server.ca.pem
 
 Now we'll generate a certificate on the StartSSL website. To begin, create your domain with the Validation Wizard:
 
-![Startssl3](/images/startssl3.png)
+![Startssl3](/images/startssl3.avif)
 
 Choose Domain Name Validation:
 
-![Startssl1](/images/startssl1.png)
+![Startssl1](/images/startssl1.avif)
 
 Then create the domain you want:
 
-![Startssl2](/images/startssl2.png)
+![Startssl2](/images/startssl2.avif)
 
 Finish creating the domain and click on Certificates Wizard:
 
-![Startssl3](/images/startssl3.png)
+![Startssl3](/images/startssl3.avif)
 
 Then select "Web Server SSL/TLS Certificate" as that's what we need:
 
-![Startssl4](/images/startssl4.png)
+![Startssl4](/images/startssl4.avif)
 
 Skip this part since we've generated our own certificate:
 
-![Startssl5](/images/startssl5.png)
+![Startssl5](/images/startssl5.avif)
 
 And paste the contents of the server.csr file into the text area:
 
-![Startssl6](/images/startssl6.png)
+![Startssl6](/images/startssl6.avif)
 
 Complete the process, then create a **server.crt** file with the SSL certificate content that will be provided.
 

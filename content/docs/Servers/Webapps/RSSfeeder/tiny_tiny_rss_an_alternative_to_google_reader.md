@@ -10,7 +10,7 @@ tags: ["RSS", "Tiny Tiny RSS", "Google Reader", "MySQL", "Database", "Web Servic
 toc: true
 ---
 
-![Tiny Tiny RSS Logo](/images/tinytinyrss_logo.png)
+![Tiny Tiny RSS Logo](/images/tinytinyrss_logo.avif)
 
 ## Introduction
 

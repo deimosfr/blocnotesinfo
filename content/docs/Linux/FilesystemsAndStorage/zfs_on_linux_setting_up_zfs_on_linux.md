@@ -10,7 +10,7 @@ tags: ["ZFS", "Linux", "Ubuntu", "Debian", "Filesystem"]
 toc: true
 ---
 
-![ZFS on Linux Logo](/images/zfs-linux.png)
+![ZFS on Linux Logo](/images/zfs-linux.avif)
 
 ## Introduction
 

@@ -10,7 +10,7 @@ tags: ["PageSpeed", "Nginx", "Performance", "Optimization", "Web", "Google"]
 toc: true
 ---
 
-![PageSpeed](/images/pagespeed.png)
+![PageSpeed](/images/pagespeed.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

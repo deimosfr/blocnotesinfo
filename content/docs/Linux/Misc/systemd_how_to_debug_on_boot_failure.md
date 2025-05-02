@@ -10,7 +10,7 @@ tags: ["systemd", "boot", "debugging", "Debian", "Linux"]
 toc: true
 ---
 
-![Systemd](/images/poweredbylinux.jpg)
+![Systemd](/images/poweredbylinux.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

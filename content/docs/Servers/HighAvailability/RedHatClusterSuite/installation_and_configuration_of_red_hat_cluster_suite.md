@@ -10,7 +10,7 @@ tags: ["RHEL", "Cluster", "High Availability", "HA", "Red Hat"]
 toc: true
 ---
 
-![Red Hat Cluster Suite](/images/red_hat_logo.png)
+![Red Hat Cluster Suite](/images/red_hat_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -27,7 +27,7 @@ Red Hat offers a cluster based on Open Source solutions. This document explains 
 
 Here is the type of infrastructure you should have in place to install and configure a cluster:
 
-![Cluster architecture RHEL](/images/cluster_archi_rhel.png)
+![Cluster architecture RHEL](/images/cluster_archi_rhel.avif)
 
 Red Hat cluster suite works with a maximum of 16 nodes in a cluster.
 

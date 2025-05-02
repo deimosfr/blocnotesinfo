@@ -10,7 +10,7 @@ tags: ["SSH", "Proxy", "SOCKS", "Network", "Security", "OpenSSH", "Tunneling"]
 toc: true
 ---
 
-![SSH Socks](/images/ssh_socks.png)
+![SSH Socks](/images/ssh_socks.avif)
 
 ## Introduction
 

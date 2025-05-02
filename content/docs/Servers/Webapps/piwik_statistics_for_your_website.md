@@ -10,7 +10,7 @@ tags: ["Piwik", "Analytics", "Web", "Statistics", "Nginx", "MySQL", "PHP", "Word
 toc: true
 ---
 
-![Piwik Logo](/images/piwik-logo.jpg)
+![Piwik Logo](/images/piwik-logo.avif)
 
 ## Introduction
 

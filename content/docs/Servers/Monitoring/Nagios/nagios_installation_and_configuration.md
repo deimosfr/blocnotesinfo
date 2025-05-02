@@ -10,7 +10,7 @@ tags: ["Nagios", "Monitoring", "NRPE", "System Administration", "Network"]
 toc: true
 ---
 
-![Nagios](/images/nagios_logo.png)
+![Nagios](/images/nagios_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

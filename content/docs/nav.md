@@ -9,7 +9,7 @@ icon: "home"
 
 <table cellspacing="0" cellpadding="5" align="center" border="0" style="border-collapse: collapse;">
 <tbody><tr>
-<td style="border: none;"><img alt="debian-logo.png" src="/images/debian.png">
+<td style="border: none;"><img alt="debian-logo.avif" src="/images/debian.avif">
 </td>
 <td style="border: none;">
 <div align="center">
@@ -18,7 +18,7 @@ icon: "home"
 <h2 style="font-size: 1.4em; margin: 10px 0;">Because human memory can not contain Gb</h2>
 </div>
 </td>
-<td style="border: none;"><img alt="bsd-logo.png" src="/images/kubernetes_logo.png">
+<td style="border: none;"><img alt="bsd-logo.avif" src="/images/kubernetes_logo.avif">
 </td></tr></tbody></table><br />
 
 {{< alert context="info" text="This site exists because it's difficult to remember everything. I write things down here to help me remember important concepts while storing the details for reference. It serves as my personal knowledge repository, making it easier to revisit past learning rather than repeatedly researching the same topics. It's also a pleasure to share knowledge with everyone. And anyone is welcome to submit a PR if they find an error." />}}

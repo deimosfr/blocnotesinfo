@@ -19,7 +19,7 @@ tags:
 toc: true
 ---
 
-![Puppet](/images/puppet-short.png)
+![Puppet](/images/puppet-short.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -188,7 +188,7 @@ Then restart PuppetDB:
 
 After a few seconds/minutes, you should be able to connect to port 8081 (ssl) or 8080 (non-ssl) (http://<hostname>:8080|https://<hostname>:8081), where you'll have access to a nice interface:
 
-![Puppetdb dashboard](/images/puppetdb_dashboard.png)
+![Puppetdb dashboard](/images/puppetdb_dashboard.avif)
 
 ### Puppet Master
 

@@ -10,7 +10,7 @@ tags: ["git", "version control", "repository", "server", "client"]
 toc: true
 ---
 
-![Git Logo](/images/git-logo.png)
+![Git Logo](/images/git-logo.avif)
 
 ## Introduction
 
@@ -1074,7 +1074,7 @@ git push --tags
 
 Gitk provides a graphical version of your git status (branches etc.).
 
-![Gittk.jpg](/images/gittk.jpg)
+![Gittk.jpg](/images/gittk.avif)
 
 ## FAQ
 

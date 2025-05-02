@@ -96,11 +96,11 @@ Here are the different service types:
 
 Here's the relationship between milestones and services:
 
-![Sun-milstone-1](/images/sun-milstone-1.gif)
+![Sun-milstone-1](/images/sun-milstone-1.avif)
 
 Here's an example of the relationship between dependencies:
 
-![Sun-milstone-2](/images/sun-milstone-2.gif)
+![Sun-milstone-2](/images/sun-milstone-2.avif)
 
 To determine the current milestones:
 
@@ -192,7 +192,7 @@ If you've followed along correctly, you should understand that the boot order lo
 - Init phase
 - svc.startd phase
 
-![Sun-initd](/images/sun-initd.gif)
+![Sun-initd](/images/sun-initd.avif)
 
 During the boot phase, the kernel reads its configuration file `/etc/system`, then loads modules. It uses the "ufsboot" command to load the files.
 

@@ -10,7 +10,7 @@ tags: ["MySQL", "Backup", "Restore", "LVM", "mysqldump", "Shell Scripts"]
 toc: true
 ---
 
-![MySQL Logo](/images/mysql_logo.jpeg)
+![MySQL Logo](/images/mysql_logo.avif)
 
 ## Backups
 

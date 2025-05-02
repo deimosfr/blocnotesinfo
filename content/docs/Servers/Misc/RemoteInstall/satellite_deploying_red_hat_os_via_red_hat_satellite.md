@@ -26,7 +26,7 @@ A [Red Hat Satellite](https://www.fr.redhat.com/red_hat_network/) server is a so
 
 If you don't have the money or simply want to create a lab, you can use its free equivalent: [Spacewalk](https://spacewalk.redhat.com/) (hence the logo).
 
-![Satellite schema.gif](/images/satellite_schema.gif)
+![Satellite schema.gif](/images/satellite_schema.avif)
 
 ## Prerequisites
 
@@ -751,7 +751,7 @@ Note: The password fields above are not required when this box is checked; howev
 
 To connect to the web interface, it's very simple, go to HTTPS on your server ([https://satellite-master](https://satellite-master)):
 
-![Satellite admin create.png](/images/satellite_admin_create.png)
+![Satellite admin create.png](/images/satellite_admin_create.avif)
 
 Then fill in the information and click "Create Account".
 
@@ -759,7 +759,7 @@ Then fill in the information and click "Create Account".
 
 To configure the timezone, it's done in the graphical interface:
 
-![Satellite timezone.png](/images/satellite_timezone.png)
+![Satellite timezone.png](/images/satellite_timezone.avif)
 
 ### Adding a custom repository
 
@@ -891,11 +891,11 @@ Replace the value of '%\_gpg_name' with your key ID.
 
 Now we'll declare our new key in Satellite at the [kickstart]({{< ref "docs/Linux/Misc/RedHat/creating_a_red_hat_kickstart_to_automate_installations.md">}}) level so our automated installations have this key present:
 
-![Satellite gpg.png](/images/satellite_gpg.png)
+![Satellite gpg.png](/images/satellite_gpg.avif)
 
 And finally the custom repository must contain the GPG information:
 
-![Satellite gpg repo.png](/images/satellite_gpg_repo.png)
+![Satellite gpg repo.png](/images/satellite_gpg_repo.avif)
 
 #### Adding packages
 
@@ -925,7 +925,7 @@ Red Hat Network password:
 
 Now you need to update the package list in the web interface so clients can see them:
 
-![Satellite custom repo.png](/images/satellite_custom_repo.png)
+![Satellite custom repo.png](/images/satellite_custom_repo.avif)
 
 Now, on the client, you just need to do:
 

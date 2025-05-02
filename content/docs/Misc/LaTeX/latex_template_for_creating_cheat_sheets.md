@@ -10,7 +10,7 @@ tags: ["LaTeX", "Development", "Resume"]
 toc: true
 ---
 
-![LaTeX](/images/latex_logo.png)
+![LaTeX](/images/latex_logo.avif)
 
 ## Introduction
 

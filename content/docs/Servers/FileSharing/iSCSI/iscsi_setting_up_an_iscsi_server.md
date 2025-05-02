@@ -10,7 +10,7 @@ tags: ["iSCSI", "Storage", "Red Hat", "Linux"]
 toc: true
 ---
 
-![ISCSI](/images/iscsi_logo.gif)
+![ISCSI](/images/iscsi_logo.avif)
 
 ## Introduction
 

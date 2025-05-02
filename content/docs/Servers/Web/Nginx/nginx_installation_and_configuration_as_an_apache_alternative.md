@@ -11,7 +11,7 @@ tags:
 toc: true
 ---
 
-![Nginx Logo](/images/nginx-logo.png)
+![Nginx Logo](/images/nginx-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

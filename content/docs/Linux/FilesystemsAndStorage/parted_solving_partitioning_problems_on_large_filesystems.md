@@ -10,7 +10,7 @@ tags: ["parted", "storage", "partitioning", "filesystem", "disk management", "la
 toc: true
 ---
 
-![Parted logo](/images/parted_logo.png)
+![Parted logo](/images/parted_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

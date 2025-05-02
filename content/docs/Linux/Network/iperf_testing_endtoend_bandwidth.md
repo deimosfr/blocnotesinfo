@@ -66,7 +66,7 @@ This gives us the actual throughput between machine A and machine B. Using the -
 
 It is possible to evaluate your Internet connection via a public Iperf server located on the Internet:
 
-![Iperf](/images/iperf.png)
+![Iperf](/images/iperf.avif)
 
 Here are 3 suggested command lines for the server on Linux:
 
@@ -85,7 +85,7 @@ Here are 5 suggested command lines for the client on Linux:
 The -w parameter is very important; it specifies the "TCP window size" as the default value is too small.
 The window size value cannot exceed that of the operating system's TCP/IP stack.
 
-![Iperf4662](/images/iperf4662.png)
+![Iperf4662](/images/iperf4662.avif)
 
 ## IPERF in Multicast
 

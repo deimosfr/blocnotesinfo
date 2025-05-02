@@ -62,4 +62,4 @@ Stop logging to the file with CTRL-D
 
 ## Amazing: the demo
 
-![demo](/images/scriptfmkfifo.gif)
+![demo](/images/scriptfmkfifo.avif)

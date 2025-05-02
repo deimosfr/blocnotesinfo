@@ -19,7 +19,7 @@ tags:
 toc: true
 ---
 
-![OpenLDAP](/images/openldap-logo.png)
+![OpenLDAP](/images/openldap-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -344,11 +344,11 @@ if ($sr) {
 
 ### Organization Class
 
-![Ldap att org](/images/ldap_att_org.jpg)
+![Ldap att org](/images/ldap_att_org.avif)
 
 ### inetOrgPerson Class
 
-![Ldap att inetOrgPerson](/images/ldap_att_inetorgperson.jpg)
+![Ldap att inetOrgPerson](/images/ldap_att_inetorgperson.avif)
 
 ## Clients
 

@@ -11,7 +11,7 @@ tags:
 toc: true
 ---
 
-![KVM](/images/kvm-logo.png)
+![KVM](/images/kvm-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -642,7 +642,7 @@ You can easily install locally or remotly this GUI to manage your VMs:
 apt-get install virt-manager virt-viewer
 ```
 
-![Virt Manager Screenshot](/images/virt-manager-screenshot.png)
+![Virt Manager Screenshot](/images/virt-manager-screenshot.avif)
 
 Just connect remotly or locally and double click to launch a VM (and use it as vnc).
 

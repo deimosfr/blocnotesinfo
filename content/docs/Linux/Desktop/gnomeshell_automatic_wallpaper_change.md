@@ -10,7 +10,7 @@ tags: ["Gnome", "Desktop", "Customization", "Wallpaper"]
 toc: true
 ---
 
-![Gnome](/images/gnome.png)
+![Gnome](/images/gnome.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

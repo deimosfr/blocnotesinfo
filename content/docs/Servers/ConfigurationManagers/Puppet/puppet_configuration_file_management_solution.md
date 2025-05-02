@@ -25,7 +25,7 @@ As Puppet manages templates, you can quickly understand the usefulness of Facter
 In short, Puppet combined with Facter seems like a very interesting solution to simplify system administration.
 
 Here is a diagram showing how Puppet works:
-![Puppet Star.png](/images/puppet_star.png)
+![Puppet Star.png](/images/puppet_star.avif)
 
 For Puppet configuration, if you want to use an IDE, there is [Geppetto](https://www.puppetlabs.com/blog/geppetto-a-puppet-ide/). I recommend it, as it will save you a lot of syntax troubles.
 

@@ -21,7 +21,7 @@ Now that you know how to create graphs, here are some scripts I made a while ago
 
 [CPU Graph](/others/cacti_graph_template_cpu_informations_gt-xml.zip) - **/usr/share/cacti/site/scripts/cpu-stats.sh**
 
-![CPU Graph](/images/cpu_cacti.png)
+![CPU Graph](/images/cpu_cacti.avif)
 
 ```bash
 MYTOP=`top -b -n 2 | grep Cpu | tail -1`
@@ -38,7 +38,7 @@ printf "cpu_usage:%d cpu_system:%d cpu_idle:%d\n" $USAGE $SYSTEM $IDLE
 
 [Mldonkey Graph](/others/cacti_graph_template_mldonkey_informations_gt-xml.zip) - **/usr/share/cacti/site/scripts/mldonkey-stats.sh**
 
-![Mldonkey Graph](/images/ml_cacti.png)
+![Mldonkey Graph](/images/ml_cacti.avif)
 
 ```bash
 MY_ML=`mldonkey_command bw_stats -p "" | grep Down`
@@ -55,7 +55,7 @@ printf "ml_down:%d ml_up:%d ml_files:%d\n" $ML_DOWN $ML_UP $ML_FILES
 
 [RAM Graph](/others/cacti_graph_template_ram_informations_gt.xml.zip) - **/usr/share/cacti/site/scripts/ram-stats.sh**
 
-![RAM Graph](/images/ram_cacti.png)
+![RAM Graph](/images/ram_cacti.avif)
 
 ```bash
 MY_RAM=`free -o | grep "Mem:"`

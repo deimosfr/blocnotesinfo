@@ -10,7 +10,7 @@ tags: ["WAF", "Security", "Network", "Nginx", "Fail2ban"]
 toc: true
 ---
 
-![NAXSI](/images/naxsi_logo.png)
+![NAXSI](/images/naxsi_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -214,7 +214,7 @@ You're now ready to generate the report from error logs:
 
 And if you look at the html result:
 
-![Naxsi screenshot](/images/naxsi_screenshot.png)
+![Naxsi screenshot](/images/naxsi_screenshot.avif)
 
 ## References
 

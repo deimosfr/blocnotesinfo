@@ -127,7 +127,7 @@ weathermap4rrd -c /etc/weathermap4rrd/weathermap4rrd.sites.conf
 
 And our result is in `/var/www/weathermap/weathermap_sites.png`. We can make some position adjustments or other cosmetic checks.
 
-![Fig-1](/images/fig-1.jpg)
+![Fig-1](/images/fig-1.avif)
 
 Not working? Don't panic, use the --debug switch on the command line to get more information about what's happening.
 

@@ -15,7 +15,7 @@ tags:
 toc: true
 ---
 
-![Weechat](/images/weechat_logo.png)
+![Weechat](/images/weechat_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

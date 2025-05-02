@@ -11,7 +11,7 @@ tags:
 toc: true
 ---
 
-![Postfix Architecture](/images/postfix.png)
+![Postfix Architecture](/images/postfix.avif)
 
 ## Introduction
 

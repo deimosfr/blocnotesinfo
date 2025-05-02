@@ -31,7 +31,7 @@ If you aren't sure which to choose, pick the small zone. Below are examples of i
 
 This demonstrates creating a simple zone that uses the default settings which share most of the operating system with the global zone. The final layout will be like the following,
 
-![Small Zone Layout](/images/zrc_small-zone1.png)
+![Small Zone Layout](/images/zrc_small-zone1.avif)
 
 To create such a zone involves letting the system pick default settings, which includes the loopback filesystem (lofs) read only mounts that share most of the OS. The following commands were used,
 
@@ -176,7 +176,7 @@ From the directories that are not lofs shared from the global zone, the main one
 
 This demonstrates creating a zone that resides on it's own slice, which has it's own copy of the operating system. The final layout will be like the following:
 
-![Big Zone Layout](/images/zrc_big-zone1.png)
+![Big Zone Layout](/images/zrc_big-zone1.avif)
 
 First we create the slice:
 

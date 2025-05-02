@@ -10,7 +10,7 @@ tags: ["Ansible", "Automation", "Configuration Management", "DevOps", "SSH"]
 toc: true
 ---
 
-![Ansible](/images/ansible_logo.png)
+![Ansible](/images/ansible_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

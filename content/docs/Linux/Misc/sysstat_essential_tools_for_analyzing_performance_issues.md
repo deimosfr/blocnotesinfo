@@ -20,7 +20,7 @@ tags:
 toc: true
 ---
 
-![Sysstat](/images/sysstat_logo.png)
+![Sysstat](/images/sysstat_logo.avif)
 
 ## Introduction
 

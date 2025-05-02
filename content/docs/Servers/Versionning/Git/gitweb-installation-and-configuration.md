@@ -47,7 +47,7 @@ alias.url += (
     "/gitweb/" => "/usr/lib/cgi-bin/gitweb.cgi",
     "/gitweb.css" => "/usr/share/gitweb/gitweb.css",
     "/git-favicon.png" => "/usr/share/gitweb/git-favicon.png",
-    "/git-logo.png" => "/usr/share/gitweb/git-logo.png",
+    "/git-logo.avif" => "/usr/share/gitweb/git-logo.avif",
 )
 
 $HTTP["url"] =~ "^/gitweb/" {
@@ -179,7 +179,7 @@ $projects_list = $projectroot;
 $stylesheet = "/gitweb.css";
 
 # logo to use
-$logo = "/git-logo.png";
+$logo = "/git-logo.avif";
 
 # the 'favicon'
 $favicon = "/git-favicon.png";

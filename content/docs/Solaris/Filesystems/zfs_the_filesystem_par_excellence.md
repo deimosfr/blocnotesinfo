@@ -15,7 +15,7 @@ tags:
 toc: true
 ---
 
-![ZFS](/images/zfs_logo.jpg)
+![ZFS](/images/zfs_logo.avif)
 
 ## Introduction
 

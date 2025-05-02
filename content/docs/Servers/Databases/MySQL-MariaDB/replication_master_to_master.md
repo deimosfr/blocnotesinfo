@@ -19,13 +19,13 @@ tags:
 toc: true
 ---
 
-![MySQL Logo](/images/mysql_logo.jpeg)
+![MySQL Logo](/images/mysql_logo.avif)
 
 ## Introduction
 
 After completing the installation (See: [Installation and Configuration]({{< ref "docs/Servers/Databases/MySQL-MariaDB/mysql_installation_and_configuration.md" >}})), we are going to set up MySQL master-master replication. We need to replicate MySQL servers to achieve high-availability (HA). In my case I need two masters that are synchronized with each other so that if one of them goes down, the other could take over and no data is lost. Similarly, when the first one goes up again, it will still be used as slave for the live one.
 
-![MySQL replication](/images/mysql_replication.png)
+![MySQL replication](/images/mysql_replication.avif)
 
 Here is a basic step by step tutorial, that will cover the MySQL master and slave replication and also will describe the MySQL master and master replication.
 

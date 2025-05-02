@@ -13,7 +13,7 @@ toc: true
 
 ---
 
-![PostgreSQL](/images/bases_de_donnees_icon.png)
+![PostgreSQL](/images/bases_de_donnees_icon.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

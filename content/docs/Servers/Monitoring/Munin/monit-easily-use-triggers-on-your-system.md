@@ -10,7 +10,7 @@ tags: ["monit", "monitoring", "system", "triggers", "alerts", "automation", "pro
 toc: true
 ---
 
-![Monit](/images/monit_logo.png)
+![Monit](/images/monit_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

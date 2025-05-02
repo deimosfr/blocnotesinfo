@@ -10,7 +10,7 @@ tags: ["NetBSD", "network", "configuration", "interfaces"]
 toc: true
 ---
 
-![NetBSD](/images/netbsd-logo.png)
+![NetBSD](/images/netbsd-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

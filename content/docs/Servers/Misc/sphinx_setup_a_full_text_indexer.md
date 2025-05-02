@@ -10,7 +10,7 @@ tags: ["search", "sphinx", "indexing", "mediawiki", "database", "configuration"]
 toc: true
 ---
 
-![Sphinx search](/images/sphinx_logo.png)
+![Sphinx search](/images/sphinx_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

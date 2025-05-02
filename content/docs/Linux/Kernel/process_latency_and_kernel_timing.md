@@ -380,7 +380,7 @@ taskset -p 0x00000001 <PID>
 
 You should know that Numa processors have RAM directly mapped with CPUs to increase performance. This doesn't change the fact that other processors can use memory that is not associated with them. Here is a small overview of Numa:
 
-![Numa](/images/numa.png)[^2]
+![Numa](/images/numa.avif)[^2]
 
 You can also specify parameters at the grub level to isolate CPUs (isolcpus):
 
@@ -412,7 +412,7 @@ For more information: http://kernel.org/doc/Documentation/kernel-parameters.txt[
 
 cpuset is a more advanced version of taskset that provides a more elegant, flexible and scalable method for controlling runqueues and latency on tasks. A cpuset is a group of CPUs (scheduler domain/cgroups) on which we will be able to balance tasks:
 
-![Cpuset](/images/cpuset.gif)[^4]
+![Cpuset](/images/cpuset.avif)[^4]
 
 To ensure that these features are present in the kernel:
 

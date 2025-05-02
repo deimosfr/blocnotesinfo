@@ -10,7 +10,7 @@ tags: ["Nginx", "HTTP Filters", "Web Server", "Regex", "Module"]
 toc: true
 ---
 
-![Nginx Logo](/images/nginx-logo.png)
+![Nginx Logo](/images/nginx-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

@@ -10,7 +10,7 @@ tags: ["Vagrant", "VirtualBox", "Virtualization", "Development"]
 toc: true
 ---
 
-![Vagrant](/images/vagrant-logo.png)
+![Vagrant](/images/vagrant-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

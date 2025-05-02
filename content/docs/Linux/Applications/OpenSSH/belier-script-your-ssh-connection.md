@@ -10,7 +10,7 @@ tags: ["ssh", "tunneling", "debian", "expect", "automation"]
 toc: true
 ---
 
-![Belier](/images/belier_logo.png)
+![Belier](/images/belier_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 | | |
@@ -35,7 +35,7 @@ Belier aims to give a single system administrator a tool to work independently, 
 
 For instance, here is what is possible to do with it:
 
-![Schema belier](/images/schema_belier.png)[^2]
+![Schema belier](/images/schema_belier.avif)[^2]
 
 ## Installation
 

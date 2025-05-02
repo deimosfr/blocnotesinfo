@@ -19,7 +19,7 @@ tags:
 toc: true
 ---
 
-![Postfix](/images/postfix_logo.png)
+![Postfix](/images/postfix_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

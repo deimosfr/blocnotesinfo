@@ -10,7 +10,7 @@ tags: ["Linux", "Debian", "USB", "Audio", "udev"]
 toc: true
 ---
 
-![Linux](/images/poweredbylinux.jpg)
+![Linux](/images/poweredbylinux.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

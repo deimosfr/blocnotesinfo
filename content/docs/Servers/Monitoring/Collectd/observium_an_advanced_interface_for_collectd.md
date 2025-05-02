@@ -10,7 +10,7 @@ tags: ["Collectd", "SNMP", "Monitoring", "RRD", "Apache", "MySQL"]
 toc: true
 ---
 
-![Observium](/images/observium-logo.png)
+![Observium](/images/observium-logo.avif)
 
 ## Introduction
 

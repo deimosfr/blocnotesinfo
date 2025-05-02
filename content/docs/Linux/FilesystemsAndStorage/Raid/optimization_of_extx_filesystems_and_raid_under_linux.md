@@ -19,7 +19,7 @@ tags:
 toc: true
 ---
 
-![Linux](/images/poweredbylinux.jpg)
+![Linux](/images/poweredbylinux.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -34,7 +34,7 @@ toc: true
 
 All file operations on Linux are managed by VFS. The VFS layer is a common kernel interface for applications to access files. VFS handles the communication with different drivers. The inode and dentry cache is also managed by VFS. VFS is therefore capable of managing different types of filesystems, even network ones, through a common interface.
 
-![VFS](/images/vfs.png)
+![VFS](/images/vfs.avif)
 
 To see the list of loaded filesystem drivers that can be used by VFS:
 
@@ -66,7 +66,7 @@ nodev	binfmt_misc
 
 ## ExtX
 
-![Ext2fs structure](/images/ext2fs_struct.jpg)
+![Ext2fs structure](/images/ext2fs_struct.avif)
 
 ExtX filesystems are divided into block groups, all of which have the same structure and help limit fragmentation. Each block group has its own inode table. The fact that each group manages its own table considerably reduces access times. When the kernel wants to allocate data blocks for a file, it will try to allocate them in the same block group.
 

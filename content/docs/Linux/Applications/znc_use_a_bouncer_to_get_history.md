@@ -10,7 +10,7 @@ tags: ["IRC", "Networking", "Servers"]
 toc: true
 ---
 
-![ZNC](/images/znc.png)
+![ZNC](/images/znc.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

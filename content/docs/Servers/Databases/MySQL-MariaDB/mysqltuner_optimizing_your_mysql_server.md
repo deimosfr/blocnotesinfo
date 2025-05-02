@@ -18,7 +18,7 @@ tags:
 toc: true
 ---
 
-![MySQL Logo](/images/mysql_logo.jpeg)
+![MySQL Logo](/images/mysql_logo.avif)
 
 ## Introduction
 

@@ -15,7 +15,7 @@ tags:
 toc: true
 ---
 
-![GoPro Hero](/images/gopro.jpg)
+![GoPro Hero](/images/gopro.avif)
 
 {< table "table-hover table-striped" >}
 |||

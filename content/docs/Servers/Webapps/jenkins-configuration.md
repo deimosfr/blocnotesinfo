@@ -10,7 +10,7 @@ tags: ["jenkins", "nginx", "continuous integration", "development", "debian"]
 toc: true
 ---
 
-![Jenkins](/images/jenkins_logo.png)
+![Jenkins](/images/jenkins_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

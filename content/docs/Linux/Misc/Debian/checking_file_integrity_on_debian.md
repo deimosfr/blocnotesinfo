@@ -10,7 +10,7 @@ tags: ["Debian", "Security", "File Integrity", "System Administration"]
 toc: true
 ---
 
-![Debian](/images/debian_logo.png)
+![Debian](/images/debian_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

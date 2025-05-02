@@ -10,7 +10,7 @@ tags: ["Apache", "Web Server", "Customization", "CSS", "HTML", "Directory Listin
 toc: true
 ---
 
-![File.Index](/images/apachefileindex_logo.png)
+![File.Index](/images/apachefileindex_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -25,7 +25,7 @@ toc: true
 
 The default Apache directory index listing is... (we can say it)... very ugly. Here is a theme I found [on this site](https://blog.is-a-geek.org/apache-file-listing-mit-eigenem-theme-verschonern) and which [I have slightly modified](/others/directory_index_theme.tgz). Here's a preview:
 
-![Apachefileindex](/images/apachefileindex.png)
+![Apachefileindex](/images/apachefileindex.avif)
 
 ## Installation
 

@@ -10,7 +10,7 @@ tags: ["bootloader", "grub", "linux", "kernel", "boot", "MBR"]
 toc: true
 ---
 
-![Grub](/images/grub_logo.png)
+![Grub](/images/grub_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

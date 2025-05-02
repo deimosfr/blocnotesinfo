@@ -10,7 +10,7 @@ tags: ["Kernel", "Debugging", "Performance", "Monitoring", "Tracing"]
 toc: true
 ---
 
-![SystemTap](/images/systemtaplogo.png)
+![SystemTap](/images/systemtaplogo.avif)
 
 ## Introduction
 

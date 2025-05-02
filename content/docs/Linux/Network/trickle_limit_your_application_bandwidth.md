@@ -10,7 +10,7 @@ tags: ["Bandwidth", "Network", "Performance", "Linux"]
 toc: true
 ---
 
-![Linux](/images/poweredbylinux.jpg)
+![Linux](/images/poweredbylinux.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

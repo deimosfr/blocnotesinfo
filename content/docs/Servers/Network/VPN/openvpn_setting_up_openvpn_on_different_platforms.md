@@ -12,7 +12,7 @@ tags: ["OpenVPN", "VPN", "Tunnel Blick", "Security", "Network"]
 toc: true
 ---
 
-![OpenVPN](/images/openvpn_logo.png)
+![OpenVPN](/images/openvpn_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

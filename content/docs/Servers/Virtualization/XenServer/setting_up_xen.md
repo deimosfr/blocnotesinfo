@@ -34,7 +34,7 @@ Some might ask, why not use XenExpress or a paid version to get additional funct
 
 In my opinion, unless you're managing a park of 100 physical machines, the paid version is not really necessary. Here are the differences from the Citrix DataSheet (01/26/2008):
 
-![Xendiff](/images/xendiff.png)
+![Xendiff](/images/xendiff.avif)
 
 The version we'll install below has no restrictions and is free :-). On the other hand, you'll spend more time on configuration than with a GUI, that's for sure! It's up to you to see what you really need.
 

@@ -10,7 +10,7 @@ tags: ["GNOME", "Desktop Environment", "Linux Configuration", "gsettings"]
 toc: true
 ---
 
-![Gnome](/images/gnome.png)
+![Gnome](/images/gnome.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

@@ -10,7 +10,7 @@ tags: ["RSS", "Selfoss", "Nginx", "MariaDB", "Database", "Web server"]
 toc: true
 ---
 
-![Selfoss](/images/selfoss_logo.png)
+![Selfoss](/images/selfoss_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

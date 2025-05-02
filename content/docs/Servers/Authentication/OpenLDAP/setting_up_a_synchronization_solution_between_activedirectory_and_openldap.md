@@ -87,17 +87,17 @@ Then start the installation.
 
 - Launch the Unix Services Configuration utility and configure it like this:
 
-![Sfu 1.png](/images/sfu_1.png)
+![Sfu 1.png](/images/sfu_1.avif)
 Click apply.
 
 - Add your OpenLDAP server here:
 
-![Sfu 2.png](/images/sfu_2.png)
+![Sfu 2.png](/images/sfu_2.avif)
 Click apply.
 
 - Then, if you already have a MASTER (like DELL1800 here), connect to the utility on the master and add it. Otherwise, if this server must serve as the master, add it in this MMC:
 
-![Sfu 3.png](/images/sfu_3.png)
+![Sfu 3.png](/images/sfu_3.avif)
 Click apply.
 
 Then you'll need to reboot and you're done.

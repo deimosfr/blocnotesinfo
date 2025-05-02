@@ -10,7 +10,7 @@ tags: ["Debian", "Repository", "Archive", "Legacy"]
 toc: true
 ---
 
-![Debian](/images/debian.png)
+![Debian](/images/debian.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

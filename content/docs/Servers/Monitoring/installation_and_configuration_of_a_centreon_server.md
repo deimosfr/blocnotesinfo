@@ -730,37 +730,37 @@ chmod -Rf 775 /etc/nagios3
 
 Now, let's connect to http://your-server/centreon and start the installation:
 
-![Centreon1](/images/centreon1.png)
+![Centreon1](/images/centreon1.avif)
 
-![Centreon2](/images/centreon2.png)
+![Centreon2](/images/centreon2.avif)
 
-![Centreon3](/images/centreon3.png)
+![Centreon3](/images/centreon3.avif)
 
-![Centreon4](/images/centreon4.png)
+![Centreon4](/images/centreon4.avif)
 
 Everything should be good so far.
 
-![Centreon5](/images/centreon5.png)
+![Centreon5](/images/centreon5.avif)
 
 Adjust the values for your database.
 
-![Centreon6](/images/centreon6.png)
+![Centreon6](/images/centreon6.avif)
 
-![Centreon7](/images/centreon7.png)
+![Centreon7](/images/centreon7.avif)
 
 Specify the user who will be the Centreon admin.
 
-![Centreon8](/images/centreon8.png)
+![Centreon8](/images/centreon8.avif)
 
 For my part, I chose to have my users connect via LDAP, so I configure my OpenLDAP parameters below.
 
-![Centreon9](/images/centreon9.png)
+![Centreon9](/images/centreon9.avif)
 
-![Centreon10](/images/centreon10.png)
+![Centreon10](/images/centreon10.avif)
 
-![Centreon11](/images/centreon11.png)
+![Centreon11](/images/centreon11.avif)
 
-![Centreon12](/images/centreon12.png)
+![Centreon12](/images/centreon12.avif)
 
 All is good, the installation is complete :-)
 

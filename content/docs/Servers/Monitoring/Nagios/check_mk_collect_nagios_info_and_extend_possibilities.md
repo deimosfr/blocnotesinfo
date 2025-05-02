@@ -10,7 +10,7 @@ tags: ["Check MK", "Nagios", "Monitoring", "Livestatus"]
 toc: true
 ---
 
-![Check MK](/images/check_mk_logo.png)
+![Check MK](/images/check_mk_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

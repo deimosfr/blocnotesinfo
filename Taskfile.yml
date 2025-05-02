@@ -15,8 +15,7 @@ tasks:
   images_optimization:
     desc: Optimize images
     cmds:
-      - find ./static/images -type f -name '*.png' -print0 | xargs -0 -P 10 -I{} optipng -fix {}
-      - find ./static/images -type f -name '*.jpg' -print0 | xargs -0 -P 10 jpegoptim
+      - "go run scripts/convert_to_avif.go"
 
   check_internal_dead_links:
     desc: Check for dead links in markdown files

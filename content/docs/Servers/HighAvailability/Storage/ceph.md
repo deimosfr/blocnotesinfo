@@ -27,7 +27,7 @@ toc: true
 | **Last Update** | 02/06/2014 |
 {{< /table >}}
 
-![Ceph](/images/ceph_logo.png)
+![Ceph](/images/ceph_logo.avif)
 
 ## Introduction
 
@@ -103,7 +103,7 @@ end
 
 This will spawn VMs with correct hardware to run. It will also install Ceph as well. After booting those instances, you will have all the Ceph servers like that:
 
-![Ceph diagram](/images/ceph_diagram.png)
+![Ceph diagram](/images/ceph_diagram.avif)
 
 ## Installation
 

@@ -10,7 +10,7 @@ tags: ["Pootle", "Translation", "Apache", "Python", "Web Applications"]
 toc: true
 ---
 
-![Pootle](/images/pootle_logo.png)
+![Pootle](/images/pootle_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -27,7 +27,7 @@ toc: true
 
 Pootle is built using the powerful API of the Translate Toolkit and the Django framework:
 
-![Pootle screenshot](/images/pootle_screenshot.png)
+![Pootle screenshot](/images/pootle_screenshot.avif)
 
 ## Installation
 

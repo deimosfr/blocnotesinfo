@@ -10,7 +10,7 @@ tags: ["PowerDNS", "DNS", "PHP", "Web Interface", "Administration"]
 toc: true
 ---
 
-![PowerAdmin](/images/poweradmin_logo.png)
+![PowerAdmin](/images/poweradmin_logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||

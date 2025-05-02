@@ -527,7 +527,7 @@ use strict;
 
 A hash table (or hash) is like an array except that instead of having numbers as references, we will have keys.
 
-![Perl hash table](/images/perl_hash_tab.jpg)
+![Perl hash table](/images/perl_hash_tab.avif)
 
 In case it's not clear enough, here's the difference:
 
@@ -1816,7 +1816,7 @@ foreach my $my_files (@original_files) {
 ```
 
 Here are the possibilities:
-![Files tests perl](/images/files_tests_perl.png)
+![Files tests perl](/images/files_tests_perl.avif)
 The tests -r, -w, -x and -o will only work for the user running the Perl script. Also be careful with certain system limitations, such as -w which doesn't prevent writing, only if it's on a CD because it's mounted read-only.
 
 Another thing to be careful about is symbolic links which can be deceiving. That's why, it would be better to test for the presence of a symbolic link before testing what interests you.
@@ -1897,7 +1897,7 @@ sub production_time_check
 ### Bit by Bit Operators
 
 This is useful for doing binary calculations, such as the values returned by the stat function:
-![Bit to bit operator](/images/operateur_bit_a_bit.png)
+![Bit to bit operator](/images/operateur_bit_a_bit.avif)
 
 ```perl
 # $mode is the mode value returned by a stat of CONFIG
@@ -3353,7 +3353,7 @@ install PAR::Packer
 #### With ActivePerl
 
 Now, use Perl Package Manager to install the following packages as it will allow us to install all the necessary dependencies (in View, click on "All packages" to see all available packages):
-![Ppm1](/images/ppm1.png)
+![Ppm1](/images/ppm1.avif)
 
 We'll also take advantage to install these packages:
 

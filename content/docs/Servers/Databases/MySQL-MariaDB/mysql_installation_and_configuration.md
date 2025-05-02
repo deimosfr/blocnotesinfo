@@ -10,7 +10,7 @@ tags: ["MySQL", "Database", "SQL", "Server Configuration"]
 toc: true
 ---
 
-![MySQL Logo](/images/mysql_logo.jpeg)
+![MySQL Logo](/images/mysql_logo.avif)
 
 ## Introduction
 

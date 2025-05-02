@@ -11,7 +11,7 @@ tags:
 toc: true
 ---
 
-![HAProxy](/images/haproxy-logo.png)
+![HAProxy](/images/haproxy-logo.avif)
 
 {{< table "table-hover table-striped" >}}
 |||
@@ -263,4 +263,4 @@ Edit and replace highlighted lines with your desired information. Then restart H
 
 If you activate the web interface, you can get multiple information (http://<server_ip>/haproxy?stats):
 
-![HAProxy web interface](/images/haproxy-webinterface.png)
+![HAProxy web interface](/images/haproxy-webinterface.avif)

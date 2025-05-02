@@ -68,7 +68,7 @@ We see that the values did not evolve in the same way and that at times, we are 
 
 When processes are killed, the reverse phenomenon of booting occurs.
 
-![Load01](/images/load01.png)
+![Load01](/images/load01.avif)
 
 ### Summary on the Definition of Load Average
 
@@ -91,7 +91,7 @@ We'll represent this system {processes; resources} in a funnel with, in the role
 
 For a machine with a 2-core CPU, 1 disk and one network card:
 
-![Load02](/images/load02.png)  
+![Load02](/images/load02.avif)  
 Here the Load average is equal to 3.
 
 ### Undersized Machine
@@ -105,7 +105,7 @@ So, it's not that serious. It all depends on the responsiveness we want on that 
 
 ### Well-Sized Machine
 
-![Load04](/images/load04.png)  
+![Load04](/images/load04.avif)  
 Here we have a load average of 1.
 
 If we have on average the situation above, we will have a load of 1. One might think that given that we use 1 resource out of 4, everything is fine, but it's not that simple.
@@ -119,7 +119,7 @@ We are beginning to see that the same load average value can have 2 completely d
 
 ### Oversized Machine?
 
-![Load03](/images/load03.png)  
+![Load03](/images/load03.avif)  
 Here is a load average of 0.5
 
 In this 3rd case, we use 25% of CPU and 25% of disk I/O. Here at least, there is no contention, processes don't wait to be served. We have finally found a case of low load average necessarily implying an unloaded machine? Mmmm not sure...

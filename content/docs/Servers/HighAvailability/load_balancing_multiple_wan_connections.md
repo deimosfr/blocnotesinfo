@@ -10,7 +10,7 @@ tags: ["Network", "Linux", "Load Balancing", "Routing", "Failover"]
 toc: true
 ---
 
-![Load balancer linux](/images/load_balancer_linux.png)
+![Load balancer linux](/images/load_balancer_linux.avif)
 
 ## Introduction
 

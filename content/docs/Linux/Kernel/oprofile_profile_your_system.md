@@ -10,7 +10,7 @@ tags: ["Linux", "Profiling", "Performance", "Kernel", "Red Hat", "Monitoring", "
 toc: true
 ---
 
-![OProfile](/images/oprofile_logo.png)
+![OProfile](/images/oprofile_logo.avif)
 
 ## Introduction
 
@@ -47,7 +47,7 @@ OProfile disadvantages:
 
 To better understand how OProfile works, here's a diagram:
 
-![Oprofile](/images/oprofile.png)
+![Oprofile](/images/oprofile.avif)
 
 OProfile aims to be as unintrusive as possible. OProfile loads a kernel driver at boot time that manages hardware performance based on processor counting. The `/dev/oprofile` device serves as an interface with user mode. The daemon reads this device and stores information in `/var/lib/oprofile/samples`.
 
