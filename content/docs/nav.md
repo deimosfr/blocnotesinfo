@@ -2,7 +2,19 @@
 weight: 100
 title: "cd ~"
 url: "/home/"
-description: ""
+description: "My Tech Notebook"
+keywords:
+  [
+    "Linux",
+    "BSD",
+    "Mac OS",
+    "Windows",
+    "Solaris",
+    "Coding",
+    "Ethical Hacking",
+    "Servers",
+    "Network",
+  ]
 toc: false
 icon: "home"
 ---
