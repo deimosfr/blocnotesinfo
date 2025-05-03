@@ -78,6 +78,7 @@ Example:
 
 ## Tabs
 
+```
 {{< tabs tabTotal="3">}}
 {{% tab tabName="Windows" %}}
 
@@ -85,7 +86,6 @@ Example:
 
 Example content specific to **Windows** operating systems
 
-```
 {{% /tab %}}
 {{% tab tabName="MacOS" %}}
 
